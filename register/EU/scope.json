@@ -79,7 +79,7 @@
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "Omnibus 'stop-the-clock'. Also amends CSDDD (F5)."
   },
@@ -93,7 +93,7 @@
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "Omnibus content directive. Also amends CSDDD (F5). Consolidated CSRD 02022L2464-20260318 exists."
   },
@@ -107,7 +107,7 @@
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "ESRS postponement."
   },
@@ -121,7 +121,7 @@
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "Simplified ESRS. Published but not yet in force on 2026-11-01."
   }
