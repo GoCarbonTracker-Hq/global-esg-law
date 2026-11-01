@@ -11,21 +11,21 @@
     "source_row": "UK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Date is when the section first existed. The climate-related disclosure duty was added by SI 2022/31 (see gb-uksi-2022-31).",
-    "status": "pending"
+    "status": "stored"
   },
   {
     "id": "gb-ca2006-s414a-414d",
     "title": "Companies Act 2006, Part 15 Chapter 4A, strategic report (sections 414A to 414D)",
     "official_url": "https://www.legislation.gov.uk/ukpga/2006/46/part/15/chapter/4A",
     "citation": "Companies Act 2006 (c. 46) ss.414A-414D",
-    "in_force": null,
-    "evidence": "Not confirmed: the Chapter 4A commencement note was not opened. Chapter heading seen in https://www.legislation.gov.uk/ukpga/2006/46/section/414CB/data.xml.",
+    "in_force": "2013-10-01",
+    "evidence": "SI 2013/1970 reg 1(2): \"Subject to paragraph (3), these Regulations come into force on 1st October 2013.\" Opened https://www.legislation.gov.uk/uksi/2013/1970/made/data.xml on 2026-11-01. Chapter commentary: \"Pt. 15 Ch. 4A inserted (with effect in accordance with reg. 1(4) of the amending S.I.) by The Companies Act 2006 (Strategic Report and Directors' Report) Regulations 2013 (S.I. 2013/1970), regs. 1(2)(3),3\" (https://www.legislation.gov.uk/ukpga/2006/46/part/15/chapter/4A/data.xml).",
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": "UK-LEGISLATION-CONSOLIDATED",
-    "verification": "official_page_seen",
-    "notes": "Umbrella provision; the ESG-specific duty is s.414CB. Date to confirm in a later story.",
-    "status": "pending"
+    "verification": "official_text_seen",
+    "notes": "Umbrella provision; the ESG-specific duty is s.414CB. Date is the commencement of the inserting regulations (SI 2013/1970).",
+    "status": "stored"
   },
   {
     "id": "gb-uksi-2022-31",
@@ -38,7 +38,7 @@
     "duty_on": "private_sector",
     "source_row": "UK-LEGISLATION-ADOPTED",
     "verification": "official_text_seen",
-    "status": "pending",
+    "status": "stored",
     "notes": ""
   },
   {
