@@ -7,6 +7,8 @@ import sys
 from datetime import date, datetime, time, timezone
 from pathlib import Path
 
+from check_corpus import check
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -17,20 +19,17 @@ def git(repo, *args, env=None):
 
 def build(repo=ROOT):
     repo = Path(repo).resolve()
+    check(repo)
     rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text())}
     records = []
     for path in sorted((repo / "records").rglob("*.json")):
         record = json.loads(path.read_text())
         row_id = record["source_id"]
         row = rows[row_id]
-        if row.get("verdict") != "pass":
-            raise ValueError(f"{row_id}: source verdict is {row.get('verdict')!r}, not 'pass'")
         effective = date.fromisoformat(record["in_force"])
         iso2, instrument_id = path.relative_to(repo / "records").parts[:2]
         scope = json.loads((repo / "register" / iso2 / "scope.json").read_text())
-        entry = next((e for e in scope if e["id"] == instrument_id), None)
-        if entry is None:
-            raise ValueError(f"{path}: no instrument {instrument_id!r} in register/{iso2}/scope.json")
+        entry = next(e for e in scope if e["id"] == instrument_id)
         row = {**row, "trailer_instrument": entry["title"], "trailer_source_url": entry["official_url"]}
         records.append((effective, row_id, path, record, row))
     records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[1], item[2].as_posix()))
