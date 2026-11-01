@@ -11,16 +11,18 @@ import build
 
 def fixture(repo):
     (repo / "records" / "EU" / "law").mkdir(parents=True)
+    (repo / "records" / "EU" / "law2").mkdir(parents=True)
     rows = [
-        {"id": "old", "verdict": "pass", "trailer_instrument": "Old Act", "trailer_source_url": "https://example.org/old", "trailer_licence": "CC0"},
-        {"id": "new", "verdict": "pass", "trailer_instrument": "New Act", "trailer_source_url": "https://example.org/new", "trailer_licence": "OGL"},
+        {"id": "old", "verdict": "pass", "form": "adopted", "publisher": "P", "source_name": "S", "trailer_instrument": "Old Act", "trailer_source_url": "https://example.org/old", "trailer_licence": "CC0"},
+        {"id": "new", "verdict": "pass", "form": "adopted", "publisher": "P", "source_name": "S", "trailer_instrument": "New Act", "trailer_source_url": "https://example.org/new", "trailer_licence": "OGL"},
     ]
     (repo / "sources.json").write_text(json.dumps(rows))
     (repo / "register" / "EU").mkdir(parents=True)
     (repo / "register" / "EU" / "scope.json").write_text(json.dumps([
-        {"id": "law", "title": "Scope Title", "official_url": "https://example.org/scope"}]))
+        {"id": "law", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "old"},
+        {"id": "law2", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "new"}]))
     for name, source, effective in [("old", "old", "1965-01-02"), ("new", "new", "2020-03-04")]:
-        (repo / "records" / "EU" / "law" / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "text": name}))
+        (repo / "records" / "EU" / ("law" if name == "old" else "law2") / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "text": name}))
     subprocess.run(["git", "init", "-q", str(repo)], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.name", "Test"], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.email", "test@example.org"], check=True)
