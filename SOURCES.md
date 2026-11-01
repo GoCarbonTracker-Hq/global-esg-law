@@ -29,6 +29,14 @@ Stored by GEL-01-03 (fetched 2026-11-01 with the two recipes above, `Accept: app
 - `02022L2464-20230105` (CSRD consolidated at its own entry into force) returned 404.
 - Not stored here: Taxonomy, SFDR, CSDDD, the two Omnibus directives and the two ESRS amendment acts (GEL-01-10, 11, 13); their scope entries are unchanged.
 
+### GEL-01-11
+
+Stored (fetched 2026-11-01 with the two EU recipes above, `Accept: application/xhtml+xml`, `Accept-Language: eng`):
+
+- `eu-csddd-2024-1760`: adopted text (`32024L1760`), in force 2024-07-25; consolidated texts 2025-04-17 (`02024L1760-20250417`, header `17.04.2025 — 001.002`) and 2026-03-18 (`02024L1760-20260318`, header `18.03.2026 — 002.001`). Both consolidated files keep the EUR-Lex documentation-tool banner (no legal effect).
+- `02024L1760-20240725` and `02024L1760-20260319` returned 404. The list of published consolidated dates could not be opened (bot challenge), so a consolidation at another date is possible.
+- The two Omnibus acts are stored by GEL-01-13; their scope entries are unchanged.
+
 
 ## India
 
