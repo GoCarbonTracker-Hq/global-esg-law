@@ -22,6 +22,14 @@ curl -sS -L -o csrd_cons_20260318.xhtml -H 'Accept: application/xhtml+xml' -H 'A
 
 Returned `200 295274 application/xhtml+xml;charset=UTF-8`. Without the `Accept` header the same URL returns a 25889-byte RDF stub.
 
+Stored by GEL-01-03 (fetched 2026-11-01 with the two recipes above, `Accept: application/xhtml+xml`, `Accept-Language: eng`; each record carries `fetched_url` and `fetched_sha256`):
+
+- `eu-csrd-2022-2464`: adopted text, in force 2023-01-05; consolidated texts 2025-04-17 (header `02022L2464 — EN — 17.04.2025 — 001.001`) and 2026-03-18 (header `18.03.2026 — 002.001`). Both consolidated files keep the EUR-Lex banner saying they are a documentation tool with no legal effect; the authentic text is the Official Journal act.
+- `eu-esrs-2023-2772`: adopted text, in force 2023-12-25. No consolidated version: `02023R2772-20251113` returned 404 with the same headers, and so did 20231225, 20231226, 20240101, 20251114, 20251231 and 20260101. The list of published consolidated dates on eur-lex.europa.eu could not be opened (bot challenge), so a later consolidation date that this guess missed is possible.
+- `02022L2464-20230105` (CSRD consolidated at its own entry into force) returned 404.
+- Not stored here: Taxonomy, SFDR, CSDDD, the two Omnibus directives and the two ESRS amendment acts (GEL-01-10, 11, 13); their scope entries are unchanged.
+
+
 ## India
 
 No `pass` rows. Nothing proven.

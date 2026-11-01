@@ -90,7 +90,8 @@ def test_pilot_scope_lists_match_sources_and_register():
         assert len({e["id"] for e in entries}) == len(entries)
         for e in entries:
             assert e["status"] in ("stored", "link only", "pending")
-            assert (e["status"] == "link only") == (rows[e["source_row"]]["verdict"] != "pass")
+            ids = e["source_row"] if isinstance(e["source_row"], list) else [e["source_row"]]
+            assert (e["status"] == "link only") == (any(rows[i]["verdict"] != "pass" for i in ids))
             assert e["law_family"] in ("F1", "F2", "F3", "F4", "F5", "F6", "F7")
             assert (iso2, e["official_url"], e["law_family"]) in register
             assert e["in_force"] is None or date.fromisoformat(e["in_force"])

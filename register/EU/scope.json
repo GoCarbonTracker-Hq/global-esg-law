@@ -8,8 +8,8 @@
     "evidence": "Art 7: \"This Directive shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 322, 16.12.2022, so 2023-01-05; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2023-01-05. Opened https://publications.europa.eu/resource/celex/32022L2464",
     "law_family": "F1",
     "duty_on": "private_sector",
-    "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "Amended by Directives (EU) 2025/794 and 2026/470."
   },
@@ -22,8 +22,8 @@
     "evidence": "Art 2: \"This Regulation shall enter into force on the third day following that of its publication in the Official Journal of the European Union.\" OJ L, 22.12.2023, so 2023-12-25; Cellar notice field = 2023-12-25. Opened https://publications.europa.eu/resource/celex/32023R2772",
     "law_family": "F1",
     "duty_on": "private_sector",
-    "source_row": "EU-EURLEX-ADOPTED",
-    "status": "pending",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies to financial years from 2024-01-01."
   },
