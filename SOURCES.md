@@ -29,6 +29,14 @@ Stored by GEL-01-03 (fetched 2026-11-01 with the two recipes above, `Accept: app
 - `02022L2464-20230105` (CSRD consolidated at its own entry into force) returned 404.
 - Not stored here: Taxonomy, SFDR, CSDDD, the two Omnibus directives and the two ESRS amendment acts (GEL-01-10, 11, 13); their scope entries are unchanged.
 
+### GEL-01-11
+
+Stored (fetched 2026-11-01 with the two EU recipes above, `Accept: application/xhtml+xml`, `Accept-Language: eng`):
+
+- `eu-csddd-2024-1760`: adopted text (`32024L1760`), in force 2024-07-25; consolidated texts 2025-04-17 (`02024L1760-20250417`, header `17.04.2025 — 001.002`) and 2026-03-18 (`02024L1760-20260318`, header `18.03.2026 — 002.001`). Both consolidated files keep the EUR-Lex documentation-tool banner (no legal effect).
+- `02024L1760-20240725` and `02024L1760-20260319` returned 404. The list of published consolidated dates could not be opened (bot challenge), so a consolidation at another date is possible.
+- The two Omnibus acts are stored by GEL-01-13; their scope entries are unchanged.
+
 
 ## India
 
@@ -109,3 +117,18 @@ curl -sSI -L https://downloads.leginfo.legislature.ca.gov/pubinfo_2025.zip
 ```
 
 Returned `200`, content length 1292052065 (about 1.2 GB), `application/zip`, `accept-ranges: bytes`. A range request `-r 0-3` returned 206 with 4 bytes. The full zip was not downloaded.
+
+### GEL-01-13 (EU Omnibus amendments, fetched 2026-11-01)
+
+Four adopted-form records, row `EU-EURLEX-ADOPTED`, fetched with the CSRD adopted recipe above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; all four returned 200). `in_force` is the Cellar notice field `RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE`, fetched with `Accept: application/xml;notice=object`, and matches the article quoted in each scope entry.
+
+| Instrument | CELEX | `in_force` |
+|---|---|---|
+| `eu-omnibus-stop-the-clock-2025-794` | 32025L0794 | 2025-04-17 |
+| `eu-omnibus-content-2026-470` | 32026L0470 | 2026-03-18 |
+| `eu-esrs-amendment-2025-1416` | 32025R1416 | 2025-11-13 |
+| `eu-esrs-amendment-2026-1563` | 32026R1563 | 2026-11-10 |
+
+2026/1563 is published (OJ L, 21.9.2026) but not in force on 2026-11-01; its record `message` says so. `text` is the plain text of the returned XHTML, tags stripped, block elements as blank-line-separated lines. No consolidated version is stored: these are amending acts, and consolidation applies to the acts they amend. `02023R2772-20251113` and `02023R2772-20261110` (ESRS) return 404.
+
+Further amending acts: a SPARQL query on `https://publications.europa.eu/webapi/rdf/sparql` for acts dated 2026-09-01 or later that amend 2022/2464, 2023/2772, 2024/1760 or 2013/34 returned no rows. The same query without the date bound returned these four, so it works. No new scope entry was added.
