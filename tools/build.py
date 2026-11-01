@@ -26,6 +26,12 @@ def build(repo=ROOT):
         if row.get("verdict") != "pass":
             raise ValueError(f"{row_id}: source verdict is {row.get('verdict')!r}, not 'pass'")
         effective = date.fromisoformat(record["in_force"])
+        iso2, instrument_id = path.relative_to(repo / "records").parts[:2]
+        scope = json.loads((repo / "register" / iso2 / "scope.json").read_text())
+        entry = next((e for e in scope if e["id"] == instrument_id), None)
+        if entry is None:
+            raise ValueError(f"{path}: no instrument {instrument_id!r} in register/{iso2}/scope.json")
+        row = {**row, "trailer_instrument": entry["title"], "trailer_source_url": entry["official_url"]}
         records.append((effective, row_id, path, record, row))
     records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[1], item[2].as_posix()))
     for effective, row_id, path, record, row in records:

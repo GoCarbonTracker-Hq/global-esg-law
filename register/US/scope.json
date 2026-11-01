@@ -1,0 +1,58 @@
+[
+  {
+    "id": "us-sec-climate-disclosure-33-11275",
+    "title": "The Enhancement and Standardization of Climate-Related Disclosures for Investors (SEC Release 33-11275)",
+    "official_url": "https://www.federalregister.gov/documents/2024/03/28/2024-05137/the-enhancement-and-standardization-of-climate-related-disclosures-for-investors",
+    "citation": "SEC Release 33-11275; 89 FR 21668 (2024-03-28); FR doc 2024-05137",
+    "in_force": "2024-05-28",
+    "evidence": "Federal Register API for 2024-05137: \"Effective date: These final rules are effective on May 28, 2024.\" https://www.federalregister.gov/api/v1/documents/2024-05137.json",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "US-FEDREG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Status on 2026-11-01 not confirmed from official pages (sec.gov returned 403). Effective on paper 2024-05-28 but stayed by the SEC in April 2024, so no compliance date has run. Secondary sources only, up to about 2026-06: SEC ended its defence in March 2025; Eighth Circuit case in abeyance; a rescission proposal reported. Check sec.gov and the Eighth Circuit docket in a browser.",
+    "status": "pending"
+  },
+  {
+    "id": "us-epa-ghgrp-40cfr98",
+    "title": "Mandatory Greenhouse Gas Reporting (EPA, 40 CFR Part 98)",
+    "official_url": "https://www.ecfr.gov/current/title-40/part-98",
+    "citation": "40 CFR Part 98; initial final rule 74 FR 56260 (2009-10-30), FR doc E9-23315",
+    "in_force": "2009-12-29",
+    "evidence": "Federal Register entry for E9-23315 (74 FR 56260): \"The final rule is effective on December 29, 2009.\" Current eCFR text of Part 98 opened 2026-10-01 (\"PART 98 - MANDATORY GREENHOUSE GAS REPORTING\").",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "US-ECFR-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adopting notice is on US-FEDREG-ADOPTED. Amendments or rollback proposals after 2025 were not checked.",
+    "status": "pending"
+  },
+  {
+    "id": "us-ca-sb253",
+    "title": "California Climate Corporate Data Accountability Act (SB 253), Health and Safety Code 38532",
+    "official_url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB253",
+    "citation": "California SB 253, Stats. 2023, ch. 382; Health & Safety Code 38532",
+    "in_force": null,
+    "evidence": "Not confirmed: leginfo.legislature.ca.gov returned 403 to curl and WebFetch. The CARB program page confirms H&S Code 38532.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "US-CA-LEGINFO-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Not enjoined. CARB page (2026-11-01): first Scope 1 and 2 reports due 2026-11-10 under the Initial Regulation (17 CCR 96070 to 96077). Chaptering date to be read from the bill page or pubinfo_2023.zip.",
+    "status": "pending"
+  },
+  {
+    "id": "us-ca-sb261",
+    "title": "California Climate-Related Financial Risk Act (SB 261), Health and Safety Code 38533",
+    "official_url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB261",
+    "citation": "California SB 261, Stats. 2023, ch. 383; Health & Safety Code 38533",
+    "in_force": null,
+    "evidence": "CARB Enforcement Advisory 2025-12-01: \"SB 261 (Stern, Stats. 2023, ch. 383, codified in Health and Safety Code section 38533)\"; \"On November 18, 2025, the Ninth Circuit Court of Appeals issued an order ... granting an injunction against the enforcement of Senate Bill (SB) 261 ... during the pendency of appellate proceedings\". Chaptering date not seen (leginfo 403).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "US-CA-LEGINFO-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Enforcement enjoined pending appeal per CARB advisory; no later notice seen on the CARB page on 2026-11-01.",
+    "status": "pending"
+  }
+]
