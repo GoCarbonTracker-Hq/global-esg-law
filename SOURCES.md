@@ -52,9 +52,9 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 | Environmental DA 2023/2486 | 2023-12-11 | 2026-01-01 |
 | Amendment DA 2023/2485 | 2023-12-11 | none found |
 | Simplification DA 2026/73 | 2026-01-28 | none found |
-| SFDR RTS 2022/1288 | 2022-08-14 | 2022-07-25, 2023-02-20 |
+| SFDR RTS 2022/1288 | 2022-08-14 | 2023-02-20 |
 
-Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id): `02020R0852-20200622`, `02021R2178-20211210`, `02023R2486-20231121`. `02020R0852-20200712`, `-20220101`, `-20230101`, `02021R2178-20211230`, `-20220101` and `02023R2486-20231211` also returned 404. The consolidated `02022R1288-20220725` carries the OJ publication date, which is before the act's entry into force on 2022-08-14; its record has a `message` saying so. Delegated Regulation (EU) 2024/3215 (corrects certain language versions of 2021/2139) and 2023/363 (amends 2022/1288) have no records of their own; 2023/363 shows in the consolidated 2022/1288 of 2023-02-20.
+Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id): `02020R0852-20200622`, `02021R2178-20211210`, `02023R2486-20231121`. `02020R0852-20200712`, `-20220101`, `-20230101`, `02021R2178-20211230`, `-20220101` and `02023R2486-20231211` also returned 404. The consolidated `02022R1288-20220725` (header `25.07.2022 — 000.002`) was fetched and then not stored: it is dated the OJ publication day, before the act entered into force on 2022-08-14, so it is not a version that took effect, and it duplicates the adopted text. Delegated Regulation (EU) 2024/3215 (corrects certain language versions of 2021/2139) and 2023/363 (amends 2022/1288) have no records of their own; 2023/363 shows in the consolidated 2022/1288 of 2023-02-20.
 
 ## India
 
