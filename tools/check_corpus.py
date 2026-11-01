@@ -37,8 +37,9 @@ def check(repo=ROOT):
         entry = next((e for e in scope if e.get("id") == instrument), None)
         if entry is None:
             refuse(f"no instrument {instrument!r} in register/{iso2}/scope.json")
-        if source_id != entry.get("source_row"):
-            refuse(f"source_id {source_id!r} differs from scope.json source_row {entry.get('source_row')!r}")
+        allowed = entry.get("source_row")
+        if source_id not in (allowed if isinstance(allowed, list) else [allowed]):
+            refuse(f"source_id {source_id!r} differs from scope.json source_row {allowed!r}")
         for label, value in (("publisher", row.get("publisher")), ("source_name", row.get("source_name")),
                              ("scope title", entry.get("title"))):
             if BANNED.search(value or ""):

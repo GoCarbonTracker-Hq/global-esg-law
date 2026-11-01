@@ -11,5 +11,9 @@ Keys of a record file:
 | `kind` | Form of the text, for example `adopted` or `consolidated`. Becomes the `Kind` trailer. Must be exactly `adopted`, `consolidated` or `translation`, and equal the `form` of its `sources.json` row; `tools/check_corpus.py` refuses anything else. |
 | `text` | The law text. |
 | `message` | Optional commit subject. Default: `<Instrument> effective <in_force>`. |
+| `fetched_url` | The exact request URL the text was fetched from. |
+| `fetched_sha256` | sha256 of the file as returned, before text extraction. |
+
+`source_id` must equal the scope.json entry's `source_row`, or be one of its ids when `source_row` is a list.
 
 Trailers: `Instrument` and `Source-url` come from the scope.json entry (`title`, `official_url`). `Licence` comes from the `sources.json` row (`trailer_licence`).

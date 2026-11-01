@@ -84,3 +84,12 @@ def test_body_text_may_cite_standard(tmp_path):
     record["text"] = "placeholder text citing GRI and ISO 14064"
     path.write_text(json.dumps(record))
     assert check_corpus.check(tmp_path) == 1
+
+
+def test_source_row_list(tmp_path):
+    make(tmp_path, scope_row=["R0", "R1"])
+    assert check_corpus.check(tmp_path) == 1
+    make_other = tmp_path / "records" / "XX" / "act" / "r.json"
+    make_other.write_text(make_other.read_text().replace('"R1"', '"R9"'))
+    with pytest.raises(ValueError):
+        check_corpus.check(tmp_path)
