@@ -1,0 +1,72 @@
+[
+  {
+    "id": "in-companies-act-2013-s135",
+    "title": "Companies Act, 2013, section 135 (corporate social responsibility)",
+    "official_url": "https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00008_201318_1517807327856&orderno=139",
+    "citation": "Companies Act, 2013 (18 of 2013) s.135, Schedule VII, CSR Policy Rules 2014",
+    "in_force": null,
+    "evidence": "Not confirmed from an official page: indiacode.nic.in and mca.gov.in refused every request (403 or refused connection). A law-firm note says the section took effect 2014-04-01.",
+    "law_family": "F4",
+    "duty_on": "private_sector",
+    "source_row": "IN-INDIACODE-ADOPTED",
+    "status": "link only",
+    "verification": "tracker_only",
+    "notes": "Amended by the Companies (Amendment) Acts 2019 and 2020 (a secondary source says from 2021-01-22) and the CSR Rules amended 2021. Re-verify from the Gazette or India Code."
+  },
+  {
+    "id": "in-sebi-lodr-reg-34-2-f",
+    "title": "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015, regulation 34(2)(f) (business responsibility and sustainability report)",
+    "official_url": "https://www.sebi.gov.in/sebi_data/attachdocs/jun-2026/1780915347745.pdf",
+    "citation": "SEBI/LAD-NRO/GN/2015-16/013; reg 34(2)(f) as amended by SEBI/LAD-NRO/GN/2021/22 of 5 May 2021",
+    "in_force": "2021-05-05",
+    "evidence": "SEBI circular of 10 May 2021 para 3: \"In terms of amendment to regulation 34 (2) (f) of LODR Regulations vide Gazette notification no. SEBI/LAD-NRO/GN/2021/22 dated May 05, 2021, it has now been decided to introduce new reporting requirements on ESG parameters called the Business Responsibility and Sustainability Report (BRSR).\" (https://www.sebi.gov.in/sebi_data/attachdocs/may-2021/1620655793598.pdf)",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "IN-SEBI-ADOPTED",
+    "status": "link only",
+    "verification": "official_text_seen",
+    "notes": "Date is the BRSR amendment to reg 34(2)(f), not the first in-force date of the LODR. Clause substituted w.e.f. 2023-06-15 and amended w.e.f. 2025-03-28."
+  },
+  {
+    "id": "in-sebi-brsr-circular-2021",
+    "title": "SEBI circular: Business responsibility and sustainability reporting by listed entities (SEBI/HO/CFD/CMD-2/P/CIR/2021/562)",
+    "official_url": "https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html",
+    "citation": "SEBI/HO/CFD/CMD-2/P/CIR/2021/562, 10 May 2021",
+    "in_force": null,
+    "evidence": "Para 7: \"with effect from the financial year 2022-2023, filing of BRSR shall be mandatory for the top 1000 listed companies (by market capitalization) and shall replace the existing BRR. Filing of BRSR is voluntary for the financial year 2021-22.\" No standalone calendar commencement date.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "IN-SEBI-ADOPTED",
+    "status": "link only",
+    "verification": "official_text_seen",
+    "notes": "Issued 2021-05-10; mandatory from FY 2022-23."
+  },
+  {
+    "id": "in-sebi-brsr-core-circular-2023",
+    "title": "SEBI circular: BRSR Core, framework for assurance and ESG disclosures for value chain (SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122)",
+    "official_url": "https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html",
+    "citation": "SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122, 12 July 2023",
+    "in_force": null,
+    "evidence": "Para 3.4.1: \"From FY 2023 - 2024, the top 1000 listed entities (by market capitalization) shall make disclosures as per the updated BRSR format, as part of their Annual Reports.\" (https://www.sebi.gov.in/sebi_data/attachdocs/jul-2023/1689166456465.pdf)",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "IN-SEBI-ADOPTED",
+    "status": "link only",
+    "verification": "official_text_seen",
+    "notes": "Issued 2023-07-12. Assurance glide path and value chain parts were later changed by circular 2025/42."
+  },
+  {
+    "id": "in-sebi-brsr-assessment-circular-2025",
+    "title": "SEBI circular: Measures to facilitate ease of doing business with respect to framework for assurance or assessment, ESG disclosures for value chain, and voluntary disclosure on green credits (SEBI/HO/CFD/CFD-PoD-1/P/CIR/2025/42)",
+    "official_url": "https://www.sebi.gov.in/sebi_data/attachdocs/mar-2025/1743159419610.pdf",
+    "citation": "SEBI/HO/CFD/CFD-PoD-1/P/CIR/2025/42, 28 March 2025",
+    "in_force": "2025-03-28",
+    "evidence": "Para 4: \"The provisions of circular shall be applicable from the date of issuance of this circular, except otherwise mentioned specifically.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "IN-SEBI-ADOPTED",
+    "status": "link only",
+    "verification": "official_text_seen",
+    "notes": "Value chain disclosure voluntary from FY 2025-26; assessment or assurance voluntary from FY 2026-27. The PDF was opened, not the HTML listing page."
+  }
+]

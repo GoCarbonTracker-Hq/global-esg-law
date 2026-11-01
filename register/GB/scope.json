@@ -1,0 +1,72 @@
+[
+  {
+    "id": "gb-ca2006-s414cb",
+    "title": "Companies Act 2006, section 414CB (non-financial and sustainability information statement)",
+    "official_url": "https://www.legislation.gov.uk/ukpga/2006/46/section/414CB/data.html",
+    "citation": "Companies Act 2006 (c. 46) s.414CB, inserted by SI 2016/1245 regs 1(1), 4; amended by SI 2022/31",
+    "in_force": "2016-12-26",
+    "evidence": "SI 2016/1245 reg 1(1): \"come into force on the seventh day after the day on which the Regulations are made\"; made 19 December 2016 (https://www.legislation.gov.uk/uksi/2016/1245/made). Section commentary: \"Ss. 414CA, 414CB inserted ... by The Companies, Partnerships and Groups (Accounts and Non-Financial Reporting) Regulations 2016 (S.I. 2016/1245), regs. 1(1), 4\" (https://www.legislation.gov.uk/ukpga/2006/46/section/414CB/data.xml).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Date is when the section first existed. The climate-related disclosure duty was added by SI 2022/31 (see gb-uksi-2022-31).",
+    "status": "pending"
+  },
+  {
+    "id": "gb-ca2006-s414a-414d",
+    "title": "Companies Act 2006, Part 15 Chapter 4A, strategic report (sections 414A to 414D)",
+    "official_url": "https://www.legislation.gov.uk/ukpga/2006/46/part/15/chapter/4A",
+    "citation": "Companies Act 2006 (c. 46) ss.414A-414D",
+    "in_force": null,
+    "evidence": "Not confirmed: the Chapter 4A commencement note was not opened. Chapter heading seen in https://www.legislation.gov.uk/ukpga/2006/46/section/414CB/data.xml.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Umbrella provision; the ESG-specific duty is s.414CB. Date to confirm in a later story.",
+    "status": "pending"
+  },
+  {
+    "id": "gb-uksi-2022-31",
+    "title": "The Companies (Strategic Report) (Climate-related Financial Disclosure) Regulations 2022",
+    "official_url": "https://www.legislation.gov.uk/uksi/2022/31/made",
+    "citation": "SI 2022/31",
+    "in_force": "2022-04-06",
+    "evidence": "Reg 1(2): \"These Regulations come into force on 6th April 2022 and apply in respect of any financial year of a company which commences on or after that date.\" Opened https://www.legislation.gov.uk/uksi/2022/31/made/data.xml",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-ADOPTED",
+    "verification": "official_text_seen",
+    "status": "pending",
+    "notes": ""
+  },
+  {
+    "id": "gb-fca-esg-sdr",
+    "title": "FCA ESG sourcebook: Sustainability Disclosure Requirements, investment labels and anti-greenwashing rule (PS23/16)",
+    "official_url": "https://www.fca.org.uk/publications/policy-statements/ps23-16-sustainability-disclosure-requirements-investment-labels",
+    "citation": "FCA PS23/16 (28 Nov 2023); Handbook ESG",
+    "in_force": "2024-05-31",
+    "evidence": "PS23/16 (https://www.fca.org.uk/publication/policy/ps23-16.pdf): \"Anti-greenwashing rule and guidance comes into force 31 May 2024\"; \"It will come into force on 31 May 2024.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "UK-FCA-HANDBOOK",
+    "status": "link only",
+    "verification": "official_text_seen",
+    "notes": "First rule to apply. Labels from 2024-07-31; naming and marketing rules from 2024-12-02. The Handbook ESG page needs JavaScript, so the PDF was the source."
+  },
+  {
+    "id": "gb-uk-srs-s1-s2",
+    "title": "UK Sustainability Reporting Standards: UK SRS S1 General Requirements and UK SRS S2 Climate-related Disclosures",
+    "official_url": "https://www.gov.uk/guidance/uk-sustainability-reporting-standards",
+    "citation": "UK SRS S1, UK SRS S2",
+    "in_force": null,
+    "evidence": "gov.uk page, last updated 25 February 2026: \"the UK government has now published the finalised versions of UK SRS S1 and UK SRS S2. The standards are available for voluntary use, by any entity that chooses to do so.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-SRS-ADOPTED",
+    "status": "link only",
+    "verification": "official_page_seen",
+    "notes": "Published, voluntary, no mandatory requirement yet. Page may have changed after its last-updated date."
+  }
+]
