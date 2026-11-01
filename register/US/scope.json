@@ -10,8 +10,9 @@
     "duty_on": "private_sector",
     "source_row": "US-FEDREG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Status on 2026-11-01 not confirmed from official pages (sec.gov returned 403). Effective on paper 2024-05-28 but stayed by the SEC in April 2024, so no compliance date has run. Secondary sources only, up to about 2026-06: SEC ended its defence in March 2025; Eighth Circuit case in abeyance; a rescission proposal reported. Check sec.gov and the Eighth Circuit docket in a browser.",
-    "status": "pending"
+    "notes": "Effective on paper 2024-05-28 but stayed, so no compliance date has run. Status on 2026-11-01 is in status_note.",
+    "status": "stored",
+    "status_note": "Read from the Federal Register on 2026-11-01. The SEC stayed the Final Rules on 2024-04-04 pending Eighth Circuit review; FR doc 2024-07648 (89 FR 25804, 2024-04-12): \"the effective date of the Final Rules ... is delayed indefinitely\". The Eighth Circuit held Iowa v. SEC, No. 24-1522 in abeyance on 2025-09-12. The SEC proposed rescission (FR doc 2026-11091, 91 FR 33296, 2026-06-03, comments close 2026-08-03): \"the Final Rules remain stayed\". sec.gov refused scripts (403) and the court docket was not opened; both facts come from the Federal Register text."
   },
   {
     "id": "us-epa-ghgrp-40cfr98",
@@ -25,7 +26,7 @@
     "source_row": "US-ECFR-ADOPTED",
     "verification": "official_text_seen",
     "notes": "Adopting notice is on US-FEDREG-ADOPTED. Amendments or rollback proposals after 2025 were not checked.",
-    "status": "pending"
+    "status": "stored"
   },
   {
     "id": "us-ca-sb253",
