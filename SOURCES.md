@@ -2030,6 +2030,72 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
 
+## Lithuania
+
+Rows `LT-TAR-CONSOLIDATED`, `LT-SEIMAS-ADOPTED` and `LT-SEIMAS-TRANSLATION`, all `permission requested` (terms page not opened). No `pass` row, so no fetch request is proven and no text is stored. Run on 2026-11-02.
+
+Every official Lithuanian site answered the cloud address with a Cloudflare challenge. The failing request, then the browser attempt:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB
+```
+
+Returned `403 5462 text/html; charset=UTF-8` (title "Luktelėkite...", "Saugumo patvirtinimo atlikimas", Cloudflare Ray ID). The same answer, with 5.3 to 5.6 KB bodies, came for `https://www.e-tar.lt/`, `/portal/lt/index`, `/rs/actualedition/...`, `https://e-seimas.lrs.lt/`, `/rs/legalact/TAD/...`, `/portal/legalAct/...`, `https://www.lb.lt/`, `https://finmin.lrv.lt/`, `https://lrv.lt/`, `https://am.lrv.lt/`, `https://www.vtd.lt/`, `https://www.infolex.lt/`, `https://www.registrucentras.lt/`, `https://vkontrole.lt/`.
+
+```
+node probe.js https://www.e-tar.lt https://e-seimas.lrs.lt https://www.lb.lt
+```
+
+with Playwright chromium (`goto`, `waitUntil: domcontentloaded`, then polling the page title every 2.5 s for up to 100 s, and a second variant with `--disable-blink-features=AutomationControlled`, a desktop User-Agent and `navigator.webdriver` hidden, waiting 25 s). The title stayed "Luktelėkite..." on every page, status 403. No TAR open-data endpoint was reachable: `https://data.gov.lt/` and `https://get.data.gov.lt/` answered 500 (about 39 KB error page), `https://opendata.registrucentras.lt` did not connect. EUR-Lex (`eur-lex.europa.eu`) answered `202 0` to curl and "upstream request failed" to the browser, so the national transposition table could not be read either.
+
+Blocked from the cloud address: https://www.e-tar.lt/ , https://e-seimas.lrs.lt/ , https://www.lb.lt/ , https://finmin.lrv.lt/ , https://lrv.lt/ , https://am.lrv.lt/ , https://www.vtd.lt/ , https://www.infolex.lt/ , https://www.registrucentras.lt/ , https://vkontrole.lt/ (HTTP 403 Cloudflare). `https://www.lrs.lt/` answered `200 201137 text/html`; it is the Seimas home page and carries no legal text. The orchestrator can run the requests from the laptop.
+
+### Languages
+
+No language or translation source was proven. Lithuanian is the only official language; the English translations on e-seimas.lrs.lt (Teisės aktų vertimai) were not reachable, and the Seimas marks them unofficial, so `LT-SEIMAS-TRANSLATION` could pass only on quoted terms.
+
+### Link only
+
+All five scope instruments, because the rows are `permission requested` and no request works:
+
+- `lt-company-reporting-act` (XIV-2811), `lt-financial-reporting-act-ix575` (IX-575, historical), `lt-consolidated-reporting-act-ix576` (IX-576, historical), `lt-climate-change-management-act` (XI-329), `lt-unfair-commercial-practices-act` (X-1409). Their official URLs come from the existing register row (XIV-2811) or from web search results for e-tar.lt pages that were not opened; `in_force` is null in every entry.
+- Not written: an entry for the act transposing Directive (EU) 2024/825. Searches found no such act, only unrelated amendments to the Consumer Rights Protection Act I-657.
+- Not given a row: Lietuvos bankas (`lb.lt`, blocked); no Lietuvos bankas instrument is in scope.
+
+## Romania
+
+Attempted 2026-11-02 (GEL-06-02). No row is `pass`, so there is no proven fetch request and no record. The four rows added (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`, `RO-MONITORUL-OFICIAL-ADOPTED`, `RO-ASF-ADOPTED`) are all `permission requested`. The portal that carries the law text, `legislatie.just.ro`, gave no response to any request from the cloud address.
+
+### Portalul Legislativ (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`)
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502
+```
+
+Answer: `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)`, status `000`, 0 bytes. The same request with `--http1.1` answered `curl: (52) Empty reply from server`. `https://legislatie.just.ro/`, `/robots.txt` and `/apiws/FreeWebService.svc` gave the same. `http://legislatie.just.ro/` answered `301` (178 bytes) and redirects to the refused HTTPS host. A 245-byte "Request Rejected ... Your support ID is" body (an F5-style WAF page) came from `https://asfromania.ro/`, not from the portal; the portal sent no body at all.
+
+Browser recipe tried (Playwright, headless Chromium, `locale: ro-RO`, a desktop Chrome user agent, `page.goto(url, {waitUntil: 'networkidle'})`): `https://legislatie.just.ro/` and `/Public/DetaliiDocumentAfis/278502` both returned status `502` with the 174-byte body `upstream request failed`, the agent proxy's answer to a refused upstream. `https://monitoruloficial.ro/e-monitor/` got the same `502` in Chromium although plain curl reached it. Recorded as **blocked from the cloud address**. The portal terms page was not opened, so nothing was fetched from it; the portal's SOAP API (`/apiws/FreeWebService.svc`) was refused the same way. No retry was made with any technique meant to defeat the WAF.
+
+### Monitorul Oficial (`RO-MONITORUL-OFICIAL-ADOPTED`)
+
+`https://monitoruloficial.ro/e-monitor/` opened with plain curl (`curl -sS -m 45 -A 'Mozilla/5.0' -o e.html -w '%{http_code} %{size_download} %{content_type}\n' https://monitoruloficial.ro/e-monitor/` gave `200 159380 text/html; charset=UTF-8`, sha256 of the HTML `56b6f94c9160ff2b5d3bf5a0f9fef942a1632901f157c65e01309ba3865b8636`), but only after retries: the host alternates between this answer and `curl: (35) SSL_ERROR_SYSCALL` or `curl: (60)`. The page says the free electronic format covers Partea I in Romanian from 2000, Partea I in Hungarian from 2008 and Partea a II-a from 2000 as portable documents, and the paid archive covers the rest. It lists no PDF links. The guessed `https://monitoruloficial.ro/Monitorul-Oficial--PI--75--2024.pdf` answered `200 153376 text/html` (the site's 404 page, not a PDF). `https://monitoruloficial.ro/conditii-de-utilizare/` (`200 170338 text/html`) holds a cookie policy only. No request that returns a gazette issue was found, and "gratuit și liber" is not a reuse licence, so the row is `permission requested` and OMF 85/2024 (Monitorul Oficial Partea I nr. 75 of 26 January 2024, per the register) has no as-published record.
+
+### Autoritatea de Supraveghere Financiară (`RO-ASF-ADOPTED`)
+
+`curl -sS -A 'Mozilla/5.0' -o asf.html -w '%{http_code} %{size_download} %{content_type}\n' https://asfromania.ro/` answered `200 245 text/html` with the "Request Rejected" body. Blocked from the cloud address; no ASF instrument is in scope.
+
+### Languages
+
+Romanian is the only official language of the portal. Hungarian Partea I exists on e-Monitor but no request to it was found. No government English translation was found: the Ministry of Justice and Ministry of Finance pages that would hold one could not be opened (`https://www.mfinante.gov.ro/` answered `302` with no body, `https://www.mfe.gov.ro/` and `https://www.gov.ro/` gave no response). No translation row exists.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `ro-omf-85-2024` | Row `RO-LEGISLATIE-CONSOLIDATED` is `permission requested`: the portal and its terms could not be opened, and no working request to the text was found (curl over HTTP/2 and HTTP/1.1, Playwright Chromium, Monitorul Oficial guessed PDF URL). |
+
+Candidates from the brief that were not confirmed on an official page and are not in scope: Legea contabilității nr. 82/1991, OMFP nr. 1802/2014 (pct. 492^1 et seq., 563^1 et seq.), HG nr. 780/2006, Legea nr. 363/2007, the act transposing Directive (EU) 2024/825, and a framework climate law (none known). Dry run of the watcher: `python3 tools/watch.py --dry-run --source RO-LEGISLATIE-CONSOLIDATED` printed `watch_failed, RemoteDisconnected: Remote end closed connection without response` for `ro-omf-85-2024-legislatie-page`; the other three rows have no watcher (no instrument uses them).
+
 ## Slovakia
 
 Run on 2026-11-02 (GEL-06-05). Two rows pass on the statute: `SK-SLOVLEX-ADOPTED` and `SK-SLOVLEX-CONSOLIDATED` (Slov-Lex, the electronic Zbierka zákonov run by the Ministry of Justice). The statute is the Copyright Act, zákon č. 185/2015 Z. z., § 5 písm. b) (text of a legal regulation is not a subject of copyright), read on Slov-Lex itself. Slov-Lex publishes no terms of use or open data statement that was found: `www.slov-lex.sk` is a JavaScript application whose footer links only to cookies and accessibility pages. `SK-NBS-ADOPTED` is `permission requested`: https://nbs.sk/disclaimer-sk/ allows reuse without consent but not an altered file, and tag stripping alters it. No scope instrument uses the NBS row.

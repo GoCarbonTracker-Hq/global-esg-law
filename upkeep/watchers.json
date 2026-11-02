@@ -4055,6 +4055,78 @@
   }
  },
  {
+  "id": "lt-company-reporting-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-company-reporting-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true",
+  "params": {
+   "second_route": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-financial-reporting-act-ix575-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-financial-reporting-act-ix575",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-consolidated-reporting-act-ix576-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-consolidated-reporting-act-ix576",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-climate-change-management-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-climate-change-management-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-unfair-commercial-practices-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-unfair-commercial-practices-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "ro-omf-85-2024-legislatie-page",
+  "source_id": "RO-LEGISLATIE-CONSOLIDATED",
+  "iso2": "RO",
+  "instrument": "ro-omf-85-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502",
+  "params": {
+   "second_route": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502 (browser; the portal's WAF gives scripts no response from the cloud address)"
+  }
+ },
+ {
   "id": "sk-accounting-act-slovlex-versions",
   "source_id": "SK-SLOVLEX-CONSOLIDATED",
   "iso2": "SK",
