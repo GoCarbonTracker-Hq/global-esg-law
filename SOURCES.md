@@ -2029,3 +2029,73 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - Not in scope, found but not searched or not confirmed: Brussels COBRACE (Numac 2013A31357; ETS provisions not confirmed), the Flemish decree of 5 April 1995 (not found by title search on Justel), the federal aviation ETS cooperation agreement of 2 September 2013 and its assent acts (listed by Justel, not opened), the Moniteur belge text of the CSA as published (the Code in one issue).
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
+
+## Slovakia
+
+Run on 2026-11-02 (GEL-06-05). Two rows pass on the statute: `SK-SLOVLEX-ADOPTED` and `SK-SLOVLEX-CONSOLIDATED` (Slov-Lex, the electronic Zbierka zákonov run by the Ministry of Justice). The statute is the Copyright Act, zákon č. 185/2015 Z. z., § 5 písm. b) (text of a legal regulation is not a subject of copyright), read on Slov-Lex itself. Slov-Lex publishes no terms of use or open data statement that was found: `www.slov-lex.sk` is a JavaScript application whose footer links only to cookies and accessibility pages. `SK-NBS-ADOPTED` is `permission requested`: https://nbs.sk/disclaimer-sk/ allows reuse without consent but not an altered file, and tag stripping alters it. No scope instrument uses the NBS row.
+
+Text extraction: the print HTML of each version, from the element `id="predpis"` to the end of the page (the act text and its footnotes; the page header, history table and relations panel are left out), script and style removed, closing block tags (`p`, `div`, `h1` to `h6`, `li`, `tr`) as line breaks, tags stripped, character references decoded, runs of spaces collapsed, blank lines dropped. The first line of a record is the act number as the page prints it. Every Slov-Lex page says the HTML is informative and the PDF is the binding text; the stored text is the HTML. Varun to confirm that is acceptable (the PDF recipe is below).
+
+Row `SK-SLOVLEX-ADOPTED`, Act 431/2002 Z. z. as published (vyhlásené znenie):
+
+```
+curl -sS -L -o zz431_adopted.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/vyhlasene_znenie.print.html
+```
+
+Returned `200 444893 text/html`. sha256 `57a8002195263d358751061b5f3b81398081eb5401e63225ee27888017c4d531`, the same on a second fetch. The same request pattern gave the adopted text of the other seven acts (`.../ZZ/<year>/<number>/vyhlasene_znenie.print.html`, all 200 text/html).
+
+Row `SK-SLOVLEX-CONSOLIDATED`, Act 431/2002 Z. z., časová verzia in force from 2024-06-01:
+
+```
+curl -sS -L -o zz431_20240601.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/20240601.print.html
+```
+
+Returned `200 1176694 text/html`. sha256 `95733c5137ce0d2892e92bd6a073fcabf13d7163199f67440b10c78581f05198`, the same on a second fetch. The version dates come from the history page of the act, which is plain HTML and needs no browser:
+
+```
+curl -sS -L -o zz431_index.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/
+```
+
+Returned `200 21953 text/html`. Each history row carries `data-ucinnostod="YYYY-MM-DD"` (first day in force) and the link `YYYYMMDD.html`; the print form of a version is the same link with `.print.html`. The `upkeep` watchers read the `href="YYYYMMDD.html"` links of this page. A časová verzia of an act that is itself an amending act shows only the provisions in force on that date, so the first record of such an act can be much shorter than the adopted text. Dates stored: the adopted text takes the first commencement date read from the act's own commencement clause (see each scope entry's `evidence`), and each časová verzia takes its `data-ucinnostod`.
+
+PDF recipe (binding text; not used for storage):
+
+```
+curl -sS -L -o zz431_20240601.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/pdf/SK/ZZ/2002/431/ZZ_2002_431_20240601.pdf
+pdftotext -layout zz431_20240601.pdf - | sed 's/  */ /g'
+```
+
+Returned `200 1122401 application/pdf`; the header of the PDF reads "Obsah dokumentu je právne záväzný". `pdftotext` gave 4512 lines of clean Slovak text (checked the first 30 lines for mojibake: none). The path `https://static.slov-lex.sk/static/SK/ZZ/2002/431/ZZ_2002_431_20240601.pdf` (under `/static/SK/`) returned `404 146 text/html`; the working path is under `/pdf/SK/` (the page itself links `/static/pdf/SK/ZZ/...`, which also serves the file).
+
+Row for the statute (the terms page of the two passing rows), Act 185/2015 Z. z. in force from 2026-09-01:
+
+```
+curl -sS -L -o a185.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2015/185/20260901.print.html
+```
+
+Returned `200 1081852 text/html`. sha256 `8e93fdddc5b137756c4a96efb46b90cdc62495434ad5a50636e63a8edc30730a`.
+
+Row `SK-NBS-ADOPTED` (terms page only, nothing stored):
+
+```
+curl -sS -L -o nbs_dis.html -w '%{http_code} %{size_download} %{content_type}\n' https://nbs.sk/disclaimer-sk/
+```
+
+Returned `200 166160 text/html; charset=UTF-8`.
+
+Blocked from the cloud address: nothing. `curl https://www.slov-lex.sk/` returns `200 1354 text/html`, an empty JavaScript shell (the same 1354 bytes for any path, for example `/podmienky-pouzivania`), so the portal's own search and document viewer cannot be read with `curl`; the static portal `static.slov-lex.sk` answered every request without a challenge, so no browser recipe is needed and no record was fetched with a browser.
+
+### Languages
+
+Run on 2026-11-02. Slovak (sk) is the only language Slov-Lex serves: the history and version pages of the static portal have no language switch and the year index lists Slovak titles only. English was looked for on the static portal and by web search for an English text of Act 414/2012 and Act 431/2002 on Slovak government sites; none found. The only English texts the search turned up are on FAOLEX, climate-laws.org (machine translation, which the page itself says) and similar third-party sites, which get no row. No translation row was added and no English record is stored. The Copyright Act § 5 písm. b) names "ich preklad" but not the body that makes the translation, so it would not cover a translation by itself.
+
+| Instrument | Languages stored | Gap and reason |
+|---|---|---|
+| sk-accounting-act, sk-act-105-2024, sk-ets-act, sk-act-186-2023, sk-act-236-2024, sk-act-125-2026, sk-consumer-protection-act, sk-act-310-2025 | sk | No government English found. |
+
+Link-only instruments: none. All eight scope instruments are stored. Not in scope, with the reason:
+
+| Item | Why not |
+|---|---|
+| Framework climate act (zákon o zmene klímy) | Not in the Zbierka: the titles of the Zbierka year indexes for 2022 to 2026 (`https://static.slov-lex.sk/static/SK/ZZ/<year>/`) contain no climate act (checked for "klím", "emisn", "skleníkov" in 2022 and 2023, for a wider set of terms in 2024 to 2026). Draft stage only in the news results found; no official page for the bill was opened, so no F7 register row was written. |
+| Národná banka Slovenska | Row `SK-NBS-ADOPTED` is permission requested. No NBS instrument was selected: the NBS climate pages found describe its own operations and the ECB expectations, not a Slovak rule. |
