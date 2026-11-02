@@ -3202,3 +3202,49 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## United Arab Emirates
+
+Run on 2026-11-02 (GEL-08-01). No row passes and no text is stored; every AE instrument is `link only`. There is no proven fetch request to record for a `pass` row.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| `AE-UAELEGISLATION-CONSOLIDATED`, `AE-UAELEGISLATION-TRANSLATION` | permission requested | The portal answers 403 from the cloud address; its terms and Federal Decree-Law 38/2021 art. 3 could not be opened, so no statute exception is applied. |
+| `AE-MOJ-GAZETTE-ADOPTED` | permission requested | `elaws.moj.gov.ae` resets the connection. |
+| `AE-CMA-ADOPTED` | permission requested | The CMA copyright page reserves all rights. |
+
+### Failed requests (blocked from the cloud address)
+
+```
+$ curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://uaelegislation.gov.ae/en/legislations/2558
+403 5671 text/html; charset=UTF-8
+```
+
+The body is the Cloudflare "Attention Required! | Cloudflare / Sorry, you have been blocked" page. Headless Chromium (Playwright `chromium.launch()`, `goto(url, {waitUntil: 'networkidle'})`, 4 s wait) got the same page with status 403 and 5999 bytes. The same 403 came for `/en`, `/ar/legislations/2558`, `/en/legislations/2558/download`, `/en/terms-and-conditions`, `/api/legislations/2558`, `/sitemap.xml`; only `/robots.txt` (200, 26 bytes) and `/favicon.ico` answered. The WebFetch tool also got 403. No browser recipe works, so no browser-fetched record exists.
+
+- `https://elaws.moj.gov.ae` and `https://legislation.uaecma.gov.ae`: `curl: (35) Recv failure: Connection reset by peer` (the second also `000` on `/en`; Chromium got 502 `upstream request failed`).
+- `https://www.moj.gov.ae`, `https://www.moccae.gov.ae`: 200 with a 245 to 247 byte "Request Rejected" page (F5).
+- `https://www.adx.ae`: 403 Cloudflare block (4542 bytes); `/terms-and-conditions` the same.
+- `https://www.sca.gov.ae/en/regulations/regulations-listing?id=198`: redirects to `https://www.uaecma.gov.ae/500.html`.
+- `https://web.archive.org/...`: connection failed.
+
+### Reachable and read
+
+- CMA copyright page: `curl -sL -A 'Mozilla/5.0' https://www.uaecma.gov.ae/en/copyright` gave `200 103858 text/html; charset=utf-8`. Quote and fingerprint are in `AE-CMA-ADOPTED`.
+- CMA 2025 AGM circular: `curl -sS -A 'Mozilla/5.0' -o circ.pdf 'https://www.uaecma.gov.ae/assets/9c6ef6ed/Circular%20on%20Annual%20General%20Meetings%20of%20Public%20Joint-Stock%20Companies%20for%202025.pdf.aspx'` gave `200 496254 application/pdf`; `pdftotext -layout circ.pdf -` with runs of spaces collapsed reads cleanly (Latin text, no mojibake). Used as evidence for Article 76, not stored.
+- DFM disclaimer `https://www.dfm.ae/other/disclaimer` (200 in Chromium): "COPYRIGHT © 2026 DUBAI FINANCIAL MARKET PJSC", no reuse grant. DFM's ESG guide PDF answered 302. No scope instrument uses DFM, so it has no row.
+
+### Languages
+
+None stored. Arabic and English from the portal and gazette: not reachable. English from the CMA: not looked for beyond the English pages above, since the CMA row is not `pass`.
+
+### Link-only instruments
+
+| Instrument | Reason |
+|---|---|
+| `ae-dl-11-2024-climate`, `ae-law-24-1999-environment`, `ae-law-15-2020-consumer-protection`, `ae-cr-66-2023-consumer-protection-regulation` | Portal 403; the portal ids come from a search-engine listing, not an opened page. |
+| `ae-cma-governance-guide-art76` | CMA terms reserve rights; decision text not reachable. |
+
+Candidates not entered in scope: the national carbon credit registry resolution and carbon pricing executive regulation under Decree-Law 11/2024 (no official page found or openable), and the ADX and DFM ESG guides and MOCCAE rules (ADX and MOCCAE blocked; DFM guide is a company document with no reuse grant).

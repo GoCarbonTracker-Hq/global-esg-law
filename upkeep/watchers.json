@@ -5948,5 +5948,65 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "ae-dl-11-2024-climate-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-dl-11-2024-climate",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/2558",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2558 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-cma-governance-guide-art76-page",
+  "source_id": "AE-CMA-ADOPTED",
+  "iso2": "AE",
+  "instrument": "ae-cma-governance-guide-art76",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.uaecma.gov.ae/en/regulations/corporate-governance",
+  "params": {
+   "second_route": "https://www.uaecma.gov.ae/en/regulations/corporate-governance (live page, open in a browser); decision text at https://legislation.uaecma.gov.ae/en does not answer from the cloud address"
+  }
+ },
+ {
+  "id": "ae-law-24-1999-environment-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-law-24-1999-environment",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/1146",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1146 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-law-15-2020-consumer-protection-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-law-15-2020-consumer-protection",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/1455",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1455 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-cr-66-2023-consumer-protection-regulation-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-cr-66-2023-consumer-protection-regulation",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/2157",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2157 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
  }
 ]
