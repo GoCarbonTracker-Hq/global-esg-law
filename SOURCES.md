@@ -1201,3 +1201,42 @@ Link-only instruments:
 Blocked from the cloud address: https://www.moenv.gov.tw/ (Ministry of Environment, `403 5332 text/html; charset=UTF-8` to curl with a browser User-Agent; Chromium not tried); https://www.twse.com.tw/zh/terms/use.html, https://www.twse.com.tw/zh/terms/privacy.html and the `/en/terms/use.html` page (`307 947`, security page; Chromium gave the same). Not blocked, not used as a source: https://law.fsc.gov.tw/ (`200 43853 text/html; charset=utf-8`), https://data.gov.tw/license (`200`, read for the Open Government Data License text).
 
 Stored by GEL-04-10: `tw-climate-change-response-act`, `tw-climate-change-response-act-rules`, `tw-climate-risk-assessment-guidelines`, `tw-ghg-inventory-registration-regs`, `tw-carbon-fee-regs`, `tw-ghg-voluntary-reduction-regs`, `tw-ghg-reduction-credit-trading-regs`, `tw-ghg-increment-offset-regs`, `tw-ghg-verification-bodies-regs`, `tw-ghg-offset-project-regs`, `tw-electricity-emission-factor-regs`, `tw-hfc-management-regs`, `tw-annual-report-regs`.
+
+## Italy
+
+Rows `IT-NORMATTIVA-CONSOLIDATED` (pass, terms: CC BY 4.0 on dati.normattiva.it), `IT-GAZZETTA-ADOPTED` (pass, statute: Legge 633/1941 art. 5) and `IT-CONSOB-ADOPTED` (permission requested). Run 2026-11-02 from the cloud address. Italian is the only language the publishers serve; no government English translation was found, so there is no translation row and no English record.
+
+### Consolidated texts: `IT-NORMATTIVA-CONSOLIDATED`
+
+One proven request pair for D.Lgs. 125/2024, version of 2025-08-10. The first GET sets the session cookie that the XML route needs; without it the XML route answers an HTML page.
+
+```
+curl -sS -L -c cj.txt -b cj.txt -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2024-09-06;125'
+curl -sS -L -c cj.txt -b cj.txt -o akn.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.normattiva.it/do/atto/caricaAKN?dataGU=20240910&codiceRedaz=24G00145&dataVigenza=20250810'
+```
+
+The first returned `200 146196 text/html;charset=UTF-8`, the second `200 535646 text/xml`, sha256 `b64509390d7dc7c4716112d664325aebb59d48f32ff2f5cea1b3c25b83da4820` (the `fetched_sha256` of `records/IT/it-dlgs-125-2024/2025-08-10-consolidated-it.json`). The same second request without the cookie returned `200 32261 text/html;charset=UTF-8`. The XML names its version in `FRBRalias name="eli"`: `eli/id/2024/09/10/24G00145/CONSOLIDATED/20250810`, or `.../ORIGINAL` while the original text is current. `dataGU` and `codiceRedaz` come from the act page (`atto.dataPubblicazioneGazzetta`, `atto.codiceRedazionale`).
+
+Finding the versions: request the XML with `dataVigenza` set to today; read the version date from the eli alias; request again the day before that date; repeat until the alias ends in `ORIGINAL`. Each step is one version. No future-dated version existed on the run date (`dataVigenza=20990101` returned the same version as today for every instrument). Text: the XML `preface`, `body`, `conclusions` and `attachments` with tags stripped, `num`, `heading` and paragraphs as lines, runs of blanks collapsed, the Normattiva `((...))` amendment markers kept as served. For the Codice del consumo only the `article` elements numbered 20 to 27 are kept.
+
+### Acts as published: `IT-GAZZETTA-ADOPTED`
+
+Proven for D.Lgs. 125/2024 with a cookie jar (the menu GET sets the session; the POST sends every `articoliSelected` value of the menu plus the hidden fields):
+
+```
+curl -sS -L -c j.txt -b j.txt -o menu.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gazzettaufficiale.it/atto/vediMenuHTML?atto.dataPubblicazioneGazzetta=2024-09-10&atto.codiceRedazionale=24G00145&tipoSerie=serie_generale&tipoVigenza=originario'
+curl -sS -L -c j.txt -b j.txt -X POST --data-urlencode 'articoliSelected=<each value from menu.html>' --data-urlencode noteSelected=1 --data-urlencode _noteSelected=1 --data-urlencode annoVigenza=2024 --data-urlencode meseVigenza=9 --data-urlencode giornoVigenza=25 --data-urlencode dataPubblicazioneGazzetta=2024-09-10 --data-urlencode codiceRedazionale=24G00145 --data-urlencode creaHTML=Visualizza -o atto.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.gazzettaufficiale.it/atto/stampa/serie_generale/originario
+```
+
+Returned `200 20938 text/html;charset=UTF-8` and `200 477884 text/html;charset=UTF-8`, sha256 `3f5711f42834b0485ef39651c01a630393616f7c2e7d91635cad3cf3cc10d72a`, the `fetched_sha256` of `records/IT/it-dlgs-125-2024/2024-09-25-adopted-it.json`. A second fetch reproduced it (the stored records were fetched by the same steps in Python, twice per act, and matched each time). The vigenza fields in the menu form hold the entry-into-force date. Text: the headings and `<pre>` blocks, hard-wrapped lines joined into paragraphs (a line starting at column 0 continues the previous one), blanks collapsed, the `*** ATTO COMPLETO ***` and `Vigente al:` portal lines dropped. Annexes published as images are not in the text.
+
+### Languages
+
+Italian only. Looked for an English text on Normattiva (the XML language is `ita`) and on the Gazzetta Ufficiale pages; none. German and French editions of the Gazzetta (Alto Adige, Valle d'Aosta) were not looked for.
+
+### Not stored
+
+- `IT-CONSOB-ADOPTED`: permission requested. Pages answer some script requests with a Radware captcha page (for example `curl -sS -L https://www.consob.it/web/consob/informazioni-legali` returned `200 15066` of captcha HTML on one run and the real 270124-byte page on the next). Blocked from the cloud address on some requests: https://www.consob.it/web/consob/informazioni-legali. The consolidated Regolamento Emittenti is therefore a missing link, not a record; Delibera 23463 is stored from the Gazzetta row.
+- D.Lgs. 5 ottobre 2023, n. 147 (a brief candidate) is not an ETS act and is not in scope. D.Lgs. 152/2006 is F7, a register row only.
+- The Codice del consumo has no `adopted` record (the Gazzetta route returns the whole 2005 Code); the Normattiva original version stands for it.
+- D.Lgs. 254/2016 version 2025-02-25 (repeal markers and annotations only) is not stored; the repeal is a repeal record on 2024-09-25.
