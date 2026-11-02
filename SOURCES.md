@@ -3202,3 +3202,50 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Serbia
+
+Run on 2026-11-02 (GEL-08-10). One row passes: `RS-PARLAMENT-ADOPTED` (National Assembly, adopted laws as PDF; statute basis, Law on Copyright and Related Rights čl. 6, quoted in the row). Seven rows are `permission requested`: `RS-PIS-CONSOLIDATED` and `RS-PIS-ADOPTED` (Pravno-informacioni sistem of Službeni glasnik: its terms forbid copying beyond personal non-commercial use and any automated extraction without written consent), `RS-EKOLOGIJA-ADOPTED` (Ministry of Environmental Protection: no terms page, and one of its files is a reproduction of the gazette publisher's editorial consolidation), `RS-MFIN-ADOPTED` (403 to the cloud address; the page names a CC BY-NC-ND licence), `RS-MTT-ADOPTED` (refused by the egress proxy), `RS-SEC-ADOPTED` and `RS-BELEX-ADOPTED` (no instrument in scope; copyright line only, and a personal-use disclaimer). Nothing is stored under a row that is not `pass`. The gazette and the Assembly publish in Serbian (Cyrillic; the Latin transliteration the gazette also serves is the same text), so there is one record per version, language `sr`, Cyrillic script.
+
+Row `RS-PARLAMENT-ADOPTED`. The list https://www.parlament.gov.rs/акти/донети-закони/донети-закони.45.html (current convocation) and the convocation pages linked from it (for example `.../у-сазиву-од-3-јуна-2016.4236.html`) give each law as a PDF whose file name is the Assembly case number. Request proven on 2026-11-02 for the Law on Climate Change (Sl. glasnik RS 26/2021):
+
+```
+curl -sS -L -o 337-21.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2021/337-21.pdf
+```
+
+Returned `200 437559 application/pdf` (32 pages). Seven more were fetched the same way and each returned 200 `application/pdf`: `2019/2368-19.pdf` (Law on Accounting, 434653 bytes), `2016/2926-15.pdf` (Law on Advertising, 297321), `14_saziv/2230-25.pdf` (GHG emissions tax, 112111), `14_saziv/2588-26.pdf` (amending law, 195650), `14_saziv/2231-25.pdf` (carbon-intensive imports tax, 159064), `14_saziv/2587-26.pdf` (supplementing law, 179915) and `14_saziv/1317-26.pdf` (Law on Consumer Protection, 948104). The folder is a year for older laws (2016 for the Law on Advertising, whose case number ends -15) and `14_saziv` for laws of the current convocation. A second fetch of all eight on the same day returned byte-identical files (the sha256 in each record reproduced). The server (and the egress proxy) answered some requests with `curl: (35) Recv failure: Connection reset by peer`; a retry succeeded each time. `HEAD` answers `200` with `Last-Modified` and `Content-Length` (used by the watchers).
+
+Text extraction: `pdftotext -layout file.pdf -`, then every run of spaces collapsed to one, form feeds removed, blank lines dropped; line breaks are the PDF's line wraps, page-number lines stay (nothing reworded). Checked before storing: no U+FFFD, no `(cid:` and no private-use characters in any of the eight, and Cyrillic letters are 99 to 100 percent of the letters of each (58 to 74 percent of all characters, the rest being digits, spaces and punctuation). The PDFs are the law as adopted: they have no gazette number or date, so `in_force` comes from the commencement clause of the Law read with the gazette date in the header of the Pravno-informacioni sistem entry (a few dozen reads of titles and headers; no PIS text is stored).
+
+Stored (fetched 2026-11-02), all kind `adopted`, language `sr`:
+
+| Instrument | `in_force` | Assembly file |
+|---|---|---|
+| `rs-accounting-act` | 2020-01-01 | `2019/2368-19.pdf` |
+| `rs-climate-change-act` | 2021-03-31 | `2021/337-21.pdf` |
+| `rs-ghg-tax-act` | 2025-12-12 | `14_saziv/2230-25.pdf` |
+| `rs-ghg-tax-act-amend-2026` | 2026-09-08 | `14_saziv/2588-26.pdf` |
+| `rs-cbam-tax-act` | 2025-12-12 | `14_saziv/2231-25.pdf` |
+| `rs-cbam-tax-act-amend-2026` | 2026-09-08 | `14_saziv/2587-26.pdf` |
+| `rs-advertising-act` | 2016-02-05 | `2016/2926-15.pdf` |
+| `rs-consumer-protection-act` | 2026-05-01 | `14_saziv/1317-26.pdf` |
+
+The Assembly publishes the act as adopted and each amending act as a separate PDF; it serves no consolidation, so later amendments of stored laws are not merged (see the scope notes: Law on Accounting 44/2021, Law on Advertising 52/2019). The 2026-dated tax laws carry the publication date 2026-08-31 for the amendments (`80/2026`) and 2025-12-04 for the originals (`109/2025`).
+
+### Languages
+
+The Assembly PDFs and the gazette are Serbian only, so no second language is stored. No English translation was found on any Serbian government site that opened from the cloud address, so no translation row was added and no `translation` record was made. Looked at on 2026-11-02: parlament.gov.rs (laws list and convocation pages, Serbian only); ekologija.gov.rs (`curl -sS -L https://www.ekologija.gov.rs/wp-json/wp/v2/propis?search=Climate` and `search=Environment` returned 200 with only international declarations, `https://www.ekologija.gov.rs/en/` 200 179419 bytes with no legislation page); srbija.gov.rs/en/ (200, 94117); mfin.gov.rs/en/ (403); mtt.gov.rs (refused). The English portal address named in the PIS configuration (`https://propisi.pravno-informacioni-sistem.rs/`) did not answer (curl returned no status).
+
+### Link only
+
+| Instrument | Why link only |
+|---|---|
+| `rs-env-protection-act` | The Assembly zip of the 2004 text (`2004/pdf_068_3630-04.zip`, 200, 160332 bytes, one 56-page PDF) is in a legacy font encoding: `pdftotext -layout` returns `ZA[TITI @IVOTNE SREDINE` and `^lan 1.` (mojibake, not stored). The Ministry hosts consolidations (`https://www.ekologija.gov.rs/wp-content/uploads/2026/08/Zakon-o-zastiti-zivotne-sredine.pdf`, 200, 399444 bytes, application/pdf, Cyrillic to 94/2024, opens with "НАПОМЕНА ИЗДАВАЧА" and the Službeni glasnik header, so it is the gazette publisher's editorial text; `Zakon-o-zastiti-zivotne-sredine-1.pdf`, 200, 569169 bytes, Latin, to 43/2011), row `RS-EKOLOGIJA-ADOPTED` is permission requested. |
+| `rs-mrv-rules`, `rs-ghg-activities-decree`, `rs-verification-rules`, `rs-ghg-tax-measures-decree`, `rs-ghg-tax-benchmarks-rules` | Subordinate acts: the Assembly does not publish them; the only free official source found is the Pravno-informacioni sistem, rows `RS-PIS-CONSOLIDATED` and `RS-PIS-ADOPTED` are permission requested. The request that works from the cloud address, recorded as proof and not used for storage: `curl -sS -L -o act.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://reg.pravno-informacioni-sistem.rs/api/viewdoc?uuid=<contentUrl>&regactid=<id>&doctype=reg'` returned `200 159511 text/html; charset=UTF-8` for the Law on Climate Change (ids from `GetLawActViewByGuid?guid=<guid>`, guids from `POST https://di.pravno-informacioni-sistem.rs/REG/advancedSearch`). The site shell `https://pravno-informacioni-sistem.rs/` is a Vue application (200, 13015 bytes for every path); its API hosts come from `/bandleportalconf.txt` (base64). |
+
+### Blocked from the cloud address
+
+- `https://www.mfin.gov.rs/propisi/` and the register URL `https://mfin.gov.rs/propisi/-zakon-o-racunovodstvu-sluzbeni-glasnik-rs-br-732019`: HTTP 403, 46112 bytes, text/html (service notice with a request ID), also `/en/`.
+- `https://www.mtt.gov.rs/` and `/en/`: refused by the egress proxy (`connect_rejected`, curl exit 35).
+- `https://www.belex.rs/`: TLS certificate expired (curl exit 60); `http://www.belex.rs/` answers 301 to `https://bgdx.rs/`, which opened (200, 29028 bytes).
+- No browser recipe was needed: nothing stored came from a site that refused `curl`, and `fetched_sha256` is the hash of the PDF bytes as received (a second fetch reproduced it).
