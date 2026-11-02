@@ -8,9 +8,12 @@
     "evidence": "Footnote on the chapter heading in the consolidated text of 2022-01-01: \"Eingefügt durch Ziff. I und III 1 des BG vom 19. Juni 2020 (Indirekter Gegenvorschlag zur Volksinitiative «Für verantwortungsvolle Unternehmen – zum Schutz von Mensch und Umwelt»), in Kraft seit 1. Jan. 2022 (AS 2021 846; BBl 2017 399).\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20220101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20220101-de-xml-7.xml on 2026-11-02.",
     "law_family": "F1",
     "duty_on": "private_sector",
-    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "source_row": [
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Record text is the whole Sixth Division (chapter heading, footnote, Art. 964a to 964c) of the German consolidated text. The 2022-01-01 text has not changed in any later consolidation up to 2027-07-01, so there is one record. The transitional provision at the end of the Code is not included. Implemented by the Ordinance on Climate Disclosures (ch-climate-disclosure-ordinance). Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
+    "notes": "Record text is the whole Sixth Division (chapter heading, footnote, Art. 964a to 964c) of the German consolidated text. The 2022-01-01 text has not changed in any later consolidation up to 2027-07-01, so there is one record. The transitional provision at the end of the Code is not included. Implemented by the Ordinance on Climate Disclosures (ch-climate-disclosure-ordinance). Languages stored on 2026-11-02: de, fr, it (official, the same Sixth Division of the 2022-01-01 consolidation, cut by the same position in the Code) and en (translation record under CH-FEDLEX-TRANSLATION: the Federal Chancellery's English Code of Obligations, which states 'Status as of 1 January 2022', cut at the same Division). The English Code is a whole-Code translation; only the Division is stored. English page: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
     "status": "stored"
   },
   {
@@ -22,9 +25,12 @@
     "evidence": "Footnote on the chapter heading in the consolidated text of 2022-01-01: \"Eingefügt durch Ziff. I und III 1 des BG vom 19. Juni 2020 (Indirekter Gegenvorschlag zur Volksinitiative «Für verantwortungsvolle Unternehmen – zum Schutz von Mensch und Umwelt»), in Kraft seit 1. Jan. 2022 (AS 2021 846; BBl 2017 399).\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20220101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20220101-de-xml-7.xml on 2026-11-02.",
     "law_family": "F5",
     "duty_on": "private_sector",
-    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "source_row": [
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Record text is the whole Eighth Division (chapter heading, footnote, Art. 964j to 964l) of the German consolidated text; unchanged in every later consolidation up to 2027-07-01, so there is one record. Implemented by ch-vsotr. The brief named Art. 964j to 964l; Art. 964d to 964i (commodity sector payments to governments) are not in scope. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
+    "notes": "Record text is the whole Eighth Division (chapter heading, footnote, Art. 964j to 964l) of the German consolidated text; unchanged in every later consolidation up to 2027-07-01, so there is one record. Implemented by ch-vsotr. The brief named Art. 964j to 964l; Art. 964d to 964i (commodity sector payments to governments) are not in scope. Languages stored on 2026-11-02: de, fr, it (official, the same Eighth Division of the 2022-01-01 consolidation, cut by the same position in the Code) and en (translation record under CH-FEDLEX-TRANSLATION: the Federal Chancellery's English Code of Obligations, which states 'Status as of 1 January 2022', cut at the same Division). The English Code is a whole-Code translation; only the Division is stored. English page: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
     "status": "stored"
   },
   {
@@ -36,9 +42,12 @@
     "evidence": "Art. 18: \"Diese Verordnung tritt am 1. Januar 2022 in Kraft.\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2021/847/20220101/de/xml/ (consolidated file) on 2026-11-02.",
     "law_family": "F5",
     "duty_on": "private_sector",
-    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "source_row": [
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Implements Art. 964j to 964l of the Code of Obligations (ch-co-art964j-l). The as-adopted AS text is served only as DOCX and PDF, so it is not stored; the first consolidation (2022-01-01) is the original text. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2021/847/en.",
+    "notes": "Implements Art. 964j to 964l of the Code of Obligations (ch-co-art964j-l). The as-adopted AS text is served only as DOCX and PDF, so it is not stored; the first consolidation (2022-01-01) is the original text. Languages stored on 2026-11-02: de, fr, it for both consolidations (2022-01-01, 2024-01-01) and en for both (translation records under CH-FEDLEX-TRANSLATION; the translations state 'Status as of 1 January 2022' and 'Status as of 1 January 2024'). The as-adopted VSoTr is not stored in any language (DOCX and PDF only). English page: https://www.fedlex.admin.ch/eli/cc/2021/847/en.",
     "status": "stored"
   },
   {
@@ -55,7 +64,7 @@
       "CH-FEDLEX-CONSOLIDATED"
     ],
     "verification": "official_text_seen",
-    "notes": "SR number is 221.434 (the brief said 221.029). The XML metadata of the AS file shows jolux:dateEntryInForce 2023-01-01, which contradicts Art. 6; Art. 6 and the press release are used. Implements Art. 964a to 964c of the Code of Obligations (ch-co-art964a-c). The Ordinance refers to the TCFD recommendations; those documents are not stored. The as-adopted record and the 2024-01-01 consolidation both exist because their bodies differ (the consolidation drops the final provisions). Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2022/747/en.",
+    "notes": "SR number is 221.434 (the brief said 221.029). The XML metadata of the AS file shows jolux:dateEntryInForce 2023-01-01, which contradicts Art. 6; Art. 6 and the press release are used. Implements Art. 964a to 964c of the Code of Obligations (ch-co-art964a-c). The Ordinance refers to the TCFD recommendations; those documents are not stored. The as-adopted record and the 2024-01-01 consolidation both exist because their bodies differ (the consolidation drops the final provisions). Languages stored on 2026-11-02: de, fr, it for the as-adopted record and the 2024-01-01 consolidation. No English stored: English was looked for in the Fedlex data API (SPARQL, language ENG, for the work eli/oc/2022/747 and the consolidation eli/cc/2022/747/20240101: no English expression) and on https://www.fedlex.admin.ch/eli/cc/2022/747/en, which lists publication languages DE FR IT only.",
     "status": "stored"
   },
   {
@@ -69,10 +78,11 @@
     "duty_on": "private_sector",
     "source_row": [
       "CH-FEDLEX-ADOPTED",
-      "CH-FEDLEX-CONSOLIDATED"
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "notes": "Only Art. 53 para. 2 first sentence, 2bis and 3 let. a of the Energy Act (annex) came into force on 2024-01-01 (decision recorded in the AS text); the Act itself is dated 2025-01-01, also for the as-adopted record. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2023/655/en.",
+    "notes": "Only Art. 53 para. 2 first sentence, 2bis and 3 let. a of the Energy Act (annex) came into force on 2024-01-01 (decision recorded in the AS text); the Act itself is dated 2025-01-01, also for the as-adopted record. Languages stored on 2026-11-02: de, fr, it for the as-adopted record and the 2025-01-01 consolidation, and en for the 2025-01-01 consolidation only (translation record under CH-FEDLEX-TRANSLATION; it states 'Last amended on 1 January 2025'). English was looked for on the as-adopted text (eli/oc/2023/655, SPARQL language ENG: no English expression), so no English as-adopted record exists. English page: https://www.fedlex.admin.ch/eli/cc/2023/655/en.",
     "status": "stored"
   },
   {
@@ -89,7 +99,7 @@
       "CH-FEDLEX-CONSOLIDATED"
     ],
     "verification": "official_text_seen",
-    "notes": "Implements ch-klg. Not in the brief; found on Fedlex. The as-adopted text contains the provisions that apply from later dates, so it is longer than the 2025-01-01 consolidation. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2024/772/en.",
+    "notes": "Implements ch-klg. Not in the brief; found on Fedlex. The as-adopted text contains the provisions that apply from later dates, so it is longer than the 2025-01-01 consolidation. Languages stored on 2026-11-02: de, fr, it for the as-adopted record and the 2025-01-01, 2026-01-01 and 2026-11-01 consolidations. No English stored: English was looked for in the Fedlex data API (SPARQL, language ENG, for eli/oc/2024/772 and each of the three consolidations: no English expression) and on https://www.fedlex.admin.ch/eli/cc/2024/772/en, which lists publication languages DE FR IT only.",
     "status": "stored"
   },
   {
@@ -101,9 +111,12 @@
     "evidence": "Consolidated text: \"Datum des Inkrafttretens: 1. Januar 2013\"; Fedlex data jolux:dateEntryInForce 2013-01-01 on https://fedlex.data.admin.ch/eli/cc/2012/855. Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2012/855/20270101/de/xml/ on 2026-11-02.",
     "law_family": "F3",
     "duty_on": "private_sector",
-    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "source_row": [
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Records start 2021-01-01: the consolidations of 2013-01-01, 2018-01-01 and 2020-01-01 are served as PDF only. The 2027-01-01 record is a published amendment (Federal Act of 20 March 2026) not yet in force on 2026-11-02. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2012/855/en.",
+    "notes": "Records start 2021-01-01: the consolidations of 2013-01-01, 2018-01-01 and 2020-01-01 are served as PDF only. The 2027-01-01 record is a published amendment (Federal Act of 20 March 2026) not yet in force on 2026-11-02. Languages stored on 2026-11-02: de, fr, it for all four versions (2021-01-01, 2022-01-01, 2025-01-01, 2027-01-01) and en for 2021-01-01, 2022-01-01 and 2025-01-01 (translation records under CH-FEDLEX-TRANSLATION; they state 'Status as of 1 January 2021', '... 2022' and '... 2025'). No English for 2027-01-01: Fedlex serves none yet for that published amendment (SPARQL language ENG on eli/cc/2012/855/20270101: no English expression). English page: https://www.fedlex.admin.ch/eli/cc/2012/855/en.",
     "status": "stored"
   },
   {
@@ -115,9 +128,12 @@
     "evidence": "Fedlex data jolux:dateEntryInForce 2013-01-01 and first consolidation dated 2013-01-01 on https://fedlex.data.admin.ch/eli/cc/2012/856, opened on 2026-11-02 through https://fedlex.data.admin.ch/sparqlendpoint.",
     "law_family": "F3",
     "duty_on": "private_sector",
-    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "source_row": [
+      "CH-FEDLEX-CONSOLIDATED",
+      "CH-FEDLEX-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Implements ch-co2-act. Records start 2021-01-01: earlier consolidations and the 2020 versions are served as PDF or DOC only, and the 2027-01-01 consolidation lists no German file yet. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2012/856/en.",
+    "notes": "Implements ch-co2-act. Records start 2021-01-01: earlier consolidations and the 2020 versions are served as PDF or DOC only, and the 2027-01-01 consolidation lists no German file yet. Languages stored on 2026-11-02: de, fr, it for all 14 versions, and en for 11 of them: 2021-02-10, 2022-01-01, 2022-03-04, 2022-06-01, 2022-10-01, 2023-01-01, 2023-02-15, 2023-11-01, 2023-11-10, 2024-01-01 ('Status as of' that date) and 2026-01-01 ('Last amended on 1 January 2026'), translation records under CH-FEDLEX-TRANSLATION. English gaps: 2021-01-01 and 2025-05-01 (Fedlex serves no English expression for those consolidations). 2025-01-01 is served in English with the header 'Status as of 1 January 2025' but is not stored: it predates the Ordinance of 2 April 2025 (AS 2025 248, in force from 1 January 2025 with retroactive effect) that the stored German text already contains, so it still carries Art. 70, 71, 74a and 74b as live text where the German 1 January 2025 text shows them repealed, and lacks provisions the German text has; it matches no stored version. The English of 2022-01-01 stops at Art. 146k and omits the transitional Art. 146l to 146t that the German text has; the English omits the repealed-article lines 'Art. 55b-55d' that the German text carries from 2021-02-10 to 2023-11-10. English page: https://www.fedlex.admin.ch/eli/cc/2012/856/en.",
     "status": "stored"
   },
   {
