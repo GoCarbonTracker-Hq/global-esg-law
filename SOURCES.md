@@ -4231,3 +4231,66 @@ The Assembly PDFs and the gazette are Serbian only, so no second language is sto
 - `https://www.mtt.gov.rs/` and `/en/`: refused by the egress proxy (`connect_rejected`, curl exit 35).
 - `https://www.belex.rs/`: TLS certificate expired (curl exit 60); `http://www.belex.rs/` answers 301 to `https://bgdx.rs/`, which opened (200, 29028 bytes).
 - No browser recipe was needed: nothing stored came from a site that refused `curl`, and `fetched_sha256` is the hash of the PDF bytes as received (a second fetch reproduced it).
+
+## Kazakhstan
+
+Rows `KZ-ADILET-ADOPTED` and `KZ-ADILET-CONSOLIDATED` (`pass`, statute: Law No. 6-I on Copyright and Related Rights, Art. 8, repeated in item 1.7 of the Әділет user agreement), `KZ-ADILET-TRANSLATION` (`permission requested`), `KZ-KASE-ADOPTED` and `KZ-AIX-ADOPTED` (`permission requested`). Run on 2026-11-02.
+
+The pages of https://adilet.zan.kz are a JavaScript application: curl gets a 1.5 KB shell with no law text. The application reads a JSON API on the same host, and curl reaches that API without a challenge, so no browser is needed for the records.
+
+```
+curl -sS -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://adilet.zan.kz/rus/docs/K2100000400
+```
+
+Returned `200 1573 text/html` (the shell, no text). The three requests that return text, for the Environmental Code (Adilet number `K2100000400`), in order:
+
+```
+curl -sS -o code-ru.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/by-ngr/K2100000400?language=rus'
+curl -sS -o versions-ru.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/715b1b0d-51a8-4a6d-ae10-51ba4e1c1010/versions?page=1&page_size=100'
+curl -sS -o adopted-ru.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/cc0aecf3-5687-4d22-be28-8ddf1a19f106/content'
+```
+
+Returned `200 2382228 application/json` (the current edition with its metadata and text, and the id `715b1b0d-...` that the later calls use), `200 26550 application/json` (69 version ids, each with `document_id`, `status` and `revision_date`) and `200 2068517 application/json` (the first edition, status `new`). The full text of an edition comes back in one response: the field `text_content` of the `/content` JSON holds the whole act as HTML (no pagination). Any version id of an act lists the same versions, so the watchers use the id of the first edition.
+
+How a record is made: `by-ngr/<number>?language=<rus|kaz>` gives the current id of the act in that language; `<id>/versions` lists the editions; `<document_id>/content` gives one edition. `status` `new` is the first edition (kind `adopted`), `upd` and `err` are later editions (kind `consolidated`; Adilet counts all three as in force). `fetched_url` is the `/content` URL and `fetched_sha256` the sha256 of the JSON as received; a second fetch of the Russian first edition of the Code gave `bbad52e663cecdd14efa01d3b43db7af9463b0396303d5b936ac0e3cde328e78` both times, the value in the record, so the hash reproduces (no per-request token). `text` is `text_content` run through `extract_text` of `tools/update.py` (tags stripped, every non-inline element a line break, table cells tab-separated, nothing reworded); the editorial lines of the system ("Примечание ИЗПИ!", "Сноска") stay as served. `revision_date` is stored as 18:00 UTC of the previous day, so the edition date is `revision_date` plus one day (the first edition of the Code carries `2021-01-01T18:00:00.000Z` and the Code is dated 2 January 2021). The adopted record is dated the commencement date read from the act (see `register/KZ/scope.json`, field `in_force`, and its `evidence`); a consolidated record is dated its edition date. Version ids that share an edition date carry identical text and give one record; an edition whose text equals the previous edition is not stored again. No record was fetched with a browser. Requests were sequential, about one every 0.6 s, because item 4.4.4 of the user agreement forbids tools that put excessive load on the system.
+
+### Stored (fetched 2026-11-02, Russian and Kazakh)
+
+| Instrument | Records per language (ru, kk) |
+|---|---|
+| `kz-environmental-code` | ru 46, kk 47 (1 adopted + consolidated; edition 2026-08-25 only in Kazakh) |
+| `kz-order-91-ghg-regulation-rules` | 7, 7 |
+| `kz-order-221-carbon-trading-rules` | 2, 2 |
+| `kz-order-251-carbon-registry-rules` | 2, 2 |
+| `kz-order-9-ghg-calculation-methods` | 2, 2 |
+| `kz-order-46-inventory-control-rules` | 2, 2 |
+| `kz-order-525-carbon-quota-plan` | 2, 2 |
+| `kz-order-455-carbon-offset-rules` | 3, 3 |
+| `kz-order-190-carbon-cadastre-rules` | 2, 2 |
+| `kz-order-262-carbon-reserve-rules` | 1, 1 |
+| `kz-consumer-rights-law` | 45, 45 |
+| `kz-advertising-law` | 75, 75 |
+
+### Languages
+
+Kazakh (`kk`) and Russian (`ru`) are both official and are served by Adilet under the same two rows; each is its own act id, reached with `language=kaz` and `language=rus`:
+
+```
+curl -sS -o code-kk.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/by-ngr/K2100000400?language=kaz'
+curl -sS -o versions-kk.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/b18a449f-88e8-413e-9e71-b37d2c37566d/versions?page=1&page_size=100'
+curl -sS -o adopted-kk.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://adilet.zan.kz/api/documents/421cd3e9-5a9d-4a82-a671-d4ae9040a36f/content'
+```
+
+Returned `200 2326242 application/json`, `200 21011 application/json` (52 version ids) and `200 2015024 application/json` (the Kazakh first edition of the Code; sha256 `485d298d7d1c237707f6ed480710ceea2de63e74b603cb30e222f017ec49212d`, the value in the record). A check of every stored record found Kazakh letters in each `kk` record and none to speak of in the `ru` records.
+
+English: `https://adilet.zan.kz/api/documents/by-ngr/K2100000400?language=eng` returned `200 1199300 application/json`, and the text opens with "Unofficial translation". English pages exist for the Code, the carbon trading rules (`V2100023719`), the Law on Consumer Rights Protection and the Law on Advertising; for the other orders `?language=eng` returned `404 52 application/json` (example: `V2200027301`). Art. 8 of Law No. 6-I covers official translations only, so the English pages fall under `KZ-ADILET-TRANSLATION`, judged on the user agreement, which grants use for personal, informational, research and professional purposes and no commercial reuse or modification: `permission requested`, nothing stored. No other government English was found (gov.kz is in the list below).
+
+### Link only
+
+None of the twelve instruments in `register/KZ/scope.json` is link only. Sources that were looked at and gave no text:
+
+- `KZ-KASE-ADOPTED` (kase.kz) and `KZ-AIX-ADOPTED` (aixkz.com): `permission requested`; no instrument in scope depends on them. The only F7 row is the KASE ESG Knowledge Hub in `register/register.csv`.
+- https://zan.gov.kz (reference bank of normative acts): `curl: (60) SSL certificate problem: unable to get local issuer certificate`; the certificate chain is not trusted from the cloud address and verification was not disabled. Blocked from the cloud address: https://zan.gov.kz . Adilet carries the same acts, so it was not needed.
+- https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
+
+Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).

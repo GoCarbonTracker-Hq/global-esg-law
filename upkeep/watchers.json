@@ -7503,5 +7503,161 @@
   "params": {
    "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
   }
+ },
+ {
+  "id": "kz-environmental-code-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-environmental-code",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/cc0aecf3-5687-4d22-be28-8ddf1a19f106/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/K2100000400 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-91-ghg-regulation-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-91-ghg-regulation-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/07f67f54-5362-4d99-bcb6-c80233c6720f/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2200027301 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-221-carbon-trading-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-221-carbon-trading-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/3bad1ce8-1c3f-49ab-9773-3acae7fd34dd/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2100023719 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-251-carbon-registry-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-251-carbon-registry-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/7108e13a-361c-481c-af86-2bdce07e3986/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2100023555 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-9-ghg-calculation-methods-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-9-ghg-calculation-methods",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/5c54795d-4736-4676-971b-727eee1bfd93/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2300031735 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-46-inventory-control-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-46-inventory-control-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/8c736fe7-5c8f-4ff3-8c82-a2fb2f87f97b/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2200026905 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-525-carbon-quota-plan-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-525-carbon-quota-plan",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/e13a6229-4308-49af-807b-5ed226a92973/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2200028798 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-455-carbon-offset-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-455-carbon-offset-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/be3e098b-989c-4aa8-a03b-76be48288522/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2100025074 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-190-carbon-cadastre-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-190-carbon-cadastre-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/21b565ff-2ca8-4a24-aaf2-56afc701db41/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2100023110 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-order-262-carbon-reserve-rules-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-order-262-carbon-reserve-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/ffe0f84f-a890-4a4c-8f68-161ee4455e81/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/V2600040144 (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-consumer-rights-law-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-consumer-rights-law",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/40fc4cd2-ae6c-4b64-b231-06028df71f9f/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/Z100000274_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
+ },
+ {
+  "id": "kz-advertising-law-versions",
+  "source_id": "KZ-ADILET-CONSOLIDATED",
+  "iso2": "KZ",
+  "instrument": "kz-advertising-law",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://adilet.zan.kz/api/documents/000dfdd4-f260-451f-8256-c324429d8529/versions?page=1&page_size=100",
+  "params": {
+   "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
+  }
  }
 ]
