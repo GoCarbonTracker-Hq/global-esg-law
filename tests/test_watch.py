@@ -329,13 +329,15 @@ def test_shipped_watchers_have_a_valid_tier():
             assert w["tier"] == "gazette_feed", w["id"]
         if w["id"].startswith("terms-"):
             assert w["tier"] == "regulator_page", w["id"]
-    # upkeep/cadence.json names every tier once and its watcher counts match the shipped file
+    # upkeep/cadence.json: tiers maps each tier to its interval in days (read by tools/coverage.py);
+    # per_tier carries the measured cost and its watcher counts match the shipped file
     cadence = json.loads((repo / "upkeep" / "cadence.json").read_text(encoding="utf-8"))
-    assert set(cadence["tiers"]) == set(watch.TIERS)
-    for tier, entry in cadence["tiers"].items():
+    assert set(cadence["tiers"]) == set(cadence["per_tier"]) == set(watch.TIERS)
+    for tier, entry in cadence["per_tier"].items():
+        assert entry["interval_days"] == cadence["tiers"][tier] > 0, tier
         assert entry["watchers"] == sum(1 for w in shipped if w["tier"] == tier), tier
-        assert entry["interval_days"] > 0 and entry["seconds_per_run"] >= 0 and entry["bytes_per_run"] >= 0
-    assert cadence["measured"] is True and cadence["paid_tools"] == []
+        assert entry["seconds_per_run"] >= 0 and entry["bytes_per_run"] >= 0 and entry["failures_per_run"] >= 0
+    assert cadence["measured"] is True and cadence["paid_tools"] == [] and cadence["measured_on"]
 
 
 def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):

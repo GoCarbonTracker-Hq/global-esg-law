@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TIMEOUT = 30
 COLUMNS = ["detected_on", "watcher_id", "iso2", "source_id", "instrument", "change", "signal",
            "evidence_url", "reviewer", "outcome", "outcome_on", "notes"]
-CHANGES = ("new_version", "terms_changed")
+CHANGES = ("new_version", "terms_changed", "repealed")
 TIERS = ("gazette_feed", "consolidation_site", "regulator_page", "tracker_pointer")  # see upkeep/cadence.json
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 

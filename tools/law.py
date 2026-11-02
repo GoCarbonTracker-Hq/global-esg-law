@@ -45,7 +45,10 @@ def lookup(iso2, on, repo=ROOT, ref="history"):
                       key=lambda c: c["in_force"])  # sorted() is stable, so commit order breaks ties
     latest, pending = {}, {}
     for c in versions:
-        if c["in_force"] <= on:
+        if c["kind"] == "repeal":  # Kind trailer of a repeal record: out of force from that date
+            if c["in_force"] <= on:
+                latest.pop(c["id"], None)
+        elif c["in_force"] <= on:
             latest[c["id"]] = c
         else:
             pending.setdefault(c["id"], c)
@@ -54,9 +57,10 @@ def lookup(iso2, on, repo=ROOT, ref="history"):
     found = []
     for c in sorted(latest.values(), key=lambda c: (c["in_force"], c["id"])):
         item = {k: c[k] for k in keys}
-        note = scope.get(c["id"], {}).get("status_note")
-        if note:
-            item["status_note"] = note
+        for key in ("status_note", "amends"):
+            value = scope.get(c["id"], {}).get(key)
+            if value:
+                item[key] = value
         found.append(item)
     not_yet = [{k: c[k] for k in ("id", "title", "in_force")} for i, c in sorted(pending.items())
                if i not in latest]
@@ -98,7 +102,8 @@ def main(argv=None):
         print(json.dumps({"jurisdiction": iso2, "date": args.date, "in_force": found, "not_yet_in_force": not_yet}, indent=2))
         return 0
     for item in found:
-        print(f"{item['id']}\t{item['in_force']}\t{item['kind']}\t{item['title']}")
+        print(f"{item['id']}\t{item['in_force']}\t{item['kind']}\t{item['title']}"
+              + (f"\tamends {item['amends']}" if "amends" in item else ""))
     for item in found:
         if "status_note" in item:
             print(f"note {item['id']}: {item['status_note']}")
