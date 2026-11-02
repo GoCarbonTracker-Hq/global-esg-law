@@ -3687,5 +3687,145 @@
   "params": {
    "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2020/1196 (browser; the Statute Book page of the Act)"
   }
+ },
+ {
+  "id": "at-nabeg-bgbl-xml",
+  "source_id": "AT-RIS-ADOPTED",
+  "iso2": "AT",
+  "instrument": "at-nabeg",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2026_I_6/BGBLA_2026_I_6.xml",
+  "params": {
+   "second_route": "https://www.ris.bka.gv.at/eli/bgbl/I/2026/6 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-dribeg-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-dribeg",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20013107&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20013107 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-ugb-243b-267a-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-ugb-243b-267a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=10001702&Abschnitt.Typ=Paragraph&Abschnitt.Von=243b&Abschnitt.Bis=243b&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001702 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-nadiveg-2017-bgbl-xml",
+  "source_id": "AT-RIS-ADOPTED",
+  "iso2": "AT",
+  "instrument": "at-nadiveg-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2017_I_20/BGBLA_2017_I_20.xml",
+  "params": {
+   "second_route": "https://www.ris.bka.gv.at/eli/bgbl/I/2017/20 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-ksg-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-ksg",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20007500&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007500 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-ezg-2011-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-ezg-2011",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20007503&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007503 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-nehg-2022-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-nehg-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20011818&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20011818 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-nehg-preisstabilitaets-vo-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-nehg-preisstabilitaets-vo",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20012110&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20012110 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-uwg-s1-2a-ris-versions",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "at-uwg-s1-2a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=10002665&Abschnitt.Typ=Paragraph&Abschnitt.Von=1&Abschnitt.Bis=2a&Fassung.FassungVom=2099-12-31&DokumenteProSeite=OneHundred",
+  "params": {
+   "regex": "\"Inkrafttretensdatum\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002665 (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "at-uwg-s1-2a-erv-translation",
+  "source_id": "AT-RIS-TRANSLATION",
+  "iso2": "AT",
+  "instrument": "at-uwg-s1-2a",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://ogd.ris.bka.gv.at/Dokumente/Erv/ERV_1984_448/ERV_1984_448.xml",
+  "params": {
+   "second_route": "https://www.ris.bka.gv.at/Englische-Rv/ (browser; www.ris.bka.gv.at answers scripts with HTTP 503 and a Security Check page)"
+  }
+ },
+ {
+  "id": "terms-at-ris-ogd",
+  "source_id": "AT-RIS-CONSOLIDATED",
+  "iso2": "AT",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://data.bka.gv.at/ris/api/v2.6/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.data.gv.at/katalog/datasets/0fb9ae1a-92cb-4ab8-a589-470c16d4fe21 (browser; the dataset page of 'RIS Daten Version 2.6' lists the licence)"
+  }
  }
 ]
