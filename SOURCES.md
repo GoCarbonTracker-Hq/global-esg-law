@@ -3372,6 +3372,259 @@ The page (Ministry of Industries, "Act on annual accounts", list date 2022-12-01
 
 All six scope instruments are link only: `is-arsreikningalog-66d`, `is-loftslagslog`, `is-ets-log` and `is-markadssetningarlog` and `is-sjalfbaernilog-fjarmal` (rows `IS-ALTHINGI-CONSOLIDATED` and `IS-STJORNARTIDINDI-ADOPTED`), `is-ets-regulation-606-2021` (row `IS-STJORNARTIDINDI-ADOPTED`). Reason: both rows are `permission requested`. The Alþingi site cannot be opened from the cloud address. The gazette page grants no reuse licence and Höfundalög nr. 73/1972 9. gr. could not be opened on an official page, so the statute basis is not met. Seðlabanki Íslands and Nasdaq Iceland got no row: no instrument in scope comes from them.
 
+## Egypt
+
+Rows `EG-ALAMIRIA-ADOPTED`, `EG-FRA-ADOPTED` and `EG-EEAA-ADOPTED`, all `permission requested`. No row passes, so no record is stored and every instrument in `register/EG/scope.json` is `link only`. Run on 2026-11-02. No proven fetch recipe is listed for a `pass` row because there is none; the requests below are what was tried.
+
+### What was opened
+
+Government Printing Press (alamiria.com). The free online edition holds the current daily issues only:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o tash.html -w '%{http_code} %{size_download} %{content_type}\n' 'http://www.alamiria.com/Sec/TashTxt.aspx?id=4uo5w82IuBo='
+```
+
+Returned `200 61922 text/html; charset=utf-8` (Prime Minister Decision 3106 of 2026, a land allocation; not an ESG instrument). The archive, subscription and issue-browser pages redirect to `/Sec/Login` (`200 64974`, login form). The legislation portal `https://alamiria.laalaws.com` answers `403 5360 text/html` ("Just a moment... Enable JavaScript and cookies"), a Cloudflare challenge; no browser run was attempted because the portal is the paid archive (login link on the page). Blocked from the cloud address: https://alamiria.laalaws.com/ .
+
+FRA (fra.gov.eg). Pages and PDFs answer curl:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d107.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://fra.gov.eg/wp-content/uploads/2023/01/قرار-107-2021-وفقاً-لآخر-تعديل-ديسمبر-2022.pdf'
+```
+
+Returned `200 563181 application/pdf`. PM Decree 4664/2022 (`.../2025/01/قرار-رئيس-الوزاراء-رقم-4664-لسنة-2022.pdf`) returned `200 413325 application/pdf`; FRA decisions `alamiria_2024_30.pdf` and `alamiria_2026_115.pdf` returned `200 683565` and `200 510732` but poppler reports "Couldn't find trailer dictionary".
+
+PDF text check, `pdftotext -layout` and `pdftotext -raw` (poppler) with NFKC: the Arabic comes out with reversed word order, split words and swapped letters ("جملس" for "مجلس"). The Egyptian PDFs are therefore not storable without reordering, which would reword the text.
+
+EEAA (eeaa.gov.eg). `https://www.eeaa.gov.eg/Laws/55/index` returned `200 139670 text/html; charset=utf-8` and lists the environment law DOC and PDF files by file name. `https://www.eeaa.gov.eg/UsagePolicy/Index` timed out and then failed with `curl: (35) Recv failure: Connection reset by peer` (three tries).
+
+### Languages
+
+Arabic only was looked for. No government English translation was found on fra.gov.eg/en (the English pages link the same Arabic PDFs) or eeaa.gov.eg. No English row.
+
+### Link only
+
+All five instruments in `register/EG/scope.json`: `eg-fra-bod-107-2021`, `eg-fra-bod-108-2021`, `eg-fra-bod-31-2024` (row `EG-FRA-ADOPTED`, no terms page found, PDFs not extractable), `eg-pm-decree-4664-2022` (gazette extract hosted by the FRA, same row), `eg-law-4-1994-environment` (row `EG-EEAA-ADOPTED`, copyright footer only, usage page not opened).
+
+Law 82 of 2002 Art. 141 (official documents, including laws and decisions, are not protected) was not applied: the text was read on ar.wikisource.org only, it protects original collections, and the extraction fails in any case. Varun decides whether to apply it to FRA decisions and gazette extracts.
+
+Not in scope, with reason: Consumer Protection Law 181 of 2018 (cpa.gov.eg answered `502`; no official page opened); a framework climate law (none found on any page opened); EGX (https://www.egx.com.eg/ and egx.com.eg refused the cloud address with an empty reply or no connection; blocked from the cloud address: https://www.egx.com.eg/); manshurat.org (NGO database, never a source); sis.gov.eg, egypt.gov.eg, ecs.gov.eg, idsc.gov.eg and gpp.gov.eg gave no connection (000).
+
+## Morocco
+
+Fetched 2026-11-02 (GEL-09-08). No row passes, so no record is stored and nothing under `records/MA/`. Every Morocco row is `permission requested`; the instruments are link only. Hosts reached from the cloud address: ammc.ma, environnement.gov.ma, wipo.int. Hosts refused: sgg.gov.ma, casablanca-bourse.com (and media.casablanca-bourse.com), adala.justice.gov.ma, justice.gov.ma, douane.gov.ma; tax.gov.ma answers 403.
+
+### Rows added
+
+| Row | Verdict | Why |
+|---|---|---|
+| MA-SGG-ADOPTED | permission requested | Bulletin Officiel site could not be opened; statute (Loi 2-00 art. 8) read only on a WIPO Lex copy |
+| MA-AMMC-ADOPTED | permission requested | AMMC mentions légales claim the content and forbid reproduction, adaptation and modification |
+| MA-CASABLANCA-BOURSE-ADOPTED | permission requested | site could not be opened |
+| MA-MTEDD-ADOPTED | permission requested | footer "Tous droits réservés", scanned PDFs, statute basis not confirmed on an official page |
+
+No English row: no government English translation of a Moroccan instrument was found on an opened official page, and law-firm or news translations get no row. Amazigh is official but no legislative text is served in it. A second language needs no row of its own (same publisher row).
+
+### Proven requests (no fetch for storage; these show what answered)
+
+AMMC circulaires page and the Circulaire 03/19 PDF (the published BO text, titled `BO_6784-bis_fr`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o c0319.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf'
+200 21815800 application/pdf
+```
+
+sha256 of the PDF as received: `e6f4ed76552ae2cf7424febb84711cb765910cfce679e6183dc6370996cd9095`. `pdftotext -layout c0319.pdf -` returns 151 bytes: the file is a scan with no text layer and the environment has no OCR tool, so no text could be extracted. The circulaires page `https://www.ammc.ma/fr/reglementations/circulaires` (200, 105 KB, text/html) also lists circulaire 02/20 (310 KB PDF, 200, application/pdf, sha256 `a99d513c699f751348475e830bb57240ec032c86ce4b3352e713e6d25df787f4`; Arabic BO page of the approving arrêté 3730.21, `pdftotext` extracts it with mojibake in Arabic ligatures).
+
+AMMC terms: `curl -sS -A 'Mozilla/5.0' https://www.ammc.ma/fr/node/98` returns 200 text/html (mentions légales; quoted in the row).
+
+Ministry Loi Cadre page and a dahir scan:
+
+```
+curl -sS -A 'Mozilla/5.0' -o lc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.environnement.gov.ma/fr/component/content/article/3469-loi-cadre?catid=107'
+200 42233 text/html; charset=utf-8
+curl -sS -A 'Mozilla/5.0' -o d1.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.environnement.gov.ma/images/2022/avril/d1.pdf'
+200 312283 application/pdf
+```
+
+`pdftotext d1.pdf -` returns 5 bytes: a scan, no text layer.
+
+Statute read for the rows (WIPO Lex, not a Moroccan official page): `curl -sS -A 'Mozilla/5.0' https://www.wipo.int/wipolex/fr/text/191410` returns 200 text/html, 307783 bytes, sha256 `2c0eada926c760765db057635e1a603ca0d6a0708808f30fed5914d7739c5374`; it carries Loi 2-00 as amended by Loi 34-05 with article 8. The Arabic wording was not read.
+
+### Languages
+
+Arabic and French are the languages of the Bulletin Officiel; Amazigh has no legislative texts. Neither edition could be fetched (sgg.gov.ma blocked), so nothing is stored in `ar`, `fr` or `en`.
+
+### Link only, with the reason
+
+- ma-ammc-circ-03-19: MA-AMMC-ADOPTED is permission requested; the PDF is also a scan.
+- ma-loi-99-12 and ma-loi-11-03: MA-MTEDD-ADOPTED is permission requested; the ministry PDFs are scans; the BO is blocked.
+- Not in scope.json: Loi 31-08 art. 21 to 24 (no official page opened that serves it; sgg.gov.ma and adala.justice.gov.ma are blocked), the taxe carbone (press reports only), a framework climate law (none found published; avant-projet 62-25 on the carbon market and projet 05.26 on météorologie are drafts). The carbon tax and the 62-25 draft are `register.csv` rows with `law_family` F7.
+
+### Blocked from the cloud address
+
+- `https://www.sgg.gov.ma/` , `/arabe/Accueil.aspx` , `/fr` , `/Legislation/BulletinOfficiel.aspx` , `/Portals/1/lois/Loi_2-00_Fr.pdf`: `curl: (35) Recv failure: Connection reset by peer`; headless Chromium (Playwright 1.x, `page.goto`) HTTP 502, 174 bytes; `http://www.sgg.gov.ma/` answers 302 to the https home page; a fetch agent got 503. `https://sgg.gov.ma/` : `CONNECT tunnel failed, response 502`.
+- `https://www.casablanca-bourse.com/` : `curl: (60) SSL certificate problem: unable to get local issuer certificate`; with `--cacert /root/.ccr/ca-bundle.crt` and Chromium: 502; `http://` : 503 (114 bytes). `https://media.casablanca-bourse.com/sites/default/files/Circulaire_AMMC_n_03_19_1.pdf` : connection reset.
+- `https://adala.justice.gov.ma/` , `https://www.justice.gov.ma/` : connection reset. `https://www.douane.gov.ma/` : empty reply. `https://www.tax.gov.ma/` : 403 (12763 bytes).
+
+## Nigeria
+
+Run on 2026-11-02 (GEL-08-02). Two rows pass, both on the statute: `NG-NESREA-ADOPTED` and `NG-FCCPC-ADOPTED`. The statute is the Copyright Act 2022 (printed in the Official Gazette No. 56, Vol. 110, 27 March 2023, as "Act No. 8" of 2023), section 3: "The following shall not be eligible for copyright — ... (b) official texts of a legislative or administrative nature as well as any official translations, except their compilations". The brief quoted "legislative, administrative or legal nature"; the gazette says "legislative or administrative nature". Terms-only rows `NG-SEC-ADOPTED`, `NG-NCCC-ADOPTED` and `NG-FMENV-ADOPTED` are `permission requested`. The brief's two statute publishers did not serve any scope instrument: the National Assembly Acts list holds no Climate Change Act, EIA Act, NESREA Act or FCCPA, and justice.gov.ng has no Laws of the Federation section, so neither got a row.
+
+The statute PDF itself:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o CopyrightAct.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.copyright.gov.ng/CopyrightAct/CopyrightAct2023FinalPublication1.pdf
+```
+
+Returned `200 738936 application/pdf`.
+
+Row `NG-NESREA-ADOPTED`, National Environmental Standards and Regulations Enforcement Agency (Establishment) Act 2007 (Gazette No. 92, 31 July 2007):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o NESREA-ACT.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://nesrea.gov.ng/wp-content/uploads/2025/05/NESREA-ACT.pdf
+pdftotext -layout NESREA-ACT.pdf - | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+Returned `200 314946 application/pdf` (22 pages, Word 2010 producer). A second fetch returned the same bytes (`sha256 4e7c4087871a64dd2cd3b8227d987d8bb78b69dcfa5421ef9cf5670c2c69c67d`), so `fetched_sha256` reproduces. The file URL is read from the page `https://nesrea.gov.ng/laws-regulations/` (link "Download NESREA Act"). The extracted text has no mojibake; the gazette's own quotation marks come out as ― and ‖, and the margin notes sit inside the line of the section they annotate (a limit of `pdftotext -layout`). The commencement date 30 July 2007 is printed under the margin note "Commencement". The NESREA site answers a bare curl; the `-A` header is only a precaution.
+
+Row `NG-FCCPC-ADOPTED`, Federal Competition and Consumer Protection Act 2018 (Gazette No. 18, 1 February 2019):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o FCCPA-2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://fccpc.gov.ng/wp-content/uploads/2022/07/FCCPA-2018.pdf
+```
+
+Returned `200 7842477 application/pdf` (99 pages, producer iLovePDF). Not stored: `pdftotext -layout` returns an OCR layer with mojibake ("Got'entntent Notice", "lst February", "Panr l--OslrcrlvEs"), and OCR is not part of the recipe.
+
+No browser recipe was needed. Blocked or refused from the cloud address: `https://climatecouncil.gov.ng/` answers HTTP 406 to a bare curl user agent and 200 to a browser user agent (so a `User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36` header is used); `https://ngfrepository.org.ng:8443/handle/123456789/6359` (the gazette copy of the Climate Change Act named by search) reset the connection; `https://www.environment.gov.ng` timed out; `tools/watch.py` (urllib) is reset by `https://environment.gov.ng/` while curl reaches it.
+
+Other pages opened: SEC circular and terms (`https://home.sec.gov.ng/website-terms-of-use/`, 200; the page body holds one paragraph barring copying and reproduction of the website), NGX terms (`https://ngxgroup.com/terms-and-conditions/`, 200, content subject to copyright, not read to the end), FRC Nigeria (`https://frcnigeria.gov.ng`, 200, no terms page: `/terms-of-use` and `/privacy-policy` answer 404). NGX and FRC got no row because no scope instrument rests on them.
+
+### Languages
+
+Nigeria's official language for federal legislation is English; every record is `en`. No translation exists or is needed. Looked for: nass.gov.ng, justice.gov.ng, nesrea.gov.ng, fccpc.gov.ng, climatecouncil.gov.ng and sec.gov.ng offer English only. No translation row was added.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ng-sec-ifrs-sds-circular | https://home.sec.gov.ng/for-investors/keep-track-of-circulars/implementation-of-the-ifrs-sustainability-disclosure-standards-in-nigeria/ | `NG-SEC-ADOPTED` is permission requested (SEC website terms bar copying and reproduction). |
+| ng-climate-change-act-2021 | https://climatecouncil.gov.ng/ | No official site opened serves the text; `NG-NCCC-ADOPTED` is permission requested. |
+| ng-nesrea-act-amendment-2018 | https://nesrea.gov.ng/wp-content/uploads/2025/05/NESREA_Ammended_Act_2018.pdf | Row passes; the 8-page PDF (200, 6224298 bytes, application/pdf) is an image scan with no text layer. |
+| ng-eia-act | https://environment.gov.ng/ | No official text found; `NG-FMENV-ADOPTED` is permission requested. |
+| ng-fccpa-2018 | https://fccpc.gov.ng/wp-content/uploads/2022/07/FCCPA-2018.pdf | Row passes; the PDF's OCR layer is mojibake. |
+
+Stored by GEL-08-02: `ng-nesrea-act-2007` (adopted 2007-07-30, en).
+
+## Ghana
+
+Run on 2026-11-02 (GEL-09-09). One row passes: `GH-PARLIAMENT-REPOSITORY-ADOPTED` (statute: Copyright Act, 2005 (Act 690) s. 8(1)(a), "an enactment"; the repository and parliament.gh terms themselves reserve rights and allow non-commercial copying only). `GH-BOG-ADOPTED` and `GH-ICAG-ADOPTED` are permission requested. `www.parliament.gh/epanel/docs/` serves only 41 old Acts (Banks Act 2016, Companies Code and similar) and none of the instruments in scope, so it has no row. Ghana's legislation is in English, so no second official language exists and no translation row was added.
+
+Row `GH-PARLIAMENT-REPOSITORY-ADOPTED`, Protection Against Unfair Competition Act, 2000 (Act 589). The bitstream uuid is read from the item page, or from the repository's REST search (`curl -sS 'https://repository.parliament.gh/server/api/discover/search/objects?size=8&query=Unfair+Competition'` returned `200 15525 application/hal+json` for the query `unfair`). The item HTML pages (`https://repository.parliament.gh/items/<uuid>`) answer curl from the cloud address with `403 44 text/plain`, body "You got banned permanently from this server"; the same pages open in headless Chromium (Playwright `goto(..., waitUntil: "networkidle")`, status 200, text/html). The PDF itself needs no browser:
+
+```
+curl -sS -L -o act589.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://repository.parliament.gh/bitstreams/9366072e-0b2a-4a75-a3ea-2747973f4a87/download
+```
+
+Returned `200 221672 application/pdf;charset=UTF-8` (the first hop is `302` to `/server/api/core/bitstreams/<uuid>/content`). `fetched_sha256` is the hash of the PDF as received (`7d8b7fe9541a45ed08344c0a90dffb6c6f81757fdde2ac08bc358071b3417d4b`); three fetches (curl, two Playwright `APIRequestContext` runs) gave the same bytes. Text: `pdftotext -layout act589.pdf -`, runs of spaces collapsed to one, blank lines and bare page-number lines dropped; the one non-ASCII character is the em dash in the section headings, no mojibake. The item holds a second file (`ACT 589 Rev. Ed.pdf`, 138674 bytes) that is a scan without text layer; not stored. No records are browser-fetched.
+
+Row `GH-PARLIAMENT-REPOSITORY-ADOPTED`, Environmental Protection Act, 2025 (Act 1124), same recipe with bitstream `1e06a2ff-8e7a-494e-a4d9-795f9c89002e` (browser-opened item page `https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896`): `200 6441648 application/pdf;charset=UTF-8`. `pdfinfo` reports 182 pages, Creator "Hewlett-Packard MFP", encrypted with copy denied; `pdftotext` returns nothing and `pdfimages -list` shows one 200 ppi JPEG scan per page. The session has no OCR (`tesseract` absent), so no text is stored.
+
+### Languages
+
+English is the language of legislation; the repository, the Bank of Ghana and ICAG serve English only. Looked for a government translation nowhere further, because none is needed.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| gh-environmental-protection-act-2025 (F2) | https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896 | Row passes, but the PDF is an image-only, copy-protected scan and no OCR is available in this session. Commencement date is not stated on the pages read, so scope `in_force` is null. |
+| gh-bog-climate-risk-directive-2024 (F1) | https://www.bog.gov.gh/wp-content/uploads/2024/11/BOG-Climate-Related-Financial-Risks-Directive.pdf | Row `GH-BOG-ADOPTED` permission requested (`https://www.bog.gov.gh/disclaimer/` and `/legal/` grant no reuse). PDF `curl -sS -A 'Mozilla/5.0' -o bog.pdf -w '%{http_code} %{size_download} %{content_type}\n' <url>` returned `200 671289 application/pdf`. |
+| gh-icag-ifrs-sustainability-roadmap (F1) | https://icagh.org/wp-content/uploads/2024/12/IFRS-SUSTAINABILITY-DISCLOSURE-ADOPTION-ROADMAP-FOR-GHANA.pdf | Row `GH-ICAG-ADOPTED` permission requested (site footer: all rights reserved). PDF returned `200 315458 application/pdf`. |
+
+Stored: `gh-unfair-competition-act-2000` (adopted, in_force 2000-12-22, en).
+
+Blocked from the cloud address: `https://repository.parliament.gh/items/<uuid>` and `https://repository.parliament.gh/` (curl: 403 "You got banned permanently from this server"; opens in a browser); The bitstream and REST API paths answer. `https://www.epa.gov.gh/` (curl error 60, TLS certificate expired; not retried with verification off), so the EPA laws page and the 2025 regulations were not read. `https://www.icagh.com/` and `https://www.sec.gov.gh/` reset the connection (curl 35; `https://sec.gov.gh/` answered 200, 126545 bytes, text/html, but no SEC directive was found); `https://www.fcghana.org/` 403; `https://ghalii.org/akn/gh` 403; `https://www.ghanapublishingcompany.com/` proxy 502 (no gazette read). GhaLII and LawsGhana get no row.
+
+## Cyprus
+
+Rows added on 2026-11-02: `CY-GPO-ADOPTED` (Government Printing Office, Official Gazette), `CY-CYLAW-CONSOLIDATED`, `CY-CYSEC-ADOPTED`, `CY-CSE-ADOPTED`, `CY-MOA-ADOPTED`. All five are `permission requested`, so no row is `pass` and nothing is stored: every Cyprus instrument is `link only`. Reasons: the GPO terms (https://www.mof.gov.cy/mof/gpo/gpo.nsf/terms-el/terms-el?opendocument) say the site's information "δεν υποκαθιστούν νομικά κείμενα" and contain no reuse sentence; Law 59/1976 (Copyright) has no exclusion of laws: s. 4(γ) recognises copyright in works made or issued by the Government, s. 6 is protection under international treaties, s. 7 the nature of the right (read on https://www.cylaw.org/nomoi/enop/non-ind/1976_1_59/full.html). So there is no statute exception and the verdict rests on terms. CyLaw is run by a bar association and its terms forbid mass or automated download and external indexing. CySEC and CSE footers say all rights reserved. The Department of Environment terms page grants nothing. Law 143(I)/2021 art. 4(1) (re-use of public sector documents "για εμπορικούς ή μη εμπορικούς σκοπούς, σύμφωνα με τους όρους ... Μερών IV και V") is the one route that could change the GPO verdict; its Parts IV and V were not read, so it was not applied (flagged in the PR).
+
+The gazette PDFs are free and need no browser. Fetch of one named instrument, row `CY-GPO-ADOPTED`, Annex I Part I No. 5051 of 2025-07-29 (contains Laws 159(I) to 162(I)/2025, among them the Companies (Amendment) (No. 3) Law 162(I)/2025). The issue page `https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument` names the file; the file name has a Greek capital Eta (U+0397) in `PARARTΗMA`, so it is percent-encoded:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gaz_5051_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.mof.gov.cy/mof/gpo/gazette.nsf/ADB5F123967FEA15C2258CD6002F9C3B/$file/5051%2029%207%202025%20PARART%CE%97MA%201o%20MEROS%20I.pdf'
+```
+
+Returned `200 2451930 application/pdf`, sha256 `c71e49ef679dbb10b60d2b64bc32d284930de16d35e288d2d5fc2a159d12c54e`; a second fetch gave the same hash. Text extraction (used for reading only, nothing stored): poppler `pdftotext -layout gaz_5051_2025.pdf -`; the output was clean Greek (no mojibake; the only non-Greek characters are µ, €, ° and ∙). The other issues read the same way: 5050 (`200 5986734`), 5064 (`200 445402`), 5006 (`200 3124203`), 5093 (`200 1355009`), 4840 (`200 5124103`), all `application/pdf`. Issue 4290 of 2011-07-29 (`200 4762713 application/pdf`) is an image scan: `pdftotext` returned 134 characters, so the text of Law 110(I)/2011 is not machine readable and `in_force` is null for it.
+
+How to find an issue: `https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16` lists Annex I Part I of the current year (issues 5095 to 5100 on the day); older issues are under `dmlgazette_archive_gr/dmlgazette_archive_gr?OpenForm&Start=1&Count=9999&Expand={year index}.{month}.2&Seq=3` (year index 1 = 2026, 2 = 2025 ... 16 = 2011; sub-index 2 = Παραρτήματα). The 2005 to 2021 per-year PDF indexes (`dmlprevious_Archive_gr`) were not used.
+
+### Languages
+
+Greek is the only language of the gazette. Turkish is co-official under the Constitution, but laws are published in Greek only. The English pages of the gazette site (`officialgazette-en`) carry navigation, no law text. No government English translation of any scoped law was found on mof.gov.cy/gpo; no translation row exists. Nothing is taken from a law firm, an exchange, an NGO or a news site.
+
+### Link only
+
+All nine scope entries (`cy-companies-amendment-3-2025`, `cy-auditors-amendment-2025`, `cy-transparency-amendment-2-2025`, `cy-ets-law-2011`, `cy-ets-amendment-2024`, `cy-ets-amendment-2025`, `cy-ets-amendment-2-2025`, `cy-consumer-protection-law-2021`, `cy-consumer-protection-amendment-3-2026`): row `CY-GPO-ADOPTED` is permission requested. `cy-ets-law-2011` has `in_force` null because its gazette PDF is an image.
+
+Not in scope: the consolidated Companies Law Cap. 113 (only CyLaw serves it); the ETS amendments 202(I)/2012, 21(I)/2015, 127(I)/2020 and the consumer amendments 46(I)/2022, 166(I)/2022, 30(I)/2026, 75(I)/2026 (gazettes not opened, not climate transpositions of the brief); a framework climate law (none found: no Annex I(I) issue and no CyLaw 2025 or 2026 index entry; the bill has a `register.csv` row with family F7). The Environmental Impact Assessment law was not entered as the F2 fallback.
+
+### Blocked from the cloud address
+
+- https://www.cygazette.com and https://www.cygazette.com/: `curl: (35) Recv failure: Connection reset by peer` (no HTTP answer); mof.gov.cy/gpo serves the same gazette, so nothing depended on it.
+- https://www.moa.gov.cy/environment: first request `503 114 text/plain` ("upstream connect error or disconnect/reset before headers"); the same host answered `200` minutes later on `.../environmentnew.nsf/index_gr/index_gr?opendocument` (46429 bytes), so this was transient.
+- https://www.cse.com.cy/el-GR/terms/: 404 (no such page); the footer link was not resolved.
+
+No browser recipe was needed; no record is browser-fetched.
+
+
+## United Arab Emirates
+
+Run on 2026-11-02 (GEL-08-01). No row passes and no text is stored; every AE instrument is `link only`. There is no proven fetch request to record for a `pass` row.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| `AE-UAELEGISLATION-CONSOLIDATED`, `AE-UAELEGISLATION-TRANSLATION` | permission requested | The portal answers 403 from the cloud address; its terms and Federal Decree-Law 38/2021 art. 3 could not be opened, so no statute exception is applied. |
+| `AE-MOJ-GAZETTE-ADOPTED` | permission requested | `elaws.moj.gov.ae` resets the connection. |
+| `AE-CMA-ADOPTED` | permission requested | The CMA copyright page reserves all rights. |
+
+### Failed requests (blocked from the cloud address)
+
+```
+$ curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://uaelegislation.gov.ae/en/legislations/2558
+403 5671 text/html; charset=UTF-8
+```
+
+The body is the Cloudflare "Attention Required! | Cloudflare / Sorry, you have been blocked" page. Headless Chromium (Playwright `chromium.launch()`, `goto(url, {waitUntil: 'networkidle'})`, 4 s wait) got the same page with status 403 and 5999 bytes. The same 403 came for `/en`, `/ar/legislations/2558`, `/en/legislations/2558/download`, `/en/terms-and-conditions`, `/api/legislations/2558`, `/sitemap.xml`; only `/robots.txt` (200, 26 bytes) and `/favicon.ico` answered. The WebFetch tool also got 403. No browser recipe works, so no browser-fetched record exists.
+
+- `https://elaws.moj.gov.ae` and `https://legislation.uaecma.gov.ae`: `curl: (35) Recv failure: Connection reset by peer` (the second also `000` on `/en`; Chromium got 502 `upstream request failed`).
+- `https://www.moj.gov.ae`, `https://www.moccae.gov.ae`: 200 with a 245 to 247 byte "Request Rejected" page (F5).
+- `https://www.adx.ae`: 403 Cloudflare block (4542 bytes); `/terms-and-conditions` the same.
+- `https://www.sca.gov.ae/en/regulations/regulations-listing?id=198`: redirects to `https://www.uaecma.gov.ae/500.html`.
+- `https://web.archive.org/...`: connection failed.
+
+### Reachable and read
+
+- CMA copyright page: `curl -sL -A 'Mozilla/5.0' https://www.uaecma.gov.ae/en/copyright` gave `200 103858 text/html; charset=utf-8`. Quote and fingerprint are in `AE-CMA-ADOPTED`.
+- CMA 2025 AGM circular: `curl -sS -A 'Mozilla/5.0' -o circ.pdf 'https://www.uaecma.gov.ae/assets/9c6ef6ed/Circular%20on%20Annual%20General%20Meetings%20of%20Public%20Joint-Stock%20Companies%20for%202025.pdf.aspx'` gave `200 496254 application/pdf`; `pdftotext -layout circ.pdf -` with runs of spaces collapsed reads cleanly (Latin text, no mojibake). Used as evidence for Article 76, not stored.
+- DFM disclaimer `https://www.dfm.ae/other/disclaimer` (200 in Chromium): "COPYRIGHT © 2026 DUBAI FINANCIAL MARKET PJSC", no reuse grant. DFM's ESG guide PDF answered 302. No scope instrument uses DFM, so it has no row.
+
+### Languages
+
+None stored. Arabic and English from the portal and gazette: not reachable. English from the CMA: not looked for beyond the English pages above, since the CMA row is not `pass`.
+
+### Link-only instruments
+
+| Instrument | Reason |
+|---|---|
+| `ae-dl-11-2024-climate`, `ae-law-24-1999-environment`, `ae-law-15-2020-consumer-protection`, `ae-cr-66-2023-consumer-protection-regulation` | Portal 403; the portal ids come from a search-engine listing, not an opened page. |
+| `ae-cma-governance-guide-art76` | CMA terms reserve rights; decision text not reachable. |
+
+Candidates not entered in scope: the national carbon credit registry resolution and carbon pricing executive regulation under Decree-Law 11/2024 (no official page found or openable), and the ADX and DFM ESG guides and MOCCAE rules (ADX and MOCCAE blocked; DFM guide is a company document with no reuse grant).
+
 ## Pakistan
 
 Run on 2026-11-02 (GEL-08-05). No row passes, so nothing is stored and there is no proven store-and-hash fetch for a `pass` row. Six rows were added, all `permission requested`: `PK-PAKISTANCODE-CONSOLIDATED` (Pakistan Code; the only rights line is the footer "© Copyright 2022 - Ministry of Law and Justice", and the Copyright Ordinance 1962 vests copyright in Government works in Government, s. 2(m) and s. 13(d), with no exclusion of enacted text; s. 57(q)(i) is a defence for Gazette matter and was not applied), `PK-NA-ADOPTED`, `PK-SENATE-ADOPTED` (terms: all rights reserved), `PK-SECP-ADOPTED`, `PK-PSX-ADOPTED` (terms: personal, non-commercial use only; no modification) and `PK-SBP-ADOPTED`. The requests below were proven only to read the instrument and its date.
