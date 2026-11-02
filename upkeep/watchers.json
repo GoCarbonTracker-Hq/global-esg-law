@@ -1818,5 +1818,104 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "de-hgb-nfe-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-hgb-nfe",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/hgb/xml.zip"
+ },
+ {
+  "id": "de-lksg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-lksg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/lksg/xml.zip"
+ },
+ {
+  "id": "de-ksg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ksg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ksg/xml.zip"
+ },
+ {
+  "id": "de-tehg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-tehg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/tehg_2025/xml.zip"
+ },
+ {
+  "id": "de-behg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-behg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/behg/xml.zip"
+ },
+ {
+  "id": "de-behv-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-behv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/behv/xml.zip"
+ },
+ {
+  "id": "de-ebev-2030-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ebev-2030",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ebev_2030/xml.zip"
+ },
+ {
+  "id": "de-ehv-2030-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ehv-2030",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ehv_2030_2/xml.zip"
+ },
+ {
+  "id": "de-becv-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-becv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/becv/xml.zip"
+ },
+ {
+  "id": "de-minrohsorgg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-minrohsorgg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/minrohsorgg/xml.zip"
+ },
+ {
+  "id": "de-bafin-merkblatt-nachhaltigkeitsrisiken-page",
+  "source_id": "DE-BAFIN-ADOPTED",
+  "iso2": "DE",
+  "instrument": "de-bafin-merkblatt-nachhaltigkeitsrisiken",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html"
  }
 ]
