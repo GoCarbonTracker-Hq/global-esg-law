@@ -4053,5 +4053,203 @@
   "params": {
    "second_route": "https://www.ejustice.just.fgov.be/eli/loi/2013/02/28/2013A11134/justel (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
   }
+ },
+ {
+  "id": "hr-zor-2024-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1474/rdf"
+ },
+ {
+  "id": "hr-zor-2024-izm-145-24-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2024-izm-145-24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2024/145/2372/rdf"
+ },
+ {
+  "id": "hr-zor-2024-izm-151-25-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2024-izm-151-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2025/151/2254/rdf"
+ },
+ {
+  "id": "hr-zor-2024-izm-59-26-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2024-izm-59-26",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2026/59/727/rdf"
+ },
+ {
+  "id": "hr-zor-2015-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2015/78/1493/rdf"
+ },
+ {
+  "id": "hr-zor-2015-izm-120-16-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2015-izm-120-16",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2016/120/2612/rdf"
+ },
+ {
+  "id": "hr-zor-2015-izm-116-18-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2015-izm-116-18",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2018/116/2292/rdf"
+ },
+ {
+  "id": "hr-zor-2015-izm-42-20-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2015-izm-42-20",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2020/42/883/rdf"
+ },
+ {
+  "id": "hr-zor-2015-izm-82-23-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zor-2015-izm-82-23",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2023/82/1290/rdf"
+ },
+ {
+  "id": "hr-reviziji-izm-85-24-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-reviziji-izm-85-24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1475/rdf"
+ },
+ {
+  "id": "hr-reviziji-izm-151-25-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-reviziji-izm-151-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2025/151/2255/rdf"
+ },
+ {
+  "id": "hr-ztk-izm-85-24-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-ztk-izm-85-24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1476/rdf"
+ },
+ {
+  "id": "hr-zkpzos-2025-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zkpzos-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2025/67/855/rdf"
+ },
+ {
+  "id": "hr-zkpzos-2019-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zkpzos-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2019/127/2554/rdf"
+ },
+ {
+  "id": "hr-uredba-pracenje-ghg-2017-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-uredba-pracenje-ghg-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2017/5/163/rdf"
+ },
+ {
+  "id": "hr-uredba-trgovanje-ets-2020-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-uredba-trgovanje-ets-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2020/89/1678/rdf"
+ },
+ {
+  "id": "hr-pravilnik-besplatna-dodjela-2020-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-pravilnik-besplatna-dodjela-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2020/89/1683/rdf"
+ },
+ {
+  "id": "hr-uredba-mehanizmi-ets-2023-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-uredba-mehanizmi-ets-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2023/107/1529/rdf"
+ },
+ {
+  "id": "hr-uredba-mehanizmi-ets-izm-145-24-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-uredba-mehanizmi-ets-izm-145-24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2024/145/2379/rdf"
+ },
+ {
+  "id": "hr-eudr-provedba-2025-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-eudr-provedba-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2025/151/2248/rdf"
+ },
+ {
+  "id": "hr-zzp-2022-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zzp-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2022/19/203/rdf"
+ },
+ {
+  "id": "hr-zzp-izm-59-26-nn-eli-rdf",
+  "source_id": "HR-NN-ADOPTED",
+  "iso2": "HR",
+  "instrument": "hr-zzp-izm-59-26",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2026/59/728/rdf"
  }
 ]

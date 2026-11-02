@@ -2029,3 +2029,65 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - Not in scope, found but not searched or not confirmed: Brussels COBRACE (Numac 2013A31357; ETS provisions not confirmed), the Flemish decree of 5 April 1995 (not found by title search on Justel), the federal aviation ETS cooperation agreement of 2 September 2013 and its assent acts (listed by Justel, not opened), the Moniteur belge text of the CSA as published (the Code in one issue).
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
+
+## Croatia
+
+Row `HR-NN-ADOPTED` (Narodne novine, the official gazette), `pass` on the statute basis: the site's terms grant no licence ("Svi sadržaji objavljeni na ovim internetskim stranicama zaštićeni su autorskim pravom i mogu se koristiti samo pod uvjetima propisanim Zakonom"), and the Copyright Act (ZAPSP, NN 111/2021) čl. 18 st. 3 ends protection of official legislative texts once published for official information (quoted in the row). No consolidated row: Narodne novine (NN) publishes the text of each act as adopted and each amending act as its own item; a pročišćeni tekst was not found for any instrument in scope, so the amendments are separate instruments in `register/HR/scope.json` (with `amends` where the amended act is in scope). zakon.hr is a private consolidation service and is not used. Language: Croatian only. Run on 2026-11-02 for the Accounting Act (Zakon o računovodstvu, NN 85/2024, item 1474). NN answered every plain `curl` from the cloud address (no User-Agent needed); its data-access page asks scripts for at most three requests per second.
+
+Fetch (the same document is at `https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1474`; the gazette month in the `clanci` URL is the month of the printed issue date):
+
+```
+curl -sS -L -o zor_85_2024.html -w '%{http_code} %{size_download} %{content_type}\n' https://narodne-novine.nn.hr/clanci/sluzbeni/2024_07_85_1474.html
+```
+
+Returned `200 297976 text/html; charset=utf-8` (an earlier request the same day returned 298056 bytes). Text extraction: the page content between `<div class="sl-content">` and `<div id="sticky-anchor2">` (the gazette item, without NN's page frame, metadata panel or footer); tags stripped, `p`, `div`, `h1` to `h6`, `li`, `tr`, `table` and `br` as line breaks, table cells separated by a space, non-breaking spaces as spaces, runs of spaces collapsed, empty lines dropped, nothing reworded. The item text starts with the promulgation decree ("Odluka o proglašenju") and the item number, as published. `fetched_sha256` is the hash of the HTML as received. It does not reproduce: the page carries a comment `<!--Cached 2.11.2026. 22:20:11-->` that changes per request (the only difference found between two fetches of NN 85/2024; the extracted text was identical). No browser recipe was needed.
+
+Discovery of an act's amendments and repeal: the metadata endpoint appends `/rdf` (or `/json-ld`) to the ELI URL and lists `amended_by`, `repealed_by`, `repeals`, `based_on`:
+
+```
+curl -sS -L -o zor_85_2024.rdf -w '%{http_code} %{size_download} %{content_type}\n' https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1474/rdf
+```
+
+Returned `200 6527 application/rdf+xml; charset=utf-8`. The body is identical across requests (same sha256 on two fetches), so the watchers hash it (`kind` `page_hash`, `tier` `consolidation_site`, one per instrument, `-nn-eli-rdf`). The metadata is not complete: for the Consumer Protection Act (NN 19/22) it lists only NN 59/2026, while NN 59/2026 itself cites NN 59/2023 as an earlier amendment. The issue sitemap `https://narodne-novine.nn.hr/sitemap_1_{year}_{issue}.xml` (`200 3094` for issue 85/2024) lists every item of an issue and was used to find items by title.
+
+Terms and statute pages opened the same day: `https://narodne-novine.nn.hr/data_access_hr.aspx` (`200 16039 text/html; charset=utf-8`; the "Opći uvjeti korištenja" box is in the footer of every page, the page hash varies per request, so the row fingerprint hashes only that box), and the Copyright Act `https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html` (`200 555391 text/html; charset=utf-8`).
+
+Stored (fetched 2026-11-02, one record per instrument in Croatian, kind `adopted`; `in_force` is the commencement the act itself states, or publication date plus the days its commencement clause names; a repeal is its own record without text):
+
+| Instrument | NN | `in_force` of the record | Repeal record |
+|---|---|---|---|
+| `hr-zor-2024` | 85/2024 | 2024-07-27 | |
+| `hr-zor-2024-izm-145-24` | 145/2024 | 2024-12-14 | |
+| `hr-zor-2024-izm-151-25` | 151/2025 | 2025-12-31 | |
+| `hr-zor-2024-izm-59-26` | 59/2026 | 2026-06-10 | |
+| `hr-zor-2015` | 78/2015 | 2016-01-01 | 2024-07-27 |
+| `hr-zor-2015-izm-120-16` | 120/2016 | 2017-01-01 | 2024-07-27 |
+| `hr-zor-2015-izm-116-18` | 116/2018 | 2018-12-29 | 2024-07-27 |
+| `hr-zor-2015-izm-42-20` | 42/2020 | 2020-04-08 | 2024-07-27 |
+| `hr-zor-2015-izm-82-23` | 82/2023 | 2023-07-28 | 2024-07-27 |
+| `hr-reviziji-izm-85-24` | 85/2024 | 2024-07-27 | |
+| `hr-reviziji-izm-151-25` | 151/2025 | 2025-12-31 | |
+| `hr-ztk-izm-85-24` | 85/2024 | 2024-07-27 | |
+| `hr-zkpzos-2025` | 67/2025 | 2025-04-17 | |
+| `hr-zkpzos-2019` | 127/2019 | 2020-01-01 | 2025-04-17 |
+| `hr-uredba-pracenje-ghg-2017` | 5/2017 | 2017-01-26 | |
+| `hr-uredba-trgovanje-ets-2020` | 89/2020 | 2020-08-08 | |
+| `hr-pravilnik-besplatna-dodjela-2020` | 89/2020 | 2020-08-08 | |
+| `hr-uredba-mehanizmi-ets-2023` | 107/2023 | 2023-09-23 | |
+| `hr-uredba-mehanizmi-ets-izm-145-24` | 145/2024 | 2024-12-14 | |
+| `hr-eudr-provedba-2025` | 151/2025 | 2025-12-23 | |
+| `hr-zzp-2022` | 19/2022 | 2022-05-28 | |
+| `hr-zzp-izm-59-26` | 59/2026 | 2026-06-17 | |
+
+An amending act's record is the amending text only, not the amended act with the change applied; where a later provision commences on another date (for example NN 59/2026 on the Consumer Protection Act, in force in stages from 2026-06-17 to 2026-11-17) the record carries the general commencement date and the scope `notes` name the others.
+
+### Languages
+
+Croatian is the only official language the publisher serves, so there are no second-language records. No government English translation of any instrument in scope was found on 2026-11-02: the NN site serves the Croatian gazette texts; web searches for an official English text of the Accounting Act, the Climate Change and Ozone Layer Protection Act and the Consumer Protection Act returned none (the only English text found, an unofficial translation of the 2014 Consumer Protection Act hosted by the Croatian National Bank, is of a repealed act, is not an official government translation, and is not stored). Under ZAPSP čl. 15 st. 3 a translation of an official text is protected unless it was made for official public information and published as such, so a translation row would need that shown per source; none exists, so there is no `translation` row and no English record.
+
+### Link only, dropped and not reached
+
+- No scope instrument is `link only`: all 22 have a record.
+- `sabor.hr` (`200 53279`) and `hanfa.hr` (`200 41102`) answered from the cloud address. No instrument in scope is stored from either, so neither has a licence row; HANFA's terms were not read, so no verdict is claimed for them. Sabor's bill history and acts as passed were not used.
+- Dropped candidates: the Uredba o dražbi emisijskih jedinica stakleničkih plinova (NN 19/13) is named in neither NN 127/19 nor NN 67/25 among the regulations that stay in force, so it is not shown as in force on any official list read; the former act NN 127/19, named in the brief as current, was repealed by NN 67/25 (kept as a historical entry). NN 134/2015 (a Uredba amending the 2015 Accounting Act), NN 114/2022 (euro conversion) and NN 47/2020 are not stored (no non-financial or climate content found, or not opened). No F4 or F7 instrument was found.
+- Not blocked: no URL refused the cloud address.
