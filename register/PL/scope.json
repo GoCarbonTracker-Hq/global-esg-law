@@ -1,0 +1,126 @@
+[
+  {
+    "id": "pl-accounting-act",
+    "title": "Accounting Act of 29 September 1994 (Ustawa o rachunkowości), including the non-financial statement (art. 49b, group statement in art. 55) and, from 2025, sustainability reporting",
+    "official_url": "https://eli.gov.pl/eli/DU/1994/591",
+    "citation": "Ustawa z dnia 29 września 1994 r. o rachunkowości (Dz. U. 1994 nr 121 poz. 591); tekst jednolity Dz. U. 2026 poz. 522",
+    "in_force": "1995-01-01",
+    "evidence": "Art. 86 of the Act as published: \"Ustawa wchodzi w życie z dniem 1 stycznia 1995 r. i ma zastosowanie po raz pierwszy do sprawozdań finansowych za rok obrotowy rozpoczynający się w 1995 r.\" (https://api.sejm.gov.pl/eli/acts/DU/1994/591/text.html, opened 2026-11-02; API field entryIntoForce 1995-01-01).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "PL-ISAP-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Whole Act, stored as the teksty jednolite from the first one that contains art. 49b (the non-financial statement; absent from the tekst jednolity of 2016-06-22, present in that of 2017-11-22) up to the current one: 2017-11-22, 2018-01-30, 2019-01-17, 2020-12-17, 2022-11-04, 2026-03-30. in_force of each record is the date of the obwieszczenie (no commencement clause); the record message names the state of law where the obwieszczenie states one. Earlier teksty jednolite and the 1994 adopted text (a scan) are not stored. Art. 55 of the Act is the group (consolidated) statement on non-financial information; art. 55 ust. 2b named in the dispatch brief is not a non-financial provision in the 2017-11-22 text (it concerns a different subject), so the group duty is cited at art. 55 as a whole. In the 2026-03-30 text art. 49b reads \"(uchylony)\": the non-financial statement was replaced by sustainability reporting under the Act of 6 December 2024 (pl-csrd-act-2024). There is no tekst jednolity between 2022-11-04 and 2026-03-30; the law of that period is the 2022 text plus the amending acts (pl-csrd-act-2024 is one), which the official site does not consolidate as a legal act. The ISAP \"tekst ujednolicony\" is not stored. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of the Accounting Act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored"
+  },
+  {
+    "id": "pl-csrd-act-2024",
+    "title": "Act of 6 December 2024 amending the Accounting Act, the Act on Statutory Auditors, Audit Firms and Public Oversight and certain other acts (CSRD transposition)",
+    "official_url": "https://eli.gov.pl/api/acts/DU/2024/1863/text.html",
+    "citation": "Ustawa z dnia 6 grudnia 2024 r. (Dz. U. 2024 poz. 1863)",
+    "in_force": "2025-01-01",
+    "evidence": "Art. 35 as published (Dz. U. 2024 poz. 1863, published 2024-12-17): \"Ustawa wchodzi w życie po upływie 14 dni od dnia ogłoszenia, z wyjątkiem: 1) art. 12, który wchodzi w życie z dniem 1 stycznia 2025 r.; 2) art. 3, który wchodzi w życie z dniem 1 kwietnia 2025 r.; 3) art. 13 ... 22 czerwca 2025 r.; 4) art. 10 ... 1 lipca 2025 r.\" API field entryIntoForce 2025-01-01 (https://api.sejm.gov.pl/eli/acts/DU/2024/1863, opened 2026-11-02).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "PL-ISAP-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Footnote 1 of the act says it implements Directive (EU) 2022/2464 (CSRD) and Delegated Directive (EU) 2023/2775. The existing register row gave 2025-01-02; the official dates give 2025-01-01 (publication 2024-12-17 plus 14 days, and art. 12 on 2025-01-01). Later provisions apply from 2025-04-01, 2025-06-22 and 2025-07-01 (art. 35); the reporting-year phasing is in art. 14 as amended by pl-csrd-act-2025. Amended by Dz. U. 2025 poz. 1020. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored",
+    "amends": "pl-accounting-act"
+  },
+  {
+    "id": "pl-csrd-act-2025",
+    "title": "Act of 9 July 2025 amending the Act amending the Accounting Act (CSRD \"stop-the-clock\" transposition, Directive (EU) 2025/794)",
+    "official_url": "https://eli.gov.pl/eli/DU/2025/1020",
+    "citation": "Ustawa z dnia 9 lipca 2025 r. (Dz. U. 2025 poz. 1020)",
+    "in_force": "2025-08-12",
+    "evidence": "Art. 2 as published (Dz. U. 2025 poz. 1020, published 2025-07-28): \"Ustawa wchodzi w życie po upływie 14 dni od dnia ogłoszenia.\" API field entryIntoForce 2025-08-12 (https://api.sejm.gov.pl/eli/acts/DU/2025/1020, opened 2026-11-02).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "PL-ISAP-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Moves the dates in art. 14 ust. 5 pkt 2 and 3 of the 2024 act from 31 December 2024 and 31 December 2025 to 31 December 2026 and 31 December 2027, and repeals ust. 6. Footnote 1 says it implements Directive (EU) 2025/794. Only a PDF is served (API textHTML false); the record is the pdftotext of the gazette PDF. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored",
+    "amends": "pl-csrd-act-2024"
+  },
+  {
+    "id": "pl-ets-act",
+    "title": "Act of 12 June 2015 on the greenhouse gas emission allowance trading system (Ustawa o systemie handlu uprawnieniami do emisji gazów cieplarnianych)",
+    "official_url": "https://eli.gov.pl/eli/DU/2015/1223",
+    "citation": "Ustawa z dnia 12 czerwca 2015 r. (Dz. U. 2015 poz. 1223); tekst jednolity Dz. U. 2026 poz. 1421",
+    "in_force": "2015-09-09",
+    "evidence": "Art. 152 as published: \"Ustawa wchodzi w życie po upływie 14 dni od dnia ogłoszenia.\" Published 2015-08-25; API field entryIntoForce 2015-09-09 (https://api.sejm.gov.pl/eli/acts/DU/2015/1223, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PL-ISAP-ADOPTED",
+      "PL-ISAP-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Adopted text of 2015-09-09 and nine teksty jednolite (2017-03-09, 2018-05-10, 2019-12-09, 2021-01-22, 2022-04-07, 2023-01-27, 2024-09-26, 2025-11-07, 2026-10-02). The 2025-11-07 and 2026-10-02 texts are PDF only (API textHTML false). The four implementing acts the API lists for this act (Dz. U. 2016 poz. 1597, 2017 poz. 720 and 1374, MP 2016 poz. 167) are repealed or a notice; no in-force implementing order was found there, so none is in scope. The 2026-10-02 text states it reflects the law as of 2026-09-29. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of the Act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored"
+  },
+  {
+    "id": "pl-emissions-management-act",
+    "title": "Act of 17 July 2009 on the system for managing greenhouse gas and other substance emissions (Ustawa o systemie zarządzania emisjami gazów cieplarnianych i innych substancji)",
+    "official_url": "https://eli.gov.pl/eli/DU/2009/1070",
+    "citation": "Ustawa z dnia 17 lipca 2009 r. (Dz. U. 2009 nr 130 poz. 1070); tekst jednolity Dz. U. 2026 poz. 526",
+    "in_force": "2009-09-18",
+    "evidence": "Art. 62 as published: \"Ustawa wchodzi w życie po upływie 30 dni od dnia ogłoszenia, z wyjątkiem art. 56 pkt 7, który wchodzi w życie z dniem 1 stycznia 2010 r.\" Published 2009-08-18; API field entryIntoForce 2009-09-18 (https://api.sejm.gov.pl/eli/acts/DU/2009/1070, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PL-ISAP-ADOPTED",
+      "PL-ISAP-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Adopted text of 2009-09-18 and eight teksty jednolite (2013-05-28, 2015-12-04, 2017-02-02, 2018-06-07, 2019-07-05, 2020-05-07, 2022-03-03, 2026-03-27). The 2026-03-27 text is PDF only. This is the Act that creates the KOBiZE reporting duty implemented by pl-kobize-report-regulation. Amended by Dz. U. 2025 poz. 1863 (in force 2026-01-13). No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of the Act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored"
+  },
+  {
+    "id": "pl-kobize-report-regulation",
+    "title": "Regulation of the Minister of Climate and Environment of 26 October 2022 on the scope of information in the emissions report and its entry into the National Database on greenhouse gas and other substance emissions",
+    "official_url": "https://eli.gov.pl/eli/DU/2022/2217",
+    "citation": "Rozporządzenie Ministra Klimatu i Środowiska z dnia 26 października 2022 r. (Dz. U. 2022 poz. 2217)",
+    "in_force": "2022-10-31",
+    "evidence": "§ 14 as published: \"Rozporządzenie wchodzi w życie z dniem 31 października 2022 r.\" API field entryIntoForce 2022-10-31 (https://api.sejm.gov.pl/eli/acts/DU/2022/2217, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "PL-ISAP-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Order issued under art. 7 ust. 7 of pl-emissions-management-act; replaces the order of 14 November 2016 (Dz. U. 2016 poz. 1877, repealed). The API lists no amendment. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this regulation on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored"
+  },
+  {
+    "id": "pl-unfair-practices-act",
+    "title": "Act of 23 August 2007 on counteracting unfair market practices (Ustawa o przeciwdziałaniu nieuczciwym praktykom rynkowym), umbrella for environmental claims",
+    "official_url": "https://eli.gov.pl/eli/DU/2007/1206",
+    "citation": "Ustawa z dnia 23 sierpnia 2007 r. (Dz. U. 2007 nr 171 poz. 1206); tekst jednolity Dz. U. 2023 poz. 845",
+    "in_force": "2007-12-21",
+    "evidence": "Art. 21 as published: \"Ustawa wchodzi w życie po upływie 3 miesięcy od dnia ogłoszenia.\" Published 2007-09-20; API field entryIntoForce 2007-12-21 (https://api.sejm.gov.pl/eli/acts/DU/2007/1206, opened 2026-11-02).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PL-ISAP-ADOPTED",
+      "PL-ISAP-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Adopted text of 2007-12-21 and three teksty jednolite (2015-12-10, 2017-10-30, 2023-04-07). The Act does not use the term greenwashing; it is the general rule against misleading practices (it implements Directive 2005/29/EC) under which environmental claims fall, and it is amended by pl-ecgt-amendment-act-2026. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of the Act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored"
+  },
+  {
+    "id": "pl-ecgt-amendment-act-2026",
+    "title": "Act of 4 September 2026 amending the Act on counteracting unfair market practices and the Consumer Rights Act (environmental claims, Directive (EU) 2024/825)",
+    "official_url": "https://eli.gov.pl/eli/DU/2026/1353",
+    "citation": "Ustawa z dnia 4 września 2026 r. (Dz. U. 2026 poz. 1353)",
+    "in_force": "2027-09-27",
+    "evidence": "Art. 3 as published (Dz. U. 2026 poz. 1353, published 2026-10-19): \"Ustawa wchodzi w życie z dniem 27 września 2027 r.\" API field entryIntoForce 2027-09-27 (https://api.sejm.gov.pl/eli/acts/DU/2026/1353, opened 2026-11-02).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "PL-ISAP-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Published and not yet in force on 2026-11-02. Footnote 1 says it implements Directive (EU) 2024/825; art. 1 adds definitions of \"twierdzenie środowiskowe\" (environmental claim), \"ogólne twierdzenie środowiskowe\" and \"oznakowanie dotyczące zrównoważonego charakteru\" to art. 2 of the 2007 Act. Only a PDF is served. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
+    "status": "stored",
+    "amends": "pl-unfair-practices-act"
+  }
+]
