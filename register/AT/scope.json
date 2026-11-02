@@ -1,0 +1,142 @@
+[
+  {
+    "id": "at-nabeg",
+    "title": "Nachhaltigkeitsberichtsgesetz (NaBeG), BGBl. I Nr. 6/2026 (full title begins: Bundesgesetz, mit dem ein Drittlandunternehmen-Berichterstattungsgesetz erlassen wird)",
+    "official_url": "https://www.ris.bka.gv.at/eli/bgbl/I/2026/6",
+    "citation": "BGBl. I Nr. 6/2026, ausgegeben am 18. Februar 2026 (NR: GP XXVIII RV 300 AB 386; CELEX 32022L2464)",
+    "in_force": "2026-02-19",
+    "evidence": "Artikel 1, Drittlandunternehmen-Berichterstattungsgesetz § 11 Abs. 1: \"Dieses Bundesgesetz tritt mit Ablauf des Tages der Kundmachung im Bundesgesetzblatt in Kraft und ist auf Geschäftsjahre anzuwenden, die am oder nach dem 1. Jänner 2028 beginnen.\" Artikel 2, UGB § 908 Abs. 7: \"§ 221 Abs. 3 und 5 in der Fassung des Nachhaltigkeitsberichtsgesetzes tritt mit Ablauf des Tages der Kundmachung im Bundesgesetzblatt in Kraft.\" The BGBl. is issued on 18 February 2026 (\"Ausgegeben am 18. Februar 2026\"), so the day after is 2026-02-19; RIS shows Inkrafttretensdatum 19.02.2026 on UGB § 243b (NOR40275543). Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2026_I_6/BGBLA_2026_I_6.xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AT-RIS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The brief and the earlier register row asked whether the CSRD transposition is in the Bundesgesetzblatt: it is, BGBl. I Nr. 6/2026, so it is stored, not an F7 row. It is an amending act: Artikel 1 is the new Drittlandunternehmen-Berichterstattungsgesetz (at-dribeg), Artikel 2 to 21 amend the UGB (see at-ugb-243b-267a), AktG, GmbHG, GenG, GenRevG 1997, SE-Gesetz, SCE-Gesetz, ArbVG, WTBG 2017, RPflG, GGG, CBCR-VeröffG, APAG, AIFMG, BWG, BörseG 2018, InvFG 2011, NBG 1984, SpG and VAG 2016. The one record is the whole authentic BGBl. text (about 310,000 characters) in German, the only official language. Application dates of the UGB changes are in UGB § 908 (financial years from 2024-01-01 with exceptions). No English translation of the BGBl. exists: the RIS Englische-Rv list (OGD application Erv, 136 documents on 2026-11-02) has none. Any EU omnibus changes after the Act are not part of it.",
+    "status": "stored",
+    "amends": "at-ugb-243b-267a"
+  },
+  {
+    "id": "at-dribeg",
+    "title": "Drittlandunternehmen-Berichterstattungsgesetz (DriBeG), Article 1 of BGBl. I Nr. 6/2026: sustainability reporting of third-country undertakings",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20013107",
+    "citation": "DriBeG, BGBl. I Nr. 6/2026 Art. 1 (RIS Gesetzesnummer 20013107; CELEX 32022L2464, Art. 40a, 40c and 40d of Directive 2013/34/EU)",
+    "in_force": "2026-02-19",
+    "evidence": "§ 11 Abs. 1: \"Dieses Bundesgesetz tritt mit Ablauf des Tages der Kundmachung im Bundesgesetzblatt in Kraft und ist auf Geschäftsjahre anzuwenden, die am oder nach dem 1. Jänner 2028 beginnen.\" Promulgated 2026-02-18; RIS shows Inkrafttretensdatum 2026-02-19 (NOR40276297). Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2026_I_6/BGBLA_2026_I_6.xml and the OGD-RIS BrKons listing https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20013107 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AT-RIS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "One record: the consolidated text of 2026-02-19, German only (RIS has no English translation of it). The same text is also inside the adopted at-nabeg record (Artikel 1); this entry is the standalone consolidated law so later amendments of it have a place. The Act applies to financial years from 2028-01-01. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-ugb-243b-267a",
+    "title": "Unternehmensgesetzbuch (UGB), §§ 243b and 267a: non-financial statement (replaced on 2026-02-19 by the sustainability statement)",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001702",
+    "citation": "UGB (dRGBl. S 219/1897), § 243b and § 267a as inserted by BGBl. I Nr. 20/2017 (NaDiVeG) and replaced by BGBl. I Nr. 6/2026 (NaBeG); RIS Gesetzesnummer 10001702",
+    "in_force": "2016-12-06",
+    "evidence": "NaDiVeG Artikel 1, new UGB § 906 Abs. 44: \"§ 242 Abs. 4, § 243 Abs. 5, § 243b, § 243c, § 243d, § 244, § 267a, § 267b, § 267c, § 269 Abs. 3, § 273 Abs. 1, § 277 Abs. 1 und Abs. 4, § 280 Abs. 1 und § 282 Abs. 2a in der Fassung des Bundesgesetzes BGBl. I Nr. 20/2017 treten mit 6. Dezember 2016 in Kraft.\" RIS shows Inkrafttretensdatum 06.12.2016 on NOR40189008 (§ 243b) and NOR40189009 (§ 267a). Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2017_I_20/BGBLA_2017_I_20.xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AT-RIS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Two records, German only: 2016-12-06 (NaDiVeG: nichtfinanzielle Erklärung, § 243b single entity and § 267a group) and 2026-02-19 (NaBeG: both sections replaced by the Nachhaltigkeitsberichterstattung). Each record is the two sections together as RIS serves them (one file per section version). Earlier versions of the two numbers are other provisions and are not stored: the former § 243b (to 2016-12-05) and the former § 267a (2015-07-20 to 2016-12-05) were renumbered § 243c and § 267b by NaDiVeG Artikel 1 Z 3 and Z 8. The NaBeG adds further sections around them (for example § 243ba, referred to in § 243b Abs. 4) that are not in this scope; the application dates are in UGB § 908 Abs. 1 to 3. No English translation of the UGB sections: the RIS Erv list has no UGB entry. The NaDiVeG as adopted is at-nadiveg-2017, the NaBeG as adopted is at-nabeg. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-nadiveg-2017",
+    "title": "Nachhaltigkeits- und Diversitätsverbesserungsgesetz (NaDiVeG), BGBl. I Nr. 20/2017",
+    "official_url": "https://www.ris.bka.gv.at/eli/bgbl/I/2017/20",
+    "citation": "BGBl. I Nr. 20/2017, ausgegeben am 17. Jänner 2017 (NR: GP XXV RV 1355 AB 1406; CELEX 32014L0095)",
+    "in_force": "2016-12-06",
+    "evidence": "Artikel 1, UGB § 906 Abs. 44 as inserted: \"... § 243b, § 243c, § 243d, § 244, § 267a, § 267b, § 267c, ... in der Fassung des Bundesgesetzes BGBl. I Nr. 20/2017 treten mit 6. Dezember 2016 in Kraft. Sie sind erstmalig auf Unterlagen der Rechnungslegung für Geschäftsjahre anzuwenden, die nach dem 31. Dezember 2016 beginnen.\" Artikel 2 (AktG § 262 Abs. 37) and Artikel 3 (GmbHG § 127 Abs. 21) say the same date. Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2017_I_20/BGBLA_2017_I_20.xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AT-RIS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Added to the brief candidates: the UGB sections (at-ugb-243b-267a) are the text, this is the Act that inserted them. The act amends the UGB, the AktG and the GmbHG; the whole BGBl. text is the one record. German only (the BGBl. has one language, and the RIS Erv list has no entry). The Act is dated 2017 but takes effect on 2016-12-06, before its own promulgation, as its text says.",
+    "status": "stored",
+    "amends": "at-ugb-243b-267a"
+  },
+  {
+    "id": "at-ksg",
+    "title": "Klimaschutzgesetz (KSG), BGBl. I Nr. 106/2011",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007500",
+    "citation": "KSG, BGBl. I Nr. 106/2011, as amended by BGBl. I Nr. 94/2013, 128/2015 and 58/2017; RIS Gesetzesnummer 20007500",
+    "in_force": "2011-11-22",
+    "evidence": "The Act has no commencement clause in its original text. BGBl. I Nr. 106/2011 is \"Ausgegeben am 21. November 2011\" and RIS Bundesrecht konsolidiert shows Inkrafttretensdatum 22.11.2011 on § 1 (NOR40132321, NOR40132332). Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2011_I_106/BGBLA_2011_I_106.xml and the OGD-RIS BrKons listing https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20007500 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "AT-RIS-ADOPTED",
+      "AT-RIS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records, German only: the adopted text (2011-11-22) and four consolidations (2011-11-22, 2013-06-18, 2015-11-07, 2017-04-26); the version of 2017-04-26 (BGBl. I Nr. 58/2017) is the last RIS lists, and it repeals § 5. The sector ceilings of Anlage 2 run to the commitment period ending 2020 and the Act has had no amendment since 2017. The duties are on the Federal Government and the Länder, not on companies. No English translation: the RIS Erv list has no KSG entry. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-ezg-2011",
+    "title": "Emissionszertifikategesetz 2011 (EZG 2011), BGBl. I Nr. 118/2011",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007503",
+    "citation": "EZG 2011, BGBl. I Nr. 118/2011, as amended; RIS Gesetzesnummer 20007503 (replaced the Emissionszertifikategesetz, BGBl. I Nr. 46/2004)",
+    "in_force": "2011-12-13",
+    "evidence": "§ 59 Abs. 1: \"Dieses Bundesgesetz tritt am Tag nach seiner Kundmachung im Bundesgesetzblatt in Kraft. Gleichzeitig tritt das Emissionszertifikategesetz, BGBl. I Nr. 46/2004 in der Fassung BGBl. I Nr. 111/2010, außer Kraft.\" The BGBl. is issued on 2011-12-12 (OGD-RIS BgblAuth listing, BGBLA_2011_I_118), so the day after is 2011-12-13; RIS shows Inkrafttretensdatum 13.12.2011 (NOR40132421). Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2011_I_118/BGBLA_2011_I_118.xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AT-RIS-ADOPTED",
+      "AT-RIS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records, German only: the adopted text (2011-12-13) and ten consolidations (2011-12-13, 2013-01-01, 2013-06-19, 2014-01-01, 2015-08-14, 2015-11-07, 2020-12-23, 2021-12-31, 2024-01-01, 2026-01-01). A consolidation is stored when its text differs from the previous one; each is assembled from the paragraph and annex files RIS lists for the date. No English translation: the RIS Erv list has no EZG 2011 entry. Implementing ordinances (for example on the registry or on monitoring) were not enumerated in this pass. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-nehg-2022",
+    "title": "Nationales Emissionszertifikatehandelsgesetz 2022 (NEHG 2022), Article 9 of BGBl. I Nr. 10/2022",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20011818",
+    "citation": "NEHG 2022, BGBl. I Nr. 10/2022 Art. 9 (Ökosoziales Steuerreformgesetz 2022 Teil I), as amended; RIS Gesetzesnummer 20011818",
+    "in_force": "2022-04-01",
+    "evidence": "§ 34 Abs. 1: \"Dieses Bundesgesetz tritt mit Ausnahme der §§ 20 und 25 bis 27 mit 1. April 2022 in Kraft.\" Opened https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2022_I_10/BGBLA_2022_I_10.xml on 2026-11-02; RIS shows Inkrafttretensdatum 01.04.2022 (NOR40242298).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AT-RIS-ADOPTED",
+      "AT-RIS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records, German only: the adopted text (Article 9 cut out of the BGBl. text, 2022-04-01) and nine consolidations (2022-04-01, 2022-07-01, 2022-10-01, 2022-12-07, 2023-06-01, 2023-07-22, 2024-06-01, 2024-06-06, 2026-07-30). RIS also lists versions of §§ 22, 24 and 25 whose Inkrafttretensdatum is 9000-01-01 (no date set: they depend on state-aid approval or EU obligations); no date can be named for them, so they are not stored and the versions before them stay in the consolidations. §§ 20 and 25 to 27 enter into force on a later condition (§ 34 Abs. 2). The price determination under § 10 Abs. 3 is at-nehg-preisstabilitaets-vo. No English translation: the RIS Erv list has no NEHG entry. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-nehg-preisstabilitaets-vo",
+    "title": "Kundmachung des Bundesministers für Finanzen über die Anwendbarkeit des Preisstabilitätsmechanismus gemäß § 10 Abs. 3 NEHG 2022, BGBl. II Nr. 460/2022",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20012110",
+    "citation": "BGBl. II Nr. 460/2022; RIS Gesetzesnummer 20012110",
+    "in_force": "2022-12-15",
+    "evidence": "The text has no commencement clause (\"wird kundgemacht\"). RIS Bundesrecht konsolidiert shows Inkrafttretensdatum 15.12.2022 on NOR40249002. Opened the OGD-RIS BrKons listing https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20012110 and https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40249002/NOR40249002.xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AT-RIS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "A one-off determination under NEHG 2022 § 10 Abs. 3: the price stability mechanism was triggered and the issue value of national emission certificates for 2023 is EUR 32.50. It is the only NEHG ordinance this pass found; other NEHG ordinances were not enumerated. One record, German only. The date is the RIS metadata date; the text itself states none. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  },
+  {
+    "id": "at-uwg-s1-2a",
+    "title": "Bundesgesetz gegen den unlauteren Wettbewerb 1984 (UWG), §§ 1 to 2a: unfair, aggressive and misleading commercial practices, comparative advertising",
+    "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002665",
+    "citation": "UWG, BGBl. Nr. 448/1984, §§ 1, 1a, 2 and 2a as amended (most recently BGBl. I Nr. 58/2026, CELEX 32024L0825); RIS Gesetzesnummer 10002665",
+    "in_force": "1984-11-23",
+    "evidence": "RIS Bundesrecht konsolidiert shows Inkrafttretensdatum 23.11.1984 on § 1 of StF BGBl. Nr. 448/1984 (NOR12033573). The original commencement clause is not in any file stored. Opened the OGD-RIS BrKons listing https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=10002665&Abschnitt.Typ=Paragraph&Abschnitt.Von=1&Abschnitt.Bis=2a on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AT-RIS-CONSOLIDATED",
+      "AT-RIS-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records: nine German consolidations of §§ 1, 1a, 2 and 2a (1984-11-23, 1988-07-30, 2000-04-01, 2007-12-12, 2015-04-23, 2016-12-31, 2022-07-20, 2026-07-29, 2026-09-27) and one English translation record (2022-07-20). Directive (EU) 2024/825 (empowering consumers for the green transition) is in the version of 2026-09-27 (BGBl. I Nr. 58/2026): new § 1 Abs. 4 Z 11 to 17 add definitions (among them Umweltaussage, allgemeine Umweltaussage, Nachhaltigkeitssiegel and Zertifizierungssystem), and § 2 Abs. 3 Z 4 treats an environmental claim about future performance without a verifiable implementation plan as misleading. The blacklist in the Anhang (Z 1 to 23j and 24 to 31a), where the green-claim bans sit, is outside §§ 1 to 2a and is not stored. English: the Federal Chancellery translation in RIS (ERV_1984_448) is a two-column German and English table of the whole Act. Its English column states \"as of: 20 July 2022 pursuant to Federal Law Gazette I no. 110/2022\" and, as the amendment entailing its latest update, BGBl. I Nr. 99/2023, with the German column updated to Fassung 27.9.2026. The 2022-07-20 German version of §§ 1 to 2a is the one that translation matches (ranking, online marketplace and consumer-review rules are in it, none of the 2026 text is), so the English is stored under 2022-07-20. The API metadata of the document says \"date of the version: 1 April 2026\", which is not what the document says; the document was used. No English exists for the 2026-07-29 and 2026-09-27 versions, and the older German versions have no English. The English column is unofficial: it has [bracketed] editorial insertions and typos (for example \"advantage; advantage;\" in § 2 Abs. 1 Z 4) kept as printed. The www.ris.bka.gv.at pages answer scripts with HTTP 503 (Security Check) from the cloud address; the official_url is the RIS page for a browser, the text was read through the OGD-RIS API.",
+    "status": "stored"
+  }
+]

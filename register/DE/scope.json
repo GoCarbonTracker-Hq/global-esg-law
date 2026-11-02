@@ -1,0 +1,183 @@
+[
+  {
+    "id": "de-hgb-nfe",
+    "title": "Handelsgesetzbuch (HGB) §§ 289b to 289e and §§ 315b to 315c: non-financial statement (nichtfinanzielle Erklärung)",
+    "official_url": "https://www.gesetze-im-internet.de/hgb/__289b.html",
+    "citation": "HGB §§ 289b-289e and 315b-315c, inserted by the CSR-Richtlinie-Umsetzungsgesetz of 11 April 2017 (BGBl. I S. 802)",
+    "in_force": "2017-04-19",
+    "evidence": "CSR-Richtlinie-Umsetzungsgesetz, BGBl. 2017 I Nr. 20, ausgegeben zu Bonn am 18. April 2017 (S. 802), Article on Inkrafttreten: \"(1) Dieses Gesetz tritt vorbehaltlich des Absatzes 2 am Tag nach der Verkündung in Kraft.\" (Absatz 2: Artikel 2 und 4 on 1 January 2019.) Opened https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl117s0802.pdf (PDF, 13 pages) on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "DE-GII-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is §§ 289b, 289c, 289d, 289e, 315b and 315c of the HGB as consolidated by the Federal Office of Justice (Stand of the HGB: Zuletzt geändert durch Art. 4 G v. 4.2.2026 I Nr. 33). The six sections carry no footnote with an amendment date, so the record is dated 2017-04-19, the first in-force date, on this basis: the wording of the six sections was compared with the CSR-RUG as published (BGBl. 2017 I S. 802) and the differences found were layout of the PDF (numbering of paragraphs, page breaks), not words; this is a comparison of 8-word runs, not a legal check that no later amendment touched them. gesetze-im-internet.de serves only the current consolidation (Hinweise page, item 3), so the versions between adoption and the stored state are not stored; no earlier consolidation was found on the site. The HGB is not an instrument stored whole: only the six sections are. Regime: the pre-CSRD non-financial statement; the CSRD-Umsetzungsgesetz is not promulgated (register row in F7, nothing stored). English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. The list has an HGB entry (Books 1 to 4, ministry language service, updated by Samson-Übersetzungen GmbH, Book 3 holds these sections), but its row DE-GII-TRANSLATION is permission requested, so it is not stored and not listed in source_row.",
+    "status": "stored"
+  },
+  {
+    "id": "de-lksg",
+    "title": "Lieferkettensorgfaltspflichtengesetz (LkSG), Gesetz über die unternehmerischen Sorgfaltspflichten zur Vermeidung von Menschenrechtsverletzungen in Lieferketten",
+    "official_url": "https://www.gesetze-im-internet.de/lksg/BJNR295910021.html",
+    "citation": "LkSG of 16 July 2021 (BGBl. I S. 2959)",
+    "in_force": "2023-01-01",
+    "evidence": "Art. 5 Abs. 1 of the Act of 16 July 2021: \"Dieses Gesetz tritt vorbehaltlich des Absatzes 2 am 1. Januar 2023 in Kraft.\" (Abs. 2: § 13 Abs. 3, § 14 Abs. 2 and §§ 19 to 21 on the day after promulgation, 2021-07-23). Opened https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl121s2959.pdf and the first norm of https://www.gesetze-im-internet.de/lksg/xml.zip on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records, both dated 2023-01-01: the Act as published (BGBl. 2021 I S. 2959, all five articles, 11 pages) and the consolidated text (Article 1, the LkSG itself). The consolidated file has no Stand line, so the Act is unamended on the site; the file was built 2026-05-06. The 2025 amendment named in the brief is not on the site: no Stand line and no amending act in the Bundesgesetzblatt pages searched, so it is treated as not promulgated; pending bills were not checked. The footnote of the consolidated first norm cites the Act as 'I 2595'; the Fundstelle field and the Bundesgesetzblatt say S. 2959, which is used. The adopted PDF was fetched with a headless browser from the bgbl.de archive (see SOURCES.md). gesetze-im-internet.de serves only the current consolidation (Hinweise page, item 3), so the versions between adoption and the stored state are not stored; no earlier consolidation was found on the site. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-ksg",
+    "title": "Bundes-Klimaschutzgesetz (KSG)",
+    "official_url": "https://www.gesetze-im-internet.de/ksg/BJNR251310019.html",
+    "citation": "KSG of 12 December 2019 (BGBl. I S. 2513), as amended by the Acts of 18 August 2021 (BGBl. I S. 3905) and 15 July 2024 (BGBl. 2024 I Nr. 235)",
+    "in_force": "2019-12-18",
+    "evidence": "Footnote on the first norm of the consolidated text: \"Das G wurde als Artikel 1 des G v. 12.12.2019 I 2513 vom Bundestag beschlossen. Es ist gem. Art. 4 dieses G am 18.12.2019 in Kraft getreten.\" The Act was issued on 17 December 2019 (BGBl. 2019 I Nr. 48) and its Inkrafttreten article reads \"Dieses Gesetz tritt am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/ksg/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl119s2513.pdf on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records: the Act as published in 2019 (all articles, 9 pages, dated 2019-12-18) and the consolidated KSG dated 2024-07-17, the in-force date of the Second Amending Act (BGBl. 2024 I Nr. 235 of 16 July 2024, Art. 2: 'Dieses Gesetz tritt am Tag nach der Verkündung in Kraft', read in the PDF at https://www.recht.bund.de/bgbl/1/2024/235/regelungstext.pdf). The consolidated state is 'Zuletzt geändert durch Art. 1 G v. 15.7.2024 I Nr. 235'. The 2021 state (Act of 18 August 2021, BGBl. I S. 3905) is not stored: only the current consolidation is served. The amending acts of 2021 and 2024 are not separate entries. English: the Translations list has a KSG entry (Language Service of the Federal Ministry for Economic Affairs and Climate Action) whose Stand names the 2021 and 2024 amendments, which matches the stored 2024-07-17 state; it is not stored because row DE-GII-TRANSLATION is permission requested (private, non-commercial use only), and so the row is not in source_row. English page: https://www.gesetze-im-internet.de/englisch_ksg/index.html. The adopted PDF was fetched with a headless browser (see SOURCES.md).",
+    "status": "stored"
+  },
+  {
+    "id": "de-tehg",
+    "title": "Treibhausgas-Emissionshandelsgesetz (TEHG), Gesetz über den Handel mit Berechtigungen zur Emission von Treibhausgasen",
+    "official_url": "https://www.gesetze-im-internet.de/tehg_2025/BJNR0460B0025.html",
+    "citation": "TEHG of 27 February 2025 (BGBl. 2025 I Nr. 70), Article 1; replaces the TEHG of 21 July 2011 (BGBl. I S. 1475)",
+    "in_force": "2025-03-06",
+    "evidence": "Footnote on the first norm of the consolidated text: \"Das G wurde als Artikel 1 des G v. 27.2.2025 I Nr. 70 vom Bundestag beschlossen. Es ist gem. Art. 6 Satz 1 dieses G am 6.3.2025 in Kraft getreten.\" Art. 6 of the Act: \"Dieses Gesetz tritt am Tag nach der Verkündung in Kraft.\" (issued 5 March 2025). Opened https://www.gesetze-im-internet.de/tehg_2025/xml.zip and https://www.recht.bund.de/bgbl/1/2025/70/regelungstext.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records dated 2025-03-06: the Act as published (BGBl. 2025 I Nr. 70, 12 pages; the same Act also amends the BEHG, see de-behg) and the consolidated TEHG (Article 1). The consolidated file has no Stand line. The repealed TEHG of 2011 is not stored (it is not on the site as current text). Implemented by de-ehv-2030. gesetze-im-internet.de serves only the current consolidation (Hinweise page, item 3), so the versions between adoption and the stored state are not stored; no earlier consolidation was found on the site. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-behg",
+    "title": "Brennstoffemissionshandelsgesetz (BEHG), Gesetz über einen nationalen Zertifikatehandel für Brennstoffemissionen",
+    "official_url": "https://www.gesetze-im-internet.de/behg/BJNR272800019.html",
+    "citation": "BEHG of 12 December 2019 (BGBl. I S. 2728), as last amended by Article 2 of the Act of 27 February 2025 (BGBl. 2025 I Nr. 70)",
+    "in_force": "2019-12-20",
+    "evidence": "Footnote on the first norm of the consolidated text: \"(+++ Textnachweis ab: 20.12.2019 +++)\". § 24 Abs. 1 of the Act as published (BGBl. 2019 I Nr. 50, issued 19 December 2019): \"Dieses Gesetz tritt vorbehaltlich des Absatzes 2 am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/behg/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl119s2728.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records: the Act as published (dated 2019-12-20; § 11 Abs. 1 and 2 enter into force later, under § 24 Abs. 2) and the consolidated text dated 2025-03-06, the in-force date of Article 2 of the Act of 27 February 2025 (BGBl. 2025 I Nr. 70, Art. 6: day after promulgation; the TEHG footnote of the same Act says 6.3.2025). The versions between 2019 and 2025 (among them the Bekanntmachung of 24 November 2022, BGBl. I S. 2098, which brought § 11 Abs. 2 into force on 2022-12-01) are not stored: only the current consolidation is served. Implemented by de-behv, de-ebev-2030 and de-becv. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-behv",
+    "title": "Brennstoffemissionshandelsverordnung (BEHV), Verordnung zur Durchführung des Brennstoffemissionshandelsgesetzes",
+    "official_url": "https://www.gesetze-im-internet.de/behv/BJNR302600020.html",
+    "citation": "BEHV of 17 December 2020 (BGBl. I S. 3026), as last amended by Article 1 of the Ordinance of 11 September 2025 (BGBl. 2025 I Nr. 209)",
+    "in_force": "2020-12-24",
+    "evidence": "Footnote on the first norm of the consolidated text: \"(+++ Textnachweis ab: 24.12.2020 +++)\". § 34 of the Ordinance as published (BGBl. 2020 I Nr. 64, issued 23 December 2020): \"Diese Verordnung tritt am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/behv/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl120s3026.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements the BEHG (de-behg). Two records: the Ordinance as published (2020-12-24) and the consolidated text dated 2025-09-16, the day after promulgation of the amending Ordinance (BGBl. 2025 I Nr. 209, issued 15 September 2025, Art. 3: 'Diese Verordnung tritt am Tag nach der Verkündung in Kraft', read at https://www.recht.bund.de/bgbl/1/2025/209/regelungstext.pdf). The consolidated footnote adds '(+++ Zur Nichtanwendung vgl. § 11 Abs. 2 +++)'. Versions between are not stored. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-ebev-2030",
+    "title": "Verordnung über die Emissionsberichterstattung nach dem Brennstoffemissionshandelsgesetz für die Jahre 2023 bis 2030 (EBeV 2030)",
+    "official_url": "https://www.gesetze-im-internet.de/ebev_2030/BJNR286800022.html",
+    "citation": "EBeV 2030 of 21 December 2022 (BGBl. I S. 2868)",
+    "in_force": "2022-12-31",
+    "evidence": "Footnote on the first norm of the consolidated text: \"(+++ Textnachweis ab: 31.12.2022 +++)\". § 20 of the Ordinance as published (BGBl. 2022 I Nr. 57, issued 30 December 2022): \"Diese Verordnung tritt am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/ebev_2030/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl122s2868.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements the BEHG (de-behg); reporting duty for fuel suppliers. Two records dated 2022-12-31 (as published, and consolidated; the consolidated file has no Stand line). Formulas are graphics in both sources and appear in the text as the marker [Abbildung]. The earlier EBeV for 2021 and 2022 (ebev_2022) is not in scope. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-ehv-2030",
+    "title": "Verordnung zur Durchführung des Treibhausgas-Emissionshandelsgesetzes in der Handelsperiode 2021 bis 2030 (Emissionshandelsverordnung 2030, EHV 2030)",
+    "official_url": "https://www.gesetze-im-internet.de/ehv_2030_2/BJNR0C90B0026.html",
+    "citation": "EHV 2030 of 10 July 2026 (BGBl. 2026 I Nr. 201), Article 1; replaces the EHV 2030 of 29 April 2019 (BGBl. I S. 538)",
+    "in_force": "2026-07-15",
+    "evidence": "Footnote on the first norm of the consolidated text: \"Die V wurde als Artikel 1 der V v. 10.7.2026 I Nr. 201 von der Bundesregierung erlassen. Sie tritt gem. Art. 3 dieser V am 15.7.2026 in Kraft.\" Art. 3: \"Diese Verordnung tritt am Tag nach der Verkündung in Kraft.\" (issued 14 July 2026). Opened https://www.gesetze-im-internet.de/ehv_2030_2/xml.zip and https://www.recht.bund.de/bgbl/1/2026/201/regelungstext.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements the TEHG (de-tehg). Two records dated 2026-07-15 (as published, 14 pages of the Bundesgesetzblatt, and consolidated). The Ordinance of 2019 (EHV 2030), last amended 2023-02-20, is repealed by Art. 2 of this Ordinance with effect 2026-07-15 and is not stored. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-becv",
+    "title": "BEHG-Carbon-Leakage-Verordnung (BECV), Verordnung über Maßnahmen zur Vermeidung von Carbon-Leakage durch den nationalen Brennstoffemissionshandel",
+    "official_url": "https://www.gesetze-im-internet.de/becv/BJNR312900021.html",
+    "citation": "BECV of 21 July 2021 (BGBl. I S. 3129)",
+    "in_force": "2021-07-28",
+    "evidence": "Footnote on the first norm of the consolidated text: \"(+++ Textnachweis ab: 28.7.2021 +++)\". § 28 of the Ordinance as published (BGBl. 2021 I Nr. 48, issued 27 July 2021): \"Diese Verordnung tritt am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/becv/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl121s3129.pdf on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements the BEHG (de-behg). Two records dated 2021-07-28 (as published, and consolidated; the consolidated file was built 2022-04-07 and has no Stand line). The brief did not name this Ordinance; it was added because it is a binding F3 rule under the BEHG found on the site. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-minrohsorgg",
+    "title": "Gesetz zur Durchführung der Verordnung (EU) 2017/821 (Sorgfaltspflichten in der Lieferkette für Zinn, Tantal, Wolfram, deren Erzen und Gold, MinRohSorgG)",
+    "official_url": "https://www.gesetze-im-internet.de/minrohsorgg/BJNR086410020.html",
+    "citation": "Act of 29 April 2020 (BGBl. I S. 864), Article 1",
+    "in_force": "2020-05-07",
+    "evidence": "Footnote on the first norm of the consolidated text: \"Das G wurde als Art. 1 des G v. 29.4.2020 I 864 vom Bundestag beschlossen. Es ist gem. Art. 3 dieses G am 7.5.2020 in Kraft getreten.\" Art. 3 of the Act as published (BGBl. 2020 I Nr. 21, issued 6 May 2020): \"Dieses Gesetz tritt am Tag nach der Verkündung in Kraft.\" Opened https://www.gesetze-im-internet.de/minrohsorgg/xml.zip and https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl120s0864.pdf on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DE-BGBL-ADOPTED",
+      "DE-GII-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National implementation of the EU conflict minerals Regulation (EU) 2017/821 (due diligence for importers of tin, tantalum, tungsten, their ores and gold). Two records dated 2020-05-07 (as published, 3 pages, and consolidated; no Stand line). The brief did not name this Act; it was added as an enacted F5 instrument on the site. English: the Translations list (https://www.gesetze-im-internet.de/Teilliste_translations.html, opened 2026-11-02) has no entry for this instrument. ",
+    "status": "stored"
+  },
+  {
+    "id": "de-bafin-merkblatt-nachhaltigkeitsrisiken",
+    "title": "BaFin Merkblatt zum Umgang mit Nachhaltigkeitsrisiken",
+    "official_url": "https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html",
+    "citation": "BaFin Merkblatt, 20 December 2019, amended 13 January 2020",
+    "in_force": "2019-12-20",
+    "evidence": "BaFin page: \"Datum: 20.12.2019 Änderungsdatum: 13.01.2020\". A guidance note with no commencement clause takes its issue date. Opened https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html on 2026-11-02 (200).",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "DE-BAFIN-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: row DE-BAFIN-ADOPTED is permission requested (the terms allow storing, passing on and copying with the source named but do not mention changing the text, and a PDF extraction would change it). The PDF itself was not fetched. Supervisory guidance for banks, insurers and asset managers; it states good practice, not a binding rule. English: BaFin publishes an English PDF (https://www.bafin.de/SharedDocs/Downloads/EN/Merkblatt/dl_mb_umgang_mit_nachhaltigkeitsrisiken_en.pdf, found by search, not opened); not stored.",
+    "status": "link only"
+  }
+]
