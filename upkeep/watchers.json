@@ -4570,6 +4570,150 @@
   "url": "https://narodne-novine.nn.hr/eli/sluzbeni/2026/59/728/rdf"
  },
  {
+  "id": "si-zgd-1-art70c-pisrs-record",
+  "source_id": "SI-PISRS-NPB",
+  "iso2": "SI",
+  "instrument": "si-zgd-1-art70c",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO4291",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO4291 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zgd-1m-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-zgd-1m",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO8885",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO8885 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zgd-1n-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-zgd-1n",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO9266",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO9266 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zgd-1o-pisrs-record",
+  "source_id": "SI-PISRS-GAZETTE",
+  "iso2": "SI",
+  "instrument": "si-zgd-1o",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO9437",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO9437 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-poz-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-poz",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO8899",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO8899 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zvo-2-ets-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-zvo-2-ets",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO8286",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO8286 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zvpot-1-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-zvpot-1",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO7054",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO7054 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-zvpot-1a-pisrs-record",
+  "source_id": "SI-PISRS-GAZETTE",
+  "iso2": "SI",
+  "instrument": "si-zvpot-1a",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO9627",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO9627 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-uredba-sfdr-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-uredba-sfdr",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/URED8454",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=URED8454 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-ziuezo-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-ziuezo",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/ZAKO9102",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=ZAKO9102 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-uredba-brezplacni-kuponi-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-uredba-brezplacni-kuponi",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/URED9022",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=URED9022 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
+  "id": "si-pravilnik-mrv-pisrs-record",
+  "source_id": "SI-UL-ADOPTED",
+  "iso2": "SI",
+  "instrument": "si-pravilnik-mrv",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pisrs.si/api/rezultat/zbirka/id/PRAV10781",
+  "params": {
+   "second_route": "https://pisrs.si/pregledPredpisa?id=PRAV10781 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
+  }
+ },
+ {
   "id": "lu-climate-law-2020-legilux-consolidations",
   "source_id": "LU-LEGILUX-CONSOLIDATED",
   "iso2": "LU",
