@@ -1,0 +1,101 @@
+[
+  {
+    "id": "cl-ncg-461",
+    "title": "Norma de Carácter General N° 461 (CMF): modifies the structure and content of the memoria anual of securities issuers, adding sustainability and corporate-governance reporting",
+    "official_url": "https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html",
+    "citation": "CMF NCG 461 of 12 November 2021 (Resolución 6504 of 12/11/2021)",
+    "in_force": "2021-11-12",
+    "evidence": "NCG 461 section III. VIGENCIA (PDF https://www.cmfchile.cl/normativa/ncg_461_2021.pdf, opened 2026-11-02): \"Las modificaciones establecidas en la Sección II, rigen a partir de la presente fecha. Las modificaciones contenidas en la Sección I, comenzarán a regir conforme al siguiente calendario:\" followed by 31 December 2022 (issuers above 20 million UF), 31 December 2023 (above 1 million UF) and 31 December 2024 (all others). The CMF page gives Fecha 12/11/2021 and Vigencia Vigente.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "CL-CMF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the CMF site states that reproduction is authorised with the source named but not that commercial reuse and modification are allowed, so CL-CMF-ADOPTED is permission requested and nothing is stored. The first in-force date is the issue date (section II); the sustainability duties in section I start on the dates in the evidence. Amended by cl-ncg-519 (changes the 2024 date for the last group to 31 December 2025 and adds SASB and independent-verification items). The texto refundido is listed on the CMF page. English looked for on 2026-11-02 on the CMF page (Spanish only; https://www.cmfchile.cl/english/ returned 404): none found.",
+    "status": "link only",
+    "status_note": "Row CL-CMF-ADOPTED is permission requested; no text stored."
+  },
+  {
+    "id": "cl-ncg-519",
+    "title": "Norma de Carácter General N° 519 (CMF): modifies NCG 30 and NCG 461 on the integrated annual report (adds SASB metrics and independent verification)",
+    "official_url": "https://www.cmfchile.cl/normativa/ncg_519_2024.pdf",
+    "citation": "CMF NCG 519 of 28 October 2024",
+    "in_force": "2024-10-28",
+    "evidence": "NCG 519, VIGENCIA (PDF https://www.cmfchile.cl/normativa/ncg_519_2024.pdf, opened 2026-11-02): \"Las modificaciones establecidas en las secciones I y II de esta normativa rigen a contar de la presente fecha.\" and \"Las modificaciones a las que se refiere la sección III de esta normativa entran en vigor el 31 de diciembre de 2026\". The PDF is dated 28 de octubre de 2024.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "CL-CMF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only, same reason as cl-ncg-461. Confirmed on 2026-11-02 that NCG 519 amends NCG 461 (section I.2 replaces numeral 3 of section III. Vigencia of NCG 461) and NCG 30 (section II and III add item 9 Sostenibilidad: SASB metrics and independent verification, in force 31 December 2026). The register page for NCG 519 on the CMF site was not located; the PDF URL is used as the official URL. English looked for on 2026-11-02 on the CMF site (Spanish only): none found.",
+    "status": "link only",
+    "status_note": "Row CL-CMF-ADOPTED is permission requested; no text stored.",
+    "amends": "cl-ncg-461"
+  },
+  {
+    "id": "cl-ley-21455",
+    "title": "Ley 21.455, Ley Marco de Cambio Climático",
+    "official_url": "https://www.bcn.cl/leychile/navegar?idNorma=1177286",
+    "citation": "Ley 21.455, promulgated 30 May 2022, Diario Oficial 43.277 of 13 June 2022",
+    "in_force": "2022-06-13",
+    "evidence": "Ley Chile version list for idNorma 1177286 (https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte=, opened 2026-11-02): tipoVersion \"Texto Original\", vigenteDesde 2022-06-13; the XML header reads fechaPublicacion=\"2022-06-13\", IdentificacionFuente \"Diario Oficial\", NumeroFuente 43277. Artículo cuarto transitorio: \"Las disposiciones de los artículos 40 y 46, N° 4, sólo entrarán en vigencia una vez que se dicte el reglamento a que hace referencia el artículo 40.\"",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CL-BCN-ADOPTED",
+      "CL-BCN-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two versions: the original (2022-06-13) and the consolidation of 2025-07-11 (Ley 21.755 of 11 July 2025 amended it). Record text is the Ley Chile JSON (get_norma_json, one paragraph per div; the XML route cuts several long articles mid-word, so it was not used for this Act): heading, titles, articles, transitional articles and the promulgation formula; the Tribunal Constitucional certificate attached as Anexo is not included. Languages stored: es. English looked for on 2026-11-02 at https://www.bcn.cl/en and https://www.bcn.cl/leychile/en (both 200 and the same Spanish script shell as the Ley Chile home page, 8888 and 9602 bytes) and in the Ley Chile version list (Spanish only): no government English translation found, none stored. Ley 21.455 is the framework act; its regulations are not in scope on 2026-11-02 and the Ley 20.780 art. 8 compensation regulation is cl-ds-4-2023.",
+    "status": "stored"
+  },
+  {
+    "id": "cl-ley-20780-art8",
+    "title": "Ley 20.780 art. 8 (impuesto verde on emissions of fixed sources), as amended by Ley 21.210 and later laws",
+    "official_url": "https://www.bcn.cl/leychile/navegar?idNorma=1067194",
+    "citation": "Ley 20.780, Artículo 8°, Diario Oficial 40.969 of 29 September 2014",
+    "in_force": "2017-01-01",
+    "evidence": "Ley 20.780, Disposiciones Transitorias, Artículo decimocuarto (Ley Chile idNorma 1067194, opened 2026-11-02): \"El impuesto establecido en el artículo 8° se aplicará a contar del año 2017, considerando las emisiones generadas durante dicho año y deberá ser pagado por primera vez el año 2018.\"",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CL-BCN-ADOPTED",
+      "CL-BCN-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Artículo 8° only, cut from the whole Ley 20.780 (a tax reform of about 400 KB) by the position of the article in the Ley Chile XML (the element whose text starts 'Artículo 8°'); Artículo decimocuarto transitorio is not included. Five records, one for each Ley Chile version in which art. 8 differs: 2014-10-01 (original, first of the month after publication under Artículo vigesimoprimero transitorio), 2016-02-08, 2020-02-24 (Ley 21.210), 2023-01-01 and 2023-02-25; the versions of 2016-01-01, 2016-10-26, 2016-12-15, 2017-12-01 and 2026-02-05 leave art. 8 unchanged and have no record. The first record predates the in_force of the tax (2017-01-01) because Ley Chile dates the text, not its first application. Ley 21.210 is not a scope entry of its own; its effect on art. 8 is in the 2020-02-24 consolidation. Languages stored: es. English looked for on 2026-11-02 at https://www.bcn.cl/en and https://www.bcn.cl/leychile/en (both 200 and the same Spanish script shell as the Ley Chile home page, 8888 and 9602 bytes) and in the Ley Chile version list (Spanish only): no government English translation found, none stored. Cut from the XML route; checked on 2026-11-02 against the JSON route of the same version: the article text is identical except that the JSON adds BCN's amendment annotations (for example 'Ley 21210 Art. décimo sexto a) D.O. 24.02.2020'), which are not in the XML text and not stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cl-ds-4-2023",
+    "title": "Decreto Supremo 4 of 2023 (Ministerio del Medio Ambiente): reglamento de proyectos de reducción de emisiones de contaminantes para compensar emisiones gravadas conforme al artículo 8° de la Ley 20.780",
+    "official_url": "https://www.bcn.cl/leychile/navegar?idNorma=1196414",
+    "citation": "Decreto 4 of 25 January 2023, Diario Oficial 43.664 of 29 September 2023",
+    "in_force": "2023-09-29",
+    "evidence": "Artículo 34: \"El presente decreto entrará en vigencia el día de su publicación en el Diario Oficial.\" Ley Chile header: fechaPublicacion=\"2023-09-29\", Diario Oficial 43664 (idNorma 1196414, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CL-BCN-ADOPTED",
+      "CL-BCN-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "This is the sistema de compensaciones de emisiones under art. 8 of Ley 20.780 that the brief asked to confirm; it is a decree, in force. Ley Chile holds one version (Única), so one record under the adopted row. The word 'Título' is printed 'Titulo' (no accent) three times in the Ley Chile text (Titulo Segundo, Séptimo, Sexto); stored as served by the JSON route. The XML route returns a replacement character there, which is why the JSON route was used. Implements cl-ley-20780-art8. Languages stored: es. English looked for on 2026-11-02 at https://www.bcn.cl/en and https://www.bcn.cl/leychile/en (both 200 and the same Spanish script shell as the Ley Chile home page, 8888 and 9602 bytes) and in the Ley Chile version list (Spanish only): no government English translation found, none stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cl-ley-19496-art28-33",
+    "title": "Ley 19.496 art. 28 and art. 33 (publicidad engañosa, including claims on environmental harm and recyclability)",
+    "official_url": "https://www.bcn.cl/leychile/navegar?idNorma=61438",
+    "citation": "Ley 19.496 on consumer protection, Artículos 28 and 33, published 7 March 1997",
+    "in_force": "1997-03-07",
+    "evidence": "Ley Chile version list for idNorma 61438 (opened 2026-11-02): tipoVersion \"Texto Original\", vigenteDesde 1997-03-07; XML header fechaPublicacion=\"1997-03-07\". No commencement clause was read in the Act; Ley Chile dates the original from publication.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CL-BCN-ADOPTED",
+      "CL-BCN-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Artículo 28 (misleading advertising, letter f: \"Su condición de no producir daño al medio ambiente, a la calidad de vida y de ser reciclable o reutilizable\") followed by Artículo 33 (information on products and advertising must be verifiable), cut from the whole Act by the position of each article in the Ley Chile XML. All 18 Ley Chile versions (1997-03-07 to 2021-04-20) were compared and the two articles read the same in each, so there is one record under the adopted row and no consolidated record. Artículos 28 A and 28 B (promotional communications) are not included. Languages stored: es. English looked for on 2026-11-02 at https://www.bcn.cl/en and https://www.bcn.cl/leychile/en (both 200 and the same Spanish script shell as the Ley Chile home page, 8888 and 9602 bytes) and in the Ley Chile version list (Spanish only): no government English translation found, none stored. Cut from the XML route; checked on 2026-11-02 against the JSON route of the same version: the article text is identical except that the JSON adds BCN's amendment annotations (for example 'Ley 21210 Art. décimo sexto a) D.O. 24.02.2020'), which are not in the XML text and not stored.",
+    "status": "stored"
+  }
+]

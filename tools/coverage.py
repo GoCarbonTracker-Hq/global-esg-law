@@ -56,11 +56,14 @@ def load(repo):
     for scope_path in sorted((repo / "register").glob("*/scope.json")):
         scopes[scope_path.parent.name] = _json(scope_path)
     records = defaultdict(list)  # (iso2, instrument id) -> list of in_force dates
+    kinds = defaultdict(list)  # (iso2, instrument id) -> list of record kinds
     records_root = repo / "records"
     if records_root.exists():
         for path in sorted(records_root.glob("*/*/*.json")):
             iso2, instrument = path.parent.parent.name, path.parent.name
-            records[(iso2, instrument)].append(_json(path).get("in_force") or "")
+            record = _json(path)
+            records[(iso2, instrument)].append(record.get("in_force") or "")
+            kinds[(iso2, instrument)].append(record.get("kind") or "")
     sources = {row["id"]: row for row in _json(repo / "sources.json", [])}
     watchers = _json(repo / "upkeep" / "watchers.json", [])
     seen_path = repo / "upkeep" / "seen.json"
@@ -69,7 +72,7 @@ def load(repo):
     missing = [t for t in TIERS if t not in cadence.get("tiers", {})]
     if missing:
         raise ValueError(f"upkeep/cadence.json: no cadence for {missing}")
-    return {"register": register, "scopes": scopes, "records": records, "sources": sources,
+    return {"register": register, "scopes": scopes, "records": records, "kinds": kinds, "sources": sources,
             "watchers": watchers, "seen": seen, "seen_exists": seen is not None, "cadence": cadence}
 
 
@@ -192,6 +195,8 @@ def build(repo=ROOT, today=None):
     instrument_places = sorted({row["iso2"] for row in register if (row.get("instrument_title") or "").strip()})
     stored_places = sorted({iso2 for iso2, fs in scope_facts.items() if any(f["stored"] for f in fs)})
     link_only_places = [p for p in instrument_places if p not in stored_places]
+    consolidated_places = {iso2 for (iso2, _), ks in data["kinds"].items() if "consolidated" in ks}
+    as_published_places = [p for p in stored_places if p not in consolidated_places]
     empty_places = [p for p in sorted(places) if p not in instrument_places]
     stale_cells = sum(1 for iso2 in grid for fam in grid[iso2] if cell(grid[iso2][fam]).endswith("stale"))
     stale_instruments = [f for f in all_facts if f["stale"]]
@@ -242,6 +247,7 @@ def build(repo=ROOT, today=None):
         ("Grid cells marked stale", stale_cells),
         ("Places with no watcher", len(unwatched_places)),
         ("Places with instruments but no stored text (link only)", len(link_only_places)),
+        ("Places with stored text but no consolidated text (as published only)", len(as_published_places)),
     ]
     for label, value in counts:
         w(f"| {label} | {value} | {as_of} | `{COMMAND}` |")
@@ -261,6 +267,9 @@ def build(repo=ROOT, today=None):
         w(f"- {iso2}: families with no instrument ({len(missing)}): " + (", ".join(missing) or "none") + ".")
     w(f"- Places with instruments but no stored text, link only ({len(link_only_places)}): "
       + (", ".join(link_only_places) or "none") + ".")
+    w(f"- Places whose stored texts are the acts as published, no consolidated text ({len(as_published_places)}): "
+      + (", ".join(as_published_places) or "none") + ". A date lookup for these places returns the act as first "
+      "printed and the amending acts stored as their own instruments; the amendments are not folded in.")
     w(f"- Places listed with no instrument found ({len(empty_places)}): " + (", ".join(empty_places) or "none") + ".")
     w(f"- Register rows with an instrument but no law family ({len(no_family_rows)}), not shown in the grid: "
       + (", ".join(sorted({r['iso2'] for r in no_family_rows})) or "none") + ".")
