@@ -3202,3 +3202,35 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Cyprus
+
+Rows added on 2026-11-02: `CY-GPO-ADOPTED` (Government Printing Office, Official Gazette), `CY-CYLAW-CONSOLIDATED`, `CY-CYSEC-ADOPTED`, `CY-CSE-ADOPTED`, `CY-MOA-ADOPTED`. All five are `permission requested`, so no row is `pass` and nothing is stored: every Cyprus instrument is `link only`. Reasons: the GPO terms (https://www.mof.gov.cy/mof/gpo/gpo.nsf/terms-el/terms-el?opendocument) say the site's information "δεν υποκαθιστούν νομικά κείμενα" and contain no reuse sentence; Law 59/1976 (Copyright) has no exclusion of laws: s. 4(γ) recognises copyright in works made or issued by the Government, s. 6 is protection under international treaties, s. 7 the nature of the right (read on https://www.cylaw.org/nomoi/enop/non-ind/1976_1_59/full.html). So there is no statute exception and the verdict rests on terms. CyLaw is run by a bar association and its terms forbid mass or automated download and external indexing. CySEC and CSE footers say all rights reserved. The Department of Environment terms page grants nothing. Law 143(I)/2021 art. 4(1) (re-use of public sector documents "για εμπορικούς ή μη εμπορικούς σκοπούς, σύμφωνα με τους όρους ... Μερών IV και V") is the one route that could change the GPO verdict; its Parts IV and V were not read, so it was not applied (flagged in the PR).
+
+The gazette PDFs are free and need no browser. Fetch of one named instrument, row `CY-GPO-ADOPTED`, Annex I Part I No. 5051 of 2025-07-29 (contains Laws 159(I) to 162(I)/2025, among them the Companies (Amendment) (No. 3) Law 162(I)/2025). The issue page `https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument` names the file; the file name has a Greek capital Eta (U+0397) in `PARARTΗMA`, so it is percent-encoded:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gaz_5051_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.mof.gov.cy/mof/gpo/gazette.nsf/ADB5F123967FEA15C2258CD6002F9C3B/$file/5051%2029%207%202025%20PARART%CE%97MA%201o%20MEROS%20I.pdf'
+```
+
+Returned `200 2451930 application/pdf`, sha256 `c71e49ef679dbb10b60d2b64bc32d284930de16d35e288d2d5fc2a159d12c54e`; a second fetch gave the same hash. Text extraction (used for reading only, nothing stored): poppler `pdftotext -layout gaz_5051_2025.pdf -`; the output was clean Greek (no mojibake; the only non-Greek characters are µ, €, ° and ∙). The other issues read the same way: 5050 (`200 5986734`), 5064 (`200 445402`), 5006 (`200 3124203`), 5093 (`200 1355009`), 4840 (`200 5124103`), all `application/pdf`. Issue 4290 of 2011-07-29 (`200 4762713 application/pdf`) is an image scan: `pdftotext` returned 134 characters, so the text of Law 110(I)/2011 is not machine readable and `in_force` is null for it.
+
+How to find an issue: `https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16` lists Annex I Part I of the current year (issues 5095 to 5100 on the day); older issues are under `dmlgazette_archive_gr/dmlgazette_archive_gr?OpenForm&Start=1&Count=9999&Expand={year index}.{month}.2&Seq=3` (year index 1 = 2026, 2 = 2025 ... 16 = 2011; sub-index 2 = Παραρτήματα). The 2005 to 2021 per-year PDF indexes (`dmlprevious_Archive_gr`) were not used.
+
+### Languages
+
+Greek is the only language of the gazette. Turkish is co-official under the Constitution, but laws are published in Greek only. The English pages of the gazette site (`officialgazette-en`) carry navigation, no law text. No government English translation of any scoped law was found on mof.gov.cy/gpo; no translation row exists. Nothing is taken from a law firm, an exchange, an NGO or a news site.
+
+### Link only
+
+All nine scope entries (`cy-companies-amendment-3-2025`, `cy-auditors-amendment-2025`, `cy-transparency-amendment-2-2025`, `cy-ets-law-2011`, `cy-ets-amendment-2024`, `cy-ets-amendment-2025`, `cy-ets-amendment-2-2025`, `cy-consumer-protection-law-2021`, `cy-consumer-protection-amendment-3-2026`): row `CY-GPO-ADOPTED` is permission requested. `cy-ets-law-2011` has `in_force` null because its gazette PDF is an image.
+
+Not in scope: the consolidated Companies Law Cap. 113 (only CyLaw serves it); the ETS amendments 202(I)/2012, 21(I)/2015, 127(I)/2020 and the consumer amendments 46(I)/2022, 166(I)/2022, 30(I)/2026, 75(I)/2026 (gazettes not opened, not climate transpositions of the brief); a framework climate law (none found: no Annex I(I) issue and no CyLaw 2025 or 2026 index entry; the bill has a `register.csv` row with family F7). The Environmental Impact Assessment law was not entered as the F2 fallback.
+
+### Blocked from the cloud address
+
+- https://www.cygazette.com and https://www.cygazette.com/: `curl: (35) Recv failure: Connection reset by peer` (no HTTP answer); mof.gov.cy/gpo serves the same gazette, so nothing depended on it.
+- https://www.moa.gov.cy/environment: first request `503 114 text/plain` ("upstream connect error or disconnect/reset before headers"); the same host answered `200` minutes later on `.../environmentnew.nsf/index_gr/index_gr?opendocument` (46429 bytes), so this was transient.
+- https://www.cse.com.cy/el-GR/terms/: 404 (no such page); the footer link was not resolved.
+
+No browser recipe was needed; no record is browser-fetched.

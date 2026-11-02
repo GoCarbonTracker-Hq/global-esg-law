@@ -5948,5 +5948,139 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "cy-companies-amendment-3-2025-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-companies-amendment-3-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-auditors-amendment-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-auditors-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-transparency-amendment-2-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-transparency-amendment-2-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-law-2011-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-law-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2024-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/878233CFCD915888C2258B66002FB199?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/F0CF43ACA530EFBAC2258CD2003C75E2?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/D22C2A963427AE00C2258D5B003E7B86?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-consumer-protection-law-2021-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-consumer-protection-law-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-consumer-protection-amendment-3-2026-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-consumer-protection-amendment-3-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/3ECEBA072E9DDD4DC2258E370035196F?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-gpo-adopted",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mof.gov.cy/mof/gpo/gpo.nsf/terms-el/terms-el?opendocument",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cylaw-consolidated",
+  "source_id": "CY-CYLAW-CONSOLIDATED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cylaw.org/terms.html",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cysec-adopted",
+  "source_id": "CY-CYSEC-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cysec.gov.cy/el-GR/terms/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cse-adopted",
+  "source_id": "CY-CSE-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cse.com.cy/el-GR/disclaimer/",
+  "change": "terms_changed",
+  "params": {}
  }
 ]
