@@ -1,0 +1,19 @@
+[
+  {
+    "id": "be-loi-2024-12-02-csrd",
+    "title": "Loi du 2 décembre 2024 relative à la publication, par certaines sociétés et groupes, d'informations en matière de durabilité et à l'assurance de l'information en matière de durabilité et portant dispositions diverses",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201",
+    "citation": "Loi du 2 décembre 2024 (Numac 2024011683), Moniteur belge 20 décembre 2024, p. 136124; transposes Directive (EU) 2022/2464",
+    "in_force": "2024-12-30",
+    "evidence": "Header of the Justel consolidated text (French) opened with headless Chromium on 2026-11-02: \"Publication: 20 décembre 2024 ... Numéro: 2024011683 ... Dossier numéro: 2024-12-02/07 ... Entrée en vigueur : 30 décembre 2024\". Art. 2: \"La présente loi transpose la directive (UE) 2022/2464 du Parlement européen et du Conseil du 14 décembre 2022\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: the Justel and Moniteur belge rows are permission requested because the site terms and Code de droit économique art. XI.172 § 2 could not be opened (the site served a CAPTCHA to the cloud address after the first request; see SOURCES.md ## Belgium). The page shows 2 archived versions (versions antérieures from 2024-12-20) and its note says updated to 2026-07-31; Art. 116 para 1/1 carries the stop-the-clock exemption, so the page appears to include the amending law of 12 December 2025, which was not opened and is not in scope. The page also offers NL and DE language links; neither was opened. Not searched or not confirmed on an official page in this session, so not in scope: Code des sociétés et des associations art. 3:6 § 4 and 3:32 § 2 (F1), the federal climate governance act of 2023-12-21 (F2), the regional ETS acts (F3; the Walloon décret du 10 novembre 2004 is on wallex.wallonie.be, whose terms are non-commercial, row BE-WALLEX-CONSOLIDATED), and Code de droit économique Livre VI art. VI.92 to VI.103 (F6). No government English translation was looked for beyond the Justel language bar (nl, fr, de).",
+    "status": "link only"
+  }
+]

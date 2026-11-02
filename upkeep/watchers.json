@@ -1818,5 +1818,17 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "be-loi-2024-12-02-csrd-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-loi-2024-12-02-csrd",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201 (browser; ejustice.just.fgov.be sits behind an F5 gateway that answers scripts with a JavaScript challenge and, after the first browser request, a CAPTCHA)"
+  }
  }
 ]
