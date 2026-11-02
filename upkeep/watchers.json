@@ -6099,5 +6099,77 @@
   "params": {
    "second_route": "https://kenyalaw.org/terms-of-use/ (browser; curl answered 200 on 2026-11-02)"
   }
+ },
+ {
+  "id": "is-arsreikningalog-66d-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-arsreikningalog-66d",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=%C3%A1rsreikninga&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-loftslagslog-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-loftslagslog",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=l%C3%B6gum+um+loftslagsm%C3%A1l&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-ets-log-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-ets-log",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=vi%C3%B0skiptakerfi+ESB+me%C3%B0+losunarheimildir&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-ets-regulation-606-2021-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-ets-regulation-606-2021",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=regluger%C3%B0+nr.+606%2F2021+vi%C3%B0skiptakerfi+Evr%C3%B3pusambandsins+me%C3%B0+losunarheimildir&department=b-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-markadssetningarlog-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-markadssetningarlog",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=marka%C3%B0ssetningarlaga&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-sjalfbaernilog-fjarmal-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-sjalfbaernilog-fjarmal",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=uppl%C3%BDsingagj%C3%B6f+um+sj%C3%A1lfb%C3%A6rni+%C3%A1+svi%C3%B0i+fj%C3%A1rm%C3%A1la%C3%BEj%C3%B3nustu&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
  }
 ]
