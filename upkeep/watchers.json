@@ -5948,5 +5948,75 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "uy-ley-17283-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-17283",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/17283-2000?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-19439-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-19439",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/19439-2016?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-238-2009-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-238-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/238-2009?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-310-2017-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-310-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/310-2017?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-19996-art326-327-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-19996-art326-327",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/19996-2021?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-441-2021-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-441-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/441-2021?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-17250-art24-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-17250-art24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/17250-2000?json=true",
+  "params": {}
  }
 ]
