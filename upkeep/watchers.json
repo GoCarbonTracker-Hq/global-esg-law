@@ -7141,5 +7141,199 @@
   "kind": "http_head",
   "tier": "consolidation_site",
   "url": "https://busquedas.elperuano.pe/api/archivo/file/22AIgFtfKJZ95ZsRs-y579/*/218542-6.pdf"
+ },
+ {
+  "id": "mt-csr-act-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-act-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/act/2026/1/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-csr-act-2026-commencement-ln-61-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-act-2026-commencement-ln-61",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2026/61/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-csr-regulations-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-csr-regulations-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/386.31/eng",
+  "params": {
+   "regex": "sl/386\\.31/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-csr-amendment-regulations-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-amendment-regulations-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2026/236/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2024-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/643/eng",
+  "params": {
+   "regex": "cap/643/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2024-commencement-ln-248-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2024-commencement-ln-248",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2024/248/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2015-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2015",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/543/eng",
+  "params": {
+   "regex": "cap/543/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ghg-inventory-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ghg-inventory-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.4/eng",
+  "params": {
+   "regex": "sl/643\\.4/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-stationary-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-stationary-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.2/eng",
+  "params": {
+   "regex": "sl/643\\.2/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-aviation-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-aviation-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.3/eng",
+  "params": {
+   "regex": "sl/643\\.3/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets2-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets2-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.5/eng",
+  "params": {
+   "regex": "sl/643\\.5/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-maritime-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-maritime-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.6/eng",
+  "params": {
+   "regex": "sl/643\\.6/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-cbam-implementing-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-cbam-implementing-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.7/eng",
+  "params": {
+   "regex": "sl/643\\.7/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-consumer-affairs-act-part-viii-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-consumer-affairs-act-part-viii",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/378/eng",
+  "params": {
+   "regex": "cap/378/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-terms-legislation-adopted",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/415/eng",
+  "change": "terms_changed",
+  "params": {
+   "regex": "cap/415/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-terms-legislation-consolidated",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/415/eng",
+  "change": "terms_changed",
+  "params": {
+   "regex": "cap/415/(\\d{8})/"
+  }
  }
 ]
