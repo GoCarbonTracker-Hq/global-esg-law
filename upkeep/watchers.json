@@ -2237,6 +2237,102 @@
   }
  },
  {
+  "id": "mx-lgcc-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCC.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/ref/lgcc.htm (browser; lists every reform with its DOF date; the bare directory https://www.diputados.gob.mx/LeyesBiblio/ answers 403)"
+  }
+ },
+ {
+  "id": "mx-lgcc-reg-rne-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc-reg-rne",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGCC_MRNE_281014.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm (browser; list of Reglamentos with their reform dates)"
+  }
+ },
+ {
+  "id": "mx-rne-gases-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-gases-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5404077",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5404077&fecha=14/08/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-rne-metodologias-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-metodologias-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5406149",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03/09/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-sce-programa-prueba-2019-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-sce-programa-prueba-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5573934",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019 (browser; this watcher sees only a change to the published note, not a later acuerdo that extends or replaces it)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-disposiciones-cnbv-pdf-head",
+  "source_id": "MX-CNBV-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-disposiciones",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cnbv.gob.mx/Normatividad/Disposiciones%20de%20car%C3%A1cter%20general%20aplicables%20a%20las%20emisoras%20de%20valores%20y%20a%20otros%20participantes%20del%20mercado%20de%20valores.pdf",
+  "params": {
+   "second_route": "https://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/BURS%C3%81TIL/Normatividad/Paginas/Emisoras.aspx (browser; cnbv.gob.mx fails certificate verification for scripts because its certificate chain is incomplete, so this watcher is expected to report a failure until read from a browser)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-sostenibilidad-2025-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-sostenibilidad-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5747872",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025 (browser; this watcher sees only a change to the published note, not a later CNBV resolution)"
+  }
+ },
+ {
+  "id": "mx-cinif-nis-cinif-page",
+  "source_id": "MX-CINIF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cinif-nis",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cinif.org.mx/normatividad_NIS2026.php",
+  "params": {
+   "second_route": "https://www.cinif.org.mx/normatividad_NIS2026.php (browser)"
+  }
+ },
+ {
   "id": "it-dlgs-125-2024-normattiva-updates",
   "source_id": "IT-NORMATTIVA-CONSOLIDATED",
   "iso2": "IT",
