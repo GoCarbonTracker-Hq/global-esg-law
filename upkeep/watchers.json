@@ -5948,5 +5948,114 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "li-pgr-art-1096b-k-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-pgr-art-1096b-k",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/1926004000"
+ },
+ {
+  "id": "li-ehg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ehg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2012346000"
+ },
+ {
+  "id": "li-ehv-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ehv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2012379000"
+ },
+ {
+  "id": "li-co2-gesetz-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-co2-gesetz",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2013358000"
+ },
+ {
+  "id": "li-co2-verordnung-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-co2-verordnung",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2013359000"
+ },
+ {
+  "id": "li-usg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-usg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2008199000"
+ },
+ {
+  "id": "li-ewr-fndg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ewr-fndg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2022120000"
+ },
+ {
+  "id": "li-uwg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-uwg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/1992121000"
+ },
+ {
+  "id": "li-lgbl-2024-171-wpg-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2024-171-wpg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2024171000"
+ },
+ {
+  "id": "li-lgbl-2024-172-offg-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2024-172-offg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2024172000"
+ },
+ {
+  "id": "li-lgbl-2025-517-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2025-517",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2025517000"
+ },
+ {
+  "id": "terms-li-lilex-urg-art5",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/1999160000",
+  "change": "terms_changed"
  }
 ]
