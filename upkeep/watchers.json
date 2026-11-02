@@ -542,5 +542,1281 @@
   "params": {
    "second_route": "browser read (browser-harness) or Internet Archive snapshot"
   }
+ },
+ {
+  "id": "au-tlaa-2024-87-versions",
+  "source_id": "AU-LEGISLATION-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-tlaa-2024-87",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2024A00087'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2024A00087/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-corporations-act-2001-pt2m3-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-corporations-act-2001-pt2m3",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2004A00818'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2004A00818/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-aasb-s2-versions",
+  "source_id": "AU-AASB-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-aasb-s2",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2024L01472'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2024L01472/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-aasb-s2025-1-versions",
+  "source_id": "AU-AASB-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-aasb-s2025-1",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2025L01594'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2025L01594/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-assa-5010-versions",
+  "source_id": "AU-AUASB-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-assa-5010",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2025L00109'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2025L00109/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-assa-2025-10-versions",
+  "source_id": "AU-AUASB-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-assa-2025-10",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2025L01654'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2025L01654/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-nger-act-2007-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-nger-act-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2007A00175'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2007A00175/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-nger-regulations-2008-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-nger-regulations-2008",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2008L02230'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2008L02230/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-nger-safeguard-rule-2015-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-nger-safeguard-rule-2015",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2015L01637'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2015L01637/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-safeguard-crediting-act-2023-versions",
+  "source_id": "AU-LEGISLATION-ADOPTED",
+  "iso2": "AU",
+  "instrument": "au-safeguard-crediting-act-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2023A00014'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2023A00014/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-climate-change-act-2022-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-climate-change-act-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2022A00037'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2022A00037/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "au-modern-slavery-act-2018-versions",
+  "source_id": "AU-LEGISLATION-CONSOLIDATED",
+  "iso2": "AU",
+  "instrument": "au-modern-slavery-act-2018",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2018A00153'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2018A00153/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "br-lei-15042-2024-camara-norma-page",
+  "source_id": "BR-CAMARA-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-lei-15042-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www2.camara.leg.br/legin/fed/lei/2024/lei-15042-11-dezembro-2024-796690-norma-pl.html",
+  "params": {
+   "second_route": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L15042.htm (browser; planalto.gov.br answers scripts with an empty reply or an Acesso Negado page)"
+  }
+ },
+ {
+  "id": "br-decreto-12677-2025-camara-norma-page",
+  "source_id": "BR-CAMARA-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-decreto-12677-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12677-15-outubro-2025-798146-norma-pe.html",
+  "params": {
+   "second_route": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12677-15-outubro-2025-798146-norma-pe.html (browser)"
+  }
+ },
+ {
+  "id": "br-decreto-12768-2025-camara-norma-page",
+  "source_id": "BR-CAMARA-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-decreto-12768-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12768-5-dezembro-2025-798431-norma-pe.html",
+  "params": {
+   "second_route": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12768-5-dezembro-2025-798431-norma-pe.html (browser)"
+  }
+ },
+ {
+  "id": "br-lei-12187-2009-camara-norma-page",
+  "source_id": "BR-CAMARA-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-lei-12187-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www2.camara.leg.br/legin/fed/lei/2009/lei-12187-29-dezembro-2009-599441-norma-pl.html",
+  "params": {
+   "second_route": "https://www.lexml.gov.br/urn/urn:lex:br:federal:lei:2009-12-29;12187 (lists the C\u00e2mara and Planalto links for the law)"
+  }
+ },
+ {
+  "id": "br-cvm-res-193-2023-cvm-resolution-page",
+  "source_id": "BR-CVM-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-cvm-res-193-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol193.html",
+  "params": {
+   "second_route": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol193.html (browser)"
+  }
+ },
+ {
+  "id": "br-cvm-res-219-2024-cvm-resolution-page",
+  "source_id": "BR-CVM-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-cvm-res-219-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol219.html",
+  "params": {
+   "second_route": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol219.html (browser)"
+  }
+ },
+ {
+  "id": "br-cvm-res-227-2025-cvm-resolution-page",
+  "source_id": "BR-CVM-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-cvm-res-227-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol227.html",
+  "params": {
+   "second_route": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol227.html (browser)"
+  }
+ },
+ {
+  "id": "br-cvm-res-244-2026-cvm-resolution-page",
+  "source_id": "BR-CVM-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-cvm-res-244-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol244.html",
+  "params": {
+   "second_route": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol244.html (browser)"
+  }
+ },
+ {
+  "id": "br-cvm-res-59-2021-cvm-resolution-page",
+  "source_id": "BR-CVM-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-cvm-res-59-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol059.html",
+  "params": {
+   "second_route": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol059.html (browser)"
+  }
+ },
+ {
+  "id": "br-cmn-res-4943-2021-bcb-normativo",
+  "source_id": "BR-BCB-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-cmn-res-4943-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20CMN&p2=4943",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4943 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-cmn-res-4944-2021-bcb-normativo",
+  "source_id": "BR-BCB-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-cmn-res-4944-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20CMN&p2=4944",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4944 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-cmn-res-4945-2021-bcb-normativo",
+  "source_id": "BR-BCB-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-cmn-res-4945-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20CMN&p2=4945",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4945 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-bcb-res-139-2021-bcb-normativo",
+  "source_id": "BR-BCB-CONSOLIDATED",
+  "iso2": "BR",
+  "instrument": "br-bcb-res-139-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=139",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=139 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-bcb-res-140-2021-bcb-normativo",
+  "source_id": "BR-BCB-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-bcb-res-140-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=140",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=140 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-bcb-res-586-2026-bcb-normativo",
+  "source_id": "BR-BCB-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-bcb-res-586-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=586",
+  "params": {
+   "second_route": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=586 (browser; the page is a script shell that reads the same API)"
+  }
+ },
+ {
+  "id": "br-mte-portaria-18-2024-mte-pdf",
+  "source_id": "BR-MTE-ADOPTED",
+  "iso2": "BR",
+  "instrument": "br-mte-portaria-18-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/portaria-interministerial-mte-mdhc-mir-n-18-2024.pdf",
+  "params": {
+   "second_route": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/cadastro-de-empregadores-em-ajustamento-de-conduta-ceac-normativos (browser; gov.br answers a HEAD request on the PDF with 403, the GET works)"
+  }
+ },
+ {
+  "id": "ca-ggppa-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-ggppa",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/acts/G-11.55/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/acts/G-11.55/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-obps-regs-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-obps-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2019-266/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2019-266/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-cneaa-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-cneaa",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/acts/C-19.3/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/acts/C-19.3/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-competition-act-s74-01-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-competition-act-s74-01",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/acts/C-34/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/acts/C-34/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-faflcsca-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-faflcsca",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/acts/F-10.6/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/acts/F-10.6/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-clean-fuel-regs-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-clean-fuel-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-140/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-140/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-methane-regs-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-methane-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-66/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2018-66/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-offset-credit-regs-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-offset-credit-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-111/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/regulations/SOR-2022-111/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-fsda-pit-index",
+  "source_id": "CA-JUSTICE-CONSOLIDATED",
+  "iso2": "CA",
+  "instrument": "ca-fsda",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws-lois.justice.gc.ca/eng/acts/F-8.6/PITIndex.html",
+  "params": {
+   "regex": "(\\d{8})/P1TT3xt3",
+   "second_route": "https://laws-lois.justice.gc.ca/eng/acts/F-8.6/PITIndex.html (browser; Point-in-time index, one link per dated version)"
+  }
+ },
+ {
+  "id": "ca-cepa-s46-ghg-notice-2023-page",
+  "source_id": "CA-GAZETTE-ADOPTED",
+  "iso2": "CA",
+  "instrument": "ca-cepa-s46-ghg-notice-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://gazette.gc.ca/rp-pr/p1/2023/2023-12-09/html/sup1-eng.html",
+  "params": {
+   "second_route": "https://gazette.gc.ca/rp-pr/p1/2023/2023-12-09/html/sup1-eng.html (browser)"
+  }
+ },
+ {
+  "id": "ca-cepa-s46-ghg-notice-amend-2025-page",
+  "source_id": "CA-GAZETTE-ADOPTED",
+  "iso2": "CA",
+  "instrument": "ca-cepa-s46-ghg-notice-amend-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://gazette.gc.ca/rp-pr/p1/2025/2025-12-06/html/notice-avis-eng.html",
+  "params": {
+   "second_route": "https://gazette.gc.ca/rp-pr/p1/2025/2025-12-06/html/notice-avis-eng.html (browser)"
+  }
+ },
+ {
+  "id": "ca-osfi-b15-page",
+  "source_id": "CA-OSFI-ADOPTED",
+  "iso2": "CA",
+  "instrument": "ca-osfi-b15",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/climate-risk-management",
+  "params": {
+   "second_route": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/climate-risk-management (browser)"
+  }
+ },
+ {
+  "id": "ch-co-art964a-c-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-co-art964a-c",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F27%2F317_321_377%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-co-art964j-l-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-co-art964j-l",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F27%2F317_321_377%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-vsotr-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-vsotr",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2021%2F847%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2021/847 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-climate-disclosure-ordinance-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-climate-disclosure-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2022%2F747%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2022/747 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-klg-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-klg",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2023%2F655%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2023/655 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-klv-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-klv",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2024%2F772%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2024/772 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-co2-act-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-co2-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2012%2F855%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2012/855 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-co2-ordinance-fedlex-consolidations",
+  "source_id": "CH-FEDLEX-CONSOLIDATED",
+  "iso2": "CH",
+  "instrument": "ch-co2-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://fedlex.data.admin.ch/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttps%3A%2F%2Ffedlex.data.admin.ch%2Feli%2Fcc%2F2012%2F856%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.fedlex.admin.ch/eli/cc/2012/856 (browser; Fedlex is a JavaScript application, the Versions tab lists the consolidations)"
+  }
+ },
+ {
+  "id": "ch-finma-circ-2026-1-finma-circulars-page",
+  "source_id": "CH-FINMA-ADOPTED",
+  "iso2": "CH",
+  "instrument": "ch-finma-circ-2026-1",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.finma.ch/en/documentation/circulars/",
+  "params": {
+   "second_route": "https://www.finma.ch/en/documentation/circulars/ (browser)"
+  }
+ },
+ {
+  "id": "hk-hkex-esg-code-part-d-page",
+  "source_id": "HK-HKEX-ADOPTED",
+  "iso2": "HK",
+  "instrument": "hk-hkex-esg-code-part-d",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/Rules-and-Regulations?sc_lang=en",
+  "params": {
+   "second_route": "https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/Rules-and-Regulations?sc_lang=en (browser)"
+  }
+ },
+ {
+  "id": "hk-cap622-sch5-open-data-zip",
+  "source_id": "HK-ELEGISLATION-CONSOLIDATED",
+  "iso2": "HK",
+  "instrument": "hk-cap622-sch5",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://resource.data.one.gov.hk/doj/data/hkel_c_leg_cap_601_cap_end_en.zip",
+  "params": {
+   "second_route": "https://www.elegislation.gov.hk/hk/cap622 (browser; the site answers scripts with a redirect to a JavaScript browser check). The watched file holds every cap from 601 on, so its Last-Modified moves when any of them changes"
+  }
+ },
+ {
+  "id": "hk-hkfrs-s1-s2-page",
+  "source_id": "HK-HKICPA-ADOPTED",
+  "iso2": "HK",
+  "instrument": "hk-hkfrs-s1-s2",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.hkicpa.org.hk/en/News/News-Release/20241212_HKFRS_S1_S2",
+  "params": {
+   "second_route": "https://www.hkicpa.org.hk/en/News/News-Release/20241212_HKFRS_S1_S2 (browser)"
+  }
+ },
+ {
+  "id": "hk-hkma-spm-gs1-page",
+  "source_id": "HK-HKMA-ADOPTED",
+  "iso2": "HK",
+  "instrument": "hk-hkma-spm-gs1",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/docId/20211230-2-EN",
+  "params": {
+   "second_route": "https://brdr.hkma.gov.hk/eng/doc-ldg/docId/20211230-2-EN (browser)"
+  }
+ },
+ {
+  "id": "hk-taxonomy-sustainable-finance-page",
+  "source_id": "HK-HKMA-ADOPTED",
+  "iso2": "HK",
+  "instrument": "hk-taxonomy-sustainable-finance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/05/20240503-3/",
+  "params": {
+   "second_route": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/05/20240503-3/ (browser)"
+  }
+ },
+ {
+  "id": "jp-fiea-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-fiea",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/323AC0000000025",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/323AC0000000025 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-cao-disclosure-order-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-cao-disclosure-order",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/348M50000040005",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/348M50000040005 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-gw-act-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-gw-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/410AC0000000117",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/410AC0000000117 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-gw-reporting-order-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-gw-reporting-order",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/418M60001FFA002",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/418M60001FFA002 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-gx-act-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-gx-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/505AC0000000032",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/505AC0000000032 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-gx-order-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-gx-order",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/505CO0000000379",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/505CO0000000379 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-gx-regulation-egov-revisions",
+  "source_id": "JP-EGOV-CONSOLIDATED",
+  "iso2": "JP",
+  "instrument": "jp-gx-regulation",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://laws.e-gov.go.jp/api/2/law_revisions/506M60000400003",
+  "params": {
+   "regex": "\"amendment_enforcement_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://laws.e-gov.go.jp/law/506M60000400003 (browser; the law page is a script shell, its revision list shows the same dates)"
+  }
+ },
+ {
+  "id": "jp-ssbj-standards-page",
+  "source_id": "JP-SSBJ-ADOPTED",
+  "iso2": "JP",
+  "instrument": "jp-ssbj-standards",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ssb-j.jp/en/ssbj_standards.html",
+  "params": {
+   "second_route": "https://www.ssb-j.jp/en/ssbj_standards.html (browser)"
+  }
+ },
+ {
+  "id": "jp-tse-cg-code-page",
+  "source_id": "JP-JPX-ADOPTED",
+  "iso2": "JP",
+  "instrument": "jp-tse-cg-code",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.jpx.co.jp/english/equities/listing/cg/index.html",
+  "params": {
+   "second_route": "https://www.jpx.co.jp/english/equities/listing/cg/index.html (browser)"
+  }
+ },
+ {
+  "id": "kr-carbon-neutrality-act-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-carbon-neutrality-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=014152&lsiSeq=289887",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289887 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-carbon-neutrality-act-decree-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-carbon-neutrality-act-decree",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=014255&lsiSeq=289965",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289965 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-ets-act-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=011612&lsiSeq=289285",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289285 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-ets-act-decree-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-ets-act-decree",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=011712&lsiSeq=289967",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=289967 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-sapa-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-sapa",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=013993&lsiSeq=228817",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=228817 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-sapa-decree-lawgokr-history",
+  "source_id": "KR-LAWGOKR-CONSOLIDATED",
+  "iso2": "KR",
+  "instrument": "kr-sapa-decree",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.law.go.kr/LSW/lsHstListR.do?lsId=014159&lsiSeq=278597",
+  "params": {
+   "regex": "lsViewLsHst2\\('\\d+', '\\d+', '\\d+', '(\\d{8})'",
+   "second_route": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=278597 (browser; the \uc5f0\ud601 tab lists the same versions; the site resets about one connection in three)"
+  }
+ },
+ {
+  "id": "kr-kssb-ksds-kasb-list-page",
+  "source_id": "KR-KASB-ADOPTED",
+  "iso2": "KR",
+  "instrument": "kr-kssb-ksds",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.kasb.or.kr/front/board/kdsdList.do",
+  "params": {
+   "second_route": "https://www.kasb.or.kr/front/board/kdsdList.do (browser)"
+  }
+ },
+ {
+  "id": "kr-krx-governance-report-krx-page",
+  "source_id": "KR-KRX-ADOPTED",
+  "iso2": "KR",
+  "instrument": "kr-krx-governance-report",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://law.krx.co.kr/",
+  "params": {
+   "second_route": "https://law.krx.co.kr/ (browser; blocked from the cloud address, not opened in the wave 1 session)"
+  }
+ },
+ {
+  "id": "nz-fmc-act-2013-part-7a-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-fmc-act-2013-part-7a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-fsca-2021-39-versions",
+  "source_id": "NZ-LEGISLATION-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-fsca-2021-39",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-28/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-fmc-climate-regs-2023-222-versions",
+  "source_id": "NZ-LEGISLATION-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-fmc-climate-regs-2023-222",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-10-02/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-10-02/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-nzcs-1-latest-page",
+  "source_id": "NZ-XRB-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-nzcs-1",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/",
+  "params": {
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-nzcs-2-latest-page",
+  "source_id": "NZ-XRB-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-nzcs-2",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/",
+  "params": {
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-nzcs-3-latest-page",
+  "source_id": "NZ-XRB-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-nzcs-3",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/",
+  "params": {
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ccra-zero-carbon-2019-61-versions",
+  "source_id": "NZ-LEGISLATION-ADOPTED",
+  "iso2": "NZ",
+  "instrument": "nz-ccra-zero-carbon-2019-61",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-14/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ccra-2002-part-1b-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ccra-2002-part-1b",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ccra-2002-part-4-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ccra-2002-part-4",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ets-stationary-energy-regs-2009-285-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ets-stationary-energy-regs-2009-285",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ets-liquid-fossil-fuels-regs-2008-356-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ets-liquid-fossil-fuels-regs-2008-356",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2025-01-01/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2025-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ets-waste-regs-2010-338-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ets-waste-regs-2010-338",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2023-01-01/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2023-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "nz-ets-forestry-regs-2022-266-versions",
+  "source_id": "NZ-LEGISLATION-CONSOLIDATED",
+  "iso2": "NZ",
+  "instrument": "nz-ets-forestry-regs-2022-266",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/2026-07-01/versions/?per_page=100",
+  "params": {
+   "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/2026-07-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+  }
+ },
+ {
+  "id": "sg-sgx-lr-711a-711b-rulebook-head",
+  "source_id": "SG-SGX-CONSOLIDATED",
+  "iso2": "SG",
+  "instrument": "sg-sgx-lr-711a-711b",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://rulebook.sgx.com/rulebook/mainboard-rules",
+  "params": {
+   "second_route": "https://rulebook.sgx.com/rulebook/mainboard-rules (browser; the rulebook page is 2 MB, so the watcher reads its Last-Modified header only)"
+  }
+ },
+ {
+  "id": "sg-sgx-pn-7-6-rulebook-head",
+  "source_id": "SG-SGX-CONSOLIDATED",
+  "iso2": "SG",
+  "instrument": "sg-sgx-pn-7-6",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://rulebook.sgx.com/rulebook/mainboard-rules",
+  "params": {
+   "second_route": "https://rulebook.sgx.com/rulebook/mainboard-rules (browser; the rulebook page is 2 MB, so the watcher reads its Last-Modified header only)"
+  }
+ },
+ {
+  "id": "sg-cpa-2018-sso-page",
+  "source_id": "SG-SSO-CONSOLIDATED",
+  "iso2": "SG",
+  "instrument": "sg-cpa-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sso.agc.gov.sg/Act/CPA2018",
+  "params": {
+   "second_route": "https://sso.agc.gov.sg/Act/CPA2018 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)"
+  }
+ },
+ {
+  "id": "sg-cpa-mrv-regs-2018-sso-page",
+  "source_id": "SG-SSO-CONSOLIDATED",
+  "iso2": "SG",
+  "instrument": "sg-cpa-mrv-regs-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sso.agc.gov.sg/SL-Supp/S857-2018/Published?DocDate=20181221",
+  "params": {
+   "second_route": "https://sso.agc.gov.sg/SL-Supp/S857-2018/Published?DocDate=20181221 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)"
+  }
+ },
+ {
+  "id": "sg-mas-erm-banks-mas-guideline-page",
+  "source_id": "SG-MAS-ADOPTED",
+  "iso2": "SG",
+  "instrument": "sg-mas-erm-banks",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management",
+  "params": {
+   "second_route": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management (browser; the MAS site showed a maintenance page to scripts on the wave 1 day)"
+  }
+ },
+ {
+  "id": "sg-mas-erm-insurers-mas-guideline-page",
+  "source_id": "SG-MAS-ADOPTED",
+  "iso2": "SG",
+  "instrument": "sg-mas-erm-insurers",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management-for-insurers",
+  "params": {
+   "second_route": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management-for-insurers (browser; the MAS site showed a maintenance page to scripts on the wave 1 day)"
+  }
+ },
+ {
+  "id": "sg-mas-erm-asset-managers-mas-guideline-page",
+  "source_id": "SG-MAS-ADOPTED",
+  "iso2": "SG",
+  "instrument": "sg-mas-erm-asset-managers",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management-for-asset-managers",
+  "params": {
+   "second_route": "https://www.mas.gov.sg/regulation/guidelines/guidelines-on-environmental-risk-management-for-asset-managers (browser; the MAS site showed a maintenance page to scripts on the wave 1 day)"
+  }
+ },
+ {
+  "id": "za-climate-change-act-22-2024-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-climate-change-act-22-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/documents/acts/climate-change-act-22-2024-english-tshivenda-23-jul-2024",
+  "params": {
+   "second_route": "https://www.gov.za/documents/acts/climate-change-act-22-2024-english-tshivenda-23-jul-2024 (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-carbon-tax-act-15-2019-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-carbon-tax-act-15-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/documents/acts/carbon-tax-act-15-2019-english-afrikaans-23-may-2019",
+  "params": {
+   "second_route": "https://www.gov.za/documents/acts/carbon-tax-act-15-2019-english-afrikaans-23-may-2019 (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-nger-regs-2017-pdf-head",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-nger-regs-2017",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/sites/default/files/gcis_document/201704/40762gen275.pdf",
+  "params": {
+   "second_route": "https://www.gov.za/sites/default/files/gcis_document/201704/40762gen275.pdf (browser)"
+  }
+ },
+ {
+  "id": "za-nger-regs-amendment-2020-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-nger-regs-amendment-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/documents/notices/national-environmental-management-air-quality-act-regulations-national-2",
+  "params": {
+   "second_route": "https://www.gov.za/documents/notices/national-environmental-management-air-quality-act-regulations-national-2 (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-companies-act-71-2008-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-companies-act-71-2008",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/ts/documents/companies-act",
+  "params": {
+   "second_route": "https://www.gov.za/ts/documents/companies-act (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-companies-regs-2011-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-companies-regs-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/documents/notices/companies-act-regulations-26-apr-2011",
+  "params": {
+   "second_route": "https://www.gov.za/documents/notices/companies-act-regulations-26-apr-2011 (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-bbbee-act-53-2003-govza-page",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-bbbee-act-53-2003",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/node/697333",
+  "params": {
+   "second_route": "https://www.gov.za/node/697333 (browser; gov.za resets scripted connections at random)"
+  }
+ },
+ {
+  "id": "za-pfa-reg-28-pdf-head",
+  "source_id": "ZA-GOVZA-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-pfa-reg-28",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.gov.za/sites/default/files/gcis_document/201409/34070rg9485gon183.pdf",
+  "params": {
+   "second_route": "https://www.gov.za/sites/default/files/gcis_document/201409/34070rg9485gon183.pdf (browser)"
+  }
+ },
+ {
+  "id": "za-pa-g3-2025-banks-pdf-head",
+  "source_id": "ZA-RESBANK-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-pa-g3-2025-banks",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.resbank.co.za/content/dam/sarb/publications/prudential-authority/pa-deposit-takers/banks-guidance-notes/2025/g3-2025/G3-2025-%20Guidance%20Note%20Climate%20Disclosures%20for%20banks.pdf",
+  "params": {
+   "second_route": "https://www.resbank.co.za/content/dam/sarb/publications/prudential-authority/pa-deposit-takers/banks-guidance-notes/2025/g3-2025/G3-2025-%20Guidance%20Note%20Climate%20Disclosures%20for%20banks.pdf (browser)"
+  }
+ },
+ {
+  "id": "za-pa-gn3-2025-insurers-pdf-head",
+  "source_id": "ZA-RESBANK-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-pa-gn3-2025-insurers",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.resbank.co.za/content/dam/sarb/what-we-do/prudential-regulation/climate-related-risk/2025/GN3%202025%20Guidance%20Notice%20Insurance%20Climate%20Disclosures.pdf",
+  "params": {
+   "second_route": "https://www.resbank.co.za/content/dam/sarb/what-we-do/prudential-regulation/climate-related-risk/2025/GN3%202025%20Guidance%20Notice%20Insurance%20Climate%20Disclosures.pdf (browser)"
+  }
+ },
+ {
+  "id": "za-jse-listings-8-63-pdf-head",
+  "source_id": "ZA-JSE-ADOPTED",
+  "iso2": "ZA",
+  "instrument": "za-jse-listings-8-63",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.jse.co.za/sites/default/files/media/documents/Amendment%20Schedule%20Equity%20Listing%20Requirements%20CLEAN%2016%20Oct%202023.pdf",
+  "params": {
+   "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
+  }
  }
 ]
