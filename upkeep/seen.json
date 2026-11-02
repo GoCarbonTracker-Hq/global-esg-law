@@ -1,0 +1,332 @@
+{
+ "eu-csddd-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2024-07-05",
+   "2025-04-17",
+   "2026-03-18"
+  ]
+ },
+ "eu-csrd-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2022-12-16",
+   "2025-04-17",
+   "2026-03-18"
+  ]
+ },
+ "eu-esrs-amendment-2025-1416-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2024-02-05",
+   "2024-04-19",
+   "2024-06-18",
+   "2024-07-19",
+   "2024-07-26",
+   "2024-07-29",
+   "2024-08-09",
+   "2024-08-12",
+   "2024-08-16",
+   "2025-01-07",
+   "2025-07-11",
+   "2026-07-03"
+  ]
+ },
+ "eu-esrs-amendment-2026-1563-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2026-09-25",
+   "2026-10-15"
+  ]
+ },
+ "eu-esrs-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2023-12-22",
+   "2025-01-01"
+  ]
+ },
+ "eu-omnibus-content-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2008-03-11",
+   "2013-06-26",
+   "2013-08-10",
+   "2013-12-28",
+   "2014-04-16",
+   "2014-10-22",
+   "2014-11-07",
+   "2014-12-13",
+   "2014-12-31",
+   "2016-01-30",
+   "2018-07-12",
+   "2021-10-07",
+   "2021-11-24",
+   "2022-04-28",
+   "2022-07-07",
+   "2022-12-14",
+   "2023-07-20",
+   "2023-10-17",
+   "2023-12-13",
+   "2024-04-29",
+   "2024-07-24",
+   "2024-11-27",
+   "2025-10-08",
+   "2026-02-24"
+  ]
+ },
+ "eu-omnibus-stop-the-clock-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2023-02-23",
+   "2023-04-13",
+   "2023-10-17",
+   "2024-08-16",
+   "2024-09-13",
+   "2024-11-20",
+   "2025-04-14",
+   "2025-05-07",
+   "2025-09-11",
+   "2025-10-08",
+   "2025-11-10",
+   "2026-02-24",
+   "2026-03-10",
+   "2026-07-01",
+   "2026-07-03"
+  ]
+ },
+ "eu-sfdr-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2020-07-12",
+   "2024-01-09",
+   "2026-07-02"
+  ]
+ },
+ "eu-sfdr-rts-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2022-07-25",
+   "2023-02-20"
+  ]
+ },
+ "eu-taxonomy-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2020-10-15",
+   "2020-12-14",
+   "2021-05-20",
+   "2021-09-30",
+   "2022-06-09",
+   "2023-02-16",
+   "2023-05-11",
+   "2023-06-01",
+   "2024-02-15"
+  ]
+ },
+ "eu-taxonomy-climate-amendment-da-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2024-05-22",
+   "2024-10-22"
+  ]
+ },
+ "eu-taxonomy-climate-da-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2023-01-01",
+   "2024-01-01",
+   "2025-01-01",
+   "2025-01-08",
+   "2026-01-01"
+  ]
+ },
+ "eu-taxonomy-complementary-climate-da-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2025-04-29"
+  ]
+ },
+ "eu-taxonomy-disclosures-da-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2021-12-10",
+   "2023-01-01",
+   "2024-01-01",
+   "2026-01-01"
+  ]
+ },
+ "eu-taxonomy-environmental-da-cellar-consolidations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2023-11-21",
+   "2026-01-01"
+  ]
+ },
+ "eu-taxonomy-simplification-da-cellar-amendments": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2026-01-16",
+   "2026-04-23"
+  ]
+ },
+ "gb-ca2006-ch4a-versions": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2013-10-01",
+   "2015-04-06",
+   "2016-12-26",
+   "2018-01-01",
+   "2019-01-01",
+   "2020-12-31",
+   "2022-04-06"
+  ]
+ },
+ "gb-ca2006-s414cb-versions": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2016-12-26",
+   "2022-04-06"
+  ]
+ },
+ "gb-fca-esg-handbook-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "1705a2884a9c9fe0c9804dc18f5874a8b7e91aa4110e92c656d8e0548ed512e2"
+  ]
+ },
+ "gb-uk-srs-govuk-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "c144ca4597dafd8c032c281ba119c8ab4472e0d254af8850360322bc71bb752b"
+  ]
+ },
+ "gb-uksi-2022-31-contents-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "734c3cd2680d4d85dfdad827737d826f2d2be95f43df2ef6df6d7705bbe061fe"
+  ]
+ },
+ "in-companies-act-2013-indiacode-page": {
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 403",
+  "signals": null
+ },
+ "in-sebi-brsr-circular-2021-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "570f47495b3567584be7c5c74183cdb5436269031ad63f61f0e322ed10022d7e"
+  ]
+ },
+ "in-sebi-brsr-core-circular-2023-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "20cd41ebbdf160f3f2b48c518c726733ac1a3189d19fdc761c3d132cc8ac945d"
+  ]
+ },
+ "in-sebi-circular-2025-42-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "9ded469080d9115ea1b621d9b08ed53c1170555770dbcf6988a7e35ea07e2e70"
+  ]
+ },
+ "in-sebi-lodr-regulations-page": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "741c3362df12274d9387dc51270dc8547b84266b8bccf592a0be7b65b96c87b5"
+  ]
+ },
+ "us-ca-leginfo-pubinfo-2025": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "Last-Modified: Mon, 26 Oct 2026 04:26:08 GMT"
+  ]
+ },
+ "us-ca-sb219-leginfo-pubinfo-2023": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "Last-Modified: Mon, 25 Nov 2024 05:26:38 GMT"
+  ]
+ },
+ "us-ca-sb253-carb-program-page": {
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 419",
+  "signals": null
+ },
+ "us-ca-sb261-carb-financial-risk-page": {
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 419",
+  "signals": null
+ },
+ "us-ecfr-40cfr98-versions": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2017-01-01",
+   "2017-03-06",
+   "2017-07-17",
+   "2017-08-14",
+   "2017-08-15",
+   "2017-08-31",
+   "2018-01-01",
+   "2018-09-21",
+   "2019-01-01",
+   "2019-09-19",
+   "2019-11-01",
+   "2024-04-25",
+   "2024-05-14",
+   "2024-07-15",
+   "2024-08-28",
+   "2024-09-04",
+   "2024-10-04",
+   "2024-11-18",
+   "2025-01-01",
+   "2025-01-17",
+   "2025-03-20",
+   "2025-05-19",
+   "2025-09-19",
+   "2025-09-22",
+   "2025-09-29",
+   "2026-02-27",
+   "2026-03-17",
+   "2026-10-14"
+  ]
+ },
+ "us-sec-climate-fedreg-citations": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "2024-03-28",
+   "2024-04-12",
+   "2026-05-21",
+   "2026-06-03"
+  ]
+ }
+}
