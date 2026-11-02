@@ -2057,6 +2057,282 @@
   }
  },
  {
+  "id": "se-arl-ch6-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch6",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-arl-ch7-s31-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch7-s31",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-sfs-2024-347-sfs-head",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "se-sfs-2024-347",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://svenskforfattningssamling.se/doc/2024347.html",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/doc/2024347.html (browser; svenskforfattningssamling.se answers scripts with HTTP 403, a Cloudflare block page)"
+  }
+ },
+ {
+  "id": "se-klimatlag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatlag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:720",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatpolitiska-radet-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatpolitiska-radet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1268",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatrapporteringsforordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatrapporteringsforordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2014:1434",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-act-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1173",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-ordinance-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1180",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:787",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:789",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1201",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2025:589",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "terms-se-riksdagen-consolidated",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/riksdagens-oppna-data/anvandarstod/anvandningsvillkor/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-se-sfs-adopted",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://svenskforfattningssamling.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/ (browser; answers scripts with HTTP 403, a Cloudflare block page; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "terms-se-government-translation",
+  "source_id": "SE-GOVERNMENT-TRANSLATION",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.government.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "mx-lgcc-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCC.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/ref/lgcc.htm (browser; lists every reform with its DOF date; the bare directory https://www.diputados.gob.mx/LeyesBiblio/ answers 403)"
+  }
+ },
+ {
+  "id": "mx-lgcc-reg-rne-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc-reg-rne",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGCC_MRNE_281014.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm (browser; list of Reglamentos with their reform dates)"
+  }
+ },
+ {
+  "id": "mx-rne-gases-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-gases-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5404077",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5404077&fecha=14/08/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-rne-metodologias-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-metodologias-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5406149",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03/09/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-sce-programa-prueba-2019-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-sce-programa-prueba-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5573934",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019 (browser; this watcher sees only a change to the published note, not a later acuerdo that extends or replaces it)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-disposiciones-cnbv-pdf-head",
+  "source_id": "MX-CNBV-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-disposiciones",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cnbv.gob.mx/Normatividad/Disposiciones%20de%20car%C3%A1cter%20general%20aplicables%20a%20las%20emisoras%20de%20valores%20y%20a%20otros%20participantes%20del%20mercado%20de%20valores.pdf",
+  "params": {
+   "second_route": "https://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/BURS%C3%81TIL/Normatividad/Paginas/Emisoras.aspx (browser; cnbv.gob.mx fails certificate verification for scripts because its certificate chain is incomplete, so this watcher is expected to report a failure until read from a browser)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-sostenibilidad-2025-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-sostenibilidad-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5747872",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025 (browser; this watcher sees only a change to the published note, not a later CNBV resolution)"
+  }
+ },
+ {
+  "id": "mx-cinif-nis-cinif-page",
+  "source_id": "MX-CINIF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cinif-nis",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cinif.org.mx/normatividad_NIS2026.php",
+  "params": {
+   "second_route": "https://www.cinif.org.mx/normatividad_NIS2026.php (browser)"
+  }
+ },
+ {
   "id": "de-hgb-nfe-gii-xml",
   "source_id": "DE-GII-CONSOLIDATED",
   "iso2": "DE",
