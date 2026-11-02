@@ -1,0 +1,181 @@
+[
+  {
+    "id": "li-pgr-art-1096b-k",
+    "title": "Persons and Companies Act (PGR), sustainability reporting amendments implementing CSRD",
+    "official_url": "https://www.gesetze.li/konso/1926004000",
+    "citation": "Personen- und Gesellschaftsrecht (PGR, LGBl 1926 Nr. 4, LR 216.0), III. Nachhaltigkeitsberichterstattung, Art. 1096b to 1096k, inserted by the Gesetz vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts (LGBl 2024 Nr. 170)",
+    "in_force": "2024-07-01",
+    "evidence": "LGBl 2024 Nr. 170, Ziff. IV Abs. 1: \"Dieses Gesetz tritt unter Vorbehalt des ungenutzten Ablaufs der Referendumsfrist am 1. Juli 2024 in Kraft, andernfalls am Tag nach der Kundmachung.\" The LILEX version list of the PGR (https://www.gesetze.li/konso/1926004000) shows a version valid from 01.07.2024 and its chronology lists LGBl 2024.170 against it. Opened https://www.gesetze.li/chrono/pdf/2024170000 and https://www.gesetze.li/konso/pdf/1926004000?version=128 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two kinds of record. adopted: the whole Gesetz vom 7. März 2024 (LGBl 2024 Nr. 170, 25 April 2024), which inserts the chapter and carries the application dates in Ziff. IV. consolidated: only the PGR chapter III. Nachhaltigkeitsberichterstattung (Art. 1096b to 1096k) cut from the version valid from 2024-07-01 by its heading; the chapter reads the same, apart from footnote numbers, in the seven later versions (2025-01-01, 2025-02-01, 2025-11-01, 2026-03-01, 2026-04-01, 2026-07-01, 2026-09-01), so one consolidated record is stored. The table of contents of the PGR prints the chapter as Art. 1096ab-1096k; the body starts at Art. 1096b. Before 2024-07-01 the PGR had a non-financial statement regime (the version valid from 2024-05-01 to 2024-06-30 mentions a \"nichtfinanzielle\" statement) that is not stored. The application dates in Ziff. IV Abs. 3 and 4 were postponed by the Gesetz vom 5. September 2025 (LGBl 2025 Nr. 517, li-lgbl-2025-517). The chapter text is unchanged through the version valid from 2026-09-01; the content amendments proposed in September 2026 (register row) are in no version the site lists on 2026-11-02. Auditing duties: Art. 1096k, and the Wirtschaftsprüfergesetz change in li-lgbl-2024-171-wpg. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-lgbl-2024-171-wpg",
+    "title": "Gesetz vom 7. März 2024 über die Abänderung des Wirtschaftsprüfergesetzes (Prüfung der Nachhaltigkeitsberichterstattung)",
+    "official_url": "https://www.gesetze.li/chrono/2024171000",
+    "citation": "Gesetz vom 7. März 2024 über die Abänderung des Wirtschaftsprüfergesetzes, LGBl 2024 Nr. 171 (amends the Wirtschaftsprüfergesetz, WPG, LGBl 2019 Nr. 17)",
+    "in_force": "2024-07-01",
+    "evidence": "LGBl 2024 Nr. 171, Inkrafttreten: \"Dieses Gesetz tritt gleichzeitig mit dem Gesetz vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts in Kraft.\" That act enters into force on 1 July 2024 (see li-pgr-art-1096b-k). Opened https://www.gesetze.li/chrono/pdf/2024171000 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "LI-LGBL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adds the audit of sustainability reporting to the activities covered by the Wirtschaftsprüfergesetz (Art. 2 Bst. a Ziff. 4) and related definitions. Only the amending act as published is stored; the Wirtschaftsprüfergesetz itself is not in scope. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-lgbl-2024-172-offg",
+    "title": "Gesetz vom 7. März 2024 über die Abänderung des Offenlegungsgesetzes (Nachhaltigkeitsberichterstattung von Emittenten)",
+    "official_url": "https://www.gesetze.li/chrono/2024172000",
+    "citation": "Gesetz vom 7. März 2024 über die Abänderung des Offenlegungsgesetzes, LGBl 2024 Nr. 172 (amends the Offenlegungsgesetz, OffG, LGBl 2008 Nr. 355)",
+    "in_force": "2024-07-01",
+    "evidence": "LGBl 2024 Nr. 172, Inkrafttreten und Anwendbarkeit Abs. 1: \"Dieses Gesetz tritt gleichzeitig mit dem Gesetz vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts in Kraft.\" That act enters into force on 1 July 2024 (see li-pgr-art-1096b-k). Opened https://www.gesetze.li/chrono/pdf/2024172000 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "LI-LGBL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adds the definition of Nachhaltigkeitsberichterstattung (Art. 3 Abs. 1 Bst. u) and the sustainability reporting content of the annual financial report of issuers (Art. 4); Abs. 2 sets its own first application dates. Only the amending act as published is stored; the Offenlegungsgesetz is not in scope. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-lgbl-2025-517",
+    "title": "Gesetz vom 5. September 2025 betreffend die Abänderung des Gesetzes vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts (Verschiebung der Nachhaltigkeitsberichterstattung)",
+    "official_url": "https://www.gesetze.li/chrono/2025517000",
+    "citation": "Gesetz vom 5. September 2025 betreffend die Abänderung des Gesetzes vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts, LGBl 2025 Nr. 517 (Bericht und Antrag Nr. 51/2025; implements Directive (EU) 2025/794)",
+    "in_force": "2025-11-01",
+    "evidence": "LGBl 2025 Nr. 517, Ziff. III: \"Dieses Gesetz tritt am Tag nach der Kundmachung in Kraft.\" Issued 31 October 2025 (Ausgabedatum on the LGBl and in the LILEX chronology of the PGR); the chronology lists the PGR version valid from 01.11.2025 against LGBl 2025.517. Opened https://www.gesetze.li/chrono/pdf/2025517000 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "LI-LGBL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Moves the first application of the sustainability reporting rules in Ziff. IV Abs. 3 to financial years beginning on or after 1 January 2027 and Abs. 4 to 1 January 2028 (text of the act). The act changes transitional wording in LGBl 2024 Nr. 170, so the chapter text in the PGR (li-pgr-art-1096b-k) is unchanged by it. This is the Omnibus I follow-up of Bericht und Antrag Nr. 51/2025 named in the brief: it was enacted. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored",
+    "amends": "li-pgr-art-1096b-k"
+  },
+  {
+    "id": "li-ehg",
+    "title": "Emissionshandelsgesetz (EHG) vom 19. September 2012",
+    "official_url": "https://www.gesetze.li/konso/2012346000",
+    "citation": "Emissionshandelsgesetz (EHG) vom 19. September 2012, LGBl 2012 Nr. 346, LR 814.05",
+    "in_force": "2012-12-01",
+    "evidence": "LGBl 2012 Nr. 346, Inkrafttreten: \"... Referendumsfrist am 1. Dezember 2012 in Kraft, andernfalls am Tag nach der Kundmachung.\" The LILEX chronology lists the first version valid from 01.12.2012 against LGBl 2012.346. Opened https://www.gesetze.li/chrono/pdf/2012346000 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National act on emissions trading; it refers to Annex I of Directive 2003/87/EC (EU ETS), which applies in Liechtenstein through the EEA Agreement. The Directive itself is not stored here. Implemented by the Emissionshandelsverordnung (li-ehv). Records: the act as published and the 8 consolidated versions LILEX lists (2012-12-01 to 2026-08-01). No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-ehv",
+    "title": "Emissionshandelsverordnung (EHV) vom 20. November 2012",
+    "official_url": "https://www.gesetze.li/konso/2012379000",
+    "citation": "Emissionshandelsverordnung (EHV) vom 20. November 2012, LGBl 2012 Nr. 379, LR 814.051",
+    "in_force": "2012-12-01",
+    "evidence": "LGBl 2012 Nr. 379, Inkrafttreten: \"Diese Verordnung tritt am 1. Dezember 2012 in Kraft.\" Opened https://www.gesetze.li/chrono/pdf/2012379000 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implementing order of the Emissionshandelsgesetz (li-ehg). Records: the order as published and the 4 consolidated versions LILEX lists (2012-12-01 to 2026-08-01). No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-co2-gesetz",
+    "title": "Gesetz vom 6. September 2013 über die Reduktion der CO2-Emissionen (CO2-Gesetz)",
+    "official_url": "https://www.gesetze.li/konso/2013358000",
+    "citation": "Gesetz vom 6. September 2013 über die Reduktion der CO2-Emissionen (CO2-Gesetz), LGBl 2013 Nr. 358, LR 814.065",
+    "in_force": "2013-12-01",
+    "evidence": "LGBl 2013 Nr. 358, Inkrafttreten: \"Dieses Gesetz tritt gleichzeitig mit der Vereinbarung vom 11. Juli 2013 zur Änderung der Vereinbarung vom 29. Januar 2010 zum Vertrag zwischen dem Fürstentum Liechtenstein und der Schweizerischen Eidgenossenschaft betreffend die Umweltabgaben im Fürstentum Liechtenstein in Kraft.\" The act gives no date; the LILEX chronology lists the first version valid from 01.12.2013 against LGBl 2013.358 (opened https://www.gesetze.li/konso/2013358000/meta?version=9 on 2026-11-02).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Carries out the agreement with Switzerland on environmental levies (Art. 1 Bst. a) and sets the CO2 reduction framework. Implemented by the CO2-Verordnung (li-co2-verordnung). The date comes from the LILEX chronology because the act ties its commencement to the Swiss agreement. Records: the act as published and 8 consolidated versions (the version list has no number 5, so there are 8 versions from 2013-12-01 to 2026-08-01). No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-co2-verordnung",
+    "title": "Verordnung vom 29. Oktober 2013 über die Reduktion der CO2-Emissionen (CO2-Verordnung)",
+    "official_url": "https://www.gesetze.li/konso/2013359000",
+    "citation": "Verordnung vom 29. Oktober 2013 über die Reduktion der CO2-Emissionen (CO2-Verordnung), LGBl 2013 Nr. 359, LR 814.065.1",
+    "in_force": "2013-12-01",
+    "evidence": "LGBl 2013 Nr. 359, Inkrafttreten: \"Diese Verordnung tritt gleichzeitig mit dem CO2-Gesetz vom 6. September 2013 in Kraft.\" The LILEX chronology lists the first version valid from 01.12.2013 against LGBl 2013.359. Opened https://www.gesetze.li/chrono/pdf/2013359000 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implementing order of the CO2-Gesetz (li-co2-gesetz). Formulas and tables of the PDF come out of pdftotext as flat lines, so the annex tables are readable but not laid out as tables. Records: the order as published and 24 consolidated versions (2013-12-01 to 2026-08-01). No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-usg",
+    "title": "Umweltschutzgesetz (USG) vom 29. Mai 2008",
+    "official_url": "https://www.gesetze.li/konso/2008199000",
+    "citation": "Umweltschutzgesetz (USG) vom 29. Mai 2008, LGBl 2008 Nr. 199, LR 814.01",
+    "in_force": "2008-09-01",
+    "evidence": "LGBl 2008 Nr. 199, Inkrafttreten: \"Dieses Gesetz tritt unter Vorbehalt des ungenutzten Ablaufs der Referendumsfrist am 1. September 2008 in Kraft, andernfalls am Tage der Kundmachung.\" The LILEX chronology lists the first version valid from 01.09.2008. Opened https://www.gesetze.li/chrono/pdf/2008199000 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental protection framework act (Art. 1 Zweck). Records: the act as published and the 9 consolidated versions LILEX lists, from 2009-12-23 (the version list has no versions 1 and 8, so the first listed version is 2009-12-23) to 2026-08-01. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-ewr-fndg",
+    "title": "Gesetz vom 11. März 2022 zur Durchführung der Verordnung (EU) 2019/2088 und der Verordnung (EU) 2020/852 (EWR-Finanzdienstleistungs-Nachhaltigkeits-Durchführungsgesetz; EWR-FNDG)",
+    "official_url": "https://www.gesetze.li/konso/2022120000",
+    "citation": "Gesetz vom 11. März 2022 zur Durchführung der Verordnung (EU) 2019/2088 über nachhaltigkeitsbezogene Offenlegungspflichten im Finanzdienstleistungssektor und der Verordnung (EU) 2020/852 über die Einrichtung eines Rahmens zur Erleichterung nachhaltiger Investitionen (EWR-FNDG), LGBl 2022 Nr. 120, LR 954.83",
+    "in_force": "2022-05-01",
+    "evidence": "LGBl 2022 Nr. 120, Inkrafttreten Abs. 1: \"Dieses Gesetz tritt unter Vorbehalt des ungenutzten Ablaufs der Referendumsfrist am 1. Mai 2022 in Kraft, andernfalls am Tag nach der Kundmachung.\" Abs. 2 ties Art. 1 Abs. 1 and 3 to the EEA Joint Committee decision taking over the two Regulations. The LILEX chronology lists the first version valid from 01.05.2022. Opened https://www.gesetze.li/chrono/pdf/2022120000 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National implementing act for the Sustainable Finance Disclosure Regulation and the Taxonomy Regulation. The Regulations themselves are not stored here. Abs. 2 of the commencement clause may set a later date for Art. 1 Abs. 1 and 3 (the EEA decision date); that date was not read from an official page, so in_force is the date for the act as a whole. Records: the act as published and 2 consolidated versions (2022-05-01, 2026-01-01). No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "li-uwg",
+    "title": "Gesetz vom 22. Oktober 1992 gegen den unlauteren Wettbewerb (UWG)",
+    "official_url": "https://www.gesetze.li/konso/1992121000",
+    "citation": "Gesetz vom 22. Oktober 1992 gegen den unlauteren Wettbewerb (UWG), LGBl 1992 Nr. 121, LR 240; Art. 2 (Grundsatz), Art. 3 (Unlautere Werbe- und Verkaufsmethoden) and Art. 8b (Irreführung gegenüber Konsumenten)",
+    "in_force": "1994-11-01",
+    "evidence": "The LILEX chronology of the UWG (https://www.gesetze.li/konso/1992121000/meta?version=13, opened 2026-11-02) lists the first version valid from 01.11.1994 against LGBl 1992.121 (issued 29.12.1992). The act's own Inkrafttreten clause reads: \"Dieses Gesetz tritt gleichzeitig mit dem Abkommen über den Europäischen Wirtschaftsraum in Kraft.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LI-LGBL-ADOPTED",
+      "LI-LILEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading environmental claims (Art. 2 general clause; Art. 3; Art. 8b Irreführung, rewritten in the version valid from 2022-06-01). The record text is the whole act. The in_force date is the one the LILEX chronology prints; it differs from the EEA entry date the act's clause points to, and the two were not reconciled. The version list starts at 2008-11-14 (versions 1 to 7 are not listed), so the consolidated records start there. The act transposing Directive (EU) 2024/825 (applies from 2026-09-27) was looked for and not found: a full-text search for \"2024/825\" on https://www.gesetze.li/konso/suche returned no hit on 2026-11-02, and the last UWG version is valid from 2025-02-01. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
+    "status": "stored"
+  }
+]
