@@ -5948,5 +5948,77 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "ua-law-377-ix-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-law-377-ix",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/377-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-accounting-law-996-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-accounting-law-996",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/996-14",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-climate-policy-law-3991-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-climate-policy-law-3991",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3991-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-env-protection-law-1264-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-env-protection-law-1264",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/1264-12",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-consumer-protection-law-3153-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-consumer-protection-law-3153",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3153-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-advertising-law-270-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-advertising-law-270",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
  }
 ]
