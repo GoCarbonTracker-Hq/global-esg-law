@@ -770,3 +770,72 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Denmark
+
+Rows `DK-RETSINFO-ADOPTED` (laws and orders as published in Lovtidende) and `DK-RETSINFO-CONSOLIDATED` (lovbekendtgørelser, LBK), both `pass` on the publisher's terms (Civilstyrelsen's open-data terms at https://www.retsinformation.dk/api: free, non-exclusive, unlimited use, commercial use and modification named) and, independently, on Ophavsloven § 9, stk. 1 (quoted in the rows). Rows `DK-KEFM-TRANSLATION` and `DK-KFST-TRANSLATION` are `permission requested`. Run on 2026-11-02. Language: Danish only; Retsinformation's FAQ says it holds no translations. retsinformation.dk answered every request from the cloud address; no browser recipe was needed for text. The terms page itself is a JavaScript application (curl gets a shell), so its fingerprint was read with Playwright chromium (`body` innerText, networkidle plus 2.5 s; the site has no `<main>` element).
+
+Row `DK-RETSINFO-ADOPTED`, Lov nr. 480 af 22. maj 2024 (ELI `lta/2024/480`):
+
+```
+curl -sS -L -o l480.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2024/480/xml
+```
+
+Returned `200 329263 application/xml`, sha256 `0fcef68162f241d82c13c7341a524fa66cf0c6eae579224a4b7d678a98bba1d3`; a second fetch gave the same hash, so `fetched_sha256` reproduces. The same URL pattern, `https://www.retsinformation.dk/eli/lta/<year>/<number>/xml`, serves every LOV, BEK and LBK.
+
+Row `DK-RETSINFO-CONSOLIDATED`, LBK nr 402 af 23/03/2026, Bekendtgørelse af årsregnskabsloven (ELI `lta/2026/402`):
+
+```
+curl -sS -L -o arl402.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2026/402/xml
+```
+
+Returned `200 860525 application/xml`. The HTML page at the ELI URL is a JavaScript shell (`curl https://www.retsinformation.dk/eli/lta/2024/480` returns `200 5193 text/html`), so the XML route is the one used. `/pdf` also answers (`https://www.retsinformation.dk/eli/lta/2024/480/pdf`: `200 343456 application/pdf`) and was not used.
+
+Finding the versions of an instrument (not part of the open-data terms' documented services, which are the harvest API `api.retsinformation.dk/v1/Documents?date=` and the ELI channels; these are the JSON calls the Retsinformation web page itself makes, used for discovery and by the watchers):
+
+```
+curl -sS -L -G -o s.json -w '%{http_code} %{size_download} %{content_type}\n' --data-urlencode 't="klimaloven"' https://www.retsinformation.dk/api/documentsearch
+curl -sS -o r.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/api/document/255879/references/0
+```
+
+Returned `200 6479 application/json; charset=utf-8` and `200 12359 application/json; charset=utf-8`. The first lists documents (a quoted phrase in `t` is an exact phrase, an unquoted one matches any word); the second, for LBK 402/2026 (internal id 255879), lists under "Dokumentets indarbejdede forskrifter" the previous LBK (`LBK nr 1057 af 23/09/2024`), its predecessor and so on, which gives the chain of consolidations back in time; "Senere ændringer til forskriften" lists amending acts not yet consolidated.
+
+Text extraction: the XML below `Meta` (`TitelGruppe`, `DokumentIndhold`, `UnderskriftGruppe`); every `Linea` (a heading, paragraph or list item) is one line; the label in `Explicatus` (`§ 9.`, `Stk. 2.`, `1)`) is put in front of the text of its paragraph, subsection or list item, and for chapters, parts and groups it is its own line. Nothing is reworded. Checked on the day for every stored file: the non-space characters of the extracted text equal those of the XML body (cut files: of the cut paragraphs). Where an instrument is stored as a cut (`dk-arl-99a`: § 99 a; `dk-markedsfoeringsloven`: §§ 5, 6 and 13), the paragraphs are found by their `Explicatus` label and `fetched_sha256` is that of the whole file as returned. `in_force` of an LOV or BEK is the commencement date read from its own ikrafttrædelse section (quoted in the scope entry); of an LBK it is the signing date (`DiesSigni`), because an LBK has no commencement clause. A version is stored only when its text differs from the previous stored version of that instrument.
+
+Stored (fetched 2026-11-02): 32 records, all `da`.
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `dk-arl-99a` (§ 99 a) | consolidated | 2009-05-25, 2013-11-01, 2015-12-10, 2019-08-08, 2024-08-27, 2026-03-23 |
+| `dk-lov-480-2024` | adopted | 2024-06-01 |
+| `dk-lov-1636-2025` | adopted | 2025-12-31 |
+| `dk-lov-52-2025` | adopted | 2025-02-01 |
+| `dk-bek-453-2025` | adopted | 2025-05-15 |
+| `dk-bek-328-2026` | adopted | 2026-02-26 |
+| `dk-bek-1700-2025` | adopted | 2026-01-01 |
+| `dk-bek-1487-2025` | adopted | 2026-01-01 |
+| `dk-klimaloven` | adopted, consolidated | 2020-06-28 (act), 2021-12-13 (LBK 2580/2021) |
+| `dk-co2-kvoteloven` | adopted, consolidated | 2013-01-01, 2016-12-14, 2021-01-19, 2022-04-27, 2024-01-01 |
+| `dk-co2-afgiftsloven` | consolidated | 2011-04-04, 2020-09-02 |
+| `dk-emissionsafgiftsloven` | adopted, consolidated | 2025-01-01, 2025-03-20 |
+| `dk-transport-ghg` | consolidated | 2011-06-21, 2019-01-17, 2020-02-10, 2021-04-07, 2021-11-29, 2026-04-16 |
+| `dk-markedsfoeringsloven` (§§ 5, 6, 13) | adopted, consolidated | 2017-07-01, 2022-06-15 |
+
+Not stored, no recipe: LBKs of the Financial Statements Act before 2009 (LBK 647/2006), of the CO2 tax act before 2011 (LBK 889/2006, 643/1998, 856/1996, 849/1995, 718/1993): the XML route answers `200 3957 application/xml` with the metadata only and no text body (`curl -sS -L -o old.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2006/647/xml`). Skipped because the text equals the previous stored version: ÅRL § 99 a in LBK 323/2011, 1441/2022 and 1057/2024; Markedsføringsloven §§ 5, 6, 13 in LBK 1420/2024. Amending acts that Retsinformation has not consolidated (CO2 tax act: 11 acts, Markedsføringsloven: Lov 558/2025 and 1322/2025) are not stored, so the latest stored LBK of those instruments is not the law as it now stands.
+
+### Link only
+
+None. All 14 scope instruments are stored.
+
+### Languages
+
+Danish is the only official language. Retsinformation (FAQ "Kan jeg finde en oversættelse af specifik lovgivning?"): "Retsinformation indeholder ikke oversættelser af lovgivning til andre sprog." English translations were looked for at the ministries and agencies:
+
+- Climate Act: the Ministry of Climate, Energy and Utilities publishes a PDF (`curl -sS -L -o k.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://en.kefm.dk/Media/1/B/Climate%20Act_Denmark%20-%20WEBTILG%c3%86NGELIG-A.pdf'` returned `200 157879 application/pdf`) headed "This is an unofficial translation of the Climate Act. Only Danish laws published in the Danish Law Gazette (Lovtidende) have legal validity", for Act No 965 of 26 June 2020. en.kefm.dk has no copyright or reuse page (its footer links only the privacy and cookie policy), so row `DK-KEFM-TRANSLATION` is `permission requested` and nothing is stored.
+- Marketing Practices Act: the Competition and Consumer Authority publishes a PDF (`curl -sS -L -o m.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kfst.dk/media/49887/mfl-english.pdf` returned `200 745015 application/pdf`) of Act No 426 of 3 May 2017 in its 2017 state. kfst.dk has no reuse terms page, so row `DK-KFST-TRANSLATION` is `permission requested`; the 2017 amendment state would also match no stored version except the as-published act.
+- Financial Statements Act: no government English found (web search on 2026-11-02; erhvervsstyrelsen.dk pages tried answer 404 or Danish guidance). Erhvervsstyrelsen guidance pages were not used, so no row for it.
+- Other instruments: no English found.
+
+Law-firm, audit-firm and NGO translations turned up in the searches and are never stored.
+
+No site was blocked from the cloud address: retsinformation.dk, api.retsinformation.dk, en.kefm.dk, kfst.dk, forbrugerombudsmanden.dk and erhvervsstyrelsen.dk all answered.
