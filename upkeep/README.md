@@ -61,3 +61,20 @@ Appended, never rewritten; rows end in CRLF. A signal already in `seen.json` pro
 | `notes` | For `watch_failed`, the watcher's `second_route` or `none listed`. Otherwise free text for the reviewer. |
 
 Review of the queue is the next story (GEL-02-02). Storing a confirmed version still goes through `tools/check_corpus.py` and the licence table; the watcher has no say in that.
+
+## From confirm to commit
+
+Two commands. The first turns every row marked `confirm` with change `new_version` into one record file and one commit; the second rebuilds the dated history from all record files, upkeep records included.
+
+```
+python3 tools/update.py [--row <watcher_id>:<signal>] [--dry-run] [--no-commit]
+python3 tools/build.py --branch history
+```
+
+`--branch history` is the only build command: on a repository with tracked records a run without `--branch` exits 2 and writes nothing.
+
+For each row, `update.py` reads the `sources.json` row named by `source_id` and refuses the row at once, before any fetch, when that row's verdict is not `pass` at that moment. It then fetches the text with the recipe in `SOURCES.md` for that source (EUR-Lex Cellar by CELEX number, adopted or consolidated; legislation.gov.uk `data.xml`, enacted, made or revised; eCFR versioner by date), writes `records/<iso2>/<instrument>/<signal>-<kind>.json` with the six record keys, marks the scope.json entry `stored` and adds the source row to its `source_row` where a second form arrives (what the pilot stories did), appends one line under `### upkeep` in `SOURCES.md`, and runs `tools/check_corpus.py`. The `signal` of the row is the `in_force` date. A source without a recipe (Federal Register, California bulk files, non-pass rows) prints `no recipe for <source_id>` and the row stays open.
+
+A refused row (verdict not `pass`, fetch failed, record already present, gate failed) keeps its `outcome`; the reason is written into `notes` as `refused <date>: <reason>`, and the files written for it are taken back. A stored row gets `outcome` `stored` and `notes` `stored <record path>`.
+
+By default the four changed paths (the record, `register/<iso2>/scope.json`, `SOURCES.md`, `upkeep/queue.csv`) are committed to a branch `upkeep/<iso2>-<instrument>-<in_force>` created from the current branch, one branch per row, and the tool prints the `git push -u origin` and `gh pr create --head` commands. It never pushes and never commits on the current branch; refusal notes stay in the working tree of the current branch for the reviewer. The commit step refuses to run while `SOURCES.md`, `upkeep/queue.csv`, `records/` or `register/` have uncommitted changes. `--no-commit` leaves the files in the working tree instead. `--dry-run` fetches nothing, writes nothing and prints what each row would do. The exit code is 1 when any selected row was refused or left open.
