@@ -1986,5 +1986,74 @@
   "params": {
    "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
   }
+ },
+ {
+  "id": "es-ley-11-2018-boe-record",
+  "source_id": "ES-BOE-ADOPTED",
+  "iso2": "ES",
+  "instrument": "es-ley-11-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2018-17989"
+ },
+ {
+  "id": "es-ley-7-2021-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-7-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-1-2005-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-1-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2005-3941",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rd-214-2025-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rd-214-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-7439",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-3-1991-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-3-1991",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rdl-1-2007-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rdl-1-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
  }
 ]
