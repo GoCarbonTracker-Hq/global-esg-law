@@ -61,3 +61,109 @@ Appended, never rewritten; rows end in CRLF. A signal already in `seen.json` pro
 | `notes` | For `watch_failed`, the watcher's `second_route` or `none listed`. Otherwise free text for the reviewer. |
 
 Review of the queue is the next story (GEL-02-02). Storing a confirmed version still goes through `tools/check_corpus.py` and the licence table; the watcher has no say in that.
+
+## Propose an update
+
+The queue is reviewed by a person, one row at a time. `tools/queue.py` reads `queue.csv` and writes back the three reviewer columns; nothing else changes, and no law text is fetched.
+
+```
+python3 tools/queue.py
+python3 tools/queue.py --outcome confirm|reject|needs_evidence --row <watcher_id>:<signal> --reviewer <name>
+```
+
+Without arguments the tool prints every open row (empty `outcome`, or `needs_evidence`) with the licence verdict of its `source_id` from `sources.json`, the register entry it touches (`iso2`, `instrument` and that entry's current `in_force` from `register/<ISO2>/scope.json`, or `source-level` for `*`), the evidence URL and the row's notes, then a count. With `--outcome` it fills `reviewer`, `outcome` and `outcome_on` (today) on the row named by `--row`, rewrites `queue.csv` with the same columns and CRLF line ends, and prints the decision. It exits 1 with a message when the row is not in the file or already carries `confirm` or `reject`. The `signal` part of `--row` is everything after the first colon, so a header value such as `Last-Modified: Mon, 26 Oct 2026 04:26:08 GMT` is passed whole. Filling the same three columns by hand in an editor is equivalent; put the reason in `notes` either way.
+
+What each outcome does:
+
+| Outcome | Effect |
+|---|---|
+| `confirm` | The row is closed. Only `confirm` rows are read by the update flow (GEL-02-04); the watcher and this tool store nothing in `records/`. |
+| `reject` | The row is closed and stays in the file. For a `new_version` or `terms_changed` row the signal is also added to that watcher's `signals` in `seen.json`, so the same change is not flagged again. For a `baseline` or `watch_failed` row only the row is marked. |
+| `needs_evidence` | The three columns are filled, but the row stays open and keeps appearing in the list until a later `confirm` or `reject`. Use it when the official page must be opened by hand first. |
+
+A contributor proposes an update from a fork:
+
+1. Fork and clone, then run `python3 tools/watch.py`. New rows land in `queue.csv`; `seen.json` is updated.
+2. Run `python3 tools/queue.py` and open the evidence URL of each row. Decide each row with `--outcome`, or fill `reviewer`, `outcome` and `outcome_on` by hand with the same values, and write the reason in `notes`.
+3. Run `python3 tools/publish_gate.py` and `python3 -m pytest tests -q`.
+4. Open a pull request that carries the queue rows (the diff of `queue.csv` and `seen.json`) and the gate output pasted in the body. The pull request carries no law text and nothing under `records/`.
+
+The owner opens the official page for every `confirm` row, checks the date or value against it, and merges only when the rows hold. Rows that do not hold are set to `reject` or `needs_evidence` in the same pull request rather than deleted, so the queue stays a record of what was looked at. Nothing in this flow says or implies that any company complies with any law.
+
+## Terms watchers (GEL-02-03)
+
+Every row of `sources/licence-table.csv` has one `page_hash` watcher over its `terms_url`, id `terms-<row id in lower case>`, `instrument` `*`, `change` `terms_changed`. When the publisher rewrites the page the hash moves and the run appends a `terms_changed` row. That row is handled with:
+
+```
+python3 tools/licence_recheck.py --row <watcher_id>:<signal>
+```
+
+It sets the watcher's source row to verdict `unknown` with `checked_on` today, regenerates `sources.json`, and prints the instruments whose scope entry names the row (they are link only from then on, because `unknown` counts as fail in `tools/check_corpus.py`) and the record folders under `records/` that hold text fetched under the row. It deletes nothing. A person rereads the terms, writes the new `terms_quote`, `terms_fingerprint`, `statute_exception` and `verdict_basis`, sets the verdict by hand, and decides separately whether stored records stay.
+
+`seen.json` was seeded on 2026-11-02 with the sha256 of each terms page body as `tools/watch.py` fetched it that day, not with the row's `terms_fingerprint`: the fingerprint in the licence table is the hash of the page text with tags stripped and whitespace collapsed (the recipe is in each row's `notes`), while `page_hash` hashes the raw body. The first live run therefore fires only where the body differs from the 2026-11-02 fetch.
+
+Known gaps:
+
+- The EUR-Lex, eCFR and Federal Register rows point at Internet Archive snapshots because the live pages block scripts. Those watchers prove the snapshot is unchanged, not the live page. Each carries the live URL as `params.second_route`; open it in a browser when the row is rechecked.
+- The EUR-Lex snapshot URL (`web/2026/...`) resolves to the newest 2026 capture, and the Internet Archive wraps every capture in a toolbar with per-request timing and server names. Two fetches a few minutes apart gave different hashes on 2026-11-02, so the three EUR-Lex watchers will raise a `terms_changed` row on every run until `page_hash` normalises the body or those rows point at a fixed-timestamp `id_` capture. The fixed-timestamp eCFR and Federal Register snapshots hashed the same on two fetches.
+- `https://www.fca.org.uk/legal` rewrites its email-protection links with a fresh key on each response, so `terms-uk-fca-handbook` has the same problem.
+- `https://indiacode.gov.in/info/copyright-policy` is an Angular shell; the policy text lives in a lazily loaded script. The watcher sees the shell, which changes on redeploy, not the policy text.
+- `terms-uk-srs-adopted` hashes the S1 PDF itself (the row's `terms_url`), so it also fires when the standard is republished. Its seed equals the row's `content_hash` for S1.
+
+## From confirm to commit
+
+Two commands. The first turns every row marked `confirm` with change `new_version` into one record file and one commit; the second rebuilds the dated history from all record files, upkeep records included.
+
+```
+python3 tools/update.py [--row <watcher_id>:<signal>] [--dry-run] [--no-commit]
+python3 tools/build.py --branch history
+```
+
+`--branch history` is the only build command: on a repository with tracked records a run without `--branch` exits 2 and writes nothing.
+
+For each row, `update.py` reads the `sources.json` row named by `source_id` and refuses the row at once, before any fetch, when that row's verdict is not `pass` at that moment. It then fetches the text with the recipe in `SOURCES.md` for that source (EUR-Lex Cellar by CELEX number, adopted or consolidated; legislation.gov.uk `data.xml`, enacted, made or revised; eCFR versioner by date), writes `records/<iso2>/<instrument>/<signal>-<kind>.json` with the six record keys, marks the scope.json entry `stored` and adds the source row to its `source_row` where a second form arrives (what the pilot stories did), appends one line under `### upkeep` in `SOURCES.md`, and runs `tools/check_corpus.py`. The `signal` of the row is the `in_force` date. A source without a recipe (Federal Register, California bulk files, non-pass rows) prints `no recipe for <source_id>` and the row stays open.
+
+A refused row (verdict not `pass`, fetch failed, record already present, gate failed) keeps its `outcome`; the reason is written into `notes` as `refused <date>: <reason>`, and the files written for it are taken back. A stored row gets `outcome` `stored` and `notes` `stored <record path>`.
+
+By default the four changed paths (the record, `register/<iso2>/scope.json`, `SOURCES.md`, `upkeep/queue.csv`) are committed to a branch `upkeep/<iso2>-<instrument>-<in_force>` created from the current branch, one branch per row, and the tool prints the `git push -u origin` and `gh pr create --head` commands. It never pushes and never commits on the current branch; refusal notes stay in the working tree of the current branch for the reviewer. The commit step refuses to run while `SOURCES.md`, `upkeep/queue.csv`, `records/` or `register/` have uncommitted changes. `--no-commit` leaves the files in the working tree instead. `--dry-run` fetches nothing, writes nothing and prints what each row would do. The exit code is 1 when any selected row was refused or left open.
+
+## Pilot watchers (GEL-02-07)
+
+One watcher per instrument in the four scope files, using only the four kinds above. The Cellar watchers come in two shapes: a `date_list` of consolidated work ids (the CSRD example with the CELEX swapped) for every instrument whose `source_row` names `EU-EURLEX-CONSOLIDATED`, and a `date_list` of the document dates of every act that amends or corrects a target act (SPARQL over `cdm:resource_legal_amends_resource_legal` and `cdm:resource_legal_corrects_resource_legal`) for the adopted-only instruments. The amending acts watch the acts they amend; the two Omnibus directives split their targets so that no two watchers run the same query, and Delegated Regulation 2026/1563 watches its own corrigenda because the 2025/1416 watcher already covers acts amending 2023/2772.
+
+| id | kind | what it watches |
+|---|---|---|
+| `eu-csrd-cellar-consolidations` | `date_list` | Cellar: consolidated versions of CSRD 2022/2464 |
+| `eu-esrs-cellar-consolidations` | `date_list` | Cellar: consolidated versions of ESRS 2023/2772 |
+| `eu-sfdr-cellar-consolidations` | `date_list` | Cellar: consolidated versions of SFDR 2019/2088 |
+| `eu-csddd-cellar-consolidations` | `date_list` | Cellar: consolidated versions of CSDDD 2024/1760 |
+| `eu-taxonomy-climate-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Climate DA 2021/2139 |
+| `eu-taxonomy-disclosures-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Disclosures DA 2021/2178 |
+| `eu-taxonomy-environmental-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Environmental DA 2023/2486 |
+| `eu-sfdr-rts-cellar-consolidations` | `date_list` | Cellar: consolidated versions of SFDR RTS 2022/1288 |
+| `eu-taxonomy-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Taxonomy Regulation 2020/852 |
+| `eu-omnibus-stop-the-clock-cellar-amendments` | `date_list` | Cellar: acts amending or correcting CSRD 2022/2464 or CSDDD 2024/1760 |
+| `eu-omnibus-content-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Accounting Directive 2013/34 or Audit Directive 2006/43 |
+| `eu-esrs-amendment-2025-1416-cellar-amendments` | `date_list` | Cellar: acts amending or correcting ESRS 2023/2772 |
+| `eu-esrs-amendment-2026-1563-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2026/1563 itself |
+| `eu-taxonomy-complementary-climate-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2022/1214 |
+| `eu-taxonomy-climate-amendment-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2023/2485 |
+| `eu-taxonomy-simplification-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2026/73 |
+| `gb-ca2006-s414cb-versions` | `date_list` | legislation.gov.uk `hasVersion` dates of Companies Act 2006 s.414CB |
+| `gb-ca2006-ch4a-versions` | `date_list` | legislation.gov.uk `hasVersion` dates of Companies Act 2006 Part 15 Chapter 4A |
+| `gb-uksi-2022-31-contents-page` | `page_hash` | legislation.gov.uk contents page of SI 2022/31 |
+| `gb-fca-esg-handbook-page` | `page_hash` | FCA Handbook ESG sourcebook page |
+| `gb-uk-srs-govuk-page` | `page_hash` | gov.uk publication page for UK SRS S1 and S2 |
+| `us-ecfr-40cfr98-versions` | `version_list` | eCFR versioner dates of 40 CFR Part 98 |
+| `us-sec-climate-fedreg-citations` | `date_list` | Federal Register API: publication dates of documents citing SEC Release 33-11275 |
+| `us-ca-leginfo-pubinfo-2025` | `http_head` | `Last-Modified` of the California 2025-26 session bulk file |
+| `us-ca-sb219-leginfo-pubinfo-2023` | `http_head` | `Last-Modified` of the California 2023-24 session bulk file (SB 219 chaptered text) |
+| `us-ca-sb253-carb-program-page` | `page_hash` | CARB corporate GHG reporting and climate risk program page (SB 253) |
+| `us-ca-sb261-carb-financial-risk-page` | `page_hash` | CARB Climate-Related Financial Risk page (SB 261) |
+| `in-companies-act-2013-indiacode-page` | `page_hash` | India Code page for the Companies Act 2013 |
+| `in-sebi-lodr-regulations-page` | `page_hash` | SEBI page for the LODR Regulations 2015 (as last amended) |
+| `in-sebi-brsr-circular-2021-page` | `page_hash` | SEBI page for the BRSR circular of 2021 |
+| `in-sebi-brsr-core-circular-2023-page` | `page_hash` | SEBI page for the BRSR Core circular of 2023 |
+| `in-sebi-circular-2025-42-page` | `page_hash` | SEBI page for circular 2025/42 |
+
+The India, FCA and UK SRS watchers only ever produce queue rows because their licence rows are not `pass`; nothing from those sources is stored. The India and CARB pages answer scripts with HTTP 403 or 419 (and sebi.gov.in resets connections after a few requests), so their rows are `watch_failed` with `second_route` naming a browser read or an Internet Archive snapshot. The FCA Handbook page is a JavaScript shell into which Cloudflare writes a per-request nonce, so its hash differs on every run and each run adds one `new_version` row for it until a stable FCA signal is found.

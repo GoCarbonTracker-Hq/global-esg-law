@@ -294,3 +294,24 @@ def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):
     monkeypatch.setattr(watch, "default_fetch", FakeFetch())
     assert watch.main(["--repo", str(repo)]) == 1
     assert "not in sources.json" in capsys.readouterr().err
+
+
+def test_shipped_watchers_validate_against_real_repo():
+    """upkeep/watchers.json: every entry validates, covers every scope id, names the instrument's own row."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    loaded = watch.load_watchers(repo)  # raises ValueError on any invalid entry
+    assert [w["id"] for w in loaded] == [w["id"] for w in shipped] and len(shipped) >= 4
+    scope = {}
+    for path in sorted((repo / "register").glob("*/scope.json")):
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            scope[entry["id"]] = (path.parent.name, entry)
+    assert set(scope) <= {w["instrument"] for w in shipped}, "every scope id has a watcher"
+    for w in shipped:
+        assert w["kind"] in watch.KINDS
+        if w["kind"] == "date_list":
+            assert watch.re.compile(w["params"]["regex"]).groups == 1
+        if w["instrument"] != "*":
+            iso2, entry = scope[w["instrument"]]
+            rows = entry["source_row"] if isinstance(entry["source_row"], list) else [entry["source_row"]]
+            assert w["iso2"] == iso2 and w["source_id"] in rows, w["id"]

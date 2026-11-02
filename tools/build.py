@@ -13,15 +13,28 @@ from check_corpus import check
 ROOT = Path(__file__).resolve().parents[1]
 
 
+class BranchRequired(ValueError):
+    """Raised when records/ is tracked by git and no --branch was given (exit 2 on the command line)."""
+
+
 def git(repo, *args, env=None):
     return subprocess.run(["git", "-C", str(repo), *args], check=True, text=True,
                           stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env).stdout.strip()
 
 
+def records_tracked(repo):
+    """True when any file under records/ is tracked by git, so a build must name its branch."""
+    return bool(git(repo, "ls-files", "--", "records"))
+
+
 def build(repo=ROOT, branch=None):
     """Commit each record in in-force order. With branch, build it from scratch as an orphan history
-    (cumulative trees, file content in each commit) without touching the working tree or index."""
+    (cumulative trees, file content in each commit) without touching the working tree or index.
+    Without branch, commits land on the checked-out branch, which is allowed only while nothing
+    under records/ is tracked (an empty repository, as in the tests)."""
     repo = Path(repo).resolve()
+    if not branch and records_tracked(repo):
+        raise BranchRequired("records/ is tracked by git: --branch is required (python3 tools/build.py --branch history)")
     check(repo)
     if branch and git(repo, "symbolic-ref", "-q", "HEAD") == f"refs/heads/{branch}":
         raise ValueError(f"{branch} is the checked-out branch; refusing to replace it")
@@ -68,9 +81,23 @@ def build(repo=ROOT, branch=None):
     return [(str(d), r["trailer_instrument"]) for d, _, _, _, r in records]
 
 
-if __name__ == "__main__":
+def main(argv):
+    """`python3 tools/build.py --branch <name> [--repo PATH]`. Exit 2 when --branch is missing on a populated repo."""
+    def flag(name):
+        value = argv[argv.index(name) + 1:argv.index(name) + 2] if name in argv else []
+        return value[0] if value and not value[0].startswith("--") else None
+
+    branch, repo = flag("--branch"), flag("--repo") or ROOT
     try:
-        build(branch=sys.argv[sys.argv.index("--branch") + 1] if "--branch" in sys.argv else None)
+        build(repo, branch=branch)
+    except BranchRequired as exc:
+        print(exc, file=sys.stderr)
+        return 2
     except (KeyError, ValueError, OSError, subprocess.CalledProcessError) as exc:
         print(exc, file=sys.stderr)
-        raise SystemExit(1)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))
