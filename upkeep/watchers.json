@@ -4199,6 +4199,125 @@
   "url": "https://api.et.gr/apiFEK/1/1994/191/pdf"
  },
  {
+  "id": "sk-accounting-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-accounting-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2002/431/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-105-2024-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-105-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/105/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-ets-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2012/414/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-186-2023-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-186-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2023/186/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-236-2024-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-236-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/236/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-125-2026-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-125-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2026/125/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-consumer-protection-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-consumer-protection-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/108/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-310-2025-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-310-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2025/310/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "terms-sk-slovlex-copyright-act",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2015/185/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "terms-sk-nbs-adopted",
+  "source_id": "SK-NBS-ADOPTED",
+  "iso2": "SK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://nbs.sk/disclaimer-sk/"
+ },
+ {
   "id": "lv-ilgtspejas-informacijas-likums-likumi-page",
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
