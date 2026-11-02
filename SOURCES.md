@@ -770,3 +770,57 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Chile
+
+Run on 2026-11-02 (GEL-07-05). Two rows pass, both on the publisher's terms (not a statute): `CL-BCN-ADOPTED` and `CL-BCN-CONSOLIDATED` (Biblioteca del Congreso Nacional, Ley Chile). Their deciding sentence is section 9 of the Ley Chile API conditions: the texts of laws, decrees and similar acts served through Ley Chile are outside copyright and the BCN claims no rights in them. Two rows are `permission requested`: `CL-CMF-ADOPTED` (the CMF site authorises reproduction with the source named but does not mention commercial reuse or modification) and `CL-DIARIOOFICIAL-ADOPTED` (reuse is open to all but condition a) forbids altering the content). Varun to confirm the two BCN passes: the same section says other Ley Chile content is CC BY-NC-ND, the API conditions ban bulk extraction and AI training without authorisation, and the fetches below used the older public endpoints without an API key. No browser was needed for any record.
+
+Every `leychile.cl` and `bcn.cl` host answers a request with no browser User-Agent with an empty `401` from CloudFront, and `www.diariooficial.interior.gob.cl` answers it with a `403`. A short User-Agent (`-A 'Mozilla/5.0'`) is enough; the watcher's own User-Agent (`global-esg-law-watch/1`) is also answered `200`. The failing line first:
+
+```
+curl -sS -L -o x.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `401 0` (empty content type). With the User-Agent the same URL returns the file below.
+
+Row `CL-BCN-ADOPTED`, Decreto 4 of 2023 (idNorma 1196414), JSON route:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ds4.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `200 61807 application/json; charset=utf-8`; a second request returned the same bytes (`fetched_sha256` f8ef0ccc...). The JSON is the data the Ley Chile page draws: `html` is a tree of parts (`t` is an HTML fragment, `h` the child parts, `i` the part id), `estructura` names the parts, `metadatos` the dates. Record text = every `<div class="p">` of every part in order, tags removed, `&nbsp;` and runs of spaces collapsed, empty paragraphs dropped, BCN's amendment annotations (`<span class="n">`) dropped, one paragraph per line; parts named Anexo (for Ley 21.455, the Constitutional Tribunal certificate on the bill) are left out. The text is not reworded. The version list of any norm:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o v.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte='
+```
+
+Returned `200 841 text/xml;charset=utf-8` (the body is JSON: `@vigenteDesde`, `@vigenteHasta`, `@tipoVersion` of "Texto Original", "Intermedio", "Última Versión" or "Única"). `Texto Original` and `Única` are stored under the adopted row, the others under the consolidated row. Ley 21.455 is this idNorma: row `CL-BCN-ADOPTED`, version 2022-06-13, `curl -sS -L -A 'Mozilla/5.0' -o l21455.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1177286&idVersion=2022-06-13&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='` returned `200 192678 application/json; charset=utf-8` (sha256 06f41402...); row `CL-BCN-CONSOLIDATED`, version 2025-07-11, same URL with `idVersion=2025-07-11`, returned `200 192844` (sha256 bd013320..., identical on two requests).
+
+XML route, used for the two instruments where only one or two articles are stored. Row `CL-BCN-CONSOLIDATED`, Ley 20.780 as of 2023-02-25 (idNorma 1067194; a norm is found from its number with `https://www.leychile.cl/Consulta/obtxml?opt=7&idLey=20780`, which returned `200 409864 text/xml; charset=utf-8`):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o l20780.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1067194&idVersion=2023-02-25'
+```
+
+Returned `200 344807 text/xml; charset=utf-8` (sha256 3bf915a2...). The XML (`Norma/EstructurasFuncionales/EstructuraFuncional/Texto`) is cut by the position of the element whose `Texto` starts `Artículo 8°` (idParte 9509251); each `Texto` is split into paragraphs at lines that start with whitespace, wrapped lines joined with a space. Row `CL-BCN-ADOPTED`, Ley 19.496 as published (idNorma 61438, version 1997-03-07, articles 28 and 33 cut the same way): `curl -sS -L -A 'Mozilla/5.0' -o l19496.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=61438&idVersion=1997-03-07'` returned `200 84500 text/xml; charset=utf-8` (sha256 529c5bd4...). All 18 versions of Ley 19.496 and all 10 of Ley 20.780 were fetched; the two articles of Ley 19.496 are the same in each, and the versions of Ley 20.780 in which art. 8 differs are the five stored. Both cuts were compared on 2026-11-02 with the JSON route of the same versions: identical text except for BCN's amendment annotations, which only the JSON carries.
+
+Why two routes: on the same day the XML route returned `Texto` elements cut mid-word for Ley 21.455 (art. 5 letters c) to i), "prá" and "Climá" as last characters) and a replacement character for the accented i of "Título" in Decreto 4/2023. The first XML fetch of the Ley 21.455 version 2022-06-13 was complete (188127 bytes, sha256 93f630c0...); later requests for the same URL returned 181567 bytes (0a807631...) with the cut. Because of that variance Ley 21.455 and Decreto 4 are stored from the JSON route, whose bytes were identical on repeated requests, and the XML `fetched_sha256` of the other two instruments was reproduced on a second request (the Ley 20.780 files match byte for byte). If a later run of the XML route returns different bytes, treat the stored XML hash as the date-stamped one and compare the article text, not the hash.
+
+Row `CL-CMF-ADOPTED` (permission requested, nothing stored): `curl -sS -L -A 'Mozilla/5.0' -o ncg461.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cmfchile.cl/normativa/ncg_461_2021.pdf` returned `200 563413 application/pdf`; the NCG 519 PDF (`.../ncg_519_2024.pdf`) returned `200 272348 application/pdf`. The CMF normativa page of NCG 461 answers without a User-Agent (`200 113829`). Both PDFs were read with `pdftotext -layout` only to take dates and amendments (no mojibake); nothing is stored. Row `CL-DIARIOOFICIAL-ADOPTED` (permission requested): `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.diariooficial.interior.gob.cl/` returned `403 286 text/html; charset=iso-8859-1`; with `-A 'Mozilla/5.0'` it returned `200 29180 text/html; charset=UTF-8`. Its terms page is a script-rendered shell (1325 bytes to curl) and was read with Playwright chromium after networkidle. No edition PDF was fetched, so no `pdftotext` recipe is proven for the gazette.
+
+### Languages
+
+Run on 2026-11-02. Chile has one official language, Spanish; every record has `language` es and no row of its own was added for a second language. English was looked for at the Ley Chile pages (`https://www.bcn.cl/en` returned `200 8888 text/html`, the Spanish script shell; `https://www.bcn.cl/leychile/en` `200 9602`, the same shell; the Ley Chile version lists are Spanish only), at the CMF site (`https://www.cmfchile.cl/english/` returned 404, 2319 bytes; the normativa pages are Spanish only) and at the Diario Oficial (`https://www.diariooficial.interior.gob.cl/en` returned 404, 29166 bytes). No government English translation of any scope instrument was found, so no translation row exists and no translation record is stored. Unofficial English texts of Ley 21.455 published by outside bodies were not looked at and would not be stored.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| cl-ncg-461 (CMF NCG 461) | https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html | Row `CL-CMF-ADOPTED` is permission requested: the CMF site authorises reproduction with the source named, but says nothing on commercial reuse or modification. The PDF opens (200, 563413, application/pdf). |
+| cl-ncg-519 (CMF NCG 519, amends NCG 461) | https://www.cmfchile.cl/normativa/ncg_519_2024.pdf | Same row, same reason. The PDF opens (200, 272348, application/pdf). |
+| Ley 20.920 (F7) | https://www.bcn.cl/leychile/navegar?idNorma=1090894 | F7: register row only, no scope entry. |
+
+Blocked from the cloud address: none refused a browser User-Agent. Without one, `www.bcn.cl`, `www.leychile.cl` and `nuevo.leychile.cl` answer `401` with an empty body (CloudFront) and `www.diariooficial.interior.gob.cl` answers `403`. The watchers in `upkeep/watchers.json` run from the shipped User-Agent, which the BCN hosts and the CMF accept (`--dry-run` 2026-11-02: 0 failures), and carry a browser `second_route` anyway.
+
+Stored by GEL-07-05: `cl-ley-21455` (adopted 2022-06-13, consolidated 2025-07-11), `cl-ley-20780-art8` (adopted 2014-10-01; consolidated 2016-02-08, 2020-02-24, 2023-01-01, 2023-02-25), `cl-ds-4-2023` (adopted 2023-09-29), `cl-ley-19496-art28-33` (adopted 1997-03-07).
