@@ -3675,5 +3675,27 @@
     "trailer_source_url": "https://www.vestnesis.lv/op/{year}/{issue}.{n}",
     "trailer_licence": "Re-use of the Official Publication needs written agreement with the official publisher and a fee (vestnesis.lv/atkalizmantosana)",
     "notes": "fingerprint: sha256 of the text of https://www.vestnesis.lv/atkalizmantosana (script and style removed, tags to spaces, whitespace collapsed, html unescaped) from \"Oficiālajā izdevumā publicētā informācija\" to \"18. panta otro daļu.\" inclusive, plus a newline. Recomputed 2026-11-02. The page also says \"Maksu par oficiālo publikāciju atkalizmantošanu nosaka Ministru kabineta noteikumi Nr. 536\" and lists 0,57 euro per document and 21,34 euro per group per month. vestnesis.lv answers curl with HTTP 200 and the as-published text (for example https://www.vestnesis.lv/op/2024/193.1), but nothing is stored under this row. The original wording of each act is stored instead as the base (\"Pamata\") edition under LV-LIKUMI-CONSOLIDATED. Decision for Varun: whether the statute alone clears the as-published texts; if yes, this row could pass on the statute basis and give true adopted records."
+  },
+  {
+    "id": "HR-NN-ADOPTED",
+    "jurisdiction": "HR",
+    "publisher": "Narodne novine d.d. (official gazette of the Republic of Croatia)",
+    "source_name": "Narodne novine, official gazette online, as-published texts of the official part (HTML)",
+    "form": "adopted",
+    "fetch_url": "https://narodne-novine.nn.hr/clanci/sluzbeni/{YYYY}_{MM}_{issue}_{item}.html (the same document is at https://narodne-novine.nn.hr/eli/sluzbeni/{YYYY}/{issue}/{item})",
+    "pinned_version": "NN issue and item number (gazette publication)",
+    "content_hash": "",
+    "terms_url": "https://narodne-novine.nn.hr/data_access_hr.aspx",
+    "terms_quote": "Svi sadržaji objavljeni na ovim internetskim stranicama zaštićeni su autorskim pravom i mogu se koristiti samo pod uvjetima propisanim Zakonom.",
+    "terms_fingerprint": "b5541ff7cf48751da22a28752f066dab03264e7677125775f2bb3e3efba922a7",
+    "verdict": "pass",
+    "statute_exception": "Zakon o autorskom pravu i srodnim pravima (ZAPSP, NN 111/2021) čl. 18 st. 3: \"Službeni tekstovi iz područja zakonodavstva, uprave i sudstva, kao što su zakoni, uredbe, odluke, izvješća, zapisnici, sudske odluke i slično, [...] kao i njihove zbirke, zaštićeni su kao autorska djela od trenutka stvaranja, ako su originalne intelektualne tvorevine koje imaju individualan karakter. U trenutku kad budu predani u bilo kakav službeni postupak ili budu predani službenoj osobi radi informiranja javnosti ili javnog korištenja ili kad budu objavljeni radi službenog informiranja javnosti, prestaju biti zaštićeni autorskim pravom.\" Čl. 15 st. 3: \"Prijevodi službenih tekstova iz područja zakonodavstva, uprave i sudstva, koji su originalne intelektualne tvorevine individualnog karaktera, zaštićeni su kao samostalna autorska djela, osim ako su učinjeni radi službenog informiranja javnosti i kao takvi objavljeni.\" Opened as HTML from Narodne novine on 2026-11-02 (https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html)",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-02",
+    "trailer_instrument": "Narodne novine text as published (title, NN issue and item number set per instrument)",
+    "trailer_source_url": "https://narodne-novine.nn.hr/eli/sluzbeni/{YYYY}/{issue}/{item}",
+    "trailer_licence": "Not copyright-protected once published for official information (ZAPSP NN 111/2021 čl. 18 st. 3); Narodne novine terms: contents usable only under the conditions of the law",
+    "notes": "fingerprint: curl -sS -L 'https://narodne-novine.nn.hr/data_access_hr.aspx' | python3 -c \"import sys,re,html;t=sys.stdin.read();a=t.find('<div id=\\\"opci\\\"');b=t.find('<div id=\\\"priv\\\"');t=re.sub(r'<[^>]+>',' ',t[a:b]);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 (the terms are the \"Opći uvjeti korištenja\" box in the footer of every page; hashing the whole page does not reproduce, it carries a per-request form token). Recomputed 2026-11-02. The terms grant no licence: the whole site is claimed as copyright 'under the conditions prescribed by the Law', so the pass rests on the statute, not on the terms. The reading: laws and decrees (zakoni, uredbe) are named in čl. 18 st. 3, and a pravilnik is an official text of the same kind (\"i slično\"); NN publishes them 'radi službenog informiranja javnosti'; the stored text is the gazette item text only, tag-stripped, without NN's page layout, metadata or editorial notes, which the terms still reserve. Not checked: whether ZAPSP čl. 18 was amended after NN 111/2021 (no amending act found by search on 2026-11-02). Translations: čl. 15 st. 3 protects a translation of an official text unless it was made for official public information and published as such; no government English translation was found, so there is no translation row. Consolidated texts: NN publishes a pročišćeni tekst only occasionally and none was found for the instruments in scope, so there is no consolidated row; zakon.hr (private consolidation service) is never a row. Other candidates opened and not used: sabor.hr and hanfa.hr answered from the cloud address (HTTP 200) but no instrument in scope is stored from them, so they have no row. NN asks scripts for at most three requests per second (data_access_hr.aspx)."
   }
 ]
