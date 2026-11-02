@@ -3203,6 +3203,213 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
 
+## Estonia
+
+Rows `EE-RT-ADOPTED` and `EE-RT-CONSOLIDATED` are `pass` on the statute basis (Autoriõiguse seadus § 5 p 3: acts and administrative documents and their official translations are outside copyright; Riigi Teataja seadus § 12 lg 1 asks only that other sites name Riigi Teataja as the place of the official text). `EE-RT-TRANSLATION` (English) and `EE-FI-ADOPTED` (Finantsinspektsioon) are `permission requested`. Run on 2026-11-02 from the cloud address. Language: Estonian only; English is a translation (below). www.riigiteataja.ee serves a JavaScript shell for every HTML page, so texts come from the Riigi Teataja public API (`/public-api/api/v1/`, named in the site's FAQ item 9 "Avaandmed"). It answered curl from the cloud address with no challenge.
+
+Failing request (the HTML page of an act, a shell without text):
+
+```
+curl -sS -o h.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/akt/107012025001
+```
+
+Returned `200 61752 text/html` (the same 61752 bytes for every path, for example `/en` and `/akt/110072025003`). No browser recipe is needed: the API below answers curl.
+
+Step 1, list the versions of a consolidated text. The group id is `grupiId` in `GET /public-api/api/v1/akt/{id}` of any version (Raamatupidamise seadus: 155849). The answer lists every version with its RT id and `kehtivuseAlgus` as a UTC instant; the stored `in_force` is that instant's Europe/Tallinn calendar date (`2025-06-30T21:00:00Z` is 2025-07-01):
+
+```
+curl -sS -o rps_versions.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/155849/redaktsioonid
+```
+
+Returned `200 6353 application/json;charset=UTF-8` (27 versions, 2003-01-01 to 2027-01-01). `GET /public-api/api/v1/akt/lyhendid` lists abbreviations with the current RT id (RPS 110072025003, AÕKS 130062026006, TKS 103072026030). The site's search API, `https://www.riigiteataja.ee/api/oigusakt_otsing/1/otsi?leht=1&limiit=50&pealkiri=<words>&tekst=koik` (FAQ item 9), answered `200 2422 application/json` for `lyhend=RPS&limiit=5` and was used to find the regulations and the amending acts (`tekst=algtekst`).
+
+Step 2, row `EE-RT-CONSOLIDATED`, the Accounting Act as consolidated from 2025-07-01 (RT id 107012025012):
+
+```
+curl -sS -o rps_20250701.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/107012025012/xml
+```
+
+Returned `200 702167 application/octet-stream;charset=UTF-8` (XML), sha256 `b1d7c7843bcab40ae9842f91247ea4e9982a3d9dd1abe80edba58b0ce0ab95c7`; a second fetch gave the same hash, so `fetched_sha256` reproduces (no per-request token).
+
+Row `EE-RT-ADOPTED`, the act as published, here RT I, 07.01.2025, 1 (RT id 107012025001):
+
+```
+curl -sS -o csrd.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/107012025001/xml
+```
+
+Returned `200 54786 application/octet-stream;charset=UTF-8`, sha256 `fd6326a224efaf989f18207d4b87d99daf46af43c8da7df48bd5ba3cc34887e5`. The `/blob-xml` variant returns the same act reserialised (54766 bytes, `application/xml`); `/xml` is the one used. Consolidated texts of 2003 to 2016 are served by the same call (the first Accounting Act text is id 229287).
+
+Text extraction: Python stdlib `xml.etree`, run from a script kept outside the repository. Each structural element (`peatykk`, `jagu`, `jaotis`, `paragrahv`, `loige`, `punkt`, `alampunkt`) is one line: its `kuvatavNr` label, its heading and its `sisuTekst`, in document order; inline tags dropped, `<sup>` digits written as Unicode superscript digits (`§ 24¹`), no-break spaces made plain spaces. Amending acts carry their body as HTML in CDATA; the tags are stripped, each `<p>` is a line. Each `muutmismarge` (amendment note) is a line in the Riigi Teataja form `[RT I, 10.07.2025, 2 - jõust. 20.07.2025]`; base64 attachments (`fail`) are dropped. The cut records take whole elements by id or heading: Accounting Act `para24`, `para24b1`, `para24b2`, `para31`, `para31b1`, `para31b2`, `para61b3`; Ambient Air Protection Act the `jagu` titled "Kasvuhoonegaaside lubatud heitkogustega kauplemine"; Consumer Protection Act `para2`, `para70` and the `jagu` "Kaupleja ja tarbija vahelise tehinguga seotud kauplemisvõte". A consolidation is stored only when its cut text differs from the previous stored version, so the dates below are the dates the text changed. `fetched_url` is the exact `/xml` request; the cut is out of that file. The extraction was checked for leftover tags, entities and no-break spaces (none) and for mojibake (none; the files are UTF-8).
+
+Stored (fetched 2026-11-02, Estonian):
+
+| Instrument | Row | Records | `in_force` dates |
+|---|---|---|---|
+| `ee-rps` | consolidated | 14 | 2003-01-01, 2005-12-01, 2007-01-01, 2007-11-19, 2008-07-10, 2009-04-06, 2010-01-01, 2010-11-15, 2011-01-01, 2016-01-01, 2017-01-01, 2021-06-01, 2025-01-17, 2025-07-01 |
+| `ee-rps-amendment-2025` | adopted | 1 | 2025-01-17 |
+| `ee-aoks-ets` | consolidated | 36 | every version of the Act from 2017-01-01 to 2034-01-01 (the division changed in each); first 2017-01-01, last 2034-01-01 |
+| `ee-ets-trading-order` | consolidated | 5 | 2017-01-01, 2018-08-10, 2020-01-24, 2021-01-01, 2022-01-14 |
+| `ee-ets-auction-order` | consolidated | 2 | 2017-01-01, 2023-07-08 |
+| `ee-tks` | consolidated | 6 | 2016-03-01, 2020-01-17, 2022-05-28, 2026-07-13, 2026-09-01, 2026-09-27 |
+| `ee-tks-2024-825-act` | adopted | 1 | 2026-07-13 |
+
+Versions the site already serves but that are not yet in force (Accounting Act 2027-01-01; Ambient Air Protection Act 2026-12-11, 2027-07-01, 2034-01-01) are ordinary records dated their in-force date where the cut text differs; the Accounting Act 2027-01-01 cut equals the 2025-07-01 text, so it has no record.
+
+### Link only
+
+None of the seven scope instruments is link only. Not in scope, with the reason: Kliimakindla majanduse seadus (bill 928 SE, in committee, not in Riigi Teataja) and Kliimapoliitika põhialused aastani 2050 (Riigikogu resolution, a plan) are F7 register rows; the Finantsinspektsioon sustainability roadmap is guidance on fi.ee, row `EE-FI-ADOPTED` is `permission requested` ("Veebilehel sisalduva informatsiooni reprodutseerimine ja levitamine ilma Finantsinspektsiooni eelneva loata on keelatud."), so nothing is stored. The consolidated Audiitortegevuse seadus (assurance of the sustainability report) was not made a scope entry; it is named in the `ee-rps-amendment-2025` notes.
+
+### Languages
+
+Run on 2026-11-02. Estonian is the only official language, served under the rows above, so no second-language row exists. English: the site calls its translations "unofficial texts – they do not have legal force" (https://www.riigiteataja.ee/en/introduction), says certified (sworn) translators make the Act translations and ministries organise the regulation translations (FAQ item 5), and no live page grants reuse. The statute exception covers "ametlikud tõlked" only, so row `EE-RT-TRANSLATION` rests on terms and is `permission requested`. No English record is stored. Where a translation exists it is found by `tolkeSeosId` in `GET /public-api/api/v1/akt/{id}` of the Estonian version; the English act is then `GET /public-api/api/v1/en/akt/{tolkeSeosId}/xml`:
+
+```
+curl -sS -o en_rps.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/en/akt/510072025005/xml
+```
+
+Returned `200 1217759 application/octet-stream;charset=UTF-8` (Accounting Act, English, version in force 2025-07-20, group 100007, 13 versions). Probed, not stored: translations are linked from 13 of 27 Accounting Act versions (2011-01-01 to 2025-07-20), 34 of 36 Ambient Air Protection Act versions (2017-01-01 to 2026-12-11) and 23 of 23 Consumer Protection Act versions; the two regulations and the two as-published acts have none. When the row passes, each English version must be matched to the Estonian version by its act-level last amendment note before it is stored.
+
+Terms pages were read with Playwright chromium (the pages are Angular applications): https://www.riigiteataja.ee/et/kkk with "Ava kõik" clicked, https://www.riigiteataja.ee/en/introduction, and the statute text at https://www.riigiteataja.ee/akt/112072025009; `fi.ee` terms by curl (`200 83661 text/html; charset=UTF-8`). The fingerprints are in the rows.
+
+### Blocked
+
+No site was blocked from the cloud address: riigiteataja.ee (API, search API, static index `/avaandmed/ERT/`), fi.ee and riigikogu.ee all answered curl with 200. The Riigikogu bill list search (`https://www.riigikogu.ee/tegevus/eelnoud/`) is a JavaScript page; the bill page was found by web search and answers `200`.
+
+## Kenya
+
+Run on 2026-11-02 (GEL-08-04). No licence row passes, so nothing is stored: no record files, five scope instruments, all `link only`. Rows: `KE-KENYALAW-CONSOLIDATED`, `KE-KENYALAW-ADOPTED`, `KE-PARLIAMENT-ADOPTED`, `KE-CMA-ADOPTED`, `KE-NSE-ADOPTED`, all `permission requested`. There is no proven fetch for a `pass` row. What was run to read the terms and the commencement lines is below, so the next session can repeat it.
+
+Kenya Law moved: `https://new.kenyalaw.org/` now answers 301 to `https://kenyalaw.org/`, and the old URL form is not mapped.
+
+```
+curl -sS -L -o old.html -w '%{http_code} %{size_download} %{url_effective}\n' 'http://www.kenyalaw.org/lex/actview.xql?actid=CAP.%20387'
+```
+
+Returned `404 19188 https://kenyalaw.org/lex/actview.xql?actid=CAP.%20387` (two 301s, then 404).
+
+Terms page (plain `curl` works):
+
+```
+curl -sS -A 'Mozilla/5.0' -o terms.html -w '%{http_code} %{size_download} %{content_type}\n' https://kenyalaw.org/terms-of-use/
+```
+
+Returned `200 29466 text/html; charset=utf-8`. Section 9: raw documents under CC BY-NC 4.0; section 4: "Scraping, deployment of unauthorized bots and bulk downloading from this website is strictly prohibited." That is why no row passes and why only single pages were opened.
+
+Document pages answer scripts with a challenge. Failing `curl`, for the Climate Change Act (Cap. 387A) as at 2023-09-15:
+
+```
+curl -sS -A 'Mozilla/5.0' -o cc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15'
+```
+
+Returned `202 0 text/html; charset=UTF-8`. Browser recipe: Playwright chromium (`chromium.launch()`, user agent `Mozilla/5.0`), `page.goto(url, {waitUntil: 'networkidle'})`, then 2 s; `page.content()` returned 689594 characters of HTML (the response status the script saw was 202). For the PDF, the same page is opened first, then `context.request.get('https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15/source')` in the same context returned `200 387309 application/pdf`; `pdftotext -layout` read it, with the notice "There is no copyright on the legislative content of this document. This PDF copy is licensed under a Creative Commons Attribution NonCommercial ShareAlike 4.0 License". No hash was kept because nothing is stored. Commencement lines were read the same way from the pages of `ke-climate-change-act-2016`, `ke-carbon-markets-regs-2024`, `ke-emca-1999` and `ke-cpa-2012-s12-13`.
+
+Capital Markets Authority (plain `curl` works):
+
+```
+curl -sSL -A 'Mozilla/5.0' -o code.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cma.or.ke/download/35/guidelines/4323/code-of-corporate-governance-practices-for-issuers-of-securities-to-the-public-2015-code.pdf
+```
+
+Returned `200 356766 application/pdf`; `pdftotext -layout` gave clean text. `https://cma.or.ke/disclaimer/` answers 301 to the `www` host (`200 165291` after the redirect). Parliament (`https://www.parliament.go.ke/`, 200) and NSE (`https://www.nse.co.ke/terms-and-conditions/`, 200) answered; neither grants reuse.
+
+### Languages
+
+English is the language of legislation; the Kenya Law pages list only `eng` expressions, and no Swahili text was found. No government English translation applies. No second-language or translation row was added.
+
+### Link only
+
+- `ke-climate-change-act-2016`, `ke-carbon-markets-regs-2024`, `ke-emca-1999`, `ke-cpa-2012-s12-13`: Kenya Law rows are `permission requested` (copyright claimed, NC licence, scraping and bulk download prohibited).
+- `ke-cma-cg-code-2015`: `KE-CMA-ADOPTED` is `permission requested` (no reuse grant, "All Rights Reserved").
+- F7 register rows without scope entry: ICPAK roadmap, NSE ESG Disclosures Guidance Manual (no NSE-hosted copy found).
+- Blocked from the cloud address for scripts: every `https://kenyalaw.org/akn/...` document and `/source` URL (HTTP 202, empty body, plain `curl`); the browser recipe above passes.
+
+## Iceland
+
+Date run: 2026-11-02, from the cloud address. No row is `pass`, so nothing is stored; the requests below are proven for the day the verdict flips. Rows: `IS-ALTHINGI-CONSOLIDATED`, `IS-STJORNARTIDINDI-ADOPTED`, `IS-GOVERNMENT-TRANSLATION`, all `permission requested`.
+
+### IS-STJORNARTIDINDI-ADOPTED (proven fetch, not stored)
+
+Stjórnartíðindi moved to island.is; `www.stjornartidindi.is` redirects to `https://island.is/stjornartidindi`. The gazette has a public JSON API (OpenAPI at `https://api.stjornartidindi.is/swagger-json`). The advert body is HTML in `advert.document.html`; the PDF (the legally binding form) is in `advert.document.pdfUrl`.
+
+One instrument, Lög um ársreikninga nr. 3/2006 (A-deild 3/2006, id `b46b4083-ecb7-46c9-a5b3-68c201a6ccd2`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o a1.json -w '%{http_code} %{size_download} %{content_type}\n' https://api.stjornartidindi.is/api/v1/adverts/b46b4083-ecb7-46c9-a5b3-68c201a6ccd2
+200 114548 application/json; charset=utf-8
+```
+
+A second fetch gave a byte-identical file (sha256 `69b78982b778bbb4c18995be85b7c0fe1ce198c781826d0afcf9690c502108be` both times), so `fetched_sha256` reproduces. Text recipe if the row flips: take `advert.document.html`, drop tags, headings and paragraphs as line breaks. The HTML puts every word on its own line, so collapse whitespace inside a paragraph before writing the record.
+
+Finding the id of an act or regulation (lean list, 94 kB for 82 hits):
+
+```
+curl -sS -A 'Mozilla/5.0' -G https://api.stjornartidindi.is/api/v1/adverts-lean --data-urlencode 'search=loftslagsmál' --data-urlencode department=a-deild --data-urlencode pageSize=100
+200 94354 application/json; charset=utf-8
+```
+
+The full list endpoint `/api/v1/adverts` returned 7321596 bytes for the same query, so the watchers use `adverts-lean`. The PDF of Markaðssetningarlög nr. 44/2026: `curl -sS -A 'Mozilla/5.0' -o 44.pdf https://adverts.stjornartidindi.is/A_nr_44_2026.pdf` returned 200, 270174 bytes, `application/pdf`. The gazette serves each act as published (one version); an amendment is another advert, so no consolidated text and no point-in-time versions exist here. Coverage: adverts since 2001 (the site says so); a search of year 1972 returned 0.
+
+### IS-ALTHINGI-CONSOLIDATED (blocked from the cloud address)
+
+```
+curl -sS -A 'Mozilla/5.0' -o al.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.althingi.is/lagas/nuna/2006003.html
+403 5528 text/html; charset=UTF-8        (body: "Just a moment...", header cf-mitigated: challenge)
+```
+
+Headless Chromium (Playwright, `chromium.launch()`, `goto` with `domcontentloaded`, then 40 s of waiting in 5 s steps) stayed on the title "Just a moment..." (HTTP 403, about 44.9 kB of challenge HTML) for `/lagas/nuna/2006003.html` and `/lagas/`. Also 403 with the same challenge: `/lagas/145a/1972073.html`, `/lagasafn/pdf/157c/1972073.pdf`, `/altext/stjt/1972073.html`, `/vefur/lagasafn.html`. Open: `/robots.txt` (200) and `/altext/xml/` (200, parliamentary data only, no Lagasafn). Recorded as blocked from the cloud address; the orchestrator can read it from the laptop.
+
+### Languages
+
+Icelandic is the only language of the gazette and of Lagasafn; no second official language is served. English: `IS-GOVERNMENT-TRANSLATION`.
+
+```
+curl -sSL -A 'Mozilla/5.0' -o ga.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.government.is/publications/legislation/act/2022-12-01-Act-on-annual-accounts
+200 235665 text/html; charset=utf-8
+```
+
+The page (Ministry of Industries, "Act on annual accounts", list date 2022-12-01) has no linked PDF or Word file in its HTML, and the amendment state is not given in the title, so no record could be matched to a stored version. The Legislation list (`https://www.government.is/publications/legislation/`) ignores the `q` parameter. For the other five instruments only the first page of the Legislation list and the gazette API were checked; no English text was found there.
+
+### Link only
+
+All six scope instruments are link only: `is-arsreikningalog-66d`, `is-loftslagslog`, `is-ets-log` and `is-markadssetningarlog` and `is-sjalfbaernilog-fjarmal` (rows `IS-ALTHINGI-CONSOLIDATED` and `IS-STJORNARTIDINDI-ADOPTED`), `is-ets-regulation-606-2021` (row `IS-STJORNARTIDINDI-ADOPTED`). Reason: both rows are `permission requested`. The Alþingi site cannot be opened from the cloud address. The gazette page grants no reuse licence and Höfundalög nr. 73/1972 9. gr. could not be opened on an official page, so the statute basis is not met. Seðlabanki Íslands and Nasdaq Iceland got no row: no instrument in scope comes from them.
+
+## Egypt
+
+Rows `EG-ALAMIRIA-ADOPTED`, `EG-FRA-ADOPTED` and `EG-EEAA-ADOPTED`, all `permission requested`. No row passes, so no record is stored and every instrument in `register/EG/scope.json` is `link only`. Run on 2026-11-02. No proven fetch recipe is listed for a `pass` row because there is none; the requests below are what was tried.
+
+### What was opened
+
+Government Printing Press (alamiria.com). The free online edition holds the current daily issues only:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o tash.html -w '%{http_code} %{size_download} %{content_type}\n' 'http://www.alamiria.com/Sec/TashTxt.aspx?id=4uo5w82IuBo='
+```
+
+Returned `200 61922 text/html; charset=utf-8` (Prime Minister Decision 3106 of 2026, a land allocation; not an ESG instrument). The archive, subscription and issue-browser pages redirect to `/Sec/Login` (`200 64974`, login form). The legislation portal `https://alamiria.laalaws.com` answers `403 5360 text/html` ("Just a moment... Enable JavaScript and cookies"), a Cloudflare challenge; no browser run was attempted because the portal is the paid archive (login link on the page). Blocked from the cloud address: https://alamiria.laalaws.com/ .
+
+FRA (fra.gov.eg). Pages and PDFs answer curl:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d107.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://fra.gov.eg/wp-content/uploads/2023/01/قرار-107-2021-وفقاً-لآخر-تعديل-ديسمبر-2022.pdf'
+```
+
+Returned `200 563181 application/pdf`. PM Decree 4664/2022 (`.../2025/01/قرار-رئيس-الوزاراء-رقم-4664-لسنة-2022.pdf`) returned `200 413325 application/pdf`; FRA decisions `alamiria_2024_30.pdf` and `alamiria_2026_115.pdf` returned `200 683565` and `200 510732` but poppler reports "Couldn't find trailer dictionary".
+
+PDF text check, `pdftotext -layout` and `pdftotext -raw` (poppler) with NFKC: the Arabic comes out with reversed word order, split words and swapped letters ("جملس" for "مجلس"). The Egyptian PDFs are therefore not storable without reordering, which would reword the text.
+
+EEAA (eeaa.gov.eg). `https://www.eeaa.gov.eg/Laws/55/index` returned `200 139670 text/html; charset=utf-8` and lists the environment law DOC and PDF files by file name. `https://www.eeaa.gov.eg/UsagePolicy/Index` timed out and then failed with `curl: (35) Recv failure: Connection reset by peer` (three tries).
+
+### Languages
+
+Arabic only was looked for. No government English translation was found on fra.gov.eg/en (the English pages link the same Arabic PDFs) or eeaa.gov.eg. No English row.
+
+### Link only
+
+All five instruments in `register/EG/scope.json`: `eg-fra-bod-107-2021`, `eg-fra-bod-108-2021`, `eg-fra-bod-31-2024` (row `EG-FRA-ADOPTED`, no terms page found, PDFs not extractable), `eg-pm-decree-4664-2022` (gazette extract hosted by the FRA, same row), `eg-law-4-1994-environment` (row `EG-EEAA-ADOPTED`, copyright footer only, usage page not opened).
+
+Law 82 of 2002 Art. 141 (official documents, including laws and decisions, are not protected) was not applied: the text was read on ar.wikisource.org only, it protects original collections, and the extraction fails in any case. Varun decides whether to apply it to FRA decisions and gazette extracts.
+
+Not in scope, with reason: Consumer Protection Law 181 of 2018 (cpa.gov.eg answered `502`; no official page opened); a framework climate law (none found on any page opened); EGX (https://www.egx.com.eg/ and egx.com.eg refused the cloud address with an empty reply or no connection; blocked from the cloud address: https://www.egx.com.eg/); manshurat.org (NGO database, never a source); sis.gov.eg, egypt.gov.eg, ecs.gov.eg, idsc.gov.eg and gpp.gov.eg gave no connection (000).
+
 ## Bangladesh
 
 No Bangladesh row is `pass`, so nothing is stored and all nine scope instruments are `link only`. The requests below were run on 2026-11-02 to find the texts and the terms; none is a storage recipe.
