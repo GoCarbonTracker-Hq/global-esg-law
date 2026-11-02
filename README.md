@@ -41,14 +41,14 @@ Python 3.11 or later, standard library plus git. pytest is the only extra.
 
 ## Before going public
 
-The repository is private and stays private until Varun decides otherwise. Run these in order and compare each last line with the expected one:
+The repository went public under the GoCarbonTracker organisation on 2026-11-02 after this checklist passed. Before any further release, run these in order and compare each last line with the expected one:
 
 1. `python3 tools/check_corpus.py` ends with `76 records checked`.
 2. `python3 tools/publish_gate.py` exits 0.
 3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
 4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
 5. `python3 tools/watch.py --dry-run` exits 0 or 1, never 2.
-6. Varun says make it public.
+6. Varun says make it public (said 2026-11-02).
 
 `check_corpus.py` refuses any record whose source row is not `pass`. `publish_gate.py` prints every source row and scope entry and exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records.
 
@@ -60,6 +60,6 @@ Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). Each l
 
 ## Cite
 
-global-esg-law, https://github.com/varunmoka7/global-esg-law, version `051f0e9ea6cc5aa6e4586d8a9c7312aac5bc2260` (`history` branch), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
+global-esg-law, https://github.com/GoCarbonTracker/global-esg-law, version `051f0e9ea6cc5aa6e4586d8a9c7312aac5bc2260` (`history` branch), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
 
 The official source in the `Source-url` trailer is the authority and this repository is a copy.

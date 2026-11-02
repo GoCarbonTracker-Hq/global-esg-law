@@ -101,7 +101,7 @@ RECIPES = {"EU-EURLEX-ADOPTED": eu_adopted, "EU-EURLEX-CONSOLIDATED": eu_consoli
 def default_fetch(url, headers):
     """Return (status, body_bytes). Gzip is undone, so the body is the file as the server has it."""
     request = urllib.request.Request(url, headers={
-        "User-Agent": "global-esg-law-update/1 (+https://github.com/varunmoka7/global-esg-law)",
+        "User-Agent": "global-esg-law-update/1 (+https://github.com/GoCarbonTracker/global-esg-law)",
         "Accept-Encoding": "gzip", **headers})
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
