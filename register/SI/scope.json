@@ -1,0 +1,204 @@
+[
+  {
+    "id": "si-zgd-1-art70c",
+    "title": "Companies Act (Zakon o gospodarskih družbah, ZGD-1), 70.c člen to 70.l člen: non-financial statement, then sustainability report and tax information reports",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO4291",
+    "citation": "ZGD-1, Uradni list RS, št. 42/06 and later amendments; 70.c člen inserted by ZGD-1J (Uradni list RS, št. 15/17), 70.c rewritten and 70.d to 70.l inserted by ZGD-1M (Uradni list RS, št. 102/24), postponed by ZGD-1N (77/25), 70.c amended again by ZGD-1O (1270/26)",
+    "in_force": "2017-04-15",
+    "evidence": "ZGD-1J (Uradni list RS, št. 15/2017 z dne 31. 3. 2017): \"Za 70.b členom se doda novi 70.c člen, ki se glasi:\" and the final provision \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" The fifteenth day after 2017-03-31 is 2017-04-15, which PISRS shows as the start for ZGD-1J (veljaOd 2017-04-15). Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2017-01-0730 and https://pisrs.si/api/rezultat/zbirka/sop/2017-01-0730 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Record text is the cut from the PISRS neuradno prečiščeno besedilo (NPB) of ZGD-1 from the line '70.c člen' up to the heading of the next article that is not numbered 70 (so 70.c alone in 2017 to 2024, 70.c to 70.l from the 2024-12-18 text; the Part and heading lines in front of 71. člen are cut off). Stored versions, one per change of the cut: 2017-04-15 (NPB 15, ZGD-1J), 2024-12-18 (NPB 21, ZGD-1M), 2025-10-08 (NPB 22, ZGD-1N), 2026-02-25 (NPB 23) and 2026-07-24 (NPB 24, ZGD-1O; the file notes that the amended 70.c applies for financial years starting in 2027). NPB 16 to 20 (2019-04-20 to 2023-07-25) have the same cut as NPB 15 and are not stored. The files of NPB 1 to 20 carry no 'Datum začetka uporabe' line, so the date of NPB 15 is the veljaOd that PISRS shows for the last amendment the file lists (ZGD-1J); NPB 21 to 24 print their own date. The 2024 and later cuts are the CSRD transposition (ZGD-1M, see si-zgd-1m) as consolidated; the earlier cut is the Non-Financial Reporting Directive text. The first brief candidate, '70.c člen izjava o nefinančnem poslovanju as published', is the 2017-04-15 record. Not stored: the rest of ZGD-1 (about 880,000 characters a version) and the as-published ZGD-1J, which is not a scope instrument. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list has a Companies Act file (https://pisrs.si/Prevodi/EN-2019-01-0914-2006-01-1799-npb16.doc) that reflects NPB 16, state of 2019-04-20, marked * as not the latest text; NPB 16 has the same 70.c cut as the stored 2017-04-15 record, so it would have matched the 2017-04-15 version. Row SI-PISRS-TRANSLATION is permission requested, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zgd-1m",
+    "title": "Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1M)",
+    "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-3204/zakon-o-spremembah-in-dopolnitvah-zakona-o-gospodarskih-druzbah-zgd-1m",
+    "citation": "Uradni list RS, št. 102/2024 z dne 3. 12. 2024",
+    "in_force": "2024-12-18",
+    "evidence": "45. člen (začetek veljavnosti): \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2024-12-03 (Uradni list RS, št. 102/2024 z dne 3. 12. 2024), so the fifteenth day is 2024-12-18; PISRS shows veljaOd 2024-12-18. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-3204 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED"
+    ],
+    "amends": "si-zgd-1-art70c",
+    "notes": "CSRD transposition (new 70.d to 70.l and rewritten 70.c, 55. člen, 58. člen and others). The one record is the whole act as published in the gazette, 85,000 characters. Application dates are staggered: spremenjeni 70.c to financial years from 2027 as later set by ZGD-1O, new 70.e to 70.l from the financial year starting on 22 June 2024, 70.d from the financial year starting in 2028; 35. člen sets the stages that ZGD-1N moved by two years. The brief gave 2024-12-18 'per secondary sources'; the gazette confirms it. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zgd-1n",
+    "title": "Zakon o spremembi Zakona o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1N)",
+    "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-2733",
+    "citation": "Uradni list RS, št. 77/2025 z dne 7. 10. 2025",
+    "in_force": "2025-10-08",
+    "evidence": "2. člen (začetek veljavnosti): \"Ta zakon začne veljati naslednji dan po objavi v Uradnem listu Republike Slovenije.\" Published 2025-10-07 (Uradni list RS, št. 77/2025 z dne 7. 10. 2025), so in force 2025-10-08; PISRS shows veljaOd 2025-10-08. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-2733 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED"
+    ],
+    "amends": "si-zgd-1m",
+    "notes": "Two-line act: in 35. člen of ZGD-1M (the transitional stages of the sustainability reporting duty) the year 2025 becomes 2027 and 2026 becomes 2028. Not a brief candidate; found on the PISRS ZGD-1 citation list and read in full. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zgd-1o",
+    "title": "Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1O)",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9437",
+    "citation": "Uradni list RS, št. 1270/2026 z dne 23. 7. 2026 (SOP 2026-01-1930)",
+    "in_force": "2026-07-24",
+    "evidence": "26. člen: \"Ta zakon začne veljati naslednji dan po objavi v Uradnem listu Republike Slovenije.\" Published 2026-07-23 (Uradni list RS, št. 1270/2026 z dne 23. 7. 2026), so in force 2026-07-24; PISRS shows veljaOd 2026-07-24. Opened https://pisrs.si/api/uradni-list/objava/u20261270.pdf (200, 239430 bytes, application/pdf) on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-PISRS-GAZETTE"
+    ],
+    "amends": "si-zgd-1-art70c",
+    "notes": "Amends 70.c (new thresholds: net sales over EUR 450,000,000 and more than 1,000 employees; 23. člen says the amended 70.c applies for financial years starting in 2027). Published after 1 March 2026, so the gazette item is a PDF on PISRS; text by pdftotext -layout with runs of spaces collapsed, no mojibake found (checked the diacritics č š ž and the guillemets). Not a brief candidate; found on the PISRS ZGD-1 citation list. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-poz",
+    "title": "Climate Act (Podnebni zakon, PoZ)",
+    "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-2264",
+    "citation": "Uradni list RS, št. 56/2025 z dne 25. 7. 2025 (item 2264)",
+    "in_force": "2025-08-09",
+    "evidence": "155. člen (začetek veljavnosti in prenehanje uporabe), (1): \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2025-07-25 (Uradni list RS, št. 56/2025 z dne 25. 7. 2025), so the fifteenth day is 2025-08-09; PISRS shows veljaOd 2025-08-09. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-2264 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED"
+    ],
+    "notes": "Brief candidate confirmed: item 2264, 2025-07-25; the in-force date is 2025-08-09. The act also carries the EU ETS rules that left ZVO-2 (V. poglavje, trgovanje s pravicami do emisije toplogrednih plinov, which took over ZVO-2 177. člen to 208. člen), the monitoring and reporting system for greenhouse gases and the CBAM implementation (1. člen), so it is the F2 entry for those. One record, the whole act as published (243,000 characters). PISRS has a single NPB version (Osnovni) with no later amendment, so no consolidated record exists. 70. and 71. člen lapse on 2027-01-01 (155. člen (3)). Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zvo-2-ets",
+    "title": "Environmental Protection Act (Zakon o varstvu okolja, ZVO-2), part 4: trgovanje s pravicami do emisije toplogrednih plinov v EU (177. člen onward)",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO8286",
+    "citation": "ZVO-2, Uradni list RS, št. 44/22 and later amendments",
+    "in_force": "2022-04-13",
+    "evidence": "321. člen (začetek veljavnosti), (1): \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2022-03-29 (Uradni list RS, št. 44/2022 z dne 29. 3. 2022), so the fifteenth day is 2022-04-13; PISRS shows veljaOd 2022-04-13. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2022-01-0873 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED",
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Record text is the cut from the line '4. Trgovanje s pravicami do emisije toplogrednih plinov v EU' up to the heading '5. Zavezujoče letno zmanjšanje emisij toplogrednih plinov za države članice': the as-published chapter (2022-04-13, 177. člen onward) and the NPB 5 state of 2025-08-09, in which every article of the chapter reads '(prenehal veljati)' with 'Datum konca veljavnosti: 09.08.2025' and 'Sklic: 153. člen PoZ' (the Podnebni zakon took the chapter over, see si-poz). NPB 1 to 4 (2023-02-14 to 2025-04-01) have the same chapter text as the as-published version and are not stored; NPB 6 (2026-02-13) equals NPB 5. The brief named ZVO-2 as the F3 instrument; the ETS chapter no longer applies, which is why si-poz also covers it. The chapter is 177. člen to 208. člen; the rest of ZVO-2 (630,000 characters) is not stored. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zvpot-1",
+    "title": "Consumer Protection Act (Zakon o varstvu potrošnikov, ZVPot-1), VIII. poglavje nepoštene poslovne prakse and, from 2026-12-12, VIII.a poglavje",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO7054",
+    "citation": "ZVPot-1, Uradni list RS, št. 130/22; amended by ZVPot-1A (Uradni list RS, št. 1799/26)",
+    "in_force": "2022-10-26",
+    "evidence": "249. člen (začetek veljavnosti): \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije, uporabljati pa se začne tri mesece po njegovi uveljavitvi.\" Published 2022-10-11 (Uradni list RS, št. 130/2022 z dne 11. 10. 2022), so in force 2022-10-26; PISRS shows veljaOd 2022-10-26. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2022-01-3083 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED",
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Record text is the cut from 'VIII. poglavje NEPOŠTENE POSLOVNE PRAKSE' up to 'IX. poglavje': the as-published chapter (in force 2022-10-26, applies from three months later) and NPB 1 dated 2026-12-12 (its 'Datum začetka uporabe'; ZVPot-1A is in force 2026-11-13), which adds VIII.a poglavje (dodatna zaščita v zvezi s spletnimi vmesniki, rules on online interfaces) and, in VIII, the environmental-claim practices of Directive (EU) 2024/825 (for example practice 4: an environmental claim about future environmental performance without clear, objective, publicly available and verifiable commitments; the as-published chapter has no 'okoljska trditev'). The NPB date is a future date on 2026-11-02, stored as an ordinary record dated its date. PISRS shows ZVPot-1A applying from 2026-12-12; 30 days after 2026-11-13 would be 2026-12-13, and the NPB is dated 2026-12-12. The brief expected the Directive 2024/825 act to apply from 2026-09-27; Slovenia's act applies later. Not stored: the rest of ZVPot-1 (about 267,000 characters). Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list has 'Consumer Protection Act' for ZVPot-1 (https://pisrs.si/Prevodi/EN-2022-01-3083.doc), the 2022 text, not amended by ZVPot-1A. Row SI-PISRS-TRANSLATION is permission requested, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-zvpot-1a",
+    "title": "Zakon o spremembah in dopolnitvah Zakona o varstvu potrošnikov (ZVPot-1A), transposing Directive (EU) 2024/825",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9627",
+    "citation": "Uradni list RS, št. 1799/2026 z dne 29. 10. 2026 (SOP 2026-01-2459)",
+    "in_force": "2026-11-13",
+    "evidence": "51. člen (začetek veljavnosti): \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2026-10-29 (Uradni list RS, št. 1799/2026 z dne 29. 10. 2026), so the fifteenth day is 2026-11-13; PISRS shows veljaOd 2026-11-13. 50. člen: \"Ta zakon se začne uporabljati 30 dni po njegovi uveljavitvi.\" Opened https://pisrs.si/api/uradni-list/objava/u20261799.pdf (200, 357314 bytes, application/pdf) on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-PISRS-GAZETTE"
+    ],
+    "amends": "si-zvpot-1",
+    "notes": "Brief candidate confirmed: 14. point of the Directives list in 2. člen is Directive (EU) 2024/825. Published but not yet in force on 2026-11-02 (PISRS status 'Objavljen predpis, ki še ne velja'); stored as an ordinary record dated its in-force date. Applies 30 days after entry into force (PISRS: 2026-12-12). The one record is the PDF text of the whole act (51 articles, 68,000 characters), pdftotext -layout, no mojibake found. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "status_note": "Published 2026-10-29, in force 2026-11-13, applies from 2026-12-12 per PISRS; not yet in force on 2026-11-02.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-uredba-sfdr",
+    "title": "Uredba o izvajanju Uredbe (EU) o razkritjih, povezanih s trajnostnostjo, v sektorju finančnih storitev (decree implementing Regulation (EU) 2019/2088, SFDR)",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=URED8454",
+    "citation": "Uradni list RS, št. 17/2023 z dne 10. 2. 2023; amended by Uradni list RS, št. 107/2025",
+    "in_force": "2023-02-25",
+    "evidence": "8. člen: \"Ta uredba začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2023-02-10 (Uradni list RS, št. 17/2023 z dne 10. 2. 2023), so the fifteenth day is 2023-02-25; PISRS shows veljaOd 2023-02-25. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2023-01-0314 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "SI-UL-ADOPTED",
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Designates the competent authorities for the SFDR. Two records: the decree as published and NPB 1 (2026-01-03, with the amendment of Uradni list RS, št. 107/25 z dne 19. 12. 2025), whole text including the NPB header. Not a brief candidate; found by a PISRS title search for 'trajnostn'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-ziuezo",
+    "title": "Zakon o izvajanju Uredbe (EU) o evropskih zelenih obveznicah in neobveznih razkritjih za obveznice, ki se tržijo kot okoljsko trajnostne obveznice, in za obveznice, povezane s trajnostnostjo (ZIUEZO)",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9102",
+    "citation": "Uradni list RS, št. 24/2025 z dne 8. 4. 2025",
+    "in_force": "2025-04-23",
+    "evidence": "10. člen: \"Ta zakon začne veljati petnajsti dan po objavi v Uradnem listu Republike Slovenije.\" Published 2025-04-08 (Uradni list RS, št. 24/2025 z dne 8. 4. 2025), so the fifteenth day is 2025-04-23; PISRS shows veljaOd 2025-04-23. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-0861 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "SI-UL-ADOPTED",
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Implements Regulation (EU) 2023/2631 on European green bonds (disclosure and supervision). Two records: the act as published and NPB 1 (2026-02-25, with ZdZEETD, Uradni list RS, št. 10/26), whole text including the NPB header. Not a brief candidate; found by a PISRS title search for 'trajnostn'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-uredba-brezplacni-kuponi",
+    "title": "Uredba o vrstah naprav, dejavnostih in toplogrednih plinih ter dodelitvi brezplačnih emisijskih kuponov za naprave in operatorje zrakoplova",
+    "official_url": "https://pisrs.si/pregledPredpisa?id=URED9022",
+    "citation": "Uradni list RS, št. 27/2024 z dne 29. 3. 2024",
+    "in_force": "2024-03-30",
+    "evidence": "15. člen: \"Ta uredba začne veljati naslednji dan po objavi v Uradnem listu Republike Slovenije.\" Published 2024-03-29 (Uradni list RS, št. 27/2024 z dne 29. 3. 2024), so in force 2024-03-30; PISRS shows veljaOd 2024-03-30. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-0816 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED",
+      "SI-PISRS-NPB"
+    ],
+    "notes": "Installation types, activities, greenhouse gases and free allocation in the EU ETS. Two records: the decree as published and NPB 1 (2025-08-09), in which most articles read '(prenehal veljati)' with 'Sklic: 153. člen PoZ' (replaced by the Podnebni zakon, see si-poz), whole text including the NPB header. Not a brief candidate; found by a PISRS title search for 'emisijskih kuponov'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  },
+  {
+    "id": "si-pravilnik-mrv",
+    "title": "Pravilnik o podatkih o dejavnostih in emisijah toplogrednih plinov za naprave, ki so vključene v trgovanje s pravicami do emisije toplogrednih plinov",
+    "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2011-01-2831",
+    "citation": "Uradni list RS, št. 60/2011 z dne 29. 7. 2011",
+    "in_force": "2011-07-30",
+    "evidence": "6. člen: \"Ta pravilnik začne veljati naslednji dan po objavi v Uradnem listu Republike Slovenije.\" Published 2011-07-29 (Uradni list RS, št. 60/2011 z dne 29. 7. 2011), so in force 2011-07-30; PISRS shows veljaOd 2011-07-30 and status Veljaven predpis. Opened https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2011-01-2831 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SI-UL-ADOPTED"
+    ],
+    "notes": "Rules on the activity and emissions data that ETS installations report. One record, the rule as published (3,500 characters); PISRS has only the Osnovni version. Not a brief candidate; found by a PISRS title search for 'toplogrednih plinov'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "verification": "official_text_seen",
+    "status": "stored"
+  }
+]

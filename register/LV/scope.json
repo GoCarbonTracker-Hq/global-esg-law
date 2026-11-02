@@ -1,0 +1,103 @@
+[
+  {
+    "id": "lv-ilgtspejas-informacijas-likums",
+    "title": "Ilgtspējas informācijas atklāšanas likums (Law on Sustainability Disclosures)",
+    "official_url": "https://likumi.lv/ta/id/355381",
+    "citation": "Ilgtspējas informācijas atklāšanas likums, adopted 26.09.2024, Latvijas Vēstnesis 193, 03.10.2024, OP 2024/193.1",
+    "in_force": "2024-10-17",
+    "evidence": "Document information on https://likumi.lv/ta/id/355381 (opened 2026-11-02): \"Pieņemts: 26.09.2024. Stājas spēkā: 17.10.2024. Publicēts: Latvijas Vēstnesis, 193, 03.10.2024.; OP numurs: 2024/193.1\". The law ends: \"Likumā iekļautas tiesību normas, kas izriet no Eiropas Parlamenta un Padomes 2022. gada 14. decembra direktīvas (ES) 2022/2464\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED",
+      "LV-LIKUMI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Latvian transposition of Directive (EU) 2022/2464 (CSRD). Two editions on Likumi.lv on 2026-11-02: the base edition of 2024-10-17 and the edition of 2025-10-24 (amending law of 2025-10-02). Both stored in Latvian; the English translation (State Language Centre) states amending laws up to 2 October 2025, in force 24 October 2025, and is stored against the 2025-10-24 edition. Amends the management report content of lv-gada-parskatu-likums by cross-reference.",
+    "status": "stored"
+  },
+  {
+    "id": "lv-gada-parskatu-likums",
+    "title": "Gada pārskatu un konsolidēto gada pārskatu likums (Law on Annual Financial Statements and Consolidated Financial Statements)",
+    "official_url": "https://likumi.lv/ta/id/277779",
+    "citation": "Gada pārskatu un konsolidēto gada pārskatu likums, adopted 22.10.2015, Latvijas Vēstnesis 222, 12.11.2015, OP 2015/222.1",
+    "in_force": "2016-01-01",
+    "evidence": "Document information on https://likumi.lv/ta/id/277779 (opened 2026-11-02): \"Pieņemts: 22.10.2015. Stājas spēkā: 01.01.2016. Publicēts: Latvijas Vēstnesis, 222, 12.11.2015.; OP numurs: 2015/222.1\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED",
+      "LV-LIKUMI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The brief named sections 56.1 to 56.3 (nefinanšu paziņojums). No such sections exist in any of the five editions on Likumi.lv (checked 2026-11-02): section 56 is \"Atļauja nesagatavot vadības ziņojumu\" and is followed by 57. The management report content is section 55; from the edition of 2024-10-17 it says \"Vadības ziņojumā norāda vispārīgo informāciju un iekļauj ilgtspējas ziņojumu saskaņā ar Ilgtspējas informācijas atklāšanas likumu\" (lv-ilgtspejas-informacijas-likums). The whole law is stored, five editions in Latvian. The English translation (State Language Centre) lists amending laws up to the one in force on 17 October 2024, so it is stored against the edition of 2024-10-17.",
+    "status": "stored"
+  },
+  {
+    "id": "lv-klimatnoturibas-likums",
+    "title": "Klimatnoturības un ekonomiskās ilgtspējas likums (Climate Resilience and Economic Sustainability Law)",
+    "official_url": "https://likumi.lv/ta/id/364967",
+    "citation": "Klimatnoturības un ekonomiskās ilgtspējas likums, adopted 27.11.2025, Latvijas Vēstnesis 239, 11.12.2025, OP 2025/239.1",
+    "in_force": "2025-12-12",
+    "evidence": "Document information on https://likumi.lv/ta/id/364967 (opened 2026-11-02): \"Pieņemts: 27.11.2025. Stājas spēkā: 12.12.2025. Publicēts: Latvijas Vēstnesis, 239, 11.12.2025.; OP numurs: 2025/239.1\". Section 5(1): \"Latvijas siltumnīcefekta gāzu emisiju samazināšanas mērķis ir 2030. gadā, salīdzinot ar 2005. gadu, par 17 procentiem samazināt siltumnīcefekta gāzu emisijas šādos sektoros\".",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Sets Latvia's 2030 greenhouse gas reduction target for the non-ETS sectors and removal targets for land use (section 5), so family F2, not F7. Replaced the planned Klimata likums. Two editions on Likumi.lv on 2026-11-02: 2025-12-12 and a published edition dated 2027-01-01 (not yet in force, stored under its in-force date); the two editions are identical after tag stripping, the page differs only in markup. Government English: none. The page https://likumi.lv/ta/en/en/id/364967 says \"This document has not been officially translated by the State Language Centre\"; the Centre's translation catalogue (https://www.vvc.gov.lv/en/translation-catalogue) was not searched further.",
+    "status": "stored"
+  },
+  {
+    "id": "lv-par-piesarnojumu",
+    "title": "Likums Par piesārņojumu (Law on Pollution), including the Chapter on the European Union Emissions Trading System",
+    "official_url": "https://likumi.lv/ta/id/6075",
+    "citation": "Likums Par piesārņojumu, adopted 15.03.2001, Latvijas Vēstnesis 51, 29.03.2001",
+    "in_force": "2001-07-01",
+    "evidence": "Document information on https://likumi.lv/ta/id/6075 (opened 2026-11-02): \"Pieņemts: 15.03.2001. Stājas spēkā: 01.07.2001. Publicēts: Latvijas Vēstnesis, 51, 29.03.2001.\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED",
+      "LV-LIKUMI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The whole law is stored, 41 editions in Latvian (2001-07-01 to the published edition of 2031-01-01; those after 2026-06-01 are published amendments not yet in force, stored under their in-force dates). The emissions trading provisions are chapter V.4 \"Eiropas Savienības emisijas kvotu tirdzniecības sistēma\" (rewritten by the amending law of 09.10.2025 transposing Directive (EU) 2023/959 and ETS2) and, until 12.12.2025, chapters V.1 \"Emisijas kvotu izsolīšanas instruments\" and V.3 \"Modernizācijas fonds\". The editions of 2007-11-21 and 2008-01-01 are identical after tag stripping. Implemented by lv-mk-769-ets-iekartas. The English translation (State Language Centre) is stored once, against the edition of 2025-10-18, the start of its stated validity 18.10.2025 to 27.03.2026; the page says amendments of 19.03.2026 and 14.05.2026 are not included, and the edition of 2025-12-12 falls inside its stated validity.",
+    "status": "stored"
+  },
+  {
+    "id": "lv-mk-769-ets-iekartas",
+    "title": "Ministru kabineta 2012. gada 13. novembra noteikumi Nr. 769 \"Noteikumi par stacionāro tehnoloģisko iekārtu dalību Eiropas Savienības emisijas kvotu tirdzniecības sistēmā\" (Cabinet Regulation No. 769, participation of stationary installations in the EU ETS)",
+    "official_url": "https://likumi.lv/ta/id/253119",
+    "citation": "Ministru kabineta noteikumi Nr. 769, adopted 13.11.2012, Latvijas Vēstnesis 190, 04.12.2012, OP 2012/190.14",
+    "in_force": "2012-12-05",
+    "evidence": "Document information on https://likumi.lv/ta/id/253119 (opened 2026-11-02): \"Veids: noteikumi Numurs: 769 Pieņemts: 13.11.2012. Stājas spēkā: 05.12.2012. Publicēts: Latvijas Vēstnesis, 190, 04.12.2012.; OP numurs: 2012/190.14\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED",
+      "LV-LIKUMI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implementing regulation of lv-par-piesarnojumu for EU ETS installations. Six editions in Latvian (2012-12-05 to 2021-04-08, the current one on 2026-11-02). The English translation (State Language Centre) is outdated: its stated validity is 05.12.2012 to 08.07.2014 and it lacks the amendments of 2014, 2017, 2018 and 2021, so it is stored against the base edition of 2012-12-05 only. Whether the October 2025 amendments of the Law on Pollution require a new edition of the regulation was not found on the official pages (no newer edition listed on 2026-11-02).",
+    "status": "stored"
+  },
+  {
+    "id": "lv-negodigas-komercprakses-likums",
+    "title": "Negodīgas komercprakses aizlieguma likums (Unfair Commercial Practices Prohibition Law), including the environmental claims provisions",
+    "official_url": "https://likumi.lv/ta/id/167759",
+    "citation": "Negodīgas komercprakses aizlieguma likums, adopted 22.11.2007, Latvijas Vēstnesis 199, 12.12.2007",
+    "in_force": "2008-01-01",
+    "evidence": "Document information on https://likumi.lv/ta/id/167759 (opened 2026-11-02): \"Pieņemts: 22.11.2007. Stājas spēkā: 01.01.2008. Publicēts: Latvijas Vēstnesis, 199, 12.12.2007.\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LV-LIKUMI-CONSOLIDATED",
+      "LV-LIKUMI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella act for misleading commercial practices. The edition of 2026-09-27 adds the environmental claims provisions (terms \"vides norāde\", \"ilgtspējas marķējums\", \"vispārināta vides norāde\", and the practices listed after them) and its list of EU acts names Directive (EU) 2024/825; the amending law is the one listed on Likumi.lv as \"Grozījumi Negodīgas komercprakses aizlieguma likumā\" of 17.09.2026, so no separate act exists to list. Editions: 2008-01-01, 2012-10-26, 2014-04-03, 2015-07-01, 2023-03-02, 2026-09-27 and a published edition of 2027-01-01 (not yet in force). The English translation (State Language Centre) states validity 02.03.2023 to 26.09.2026 and that the amendment of 30.04.2025 is not included, so it is stored against the edition of 2023-03-02 only; there is no English for the edition of 2026-09-27.",
+    "status": "stored"
+  }
+]

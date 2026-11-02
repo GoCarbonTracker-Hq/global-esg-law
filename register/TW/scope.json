@@ -1,0 +1,213 @@
+[
+  {
+    "id": "tw-climate-change-response-act",
+    "title": "Climate Change Response Act (氣候變遷因應法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020098",
+    "citation": "氣候變遷因應法 (MOJ database pcode O0020098); 中華民國一百零四年七月一日總統華總一義字第 10400077011 號令",
+    "in_force": "2015-07-01",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零四年七月一日總統華總一義字第 10400077011 號令制 定公布全文 34 條；並自公布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020098 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TW-MOJ-CONSOLIDATED",
+      "TW-MOJ-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Enacted 2015-07-01 as the Greenhouse Gas Reduction and Management Act (溫室氣體減量及管理法); renamed and re-enacted in full on 2023-02-15 (63 articles, in force on promulgation). The Act has been in force since 2015-07-01 under its old name; the stored text is the current Climate Change Response Act. The earlier Act text is not served by the database, so no record before 2023-02-15. Later Executive Yuan notices only moved functions from the Environmental Protection Administration to the Ministry of Environment (2023-08-22) and do not change the stored text, which still names the Administration in art. 2. Art. 28 and following carry the emissions inventory and carbon fee provisions implemented by tw-carbon-fee-regs. Languages stored on 2026-11-02: zh (official) and en (translation record under TW-MOJ-TRANSLATION; the English page states \"Amended Date: 2023-02-15\", equal to the Chinese version). English page: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020098. Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-climate-change-response-act-rules",
+    "title": "Enforcement Rules of the Climate Change Response Act (氣候變遷因應法施行細則)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020103",
+    "citation": "氣候變遷因應法施行細則 (MOJ database pcode O0020103); 中華民國一百零五年一月六日行政院環境保護署環署溫字第 104011131 2 號令",
+    "in_force": "2016-01-06",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零五年一月六日行政院環境保護署環署溫字第 104011131 2 號令訂定發布全文 16 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020103 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TW-MOJ-CONSOLIDATED",
+      "TW-MOJ-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements tw-climate-change-response-act. Issued 2016-01-06 as the Enforcement Rules of the Greenhouse Gas Reduction and Management Act; renamed and re-issued in full 2023-12-29 (25 articles, in force on issue). A 2024-02-06 Ministry letter corrects art. 12 and is not a new version. The English translation on the site is titled \"Revisions to the Enforcement Rules of the Climate Change Response Act\" and is the full 25-article text. Languages stored on 2026-11-02: zh (official) and en (translation record under TW-MOJ-TRANSLATION; the English page states \"Amended Date: 2023-12-29\", equal to the Chinese version). English page: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020103. Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-climate-risk-assessment-guidelines",
+    "title": "Guidelines for Climate Change Risk Assessment (氣候變遷風險評估作業準則)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020143",
+    "citation": "氣候變遷風險評估作業準則 (MOJ database pcode O0020143); 中華民國一百十四年七月十六日環境部環部氣字第 1149107791 號令",
+    "in_force": "2025-07-16",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十四年七月十六日環境部環部氣字第 1149107791 號令訂 定發布全文 12 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued under art. 18 para. 3 of the Climate Change Response Act. Art. 3 applies it to governments at all levels when they plan and carry out adaptation programmes, so it binds government, not companies. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020143) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020143 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-inventory-registration-regs",
+    "title": "Regulations Governing Greenhouse Gas Emission Inventory, Registration and Verification (溫室氣體排放量盤查登錄及查驗管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020102",
+    "citation": "溫室氣體排放量盤查登錄及查驗管理辦法 (MOJ database pcode O0020102); 中華民國一百零五年一月五日行政院環境保護署環署溫字第 104011009 1 號令",
+    "in_force": "2016-01-05",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零五年一月五日行政院環境保護署環署溫字第 104011009 1 號令訂定發布全文 7 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "First issued 2016-01-05 as the Regulations Governing GHG Emission Inventory and Registration (7 articles); renamed and re-issued in full on 2023-09-14 (17 articles, in force 2024-01-01, which is the date the current title applies from); art. 3, 5, 7, 15 and 17 amended 2025-12-19 (in force on issue). The brief called it the Greenhouse Gas Emission Inventory and Registration regulations; the database title adds \"and verification\". English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020102) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020102 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-carbon-fee-regs",
+    "title": "Regulations Governing the Collection of Carbon Fees (碳費收費辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020139",
+    "citation": "碳費收費辦法 (MOJ database pcode O0020139); 中華民國一百十三年八月二十九日環境部環部氣字第 1139109435 號令",
+    "in_force": "2024-08-29",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十三年八月二十九日環境部環部氣字第 1139109435 號令 訂定發布全文 23 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020139 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TW-MOJ-CONSOLIDATED",
+      "TW-MOJ-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued 2024-08-29 under the Climate Change Response Act. Art. 9 amended and art. 3-1 added on 2026-09-01; the history entry for that amendment states no commencement clause, so its issue date is used as in_force. The carbon fee rate announcement named in the brief (碳費徵收費率) is a Ministry of Environment notice, not part of this regulation and not served by the Laws and Regulations Database; no official page for it was reachable (www.moenv.gov.tw answers curl with HTTP 403), so it has no scope entry. Languages stored on 2026-11-02: zh (official) and en (translation record under TW-MOJ-TRANSLATION; the English page states \"Amended Date: 2026-09-01\", equal to the Chinese version). English page: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020139. Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-voluntary-reduction-regs",
+    "title": "Regulations on the Management of Voluntary Greenhouse Gas Reduction Projects (溫室氣體自願減量專案管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020137",
+    "citation": "溫室氣體自願減量專案管理辦法 (MOJ database pcode O0020137); 中華民國一百十二年十月十二日環境部環部氣字第 1129111789 號令",
+    "in_force": "2023-10-12",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十二年十月十二日環境部環部氣字第 1129111789 號令訂 定發布全文 23 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued 2023-10-12, in force on issue. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020137) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020137 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-reduction-credit-trading-regs",
+    "title": "Regulations on the Auction and Transfer of Greenhouse Gas Reduction Credits (溫室氣體減量額度交易拍賣及移轉管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020138",
+    "citation": "溫室氣體減量額度交易拍賣及移轉管理辦法 (MOJ database pcode O0020138); 中華民國一百十三年七月一日環境部環部氣字第 1139107422 號令",
+    "in_force": "2024-08-15",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十三年七月一日環境部環部氣字第 1139107422 號令訂定 發布全文 38 條；並自一百十三年八月十五日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued 2024-07-01 (38 articles), in force 2024-08-15 per the history entry and the site field 生效日期 20240815. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020138) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020138 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-increment-offset-regs",
+    "title": "Regulations on Offsetting Increases in Greenhouse Gas Emissions (溫室氣體排放量增量抵換管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020136",
+    "citation": "溫室氣體排放量增量抵換管理辦法 (MOJ database pcode O0020136); 中華民國一百十二年十月十二日環境部環部氣字第 1129111381 號令",
+    "in_force": "2023-10-12",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十二年十月十二日環境部環部氣字第 1129111381 號令訂 定發布全文 15 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued 2023-10-12 under art. 24 para. 2 of the Climate Change Response Act, in force on issue. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020136) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020136 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-verification-bodies-regs",
+    "title": "Regulations on the Management of Greenhouse Gas Accreditation Bodies and Verification Bodies (溫室氣體認證機構及查驗機構管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020104",
+    "citation": "溫室氣體認證機構及查驗機構管理辦法 (MOJ database pcode O0020104); 中華民國一百零五年一月七日行政院環境保護署環署溫字第 104011132 2 號令",
+    "in_force": "2016-01-07",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零五年一月七日行政院環境保護署環署溫字第 104011132 2 號令訂定發布全文 23 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "First issued 2016-01-07 (23 articles); fully re-issued 2023-10-05 (38 articles, in force on issue); art. 2, 9 to 13, 15, 18, 23 to 27, 29 and 32 amended and art. 37-1 added on 2025-03-19, a history entry that states no commencement clause, so its issue date is used. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020104) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020104 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-ghg-offset-project-regs",
+    "title": "Regulations on the Management of Greenhouse Gas Offset Projects (溫室氣體抵換專案管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020101",
+    "citation": "溫室氣體抵換專案管理辦法 (MOJ database pcode O0020101); 中華民國一百零四年十二月三十一日行政院環境保護署環署溫字第 104 0109908 號令",
+    "in_force": "2015-12-31",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零四年十二月三十一日行政院環境保護署環署溫字第 104 0109908 號令訂定發布全文 21 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued 2015-12-31 and re-issued in full 2018-12-27 under art. 22 para. 3 of the former Greenhouse Gas Reduction and Management Act. The database lists it as in force with no repeal note on 2026-11-02; how it relates to the 2023 voluntary reduction regulations (tw-ghg-voluntary-reduction-regs) was not assessed. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode O0020101) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020101 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-electricity-emission-factor-regs",
+    "title": "Regulations on the Management of Electricity Emission Factors (電力排碳係數管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0130079",
+    "citation": "電力排碳係數管理辦法 (MOJ database pcode J0130079); 中華民國一百零七年二月九日經濟部經能字第 10704600440 號令",
+    "in_force": "2018-02-09",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百零七年二月九日經濟部經能字第 10704600440 號令訂定 發布全文 11 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "TW-MOJ-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Issued 2018-02-09 by the Ministry of Economic Affairs under the Electricity Act art. 28 para. 3; art. 2 amended 2020-11-11 (a history entry with no commencement clause, so its issue date is used). Sets how the emission factor of electricity sold by public electricity retailers is calculated and announced. English title is a working translation, the database has no English version. Languages stored on 2026-11-02: zh only. No government English: looked for in the English open data files (EnLaw.json and EnOrder.json from law.moj.gov.tw, no entry for pcode J0130079) and on https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=J0130079 (HTTP 200 with an empty body, where translated laws return a full page). Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-hfc-management-regs",
+    "title": "Management Regulations for Hydrofluorocarbons (氫氟碳化物管理辦法)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=O0020141",
+    "citation": "氫氟碳化物管理辦法 (MOJ database pcode O0020141); 中華民國一百十四年二月二十五日環境部環部氣字第 1149101926 號令",
+    "in_force": "2025-02-25",
+    "evidence": "沿革 (legislative history) entry 1 on the database page: \"中華民國一百十四年二月二十五日環境部環部氣字第 1149101926 號令 訂定發布全文 20 條；並自發布日施行\". Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020141 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TW-MOJ-CONSOLIDATED",
+      "TW-MOJ-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued 2025-02-25 (20 articles), in force on issue. Languages stored on 2026-11-02: zh (official) and en (translation record under TW-MOJ-TRANSLATION; the English page states \"Amended Date: 2025-02-25\", equal to the Chinese version). English page: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=O0020141. Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-annual-report-regs",
+    "title": "Regulations Governing Information to be Published in Annual Reports of Public Companies (公開發行公司年報應行記載事項準則)",
+    "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400022",
+    "citation": "公開發行公司年報應行記載事項準則 (MOJ database pcode G0400022); 中華民國七十七年六月七日財政部證券管理委員會（77）台財證（一） 字第 08446 號令",
+    "in_force": null,
+    "evidence": "沿革 entry 1 on the database page: \"中華民國七十七年六月七日財政部證券管理委員會（77）台財證（一） 字第 08446 號令訂定發布全文 15 條\" states no commencement date. Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0400022 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TW-MOJ-CONSOLIDATED",
+      "TW-MOJ-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Financial Supervisory Commission regulation; art. 10 and its tables carry the corporate governance, sustainable development and climate-related disclosure items for annual reports. The record is the whole regulation as served by the Laws and Regulations Database; the PDF table attachments (including Table 2-2-3 climate-related information) are not stored. First issued 1988-06-07 (history entry 1 states no commencement clause), so in_force is null. The 2025-11-07 and 2025-12-19 amendments (art. 7, 10-1, 23) state no commencement clause, so the last issue date is used as the record date. FSC law database (law.fsc.gov.tw) was reached but not used. Languages stored on 2026-11-02: zh (official) and en (translation record under TW-MOJ-TRANSLATION; the English page states \"Amended Date: 2025-12-19\", equal to the Chinese version). English page: https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=G0400022. Only the current consolidated text is served; the database exposes no earlier consolidation and no as-promulgated text, so there is one dated version.",
+    "status": "stored"
+  },
+  {
+    "id": "tw-twse-sustainability-report-rules",
+    "title": "Taiwan Stock Exchange Corporation Rules Governing the Preparation and Filing of Sustainability Reports by TWSE Listed Companies (臺灣證券交易所「上市公司編製與申報永續報告書作業辦法」)",
+    "official_url": "https://twse-regulation.twse.com.tw/ENG/EN/law/DAT08.aspx?FLCODE=FL075209",
+    "citation": "TWSE Order Tai-Zheng-Zhi-Li-Zi No. 1030024645 of 2014-11-26 (full text, 6 articles); latest amendment TWSE Order No. 1150008873 of 2026-05-18 (arts 4, 4-1, 5), approved by the FSC on 2026-05-14",
+    "in_force": "2014-11-26",
+    "evidence": "Legislative history entry 1 on the TWSE page: \"中華民國一百零三年十一月二十六日臺灣證券交易所股份有限公司臺證治理字第 1030024645 號函訂定全文 6 條；並自即日起實施\". Opened https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "TW-TWSE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: TW-TWSE-ADOPTED is permission requested because the exchange terms page (https://www.twse.com.tw/zh/terms/use.html) is blocked from the cloud address (HTTP 307 security page to curl and headless Chromium), so no text is stored. The directory pages themselves answered curl with HTTP 200. The page shows the Chinese rules amended 2026-05-18 and says the current English version is that of 2025-05-05 (\"English version coming soon\"); the English texts are credited on the directory home page to Baker McKenzie Taipei Office, a law firm, so they are never stored and get no row. The first version carried the same 2014 date; the rules were not renamed as far as the page shows (not checked). The register row of this URL was updated in place (law_family F1).",
+    "status": "link only"
+  }
+]
