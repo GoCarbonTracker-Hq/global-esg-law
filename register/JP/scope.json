@@ -8,9 +8,12 @@
     "evidence": "Supplementary Provisions art. 1 (e-Gov text): 「この法律は、その成立の日から三十日を経過した日からこれを施行する。但し、第二章の規定は、その施行の日から六十日、第六十五条の規定は、その施行の日から六箇月を経過した日から、これを施行する。」 Promulgated 1948-04-13 (Law element PromulgateMonth=04 PromulgateDay=13, https://laws.e-gov.go.jp/api/2/law_file/xml/323AC0000000025_20260812_508AC0000000064). The page gives a formula and no date, so in_force stays null.",
     "law_family": "F1",
     "duty_on": "private_sector",
-    "source_row": "JP-EGOV-CONSOLIDATED",
+    "source_row": [
+      "JP-EGOV-CONSOLIDATED",
+      "JP-JLT-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Art. 24 requires an issuer to file an annual securities report (有価証券報告書). The sustainability content of that report is set in the Cabinet Office Order (jp-cao-disclosure-order). e-Gov serves point-in-time texts from 2016-04-01; earlier texts are not served. Unofficial English translation: Japanese Law Translation, https://www.japaneselawtranslation.go.jp/en/laws/view/4633 (last version shown Act No. 68 of 2022; not stored). Where several amending acts share one enforcement date, the revision of the latest-promulgated amending act is stored. Revisions with a provisional date are not stored: 2027-03-31, 2027-07-22, 2028-01-01 and two on 2028-06-13 (e-Gov shows an outer-limit or linked date, not a fixed one).",
+    "notes": "Art. 24 requires an issuer to file an annual securities report (有価証券報告書). The sustainability content of that report is set in the Cabinet Office Order (jp-cao-disclosure-order). e-Gov serves point-in-time texts from 2016-04-01; earlier texts are not served. Languages: Japanese (53 records; the only official language) and English (2 records, unofficial, Japanese Law Translation, row JP-JLT-TRANSLATION): 2023-06-01 from https://www.japaneselawtranslation.go.jp/en/laws/view/4633 (last version shown Act No. 68 of 2022) and 2020-05-01 from view 3631 (Act No. 28 of 2019). Each is stored under the e-Gov version whose Japanese text the translation's Japanese lines match. English not stored: view 4405 (same state as view 4633, an earlier edition of that translation); view 3429 (Act No. 46 of 2017: its Japanese text fits the stored versions 2018-04-01 to 2019-06-07 equally, and the version of the act it names, 2017-12-01, fits worse); views 2355 and 1911 (state of 2010 and 2006, before the first stored version 2016-04-01). The other stored versions have no English translation: JLT serves one state per edition. Where several amending acts share one enforcement date, the revision of the latest-promulgated amending act is stored. Revisions with a provisional date are not stored: 2027-03-31, 2027-07-22, 2028-01-01 and two on 2028-06-13 (e-Gov shows an outer-limit or linked date, not a fixed one).",
     "status": "stored"
   },
   {
@@ -22,9 +25,12 @@
     "evidence": "Supplementary Provisions item 1 (e-Gov text): 「この省令は、公布の日から施行する。ただし、第二十条の規定は、昭和四十八年四月一日から施行する。」 Promulgated 1973-01-30 (Law element, https://laws.e-gov.go.jp/api/2/law_file/xml/348M50000040005_20170401_429M60000002008).",
     "law_family": "F1",
     "duty_on": "private_sector",
-    "source_row": "JP-EGOV-CONSOLIDATED",
+    "source_row": [
+      "JP-EGOV-CONSOLIDATED",
+      "JP-JLT-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "Implements art. 24 of jp-fiea. The 2023 amendment (Cabinet Office Order No. 11 of 2023, e-Gov revisions 2023-01-31 and 2023-04-01) added the sustainability and human-capital items to the annual report forms. Those forms are PDF attachments (Fig src=./pict/*.pdf in the e-Gov XML) and are not in the stored text; the stored text of 2023-01-31 to 2026-02-19 contains no word サステナビリティ. The stored text of 2026-02-20 onwards contains サステナビリティ関連記載事項 provisions. Earliest stored version 2017-04-01 (e-Gov serves nothing older). Unofficial English translation: https://www.japaneselawtranslation.go.jp/en/laws/view/5206 (last version shown Cabinet Office Order No. 53 of 2024; not stored). Same-date rule as jp-fiea.",
+    "notes": "Implements art. 24 of jp-fiea. The 2023 amendment (Cabinet Office Order No. 11 of 2023, e-Gov revisions 2023-01-31 and 2023-04-01) added the sustainability and human-capital items to the annual report forms. Those forms are PDF attachments (Fig src=./pict/*.pdf in the e-Gov XML) and are not in the stored text; the stored text of 2023-01-31 to 2026-02-19 contains no word サステナビリティ. The stored text of 2026-02-20 onwards contains サステナビリティ関連記載事項 provisions. Earliest stored version 2017-04-01 (e-Gov serves nothing older). Languages: Japanese (37 records; the only official language) and English (2 records, unofficial, Japanese Law Translation, row JP-JLT-TRANSLATION): 2024-08-01 from https://www.japaneselawtranslation.go.jp/en/laws/view/5206 (last version shown Cabinet Office Order No. 53 of 2024) and 2017-07-14 from view 3384 (Cabinet Office Order No. 40 of 2017). English not stored: view 4965 (labelled Cabinet Office Order No. 11 of 2023, but its download is byte-identical to view 3384, so its text is the 2017 state and does not match the amendment it names; the 2023-01-31 and 2023-04-01 versions have no English); views 2688 and 2341 (state of 2014 and 2008, before the first stored version 2017-04-01). The Japanese Law Translation forms (views 3564, 4957) are PDF files and are not stored. Same-date rule as jp-fiea.",
     "status": "stored"
   },
   {
@@ -36,9 +42,12 @@
     "evidence": "Supplementary Provisions art. 1 (e-Gov text): 「この法律は、公布の日から起算して六月を超えない範囲内において政令で定める日から施行する。ただし、第一条、第二条第一項、第二項及び第四項並びに第三条から第六条までの規定は、公布の日から施行する。」 Promulgated 1998-10-09 (Law element, https://laws.e-gov.go.jp/api/2/law_file/xml/410AC0000000117_20260101_506AC0000000056).",
     "law_family": "F3",
     "duty_on": "private_sector",
-    "source_row": "JP-EGOV-CONSOLIDATED",
+    "source_row": [
+      "JP-EGOV-CONSOLIDATED",
+      "JP-JLT-TRANSLATION"
+    ],
     "verification": "official_text_seen",
-    "notes": "First date is the promulgation day, when arts. 1 to 6 took effect. The rest, including the reporting duty, started on a day set by Cabinet order, which no e-Gov page opened here states. Art. 26: specified emitters (特定排出者) report their GHG emissions each year to the competent minister. e-Gov serves point-in-time texts from 2016-05-27; earlier texts are not served. Detail is in jp-gw-reporting-order. Unofficial English translation: https://www.japaneselawtranslation.go.jp/en/laws/view/4479 (last version shown Act No. 68 of 2022; not stored).",
+    "notes": "First date is the promulgation day, when arts. 1 to 6 took effect. The rest, including the reporting duty, started on a day set by Cabinet order, which no e-Gov page opened here states. Art. 26: specified emitters (特定排出者) report their GHG emissions each year to the competent minister. e-Gov serves point-in-time texts from 2016-05-27; earlier texts are not served. Detail is in jp-gw-reporting-order. Languages: Japanese (12 records; the only official language) and English (1 record, unofficial, Japanese Law Translation, row JP-JLT-TRANSLATION): 2022-07-01 from https://www.japaneselawtranslation.go.jp/en/laws/view/4479 (last version shown Act No. 68 of 2022). The page names Act No. 68 of 2022, whose two stored e-Gov versions (2022-06-17, 2025-06-01) do not match the translation's Japanese text; the 2022-07-01 version does (all but 7 of 652 Japanese lines found: 4 are supplementary-provision headings the translation adds, 3 are body lines worded differently from e-Gov). English not stored: view 3796 (last version Act No. 57 of 2006, before the first stored version 2016-05-27).",
     "status": "stored"
   },
   {
@@ -52,7 +61,7 @@
     "duty_on": "private_sector",
     "source_row": "JP-EGOV-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "Implements art. 26 of jp-gw-act: who reports, the period, the items and the form. e-Gov serves point-in-time texts from 2017-04-01. No Japanese Law Translation page found for this order.",
+    "notes": "Implements art. 26 of jp-gw-act: who reports, the period, the items and the form. e-Gov serves point-in-time texts from 2017-04-01. Languages: Japanese only (12 records; the only official language). English: Japanese Law Translation searched again on 2026-11-02 by title (温室効果ガス算定排出量等の報告等に関する命令, \"Order on Reporting\", \"Greenhouse\") with untranslated titles included; no page for this order. The site search does not take law numbers (Joint Order No. 2 of 2006 gave nothing), so title was the key.",
     "status": "stored"
   },
   {
@@ -66,7 +75,7 @@
     "duty_on": "private_sector",
     "source_row": "JP-EGOV-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "2023-05-19 is the day the first provisions took effect; the e-Gov revision list also shows 2023-06-30 and 2024-02-16. The surcharge provisions (賦課金, 特定事業者負担金) are in the text from the 2023-06-30 revision; the emissions allowance provisions (排出枠) grow from 15 mentions to 130 in the 2026-04-01 revision, which is where the emissions trading scheme text appears. Only the Act and its two implementing instruments below are in scope; other GX instruments (the order on business fields, the low-carbon hydrogen act) are not. No Japanese Law Translation page for the Act itself found (only an outline of an amending act, https://www.japaneselawtranslation.go.jp/en/laws/view/4971).",
+    "notes": "2023-05-19 is the day the first provisions took effect; the e-Gov revision list also shows 2023-06-30 and 2024-02-16. The surcharge provisions (賦課金, 特定事業者負担金) are in the text from the 2023-06-30 revision; the emissions allowance provisions (排出枠) grow from 15 mentions to 130 in the 2026-04-01 revision, which is where the emissions trading scheme text appears. Only the Act and its two implementing instruments below are in scope; other GX instruments (the order on business fields, the low-carbon hydrogen act) are not. Languages: Japanese only (7 records; the only official language). English: Japanese Law Translation searched again on 2026-11-02 by title (脱炭素成長型経済構造への円滑な移行の推進に関する法律, \"Decarbonized Growth\") with untranslated titles included; no translation of the Act, only an outline of an amending act (https://www.japaneselawtranslation.go.jp/en/laws/view/4971) and an outline of the low-carbon hydrogen act (view 4732); outlines are not translations of the law text and are not stored.",
     "status": "stored"
   },
   {
@@ -80,7 +89,7 @@
     "duty_on": "private_sector",
     "source_row": "JP-EGOV-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "Implements jp-gx-act. No Japanese Law Translation page found.",
+    "notes": "Implements jp-gx-act. Languages: Japanese only (2 records; the only official language). English: Japanese Law Translation searched again on 2026-11-02 by title (脱炭素成長型経済構造への円滑な移行の推進に関する法律施行令, \"Decarbonized Growth\") with untranslated titles included; no page for this order.",
     "status": "stored"
   },
   {
@@ -94,7 +103,7 @@
     "duty_on": "private_sector",
     "source_row": "JP-EGOV-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "Implements jp-gx-act. No Japanese Law Translation page found.",
+    "notes": "Implements jp-gx-act. Languages: Japanese only (2 records; the only official language). English: Japanese Law Translation searched again on 2026-11-02 by title (脱炭素成長型経済構造への円滑な移行の推進に関する法律施行規則, \"Decarbonized Growth\") with untranslated titles included; no page for this ordinance.",
     "status": "stored"
   },
   {
