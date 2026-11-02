@@ -770,3 +770,80 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Ireland
+
+Rows `IE-EISB-ADOPTED`, `IE-LRC-CONSOLIDATED` and `IE-OIREACHTAS-TRANSLATION` (all `pass`, basis terms: the Oireachtas (Open Data) PSI Licence, which incorporates CC BY 4.0) and `IE-CBI-ADOPTED` (`permission requested`). Run on 2026-11-02 (GEL-05-05). Plain `curl` with no `User-Agent` answered from the cloud address on every host below (irishstatutebook.ie, revisedacts.lawreform.ie, achtanna.ie, oireachtas.ie, centralbank.ie), so no browser recipe was needed and no record is browser-fetched.
+
+Row `IE-EISB-ADOPTED`, an Act as enacted (Consumer Protection Act 2007, No. 19 of 2007) and an S.I. as made (S.I. No. 470/2024). The `/print` view carries the whole instrument in one file; the `/html` view of an Act is only its contents page:
+
+```
+curl -sS -L -o act2007_19.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.irishstatutebook.ie/eli/2007/act/19/enacted/en/print
+curl -sS -L -o si470.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.irishstatutebook.ie/eli/2024/si/470/made/en/print
+```
+
+Returned `200 586452 text/html` and `200 262532 text/html`. A second fetch gave the same sha256, so `fetched_sha256` reproduces. Pattern: `/eli/<year>/act/<number>/enacted/en/print` and `/eli/<year>/si/<number>/made/en/print`. Acts also serve XML at `.../enacted/en/xml` (`200 70479 application/xml` for Act 46 of 2015); S.I.s serve no XML (404), so the HTML print view is used for both. `text` is the contents of `<div class="act-content" id="act">`, with the S.I. title line from the page header put first for S.I.s (the Act text carries its own title); tags stripped, block elements and table rows as line breaks, table cells joined by a space, source line breaks inside a paragraph collapsed, nothing reworded. Footnotes and the explanatory note of an S.I. are in the text.
+
+Commencement and amendments are read from the Directory pages: an Act at `https://www.irishstatutebook.ie/isbc/<year>_<number>.html` (`200 58876 text/html` for 2015_46), S.I.s in blocks of 50 at `https://www.irishstatutebook.ie/eli/isbc/si<year>_<first>-<last>.html` (`HEAD` gives `200` and a `Last-Modified` header, 2026-10-28 for `si2024_451-500`). eISB serves no consolidated Act or S.I. text.
+
+Row `IE-LRC-CONSOLIDATED`, Climate Action and Low Carbon Development Act 2015 as revised by the Law Reform Commission:
+
+```
+curl -sS -L -o rev2015_46.html -w '%{http_code} %{size_download} %{content_type}\n' https://revisedacts.lawreform.ie/eli/2015/act/46/revised/en/html
+```
+
+Returned `200 255218 text/html; charset=UTF-8`, same sha256 on a second fetch. `text` is everything from `<div class="frontmatter">` to `<div class="wrapper-footer">`, so the Commission's banner, disclaimer, contents, annotations and editorial notes (CC BY 4.0) are in it. The site serves one current version per Act, printed as "Updated to 27 July 2026" (Consumer Protection Act 2007: "Updated to 24 November 2025"); that date is the record's `in_force`, and the record message says so. There are no point-in-time versions and no S.I. revisions. `.../revised/en/xml` also answers (`200 181908 application/xml`) and was not used.
+
+Cutting a Part: the Consumer Protection Act records are Part 3 only, from the line `PART 3` (the occurrence followed by the longest run before `PART 4`, so the contents-table lines are skipped) to the line before `PART 4`; in the Irish text `CUID 3` to `CUID 4`.
+
+### Languages
+
+English is the base text and the only language eISB and the Law Reform Commission serve. Irish is served by the Houses of the Oireachtas for Acts only, at achtanna.ie, as an official translation (each text is headed "An tiontú oifigiúil"). It has its own row, `IE-OIREACHTAS-TRANSLATION` (`translation`, `pass` on the PSI licence; the reading it rests on is in the row notes and in the PR). Irish records are kind `translation`, language `ga`, dated like the English official version they translate.
+
+```
+curl -sS -L -o cpa_ga.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.achtanna.ie/ga/act/ga192007
+```
+
+Returned `200 690058 text/html; charset=utf-8` for the Consumer Protection Act 2007 (`ga<number><year>` is the Act key), same sha256 on a second fetch. `text` is the contents of `<div class="html" data-lang="ga">` up to `<div class="tooltip-back-to-top">`, cut to `CUID 3`, with the interface line `[EN]` (a link to the English section) dropped. The translation is of the Act as enacted and states no later amendment state, so it is stored with the English as-enacted version (2007-05-01), not with the 2025 revision. An Act without a translation answers with the page text "The official translation of this Act is not available.": `https://www.achtanna.ie/en/act/ga462015` returned `200 18597 text/html; charset=utf-8` and `https://www.achtanna.ie/en/act/ga322021` the same message. S.I.s have no Irish text on eISB or achtanna.ie (the S.I. pages offer English only). No government English translation exists to look for, because English is the enrolled text; no English translation row was needed and no translation by a law firm, NGO or news site was used.
+
+Row `IE-CBI-ADOPTED` (no text stored): the PDF was opened to read its status and date.
+
+```
+curl -sS -L -o cbi.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.centralbank.ie/docs/default-source/regulation/industry-market-sectors/insurance-reinsurance/solvency-ii/requirements-and-guidance/guidance-re-insurance-undertakings-on-climate-change-risk.pdf?sfvrsn=a232991d_7'
+```
+
+Returned `200 536727 application/pdf`; `pdftotext -layout cbi.pdf -` gives clean text (cover "March 2023").
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records (`in_force`, language) |
+|---|---|---|
+| `ie-si-360-2017` | adopted | 2017-08-21 en |
+| `ie-si-410-2018` | adopted | 2018-10-17 en |
+| `ie-si-336-2024` | adopted | 2024-07-06 en |
+| `ie-si-498-2024` | adopted | 2024-10-01 en (making date; no commencement clause) |
+| `ie-si-309-2025` | adopted | 2025-07-07 en (making date; no commencement clause) |
+| `ie-climate-act-2015` | adopted, consolidated | 2015-12-10 en; 2026-07-27 en (Revised Act) |
+| `ie-climate-amendment-act-2021` | adopted | 2021-09-07 en |
+| `ie-si-470-2024` | adopted | 2024-09-19 en |
+| `ie-si-490-2012` | adopted | 2012-11-30 en; repeal record 2024-09-19 |
+| `ie-si-755-2020` | adopted | 2020-12-31 en; repeal record 2024-09-19 |
+| `ie-si-471-2024` | adopted | 2024-09-19 en (making date) |
+| `ie-si-740-2024` | adopted | 2024-12-19 en (making date) |
+| `ie-si-472-2024` | adopted | 2024-09-19 en (making date) |
+| `ie-cpa-2007-part-3` | adopted, consolidated, translation | 2007-05-01 en; 2025-11-24 en (Revised Act); 2007-05-01 ga |
+| `ie-si-124-2026` | adopted | 2026-09-27 en |
+| `ie-si-16-2021` | adopted | 2021-01-21 en |
+
+A text for a given version is stored only for the versions the publisher serves: the Revised Acts site has no earlier consolidations, so the Climate Act 2015 as it stood after the 2021 amendment commenced (2021-09-07) and the Consumer Protection Act 2007 as it stood before 2025-11-24 are not stored, and an S.I. amended after it was made is stored as made only.
+
+### Link only
+
+- `ie-cbi-climate-guidance-insurance`: row `IE-CBI-ADOPTED`, `permission requested` (the Central Bank disclaimer requires consent to copy or adapt; its re-use page says re-use is free but prints no conditions; the two statements conflict).
+- No other instrument is link only.
+
+### Not in scope or not found
+
+- S.I. No. 490/2012 (the brief's stationary-installation ETS regulations) was revoked on 2024-09-19 by S.I. No. 470/2024 reg. 51(1); both it and S.I. No. 755/2020 are kept with repeal records and the replacement is `ie-si-470-2024`.
+- The Companies Act 2014 (into which S.I. No. 336/2024, 498/2024 and 309/2025 insert the reporting duty) and the Consumer Rights Act 2022 (amended by S.I. No. 124/2026) are not in scope; no carbon tax instrument (Finance Act 2010) and no Central Bank Consumer Protection Code were looked at.
+- Blocked from the cloud address: none. Every URL above answered `200`.
