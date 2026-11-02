@@ -3827,5 +3827,135 @@
   "params": {
    "second_route": "https://www.data.gv.at/katalog/datasets/0fb9ae1a-92cb-4ab8-a589-470c16d4fe21 (browser; the dataset page of 'RIS Daten Version 2.6' lists the licence)"
   }
+ },
+ {
+  "id": "fr-ordonnance-2023-1142-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-ordonnance-2023-1142",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-decret-2023-1394-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-decret-2023-1394",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048735301",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048735301 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-code-commerce-l232-6-3-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-code-commerce-l232-6-3",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559591",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559591 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-code-commerce-l233-28-4-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-code-commerce-l233-28-4",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559589",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559589 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-devoir-de-vigilance-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-devoir-de-vigilance",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048535098",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048535098 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-cmf-l533-22-1-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-cmf-l533-22-1",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048533586",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048533586 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-decret-2021-663-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-decret-2021-663",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043541738",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043541738 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-code-env-l229-25-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-code-env-l229-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559662",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559662 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-code-env-l229-68-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-code-env-l229-68",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043960256",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043960256 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-code-energie-l100-4-legifrance-page",
+  "source_id": "FR-DILA-LEGI-CONSOLIDATED",
+  "iso2": "FR",
+  "instrument": "fr-code-energie-l100-4",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047717642",
+  "params": {
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047717642 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+  }
+ },
+ {
+  "id": "fr-amf-doc-2020-03-amf-page",
+  "source_id": "FR-AMF-DOCTRINE",
+  "iso2": "FR",
+  "instrument": "fr-amf-doc-2020-03",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2020-03",
+  "params": {}
  }
 ]

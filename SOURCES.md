@@ -1867,3 +1867,96 @@ None of the nine scope entries is link only.
 ### Watchers
 
 Eleven watchers were added (nine instruments, the English translation of the UWG, the OGD terms page). A consolidated-law watcher is a `date_list` on the API call with `Fassung.FassungVom=2099-12-31`, which lists the files valid after the last known version (at most 100 for these laws), and reads every `"Inkrafttretensdatum"`; a new amendment shows as a new date. A repeal that creates no new file is not seen. The two adopted-only instruments (`at-nabeg`, `at-nadiveg-2017`) and the translation use `page_hash` on the XML file, because the `ogd.ris.bka.gv.at` files answer a HEAD request with neither `Last-Modified` nor `Content-Length` (so `http_head` fails). `second_route` names the blocked `www.ris.bka.gv.at` page for a browser.
+
+## France
+
+Rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` (`pass`, terms basis: Licence Ouverte 2.0 as stated on the DILA data sheets), `FR-LEGIFRANCE-TRANSLATION` and `FR-AMF-DOCTRINE` (`permission requested`). Run on 2026-11-02.
+
+www.legifrance.gouv.fr is blocked from the cloud address for `curl` and for headless Chromium: every page, including the translations page and the legal notices, answers a Cloudflare challenge. Blocked from the cloud address: https://www.legifrance.gouv.fr/ . The orchestrator can try the same commands from the laptop.
+
+```
+curl -sS -L -o stat.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395
+```
+
+Returned `403 5528 text/html; charset=UTF-8` (body: "Just a moment...", header `cf-mitigated: challenge`). The translations page `https://www.legifrance.gouv.fr/liste/traductions` returned `403 5474 text/html; charset=UTF-8`. Headless Chromium (Playwright as pre-installed, `chromium.launch({args:['--disable-blink-features=AutomationControlled']})`, a desktop Chrome user agent, `page.goto(url)` then six waits of 8 s) got status 403 and the title "Un instant…" every time; the same under `xvfb-run` with `headless:false` gave the same. The Internet Archive copy (`https://web.archive.org/web/2026/https://www.legifrance.gouv.fr/liste/traductions`) answered `curl: (35) Recv failure: Connection reset by peer`. No browser recipe is therefore used, and no record is browser-fetched.
+
+What did work is the DILA open-data server, the publisher's own bulk distribution of the Légifrance data (the DILA data sheets name legifrance.gouv.fr as the distribution site of the datasets LEGI and JORF): `echanges.dila.gouv.fr` answered every request below, with a plain `curl` and no User-Agent.
+
+### Terms
+
+```
+curl -sS -o DILA_LEGI_Presentation_20170824.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://echanges.dila.gouv.fr/OPENDATA/LEGI/DILA_LEGI_Presentation_20170824.pdf
+curl -sS -o DILA_JORF_Presentation_20170824.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://echanges.dila.gouv.fr/OPENDATA/JORF/DILA_JORF_Presentation_20170824.pdf
+```
+
+Returned `200 57164 application/pdf` and `200 60433 application/pdf`. Both data sheets read "Conditions de réutilisation: Les données sont réutilisables gratuitement sous licence ouverte v2.0. Les réutilisateurs s'obligent à mentionner: la paternité des données (DILA); l'URL d'accès longue de téléchargement; le nom du fichier téléchargé ainsi que la date du fichier." Text read with poppler: `pdftotext -layout file.pdf -` with whitespace collapsed (the two-column layout interleaves lines; the quoted sentence is intact; no mojibake). The Licence Ouverte 2.0 text was opened at `https://raw.githubusercontent.com/etalab/licence-ouverte/master/open-licence.md` (`200 6444 text/plain; charset=utf-8`): free reuse for commercial and non-commercial purposes, with the right "to adapt, modify, retrieve and transform", on condition of naming the Grantor and the date of the last update. The sheets are dated 24 August 2017; the Légifrance open-data page could not be opened to confirm the licence is still the one in force. The data sheets are the only terms text read for `FR-DILA-*`.
+
+### Row FR-DILA-LEGI-CONSOLIDATED (consolidated codes and acts)
+
+The files are daily archives of XML: one global dump of 2025-07-13 and one increment per day after it. Each article version is one file (`LEGIARTI...xml`) with `NUM`, `ETAT`, `DATE_DEBUT`, `DATE_FIN` and the text in `BLOC_TEXTUEL`; texts that are not codes (acts, ordinances, decrees) sit under `TNC_en_vigueur/JORF/TEXT/.../JORFTEXT.../article/LEGI/ARTI/`, codes under `code_en_vigueur/LEGI/TEXT/.../LEGITEXT.../article/LEGI/ARTI/`. Proven request for the Code de commerce, art. L. 232-6-3 (instrument `fr-code-commerce-l232-6-3`), the increment of 2026-08-19:
+
+```
+curl -sS -o LEGI_20260819-222711.tar.gz -w '%{http_code} %{size_download} %{content_type}\n' https://echanges.dila.gouv.fr/OPENDATA/LEGI/LEGI_20260819-222711.tar.gz
+tar -xzf LEGI_20260819-222711.tar.gz --wildcards '*LEGIARTI000051559591.xml'
+```
+
+Returned `200 12665511 application/x-gzip`; the member is 7893 bytes, `NUM` L232-6-3, `ETAT` VIGUEUR, `DATE_DEBUT` 2025-05-03. The archive's sha256 is `7c8837c27e9851776fbdbd8d438250323239e3e70b94fe43a3ea37b8d5f8ee04`, the `fetched_sha256` of the record `2025-05-03-consolidated-fr.json`; the same archive downloaded twice (once during the run, once for this section) gave the same hash. The global dump:
+
+```
+curl -sS -C - -o legi_global.tar.gz -w '%{http_code} %{size_download} %{content_type}\n' https://echanges.dila.gouv.fr/OPENDATA/LEGI/Freemium_legi_global_20250713-140000.tar.gz
+```
+
+Returned `200 581355943 application/x-gzip` and then `curl: (56) Recv failure: Connection reset by peer`; the same command again resumed with `206 589671373` (total 1171027316 bytes, equal to the `Content-Length` of `curl -sSI`, `Last-Modified: Sun, 13 Jul 2025 08:14:21 GMT`), sha256 `f862b4a2238e11ec3c48ec70f3b1c68bac0bb1985907841666b98608653d4eca`. The 484 increments from `LEGI_20250712-211706.tar.gz` to `LEGI_20261101-210226.tar.gz` (about 2.0 GB) were fetched with the same kind of request and each passed `tar tzf`. Reading the global dump is one sequential pass of about 8 minutes (`tarfile` in stream mode, `r|gz`): the file names do not carry the article number, so an article is found by reading its `NUM`.
+
+How a record is built:
+
+- An instrument is a list of article numbers (and for `fr-devoir-de-vigilance` a number range per date). For every article, all files with that `NUM` in the code are read; a file whose `ETAT` is `MODIFIE_MORT_NE` or whose `DATE_DEBUT` is not before `DATE_FIN` is skipped (a version that was never in force). A later archive replaces a file with the same `LEGIARTI` id. A version is in force on date d when `DATE_DEBUT` <= d < `DATE_FIN`; the states `MODIFIE`, `TRANSFERE`, `VIGUEUR` and `VIGUEUR_DIFF` all count as dated versions, so a published amendment not yet in force would be an ordinary record dated its in-force date (none of these instruments has one).
+- The dates are every `DATE_DEBUT` and `DATE_FIN` of the articles; one record is written per date on which the joined text differs from the previous record. The record text is `Article <NUM>` on its own line, the paragraphs of `BLOC_TEXTUEL` as lines (tags stripped, entities decoded, runs of spaces collapsed, nothing reworded), then each paragraph of the article's `NOTA` as a line starting `[Nota] ` (the marker is added; it is not law text).
+- `fetched_url` is the archive holding the newest member file of the record and `fetched_sha256` the hash of that archive as returned; the older members come from older archives or the global dump. Every increment re-issues the files of an article whose links changed, so most records name a 2026 increment even when the wording is from 2025. Checked on the day: for all 29 code records the non-space characters of the record equal those of the `BLOC_TEXTUEL` and `NOTA` of the member files, apart from the added `Article` lines and `[Nota]` markers.
+- For acts, ordinances and decrees (`TNC`), the consolidation shows each amending article as one summary line ("A modifié les dispositions suivantes ...") with no wording, and amending articles carry no dates, so their summary lines come from the newest archive and the date of a change in a summary cannot be given. The text is the title (`TITREFULL`), the visas, the articles in numerical order with the section headings (`TITRE_TM`) when they change, and the signatures.
+- None of the 234 article ids read appears in the 44290 distinct lines of the `liste_suppression_legi.dat` files of the 484 increments.
+
+Stored (fetched 2026-11-02), per instrument and record dates (all `fr`):
+
+| Instrument | Row | Records (`in_force`) |
+|---|---|---|
+| `fr-ordonnance-2023-1142` | consolidated | 2023-12-08, 2025-05-03 |
+| `fr-decret-2023-1394` | consolidated | 2024-01-01, 2024-02-01, 2024-06-30 |
+| `fr-code-commerce-l232-6-3` | consolidated | 2025-01-01, 2025-05-03 |
+| `fr-code-commerce-l233-28-4` | consolidated | 2025-01-01, 2025-05-03 |
+| `fr-devoir-de-vigilance` | consolidated | 2017-03-29, 2017-07-14, 2024-01-01, 2025-01-01 |
+| `fr-cmf-l533-22-1` | consolidated | 2011-08-03, 2013-07-28, 2016-12-31, 2017-04-08, 2018-01-03, 2021-03-10, 2025-01-01 |
+| `fr-decret-2021-663` | consolidated | 2021-05-29 |
+| `fr-code-env-l229-25` | consolidated | 2010-07-14, 2010-12-18, 2016-01-01, 2020-11-09, 2023-10-25, 2025-01-01, 2025-05-03 |
+| `fr-code-env-l229-68` | consolidated | 2021-08-25 |
+| `fr-code-energie-l100-4` | consolidated | 2011-06-01, 2015-08-19, 2019-11-10, 2021-08-25, 2023-03-12, 2023-06-24 |
+
+### Row FR-DILA-JORF-ADOPTED (texts as published in the Journal officiel)
+
+The JORF archive has one `JORFTEXT...xml` (`texte/version`, with visas, notice and signatures) and one `JORFARTI...xml` per article of the text as published. The article files carry the text id in their `CONTEXTE` (`cid="JORFTEXT000048519395"`), not in their path, so they are found by reading the files. Proven request, for the Ordonnance n° 2023-1142 (instrument `fr-ordonnance-2023-1142`):
+
+```
+curl -sS -C - -o jorf_global.tar.gz -w '%{http_code} %{size_download} %{content_type}\n' https://echanges.dila.gouv.fr/OPENDATA/JORF/Freemium_jorf_global_20250713-140000.tar.gz
+```
+
+Returned `200 1230948243 application/x-gzip`, then `curl: (56) Recv failure: Connection reset by peer`; the same command again resumed with `206 443660243` (total 1674608486 bytes, equal to the `Content-Length` of `curl -sSI`, `Last-Modified: Sun, 13 Jul 2025 08:51:50 GMT`, `Content-Type: application/x-gzip`), sha256 `757416acc02436e250afe41c73d45dc57c6377b86284488a049b765c116001a1`, the `fetched_sha256` of the three adopted records. The text id was found in the LEGI dump by reading `NUM` (2023-1142, 2023-1394, 2021-663). The adopted record text is the title, the visas, the 43 (ordonnance), 28 (décret 2023-1394) or 9 (décret 2021-663) articles as published with section headings, and the signatures; the JO notice ("Notice") is not stored because it is not part of the operative text. Checked on the day: the non-space characters of each adopted record equal those of the title, `VISAS`, articles (`BLOC_TEXTUEL`, `NOTA`) and `SIGNATAIRES` of the files. `in_force` of an adopted record is the first date of the Légifrance consolidated text (the day after publication, or the date the text itself sets).
+
+| Instrument | Row | Records (`in_force`) |
+|---|---|---|
+| `fr-ordonnance-2023-1142` | adopted | 2023-12-08 |
+| `fr-decret-2023-1394` | adopted | 2024-01-01 |
+| `fr-decret-2021-663` | adopted | 2021-05-29 |
+
+The Journal officiel texts of the three laws behind the code articles (Loi 2017-399, 2019-1147, 2021-1104) are not stored as adopted texts: the instruments are the code articles, and a law's own text mixes many provisions.
+
+### Link only
+
+- `fr-amf-doc-2020-03`: row `FR-AMF-DOCTRINE`, `permission requested`. The terms page `https://www.amf-france.org/fr/mentions-legales-et-editoriales` (`200 66270 text/html; charset=utf-8`) says "Toute utilisation à des fins commerciales ou publicitaires est exclue." The doctrine page `https://www.amf-france.org/fr/reglementation/doctrine/doc-2020-03` (`200 200854 text/html; charset=utf-8`) was opened and gives the dated versions (first "Du 11 mars 2020 au 26 juillet 2020", current "Applicable au 30 décembre 2024"); no text is stored.
+- Not used: `https://echanges.dila.gouv.fr/OPENDATA/AMF/` exists on the DILA server, but its terms were not read.
+- Not reached from the cloud address: https://www.legifrance.gouv.fr/ (403 Cloudflare), https://www.info.gouv.fr/ (403), https://www.data.gouv.fr/, https://www.etalab.gouv.fr/ and https://www.conseil-constitutionnel.fr/ (no HTTP answer, curl status 000; etalab: connection reset), https://web.archive.org/ (connection reset). https://piste.gouv.fr answered 200 (`text/html`); the PISTE API needs a key and none was requested.
+
+### Languages
+
+French is the only official language of the French Republic's law (Constitution art. 2), so each version has one `fr` record under the same row; no second official language is served. English: the Légifrance translations page is the only government source looked for, and it is blocked (403, above), so row `FR-LEGIFRANCE-TRANSLATION` is `permission requested` (page not opened, no sentence quoted) and no English record is stored for any instrument. The DILA data sheets for LEGI and JORF do not mention translations and the DILA open-data directories hold French XML only. Each scope entry's `notes` says this.
+
+Text extraction in one place: `BLOC_TEXTUEL/CONTENU` (and `NOTA/CONTENU`, `VISAS`, `SIGNATAIRES`) with `<br/>` and the closing of `p`, `div`, `li`, `tr`, `ul`, `table` as line breaks, `td`/`th` as tab-separated cells, all other tags removed, HTML entities decoded, runs of blanks collapsed, empty lines dropped. Non-breaking spaces are kept as they are in the files.
