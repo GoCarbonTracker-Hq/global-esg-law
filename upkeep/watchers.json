@@ -1818,5 +1818,89 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "no-regnskapsloven-ch2-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-regnskapsloven-ch2",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/1998-07-17-56",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/1998-07-17-56 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-endringslov-2024-42-lovdata-page",
+  "source_id": "NO-LOVDATA-ADOPTED",
+  "iso2": "NO",
+  "instrument": "no-endringslov-2024-42",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2024-06-21-42",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2024-06-21-42 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimaloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimaloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2017-06-16-60",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2017-06-16-60 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimakvoteloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimakvoteloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2004-12-17-99",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2004-12-17-99 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimakvoteforskriften-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimakvoteforskriften",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/SF/forskrift/2004-12-23-1851",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/SF/forskrift/2004-12-23-1851 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-apenhetsloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-apenhetsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2021-06-18-99",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2021-06-18-99 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-markedsforingsloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-markedsforingsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2009-01-09-2",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2009-01-09-2 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
  }
 ]
