@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ua-law-377-ix",
+    "title": "Law of Ukraine No. 377-IX on the principles of monitoring, reporting and verification of greenhouse gas emissions",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/377-20",
+    "citation": "Закон України від 12 грудня 2019 року № 377-IX",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Installation-level MRV law. The shipped register row records an amendment by Law No. 4187-IX and a current edition from 2025-02-01 (earlier session, not re-read). The brief gives 2021-01-01 as the first in-force date; not confirmed. No implementing order has an entry because none was found on an official page. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/377-20 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  },
+  {
+    "id": "ua-accounting-law-996",
+    "title": "Law of Ukraine No. 996-XIV of 1999-07-16 on Accounting and Financial Reporting in Ukraine, art. 11 (management report)",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/996-14",
+    "citation": "Закон України від 16 липня 1999 року № 996-XIV, стаття 11",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "The management report (звіт про управління) duty in force. The sustainability-reporting bill is not an instrument here: bill 15538 (registered 2026-08-21) is in committee on the Rada card https://itd.rada.gov.ua/billinfo/Bills/Card/70563, and bill 13425 (registered 2025-06-26) was withdrawn 2025-06-30 and struck off 2025-07-17 (card https://itd.rada.gov.ua/billinfo/Bills/Card/56689). Both were opened 2026-11-02. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/996-14 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  },
+  {
+    "id": "ua-climate-policy-law-3991",
+    "title": "Law of Ukraine No. 3991-IX on the Basic Principles of State Climate Policy",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/3991-20",
+    "citation": "Закон України № 3991-IX (adopted 2024-10-08 per the brief; signature and entry-into-force dates not confirmed)",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Climate framework act. Rada bill 13428 (registered 2025-06-26, opened 2026-11-02, https://itd.rada.gov.ua/billinfo/Bills/Card/56691) proposes amendments to it and is in committee; it is a bill, not an entry. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/3991-20 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  },
+  {
+    "id": "ua-env-protection-law-1264",
+    "title": "Law of Ukraine No. 1264-XII of 1991-06-25 on Environmental Protection",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/1264-12",
+    "citation": "Закон України від 25 червня 1991 року № 1264-XII",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Framework environmental law, as amended; only the dated versions on the Rada site would be stored. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/1264-12 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  },
+  {
+    "id": "ua-consumer-protection-law-3153",
+    "title": "Law of Ukraine No. 3153-IX on Protection of Consumer Rights",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/3153-20",
+    "citation": "Закон України № 3153-IX (number, year and 2024 entry into force as given in the brief; not confirmed)",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Consumer-claims umbrella for environmental claims. The number and the in-force year come from the dispatch brief and were not checked on an official page. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/3153-20 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  },
+  {
+    "id": "ua-advertising-law-270",
+    "title": "Law of Ukraine No. 270/96-ВР of 1996-07-03 on Advertising, art. 10 (unfair advertising)",
+    "official_url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
+    "citation": "Закон України від 3 липня 1996 року № 270/96-ВР, стаття 10",
+    "in_force": null,
+    "evidence": "No official page states the in-force date: zakon.rada.gov.ua reset the connection from the cloud address on 2026-11-02 (curl: TLS reset after ClientHello; plain http: 503; headless Chromium: 502), so no official page was read and in_force is null. Row UA-RADA-CONSOLIDATED is permission requested (terms and Law No. 2811-IX art. 8 not opened), so nothing is stored.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UA-RADA-ADOPTED",
+      "UA-RADA-CONSOLIDATED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Unfair-advertising umbrella for environmental claims. No government English translation was looked for successfully: the English view https://zakon.rada.gov.ua/laws/show/en/96-%D0%B2%D1%80 is on the same blocked host (row UA-RADA-TRANSLATION, permission requested).",
+    "status": "link only",
+    "status_note": "Blocked from the cloud address; read from the laptop to store."
+  }
+]
