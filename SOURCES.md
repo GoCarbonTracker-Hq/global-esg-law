@@ -770,3 +770,59 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+
+## Poland
+
+Run on 2026-11-02 (GEL-05-06). Two rows pass on the statute basis (Ustawa o prawie autorskim art. 4 pkt 1 and 2, quoted in the rows): `PL-ISAP-ADOPTED` (acts and regulations as published in Dziennik Ustaw) and `PL-ISAP-CONSOLIDATED` (teksty jednolite announced by obwieszczenie of the Marshal of the Sejm in Dziennik Ustaw). `PL-KNF-ADOPTED` is `permission requested` (KNF legal notice only requires naming the source) and has no instrument and no record. The Sejm site terms could not be read (isap.sejm.gov.pl and most of www.sejm.gov.pl answer 403 with an Incapsula challenge from the cloud address), so the pass rests on the statute alone; Varun to confirm. Texts come from the ELI API of the Chancellery of the Sejm, `api.sejm.gov.pl/eli`, which serves the gazette text of Dziennik Ustaw and answers curl from the cloud address. No browser recipe was needed. `dziennikustaw.gov.pl` (Rządowe Centrum Legislacji) answers 200 but its only legal page is a privacy policy, no terms page was found, and nothing is fetched from it, so it has no row.
+
+Request, row `PL-ISAP-ADOPTED`, act as published, HTML (Act of 6 December 2024, Dz. U. 2024 poz. 1863, ELI `DU/2024/1863`). The act details (`https://api.sejm.gov.pl/eli/acts/DU/2024/1863`, `200 7038 application/json`) say `textHTML` true or false and list the files:
+
+```
+curl -sS -L -o du2024_1863.html -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2024/1863/text.html
+```
+
+Returned `200 1442869 text/html;charset=utf-8`, sha256 `303ca6871e5eda537b7ed2d7ca9164ac0e668d98fc0da3c1d325deffd5a5fa70`; a second fetch gave the same hash (no per-request token). Where `textHTML` is false (recent acts):
+
+```
+curl -sS -L -o du2025_1020.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2025/1020/text.pdf
+```
+
+Returned `200 155124 application/pdf` (Dz. U. 2025 poz. 1020).
+
+Request, row `PL-ISAP-CONSOLIDATED`, tekst jednolity as HTML (obwieszczenie Dz. U. 2023 poz. 120, Accounting Act) and as PDF (Dz. U. 2026 poz. 522):
+
+```
+curl -sS -L -o du2023_120.html -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2023/120/text.html
+curl -sS -L -o du2026_522.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2026/522/text.pdf
+```
+
+Returned `200 1963732 text/html;charset=utf-8` and `200 1369897 application/pdf`. The list of the teksty jednolite of an act is the `Inf. o tekście jednolitym` group of `references` in the act details (for the Accounting Act `DU/2026/522, 2023/120, 2021/217, 2019/351, 2018/395, 2017/2342, 2016/1047, 2013/330, 2009/1223, 2002/694`); the date of each is the `announcementDate` of the obwieszczenie's own details.
+
+Text extraction. HTML: `<script>`, `<style>`, elements with class `hidden` (display none in the site CSS) and `tooltip-text` spans (a copy of each footnote, which is also printed in the `gloss-section` at the end) are dropped; block elements and headings are line breaks; an article or point number stays on the line of its text; quotation-mark blocks of amending acts stay inline; non-breaking spaces and runs of whitespace become one space; blank lines are dropped. PDF: `pdftotext -layout file.pdf -` with runs of spaces collapsed and blank lines dropped (the lines are the PDF wraps, so hyphenated words stay split and letter-spaced headings such as "O B W IE S Z CZ E N I E" stay as the PDF prints them). Checked on the day: no U+FFFD, private-use or `(cid:` characters in any of the 33 texts. `fetched_sha256` is the hash of the file as returned. `in_force`: for an adopted act the first commencement date (API `entryIntoForce`, checked against the commencement article); for a tekst jednolity the date of the obwieszczenie, which has no commencement clause.
+
+Stored on 2026-11-02 (all Polish, `pl`):
+
+| Instrument | adopted | consolidated (obwieszczenie date) |
+|---|---|---|
+| `pl-accounting-act` | none (1994 text is a scan) | 2017-11-22, 2018-01-30, 2019-01-17, 2020-12-17, 2022-11-04, 2026-03-30 |
+| `pl-csrd-act-2024` | 2025-01-01 | none |
+| `pl-csrd-act-2025` | 2025-08-12 (PDF) | none |
+| `pl-ets-act` | 2015-09-09 | 2017-03-09, 2018-05-10, 2019-12-09, 2021-01-22, 2022-04-07, 2023-01-27, 2024-09-26, 2025-11-07 (PDF), 2026-10-02 (PDF) |
+| `pl-emissions-management-act` | 2009-09-18 | 2013-05-28, 2015-12-04, 2017-02-02, 2018-06-07, 2019-07-05, 2020-05-07, 2022-03-03, 2026-03-27 (PDF) |
+| `pl-kobize-report-regulation` | 2022-10-31 | none |
+| `pl-unfair-practices-act` | 2007-12-21 | 2015-12-10, 2017-10-30, 2023-04-07 |
+| `pl-ecgt-amendment-act-2026` | 2027-09-27 (PDF, published, not yet in force) | none |
+
+### Languages
+
+Polish is the only official language. The ELI API serves `pol` only. No government English translation was found on 2026-11-02 for any instrument: the ELI API and ISAP have none, and web searches limited to gov.pl and sejm.gov.pl for English texts of the Accounting Act and the emissions trading act found only working translations of other laws and secondary descriptions. English translations by law firms, exchanges or NGOs are never stored. No translation row was added.
+
+### Link only
+
+None: every scope instrument has records. Not stored: the ISAP "tekst ujednolicony" (`text/T`, `text/U` files; an editorial consolidation by the Chancellery, not a legal act, no terms read), the KNF (no instrument in scope), and teksty jednolite before art. 49b existed.
+
+### Blocked from the cloud address
+
+- `https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20240001863`: `403 859 text/html` (Incapsula: "Request unsuccessful"), also for `isap.nsf/home.xsp`, `isap.nsf/page.xsp/informacje`, `isap.nsf/download.xsp/WDU20240001863/O/D20241863.pdf` and, with headless Chromium (Playwright), `https://isap.sejm.gov.pl/` (403, empty body). `https://isap.sejm.gov.pl/` itself answered 200 with a JavaScript shell by curl.
+- `https://www.sejm.gov.pl/Sejm10.nsf/`: `403 856`; `https://www.sejm.gov.pl/` answered 200 once (50990 bytes) and 403 on the next two requests; `https://www.sejm.gov.pl/en/` answered 403 once and 200 once. The Sejm site terms page could not be read for this reason.
