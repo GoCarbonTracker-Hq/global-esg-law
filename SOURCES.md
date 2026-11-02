@@ -770,3 +770,42 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Latvia
+
+Rows `LV-LIKUMI-CONSOLIDATED` and `LV-LIKUMI-TRANSLATION`, both `pass` on the statute basis (Autortiesību likums 6. pants, quoted in the rows; both are judgement calls listed in the row notes). Row `LV-VESTNESIS-ADOPTED` is `permission requested` (vestnesis.lv/atkalizmantosana asks for a written agreement and a fee), so no as-published text is stored; the base ("Pamata") edition on Likumi.lv carries each act's original wording. Plain `curl` with the header `User-Agent: Mozilla/5.0` is answered by likumi.lv, vestnesis.lv, vvc.gov.lv, data.gov.lv and www.bank.lv from the cloud address on 2026-11-02; no browser recipe was needed and nothing was blocked. Latvian is the only official language. Run on 2026-11-02 for the Law on Sustainability Disclosures (Ilgtspējas informācijas atklāšanas likums, Likumi.lv id 355381).
+
+Step 1, list the editions of an act. The page holds a JSON list of its editions (`"iso_value":"2024\/10\/17"` with a label Pamata, Vēsturiskā, Spēkā esošā or Nākotnes; Nākotnes is a published edition not yet in force):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o act.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/id/355381
+```
+
+Returned `200 123086 text/html; charset=UTF-8`; the list read `2025-10-24 Spēkā esošā` and `2024-10-17 Pamata`.
+
+Step 2, row `LV-LIKUMI-CONSOLIDATED`, the edition that starts on 2024-10-17 (the slug in the path is cosmetic; `redakcijas-datums/YYYY/MM/DD` selects the edition):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ed.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/id/355381-ilgtspejas-informacijas-atklasanas-likums/redakcijas-datums/2024/10/17
+```
+
+Returned `200 120571 text/html; charset=UTF-8`. Text recipe: take the HTML between `<div class="doc-body">` and `<td width="30" id="td-blank">`; drop the grey notice block (`notify-msg`, "Tiesību akts netiek attēlots spēkā esošajā redakcijā") that sits at the top of editions other than the current one; collapse all whitespace to single spaces; turn `<br>` and the closing tags of p, div, h1 to h6, tr, li and table into line breaks; strip the remaining tags; unescape entities; trim each line and drop empty lines. Headings and paragraphs keep their wording. `fetched_sha256` is the hash of the HTML as received. Every response carries a per-request script token (`eval("\x76\x61\x72 ...")` setting `g_carrot`), so a second fetch of the same URL does not reproduce the hash: two fetches on 2026-11-02 gave `58c7d659...` and `a0626452...` for this URL, and the text is identical. The `fetched_sha256` in `records/LV/lv-ilgtspejas-informacijas-likums/2024-10-17-consolidated-lv.json` is from the fetch that wrote the record. For the same reason the watchers are `page_hash` on the act page and will report a change on every real run (see the PR report).
+
+### Languages
+
+Latvian (`lv`) is the only official language, served by the request above.
+
+English, row `LV-LIKUMI-TRANSLATION`: the State Language Centre translation. Likumi.lv serves one English text per act and ignores the edition date in the path; the amendment state is in the text:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o en.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/en/en/id/355381-ilgtspejas-informacijas-atklasanas-likums
+```
+
+Returned `200 98006 text/html; charset=UTF-8` (sha256 `8b7ddc4b...`, not reproducible, same token). Same text recipe. The header says "Text consolidated by Valsts valodas centrs (State Language Centre) with amending laws of: 2 October 2025 [shall come into force on 24 October 2025]" and the page ends "Translation © 2025 Valsts valodas centrs (State Language Centre)". Where the text is not current a notice sits above it ("The translation of this document is outdated. Translation validity: A.–B. Amendments not included: ...", dropped from `text` and quoted in the record `message`). Rule used: the record is dated the start of the stated validity, or the last "shall come into force on" date in the header when there is no notice, and is stored only when a stored Latvian edition starts on that date. Result: `lv-ilgtspejas-informacijas-likums` 2025-10-24, `lv-gada-parskatu-likums` 2024-10-17, `lv-par-piesarnojumu` 2025-10-18, `lv-negodigas-komercprakses-likums` 2023-03-02, `lv-mk-769-ets-iekartas` 2012-12-05 (the translation is outdated: validity 05.12.2012 to 08.07.2014). `lv-klimatnoturibas-likums` has none: the English page says "This document has not been officially translated by the State Language Centre". The brief's vestnesis.lv English route does not exist; Latvijas Vēstnesis publishes Latvian only.
+
+### Link only and not stored
+
+No scope instrument is link only. Sources without records:
+
+- `LV-VESTNESIS-ADOPTED`, https://www.vestnesis.lv/ta/id/355381 (redirects to `https://www.vestnesis.lv/op/2024/193.1`), `curl -sS -L -A 'Mozilla/5.0' -o op.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.vestnesis.lv/ta/id/355381` returned `200 337081 text/html; charset=UTF-8`; the as-published text is readable, but the verdict is `permission requested` (terms page https://www.vestnesis.lv/atkalizmantosana, returned `200 274638 text/html; charset=UTF-8`). Nothing stored.
+- Latvijas Banka, https://www.bank.lv/ returned `200 77655 text/html; charset=utf-8`; no copyright or reuse page was found in the site footer or under /par-mums/noderigi (two guessed paths answered 404), so no row was written: no scope instrument uses it. The Bank's regulations are served as legal acts on Likumi.lv (type "Latvijas bankas noteikumi"); that type was not searched for ESG instruments.
