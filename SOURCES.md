@@ -2398,3 +2398,54 @@ The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni 
 
 - `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
 - `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
+
+## Philippines
+
+Rows `PH-ELIBRARY-ADOPTED` (`pass`, statute: Intellectual Property Code ss. 175 and 176.1), `PH-BSP-ADOPTED` (`pass`, terms) and `PH-SEC-ADOPTED` (`permission requested`: site blocked). Run on 2026-11-02.
+
+The Official Gazette, the Senate and House sites and the SEC are behind a Cloudflare challenge. The failing request, then the browser attempt:
+
+```
+curl -sS -o o.bin -w '%{http_code} %{size_download} %{content_type}\n' https://www.officialgazette.gov.ph/downloads/2009/10oct/20091023-RA-9729-GMA.pdf
+```
+
+Returned `403 5541 text/html; charset=UTF-8` (challenge page). Headless Chromium (Playwright, `goto` then a 25 s wait) returned the same "Just a moment..." page for www.officialgazette.gov.ph, www.sec.gov.ph, www.congress.gov.ph and www.senate.gov.ph; legacy.senate.gov.ph answered 403 "Maintenance". The session proxy also refuses the challenge host (brunhild.challenges.cloudflare.com), so the challenge cannot complete. No browser recipe was found for these sites, so the Gazette, Senate and House texts were not used and the statutes come from the Supreme Court E-Library.
+
+### Supreme Court E-Library (`PH-ELIBRARY-ADOPTED`)
+
+```
+curl -sS -A 'Mozilla/5.0' -o ra9729.html -w '%{http_code} %{size_download} %{content_type}\n' https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615
+```
+
+Returned `200 57176 text/html`, R.A. 9729. The Republic Acts list is a DataTables POST that needs the page's csrf token and session cookie:
+
+```
+curl -sS -c cj -A 'Mozilla/5.0' -o ra.html https://elibrary.judiciary.gov.ph/republic_acts
+curl -sS -b cj -A 'Mozilla/5.0' -e https://elibrary.judiciary.gov.ph/republic_acts -H 'X-Requested-With: XMLHttpRequest' -X POST https://elibrary.judiciary.gov.ph/republic_acts/fetch_ra --data-urlencode "csrf_test_name=<token in ra.html>" -d 'draw=1&start=0&length=10' --data-urlencode 'search[value]=climate'
+```
+
+Returned `200 1366 text/html` (JSON, 4 rows: R.A. 12019 twice, 10174, 9729). The list call failed intermittently (an empty reply) when repeated within seconds. `fetched_sha256` is the hash of the HTML as received. The page carries a per-session csrf token (`csrf_test_name` in two script blocks), so two fetches in different sessions give different hashes (same size, identical extracted text); two fetches in one session gave the same hash. The record hashes were taken from one plain fetch each.
+
+`text` is the page after the "View printer friendly version" link up to the "Find it!" footer: tags stripped, `<br>` and block ends as line breaks, runs of blank lines collapsed, nothing reworded. Transcription faults on the page (a closing quotation mark served as `?` in R.A. 10174, "sixty (80) days") are kept. The R.A. 7394 record is the cut from the line `CHAPTER VI` to the line before `CHAPTER VII`. The E-Library page carries the publication line (Official Gazette volume and page, or the newspapers and date); `in_force` is counted from it with the Act's effectivity clause, which is this session's arithmetic, not a stated date.
+
+### Languages
+
+English only. The E-Library serves each Republic Act as enacted in English, no Filipino text and no translation. No consolidated text is served either (R.A. 9729 as amended by R.A. 10174 is the two records read together). No translation row was added. Filipino texts of the Acts would be on the Official Gazette or Congress sites, which were blocked.
+
+### BSP (`PH-BSP-ADOPTED`)
+
+```
+curl -sS -o c1128.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bsp.gov.ph/Regulations/Issuances/2021/1128(Corrected%20Copy).pdf'
+```
+
+Returned `200 6680329 application/pdf`, BSP Circular No. 1128 corrected copy (13 pages, sha256 `319deb0e9ad1c026f09ee0a6d4b264ade7cb8804946cd7c3524941e1f2230d9a`, identical to the file downloaded by headless Chromium navigation). With `-A 'Mozilla/5.0'` the same URL answers `403` Access Denied (Akamai); plain curl with its default User-Agent, and the watcher's, pass. The terms page `https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx` answers the default curl `200 124135 text/html; charset=utf-8`.
+
+`pdftotext -layout c1128.pdf -` returns 33,890 bytes of OCR text from page images, with garbled words ("Sectlonl", "Pesponsibilities of the Mrd of Dirutorc", "Dlsclosurc Pcqulrcnents"). It fails the mojibake check, so Circular 1128 is link only.
+
+### Link only
+
+- `ph-sec-mc-16-2025`, `ph-sec-mc-4-2019`: row `PH-SEC-ADOPTED`, permission requested; www.sec.gov.ph answered 403 (Cloudflare) to curl and to Chromium. Blocked from the cloud address: https://www.sec.gov.ph/ , https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/ , https://www.sec.gov.ph/wp-content/uploads/2019/10/2019MCNo04.pdf .
+- `ph-bsp-circular-1128`: row passes; the only copy is a scanned image with garbled OCR.
+- Not in scope.json: a Low Carbon Economy Act (register row F7). The E-Library list search for "carbon" returned no Republic Act; the Gazette and Congress sites could not be read.
+- Blocked from the cloud address: https://www.officialgazette.gov.ph/ , https://www.congress.gov.ph/ , https://www.senate.gov.ph/ , https://issuances-library.senate.gov.ph/ , https://www.denr.gov.ph/ , https://pcw.gov.ph/ (Cloudflare 403); https://legacy.senate.gov.ph/ (403 Maintenance); https://morb.bsp.gov.ph/ (500).
+- LawPhil and ChanRobles are private and were not used.

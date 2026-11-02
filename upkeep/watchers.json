@@ -4712,5 +4712,90 @@
   "params": {
    "second_route": "https://pisrs.si/pregledPredpisa?id=PRAV10781 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
   }
+ },
+ {
+  "id": "ph-ra-9729-elibrary-page",
+  "source_id": "PH-ELIBRARY-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-ra-9729",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615",
+  "params": {
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+  }
+ },
+ {
+  "id": "ph-ra-10174-elibrary-page",
+  "source_id": "PH-ELIBRARY-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-ra-10174",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/50257",
+  "params": {
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/50257 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+  }
+ },
+ {
+  "id": "ph-ra-7394-ch6-advertising-elibrary-page",
+  "source_id": "PH-ELIBRARY-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-ra-7394-ch6-advertising",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302",
+  "params": {
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+  }
+ },
+ {
+  "id": "ph-sec-mc-16-2025-page",
+  "source_id": "PH-SEC-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-sec-mc-16-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/",
+  "params": {
+   "second_route": "https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/ (browser from the laptop; Cloudflare challenge answers scripts and the cloud address with 403)"
+  }
+ },
+ {
+  "id": "ph-sec-mc-4-2019-page",
+  "source_id": "PH-SEC-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-sec-mc-4-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.gov.ph/mc-2019/mc-no-04-s-2019-sustainability-reporting-guidelines-for-publicly-listed-companies/",
+  "params": {
+   "second_route": "https://www.sec.gov.ph/mc-2019/mc-no-04-s-2019-sustainability-reporting-guidelines-for-publicly-listed-companies/ (browser from the laptop; Cloudflare challenge)"
+  }
+ },
+ {
+  "id": "ph-bsp-circular-1128-head",
+  "source_id": "PH-BSP-ADOPTED",
+  "iso2": "PH",
+  "instrument": "ph-bsp-circular-1128",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bsp.gov.ph/Regulations/Issuances/2021/1128(Corrected%20Copy).pdf",
+  "params": {
+   "second_route": "the same URL in a browser (curl with a Mozilla User-Agent is answered Access Denied by Akamai; the default curl User-Agent works)"
+  }
+ },
+ {
+  "id": "terms-ph-bsp-adopted",
+  "source_id": "PH-BSP-ADOPTED",
+  "iso2": "PH",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx (browser; curl with a Mozilla User-Agent is answered Access Denied)"
+  }
  }
 ]
