@@ -5948,5 +5948,35 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "ma-ammc-circ-03-19-pdf-head",
+  "source_id": "MA-AMMC-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-ammc-circ-03-19",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-99-12-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-99-12",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/d1.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-11-03-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-11-03",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/Dahir_n_1-03-59_du_10_rabii_I_1424__12_mai_2003__portant_promulgation_de_la_loi_n_11-03_relative_%C3%A0_la_protection_et_%C3%A0_la_mise_en_valeur_de_lenvironnement.pdf",
+  "params": {}
  }
 ]
