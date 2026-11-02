@@ -1856,6 +1856,78 @@
   }
  },
  {
+  "id": "id-pojk-51-2017-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-51-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-seojk-16-2021-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-seojk-16-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-perpres-98-2021-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-perpres-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/187122",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-permen-lhk-21-2022-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-permen-lhk-21-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/235421/permen",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-pojk-14-2023-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-14-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-uu-4-2023-p2sk-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-uu-4-2023-p2sk",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
   "id": "es-ley-11-2018-boe-record",
   "source_id": "ES-BOE-ADOPTED",
   "iso2": "ES",
