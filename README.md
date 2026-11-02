@@ -29,6 +29,8 @@ Record files under `records/` as of 2026-11-02, one file per text version, 637 i
 python3 tools/law.py <ISO2> <YYYY-MM-DD>
 ```
 
+Some places hold their laws only as originally published; COVERAGE.md lists them under Not covered, and a lookup there does not include later amendments.
+
 Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref history] [--lang CODE] [--json]`. In Python: `in_force(iso2, on, repo=ROOT, ref="history", lang=None, detail=False) -> list[dict]`. The lookup reads the `history` branch, which holds one dated commit per record with the text in it. Stayed or enjoined rules count as in force on their date; their `status_note` from `register/<ISO2>/scope.json` is printed with them. `tools/law.py` ships with GEL-01-07; this interface is fixed in the readiness report for that story.
 
 One line per instrument per date: the official-language record. Every other language of the same version is listed under it with its language and kind. `--lang <code>` returns that language's record when the version has one, and otherwise the official record, with a note saying so. `--json` adds a `languages` list to each instrument, the shown record first. The `history` branch must be rebuilt (`python3 tools/build.py --branch history`) before the lookup sees the `Language` trailer; until then every record shows language `-`.
