@@ -1,0 +1,135 @@
+[
+  {
+    "id": "tr-tsrs",
+    "title": "Türkiye Sürdürülebilirlik Raporlama Standartları (TSRS 1 and TSRS 2), Kamu Gözetimi, Muhasebe ve Denetim Standartları Kurulu decision published in the Resmî Gazete of 2023-12-29",
+    "official_url": "https://kgk.gov.tr/surdurulebilirlik-sss",
+    "citation": "KGK Board decisions of 27/12/2023 published in Resmî Gazete 32414 (mükerrer), 29 December 2023; standards at https://www.kgk.gov.tr/SustainabilityDetailForm/11455/Raporlama%20Standartlar%C4%B1",
+    "in_force": "2024-01-01",
+    "evidence": "KGK FAQ (https://kgk.gov.tr/surdurulebilirlik-sss, opened 2026-11-02): \"Zorunlu sürdürülebilirlik raporlaması yapmak durumunda olan şirketlerin, 1/1/2024 tarihinde başlayan hesap dönemi için sürdürülebilirlik raporlaması yapması zorunludur.\" This is the date the duty first applies; the decisions' own commencement clause is in the gazette PDFs, which have no text layer.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "TR-KGK-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only. TR-KGK-ADOPTED is permission requested (kgk.gov.tr carries only a copyright footer). The Resmî Gazete copy (https://www.resmigazete.gov.tr/eskiler/2023/12/20231229M1.htm, items 20231229M1-6.pdf to -10.pdf, each HTTP 200 application/pdf) is not stored because Turkish Law 5846 art. 31 names kanun, Cumhurbaşkanlığı kararnamesi, yönetmelik, tebliğ, genelge and kazai karar but not a board decision, and because the gazette PDFs are page images with no text layer. The index lists KGK decisions numbered 21460, 21462, 21464, 21465, 21463, 21621, 21632 and 21634 of 22 to 27 December 2023; which of them carry TSRS 1 and TSRS 2 and the entity scope was not read from an official text (secondary sources name 21632 for the standards and 21634 for the scope). TSRS 1 and TSRS 2 are Türkiye's versions of IFRS S1 and S2. Later KGK decisions (transitional relief, assurance) were not opened. For Varun: reading art. 31 to cover a KGK decision would make the gazette copy storable, but the images would need OCR. English: none found; the KGK publishes TSRS in Turkish only.",
+    "status": "link only"
+  },
+  {
+    "id": "tr-kurumsal-yonetim-teblig",
+    "title": "Kurumsal Yönetim Tebliği (II-17.1), Sermaye Piyasası Kurulu, with Ek-1 Kurumsal Yönetim İlkeleri and the sustainability principles provision",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=19225&MevzuatTur=9&MevzuatTertip=5",
+    "citation": "Kurumsal Yönetim Tebliği (II-17.1), Resmî Gazete 3/1/2014, No. 28871; amended by Tebliğ (II-17.1.a), Resmî Gazete 2/10/2020, No. 31262",
+    "in_force": "2014-01-03",
+    "evidence": "Madde 16: \"Bu Tebliğ yayımı tarihinde yürürlüğe girer.\" Opened https://www.resmigazete.gov.tr/eskiler/2014/01/20140103-3.htm (Resmî Gazete 3 Ocak 2014, Sayı 28871) on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records: adopted 2014-01-03 (Resmî Gazete) and consolidated 2020-10-02 (Mevzuat Bilgi Sistemi), the date of the only amendment, Tebliğ (II-17.1.a), whose madde 3 says it takes effect on publication; it adds the sustainability principles provisions (madde 1 fifth paragraph, madde 8 as amended). The Mevzuat site serves one consolidation, so no other point in time is stored. The Sürdürülebilirlik İlkeleri Uyum Çerçevesi (SPK, 2020, amended 2022) is a Board announcement, not part of the tebliğ text and not an enacted instrument; it sits on spk.gov.tr under TR-SPK-ADOPTED (permission requested), so it is not stored. English: no government translation found. Looked at mevzuat.gov.tr (Turkish only), resmigazete.gov.tr (Turkish only) and the ministry English news pages on iklim.gov.tr/en (news summaries, not translations of the text); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-iklim-kanunu",
+    "title": "İklim Kanunu (Climate Law), Law No. 7552",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=7552&MevzuatTur=1&MevzuatTertip=5",
+    "citation": "Law No. 7552, accepted 2/7/2025, Resmî Gazete 9/7/2025, No. 32951",
+    "in_force": "2025-07-09",
+    "evidence": "Madde 19: \"Bu Kanun yayımı tarihinde yürürlüğe girer.\" Published in Resmî Gazete 9 Temmuz 2025, Sayı 32951 (https://www.resmigazete.gov.tr/eskiler/2025/07/20250709-1.htm), opened 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Framework climate act; it also creates the Emisyon Ticaret Sistemi (family F3 is covered by the two ETS regulations, which cite this Law). Two records for 2025-07-09: the gazette item (which includes the amendments the Law makes to other laws) and the Mevzuat Bilgi Sistemi consolidated text (the Law's own articles with footnotes; the only footnote points to the 2026 penalty communiqué). The text was not changed by any amendment found in the consolidation. Administrative fines are fixed each year by tr-iklim-idari-para-cezasi-teblig. English: no government translation found. Looked at mevzuat.gov.tr (Turkish only), resmigazete.gov.tr (Turkish only) and the ministry English news pages on iklim.gov.tr/en (news summaries, not translations of the text); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-iklim-idari-para-cezasi-teblig",
+    "title": "7552 Sayılı İklim Kanunu Uyarınca Verilecek İdari Para Cezalarına İlişkin Tebliğ (2026/1)",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=42820&MevzuatTur=9&MevzuatTertip=5",
+    "citation": "Tebliğ (2026/1), İklim Değişikliği Başkanlığı, Resmî Gazete 27/12/2025, No. 33120",
+    "in_force": "2025-12-27",
+    "evidence": "Resmî Gazete 27 Aralık 2025, Sayı 33120 (https://www.resmigazete.gov.tr/eskiler/2025/12/20251227-11.htm, opened 2026-11-02). The text has no commencement clause, so the issue date is used; it says the fines of Law 7552 madde 14 apply \"1/1/2026 tarihinden itibaren aşağıda belirtilen miktarlarda\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements Law 7552 madde 14 (tr-iklim-kanunu). Found in the Mevzuat search, not in the brief. The fine table is an annex (\"Eki için tıklayınız\") that is linked from the page and is not in the stored text. The Mevzuat consolidation has the same body as the gazette text, so only the gazette record is stored. Each year's figures are a new communiqué. English: no government translation found. Looked at mevzuat.gov.tr (Turkish only), resmigazete.gov.tr (Turkish only) and the ministry English news pages on iklim.gov.tr/en (news summaries, not translations of the text); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-ets-yonetmeligi",
+    "title": "Türkiye Emisyon Ticaret Sistemi Yönetmeliği",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=46261&MevzuatTur=7&MevzuatTertip=5",
+    "citation": "Regulation of the Ministry of Environment, Urbanisation and Climate Change, Resmî Gazete 27/8/2026, No. 33353",
+    "in_force": "2026-08-27",
+    "evidence": "Madde 41: \"Bu Yönetmelik yayımı tarihinde yürürlüğe girer.\" Resmî Gazete 27 Ağustos 2026, Sayı 33353 (https://www.resmigazete.gov.tr/eskiler/2026/08/20260827-7.htm), opened 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements Law No. 7552 (tr-iklim-kanunu). Madde 40 repeals the Sera Gazı Emisyonlarının Takibi Hakkında Yönetmelik of 17/5/2014 (Resmî Gazete 29003). The Mevzuat consolidation has the same body as the gazette text, so only the gazette record is stored. Annexes (\"Ekleri için tıklayınız\") are linked and not in the stored text. The Sera Gazı Emisyonlarının İzlenmesi ve Raporlanması Hakkında Tebliğ (2014) and the Sera Gazı Emisyon Raporlarının Doğrulanması Tebliği (2017) show in the Mevzuat list; whether they remain in force after this Regulation was not checked, so they have no entry. English: no government translation found. Looked at mevzuat.gov.tr (Turkish only), resmigazete.gov.tr (Turkish only) and the ministry English news pages on iklim.gov.tr/en (news summaries, not translations of the text); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-ets-piyasa-yonetmeligi",
+    "title": "Türkiye Emisyon Ticaret Sistemi Piyasasının İşletilmesine İlişkin Yönetmelik",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=46347&MevzuatTur=7&MevzuatTertip=5",
+    "citation": "Regulation of the Energy Market Regulatory Authority (EPDK), Resmî Gazete 21/10/2026, No. 33407",
+    "in_force": "2026-10-21",
+    "evidence": "Madde 54: \"Bu Yönetmelik yayımı tarihinde yürürlüğe girer.\" Text opened on https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46347.htm and the gazette index https://www.resmigazete.gov.tr/eskiler/2026/10/20261021.htm (item 20261021-4.pdf) on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Market rules under Law No. 7552 madde 10 and Law 6446 madde 11 (tr-iklim-kanunu; tr-ets-yonetmeligi is the parent regulation). The gazette serves this item only as a PDF whose font encoding is unreadable under pdftotext, so the as-published text is not stored; the only record is the Mevzuat Bilgi Sistemi text (kind consolidated), which has not been amended since publication. English: no government translation found. Looked at mevzuat.gov.tr (Turkish only), resmigazete.gov.tr (Turkish only) and the ministry English news pages on iklim.gov.tr/en (news summaries, not translations of the text); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-tuketici-kanunu-6502",
+    "title": "Tüketicinin Korunması Hakkında Kanun, Law No. 6502 (madde 61 to 63 on advertising and unfair commercial practices are the green-claims umbrella)",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=6502&MevzuatTur=1&MevzuatTertip=5",
+    "citation": "Law No. 6502, Resmî Gazete 28/11/2013, No. 28835",
+    "in_force": "2014-05-28",
+    "evidence": "Madde 87: \"Bu Kanun yayımı tarihinden itibaren altı ay sonra yürürlüğe girer.\" Published in Resmî Gazete 28 Kasım 2013, Sayı 28835 (https://www.resmigazete.gov.tr/eskiler/2013/11/20131128-1.htm), opened 2026-11-02; six months later is 2014-05-28.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The whole Law is stored, not only madde 61 to 63. Two records: the gazette text (in force 2014-05-28) and the Mevzuat consolidated text served on 2026-11-02, dated 2026-07-01, the Resmî Gazete date of the latest amendment (Law No. 7587); articles amended earlier took effect on their own dates, given in the text's footnotes and in the amendment table at its end. The site serves one consolidation, so the versions between 2014 and 2026 are not stored. Implemented for advertising by tr-ticari-reklam-yonetmeligi. English: no government translation found. Looked at mevzuat.gov.tr and resmigazete.gov.tr (Turkish only) and the ministry pages on ticaret.gov.tr (Turkish only); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  },
+  {
+    "id": "tr-ticari-reklam-yonetmeligi",
+    "title": "Ticari Reklam ve Haksız Ticari Uygulamalar Yönetmeliği",
+    "official_url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=20435&MevzuatTur=7&MevzuatTertip=5",
+    "citation": "Regulation of the Ministry of Customs and Trade, Resmî Gazete 10/1/2015, No. 29232; amended, latest by Resmî Gazete 1/7/2026, No. 33297",
+    "in_force": "2015-01-10",
+    "evidence": "Madde 34: \"Bu Yönetmelik yayımı tarihinde yürürlüğe girer.\" Published in Resmî Gazete 10 Ocak 2015, Sayı 29232 (https://www.resmigazete.gov.tr/eskiler/2015/01/20150110-5.htm), opened 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TR-MEVZUAT-CONSOLIDATED",
+      "TR-RESMIGAZETE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements Law 6502 madde 61 to 63 (tr-tuketici-kanunu-6502). Two records: the gazette text (2015-01-10) and the Mevzuat consolidated text served on 2026-11-02, dated 2026-08-01 because the amending Regulation of Resmî Gazete 2026-07-01 No. 33297 says madde 15 \"Bu Yönetmelik 1/8/2026 tarihinde yürürlüğe girer\" (opened https://www.resmigazete.gov.tr/eskiler/2026/07/20260701-9.htm). The consolidation carries the environmental-claims text. Versions between 2015 and 2026 (amendments of 2018, 2019, 2021, 2022) are not served by the site and are not stored. The Reklam Kurulu guide on environmental claims is a guide, F7, register row only. English: no government translation found. Looked at mevzuat.gov.tr and resmigazete.gov.tr (Turkish only) and the ministry pages on ticaret.gov.tr (Turkish only); a translation by a law firm or news site is never stored.",
+    "status": "stored"
+  }
+]
