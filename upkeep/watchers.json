@@ -3244,6 +3244,156 @@
   }
  },
  {
+  "id": "cz-accounting-act-sustainability-reporting-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-accounting-act-sustainability-reporting",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1991/563 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-act-316-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-act-316-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F316/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/316 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-act-383-2012-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-act-383-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2012/383 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-decree-103-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-decree-103-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/103 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-indirect-cost-compensation-order-565-2020-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-indirect-cost-compensation-order-565-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2020%2F565/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2020/565 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-consumer-protection-act-634-1992-s4-5a-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-consumer-protection-act-634-1992-s4-5a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1992%2F634/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1992/634 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "pt-dl-89-2017-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-89-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2017/07/14500/0426704271.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/89-2017-107773645 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-dl-98-2024-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-98-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2024/11/23200/0001500033.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/98-2024-898378509 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-lei-98-2021-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-lei-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-12-2020-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-12-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-182-2026-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-182-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-57-2008-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-57-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
   "id": "hu-esg-act-2023-cviii-njt-page",
   "source_id": "HU-MKOZLONY-ADOPTED",
   "iso2": "HU",
