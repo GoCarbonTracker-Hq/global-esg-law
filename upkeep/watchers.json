@@ -4714,6 +4714,317 @@
   }
  },
  {
+  "id": "lu-climate-law-2020-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-climate-law-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2020%2F12%2F15%2Fa994%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-climate-pact-law-2021-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-climate-pact-law-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2021%2F06%2F25%2Fa482%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2021/06/25/a482/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ghg-allocations-rgd-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-ghg-allocations-rgd-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Frgd%2F2022%2F06%2F22%2Fa328%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/rgd/2022/06/22/a328/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ets-aid-law-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-ets-aid-law-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2022%2F07%2F15%2Fa356%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2022/07/15/a356/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ghg-inventory-rgd-2017-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-ghg-inventory-rgd-2017",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Frgd%2F2017%2F04%2F24%2Fa446%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/rgd/2017/04/24/a446/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-rcs-act-2002-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-rcs-act-2002",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2002%2F12%2F19%2Fn1%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2002/12/19/n1/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-nfi-law-2016-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-nfi-law-2016",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2016%2F07%2F23%2Fn19%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2016/07/23/n19/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-sfdr-law-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-sfdr-law-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2022%2F02%2F25%2Fa82%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2022/02/25/a82/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-consumer-code-unfair-practices-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-consumer-code-unfair-practices",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2011%2F04%2F08%2Fn2%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/code/consommation/20260927 (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-consumer-law-2026-green-transition-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-consumer-law-2026-green-transition",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2026%2F06%2F09%2Fa283%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2026/06/09/a283/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "bg-zschet-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/15501",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/15501 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zschet-zid-2024-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet-zid-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165592",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165592 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zschet-zid-2025-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet-zid-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165958",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165958 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-znfo-zid-2024-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-znfo-zid-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165596",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165596 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zoik-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zoik",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/14595",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/14595 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zoik-zid-2025-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zoik-zid-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/166596",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/166596 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zzp-zid-2026-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zzp-zid-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/167077",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/167077 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "my-bursa-mmlr-sustainability-release-head",
+  "source_id": "MY-BURSA-ADOPTED",
+  "iso2": "MY",
+  "instrument": "my-bursa-mmlr-sustainability",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/content_entry5c11a9db758f8d31544574c6/6768e229e6414a4ba0eb9f4d/files/23122024__MEDIA_RELEASE_BURSA_MALAYSIA_REQUIRES_SUSTAINABILITY_REPORTING_USING_THE_IFRS_SUSTAINABILITY_DISCLOSURE_STANDARDS.pdf?1734927108=",
+  "params": {
+   "second_route": "https://www.bursamalaysia.com/regulation/listing_requirements (browser; bursamalaysia.com answers scripts with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "my-eqa-1974-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-eqa-1974",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
+ },
+ {
+  "id": "my-cpa-1999-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-cpa-1999",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
+ },
+ {
+  "id": "my-tda-2011-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-tda-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
+ },
+ {
+  "id": "sa-environment-law-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "sa-air-quality-regulation-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-air-quality-regulation",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "sa-anti-commercial-fraud-law-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-anti-commercial-fraud-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "terms-sa-cma-adopted",
+  "source_id": "SA-CMA-ADOPTED",
+  "iso2": "SA",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://cma.gov.sa/en/Pages/terms.aspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://cma.gov.sa/en/Pages/terms.aspx (SharePoint page; curl returns a 1.2 KB shell, read it with a headless browser)"
+  }
+ },
+ {
   "id": "ph-ra-9729-elibrary-page",
   "source_id": "PH-ELIBRARY-ADOPTED",
   "iso2": "PH",
