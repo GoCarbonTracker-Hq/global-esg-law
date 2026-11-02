@@ -59,9 +59,11 @@ def build(repo=ROOT, branch=None):
         env = os.environ.copy()
         timestamp = datetime.combine(max(effective, date(1970, 1, 1)), time(12), timezone.utc).strftime("%Y-%m-%dT%H:%M:%S +0000")
         env.update(GIT_AUTHOR_DATE=timestamp, GIT_COMMITTER_DATE=timestamp)
-        message = (record.get("message") or f"{row['trailer_instrument']} effective {effective}") + "\n\n"
+        repeal = record.get("repealed") is True  # a repeal record: empty text, Kind trailer `repeal`
+        verb, kind = ("repealed", "repeal") if repeal else ("effective", record["kind"])
+        message = (record.get("message") or f"{row['trailer_instrument']} {verb} {effective}") + "\n\n"
         message += (f"Instrument: {row['trailer_instrument']}\nSource-url: {row['trailer_source_url']}\n"
-                    f"In-force: {effective}\nKind: {record['kind']}\nLicence: {row['trailer_licence']}\n"
+                    f"In-force: {effective}\nKind: {kind}\nLicence: {row['trailer_licence']}\n"
                     f"Jurisdiction: {row['iso2']}\nInstrument-id: {row['instrument_id']}")
         ident = ["-c", "user.name=Global ESG Law Builder", "-c", "user.email=builder@global-esg-law.invalid"]
         rel = str(path.relative_to(repo))

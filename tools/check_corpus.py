@@ -32,6 +32,8 @@ def check(repo=ROOT):
             refuse(f"kind {kind!r} is not one of {sorted(FORMS)}")
         if kind != row.get("form"):
             refuse(f"kind {kind!r} differs from source {source_id} form {row.get('form')!r}")
+        if not (record.get("text") or "").strip() and record.get("repealed") is not True:
+            refuse("empty text is allowed only with repealed: true")
         scope_path = repo / "register" / iso2 / "scope.json"
         scope = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else []
         entry = next((e for e in scope if e.get("id") == instrument), None)
