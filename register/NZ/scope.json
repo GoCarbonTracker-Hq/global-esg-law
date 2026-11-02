@@ -1,0 +1,222 @@
+[
+  {
+    "id": "nz-fmc-act-2013-part-7a",
+    "title": "Financial Markets Conduct Act 2013, Part 7A (climate-related disclosures for certain FMC reporting entities with higher level of public accountability)",
+    "official_url": "https://www.legislation.govt.nz/act/public/2013/69/en/latest/#LMS775089",
+    "citation": "Financial Markets Conduct Act 2013 (2013 No 69) Part 7A, inserted by section 8 of the Financial Sector (Climate-related Disclosures and Other Matters) Amendment Act 2021 (2021 No 39)",
+    "in_force": "2022-10-27",
+    "evidence": "Part 7A history note on the point-in-time version as at 27 October 2022 (https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/, opened 2026-11-02): \"Part 7A: inserted, on 27 October 2022, by section 8 of the Financial Sector (Climate-related Disclosures and Other Matters) Amendment Act 2021 (2021 No 39).\" No earlier version of the Act contains Part 7A.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records hold Part 7A only (not the whole Act), one per version where the Part text differs: 2022-10-27 and 2024-10-27. Part 7A is in 13 of the Act's 38 dated versions and has two distinct texts across them. The page numbers the sections 461N to 461ZK in the headings read; the brief said 461O to 461ZQ. The register row cites an FMA page; the FMA site (Cloudflare challenge, 403 from the cloud address) was not opened. Reporting periods start on or after 2023-01-01 (see the XRB standards).",
+    "status": "stored"
+  },
+  {
+    "id": "nz-fsca-2021-39",
+    "title": "Financial Sector (Climate-related Disclosures and Other Matters) Amendment Act 2021 (as enacted)",
+    "official_url": "https://www.legislation.govt.nz/act/public/2021/39/en/latest/",
+    "citation": "Financial Sector (Climate-related Disclosures and Other Matters) Amendment Act 2021 (2021 No 39), assent 27 October 2021",
+    "in_force": "2021-10-28",
+    "evidence": "Section 2(1): \"The following parts of this Act come into force on the day after Royal assent: (a) Part 3, other than sections 44(1) and 45: (b) section 55(1).\" Date of assent 27 October 2021 (https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-27/, opened 2026-11-02).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The record is dated the first commencement. Section 2(2): \"The rest of this Act comes into force on a date or dates set by Order in Council\", with a long-stop of the first anniversary of assent for most parts (s 2(3)); Part 7A of the FMC Act was inserted on 2022-10-27.",
+    "status": "stored",
+    "amends": "nz-fmc-act-2013-part-7a"
+  },
+  {
+    "id": "nz-fmc-climate-regs-2023-222",
+    "title": "Financial Markets Conduct (Climate-related Disclosures) Amendment Regulations 2023",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/latest/",
+    "citation": "SL 2023/222 (made 28 August 2023)",
+    "in_force": "2023-10-02",
+    "evidence": "Regulation 2: \"These regulations come into force on 2 October 2023.\" (https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-08-28/, opened 2026-11-02)",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Inserts Part 7A (regulation 252A onward, CRD records) into the Financial Markets Conduct Regulations 2014, which are not in scope. As-made text only; consolidated versions of the 2014 Regulations are not stored.",
+    "status": "stored"
+  },
+  {
+    "id": "nz-nzcs-1",
+    "title": "Aotearoa New Zealand Climate Standard 1: Climate-related Disclosures (NZ CS 1)",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/",
+    "citation": "NZ CS 1 (XRB, issued 14 December 2022)",
+    "in_force": "2023-01-11",
+    "evidence": "Standards Navigator, Legal status of Standard (https://standards.xrb.govt.nz/standards-navigator/nz-cs-1/, opened 2026-11-02): \"The Standard was published under the Legislation Act 2019 on 14 December 2022 and takes effect on 11 January 2023.\" Mandatory date for reporting entities: 1 January 2023 (same page).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-XRB-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Standard issued 14 December 2022 by the External Reporting Board; secondary legislation under the Legislation Act 2019. Link only: row NZ-XRB-ADOPTED is permission requested (the standard's own notice limits reuse to personal and non-commercial use). Published on the XRB site and Standards Navigator (https://standards.xrb.govt.nz/standards-navigator/nz-cs-1/) and as agency-drafted secondary legislation on legislation.govt.nz (the URL above). Amendments exist: see the XRB page https://www.xrb.govt.nz/standards/climate-related-disclosures/aotearoa-new-zealand-climate-standards/ . The XRB page lists an amending standard, Amendments to NZ CS 1 2026 (date of issue Nov 2026, periods beginning on or after 1 Jan 2027).",
+    "status": "link only",
+    "status_note": "Permission requested from XRB, not sent. Not stored."
+  },
+  {
+    "id": "nz-nzcs-2",
+    "title": "Adoption of Aotearoa New Zealand Climate Standards (NZ CS 2)",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/",
+    "citation": "NZ CS 2 (XRB, issued 14 December 2022)",
+    "in_force": "2023-01-11",
+    "evidence": "Standards Navigator, Legal status of Standard (https://standards.xrb.govt.nz/standards-navigator/nz-cs-2/, opened 2026-11-02): \"The Standard was published under the Legislation Act 2019 on 14 December 2022 and takes effect on 11 January 2023.\" Mandatory date for reporting entities: 1 January 2023 (same page).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-XRB-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Standard issued 14 December 2022 by the External Reporting Board; secondary legislation under the Legislation Act 2019. Link only: row NZ-XRB-ADOPTED is permission requested (the standard's own notice limits reuse to personal and non-commercial use). Published on the XRB site and Standards Navigator (https://standards.xrb.govt.nz/standards-navigator/nz-cs-2/) and as agency-drafted secondary legislation on legislation.govt.nz (the URL above). Amendments exist: see the XRB page https://www.xrb.govt.nz/standards/climate-related-disclosures/aotearoa-new-zealand-climate-standards/ . Amended in November 2024 and November 2025 (adoption provisions extended); the XRB page offers a compiled version to November 2025.",
+    "status": "link only",
+    "status_note": "Permission requested from XRB, not sent. Not stored."
+  },
+  {
+    "id": "nz-nzcs-3",
+    "title": "General Requirements for Climate-related Disclosures (NZ CS 3)",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/",
+    "citation": "NZ CS 3 (XRB, issued 14 December 2022)",
+    "in_force": "2023-01-11",
+    "evidence": "Standards Navigator, Legal status of Standard (https://standards.xrb.govt.nz/standards-navigator/nz-cs-3/, opened 2026-11-02): \"The Standard was published under the Legislation Act 2019 on 14 December 2022 and takes effect on 11 January 2023.\" Mandatory date for reporting entities: 1 January 2023 (same page).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-XRB-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Standard issued 14 December 2022 by the External Reporting Board; secondary legislation under the Legislation Act 2019. Link only: row NZ-XRB-ADOPTED is permission requested (the standard's own notice limits reuse to personal and non-commercial use). Published on the XRB site and Standards Navigator (https://standards.xrb.govt.nz/standards-navigator/nz-cs-3/) and as agency-drafted secondary legislation on legislation.govt.nz (the URL above). Amendments exist: see the XRB page https://www.xrb.govt.nz/standards/climate-related-disclosures/aotearoa-new-zealand-climate-standards/ . ",
+    "status": "link only",
+    "status_note": "Permission requested from XRB, not sent. Not stored."
+  },
+  {
+    "id": "nz-ccra-zero-carbon-2019-61",
+    "title": "Climate Change Response (Zero Carbon) Amendment Act 2019 (as enacted)",
+    "official_url": "https://www.legislation.govt.nz/act/public/2019/61/en/latest/",
+    "citation": "Climate Change Response (Zero Carbon) Amendment Act 2019 (2019 No 61), assent 13 November 2019",
+    "in_force": "2019-11-14",
+    "evidence": "Section 2: \"This Act comes into force on the day after the date on which it receives the Royal assent.\" Date of assent 13 November 2019 (https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-13/, opened 2026-11-02).",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amends the Climate Change Response Act 2002; inserts Parts 1A, 1B and 1C.",
+    "status": "stored",
+    "amends": "nz-ccra-2002-part-1b"
+  },
+  {
+    "id": "nz-ccra-2002-part-1b",
+    "title": "Climate Change Response Act 2002, Part 1B (emission reduction: 2050 target, emissions budgets, emissions reduction plans)",
+    "official_url": "https://www.legislation.govt.nz/act/public/2002/40/en/latest/#LMS282055",
+    "citation": "Climate Change Response Act 2002 (2002 No 40) Part 1B, inserted by section 8 of the Climate Change Response (Zero Carbon) Amendment Act 2019",
+    "in_force": "2019-11-14",
+    "evidence": "Part 1B history note (https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/, opened 2026-11-02): \"Part 1B: inserted, on 14 November 2019, by section 8 of the Climate Change Response (Zero Carbon) Amendment Act 2019 (2019 No 61).\"",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Part only, one record per version where the Part text differs (7 distinct texts across the 23 versions since insertion). Parts 1, 1A, 1C, 2, 3, 5 to 5D, 7 and 8 of the Act are not stored (see PR Next).",
+    "status": "stored"
+  },
+  {
+    "id": "nz-ccra-2002-part-4",
+    "title": "Climate Change Response Act 2002, Part 4 (New Zealand greenhouse gas emissions trading scheme)",
+    "official_url": "https://www.legislation.govt.nz/act/public/2002/40/en/latest/#DLM1662481",
+    "citation": "Climate Change Response Act 2002 (2002 No 40) Part 4, added by section 50 of the Climate Change Response (Emissions Trading) Amendment Act 2008 (2008 No 85)",
+    "in_force": "2008-09-26",
+    "evidence": "Part 4 history note (https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/, opened 2026-11-02): \"Part 4: added, on 26 September 2008, by section 50 of the Climate Change Response (Emissions Trading) Amendment Act 2008 (2008 No 85).\"",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Part only, one record per version where the Part text differs, 2008-09-26 to 2026-09-04 (27 records). Contains the participant emission-return and reporting duties; sector-specific Parts 5 to 5B are not stored.",
+    "status": "stored"
+  },
+  {
+    "id": "nz-ets-stationary-energy-regs-2009-285",
+    "title": "Climate Change (Stationary Energy and Industrial Processes) Regulations 2009",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/latest/",
+    "citation": "SR 2009/285 (made 28 September 2009)",
+    "in_force": "2010-01-01",
+    "evidence": "Regulation 2: \"These regulations come into force on 1 January 2010.\" (https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/, opened 2026-11-02)",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED",
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "All 25 versions the site serves (2009-09-28 to 2026-07-09). The as-made record is dated 2009-09-28, the publisher's version date, not 2010-01-01, because the site serves a reprint dated 2009-12-08 before the commencement date; its message says so. The lookup therefore lists the regulations from 2009-09-28.",
+    "status": "stored"
+  },
+  {
+    "id": "nz-ets-liquid-fossil-fuels-regs-2008-356",
+    "title": "Climate Change (Liquid Fossil Fuels) Regulations 2008",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/latest/",
+    "citation": "SR 2008/356 (made 29 September 2008)",
+    "in_force": "2009-01-01",
+    "evidence": "Regulation 2: \"These regulations come into force on 1 January 2009.\" (https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2008-09-29/, opened 2026-11-02)",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED",
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "11 dated versions listed (2008-09-29 to 2025-01-01).",
+    "status": "link only",
+    "status_note": "Row passes, but the fetch stopped: the site served an AWS WAF challenge after 4 of 11 versions, so no complete version set was stored."
+  },
+  {
+    "id": "nz-ets-waste-regs-2010-338",
+    "title": "Climate Change (Waste) Regulations 2010",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/latest/",
+    "citation": "SR 2010/338 (made 23 September 2010)",
+    "in_force": "2011-01-01",
+    "evidence": "Regulation 2: \"These regulations come into force on 1 January 2011.\" (https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2010-09-23/, opened 2026-11-02)",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED",
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "6 dated versions listed (2010-09-23 to 2023-01-01).",
+    "status": "link only",
+    "status_note": "Row passes, but the WAF challenge stopped the fetch before any version was stored."
+  },
+  {
+    "id": "nz-ets-forestry-regs-2022-266",
+    "title": "Climate Change (Forestry) Regulations 2022",
+    "official_url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/latest/",
+    "citation": "SR 2022/266",
+    "in_force": null,
+    "evidence": "The commencement clause was not read: the WAF challenge stopped the fetch. The version list shows a first version dated 2022-09-27.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NZ-LEGISLATION-ADOPTED",
+      "NZ-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "11 dated versions listed (2022-09-27 to 2026-07-01). The Climate Change (Forestry Sector) Regulations 2008 (SR 2008/355) are not scoped; the site shows them as at 2023-01-01 and their status was not checked.",
+    "status": "link only",
+    "status_note": "Row passes, but the WAF challenge stopped the fetch before any version was stored."
+  }
+]
