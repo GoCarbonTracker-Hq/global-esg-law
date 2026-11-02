@@ -1,0 +1,89 @@
+[
+  {
+    "id": "ae-dl-11-2024-climate",
+    "title": "Federal Decree-Law No. (11) of 2024 on the Reduction of Climate Change Effects",
+    "official_url": "https://uaelegislation.gov.ae/en/legislations/2558",
+    "citation": "Federal Decree-Law No. 11 of 2024, issued 2024-08-28, Official Gazette No. 782 of 2024-08-30",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AE-UAELEGISLATION-CONSOLIDATED",
+      "AE-UAELEGISLATION-TRANSLATION"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only: uaelegislation.gov.ae answers 403 (Cloudflare block) to curl and to headless Chromium from the cloud address on 2026-11-02, so neither the page nor the text could be opened and no row passes. The portal id 2558 comes from a search-engine listing of the portal URL, not from an opened page. English translation: the portal serves one (per its listing), looked for and not reachable. Gazette: elaws.moj.gov.ae reset the connection. Date of entry into force: the register row (run2, 2026-10) records 2025-05-30 from the portal metadata page; it was not re-opened today, so scope in_force is null. Content mapped to F3 by the register row: GHG measurement and reporting duty (0.5 MtCO2e threshold from a law-firm note only) and the national carbon credit registry. Family F2 for the act, per the dispatch; the reporting duty and registry are F3 content.",
+    "status": "link only",
+    "status_note": "Portal blocked from the cloud address; permission not requested."
+  },
+  {
+    "id": "ae-cma-governance-guide-art76",
+    "title": "Chairman of the Authority's Board Decision No. (3/RM) of 2020 approving the Governance Guide for Public Joint-Stock Companies, Article 76 (integrated report including the sustainability report)",
+    "official_url": "https://www.uaecma.gov.ae/en/regulations/corporate-governance",
+    "citation": "Chairman of the Authority's Board Decision No. (3/Chairman) of 2020, as amended (2024 and January 2025 per CMA pages)",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AE-CMA-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: the CMA copyright page reserves all rights (row AE-CMA-ADOPTED, permission requested), and the decision text itself could not be opened: https://www.sca.gov.ae/en/regulations/regulations-listing?id=198 (linked from the CMA page) redirects to a 500 page and legislation.uaecma.gov.ae does not answer from the cloud address. The CMA page https://www.uaecma.gov.ae/en/regulations/corporate-governance lists the decision. The CMA circular on 2025 AGMs (https://www.uaecma.gov.ae/assets/9c6ef6ed/Circular%20on%20Annual%20General%20Meetings%20of%20Public%20Joint-Stock%20Companies%20for%202025.pdf.aspx, opened 2026-11-02, 200, application/pdf) says: \"The Company shall disclose the integrated report, including all reports referred to in Article (76) of the Governance Guide\" and lists the sustainability report among them. No official page opened today states the decision's in force date (28 April 2020 appears only in secondary snippets), so in_force is null. No consolidated text of the 2024 and 2025 amendments was reached. The Authority was renamed the Capital Market Authority on 2026-01-01.",
+    "status": "link only",
+    "status_note": "Permission request to the CMA not sent; decision text not reachable."
+  },
+  {
+    "id": "ae-law-24-1999-environment",
+    "title": "Federal Law No. (24) of 1999 Concerning the Protection and Development of the Environment, as amended",
+    "official_url": "https://uaelegislation.gov.ae/en/legislations/1146",
+    "citation": "Federal Law No. 24 of 1999",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AE-UAELEGISLATION-CONSOLIDATED",
+      "AE-UAELEGISLATION-TRANSLATION"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only: uaelegislation.gov.ae answers 403 (Cloudflare block) to curl and to headless Chromium from the cloud address on 2026-11-02, so neither the page nor the text could be opened and no row passes. The portal id 1146 comes from a search-engine listing of the portal URL, not from an opened page. English translation: the portal serves one (per its listing), looked for and not reachable. Gazette: elaws.moj.gov.ae reset the connection. Enactment and commencement dates are not read from an official page.",
+    "status": "link only",
+    "status_note": "Portal blocked from the cloud address; permission not requested."
+  },
+  {
+    "id": "ae-law-15-2020-consumer-protection",
+    "title": "Federal Law No. (15) of 2020 on Consumer Protection (arts. 4 and 11 as the umbrella for environmental claims), as amended",
+    "official_url": "https://uaelegislation.gov.ae/en/legislations/1455",
+    "citation": "Federal Law No. 15 of 2020, as amended",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AE-UAELEGISLATION-CONSOLIDATED",
+      "AE-UAELEGISLATION-TRANSLATION"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only: uaelegislation.gov.ae answers 403 (Cloudflare block) to curl and to headless Chromium from the cloud address on 2026-11-02, so neither the page nor the text could be opened and no row passes. The portal id 1455 comes from a search-engine listing of the portal URL, not from an opened page. English translation: the portal serves one (per its listing), looked for and not reachable. Gazette: elaws.moj.gov.ae reset the connection. The articles named in the dispatch (4 and 11) were not read, so the green-claims fit is the dispatch's, not confirmed. Executive regulation: ae-cr-66-2023-consumer-protection-regulation.",
+    "status": "link only",
+    "status_note": "Portal blocked from the cloud address; permission not requested."
+  },
+  {
+    "id": "ae-cr-66-2023-consumer-protection-regulation",
+    "title": "Cabinet Resolution No. (66) of 2023 Concerning the Executive Regulations of Federal Law No. (15) of 2020 Concerning Consumer Protection",
+    "official_url": "https://uaelegislation.gov.ae/en/legislations/2157",
+    "citation": "Cabinet Resolution No. 66 of 2023",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "AE-UAELEGISLATION-CONSOLIDATED",
+      "AE-UAELEGISLATION-TRANSLATION"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only: uaelegislation.gov.ae answers 403 (Cloudflare block) to curl and to headless Chromium from the cloud address on 2026-11-02, so neither the page nor the text could be opened and no row passes. The portal id 2157 comes from a search-engine listing of the portal URL, not from an opened page. English translation: the portal serves one (per its listing), looked for and not reachable. Gazette: elaws.moj.gov.ae reset the connection. Executive regulation of ae-law-15-2020-consumer-protection.",
+    "status": "link only",
+    "status_note": "Portal blocked from the cloud address; permission not requested."
+  }
+]
