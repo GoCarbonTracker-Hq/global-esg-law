@@ -61,3 +61,23 @@ Appended, never rewritten; rows end in CRLF. A signal already in `seen.json` pro
 | `notes` | For `watch_failed`, the watcher's `second_route` or `none listed`. Otherwise free text for the reviewer. |
 
 Review of the queue is the next story (GEL-02-02). Storing a confirmed version still goes through `tools/check_corpus.py` and the licence table; the watcher has no say in that.
+
+## Terms watchers (GEL-02-03)
+
+Every row of `sources/licence-table.csv` has one `page_hash` watcher over its `terms_url`, id `terms-<row id in lower case>`, `instrument` `*`, `change` `terms_changed`. When the publisher rewrites the page the hash moves and the run appends a `terms_changed` row. That row is handled with:
+
+```
+python3 tools/licence_recheck.py --row <watcher_id>:<signal>
+```
+
+It sets the watcher's source row to verdict `unknown` with `checked_on` today, regenerates `sources.json`, and prints the instruments whose scope entry names the row (they are link only from then on, because `unknown` counts as fail in `tools/check_corpus.py`) and the record folders under `records/` that hold text fetched under the row. It deletes nothing. A person rereads the terms, writes the new `terms_quote`, `terms_fingerprint`, `statute_exception` and `verdict_basis`, sets the verdict by hand, and decides separately whether stored records stay.
+
+`seen.json` was seeded on 2026-11-02 with the sha256 of each terms page body as `tools/watch.py` fetched it that day, not with the row's `terms_fingerprint`: the fingerprint in the licence table is the hash of the page text with tags stripped and whitespace collapsed (the recipe is in each row's `notes`), while `page_hash` hashes the raw body. The first live run therefore fires only where the body differs from the 2026-11-02 fetch.
+
+Known gaps:
+
+- The EUR-Lex, eCFR and Federal Register rows point at Internet Archive snapshots because the live pages block scripts. Those watchers prove the snapshot is unchanged, not the live page. Each carries the live URL as `params.second_route`; open it in a browser when the row is rechecked.
+- The EUR-Lex snapshot URL (`web/2026/...`) resolves to the newest 2026 capture, and the Internet Archive wraps every capture in a toolbar with per-request timing and server names. Two fetches a few minutes apart gave different hashes on 2026-11-02, so the three EUR-Lex watchers will raise a `terms_changed` row on every run until `page_hash` normalises the body or those rows point at a fixed-timestamp `id_` capture. The fixed-timestamp eCFR and Federal Register snapshots hashed the same on two fetches.
+- `https://www.fca.org.uk/legal` rewrites its email-protection links with a fresh key on each response, so `terms-uk-fca-handbook` has the same problem.
+- `https://indiacode.gov.in/info/copyright-policy` is an Angular shell; the policy text lives in a lazily loaded script. The watcher sees the shell, which changes on redeploy, not the policy text.
+- `terms-uk-srs-adopted` hashes the S1 PDF itself (the row's `terms_url`), so it also fires when the standard is republished. Its seed equals the row's `content_hash` for S1.

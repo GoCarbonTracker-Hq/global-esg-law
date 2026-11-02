@@ -44,5 +44,134 @@
   "params": {
    "second_route": "range request on the same URL (curl -r 0-3 returns 206); the bill pages on leginfo.legislature.ca.gov answer scripts with 403"
   }
+ },
+ {
+  "id": "terms-eu-eurlex-adopted",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "terms-eu-eurlex-consolidated",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "terms-eu-eurlex-translation",
+  "source_id": "EU-EURLEX-TRANSLATION",
+  "iso2": "EU",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "terms-in-indiacode-adopted",
+  "source_id": "IN-INDIACODE-ADOPTED",
+  "iso2": "IN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://indiacode.gov.in/info/copyright-policy",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://indiacode.gov.in/info/copyright-policy is an Angular shell; the policy text is in a lazy JS chunk, open in a browser"
+  }
+ },
+ {
+  "id": "terms-in-sebi-adopted",
+  "source_id": "IN-SEBI-ADOPTED",
+  "iso2": "IN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://www.sebi.gov.in/website-policy.html",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-uk-legislation-adopted",
+  "source_id": "UK-LEGISLATION-ADOPTED",
+  "iso2": "GB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://www.legislation.gov.uk/help/open-government-licence",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-uk-legislation-consolidated",
+  "source_id": "UK-LEGISLATION-CONSOLIDATED",
+  "iso2": "GB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://www.legislation.gov.uk/developer/formats",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-uk-fca-handbook",
+  "source_id": "UK-FCA-HANDBOOK",
+  "iso2": "GB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://www.fca.org.uk/legal",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-uk-srs-adopted",
+  "source_id": "UK-SRS-ADOPTED",
+  "iso2": "GB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://assets.publishing.service.gov.uk/media/699dd3b007d7bff3604d6c5e/uk_srs_1_general_requirements_for_disclosure_of_sustainability_related_financial_information.pdf",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.gov.uk/government/publications/uk-sustainability-reporting-standards-uk-srs-s1-and-uk-srs-s2 (publication page; the notice is the first pages of the S1 PDF)"
+  }
+ },
+ {
+  "id": "terms-us-ecfr-adopted",
+  "source_id": "US-ECFR-ADOPTED",
+  "iso2": "US",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://web.archive.org/web/20250601034451/https://www.ecfr.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.ecfr.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site (live page; redirects scripts to a CAPTCHA, open in a browser)"
+  }
+ },
+ {
+  "id": "terms-us-fedreg-adopted",
+  "source_id": "US-FEDREG-ADOPTED",
+  "iso2": "US",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://web.archive.org/web/20250601013753/https://www.federalregister.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.federalregister.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site (live page; redirects scripts to a CAPTCHA, open in a browser)"
+  }
+ },
+ {
+  "id": "terms-us-ca-leginfo-adopted",
+  "source_id": "US-CA-LEGINFO-ADOPTED",
+  "iso2": "US",
+  "instrument": "*",
+  "kind": "page_hash",
+  "url": "https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0851-0900/ab_884_bill_20160831_enrolled.htm",
+  "change": "terms_changed"
  }
 ]
