@@ -2503,3 +2503,50 @@ node -e "const {chromium}=require('playwright');(async()=>{const b=await chromiu
 ```
 
 Status `200`; the text of `<main>` has 32764 characters. It gives the sentence in the row (reproduction or distribution only with prior written consent). No CSSF text was fetched or stored.
+
+## Bulgaria
+
+Row `BG-PARLIAMENT-ADOPTED`, `pass` on the publisher's terms (verdict_basis `terms`): the Народно събрание terms page https://www.parliament.bg/bg/terms-of-use licenses the portal content under CC BY 4.0 (the quoted sentence and its fingerprint are in the row; Закон за авторското право и сродните му права чл. 4, т. 1 is quoted in the row as a second ground but the row rests on the terms). The portal serves each act once, as passed, with the Decree of promulgation; it has no point-in-time consolidation, so Bulgaria has no consolidated row. Language: Bulgarian only. Run on 2026-11-02 for the Accounting Act (ДВ бр. 95/2015, parliament.bg act id 15501).
+
+The law pages (`https://www.parliament.bg/bg/laws/ID/<id>`) are a JavaScript application (curl returns a 4304-byte shell). The application reads a public JSON API, and the act text is the HTML in the field `L_ActL_final_body`. Proven request for the row, no headers needed (a browser `User-Agent` also works):
+
+```
+curl -sS -L -o act15501.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.bg/api/v1/act/15501
+```
+
+Returned `200 472412 application/json`, sha256 `12137ce57d5d19cb39eb9089b7b080d4226fcb38c7ef6932a61de18c88231f28`. A second fetch gave the same hash (no per-request token), and the hash equals `fetched_sha256` in `records/BG/bg-zschet/2016-01-01-adopted-bg.json`. `fetched_sha256` is the hash of the JSON as returned. Other fields of the same answer: `L_Act_dv_iss` and `L_Act_dv_year` (gazette issue and year, here 95 and 2015), `L_Act_date2` (the day the Assembly passed the act, not the gazette day), `L_ActL_final` (title). The gazette day is not served anywhere on parliament.bg.
+
+Text extraction: Python `html.parser` on `L_ActL_final_body`; comments (the Word conditional blocks) and `script`, `style`, `xml` content dropped; the end of every block element (`p`, `div`, `br`, `h1` to `h6`, `li`, `tr`, `table`, `td`, `th`, lists) a line break; runs of spaces collapsed and non-breaking spaces turned into spaces; empty lines dropped; nothing reworded. The text starts with the Decree (Указ) and ends with the line saying the Assembly passed the act. Checked: no U+FFFD in any record.
+
+Terms page, read with Playwright chromium (the page is a JavaScript shell): `page.goto('https://www.parliament.bg/bg/terms-of-use', waitUntil: 'networkidle')`, wait 2 s, innerText of `<main>`, whitespace collapsed, sha256 `d478c61d...a928d` (same on two runs); `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.bg/bg/terms-of-use` returned `200 4304 text/html; charset=UTF-8` (the shell).
+
+Finding the act id of an instrument (no consolidated search exists): the title search of the law list answers only for the current Assembly (`curl -sS -H 'Content-Type: application/json' -d '{"L_Act_string":"акциз"}' https://www.parliament.bg/api/v1/fn-acts/1` returned 1 act; the same with `"счетоводство"` returned `[]`, so the search does not reach acts of earlier Assemblies), and adding `A_ns_id` answered HTTP 500. Ids came from probing `GET /api/v1/act/<id>` (an empty `{}`-like answer for ids that are not acts; `L_Act_T_id` 1 is a law, 2 a decision): ids around 14600 to 15700 hold the acts of 2014 and 2015, 165500 to 167600 those of 2024 to 2026. The EU dossier API (`POST /api/v1/fn-dossier` with `{"RN_FULL":"2022/2464"}`, then `GET /api/v1/eu-dossier/<ID>`) names the Bulgarian acts that transpose a directive with their gazette issue, which is how ДВ бр. 72/2024 and бр. 79/2024 were tied to Directive (EU) 2022/2464.
+
+Stored on 2026-11-02 (all `kind` adopted, language bg, one record per act):
+
+| Instrument | Act id | `in_force` | Request |
+|---|---|---|---|
+| `bg-zschet` | 15501 | 2016-01-01 | `https://www.parliament.bg/api/v1/act/15501` |
+| `bg-zschet-zid-2024` | 165592 | 2024-07-06 | `https://www.parliament.bg/api/v1/act/165592` |
+| `bg-zoik` | 14595 | 2014-03-11 | `https://www.parliament.bg/api/v1/act/14595` |
+| `bg-zzp-zid-2026` | 167077 | 2026-09-27 | `https://www.parliament.bg/api/v1/act/167077` |
+
+### Link only
+
+The row passes for all three, and the text was fetched, but no dated record is stored because no official page opened states the in-force day:
+
+- `bg-zschet-zid-2025` (ДВ бр. 17/2025, act id 165958): "from the day of promulgation"; the gazette day is not on parliament.bg.
+- `bg-znfo-zid-2024` (ДВ бр. 79/2024, act id 165596): no commencement clause in the text; the gazette day is not on parliament.bg.
+- `bg-zoik-zid-2025` (ДВ бр. 81/2025, act id 166596): specific provisions dated, no general clause; the gazette day is not on parliament.bg. The Ministry of Environment and Water copy of the consolidated climate act lists "бр. 81 от 3.10.2025 г." without an in-force day.
+
+The base Consumer Protection Act (ДВ бр. 99/2005, чл. 68в to 68м) is not in scope: no official page was found that holds its text (see Blocked). Consolidated versions of every Bulgarian act exist only on lex.bg, ciela.net and apis.bg, which are private services and are never used.
+
+### Languages
+
+Bulgarian is the only official language. No government English translation was found for any instrument: the English interface of parliament.bg (`https://www.parliament.bg/en/laws/ID/<id>`) shows the same Bulgarian text, the act API has language id 1 only, and web searches for an official English text of the Accounting Act, the Climate Change Mitigation Act and the Consumer Protection Act amendments returned none from a government publisher. So there is no translation row and no English record. The English text of the Copyright Act used in the row's second ground comes from the Bulgarian Center for Expertise and Management (cem.bg); it is quoted in the row only and not stored.
+
+### Blocked from the cloud address
+
+- `https://dv.parliament.bg/` (official gazette): `curl -sS -m 40 -A 'Mozilla/5.0' https://dv.parliament.bg/` ended with `curl: (35) Recv failure: Connection reset by peer`; `https://dv.parliament.bg/DVWeb/index.faces`, `.../DVWeb/broeveList.faces` and `.../DVWeb/showMaterialDV.jsp?idMat=99076` returned `000` (no answer, tunnel closed after 10 s); `http://dv.parliament.bg/` returned `503 114 text/plain`. No browser recipe was tried on these.
+- `https://lex.bg/`: `403 5301 text/html` (private service, unused).
+- Answered and not used: `https://www.fsc.bg/` (`200 96601 text/html`; no instrument of the Комисия за финансов надзор is in scope, so no row and no terms were read).

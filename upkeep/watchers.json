@@ -4842,5 +4842,89 @@
    "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2026/06/09/a283/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
   }
+ },
+ {
+  "id": "bg-zschet-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/15501",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/15501 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zschet-zid-2024-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet-zid-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165592",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165592 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zschet-zid-2025-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zschet-zid-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165958",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165958 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-znfo-zid-2024-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-znfo-zid-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/165596",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/165596 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zoik-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zoik",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/14595",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/14595 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zoik-zid-2025-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zoik-zid-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/166596",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/166596 (browser; the law page is a JavaScript application that reads the same API)"
+  }
+ },
+ {
+  "id": "bg-zzp-zid-2026-parliament-act",
+  "source_id": "BG-PARLIAMENT-ADOPTED",
+  "iso2": "BG",
+  "instrument": "bg-zzp-zid-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.bg/api/v1/act/167077",
+  "params": {
+   "second_route": "https://www.parliament.bg/bg/laws/ID/167077 (browser; the law page is a JavaScript application that reads the same API)"
+  }
  }
 ]

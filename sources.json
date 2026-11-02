@@ -3895,5 +3895,27 @@
     "trailer_source_url": "https://www.cssf.lu/en/{page}/",
     "trailer_licence": "Permission requested (CSSF terms of service)",
     "notes": "fingerprint: Playwright chromium, goto https://www.cssf.lu/en/terms-of-service-and-privacy-policy/ with waitUntil networkidle plus 2.5 s, innerText of <main>, whitespace collapsed, sha256 (the page is served to browsers only: curl -sS -L https://www.cssf.lu/en/terms-of-service-and-privacy-policy/ returned \"curl: (52) Empty reply from server\" with and without a User-Agent, and HTTP 400 with 2798 bytes on a later run). Recomputed 2026-11-02. The terms also say: \"The user is authorised to consult, download, save or print the information available on this website, unless otherwise specified. With the exception of filling out the fields of the forms, no other changes can be made, in any way whatsoever, to the information and data published therein.\" Commercial reuse and modification are not allowed without written consent. Permission request not sent. No CSSF text is stored; no scope instrument is a CSSF text, the row covers the CSRD overview page the register already lists (the old URL https://www.cssf.lu/en/overview-of-the-csrd/ answered 404 in the browser on 2026-11-02; the page is now https://www.cssf.lu/en/corporate-sustainability-reporting-directive-csrd/)."
+  },
+  {
+    "id": "BG-PARLIAMENT-ADOPTED",
+    "jurisdiction": "BG",
+    "publisher": "Народно събрание на Република България (National Assembly)",
+    "source_name": "parliament.bg Законодателство, Закони: acts as passed with the Decree of promulgation (REST API of the web portal)",
+    "form": "adopted",
+    "fetch_url": "https://www.parliament.bg/api/v1/act/{L_Act_id} (JSON; the act text is the HTML in the field L_ActL_final_body; ids are found through the page https://www.parliament.bg/bg/laws/ID/{L_Act_id})",
+    "pinned_version": "act as passed (gazette issue and year in L_Act_dv_iss and L_Act_dv_year); no point-in-time versions are served",
+    "content_hash": "",
+    "terms_url": "https://www.parliament.bg/bg/terms-of-use",
+    "terms_quote": "Съдържанието, собственост на Народно събрание на този интернет портал, е лицензирано съгласно лиценза Creative Commons Attribution 4.0 International (CC BY 4.0), съответно Приложение № 2 към чл. 16, ал. 1 от Наредбата за стандартните условия за използване на информацията от обществения сектор и за нейното публикуване в отворен формат.",
+    "terms_fingerprint": "d478c61dbefa5117d431db819957accf0f9c1f12b73c5267400ca3127f8a928d",
+    "verdict": "pass",
+    "statute_exception": "Licence, not a statute, decides: Creative Commons Attribution 4.0 International (CC BY 4.0) allows copying, adapting and commercial use with attribution. In addition, Закон за авторското право и сродните му права (ЗАПСП) чл. 4, т. 1 (English text of the consolidated act valid from 2023-12-01, https://new.cem.bg/files/1707898572_copyright_and_neighbouring_rights_act_01122023.pdf, opened 2026-11-02): \"Article 4. The following shall not be considered objects of copyright: 1. (supplemented, SG No. 21/2014) laws, regulations, and individual acts of government authorities, court rulings, and official translations thereof\"; the Bulgarian wording as given by secondary sources, not opened on an official page: \"нормативни и индивидуални актове на държавни органи за управление, актовете на съдилищата, както и официалните им преводи\". The row rests on the terms.",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-02",
+    "trailer_instrument": "parliament.bg act as passed (act id, gazette issue and year set per instrument)",
+    "trailer_source_url": "https://www.parliament.bg/bg/laws/ID/{L_Act_id}",
+    "trailer_licence": "CC-BY-4.0 (Народно събрание, parliament.bg terms-of-use); source acknowledged; also not copyright-protected under ЗАПСП чл. 4, т. 1",
+    "notes": "fingerprint: sha256 of the whitespace-collapsed innerText of the <main> element of https://www.parliament.bg/bg/terms-of-use, read with Playwright chromium after networkidle plus 2 s (the site is a JavaScript application, so curl returns a 4304-byte shell). Two runs on 2026-11-02 gave the same hash. Page text also says: \"Съдържанието на портала на Народно събрание може да се използва свободно, освен ако изрично не е посочено, че е обект на закрила по действащия Закон за авторското право и сродните му права ... използването на текстово съдържание ... е публично и изисква единствено цитиране.\" and \"Цялото съдържание на уебпортала е достъпно в реално време посредством публично REST API.\" Software and design stay the property of the Assembly; only law text is stored. CC BY 4.0 needs the source named and changes indicated: records are tag-stripped plain text of the as-passed HTML, nothing reworded. The portal serves acts as passed only (the text includes the Decree of promulgation); it has no consolidation, so there is no consolidated row for Bulgaria. Not used: dv.parliament.bg (official gazette; answers the cloud address with a connection reset or HTTP 503, so no terms were read and no row exists); fsc.bg (answers 200 but holds no instrument in scope, so no row); lex.bg (HTTP 403), ciela.net and apis.bg are private consolidation services and never a row. No government English translation was found, so there is no translation row."
   }
 ]
