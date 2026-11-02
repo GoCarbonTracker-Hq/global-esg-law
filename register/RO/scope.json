@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ro-omf-85-2024",
+    "title": "Order No. 85 of 12 January 2024 regulating aspects of sustainability reporting (OMF 85/2024, amending the Accounting Regulations approved by OMFP 1802/2014)",
+    "official_url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502",
+    "citation": "Ordinul ministrului finanțelor nr. 85/2024, Monitorul Oficial al României, Partea I, nr. 75 of 26 January 2024",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "RO-LEGISLATIE-CONSOLIDATED",
+    "verification": "tracker_only",
+    "notes": "Link only: legislatie.just.ro refused every request from the cloud address on 2026-11-02 (curl exit 92 over HTTP/2, exit 52 over HTTP/1.1, 502 from the proxy for headless Chromium), so neither the page, its terms nor the text could be opened, and the portal rows are permission requested. The citation, the Monitorul Oficial number and date and the F1 reading come from the register row (an earlier session opened this page); none was re-read today. Effective date not stated in the text that session opened, and no official page was readable today, so in_force stays null. The brief's other candidates (Legea contabilității nr. 82/1991, OMFP 1802/2014 as consolidated, HG 780/2006, Legea nr. 363/2007 and the act transposing Directive (EU) 2024/825) and OUG 137/2024 (named in the register trail, audit assurance) could not be confirmed on an official page and are not in scope. Government English translation: none known; looked for on the Ministry of Finance and Ministry of Justice pages, which were not readable from the cloud address. Languages: Romanian only. Monitorul Oficial e-Monitor serves Partea I in Hungarian from 2008 as well, but no request to its PDFs was found (see RO-MONITORUL-OFICIAL-ADOPTED).",
+    "status": "link only",
+    "status_note": "Portal rows are permission requested and the portal could not be opened from the cloud address; in_force date not stated on any official page opened."
+  }
+]
