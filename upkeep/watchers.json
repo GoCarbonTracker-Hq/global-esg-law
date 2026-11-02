@@ -1820,6 +1820,243 @@
   }
  },
  {
+  "id": "th-cmsb-tor-jor-55-2563-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-cmsb-tor-jor-55-2563",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://publish.sec.or.th/nrs/8617se.pdf",
+  "params": {
+   "second_route": "https://publish.sec.or.th/nrs/8617se.pdf (browser; publish.sec.or.th answers scripts with 403 Block Response)"
+  }
+ },
+ {
+  "id": "th-sec-issb-notifications-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-sec-issb-notifications",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.or.th",
+  "params": {
+   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)"
+  }
+ },
+ {
+  "id": "th-sea-2535-s56-krisdika-page",
+  "source_id": "TH-KRISDIKA-CONSOLIDATED",
+  "iso2": "TH",
+  "instrument": "th-sea-2535-s56",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.krisdika.go.th",
+  "params": {
+   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)"
+  }
+ },
+ {
+  "id": "id-pojk-51-2017-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-51-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-seojk-16-2021-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-seojk-16-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-perpres-98-2021-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-perpres-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/187122",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-permen-lhk-21-2022-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-permen-lhk-21-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/235421/permen",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-pojk-14-2023-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-14-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-uu-4-2023-p2sk-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-uu-4-2023-p2sk",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "nl-klimaatwet-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-klimaatwet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-besluit-bekendmaking-niet-financiele-informatie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-besluit-bekendmaking-niet-financiele-informatie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0039355/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-bw2-art391-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-bw2-art391",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003045/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wm-titel-16-2-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wm-titel-16-2",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003245/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wet-co2-heffing-industrie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wet-co2-heffing-industrie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0044578/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "es-ley-11-2018-boe-record",
+  "source_id": "ES-BOE-ADOPTED",
+  "iso2": "ES",
+  "instrument": "es-ley-11-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2018-17989"
+ },
+ {
+  "id": "es-ley-7-2021-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-7-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-1-2005-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-1-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2005-3941",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rd-214-2025-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rd-214-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-7439",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-3-1991-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-3-1991",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rdl-1-2007-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rdl-1-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
   "id": "tw-climate-change-response-act-moj-english-history",
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
