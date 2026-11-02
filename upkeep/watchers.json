@@ -5333,5 +5333,77 @@
   "params": {
    "note": "consolidated text; a hash change means an amendment was processed"
   }
+ },
+ {
+  "id": "cl-ncg-461-cmf-page",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-461",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html",
+  "params": {}
+ },
+ {
+  "id": "cl-ncg-519-cmf-pdf",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-519",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/normativa/ncg_519_2024.pdf",
+  "params": {}
+ },
+ {
+  "id": "cl-ley-21455-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-21455",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1177286 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-20780-art8-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-20780-art8",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1067194&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1067194 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 20.780, not only art. 8, so a new date needs a look at art. 8"
+  }
+ },
+ {
+  "id": "cl-ds-4-2023-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ds-4-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1196414&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1196414 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-19496-art28-33-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-19496-art28-33",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=61438&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=61438 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 19.496, not only arts. 28 and 33"
+  }
  }
 ]
