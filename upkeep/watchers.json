@@ -5495,5 +5495,199 @@
   "params": {
    "second_route": "https://www.boi.org.il/en/ (browser; boi.org.il pages answer scripts with a Radware challenge or HTTP 403, the media PDF answers curl with 200; a HEAD request to the PDF answers 302, so the PDF is hashed)"
   }
+ },
+ {
+  "id": "vn-tt-96-2020-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-tt-96-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32793/33926-1-202113-1496-2020-tt-btc.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-96-2020-tt-btc-32793.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-bvmt-2020-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-bvmt-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32703/33751-1-20201185-118672-2020-qh14.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-72-2020-qh14-32703.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-08-2022-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-08-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36666/39590-1-2022169-17008-2022-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-08-2022-nd-cp-36666.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-48-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-48-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/2/13/48signed-17709494694212057532218.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-48-2026-nd-cp-468907.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-06-2022-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-06-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36560/39440-1-2022131-13206-2022-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2022-nd-cp-36560.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-119-2025-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-119-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45046/56700-1-2025769-770119-2025-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/noi-dung-van-ban-so-119-2025-nd-cp-45046 (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-83-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-83-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/4/6/469161-1775104326_v1_1775438335_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-83-2026-nd-cp-469161.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-112-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-112-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/4/16/469277-1776312362_v1_1776312788_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-112-2026-nd-cp-469277.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-29-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-29-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/2/3/29signed-17701112119001776383561.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-29-2026-nd-cp-468820.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-180-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-180-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/6/5/469621-1780632828_v1_1780643580_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-180-2026-nd-cp-469621.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-bvqltd-2023-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-bvqltd-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/6/39843/45917-1-2023865-86619-2023-qh15.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-19-2023-qh15-39843.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-55-2024-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-55-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/5/41942/50266-1-2024687-68855-2024-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-55-2024-nd-cp-41942.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-quang-cao-2012-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-quang-cao-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/6/3433/11328-1-2012481-482-162012qh13pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-16-2012-qh13-3433.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-quang-cao-75-2025-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-quang-cao-75-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45566/57708-1-2025967-96875-2025-qh15.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/noi-dung-van-ban-so-75-2025-qh15-45566 (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-terms-congbao-adopted",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://congbao.chinhphu.vn/gioi-thieu.htm",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-terms-congbao-consolidated",
+  "source_id": "VN-CONGBAO-CONSOLIDATED",
+  "iso2": "VN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://congbao.chinhphu.vn/gioi-thieu.htm",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)"
+  }
  }
 ]
