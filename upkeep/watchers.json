@@ -5108,5 +5108,134 @@
   "params": {
    "second_route": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx (browser; curl with a Mozilla User-Agent is answered Access Denied)"
   }
+ },
+ {
+  "id": "cn-ecology-code-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-ecology-code",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=96630961659b4d87a65b7b1c595097fa",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=96630961659b4d87a65b7b1c595097fa (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-epl-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-epl",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=2c909fdd678bf17901678bf76c1d0717",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=2c909fdd678bf17901678bf76c1d0717 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-ets-regulation-flk-details",
+  "source_id": "CN-FLK-CONSOLIDATED",
+  "iso2": "CN",
+  "instrument": "cn-ets-regulation",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081819ff54a6401a0ae8df6842641",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff8081819ff54a6401a0ae8df6842641 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-aucl-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-aucl",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff808181971552b40197b1016efc5437",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff808181971552b40197b1016efc5437 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-advertising-law-flk-details",
+  "source_id": "CN-FLK-CONSOLIDATED",
+  "iso2": "CN",
+  "instrument": "cn-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081817ab231eb017abd6bd860052d",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff8081817ab231eb017abd6bd860052d (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-ets-measures-mee-page",
+  "source_id": "CN-MEE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-ets-measures",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mee.gov.cn/gzk/gz/202112/t20211213_963865.shtml"
+ },
+ {
+  "id": "cn-env-disclosure-measures-mee-page",
+  "source_id": "CN-MEE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-env-disclosure-measures",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mee.gov.cn/gzk/gz/202112/t20211210_963770.shtml"
+ },
+ {
+  "id": "cn-sustainability-basic-standard-mof-pdf",
+  "source_id": "CN-MOF-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-sustainability-basic-standard",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://kjs.mof.gov.cn/zhengcefabu/202412/P020241216565879245839.pdf"
+ },
+ {
+  "id": "cn-climate-standard-1-mof-page",
+  "source_id": "CN-MOF-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-climate-standard-1",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kjs.mof.gov.cn/zhengcefabu/202512/t20251225_3980202.htm"
+ },
+ {
+  "id": "cn-sse-sustainability-guideline-14-sse-page",
+  "source_id": "CN-SSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-sse-sustainability-guideline-14",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779150.shtml"
+ },
+ {
+  "id": "cn-szse-sustainability-guideline-17-szse-page",
+  "source_id": "CN-SZSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-szse-sustainability-guideline-17",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.szse.cn/lawrules/rule/stock/supervision/currency/t20240412_606839.html",
+  "params": {
+   "second_route": "https://www.szse.cn/lawrules/rule/stock/supervision/currency/t20240412_606839.html (https resets the TLS handshake from the cloud address; open in a browser)"
+  }
+ },
+ {
+  "id": "cn-bse-sustainability-guideline-11-bse-page",
+  "source_id": "CN-BSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-bse-sustainability-guideline-11",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bse.cn/uploads/6/file/public/202404/20240412194221_kes5c2ch9s.pdf",
+  "params": {
+   "second_route": "https://www.bse.cn/ (browser; bse.cn answers scripts with a JavaScript cookie challenge, so the PDF URL needs a browser session)"
+  }
  }
 ]

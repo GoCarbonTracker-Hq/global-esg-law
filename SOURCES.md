@@ -2667,3 +2667,65 @@ Returned `200 6680329 application/pdf`, BSP Circular No. 1128 corrected copy (13
 - Not in scope.json: a Low Carbon Economy Act (register row F7). The E-Library list search for "carbon" returned no Republic Act; the Gazette and Congress sites could not be read.
 - Blocked from the cloud address: https://www.officialgazette.gov.ph/ , https://www.congress.gov.ph/ , https://www.senate.gov.ph/ , https://issuances-library.senate.gov.ph/ , https://www.denr.gov.ph/ , https://pcw.gov.ph/ (Cloudflare 403); https://legacy.senate.gov.ph/ (403 Maintenance); https://morb.bsp.gov.ph/ (500).
 - LawPhil and ChanRobles are private and were not used.
+
+## China
+
+Run on 2026-11-02 (GEL-07-01). Rows `CN-FLK-ADOPTED`, `CN-FLK-CONSOLIDATED`, `CN-MEE-ADOPTED` and `CN-MOF-ADOPTED` pass on the statute (Copyright Law of the PRC Art. 5 item 1, quoted in each row). Rows `CN-SSE-ADOPTED`, `CN-SZSE-ADOPTED` and `CN-BSE-ADOPTED` are `permission requested` (each exchange's legal notice allows non-commercial use only). The mee.gov.cn site statement (and the identical gov.cn one) bars commercial verbatim reprint of site content and claims the site's copyright; the MEE row passes on the statute anyway and is flagged for Varun in its notes. gov.cn has no row and was not used as a source. No Chinese text was fetched by browser: every stored record came from `curl`.
+
+### flk.npc.gov.cn (rows `CN-FLK-ADOPTED`, `CN-FLK-CONSOLIDATED`)
+
+The site is a JavaScript application; the data come from `/law-search/...` JSON endpoints that answered curl from the cloud address with no cookie or token. Run for the Anti-Unfair Competition Law (2025 revision).
+
+Step 1, find the version ids (`bbbs`); `searchType` 1 is an exact title search, each version of a law is its own item with `sxrq` (in-force date), `gbrq` (promulgation date) and `sxx` (3 in force, 2 amended, 1 no longer in force):
+
+```
+curl -sS -A 'Mozilla/5.0' -H 'Content-Type: application/json;charset=UTF-8' -X POST https://flk.npc.gov.cn/law-search/search/list -d '{"searchRange":1,"sxrq":[],"gbrq":[],"searchType":1,"sxx":[],"gbrqYear":[],"flfgCodeId":[],"zdjgCodeId":[],"searchContent":"中华人民共和国反不正当竞争法","orderByParam":{"order":"-1","sort":""},"pageNum":1,"pageSize":20}' -o l.json -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 15574 application/json` (12 rows, three of them national: bbbs `ff808181971552b40197b1016efc5437` 2025-10-15, `ff8080816f135f46016f2169de9b1ace` 2019-04-23, `2c909fdd678bf17901678bf8704b0a87` 2018-01-01). Step 2 (optional), `curl -sS -A 'Mozilla/5.0' 'https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff808181971552b40197b1016efc5437'` returned `200 3140 application/json` (file paths and related documents). Step 3, the file:
+
+```
+curl -sS -A 'Mozilla/5.0' 'https://flk.npc.gov.cn/law-search/download/pc?format=docx&bbbs=ff808181971552b40197b1016efc5437' -o p.json -w '%{http_code} %{size_download} %{content_type}\n'
+curl -sS -A 'Mozilla/5.0' -o aucl.docx -w '%{http_code} %{size_download} %{content_type}\n' "$(python3 -c "import json;print(json.load(open('p.json'))['data']['url'])")"
+```
+
+The first returned `200 991 application/json` (a signed URL on `flkoss.obs-bj2.cucloud.cn`); the second `200 21842 application/vnd.openxmlformats-officedocument.wordprocessingml.document`, sha256 `03add47309479095920c170f083185a2fa7992e7553c8d8d8ce7ac656d6637b2`. A second fetch gave the same hash for all ten flk files, so `fetched_sha256` reproduces (the signed URL changes per request, the file does not). `fetched_url` in the records is the `download/pc` request. Text: the docx `word/document.xml` read with `zipfile`; one line per non-empty paragraph, leading and trailing spaces and U+3000 indents stripped, nothing else changed. The contents table that precedes the articles is kept.
+
+Stored (fetched 2026-11-02): `cn-ecology-code` 2026-08-15; `cn-epl` 2015-01-01 plus a repeal record 2026-08-15; `cn-ets-regulation` 2024-05-01 (adopted) and 2026-08-15 (consolidated); `cn-aucl` 2018-01-01, 2019-04-23, 2025-10-15; `cn-advertising-law` 2015-09-01, 2018-10-26, 2021-04-29. flk marks an item `adopted` here when its header says 修订 (full revision) or the item is the original promulgation, and `consolidated` when the header says 修正 or 根据…决定修订 (a decision amending it). flk does not hold departmental rules (the `enumData` category list has laws, administrative regulations, supervision regulations, local regulations and judicial interpretations).
+
+### mee.gov.cn (row `CN-MEE-ADOPTED`)
+
+```
+curl -sS -A 'Mozilla/5.0' -o m.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.mee.gov.cn/gzk/gz/202112/t20211210_963770.shtml
+```
+
+Returned `200 25564 text/html` (企业生态环境信息依法披露管理办法, MEE Order 24, text as amended by the 2026-09-20 decision). Same host, `.../202112/t20211213_963865.shtml` (碳排放权交易管理办法（试行）, Order 19) returned `200 23778 text/html`. Text: from `<div class="gz_content">` to `<div class="gz_footer">` (title, parenthetical, articles), block elements as line breaks, `&nbsp;` as a space. Two fetches gave the same sha256 for both pages. The database serves the current text only, so the as-promulgated 2021 text of Order 24 is not stored; the old page `https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202112/t20211221_964837.html` (200, 60438 bytes) shows the same amended text. The Order 24 page links a `.doc` and a `.pdf` of the same text.
+
+### kjs.mof.gov.cn (row `CN-MOF-ADOPTED`)
+
+www.mof.gov.cn pages answered 200 but the policy-release pages sit on `kjs.mof.gov.cn` (Accounting Department).
+
+```
+curl -sS -A 'Mozilla/5.0' -o k.html -w '%{http_code} %{size_download} %{content_type}\n' https://kjs.mof.gov.cn/zhengcefabu/202512/t20251225_3980202.htm
+curl -sS -A 'Mozilla/5.0' -o b.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kjs.mof.gov.cn/zhengcefabu/202412/P020241216565879245839.pdf
+```
+
+The first returned `200 78153 text/html` (Climate Standard notice 财会〔2025〕34号 with the whole standard in the page; sha256 `5891c643a13474e5e8ef5693926062bf0226653d9dfe2b91ce4872a4b0573581`, reproduced in later fetches; the edge now and then answers 502 Bad Gateway with a 2004-byte page, retry). Text: from `<h2 class="title_con">` to the publication-date line, page chrome lines (date and source line, a stray comment marker, the attachment-download script text) removed. The second returned `200 167900 application/pdf` (Basic Standard attachment, sha256 `fd0610c6c06f217fc58bbde54c833ddee66687694f7a24fa710d2fcacef967c5`). PDF text: `pdftotext -layout b.pdf -` (poppler), runs of spaces collapsed, form feeds and lines holding only a page number dropped; the PDF's hard line wraps stay. Checked for mojibake: no U+FFFD or private-use characters in either text.
+
+### Languages
+
+China's official language for national law is Chinese (Mandarin, simplified characters); every stored record is `zh`. No English record is stored: no row with `form` translation was added because no state-published English text was found. Looked for on 2026-11-02: english.www.gov.cn (home page 200, 58342 bytes) and a web search for an official English text of each flk law; the NPC English pages on npc.gov.cn refused the cloud address (below). English texts that turned up are on WIPO Lex, law firm sites and commercial databases, which are never stored. The SZSE English PDF of Guideline No. 17 sits under the permission-requested SZSE row.
+
+### Link only
+
+- `cn-sse-sustainability-guideline-14`, `cn-szse-sustainability-guideline-17`, `cn-bse-sustainability-guideline-11`: rows `CN-SSE-ADOPTED`, `CN-SZSE-ADOPTED`, `CN-BSE-ADOPTED` are `permission requested` (non-commercial use only). The SZSE guideline text was read (docx, 200 over http) only to find its in-force date and was not stored. Exchange rule pages did open: SSE page 200, SZSE page 200 over plain http, BSE legal notice 200 with a browser.
+- Not in scope: the Application Guide to the Basic Standard (issued 2025-09-03 per a provincial reprint; its mof.gov.cn page was not found), the draft Climate Standard application guides (comments until 2026-10-26, F7 register row), the Climate Change Response Law (draft, F7 register row), the CSRC (no instrument, so no row).
+
+### Blocked (from the cloud address)
+
+- `https://www.npc.gov.cn/`: curl `SSL routines::sslv3 alert handshake failure`, no status.
+- `https://www.szse.cn/` (https): curl `SSL_ERROR_SYSCALL`, no status; `http://www.szse.cn/` answered 200, 88325 bytes, and was used.
+- `https://www.bse.cn/`: curl `200 345 text/html` (a script that sets a cookie and reloads); headless Chromium (Playwright, goto, 3 s wait) passed and the legal notice opened, but Playwright's request client looped on 302 redirects fetching the rule PDF `https://www.bse.cn/uploads/6/file/public/202404/20240412194221_kes5c2ch9s.pdf`, so the BSE guideline was not read.
+- `https://www.sse.com.cn/lawandrules/sselawsrules/stocks/mainipo/c/10753180/files/0d6fa191e9cf4db193c86d766f79e30b.docx` (found by search): `404 150 text/html`; the SSE rule page itself opened.
+
+Everything else used answered curl: flk.npc.gov.cn, www.mee.gov.cn, kjs.mof.gov.cn, www.mof.gov.cn, www.sse.com.cn, www.gov.cn, english.www.gov.cn, www.csrc.gov.cn (home page only).
