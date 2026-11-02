@@ -12,6 +12,7 @@ import hashlib
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -23,6 +24,7 @@ TIMEOUT = 30
 COLUMNS = ["detected_on", "watcher_id", "iso2", "source_id", "instrument", "change", "signal",
            "evidence_url", "reviewer", "outcome", "outcome_on", "notes"]
 CHANGES = ("new_version", "terms_changed", "repealed")
+TIERS = ("gazette_feed", "consolidation_site", "regulator_page", "tracker_pointer")  # see upkeep/cadence.json
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 
@@ -110,7 +112,7 @@ def load_watchers(repo, source=None):
     rows = {r["id"] for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
     ids = set()
     for w in watchers:
-        for key in ("id", "source_id", "iso2", "instrument", "kind", "url"):
+        for key in ("id", "source_id", "iso2", "instrument", "kind", "tier", "url"):
             if not w.get(key):
                 raise ValueError(f"watcher {w.get('id')!r}: missing {key}")
         if w["id"] in ids:
@@ -120,6 +122,8 @@ def load_watchers(repo, source=None):
             raise ValueError(f"watcher {w['id']}: source_id {w['source_id']!r} not in sources.json")
         if w["kind"] not in KINDS:
             raise ValueError(f"watcher {w['id']}: kind {w['kind']!r} is not one of {sorted(KINDS)}")
+        if w["tier"] not in TIERS:
+            raise ValueError(f"watcher {w['id']}: tier {w['tier']!r} is not one of {TIERS}")
         if w.get("change", "new_version") not in CHANGES:
             raise ValueError(f"watcher {w['id']}: change {w['change']!r} is not one of {CHANGES}")
         if w["kind"] == "date_list" and not w.get("params", {}).get("regex"):
@@ -156,8 +160,18 @@ def run_watcher(watcher, fetch):
     return signals, None
 
 
+def _count(sizes, response):
+    """Record the body length of one fetch response and pass the response through."""
+    sizes.append(len(response[2]))
+    return response
+
+
 def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
-    """Run every watcher (or those of one source). Return {"run", "candidates", "failures", "rows"}."""
+    """Run every watcher (or those of one source).
+
+    Return {"run", "candidates", "failures", "rows", "seconds", "bytes"}; the last two are the run's totals of
+    the per-watcher wall time and body bytes that are also written into seen.json.
+    """
     repo = Path(repo).resolve()
     fetch = fetch or default_fetch
     today = (today or date.today()).isoformat() if not isinstance(today, str) else today
@@ -165,7 +179,7 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     seen_path, queue_path = upkeep / "seen.json", upkeep / "queue.csv"
     seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
     watchers = load_watchers(repo, source)
-    rows, failures = [], 0
+    rows, failures, seconds, nbytes = [], 0, 0.0, 0
 
     def row(w, change, signal, evidence_url, notes=""):
         rows.append({"detected_on": today, "watcher_id": w["id"], "iso2": w["iso2"], "source_id": w["source_id"],
@@ -174,13 +188,16 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
 
     for w in watchers:
         entry = seen.get(w["id"], {"signals": None, "failure": None})
-        signals, error = run_watcher(w, fetch)
+        sizes, started = [], time.monotonic()
+        signals, error = run_watcher(w, lambda url, method: _count(sizes, fetch(url, method)))
+        cost = {"seconds": round(time.monotonic() - started, 2), "bytes": sum(sizes)}
+        seconds, nbytes = seconds + cost["seconds"], nbytes + cost["bytes"]
         if error is not None:
             failures += 1
             if entry.get("failure") != error:
                 second = w.get("params", {}).get("second_route") or "none listed"
                 row(w, "watch_failed", error, w["url"], f"second_route: {second}")
-            entry = {**entry, "failure": error, "checked_on": today}
+            entry = {**entry, "failure": error, "checked_on": today, **cost}
         else:
             current = [s for s, _ in signals]
             known = entry.get("signals")
@@ -192,7 +209,7 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
                     if signal not in known:
                         row(w, w.get("change", "new_version"), signal, evidence_url)
             kept = sorted(set(known) | set(current)) if w["kind"] in ACCUMULATE else current
-            entry = {"signals": kept, "failure": None, "checked_on": today}
+            entry = {"signals": kept, "failure": None, "checked_on": today, **cost}
         seen[w["id"]] = entry
 
     candidates = sum(1 for r in rows if r["change"] != "watch_failed")
@@ -205,7 +222,8 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
                 writer.writeheader()
             writer.writerows(rows)
         seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
-    return {"run": len(watchers), "candidates": candidates, "failures": failures, "rows": rows}
+    return {"run": len(watchers), "candidates": candidates, "failures": failures, "rows": rows,
+            "seconds": round(seconds, 2), "bytes": nbytes}
 
 
 def main(argv=None):
@@ -222,7 +240,8 @@ def main(argv=None):
     if args.dry_run:
         writer = csv.DictWriter(sys.stdout, fieldnames=COLUMNS, lineterminator="\n")
         writer.writerows(result["rows"])
-    print(f"{result['run']} watchers run, {result['candidates']} candidates, {result['failures']} failures")
+    print(f"{result['run']} watchers run, {result['candidates']} candidates, {result['failures']} failures, "
+          f"{result['seconds']:.1f} s, {result['bytes']} bytes")
     return 1 if result["failures"] else 0
 
 

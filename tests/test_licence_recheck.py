@@ -20,7 +20,7 @@ FINGERPRINT = hashlib.sha256(TERMS_BODY).hexdigest()
 CHANGED_BODY = b"<html>placeholder terms, rewritten</html>"
 CHANGED_HASH = hashlib.sha256(CHANGED_BODY).hexdigest()
 WATCHER = {"id": "terms-pass", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "page_hash",
-           "url": TERMS, "change": "terms_changed"}
+           "tier": "regulator_page", "url": TERMS, "change": "terms_changed"}
 
 
 def row(**over):

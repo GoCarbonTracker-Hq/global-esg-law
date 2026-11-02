@@ -1,1 +1,67 @@
-{"tiers": {"gazette_feed": 7, "consolidation_site": 14, "regulator_page": 30, "tracker_pointer": 90}, "measured": false}
+{
+ "tiers": {
+  "gazette_feed": 7,
+  "consolidation_site": 14,
+  "regulator_page": 30,
+  "tracker_pointer": 90
+ },
+ "measured": true,
+ "measured_on": "2026-11-02",
+ "paid_tools": [],
+ "per_tier": {
+  "gazette_feed": {
+   "interval_days": 7,
+   "watchers": 17,
+   "seconds_per_run": 44.93,
+   "bytes_per_run": 2829,
+   "failures_per_run": 0
+  },
+  "consolidation_site": {
+   "interval_days": 14,
+   "watchers": 6,
+   "seconds_per_run": 1.65,
+   "bytes_per_run": 634952,
+   "failures_per_run": 0
+  },
+  "regulator_page": {
+   "interval_days": 30,
+   "watchers": 21,
+   "seconds_per_run": 30.54,
+   "bytes_per_run": 1339711,
+   "failures_per_run": 4
+  },
+  "tracker_pointer": {
+   "interval_days": 90,
+   "watchers": 0,
+   "seconds_per_run": 0,
+   "bytes_per_run": 0,
+   "failures_per_run": 0
+  }
+ },
+ "runs": [
+  {
+   "on": "2026-11-02",
+   "source": "PR 20 trial run, cloud session",
+   "watchers": 32,
+   "seconds": 68,
+   "bytes": null,
+   "failures": 3,
+   "note": "before seconds and bytes were recorded; wall time read from the session clock"
+  },
+  {
+   "on": "2026-11-02",
+   "source": "python3 tools/watch.py, cloud session, this PR",
+   "watchers": 44,
+   "seconds": 77.12,
+   "bytes": 1977492,
+   "failures": 4
+  }
+ ],
+ "proposed_ceiling": {
+  "runs_per_month": 5,
+  "minutes_per_month": 15,
+  "approved": false,
+  "note": "runs per month at the gazette_feed interval times one job of up to 3 billed minutes; Varun writes the agreed figure in upkeep/README.md and enables the schedule"
+ },
+ "notes": "tiers: interval in days per tier, read by tools/coverage.py. per_tier: seconds is the wall time of one watcher's fetch and parse, bytes is the length of the response bodies after gzip decoding (0 for HEAD requests); per tier the figures are sums over the tier's watchers in the run of measured_on"
+}

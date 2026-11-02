@@ -1,0 +1,34 @@
+# Source watcher: runs tools/watch.py and uploads the queue and seen state as an artifact.
+# Manual only until the ceiling in upkeep/README.md ("Cadence and ceiling") is agreed and the schedule enabled.
+# Opens no pull request and pushes nothing; the rows are reviewed and committed by a person.
+name: watch
+
+on:
+  workflow_dispatch:
+  # Weekly, the gazette_feed interval in upkeep/cadence.json (Mondays 06:17 UTC). Enable only after the ceiling is set.
+  # schedule:
+  #   - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run the watchers
+        run: python3 tools/watch.py
+      - name: Upload queue and seen state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upkeep-${{ github.run_id }}
+          path: |
+            upkeep/queue.csv
+            upkeep/seen.json
+          if-no-files-found: error

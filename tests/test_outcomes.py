@@ -244,7 +244,7 @@ def test_repeal_record_leaves_every_earlier_commit_unchanged(tmp_path):
 def test_watcher_may_set_change_repealed(tmp_path):
     repo = make(tmp_path)
     watcher = {"id": "w-old-repeals", "source_id": "EU-EURLEX-CONSOLIDATED", "iso2": "EU", "instrument": "old-act",
-               "kind": "date_list", "url": "https://example.invalid/repeals.csv", "change": "repealed",
+               "kind": "date_list", "tier": "gazette_feed", "url": "https://example.invalid/repeals.csv", "change": "repealed",
                "params": {"regex": r"repealed on (\d{4}-\d{2}-\d{2})"}}
     (repo / "upkeep" / "watchers.json").write_text(json.dumps([watcher]))
     (repo / "upkeep" / "seen.json").write_text(json.dumps({"w-old-repeals": {"signals": [], "failure": None, "checked_on": "2026-01-01"}}))

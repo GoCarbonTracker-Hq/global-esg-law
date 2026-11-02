@@ -1,7 +1,9 @@
 {
  "eu-csddd-cellar-consolidations": {
+  "bytes": 74,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 5.01,
   "signals": [
    "2024-07-05",
    "2025-04-17",
@@ -9,8 +11,10 @@
   ]
  },
  "eu-csrd-cellar-consolidations": {
+  "bytes": 74,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 4.19,
   "signals": [
    "2022-12-16",
    "2025-04-17",
@@ -18,8 +22,10 @@
   ]
  },
  "eu-esrs-amendment-2025-1416-cellar-amendments": {
+  "bytes": 353,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.67,
   "signals": [
    "2024-02-05",
    "2024-04-19",
@@ -36,24 +42,30 @@
   ]
  },
  "eu-esrs-amendment-2026-1563-cellar-amendments": {
+  "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.94,
   "signals": [
    "2026-09-25",
    "2026-10-15"
   ]
  },
  "eu-esrs-cellar-consolidations": {
+  "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 4.94,
   "signals": [
    "2023-12-22",
    "2025-01-01"
   ]
  },
  "eu-omnibus-content-cellar-amendments": {
+  "bytes": 680,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.7,
   "signals": [
    "2008-03-11",
    "2013-06-26",
@@ -82,8 +94,10 @@
   ]
  },
  "eu-omnibus-stop-the-clock-cellar-amendments": {
+  "bytes": 440,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.71,
   "signals": [
    "2023-02-23",
    "2023-04-13",
@@ -103,8 +117,10 @@
   ]
  },
  "eu-sfdr-cellar-consolidations": {
+  "bytes": 74,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 3.39,
   "signals": [
    "2020-07-12",
    "2024-01-09",
@@ -112,16 +128,20 @@
   ]
  },
  "eu-sfdr-rts-cellar-consolidations": {
+  "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 5.72,
   "signals": [
    "2022-07-25",
    "2023-02-20"
   ]
  },
  "eu-taxonomy-cellar-amendments": {
+  "bytes": 276,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.67,
   "signals": [
    "2020-10-15",
    "2020-12-14",
@@ -135,16 +155,20 @@
   ]
  },
  "eu-taxonomy-climate-amendment-da-cellar-amendments": {
+  "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.93,
   "signals": [
    "2024-05-22",
    "2024-10-22"
   ]
  },
  "eu-taxonomy-climate-da-cellar-consolidations": {
+  "bytes": 118,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 4.6,
   "signals": [
    "2023-01-01",
    "2024-01-01",
@@ -154,15 +178,19 @@
   ]
  },
  "eu-taxonomy-complementary-climate-da-cellar-amendments": {
+  "bytes": 44,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.96,
   "signals": [
    "2025-04-29"
   ]
  },
  "eu-taxonomy-disclosures-da-cellar-consolidations": {
+  "bytes": 96,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 4.64,
   "signals": [
    "2021-12-10",
    "2023-01-01",
@@ -171,24 +199,30 @@
   ]
  },
  "eu-taxonomy-environmental-da-cellar-consolidations": {
+  "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 6.04,
   "signals": [
    "2023-11-21",
    "2026-01-01"
   ]
  },
  "eu-taxonomy-simplification-da-cellar-amendments": {
+  "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.71,
   "signals": [
    "2026-01-16",
    "2026-04-23"
   ]
  },
  "gb-ca2006-ch4a-versions": {
+  "bytes": 210978,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.15,
   "signals": [
    "2013-10-01",
    "2015-04-06",
@@ -200,178 +234,230 @@
   ]
  },
  "gb-ca2006-s414cb-versions": {
+  "bytes": 86613,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.15,
   "signals": [
    "2016-12-26",
    "2022-04-06"
   ]
  },
  "gb-fca-esg-handbook-page": {
+  "bytes": 3671,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.54,
   "signals": [
-   "1705a2884a9c9fe0c9804dc18f5874a8b7e91aa4110e92c656d8e0548ed512e2"
+   "007c4de5bb822be2d20f867aff60c946ec647fbdc0a2419af8045ee0c2ad0e55"
   ]
  },
  "gb-uk-srs-govuk-page": {
+  "bytes": 73569,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.26,
   "signals": [
-   "c144ca4597dafd8c032c281ba119c8ab4472e0d254af8850360322bc71bb752b"
+   "1a9326446c78e88529746775f23c4fdfd32f05ef863e0c6581d03a152ca99139"
   ]
  },
  "gb-uksi-2022-31-contents-page": {
+  "bytes": 29144,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.24,
   "signals": [
    "734c3cd2680d4d85dfdad827737d826f2d2be95f43df2ef6df6d7705bbe061fe"
   ]
  },
  "in-companies-act-2013-indiacode-page": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 403",
+  "seconds": 0.84,
   "signals": null
  },
  "in-sebi-brsr-circular-2021-page": {
+  "bytes": 8266,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.92,
   "signals": [
    "570f47495b3567584be7c5c74183cdb5436269031ad63f61f0e322ed10022d7e"
   ]
  },
  "in-sebi-brsr-core-circular-2023-page": {
+  "bytes": 8261,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.81,
   "signals": [
    "20cd41ebbdf160f3f2b48c518c726733ac1a3189d19fdc761c3d132cc8ac945d"
   ]
  },
  "in-sebi-circular-2025-42-page": {
+  "bytes": 8860,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.07,
   "signals": [
    "9ded469080d9115ea1b621d9b08ed53c1170555770dbcf6988a7e35ea07e2e70"
   ]
  },
  "in-sebi-lodr-regulations-page": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.68,
   "signals": [
    "741c3362df12274d9387dc51270dc8547b84266b8bccf592a0be7b65b96c87b5"
   ]
  },
  "terms-eu-eurlex-adopted": {
+  "bytes": 146194,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 3.06,
   "signals": [
-   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+   "1197db78f434debed205476a888fb6dbaa3f9a4493cb67455a8fc4a94dab8c54"
   ]
  },
  "terms-eu-eurlex-consolidated": {
+  "bytes": 146196,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 3.26,
   "signals": [
-   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+   "cd52563f5f67efe936393a512c8606f6ad8cde7903957afd87ec128ffb35e810"
   ]
  },
  "terms-eu-eurlex-translation": {
+  "bytes": 146195,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.87,
   "signals": [
-   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+   "e8a6cfc477a98a979c0449b70caa08709606d52cd62ddfdb8b8612d965a1b51e"
   ]
  },
  "terms-in-indiacode-adopted": {
+  "bytes": 6762,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.47,
   "signals": [
    "cec2620b82f587be705d6056a9d6fb03221ba523c86bbb58dcd94325973cd74e"
   ]
  },
  "terms-in-sebi-adopted": {
+  "bytes": 9259,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.13,
   "signals": [
    "09fe7fe686f49e9d12e6b42738a9232c8b2ea3674ddc32054248e683f806d477"
   ]
  },
  "terms-uk-fca-handbook": {
+  "bytes": 189054,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.56,
   "signals": [
-   "18742320a280486c3a68fd9e534dc353893fce420d74b875ced9c6cd4d93808d"
+   "6eb111d74e79d5995b0f02f6519358a12485360d18dcfb7ed444f15bf2d54b7c"
   ]
  },
  "terms-uk-legislation-adopted": {
+  "bytes": 12372,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.11,
   "signals": [
    "e92d37149ffd4f45885a3ce4b6daf4924e614da6d1c01d804a92c1b57e64a799"
   ]
  },
  "terms-uk-legislation-consolidated": {
+  "bytes": 17301,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.11,
   "signals": [
    "e76657fb739563c0aa6e2d30da545b69f3c5d7d24a3da0292a67333dbbe3be56"
   ]
  },
  "terms-uk-srs-adopted": {
+  "bytes": 404271,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.05,
   "signals": [
    "85759d4869779c9bc8682d571b79dd464f2ae57fd087954224c48e1278a4dd3e"
   ]
  },
  "terms-us-ca-leginfo-adopted": {
+  "bytes": 13806,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.43,
   "signals": [
    "c81a64fad492bd71e288e144acd4b04d8bf7d380bd888b70c3befe4e9694af52"
   ]
  },
  "terms-us-ecfr-adopted": {
+  "bytes": 72061,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 1.23,
   "signals": [
-   "9c35ed547316536c9072e1f1bdb6b247831ee322e3f01bc8a23a232e05e02730"
+   "a9b8eb7c161eaed77cb3f37f540506f16e6e100fa07570ec50b6ea0f5acefc23"
   ]
  },
  "terms-us-fedreg-adopted": {
+  "bytes": 73613,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.85,
   "signals": [
-   "d4dfd0a067e92bd477e88d6694dfc058642356d3cab02b2bfe7c637e7229ba8a"
+   "3aa208eb1a66202b1fee6c9e44b722e66b2bb1c8c5784de49ebe1381e4817e04"
   ]
  },
  "us-ca-leginfo-pubinfo-2025": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.4,
   "signals": [
    "Last-Modified: Mon, 26 Oct 2026 04:26:08 GMT"
   ]
  },
  "us-ca-sb219-leginfo-pubinfo-2023": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.21,
   "signals": [
    "Last-Modified: Mon, 25 Nov 2024 05:26:38 GMT"
   ]
  },
  "us-ca-sb253-carb-program-page": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 419",
+  "seconds": 0.16,
   "signals": null
  },
  "us-ca-sb261-carb-financial-risk-page": {
+  "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 419",
+  "seconds": 0.13,
   "signals": null
  },
  "us-ecfr-40cfr98-versions": {
+  "bytes": 308217,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.5,
   "signals": [
    "2017-01-01",
    "2017-03-06",
@@ -404,8 +490,10 @@
   ]
  },
  "us-sec-climate-fedreg-citations": {
+  "bytes": 225,
   "checked_on": "2026-11-02",
   "failure": null,
+  "seconds": 0.11,
   "signals": [
    "2024-03-28",
    "2024-04-12",

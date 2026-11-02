@@ -35,14 +35,18 @@ def ecfr_body(dates, page=1, total_pages=1):
 
 
 WATCHERS = [
-    {"id": "w-cellar", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "date_list", "url": CELLAR,
+    {"id": "w-cellar", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "date_list",
+     "tier": "gazette_feed", "url": CELLAR,
      "params": {"regex": r"02022L2464-(\d{8})", "second_route": "open the browser list"}},
-    {"id": "w-uk", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "date_list", "url": UK,
+    {"id": "w-uk", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "date_list",
+     "tier": "consolidation_site", "url": UK,
      "params": {"regex": r'hasVersion" href="[^"]*/(\d{4}-\d{2}-\d{2})"'}},
-    {"id": "w-ecfr", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "version_list", "url": ECFR},
-    {"id": "w-zip", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "http_head", "url": ZIP},
-    {"id": "w-terms", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "page_hash", "url": TERMS,
-     "change": "terms_changed"},
+    {"id": "w-ecfr", "source_id": "PASS", "iso2": "XX", "instrument": "act", "kind": "version_list",
+     "tier": "consolidation_site", "url": ECFR},
+    {"id": "w-zip", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "http_head",
+     "tier": "consolidation_site", "url": ZIP},
+    {"id": "w-terms", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "page_hash",
+     "tier": "regulator_page", "url": TERMS, "change": "terms_changed"},
 ]
 
 BODIES = {
@@ -246,7 +250,8 @@ def test_source_filter(tmp_path):
 
 
 def test_non_pass_row_gives_row_and_nothing_under_records(tmp_path):
-    watcher = {"id": "w-asked", "source_id": "ASKED", "iso2": "XX", "instrument": "act", "kind": "page_hash", "url": TERMS}
+    watcher = {"id": "w-asked", "source_id": "ASKED", "iso2": "XX", "instrument": "act", "kind": "page_hash",
+               "tier": "regulator_page", "url": TERMS}
     repo = make(tmp_path, [watcher])
     before = tree(repo)
     result = watch.watch(repo, FakeFetch(), TODAY)
@@ -262,6 +267,8 @@ def test_non_pass_row_gives_row_and_nothing_under_records(tmp_path):
     ({"kind": "rss"}, "is not one of"),
     ({"params": {}}, "needs params.regex"),
     ({"change": "deleted"}, "change 'deleted'"),
+    ({"tier": "blog"}, "tier 'blog' is not one of"),
+    ({"tier": None}, "missing tier"),
 ])
 def test_invalid_watcher_is_refused(tmp_path, bad, message):
     repo = make(tmp_path, [{**WATCHERS[0], **bad}])
@@ -281,12 +288,56 @@ def test_cli_summary_and_exit_code(tmp_path, capsys, monkeypatch):
     fetch = FakeFetch()
     monkeypatch.setattr(watch, "default_fetch", fetch)
     assert watch.main(["--repo", str(repo)]) == 0
-    assert capsys.readouterr().out == "5 watchers run, 5 candidates, 0 failures\n"
+    total = sum(len(body) for _, _, body in BODIES.values())
+    assert watch.re.fullmatch(rf"5 watchers run, 5 candidates, 0 failures, \d+\.\d s, {total} bytes\n",
+                              capsys.readouterr().out)
     fetch.bodies[ZIP] = (404, {}, b"")
     assert watch.main(["--repo", str(repo), "--dry-run"]) == 1
     out = capsys.readouterr().out.splitlines()
-    assert out[-1] == "5 watchers run, 0 candidates, 1 failures" and "watch_failed" in out[0]
+    assert out[-1].startswith("5 watchers run, 0 candidates, 1 failures, ") and "watch_failed" in out[0]
     assert len(rows(repo)) == 5 and seen(repo)["w-zip"]["failure"] is None
+
+
+def test_seen_records_seconds_and_bytes_per_watcher(tmp_path):
+    """Each seen.json entry carries the wall time and body bytes of its last fetch; the result carries the totals."""
+    repo = make(tmp_path)
+    result = watch.watch(repo, FakeFetch(), TODAY)
+    got = seen(repo)
+    assert all(isinstance(e["seconds"], float) and e["seconds"] >= 0 for e in got.values())
+    assert {k: e["bytes"] for k, e in got.items()} == {w["id"]: len(BODIES[w["url"]][2]) for w in WATCHERS}
+    assert got["w-zip"]["bytes"] == 0  # HEAD request, no body
+    assert result["bytes"] == sum(e["bytes"] for e in got.values())
+    assert result["seconds"] == round(sum(e["seconds"] for e in got.values()), 2)
+    # a failed fetch still records its cost, and the versioner's extra pages count towards one watcher
+    fetch = FakeFetch({ECFR: (200, {}, ecfr_body(["2017-01-01"], page=1, total_pages=2)),
+                       ECFR + "&page=2": (503, {}, b"down")})
+    (tmp_path / "two").mkdir()
+    watch.watch(make(tmp_path / "two", [WATCHERS[2]]), fetch, TODAY)
+    entry = seen(tmp_path / "two")["w-ecfr"]
+    assert entry["failure"].startswith("HTTP 503") and entry["bytes"] == len(fetch.bodies[ECFR][2]) + 4
+
+
+def test_shipped_watchers_have_a_valid_tier():
+    """upkeep/watchers.json: every entry names one of watch.TIERS, and the Cellar and Federal Register feeds are gazette_feed."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    assert watch.TIERS == ("gazette_feed", "consolidation_site", "regulator_page", "tracker_pointer")
+    assert all(w.get("tier") in watch.TIERS for w in shipped), [w["id"] for w in shipped if w.get("tier") not in watch.TIERS]
+    for w in shipped:
+        host = watch.urllib.parse.urlsplit(w["url"]).netloc
+        if host in ("publications.europa.eu", "www.federalregister.gov"):
+            assert w["tier"] == "gazette_feed", w["id"]
+        if w["id"].startswith("terms-"):
+            assert w["tier"] == "regulator_page", w["id"]
+    # upkeep/cadence.json: tiers maps each tier to its interval in days (read by tools/coverage.py);
+    # per_tier carries the measured cost and its watcher counts match the shipped file
+    cadence = json.loads((repo / "upkeep" / "cadence.json").read_text(encoding="utf-8"))
+    assert set(cadence["tiers"]) == set(cadence["per_tier"]) == set(watch.TIERS)
+    for tier, entry in cadence["per_tier"].items():
+        assert entry["interval_days"] == cadence["tiers"][tier] > 0, tier
+        assert entry["watchers"] == sum(1 for w in shipped if w["tier"] == tier), tier
+        assert entry["seconds_per_run"] >= 0 and entry["bytes_per_run"] >= 0 and entry["failures_per_run"] >= 0
+    assert cadence["measured"] is True and cadence["paid_tools"] == [] and cadence["measured_on"]
 
 
 def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):

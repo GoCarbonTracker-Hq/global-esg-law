@@ -4,8 +4,6 @@ Generated on 2026-11-02 by `python3 tools/coverage.py` from `register/register.c
 
 This is a map of what the repository holds and when it was last checked. It is not a claim that the law of any place is covered completely, and it says nothing about whether any company complies with any law. The law families are the `law_family` codes of the register: F1, F2, F3, F4, F5, F6, F7.
 
-The cadence values in `upkeep/cadence.json` are placeholders pending GEL-02-06; no cadence has been measured yet, so `stale` marks a cell against an assumed rhythm, not an observed one.
-
 ## Counts
 
 | Count | Value | As of | Command |
