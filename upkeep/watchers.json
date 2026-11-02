@@ -5405,5 +5405,95 @@
    "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=61438 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 19.496, not only arts. 28 and 33"
   }
+ },
+ {
+  "id": "il-clean-air-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-clean-air-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000055)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-prtr-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-prtr-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000233)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-consumer-protection-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-consumer-protection-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000237)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-securities-periodic-reports-regs-knesset-amendments",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-securities-periodic-reports-regs",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw?$filter=contains%28Name%2C%27%D7%93%D7%95%D7%97%D7%95%D7%AA%20%D7%AA%D7%A7%D7%95%D7%A4%D7%AA%D7%99%D7%99%D7%9D%20%D7%95%D7%9E%D7%99%D7%99%D7%93%D7%99%D7%99%D7%9D%27%29%20and%20KnessetNum%20ge%2024&$select=PublicationDate&$orderby=Id",
+  "params": {
+   "regex": "\"PublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-fuel-excise-order-2024-knesset-record",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-fuel-excise-order-2024",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214964)?$select=LastUpdatedDate",
+  "params": {
+   "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-customs-tariff-order-2024-knesset-record",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-customs-tariff-order-2024",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214962)?$select=LastUpdatedDate",
+  "params": {
+   "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-boi-directive-345-pdf",
+  "source_id": "IL-BOI-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-boi-directive-345",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://boi.org.il/media/1quhabaa/345_et.pdf",
+  "params": {
+   "second_route": "https://www.boi.org.il/en/ (browser; boi.org.il pages answer scripts with a Radware challenge or HTTP 403, the media PDF answers curl with 200; a HEAD request to the PDF answers 302, so the PDF is hashed)"
+  }
  }
 ]
