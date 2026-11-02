@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Admission gate: refuse any record whose source row or scope entry does not allow storing it."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -28,6 +29,12 @@ def check(repo=ROOT):
             refuse(f"source_id {source_id!r} not in sources.json")
         if row.get("verdict") != "pass":
             refuse(f"source {source_id} verdict is {row.get('verdict')!r}, not 'pass'")
+        language = record.get("language")
+        if not isinstance(language, str) or not re.fullmatch(r"[a-z]{2}", language):
+            refuse(f"language {language!r} is not an ISO 639-1 code (two lowercase letters)")
+        named = re.fullmatch(r"\d{4}-\d{2}-\d{2}-[a-z]+-([a-z]{2})", path.stem)
+        if named and named.group(1) != language:
+            refuse(f"file name ends -{named.group(1)} but language is {language!r}")
         if kind not in FORMS:
             refuse(f"kind {kind!r} is not one of {sorted(FORMS)}")
         if kind != row.get("form"):

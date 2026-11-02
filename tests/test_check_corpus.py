@@ -20,7 +20,7 @@ def make(repo, **over):
     folder.mkdir(parents=True)
     (folder / "r.json").write_text(json.dumps({
         "source_id": over.get("source_id", "R1"), "in_force": "2020-01-01",
-        "kind": over.get("kind", "adopted"), "text": "placeholder text"}))
+        "kind": over.get("kind", "adopted"), "language": over.get("language", "en"), "text": "placeholder text"}))
 
 
 def refused(repo, reason):
@@ -93,3 +93,21 @@ def test_source_row_list(tmp_path):
     make_other.write_text(make_other.read_text().replace('"R1"', '"R9"'))
     with pytest.raises(ValueError):
         check_corpus.check(tmp_path)
+
+
+def test_language_is_required_and_must_be_iso_639_1(tmp_path):
+    make(tmp_path)
+    path = tmp_path / "records" / "XX" / "act" / "r.json"
+    record = json.loads(path.read_text())
+    for bad in (None, "", "EN", "eng", 5):
+        path.write_text(json.dumps({**{k: v for k, v in record.items() if k != "language"}, **({} if bad is None else {"language": bad})}))
+        refused(tmp_path, "ISO 639-1")
+
+
+def test_new_file_name_must_end_in_the_record_language(tmp_path):
+    make(tmp_path)
+    folder = tmp_path / "records" / "XX" / "act"
+    (folder / "r.json").rename(folder / "2020-01-01-adopted-en.json")
+    assert check_corpus.check(tmp_path) == 1
+    (folder / "2020-01-01-adopted-en.json").rename(folder / "2020-01-01-adopted-fr.json")
+    refused(tmp_path, "file name ends -fr but language is 'en'")

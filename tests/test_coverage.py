@@ -47,7 +47,7 @@ def make(repo, checked_on="2026-11-01", seen=True, cadence=CADENCE):
     (repo / "records" / "XX" / "act").mkdir(parents=True)
     for in_force in ("2020-01-01", "2023-06-01"):
         (repo / "records" / "XX" / "act" / f"{in_force}-consolidated.json").write_text(json.dumps(
-            {"source_id": "PASS", "in_force": in_force, "kind": "consolidated", "text": "placeholder text"}))
+            {"source_id": "PASS", "in_force": in_force, "kind": "consolidated", "language": "en", "text": "placeholder text"}))
     (repo / "sources.json").write_text(json.dumps([
         {"id": "PASS", "verdict": "pass", "checked_on": "2026-11-01",
          "fetch_url": "https://www.legislation.gov.uk/{type}/{year}/{number}/data.xml"},

@@ -56,7 +56,7 @@ def make(repo, rows=None, watchers=(WATCHER,), seeded=True):
     folder = repo / "records" / "XX" / "act"
     folder.mkdir(parents=True)
     (folder / "2020-01-01-adopted.json").write_text(json.dumps({
-        "source_id": "PASS", "in_force": "2020-01-01", "kind": "adopted", "text": "placeholder text"}))
+        "source_id": "PASS", "in_force": "2020-01-01", "kind": "adopted", "language": "en", "text": "placeholder text"}))
     (repo / "upkeep").mkdir()
     (repo / "upkeep" / "watchers.json").write_text(json.dumps(list(watchers)))
     if seeded:

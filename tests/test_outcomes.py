@@ -48,9 +48,9 @@ SCOPE = [entry("old-act", "EU-EURLEX-CONSOLIDATED", "32099L0001", "stored"),
          entry("blocked-act", "XX-BLOCKED", "", "link only")]
 
 RECORDS = {"old-act/2020-01-01-consolidated.json": {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2020-01-01",
-                                                    "kind": "consolidated", "text": "placeholder text"},
+                                                    "kind": "consolidated", "language": "en", "text": "placeholder text"},
            "amend-act/2024-06-01-adopted.json": {"source_id": "EU-EURLEX-ADOPTED", "in_force": "2024-06-01",
-                                                 "kind": "adopted", "text": "placeholder amending text"}}
+                                                 "kind": "adopted", "language": "en", "text": "placeholder amending text"}}
 
 
 def queue_row(watcher_id, signal, instrument, source_id, change="new_version"):
@@ -137,7 +137,7 @@ def test_new_instrument_first_record_for_an_id(tmp_path):
     repo = make(tmp_path)
     result, fetch = run(repo, NEW)
     assert result["status"] == "stored" and fetch.calls == [NEW_URL]
-    path = repo / "records" / "EU" / "new-act" / "2027-02-01-consolidated.json"
+    path = repo / "records" / "EU" / "new-act" / "2027-02-01-consolidated-en.json"
     record = json.loads(path.read_text())
     assert record["text"] == "placeholder consolidated text\n" and "repealed" not in record
     assert check_corpus.check(repo) == 3
@@ -154,7 +154,7 @@ def test_amended_second_version_at_a_later_date(tmp_path, capsys):
     result, fetch = run(repo, AMENDED)
     assert result["status"] == "stored" and fetch.calls == [AMEND_URL]
     folder = repo / "records" / "EU" / "old-act"
-    assert sorted(p.name for p in folder.iterdir()) == ["2020-01-01-consolidated.json", "2027-01-01-consolidated.json"]
+    assert sorted(p.name for p in folder.iterdir()) == ["2020-01-01-consolidated.json", "2027-01-01-consolidated-en.json"]
     assert json.loads((folder / "2020-01-01-consolidated.json").read_text())["text"] == "placeholder text"  # untouched
     build.build(repo, branch="history")
     assert [(d, i) for _, d, _, i in history(repo)] == [("2020-01-01", "old-act"), ("2024-06-01", "amend-act"), ("2027-01-01", "old-act")]
@@ -176,9 +176,9 @@ def test_repealed_empty_text_and_law_drops_it_from_that_date(tmp_path):
     repo = make(tmp_path)
     result, fetch = run(repo, REPEALED)
     assert result["status"] == "stored" and fetch.calls == []  # no fetch for a repeal
-    path = repo / "records" / "EU" / "old-act" / "2028-03-01-repeal.json"
+    path = repo / "records" / "EU" / "old-act" / "2028-03-01-repeal-en.json"
     assert json.loads(path.read_text()) == {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2028-03-01",
-                                            "kind": "consolidated", "text": "", "repealed": True}
+                                            "kind": "consolidated", "language": "en", "text": "", "repealed": True}
     assert check_corpus.check(repo) == 3
     assert rows(repo)[REPEALED]["outcome"] == "stored"
     assert f"repeal dated 2028-03-01, no fetch, evidence `{EVIDENCE}`, queue row `{REPEALED}`." in (repo / "SOURCES.md").read_text()
@@ -197,7 +197,7 @@ def test_repealed_empty_text_and_law_drops_it_from_that_date(tmp_path):
     assert result["status"] == "refused"
     row = rows(repo)[BAD_REPEAL]
     assert row["outcome"] == "confirm" and row["notes"] == "refused 2026-11-02: signal 'spring 2028' is not a repeal date (YYYY-MM-DD)"
-    assert sorted(p.name for p in (repo / "records" / "EU" / "old-act").iterdir()) == ["2020-01-01-consolidated.json", "2028-03-01-repeal.json"]
+    assert sorted(p.name for p in (repo / "records" / "EU" / "old-act").iterdir()) == ["2020-01-01-consolidated.json", "2028-03-01-repeal-en.json"]
 
 
 def test_blocked_by_licence_leaves_row_open_and_writes_nothing(tmp_path):
@@ -217,13 +217,13 @@ def test_blocked_by_licence_leaves_row_open_and_writes_nothing(tmp_path):
 
 def test_gate_refuses_empty_text_unless_repealed_is_true(tmp_path):
     repo = make(tmp_path)
-    path = repo / "records" / "EU" / "old-act" / "2028-03-01-repeal.json"
-    record = {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2028-03-01", "kind": "consolidated", "text": ""}
+    path = repo / "records" / "EU" / "old-act" / "2028-03-01-repeal-en.json"
+    record = {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2028-03-01", "kind": "consolidated", "language": "en", "text": ""}
     for bad in (record, {**record, "repealed": False}, {**record, "repealed": "yes"}, {**record, "text": "  \n"}):
         path.write_text(json.dumps(bad))
         with pytest.raises(ValueError) as exc:
             check_corpus.check(repo)
-        assert str(exc.value) == "records/EU/old-act/2028-03-01-repeal.json: empty text is allowed only with repealed: true"
+        assert str(exc.value) == "records/EU/old-act/2028-03-01-repeal-en.json: empty text is allowed only with repealed: true"
     path.write_text(json.dumps({**record, "repealed": True}))
     assert check_corpus.check(repo) == 3
 

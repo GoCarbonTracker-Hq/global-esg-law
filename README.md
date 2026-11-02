@@ -21,7 +21,24 @@ Record files under `records/` today, one file per text version:
 python3 tools/law.py <ISO2> <YYYY-MM-DD>
 ```
 
-Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref history] [--json]`. In Python: `in_force(iso2, on, repo=ROOT, ref="history") -> list[dict]`. The lookup reads the `history` branch, which holds one dated commit per record with the text in it. Stayed or enjoined rules count as in force on their date; their `status_note` from `register/<ISO2>/scope.json` is printed with them. `tools/law.py` ships with GEL-01-07; this interface is fixed in the readiness report for that story.
+Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref history] [--lang CODE] [--json]`. In Python: `in_force(iso2, on, repo=ROOT, ref="history", lang=None, detail=False) -> list[dict]`. The lookup reads the `history` branch, which holds one dated commit per record with the text in it. Stayed or enjoined rules count as in force on their date; their `status_note` from `register/<ISO2>/scope.json` is printed with them. `tools/law.py` ships with GEL-01-07; this interface is fixed in the readiness report for that story.
+
+One line per instrument per date: the official-language record. Every other language of the same version is listed under it with its language and kind. `--lang <code>` returns that language's record when the version has one, and otherwise the official record, with a note saying so. `--json` adds a `languages` list to each instrument, the shown record first. The `history` branch must be rebuilt (`python3 tools/build.py --branch history`) before the lookup sees the `Language` trailer; until then every record shows language `-`.
+
+Shape of the output for a version with two official languages and an English translation (ids are placeholders):
+
+```
+$ python3 tools/law.py CH 2025-06-01 --lang en
+ch-example-act	2025-01-01	translation	Example Act
+  de	consolidated
+  fr	consolidated
+note ch-example-act: showing the en record
+$ python3 tools/law.py CH 2025-06-01 --lang it
+ch-example-act	2025-01-01	consolidated	Example Act
+  fr	consolidated
+  en	translation
+note ch-example-act: no it record for this version, showing the official record (de)
+```
 
 Policy for the lookup (Varun, 2026-11-02): a rule that is stayed or enjoined stays in the in-force list, with the stay in its scope `status_note` and record `message`; an amendment published but not yet in force is an ordinary record dated its in-force date, and the lookup lists it as not yet in force; a circular or notice with no commencement clause takes its issue date as `in_force`.
 

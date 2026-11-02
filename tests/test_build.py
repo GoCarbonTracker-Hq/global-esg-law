@@ -22,7 +22,7 @@ def fixture(repo):
         {"id": "law", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "old"},
         {"id": "law2", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "new"}]))
     for name, source, effective in [("old", "old", "1965-01-02"), ("new", "new", "2020-03-04")]:
-        (repo / "records" / "EU" / ("law" if name == "old" else "law2") / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "text": name}))
+        (repo / "records" / "EU" / ("law" if name == "old" else "law2") / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "language": "en", "text": name}))
     subprocess.run(["git", "init", "-q", str(repo)], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.name", "Test"], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.email", "test@example.org"], check=True)
@@ -46,6 +46,24 @@ def test_build_trailers_order_and_rebuild(tmp_path):
         assert history == [("1965-01-02", "Scope Title"), ("2020-03-04", "Scope Title")]
         histories.append(history)
     assert histories[0] == histories[1]
+
+
+def test_language_trailer_and_official_record_first(tmp_path):
+    fixture(tmp_path)
+    rows = json.loads((tmp_path / "sources.json").read_text())
+    rows.append({**rows[1], "id": "tr", "form": "translation"})
+    (tmp_path / "sources.json").write_text(json.dumps(rows))
+    folder = tmp_path / "records" / "EU" / "law2"
+    for name, source, kind, lang in [("a-en", "tr", "translation", "en"), ("b-fr", "new", "adopted", "fr"), ("c-de", "new", "adopted", "de")]:
+        (folder / f"2024-01-01-{name}.json").write_text(json.dumps(
+            {"source_id": source, "in_force": "2024-01-01", "kind": kind, "language": lang, "text": name}))
+    scope = tmp_path / "register" / "EU" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["source_row"] = ["new", "tr"]
+    scope.write_text(json.dumps(entries))
+    build.build(tmp_path, branch="history")
+    log = subprocess.check_output(["git", "-C", str(tmp_path), "log", "--reverse", "--format=%(trailers:key=Kind,valueonly)%(trailers:key=Language,valueonly)", "history"], text=True)
+    assert log.split() == ["adopted", "en", "adopted", "en", "adopted", "de", "adopted", "fr", "translation", "en"]
 
 
 def test_branch_build_is_orphan_and_rebuild_equal(tmp_path):

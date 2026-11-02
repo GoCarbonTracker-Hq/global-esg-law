@@ -98,6 +98,11 @@ RECIPES = {"EU-EURLEX-ADOPTED": eu_adopted, "EU-EURLEX-CONSOLIDATED": eu_consoli
            "US-ECFR-ADOPTED": ecfr}
 
 
+# Language of the text each recipe fetches (ISO 639-1). A repeal fetches nothing and takes the language
+# of the instrument's existing records.
+LANGUAGES = {sid: "en" for sid in RECIPES}
+
+
 def default_fetch(url, headers):
     """Return (status, body_bytes). Gzip is undone, so the body is the file as the server has it."""
     request = urllib.request.Request(url, headers={
@@ -310,10 +315,19 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             continue
         kind = source.get("form")
         label = "repeal" if repeal else kind
-        path = repo / "records" / iso2 / instrument / f"{in_force}-{label}.json"
+        folder = repo / "records" / iso2 / instrument
+        if repeal:
+            languages = sorted({json.loads(p.read_text(encoding="utf-8")).get("language") for p in folder.glob("*.json")} - {None})
+            if len(languages) != 1:
+                refuse(f"cannot tell the repeal's language: records of {instrument} carry {languages or 'none'}")
+                continue
+            language = languages[0]
+        else:
+            language = LANGUAGES[source_id]
+        path = folder / f"{in_force}-{label}-{language}.json"  # new form; the old form {in_force}-{label}.json is still read
         rel = path.relative_to(repo).as_posix()
         branch = f"upkeep/{iso2}-{instrument}-{in_force}"
-        if path.exists():
+        if path.exists() or path.with_name(f"{in_force}-{label}.json").exists():
             refuse(f"record {rel} already exists")
             continue
         if commit and not dry_run and git(repo, "branch", "--list", branch):
@@ -334,7 +348,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             continue
         if repeal:
             evidence = r.get("evidence_url") or "none"
-            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "text": "", "repealed": True}
+            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "language": language, "text": "", "repealed": True}
             provenance = f"repeal dated {in_force}, no fetch, evidence `{evidence}`"
             trailers = f"Evidence-url: {evidence}"
         else:
@@ -350,7 +364,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
                 refuse(f"no text extracted from {plan['url']}")
                 continue
             sha256 = hashlib.sha256(body).hexdigest()
-            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "text": text,
+            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "language": language, "text": text,
                       "fetched_url": plan["url"], "fetched_sha256": sha256}
             if plan.get("message"):
                 record["message"] = plan["message"]
