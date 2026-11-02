@@ -23,6 +23,8 @@ python3 tools/law.py <ISO2> <YYYY-MM-DD>
 
 Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref history] [--json]`. In Python: `in_force(iso2, on, repo=ROOT, ref="history") -> list[dict]`. The lookup reads the `history` branch, which holds one dated commit per record with the text in it. Stayed or enjoined rules count as in force on their date; their `status_note` from `register/<ISO2>/scope.json` is printed with them. `tools/law.py` ships with GEL-01-07; this interface is fixed in the readiness report for that story.
 
+Policy for the lookup (Varun, 2026-11-02): a rule that is stayed or enjoined stays in the in-force list, with the stay in its scope `status_note` and record `message`; an amendment published but not yet in force is an ordinary record dated its in-force date, and the lookup lists it as not yet in force; a circular or notice with no commencement clause takes its issue date as `in_force`.
+
 ## Rebuild the history
 
 ```
