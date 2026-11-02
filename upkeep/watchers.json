@@ -5833,5 +5833,120 @@
   "params": {
    "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=1681955 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
   }
+ },
+ {
+  "id": "ar-cnv-rg-1115-2026-infoleg-page",
+  "source_id": "AR-INFOLEG-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-cnv-rg-1115-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/420000-424999/423538/norma.htm",
+  "params": {
+   "second_route": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/420000-424999/423538/norma.htm (browser; servicios.infoleg.gob.ar answers 403 to scripts without a browser User-Agent)"
+  }
+ },
+ {
+  "id": "ar-ley-27520-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-ley-27520",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27520-333515/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/ley-27520-333515/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-decreto-1030-2020-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-decreto-1030-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/norma-345380/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-345380/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-ley-25675-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-ley-25675",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/ley-25675-79980/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/ley-25675-79980/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-ley-27430-titulo-iv-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-ley-27430-titulo-iv",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27430-305262/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/ley-27430-305262/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-decreto-501-2018-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-decreto-501-2018",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/norma-311009/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-311009/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-cnv-rg-885-2021-infoleg-page",
+  "source_id": "AR-INFOLEG-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-cnv-rg-885-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/345000-349999/349151/norma.htm",
+  "params": {
+   "second_route": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/345000-349999/349151/norma.htm (browser; servicios.infoleg.gob.ar answers 403 to scripts without a browser User-Agent)"
+  }
+ },
+ {
+  "id": "ar-ley-24240-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-ley-24240",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/ley-24240-638/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/ley-24240-638/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
+ },
+ {
+  "id": "ar-dnu-274-2019-normas-modifican",
+  "source_id": "AR-ARGENTINAGOB-ADOPTED",
+  "iso2": "AR",
+  "instrument": "ar-dnu-274-2019",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican",
+  "params": {
+   "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
+  }
  }
 ]

@@ -3175,3 +3175,30 @@ Returned `200 3523 application/json` (`numerodiariooficial`, `estado`, `fecha`, 
 - `https://www.imprenta.gov.co/diariooficial`: `429` on 10102 bytes of `text/html` (rate limit page); `https://www.imprenta.gov.co/diario-oficial` answered `200` and holds no search.
 - `https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=87654`: no answer in 30 s (`curl: (28)`).
 - Chromium (Playwright, proxy set) to `https://www.suin-juriscol.gov.co/`: `502 upstream request failed`. The same URL answers curl `200 4758 text/html` once the Sectigo intermediate is supplied.
+
+## Argentina
+
+Rows `AR-ARGENTINAGOB-ADOPTED` (`pass`, terms: CC BY 4.0), `AR-INFOLEG-ADOPTED` (`permission requested`) and `AR-BOLETINOFICIAL-ADOPTED` (`permission requested`, page could not be opened). Run on 2026-11-02.
+
+The portal https://www.argentina.gob.ar/normativa (Ministerio de Justicia, "Leyes argentinas") serves the texto original of each national norm and is the only Argentine source that passes. Its pages are plain HTML, no JavaScript needed. The text is the contents of `<div class="infoleg-norma-body infoleg-mode-original">`; `text` is that div with tags stripped, `<p>`, `<div>`, `<br>`, `<li>` and table rows as line breaks, runs of spaces collapsed, empty lines dropped, nothing reworded (the portal header and footer are outside the div and are not stored).
+
+```
+curl -sS -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36' -o ley24240.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.argentina.gob.ar/normativa/nacional/norma-638/texto
+```
+
+Returned `200 97218 text/html; charset=utf-8`, Ley 24.240 de Defensa del Consumidor, texto original. The same request without the `-A` option also answered 200 (97218 bytes). The URL form is `/normativa/nacional/norma-<InfoLEG id>/texto`; for Ley 27.520 only the slug form worked (`/normativa/nacional/ley-27520-333515/texto`, `200 60024`, while `norma-333515/texto` answered 500). The portal is erratic: the same page can answer 500 for one URL form and 200 for another, and the `normas-modifican` tab answers 500 for Decreto 1030/2020, Decreto 501/2018 and Ley 25.675 on every form tried. `fetched_sha256` is the hash of the HTML as received; a second fetch of `norma-345380/texto` gave the same text and a different hash (8a8529f8… against 638dff0b…, 63837 bytes both), because each page carries a per-request Cloudflare token (`/cdn-cgi/content?id=…`), so the hash does not reproduce.
+
+The InfoID of a norm is the number in its InfoLEG URL (`.../anexos/330000-334999/333515/norma.htm` is 333515). Ids used: 333515 (Ley 27.520), 345380 (Decreto 1030/2020), 79980 (Ley 25.675), 305262 (Ley 27.430), 311009 (Decreto 501/2018), 638 (Ley 24.240), 322236 (DNU 274/2019). Ley 27.430 is stored as Título IV only (from the heading `TÍTULO IV - IMPUESTO SOBRE LOS COMBUSTIBLES` to the line before `TÍTULO V - RÉGIMEN SIMPLIFICADO`). Records without a commencement clause in the text (Ley 27.520, Ley 25.675, DNU 274/2019) are dated by their Boletín Oficial publication date as printed on the portal.
+
+The portal also serves a `texto actualizado` at `/normativa/nacional/<slug>/actualizacion` (for example `ley-24240-638/actualizacion`, `200 123953`). It states no consolidation date, so no consolidated record is stored and there is no consolidated row.
+
+### Languages
+
+Spanish only (`es`); the portal has no language switch and no other official language applies. No government English translation was found for any instrument: looked for on the portal pages, on https://www.argentina.gob.ar/normativa and on the InfoLEG site. No translation row exists.
+
+### Link only
+
+- `ar-cnv-rg-1115-2026`, `ar-cnv-rg-885-2021`: the text opens on InfoLEG (`curl -A '<browser UA>' https://servicios.infoleg.gob.ar/infolegInternet/anexos/420000-424999/423538/norma.htm` gives `200 94725 text/html`), but row `AR-INFOLEG-ADOPTED` is permission requested: the Aviso legal (https://www.infoleg.gob.ar/?page_id=762) reserves rights over the texts and bars reproduction other than personal use, while the home page footer says CC BY 2.5 AR. The portal route answers HTTP 500 for both CNV norms on every URL form (`norma-423538`, `norma-423538/texto`, `/actualizacion`, `/normas-modificadas`, slug forms `resolucion-1115-2026-423538`, `resolución-1115-2026-423538`, `resolucion-general-1115-2026-423538`; same for 349151).
+- Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
+- Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
+- Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
