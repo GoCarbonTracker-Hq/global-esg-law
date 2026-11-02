@@ -6325,5 +6325,49 @@
   "tier": "regulator_page",
   "url": "https://fccpc.gov.ng/resources-library/fccpa/",
   "params": {}
+ },
+ {
+  "id": "gh-environmental-protection-act-2025-repository-pdf",
+  "source_id": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-environmental-protection-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://repository.parliament.gh/server/api/core/bitstreams/1e06a2ff-8e7a-494e-a4d9-795f9c89002e/content",
+  "params": {
+   "second_route": "https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896 (browser; the repository item pages answer scripts from the cloud address with HTTP 403 \"You got banned permanently from this server\")"
+  }
+ },
+ {
+  "id": "gh-unfair-competition-act-2000-repository-pdf",
+  "source_id": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-unfair-competition-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://repository.parliament.gh/server/api/core/bitstreams/9366072e-0b2a-4a75-a3ea-2747973f4a87/content",
+  "params": {
+   "second_route": "https://repository.parliament.gh/items/9f98f62d-1114-4803-8434-70c0070b3b54 (browser; the repository item pages answer scripts from the cloud address with HTTP 403 \"You got banned permanently from this server\")"
+  }
+ },
+ {
+  "id": "gh-bog-climate-risk-directive-2024-pdf",
+  "source_id": "GH-BOG-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-bog-climate-risk-directive-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bog.gov.gh/wp-content/uploads/2024/11/BOG-Climate-Related-Financial-Risks-Directive.pdf",
+  "params": {}
+ },
+ {
+  "id": "gh-icag-ifrs-sustainability-roadmap-pdf",
+  "source_id": "GH-ICAG-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-icag-ifrs-sustainability-roadmap",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://icagh.org/wp-content/uploads/2024/12/IFRS-SUSTAINABILITY-DISCLOSURE-ADOPTION-ROADMAP-FOR-GHANA.pdf",
+  "params": {}
  }
 ]
