@@ -1,0 +1,118 @@
+[
+  {
+    "id": "no-regnskapsloven-ch2",
+    "title": "Accounting Act (regnskapsloven, LOV-1998-07-17-56), chapter 2 sustainability reporting (§§ 2-3 to 2-9)",
+    "official_url": "https://lovdata.no/dokument/NL/lov/1998-07-17-56",
+    "citation": "Lov om årsregnskap m.v. (regnskapsloven) LOV-1998-07-17-56 § 2-3 and following, added by lov 21 juni 2024 nr. 42",
+    "in_force": "2024-11-01",
+    "evidence": "Lovdata page of LOV-2024-06-21-42, footnote 1: \"Fra 1. november 2024 for del I (endringene i regnskapsloven), ... iflg. res. 11 okt 2024 nr. 2454.\" The § 2-3 note on the regnskapsloven page reads \"Tilføyd ved lov 21 juni 2024 nr. 42 (i kraft 1 nov 2024 iflg. res. 11 okt 2024 nr. 2454)\" (summarised, not verbatim). § 2-3 heading: \"Plikt til å utarbeide bærekraftsrapportering\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Date is when chapter 2 sustainability reporting was added; the Act itself dates from 1999-01-01 (\"Ikrafttredelse 01.01.1999\"). § 2-5 was later changed by lov 10 april 2025 nr. 11 (in force 2025-08-01). Brief deviation: it named LOV-2024-06-21-41 and in force 2024-07-01; LOV-2024-06-21-41 is the Financial Supervision Act (finanstilsynsloven, in force 2025-04-01, which also amends regnskapsloven), and the sustainability reporting act is LOV-2024-06-21-42, in force 2024-11-01. No English translation of regnskapsloven on Lovdata (NLE page 404 on 2026-11-02). Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-endringslov-2024-42",
+    "title": "Act of 21 June 2024 no. 42 amending the Accounting Act and related laws (bærekraftsrapportering)",
+    "official_url": "https://www.regjeringen.no/no/aktuelt/nye-regler-om-barekraftsrapportering-trer-i-kraft-1.-november/id3059130/",
+    "citation": "Lov om endringer i regnskapsloven mv. (bærekraftsrapportering) LOV-2024-06-21-42",
+    "in_force": "2024-11-01",
+    "evidence": "Lovdata page of LOV-2024-06-21-42: \"Ikrafttredelse 01.11.2024, Kongen bestemmer\"; footnote 1: \"Fra 1. november 2024 for del I (endringene i regnskapsloven), del II (endringene i revisorloven) med unntak av § 12-1, ... del XII (endringene i åpenhetsloven), iflg. res. 11 okt 2024 nr. 2454.\" Read through WebFetch on 2026-11-02. The official_url is the Ministry of Finance page already in the register; it answers 403 (Cloudflare challenge) to the cloud address and was not opened.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "amends": "no-regnskapsloven-ch2",
+    "notes": "Amending act: parts I to XII amend regnskapsloven, revisorloven, statsforetaksloven, aksjeloven, allmennaksjeloven, verdipapirhandelloven, finansforetaksloven, åpenhetsloven and others. Part VII was repealed by LOV-2025-04-10-11. Lovdata page: https://lovdata.no/dokument/NL/lov/2024-06-21-42, as adopted https://lovdata.no/LTI/lov/2024-06-21-42 (Kunngjort 21.06.2024). No English translation (NLE page 404). Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-klimaloven",
+    "title": "Climate Change Act (klimaloven, LOV-2017-06-16-60)",
+    "official_url": "https://lovdata.no/dokument/NL/lov/2017-06-16-60",
+    "citation": "Lov om klimamål (klimaloven) LOV-2017-06-16-60",
+    "in_force": "2018-01-01",
+    "evidence": "§ 8 Ikrafttredelse footnote 1: \"Fra 1 jan 2018 iflg. res. 16 juni 2017 nr. 790.\"; page header \"Ikrafttredelse 01.01.2018\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED",
+      "NO-LOVDATA-TRANSLATION"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Last changed LOV-2025-06-20-90. English: https://lovdata.no/dokument/NLE/lov/2017-06-16-60 exists (\"Act relating to Norway's climate targets (Climate Change Act)\", last consolidated LOV-2025-06-20-90, unofficial) and matches the current Norwegian state; not stored because row NO-LOVDATA-TRANSLATION is permission requested. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-klimakvoteloven",
+    "title": "Greenhouse Gas Emission Trading Act (klimakvoteloven, LOV-2004-12-17-99)",
+    "official_url": "https://lovdata.no/dokument/NL/lov/2004-12-17-99",
+    "citation": "Lov om kvoteplikt og handel med kvoter for utslipp av klimagasser (klimakvoteloven) LOV-2004-12-17-99",
+    "in_force": "2005-01-01",
+    "evidence": "§ 23 Ikrafttredelse: \"Loven gjelder fra 1. januar 2005.\"; page header \"Ikrafttredelse 01.01.2005\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Last changed LOV-2026-06-19-54 (its note carries no commencement date). No English translation on Lovdata: NLE page answers 404 (2026-11-02), so none was looked for elsewhere. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-klimakvoteforskriften",
+    "title": "Regulation on the obligation to hold allowances and trade in allowances for greenhouse gas emissions (klimakvoteforskriften, FOR-2004-12-23-1851)",
+    "official_url": "https://lovdata.no/dokument/SF/forskrift/2004-12-23-1851",
+    "citation": "Forskrift om kvoteplikt og handel med kvoter for utslipp av klimagasser (klimakvoteforskriften) FOR-2004-12-23-1851",
+    "in_force": "2005-01-01",
+    "evidence": "Page header \"Ikrafttredelse 01.01.2005\", \"Dato FOR-2004-12-23-1851\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Implements klimakvoteloven (no-klimakvoteloven). Last changed FOR-2026-08-28-1706. The Lovdata title is \"Forskrift om kvoteplikt og handel med kvoter for utslipp av klimagasser\", not the shorter title in the brief. English page (SFE) answers 404. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-apenhetsloven",
+    "title": "Transparency Act (åpenhetsloven, LOV-2021-06-18-99)",
+    "official_url": "https://lovdata.no/dokument/NL/lov/2021-06-18-99",
+    "citation": "Lov om virksomheters åpenhet og arbeid med grunnleggende menneskerettigheter og anstendige arbeidsforhold (åpenhetsloven) LOV-2021-06-18-99",
+    "in_force": "2022-07-01",
+    "evidence": "Page header \"Ikrafttredelse 01.07.2022\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED",
+      "NO-LOVDATA-TRANSLATION"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Last changed by LOV-2024-06-21-42 from 2024-11-01 (sections 3 and 5). English: https://lovdata.no/dokument/NLE/lov/2021-06-18-99 exists (unofficial, lists LOV-2024-06-21-42 as \"Not yet incorporated\", so it reflects the state before 2024-11-01); not stored: row NO-LOVDATA-TRANSLATION is permission requested. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  },
+  {
+    "id": "no-markedsforingsloven",
+    "title": "Marketing Control Act (markedsføringsloven, LOV-2009-01-09-2), sections 6 to 8",
+    "official_url": "https://lovdata.no/dokument/NL/lov/2009-01-09-2",
+    "citation": "Lov om kontroll med markedsføring og avtalevilkår mv. (markedsføringsloven) LOV-2009-01-09-2 §§ 6-8",
+    "in_force": "2009-06-01",
+    "evidence": "Page header \"Ikrafttredelse 01.06.2009\". § 6 \"Urimelig handelspraksis\", § 7 \"Villedende handlinger\", § 8 \"Villedende utelatelser\". Read through WebFetch on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NO-LOVDATA-CONSOLIDATED",
+      "NO-LOVDATA-TRANSLATION"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Deviation from the brief: §§ 6 to 8 as read do not contain the words \"miljø\" or \"påstander\"; they are the general misleading-practice rules that apply to environmental claims by application, not by text. Last changed LOV-2026-05-07-17 (from 2026-07-01); LOV-2026-06-19-34 will change §§ 5, 7 and 8 from a date the King decides. English (NLE) exists but is last consolidated LOV-2020-05-20-42, older than the Norwegian text, so it matches no current version. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "status": "link only"
+  }
+]

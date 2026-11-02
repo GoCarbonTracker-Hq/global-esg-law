@@ -1820,6 +1820,1005 @@
   }
  },
  {
+  "id": "th-cmsb-tor-jor-55-2563-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-cmsb-tor-jor-55-2563",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://publish.sec.or.th/nrs/8617se.pdf",
+  "params": {
+   "second_route": "https://publish.sec.or.th/nrs/8617se.pdf (browser; publish.sec.or.th answers scripts with 403 Block Response)"
+  }
+ },
+ {
+  "id": "th-sec-issb-notifications-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-sec-issb-notifications",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.or.th",
+  "params": {
+   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)"
+  }
+ },
+ {
+  "id": "th-sea-2535-s56-krisdika-page",
+  "source_id": "TH-KRISDIKA-CONSOLIDATED",
+  "iso2": "TH",
+  "instrument": "th-sea-2535-s56",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.krisdika.go.th",
+  "params": {
+   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)"
+  }
+ },
+ {
+  "id": "id-pojk-51-2017-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-51-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-seojk-16-2021-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-seojk-16-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-perpres-98-2021-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-perpres-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/187122",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-permen-lhk-21-2022-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-permen-lhk-21-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/235421/permen",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-pojk-14-2023-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-14-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-uu-4-2023-p2sk-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-uu-4-2023-p2sk",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "nl-klimaatwet-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-klimaatwet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-besluit-bekendmaking-niet-financiele-informatie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-besluit-bekendmaking-niet-financiele-informatie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0039355/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-bw2-art391-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-bw2-art391",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003045/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wm-titel-16-2-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wm-titel-16-2",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003245/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wet-co2-heffing-industrie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wet-co2-heffing-industrie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0044578/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "es-ley-11-2018-boe-record",
+  "source_id": "ES-BOE-ADOPTED",
+  "iso2": "ES",
+  "instrument": "es-ley-11-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2018-17989"
+ },
+ {
+  "id": "es-ley-7-2021-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-7-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-1-2005-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-1-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2005-3941",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rd-214-2025-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rd-214-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-7439",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-3-1991-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-3-1991",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rdl-1-2007-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rdl-1-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "se-arl-ch6-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch6",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-arl-ch7-s31-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch7-s31",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-sfs-2024-347-sfs-head",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "se-sfs-2024-347",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://svenskforfattningssamling.se/doc/2024347.html",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/doc/2024347.html (browser; svenskforfattningssamling.se answers scripts with HTTP 403, a Cloudflare block page)"
+  }
+ },
+ {
+  "id": "se-klimatlag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatlag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:720",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatpolitiska-radet-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatpolitiska-radet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1268",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatrapporteringsforordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatrapporteringsforordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2014:1434",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-act-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1173",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-ordinance-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1180",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:787",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:789",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1201",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2025:589",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "terms-se-riksdagen-consolidated",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/riksdagens-oppna-data/anvandarstod/anvandningsvillkor/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-se-sfs-adopted",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://svenskforfattningssamling.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/ (browser; answers scripts with HTTP 403, a Cloudflare block page; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "terms-se-government-translation",
+  "source_id": "SE-GOVERNMENT-TRANSLATION",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.government.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "mx-lgcc-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCC.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/ref/lgcc.htm (browser; lists every reform with its DOF date; the bare directory https://www.diputados.gob.mx/LeyesBiblio/ answers 403)"
+  }
+ },
+ {
+  "id": "mx-lgcc-reg-rne-diputados-pdf-head",
+  "source_id": "MX-DIPUTADOS-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-lgcc-reg-rne",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGCC_MRNE_281014.pdf",
+  "params": {
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm (browser; list of Reglamentos with their reform dates)"
+  }
+ },
+ {
+  "id": "mx-rne-gases-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-gases-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5404077",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5404077&fecha=14/08/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-rne-metodologias-acuerdo-2015-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-rne-metodologias-acuerdo-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5406149",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03/09/2015 (browser; this watcher sees only a change to the published note, not a later amending acuerdo)"
+  }
+ },
+ {
+  "id": "mx-sce-programa-prueba-2019-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-sce-programa-prueba-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5573934",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019 (browser; this watcher sees only a change to the published note, not a later acuerdo that extends or replaces it)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-disposiciones-cnbv-pdf-head",
+  "source_id": "MX-CNBV-CONSOLIDATED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-disposiciones",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cnbv.gob.mx/Normatividad/Disposiciones%20de%20car%C3%A1cter%20general%20aplicables%20a%20las%20emisoras%20de%20valores%20y%20a%20otros%20participantes%20del%20mercado%20de%20valores.pdf",
+  "params": {
+   "second_route": "https://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/BURS%C3%81TIL/Normatividad/Paginas/Emisoras.aspx (browser; cnbv.gob.mx fails certificate verification for scripts because its certificate chain is incomplete, so this watcher is expected to report a failure until read from a browser)"
+  }
+ },
+ {
+  "id": "mx-cnbv-emisoras-sostenibilidad-2025-dof-note-page",
+  "source_id": "MX-DOF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cnbv-emisoras-sostenibilidad-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://dof.gob.mx/nota_detalle_popup.php?codigo=5747872",
+  "params": {
+   "second_route": "https://dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025 (browser; this watcher sees only a change to the published note, not a later CNBV resolution)"
+  }
+ },
+ {
+  "id": "mx-cinif-nis-cinif-page",
+  "source_id": "MX-CINIF-ADOPTED",
+  "iso2": "MX",
+  "instrument": "mx-cinif-nis",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cinif.org.mx/normatividad_NIS2026.php",
+  "params": {
+   "second_route": "https://www.cinif.org.mx/normatividad_NIS2026.php (browser)"
+  }
+ },
+ {
+  "id": "de-hgb-nfe-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-hgb-nfe",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/hgb/xml.zip"
+ },
+ {
+  "id": "de-lksg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-lksg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/lksg/xml.zip"
+ },
+ {
+  "id": "de-ksg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ksg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ksg/xml.zip"
+ },
+ {
+  "id": "de-tehg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-tehg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/tehg_2025/xml.zip"
+ },
+ {
+  "id": "de-behg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-behg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/behg/xml.zip"
+ },
+ {
+  "id": "de-behv-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-behv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/behv/xml.zip"
+ },
+ {
+  "id": "de-ebev-2030-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ebev-2030",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ebev_2030/xml.zip"
+ },
+ {
+  "id": "de-ehv-2030-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-ehv-2030",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/ehv_2030_2/xml.zip"
+ },
+ {
+  "id": "de-becv-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-becv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/becv/xml.zip"
+ },
+ {
+  "id": "de-minrohsorgg-gii-xml",
+  "source_id": "DE-GII-CONSOLIDATED",
+  "iso2": "DE",
+  "instrument": "de-minrohsorgg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze-im-internet.de/minrohsorgg/xml.zip"
+ },
+ {
+  "id": "de-bafin-merkblatt-nachhaltigkeitsrisiken-page",
+  "source_id": "DE-BAFIN-ADOPTED",
+  "iso2": "DE",
+  "instrument": "de-bafin-merkblatt-nachhaltigkeitsrisiken",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html"
+ },
+ {
+  "id": "tw-climate-change-response-act-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-change-response-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020098",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020098 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-climate-change-response-act-rules-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-change-response-act-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020103",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020103 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-climate-risk-assessment-guidelines-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-risk-assessment-guidelines",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143 (browser; compare the last \u6cbf\u9769 entry with 2025-07-16)"
+  }
+ },
+ {
+  "id": "tw-ghg-inventory-registration-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-inventory-registration-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102 (browser; compare the last \u6cbf\u9769 entry with 2025-12-19)"
+  }
+ },
+ {
+  "id": "tw-carbon-fee-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-carbon-fee-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020139",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020139 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-ghg-voluntary-reduction-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-voluntary-reduction-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+  }
+ },
+ {
+  "id": "tw-ghg-reduction-credit-trading-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-reduction-credit-trading-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138 (browser; compare the last \u6cbf\u9769 entry with 2024-08-15)"
+  }
+ },
+ {
+  "id": "tw-ghg-increment-offset-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-increment-offset-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+  }
+ },
+ {
+  "id": "tw-ghg-verification-bodies-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-verification-bodies-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104 (browser; compare the last \u6cbf\u9769 entry with 2025-03-19)"
+  }
+ },
+ {
+  "id": "tw-ghg-offset-project-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-offset-project-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101 (browser; compare the last \u6cbf\u9769 entry with 2018-12-27)"
+  }
+ },
+ {
+  "id": "tw-electricity-emission-factor-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-electricity-emission-factor-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079 (browser; compare the last \u6cbf\u9769 entry with 2020-11-11)"
+  }
+ },
+ {
+  "id": "tw-hfc-management-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-hfc-management-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020141",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020141 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-annual-report-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-annual-report-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=G0400022",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0400022 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-twse-sustainability-report-rules-twse-history",
+  "source_id": "TW-TWSE-ADOPTED",
+  "iso2": "TW",
+  "instrument": "tw-twse-sustainability-report-rules",
+  "kind": "date_list",
+  "tier": "regulator_page",
+  "url": "https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209",
+  "params": {
+   "regex": "FLDATE=(\\d{8})",
+   "second_route": "https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209 (browser; legislative history, the links carry the version dates)"
+  }
+ },
+ {
+  "id": "it-dlgs-125-2024-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-125-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2024-09-10&atto.codiceRedazionale=24G00145&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2024/09/10/24G00145/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-254-2016-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-254-2016",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2017-01-10&atto.codiceRedazionale=17G00002&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2017/01/10/17G00002/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-30-2013-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-30-2013",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2013-04-04&atto.codiceRedazionale=13G00075&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2013/04/04/13G00075/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-47-2020-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-47-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2020-06-10&atto.codiceRedazionale=20G00065&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2020/06/10/20G00065/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dl-111-2019-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dl-111-2019",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2019-10-14&atto.codiceRedazionale=19G00125&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2019/10/14/19G00125/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-l-141-2019-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-l-141-2019",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2019-12-13&atto.codiceRedazionale=19G00148&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2019/12/13/19G00148/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-30-2026-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-30-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2026-03-09&atto.codiceRedazionale=26G00047&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2026/03/09/26G00047/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-codice-consumo-arts-20-27-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-codice-consumo-arts-20-27",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2005-10-08&atto.codiceRedazionale=005G0232&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2005/10/08/005G0232/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-consob-23463-gu-page",
+  "source_id": "IT-GAZZETTA-ADOPTED",
+  "iso2": "IT",
+  "instrument": "it-consob-23463",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG",
+  "params": {
+   "second_route": "https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG (browser)"
+  }
+ },
+ {
+  "id": "it-normattiva-legal-notice",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/staticPage/legal",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.normattiva.it/staticPage/legal (browser)"
+  }
+ },
+ {
+  "id": "no-regnskapsloven-ch2-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-regnskapsloven-ch2",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/1998-07-17-56",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/1998-07-17-56 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-endringslov-2024-42-lovdata-page",
+  "source_id": "NO-LOVDATA-ADOPTED",
+  "iso2": "NO",
+  "instrument": "no-endringslov-2024-42",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2024-06-21-42",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2024-06-21-42 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimaloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimaloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2017-06-16-60",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2017-06-16-60 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimakvoteloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimakvoteloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2004-12-17-99",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2004-12-17-99 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-klimakvoteforskriften-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-klimakvoteforskriften",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/SF/forskrift/2004-12-23-1851",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/SF/forskrift/2004-12-23-1851 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-apenhetsloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-apenhetsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2021-06-18-99",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2021-06-18-99 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
+  "id": "no-markedsforingsloven-lovdata-page",
+  "source_id": "NO-LOVDATA-CONSOLIDATED",
+  "iso2": "NO",
+  "instrument": "no-markedsforingsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lovdata.no/dokument/NL/lov/2009-01-09-2",
+  "params": {
+   "second_route": "https://lovdata.no/dokument/NL/lov/2009-01-09-2 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
+  }
+ },
+ {
   "id": "ie-si-360-2017-isbc-directory",
   "source_id": "IE-EISB-ADOPTED",
   "iso2": "IE",
