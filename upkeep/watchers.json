@@ -173,5 +173,330 @@
   "kind": "page_hash",
   "url": "https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_0851-0900/ab_884_bill_20160831_enrolled.htm",
   "change": "terms_changed"
+ },
+ {
+  "id": "eu-esrs-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-esrs-2023-2772",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R2772-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02023R2772-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2772 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-sfdr-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-sfdr-2019-2088",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202019R2088-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02019R2088-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32019R2088 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-csddd-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-csddd-2024-1760",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202024L1760-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02024L1760-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024L1760 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-taxonomy-climate-da-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-climate-da-2021-2139",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202021R2139-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02021R2139-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R2139 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-taxonomy-disclosures-da-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-disclosures-da-2021-2178",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202021R2178-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02021R2178-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R2178 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-taxonomy-environmental-da-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-environmental-da-2023-2486",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R2486-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02023R2486-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2486 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-sfdr-rts-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-sfdr-rts-2022-1288",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202022R1288-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02022R1288-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32022R1288 (browser; eur-lex.europa.eu answers scripts with a bot challenge), consolidated versions list"
+  }
+ },
+ {
+  "id": "eu-taxonomy-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-2020-852",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232020R0852%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32020R0852 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-omnibus-stop-the-clock-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-omnibus-stop-the-clock-2025-794",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232022L2464%22%2C%2232024L1760%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32022L2464 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-omnibus-content-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-omnibus-content-2026-470",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232013L0034%22%2C%2232006L0043%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32013L0034 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-esrs-amendment-2025-1416-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-esrs-amendment-2025-1416",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232023R2772%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2772 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-esrs-amendment-2026-1563-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-esrs-amendment-2026-1563",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232026R1563%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32026R1563 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-taxonomy-complementary-climate-da-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-complementary-climate-da-2022-1214",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232022R1214%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32022R1214 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-taxonomy-climate-amendment-da-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-climate-amendment-da-2023-2485",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232023R2485%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2485 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-taxonomy-simplification-da-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-taxonomy-simplification-da-2026-73",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232026R0073%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32026R0073 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "gb-ca2006-ch4a-versions",
+  "source_id": "UK-LEGISLATION-CONSOLIDATED",
+  "iso2": "GB",
+  "instrument": "gb-ca2006-s414a-414d",
+  "kind": "date_list",
+  "url": "https://www.legislation.gov.uk/ukpga/2006/46/part/15/chapter/4A/data.xml",
+  "params": {
+   "regex": "hasVersion\" href=\"[^\"]*/(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.legislation.gov.uk/ukpga/2006/46/part/15/chapter/4A (HTML page, Timeline of Changes)"
+  }
+ },
+ {
+  "id": "gb-uksi-2022-31-contents-page",
+  "source_id": "UK-LEGISLATION-ADOPTED",
+  "iso2": "GB",
+  "instrument": "gb-uksi-2022-31",
+  "kind": "page_hash",
+  "url": "https://www.legislation.gov.uk/uksi/2022/31/contents",
+  "params": {
+   "second_route": "https://www.legislation.gov.uk/uksi/2022/31 (HTML page; redirects to /contents/made until a revised version exists)"
+  }
+ },
+ {
+  "id": "gb-fca-esg-handbook-page",
+  "source_id": "UK-FCA-HANDBOOK",
+  "iso2": "GB",
+  "instrument": "gb-fca-esg-sdr",
+  "kind": "page_hash",
+  "url": "https://www.handbook.fca.org.uk/handbook/ESG/",
+  "params": {
+   "second_route": "browser read of https://www.handbook.fca.org.uk/handbook/ESG/ (JavaScript shell; Cloudflare adds a per-request nonce, so the hash never repeats)"
+  }
+ },
+ {
+  "id": "gb-uk-srs-govuk-page",
+  "source_id": "UK-SRS-ADOPTED",
+  "iso2": "GB",
+  "instrument": "gb-uk-srs-s1-s2",
+  "kind": "page_hash",
+  "url": "https://www.gov.uk/government/publications/uk-sustainability-reporting-standards-uk-srs-s1-and-uk-srs-s2",
+  "params": {
+   "second_route": "https://www.gov.uk/api/content/government/publications/uk-sustainability-reporting-standards-uk-srs-s1-and-uk-srs-s2 (JSON, public_updated_at)"
+  }
+ },
+ {
+  "id": "us-sec-climate-fedreg-citations",
+  "source_id": "US-FEDREG-ADOPTED",
+  "iso2": "US",
+  "instrument": "us-sec-climate-disclosure-33-11275",
+  "kind": "date_list",
+  "url": "https://www.federalregister.gov/api/v1/documents.json?conditions[term]=%2233-11275%22&fields[]=publication_date&order=newest",
+  "params": {
+   "regex": "\"publication_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=%2233-11275%22 (browser)"
+  }
+ },
+ {
+  "id": "us-ca-sb253-carb-program-page",
+  "source_id": "US-CA-LEGINFO-ADOPTED",
+  "iso2": "US",
+  "instrument": "us-ca-sb253",
+  "kind": "page_hash",
+  "url": "https://ww2.arb.ca.gov/our-work/programs/california-corporate-greenhouse-gas-ghg-reporting-and-climate-related-financial-risk",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot; ww2.arb.ca.gov answers scripts with HTTP 419"
+  }
+ },
+ {
+  "id": "us-ca-sb261-carb-financial-risk-page",
+  "source_id": "US-CA-LEGINFO-ADOPTED",
+  "iso2": "US",
+  "instrument": "us-ca-sb261",
+  "kind": "page_hash",
+  "url": "https://ww2.arb.ca.gov/node/49201",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot of the CARB Climate-Related Financial Risk page; ww2.arb.ca.gov answers scripts with HTTP 419"
+  }
+ },
+ {
+  "id": "us-ca-sb219-leginfo-pubinfo-2023",
+  "source_id": "US-CA-LEGINFO-ADOPTED",
+  "iso2": "US",
+  "instrument": "us-ca-sb219",
+  "kind": "http_head",
+  "url": "https://downloads.leginfo.legislature.ca.gov/pubinfo_2023.zip",
+  "params": {
+   "second_route": "range request on the same URL (curl -r 0-3 returns 206); SB 219 chaptered text sits in this archive"
+  }
+ },
+ {
+  "id": "in-companies-act-2013-indiacode-page",
+  "source_id": "IN-INDIACODE-ADOPTED",
+  "iso2": "IN",
+  "instrument": "in-companies-act-2013-s135",
+  "kind": "page_hash",
+  "url": "https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00008_201318_1517807327856&orderno=139",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+  }
+ },
+ {
+  "id": "in-sebi-lodr-regulations-page",
+  "source_id": "IN-SEBI-ADOPTED",
+  "iso2": "IN",
+  "instrument": "in-sebi-lodr-reg-34-2-f",
+  "kind": "page_hash",
+  "url": "https://www.sebi.gov.in/legal/regulations/oct-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-october-15-2026-_105365.html",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+  }
+ },
+ {
+  "id": "in-sebi-brsr-circular-2021-page",
+  "source_id": "IN-SEBI-ADOPTED",
+  "iso2": "IN",
+  "instrument": "in-sebi-brsr-circular-2021",
+  "kind": "page_hash",
+  "url": "https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-reporting-by-listed-entities_50096.html",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+  }
+ },
+ {
+  "id": "in-sebi-brsr-core-circular-2023-page",
+  "source_id": "IN-SEBI-ADOPTED",
+  "iso2": "IN",
+  "instrument": "in-sebi-brsr-core-circular-2023",
+  "kind": "page_hash",
+  "url": "https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+  }
+ },
+ {
+  "id": "in-sebi-circular-2025-42-page",
+  "source_id": "IN-SEBI-ADOPTED",
+  "iso2": "IN",
+  "instrument": "in-sebi-brsr-assessment-circular-2025",
+  "kind": "page_hash",
+  "url": "https://www.sebi.gov.in/legal/circulars/mar-2025/measures-to-facilitate-ease-of-doing-business-with-respect-to-framework-for-assurance-or-assessment-esg-disclosures-for-value-chain-and-introduction-of-voluntary-disclosure-on-green-credits_93102.html",
+  "params": {
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+  }
  }
 ]

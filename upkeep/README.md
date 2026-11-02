@@ -126,3 +126,44 @@ For each row, `update.py` reads the `sources.json` row named by `source_id` and 
 A refused row (verdict not `pass`, fetch failed, record already present, gate failed) keeps its `outcome`; the reason is written into `notes` as `refused <date>: <reason>`, and the files written for it are taken back. A stored row gets `outcome` `stored` and `notes` `stored <record path>`.
 
 By default the four changed paths (the record, `register/<iso2>/scope.json`, `SOURCES.md`, `upkeep/queue.csv`) are committed to a branch `upkeep/<iso2>-<instrument>-<in_force>` created from the current branch, one branch per row, and the tool prints the `git push -u origin` and `gh pr create --head` commands. It never pushes and never commits on the current branch; refusal notes stay in the working tree of the current branch for the reviewer. The commit step refuses to run while `SOURCES.md`, `upkeep/queue.csv`, `records/` or `register/` have uncommitted changes. `--no-commit` leaves the files in the working tree instead. `--dry-run` fetches nothing, writes nothing and prints what each row would do. The exit code is 1 when any selected row was refused or left open.
+
+## Pilot watchers (GEL-02-07)
+
+One watcher per instrument in the four scope files, using only the four kinds above. The Cellar watchers come in two shapes: a `date_list` of consolidated work ids (the CSRD example with the CELEX swapped) for every instrument whose `source_row` names `EU-EURLEX-CONSOLIDATED`, and a `date_list` of the document dates of every act that amends or corrects a target act (SPARQL over `cdm:resource_legal_amends_resource_legal` and `cdm:resource_legal_corrects_resource_legal`) for the adopted-only instruments. The amending acts watch the acts they amend; the two Omnibus directives split their targets so that no two watchers run the same query, and Delegated Regulation 2026/1563 watches its own corrigenda because the 2025/1416 watcher already covers acts amending 2023/2772.
+
+| id | kind | what it watches |
+|---|---|---|
+| `eu-csrd-cellar-consolidations` | `date_list` | Cellar: consolidated versions of CSRD 2022/2464 |
+| `eu-esrs-cellar-consolidations` | `date_list` | Cellar: consolidated versions of ESRS 2023/2772 |
+| `eu-sfdr-cellar-consolidations` | `date_list` | Cellar: consolidated versions of SFDR 2019/2088 |
+| `eu-csddd-cellar-consolidations` | `date_list` | Cellar: consolidated versions of CSDDD 2024/1760 |
+| `eu-taxonomy-climate-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Climate DA 2021/2139 |
+| `eu-taxonomy-disclosures-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Disclosures DA 2021/2178 |
+| `eu-taxonomy-environmental-da-cellar-consolidations` | `date_list` | Cellar: consolidated versions of Environmental DA 2023/2486 |
+| `eu-sfdr-rts-cellar-consolidations` | `date_list` | Cellar: consolidated versions of SFDR RTS 2022/1288 |
+| `eu-taxonomy-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Taxonomy Regulation 2020/852 |
+| `eu-omnibus-stop-the-clock-cellar-amendments` | `date_list` | Cellar: acts amending or correcting CSRD 2022/2464 or CSDDD 2024/1760 |
+| `eu-omnibus-content-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Accounting Directive 2013/34 or Audit Directive 2006/43 |
+| `eu-esrs-amendment-2025-1416-cellar-amendments` | `date_list` | Cellar: acts amending or correcting ESRS 2023/2772 |
+| `eu-esrs-amendment-2026-1563-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2026/1563 itself |
+| `eu-taxonomy-complementary-climate-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2022/1214 |
+| `eu-taxonomy-climate-amendment-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2023/2485 |
+| `eu-taxonomy-simplification-da-cellar-amendments` | `date_list` | Cellar: acts amending or correcting Delegated Regulation 2026/73 |
+| `gb-ca2006-s414cb-versions` | `date_list` | legislation.gov.uk `hasVersion` dates of Companies Act 2006 s.414CB |
+| `gb-ca2006-ch4a-versions` | `date_list` | legislation.gov.uk `hasVersion` dates of Companies Act 2006 Part 15 Chapter 4A |
+| `gb-uksi-2022-31-contents-page` | `page_hash` | legislation.gov.uk contents page of SI 2022/31 |
+| `gb-fca-esg-handbook-page` | `page_hash` | FCA Handbook ESG sourcebook page |
+| `gb-uk-srs-govuk-page` | `page_hash` | gov.uk publication page for UK SRS S1 and S2 |
+| `us-ecfr-40cfr98-versions` | `version_list` | eCFR versioner dates of 40 CFR Part 98 |
+| `us-sec-climate-fedreg-citations` | `date_list` | Federal Register API: publication dates of documents citing SEC Release 33-11275 |
+| `us-ca-leginfo-pubinfo-2025` | `http_head` | `Last-Modified` of the California 2025-26 session bulk file |
+| `us-ca-sb219-leginfo-pubinfo-2023` | `http_head` | `Last-Modified` of the California 2023-24 session bulk file (SB 219 chaptered text) |
+| `us-ca-sb253-carb-program-page` | `page_hash` | CARB corporate GHG reporting and climate risk program page (SB 253) |
+| `us-ca-sb261-carb-financial-risk-page` | `page_hash` | CARB Climate-Related Financial Risk page (SB 261) |
+| `in-companies-act-2013-indiacode-page` | `page_hash` | India Code page for the Companies Act 2013 |
+| `in-sebi-lodr-regulations-page` | `page_hash` | SEBI page for the LODR Regulations 2015 (as last amended) |
+| `in-sebi-brsr-circular-2021-page` | `page_hash` | SEBI page for the BRSR circular of 2021 |
+| `in-sebi-brsr-core-circular-2023-page` | `page_hash` | SEBI page for the BRSR Core circular of 2023 |
+| `in-sebi-circular-2025-42-page` | `page_hash` | SEBI page for circular 2025/42 |
+
+The India, FCA and UK SRS watchers only ever produce queue rows because their licence rows are not `pass`; nothing from those sources is stored. The India and CARB pages answer scripts with HTTP 403 or 419 (and sebi.gov.in resets connections after a few requests), so their rows are `watch_failed` with `second_route` naming a browser read or an Internet Archive snapshot. The FCA Handbook page is a JavaScript shell into which Cloudflare writes a per-request nonce, so its hash differs on every run and each run adds one `new_version` row for it until a stable FCA signal is found.
