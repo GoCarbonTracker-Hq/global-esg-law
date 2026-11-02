@@ -6903,5 +6903,77 @@
   "params": {
    "second_route": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
   }
+ },
+ {
+  "id": "ua-law-377-ix-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-law-377-ix",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/377-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-accounting-law-996-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-accounting-law-996",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/996-14",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-climate-policy-law-3991-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-climate-policy-law-3991",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3991-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-env-protection-law-1264-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-env-protection-law-1264",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/1264-12",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-consumer-protection-law-3153-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-consumer-protection-law-3153",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3153-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-advertising-law-270-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-advertising-law-270",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
  }
 ]

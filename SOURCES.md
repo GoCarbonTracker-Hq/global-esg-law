@@ -3855,3 +3855,48 @@ Spanish is the only official language; every record has `language` es and no row
 - `https://www.bolsadequito.com/`: `406 226 text/html` to `curl -A 'Mozilla/5.0'`, `200 197323` to a full Chrome User-Agent; no terms page was found, so no row.
 - `https://www.registroficial.gob.ec/` answers `200 186643 text/html`, but it serves edition summaries (for example https://www.registroficial.gob.ec/registro-oficial-no-733/) and no gazette PDF; its only linked file is a user manual and the filing application at `https://esacc.corteconstitucional.gob.ec/app/` needs a login. `wp-json` answers `401 MISSING_AUTHORIZATION_HEADER`. No request that returns a gazette PDF was found, so no `EC-REGISTROFICIAL` row was added.
 - `https://www.supercias.gob.ec/portalscvs/index.htm`: `200 248924 text/html`, no terms or copyright page linked; no SCVS resolution text was fetched, so no row. `https://www.lexis.com.ec` answers 200 and is private: never a row.
+
+## Ukraine
+
+Rows `UA-RADA-ADOPTED`, `UA-RADA-CONSOLIDATED` and `UA-RADA-TRANSLATION` (all `permission requested`). Run on 2026-11-02. No row is `pass`, so no record is stored and all six scope instruments are link only. There is no proven fetch request for any row.
+
+zakon.rada.gov.ua (Законодавство України) is blocked from the cloud address. Every request ended before the server answered:
+
+```
+curl -sS -L -m 40 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://zakon.rada.gov.ua/laws/show/377-20
+```
+
+Returned `curl: (35) Recv failure: Connection reset by peer` (`000 0`). The same reset came for `/`, `/robots.txt`, `/laws/show/2811-20` (the copyright law whose art. 8 the brief expects to carry a pass), `/laws/show/en/377-20` (English view), `/laws/show/377-20/print` and `/laws/main/a1`, and for `zakon1.rada.gov.ua`, `zakon2.rada.gov.ua`, `zakon3.rada.gov.ua` and `data.rada.gov.ua`. Plain `http://zakon.rada.gov.ua/laws/show/377-20` answered `503 114 text/plain` ("upstream connect error or disconnect/reset before headers ... connection timeout"). Headless Chromium (Playwright `page.goto`) got `502` for `https://zakon.rada.gov.ua/laws/show/377-20`. Blocked from the cloud address: https://zakon.rada.gov.ua/ . The orchestrator can run the curl line above from the laptop. If it answers there, the print view per revision (`/laws/show/<number>/print`) and `/laws/show/<number>/ed<YYYYMMDD>` are the requests to try first; neither was reached from here, so neither is proven.
+
+Not reachable for law text either: the Internet Archive (`web.archive.org` answers `403 Blocked by egress policy`), `r.jina.ai` (422, timeout reaching zakon.rada.gov.ua).
+
+Other official hosts tried:
+
+| URL | Answer | Use |
+|---|---|---|
+| https://www.mof.gov.ua/uk | `403` Akamai "Access Denied" with curl and with headless Chromium | blocked from the cloud address: https://www.mof.gov.ua/ ; https://minfin.gov.ua also `403` |
+| https://itd.rada.gov.ua/billinfo/Bills/Card/<id> | `200 text/html; charset=utf-8` | bill cards, used as the official page for bills 15538 and 13425 and 13428; no terms, no law texts |
+| https://rada.gov.ua/ , https://w1.c1.rada.gov.ua/ | `200 171948 text/html` | no law texts, no copyright page found |
+| https://www.nssmc.gov.ua/ | `200 95602 text/html` | no copyright or reuse page found on the home page; site search for сталого розвитку returned nothing; no instrument identified, so no row |
+| https://www.kmu.gov.ua/ | `200 467815 text/html` | not used |
+
+### Bill cards
+
+The Rada bill card has an internal id; the bill number is on the page. Found by scanning ids with `curl -sSL https://itd.rada.gov.ua/billinfo/Bills/Card/<id>` and reading "Номер, дата реєстрації": id 70563 is bill 15538 (registered 2026-08-21, Cabinet of Ministers, "Опрацьовується в комітеті" since 2026-08-24); id 56689 is bill 13425 (registered 2025-06-26, "Проєкт відкликано" 2025-06-30, "Знято з розгляду" 2025-07-17); id 56691 is bill 13428 (amendments to the climate policy law, in committee).
+
+### Languages
+
+`UA-RADA-TRANSLATION` (English views under `/laws/show/en/<number>`) is on the same blocked host, so nothing was read about which English texts are official and which are marked unofficial. No English record is stored.
+
+### Link only
+
+| Instrument | Row | Reason |
+|---|---|---|
+| `ua-law-377-ix` | `UA-RADA-CONSOLIDATED` | permission requested; zakon.rada.gov.ua resets the connection |
+| `ua-accounting-law-996` | same | same |
+| `ua-climate-policy-law-3991` | same | same |
+| `ua-env-protection-law-1264` | same | same |
+| `ua-consumer-protection-law-3153` | same | same |
+| `ua-advertising-law-270` | same | same |
+
+No PDF was fetched, so no poppler command applies. No browser-fetched record exists.
