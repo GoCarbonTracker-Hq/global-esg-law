@@ -10,6 +10,11 @@ to SOURCES.md under `### upkeep`, the admission gate (tools/check_corpus.py) run
 are committed to a branch upkeep/<iso2>-<instrument>-<in_force> created from the current branch.
 A row whose source verdict is not `pass` at that moment, or whose record fails the gate, is refused:
 the reason goes into its `notes`, `outcome` stays as the reviewer left it. Nothing is ever pushed.
+
+A confirmed row with change `repealed` goes the same way without a fetch: the record written is a
+repeal (`text` empty, `repealed: true`, `in_force` the row's signal), so the dated history gains one
+commit with trailer `Kind: repeal` and nothing earlier is edited. A `repealed` row whose signal is
+not a date is refused.
 """
 import argparse
 import csv
@@ -248,10 +253,10 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
     out = out or sys.stdout
     sources = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
     queue = load_queue(repo)
-    selected = [r for r in queue if r.get("outcome") == "confirm" and r.get("change") == "new_version"
+    selected = [r for r in queue if r.get("outcome") == "confirm" and r.get("change") in ("new_version", "repealed")
                 and (row is None or row_key(r) == row)]
     if row is not None and not selected:
-        raise ValueError(f"no confirmed new_version row {row!r} in upkeep/queue.csv")
+        raise ValueError(f"no confirmed new_version row {row!r} in upkeep/queue.csv (nor a confirmed repealed row)")
     original = None
     if commit and not dry_run and selected:
         original = git(repo, "symbolic-ref", "--short", "-q", "HEAD")
@@ -268,6 +273,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
 
     for r in selected:
         key, iso2, instrument, source_id, in_force = row_key(r), r["iso2"], r["instrument"], r["source_id"], r["signal"]
+        repeal = r.get("change") == "repealed"
 
         def refuse(reason):
             if dry_run:
@@ -280,7 +286,10 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             say(key, "open", "row names no instrument, left open")
             continue
         if not DATE_RE.fullmatch(in_force or ""):
-            say(key, "open", f"signal {in_force!r} is not an in-force date, left open")
+            if repeal:
+                refuse(f"signal {in_force!r} is not a repeal date (YYYY-MM-DD)")
+            else:
+                say(key, "open", f"signal {in_force!r} is not an in-force date, left open")
             continue
         source = sources.get(source_id)
         if source is None:
@@ -290,7 +299,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             refuse(f"source {source_id} verdict is {source.get('verdict')!r}, not 'pass'")
             continue
         recipe = RECIPES.get(source_id)
-        if recipe is None:
+        if recipe is None and not repeal:  # a repeal fetches nothing, so it needs no recipe
             say(key, "open", f"no recipe for {source_id}")
             continue
         scope_path = repo / "register" / iso2 / "scope.json"
@@ -300,7 +309,8 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             refuse(f"no instrument {instrument!r} in register/{iso2}/scope.json")
             continue
         kind = source.get("form")
-        path = repo / "records" / iso2 / instrument / f"{in_force}-{kind}.json"
+        label = "repeal" if repeal else kind
+        path = repo / "records" / iso2 / instrument / f"{in_force}-{label}.json"
         rel = path.relative_to(repo).as_posix()
         branch = f"upkeep/{iso2}-{instrument}-{in_force}"
         if path.exists():
@@ -309,39 +319,49 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
         if commit and not dry_run and git(repo, "branch", "--list", branch):
             say(key, "open", f"branch {branch} already exists, left open")
             continue
-        try:
-            plan = recipe(entry, in_force)
-        except ValueError as exc:
-            refuse(str(exc))
-            continue
+        if repeal:
+            plan = {"url": None}
+        else:
+            try:
+                plan = recipe(entry, in_force)
+            except ValueError as exc:
+                refuse(str(exc))
+                continue
         if dry_run:
-            say(key, "planned", f"would fetch {plan['url']}, write {rel}, mark {instrument} stored in "
-                                f"register/{iso2}/scope.json, add a SOURCES.md line"
+            say(key, "planned", ("would write a repeal record " if repeal else f"would fetch {plan['url']}, write ")
+                                + f"{rel}, mark {instrument} stored in register/{iso2}/scope.json, add a SOURCES.md line"
                                 + (f", commit to {branch}" if commit else ", leave the files uncommitted"))
             continue
-        status, body = fetch(plan["url"], plan["headers"])
-        if status != 200:
-            refuse(f"fetch of {plan['url']} returned HTTP {status}")
-            continue
-        if not body:
-            refuse(f"fetch of {plan['url']} returned an empty body")
-            continue
-        text = extract_text(body, plan["drop"])
-        if not text.strip():
-            refuse(f"no text extracted from {plan['url']}")
-            continue
-        sha256 = hashlib.sha256(body).hexdigest()
-        record = {"source_id": source_id, "in_force": in_force, "kind": kind, "text": text,
-                  "fetched_url": plan["url"], "fetched_sha256": sha256}
-        if plan.get("message"):
-            record["message"] = plan["message"]
+        if repeal:
+            evidence = r.get("evidence_url") or "none"
+            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "text": "", "repealed": True}
+            provenance = f"repeal dated {in_force}, no fetch, evidence `{evidence}`"
+            trailers = f"Evidence-url: {evidence}"
+        else:
+            status, body = fetch(plan["url"], plan["headers"])
+            if status != 200:
+                refuse(f"fetch of {plan['url']} returned HTTP {status}")
+                continue
+            if not body:
+                refuse(f"fetch of {plan['url']} returned an empty body")
+                continue
+            text = extract_text(body, plan["drop"])
+            if not text.strip():
+                refuse(f"no text extracted from {plan['url']}")
+                continue
+            sha256 = hashlib.sha256(body).hexdigest()
+            record = {"source_id": source_id, "in_force": in_force, "kind": kind, "text": text,
+                      "fetched_url": plan["url"], "fetched_sha256": sha256}
+            if plan.get("message"):
+                record["message"] = plan["message"]
+            provenance = f"fetched `{plan['url']}`, sha256 `{sha256}`"
+            trailers = f"Fetched-url: {plan['url']}\nFetched-sha256: {sha256}"
         sources_md = repo / "SOURCES.md"
         before = {p: (p.read_bytes() if p.exists() else None) for p in (scope_path, sources_md)}
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(record, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         mark_scope_stored(scope_path, instrument, source_id)
-        line = (f"- {today}: `{rel}`, row `{source_id}`, fetched `{plan['url']}`, sha256 `{sha256}`, "
-                f"queue row `{key}`.")
+        line = f"- {today}: `{rel}`, row `{source_id}`, {provenance}, queue row `{key}`."
         add_sources_line(sources_md, line)
         try:
             check(repo)
@@ -365,8 +385,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
         notes_in_tree = queue_path.read_bytes()
         git(repo, "checkout", "-q", "HEAD", "--", "upkeep/queue.csv")
         mark_row(repo, key, f"stored {rel}", outcome="stored")
-        message = (f"upkeep: {instrument} {in_force} ({kind})\n\nQueue-row: {key}\n"
-                   f"Fetched-url: {plan['url']}\nFetched-sha256: {sha256}")
+        message = f"upkeep: {instrument} {in_force} ({label})\n\nQueue-row: {key}\n{trailers}"
         git(repo, "checkout", "-q", "-b", branch)
         try:
             git(repo, "add", "--", *paths)

@@ -104,3 +104,19 @@ def test_unknown_jurisdiction_and_bad_date(tmp_path, capsys):
 def test_pre_1970_date(tmp_path):
     repo = make(tmp_path)
     assert ids(law.in_force("EU", "1969-12-31", repo)) == ["law"]
+
+
+def test_repeal_drops_instrument_from_its_date(tmp_path):
+    fixture(tmp_path)
+    (tmp_path / "records" / "EU" / "law2" / "repeal.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": "2024-05-06", "kind": "adopted", "text": "", "repealed": True}))
+    build.build(tmp_path, branch="history")
+    assert ids(law.in_force("EU", "2021-01-01", tmp_path)) == ["law", "law2"]
+    assert ids(law.in_force("EU", "2024-05-05", tmp_path)) == ["law", "law2"]
+    assert ids(law.in_force("EU", "2024-05-06", tmp_path)) == ["law"]
+    assert ids(law.in_force("EU", "2030-01-01", tmp_path)) == ["law"]
+    # the not-yet-in-force list is unchanged: a coming repeal is not listed there
+    assert law.lookup("EU", "2021-01-01", tmp_path)[1] == []
+    assert [i["in_force"] for i in law.lookup("EU", "2000-01-01", tmp_path)[1]] == ["2020-03-04"]
+    kinds = subprocess.check_output(["git", "-C", str(tmp_path), "log", "--reverse", "--format=%(trailers:key=Kind,valueonly)", "history"], text=True).split()
+    assert kinds == ["adopted", "adopted", "repeal"]
