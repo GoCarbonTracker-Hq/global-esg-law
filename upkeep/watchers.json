@@ -1,0 +1,48 @@
+[
+ {
+  "id": "eu-csrd-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-csrd-2022-2464",
+  "kind": "date_list",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202022L2464-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02022L2464-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32022L2464 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "gb-ca2006-s414cb-versions",
+  "source_id": "UK-LEGISLATION-CONSOLIDATED",
+  "iso2": "GB",
+  "instrument": "gb-ca2006-s414cb",
+  "kind": "date_list",
+  "url": "https://www.legislation.gov.uk/ukpga/2006/46/section/414CB/data.xml",
+  "params": {
+   "regex": "hasVersion\" href=\"[^\"]*/(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.legislation.gov.uk/ukpga/2006/46/section/414CB (HTML page, Timeline of Changes)"
+  }
+ },
+ {
+  "id": "us-ecfr-40cfr98-versions",
+  "source_id": "US-ECFR-ADOPTED",
+  "iso2": "US",
+  "instrument": "us-epa-ghgrp-40cfr98",
+  "kind": "version_list",
+  "url": "https://www.ecfr.gov/api/versioner/v1/versions/title-40.json?part=98",
+  "params": {
+   "second_route": "https://www.ecfr.gov/current/title-40/part-98 (Timeline tab)"
+  }
+ },
+ {
+  "id": "us-ca-leginfo-pubinfo-2025",
+  "source_id": "US-CA-LEGINFO-ADOPTED",
+  "iso2": "US",
+  "instrument": "*",
+  "kind": "http_head",
+  "url": "https://downloads.leginfo.legislature.ca.gov/pubinfo_2025.zip",
+  "params": {
+   "second_route": "range request on the same URL (curl -r 0-3 returns 206); the bill pages on leginfo.legislature.ca.gov answer scripts with 403"
+  }
+ }
+]
