@@ -2030,6 +2030,38 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
 
+## Lithuania
+
+Rows `LT-TAR-CONSOLIDATED`, `LT-SEIMAS-ADOPTED` and `LT-SEIMAS-TRANSLATION`, all `permission requested` (terms page not opened). No `pass` row, so no fetch request is proven and no text is stored. Run on 2026-11-02.
+
+Every official Lithuanian site answered the cloud address with a Cloudflare challenge. The failing request, then the browser attempt:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB
+```
+
+Returned `403 5462 text/html; charset=UTF-8` (title "Luktelėkite...", "Saugumo patvirtinimo atlikimas", Cloudflare Ray ID). The same answer, with 5.3 to 5.6 KB bodies, came for `https://www.e-tar.lt/`, `/portal/lt/index`, `/rs/actualedition/...`, `https://e-seimas.lrs.lt/`, `/rs/legalact/TAD/...`, `/portal/legalAct/...`, `https://www.lb.lt/`, `https://finmin.lrv.lt/`, `https://lrv.lt/`, `https://am.lrv.lt/`, `https://www.vtd.lt/`, `https://www.infolex.lt/`, `https://www.registrucentras.lt/`, `https://vkontrole.lt/`.
+
+```
+node probe.js https://www.e-tar.lt https://e-seimas.lrs.lt https://www.lb.lt
+```
+
+with Playwright chromium (`goto`, `waitUntil: domcontentloaded`, then polling the page title every 2.5 s for up to 100 s, and a second variant with `--disable-blink-features=AutomationControlled`, a desktop User-Agent and `navigator.webdriver` hidden, waiting 25 s). The title stayed "Luktelėkite..." on every page, status 403. No TAR open-data endpoint was reachable: `https://data.gov.lt/` and `https://get.data.gov.lt/` answered 500 (about 39 KB error page), `https://opendata.registrucentras.lt` did not connect. EUR-Lex (`eur-lex.europa.eu`) answered `202 0` to curl and "upstream request failed" to the browser, so the national transposition table could not be read either.
+
+Blocked from the cloud address: https://www.e-tar.lt/ , https://e-seimas.lrs.lt/ , https://www.lb.lt/ , https://finmin.lrv.lt/ , https://lrv.lt/ , https://am.lrv.lt/ , https://www.vtd.lt/ , https://www.infolex.lt/ , https://www.registrucentras.lt/ , https://vkontrole.lt/ (HTTP 403 Cloudflare). `https://www.lrs.lt/` answered `200 201137 text/html`; it is the Seimas home page and carries no legal text. The orchestrator can run the requests from the laptop.
+
+### Languages
+
+No language or translation source was proven. Lithuanian is the only official language; the English translations on e-seimas.lrs.lt (Teisės aktų vertimai) were not reachable, and the Seimas marks them unofficial, so `LT-SEIMAS-TRANSLATION` could pass only on quoted terms.
+
+### Link only
+
+All five scope instruments, because the rows are `permission requested` and no request works:
+
+- `lt-company-reporting-act` (XIV-2811), `lt-financial-reporting-act-ix575` (IX-575, historical), `lt-consolidated-reporting-act-ix576` (IX-576, historical), `lt-climate-change-management-act` (XI-329), `lt-unfair-commercial-practices-act` (X-1409). Their official URLs come from the existing register row (XIV-2811) or from web search results for e-tar.lt pages that were not opened; `in_force` is null in every entry.
+- Not written: an entry for the act transposing Directive (EU) 2024/825. Searches found no such act, only unrelated amendments to the Consumer Rights Protection Act I-657.
+- Not given a row: Lietuvos bankas (`lb.lt`, blocked); no Lietuvos bankas instrument is in scope.
+
 ## Romania
 
 Attempted 2026-11-02 (GEL-06-02). No row is `pass`, so there is no proven fetch request and no record. The four rows added (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`, `RO-MONITORUL-OFICIAL-ADOPTED`, `RO-ASF-ADOPTED`) are all `permission requested`. The portal that carries the law text, `legislatie.just.ro`, gave no response to any request from the cloud address.
