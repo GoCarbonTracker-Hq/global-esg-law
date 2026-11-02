@@ -8,7 +8,7 @@ Tools that notice when an official source changes, so a person can decide whethe
 python3 tools/watch.py [--source <sources.json id>] [--dry-run]
 ```
 
-Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures` and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing.
+Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing.
 
 A contributor's run ends in a pull request from a fork, never a push to main.
 
@@ -23,6 +23,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `iso2` | Jurisdiction code, matching `register/<ISO2>/`. |
 | `instrument` | An `id` in `register/<ISO2>/scope.json`, or `*` for a watcher that covers the source as a whole. |
 | `kind` | One of the four kinds below. |
+| `tier` | One of the four tiers under "Cadence and ceiling": `gazette_feed`, `consolidation_site`, `regulator_page` or `tracker_pointer`. Missing or unknown is a validation error. |
 | `url` | What is fetched. Never a URL whose body is law text. |
 | `params.regex` | `date_list` only: a regular expression with exactly one group that captures a date as `YYYY-MM-DD` or `YYYYMMDD`. |
 | `params.second_route` | Optional: where a person can check by hand when the fetch fails. Copied into the `notes` of a `watch_failed` row. |
@@ -39,7 +40,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 
 ## seen.json
 
-One entry per watcher id: `signals` (the dates or the current value; `null` until the first successful fetch), `failure` (the text of the last failure, or `null`) and `checked_on`. A watcher with no entry records every current signal and gets one `baseline` row, so a source with many stored versions does not flood the queue on its first run. The file is written by the watcher and is not edited by hand.
+One entry per watcher id: `signals` (the dates or the current value; `null` until the first successful fetch), `failure` (the text of the last failure, or `null`), `checked_on`, `seconds` (wall time of the last fetch and parse) and `bytes` (length of the response bodies after gzip decoding, 0 for a `HEAD` request). A watcher with no entry records every current signal and gets one `baseline` row, so a source with many stored versions does not flood the queue on its first run. The file is written by the watcher and is not edited by hand.
 
 ## queue.csv
 
@@ -167,3 +168,28 @@ One watcher per instrument in the four scope files, using only the four kinds ab
 | `in-sebi-circular-2025-42-page` | `page_hash` | SEBI page for circular 2025/42 |
 
 The India, FCA and UK SRS watchers only ever produce queue rows because their licence rows are not `pass`; nothing from those sources is stored. The India and CARB pages answer scripts with HTTP 403 or 419 (and sebi.gov.in resets connections after a few requests), so their rows are `watch_failed` with `second_route` naming a browser read or an Internet Archive snapshot. The FCA Handbook page is a JavaScript shell into which Cloudflare writes a per-request nonce, so its hash differs on every run and each run adds one `new_version` row for it until a stable FCA signal is found.
+
+## Cadence and ceiling (GEL-02-06)
+
+Every watcher carries a `tier` that says what kind of source it reads. The tier sets how often the source needs a look and what a look costs. `cadence.json` holds the figures; `tools/watch.py` writes the per-watcher `seconds` and `bytes` into `seen.json` on every run, so the table can be re-measured from any later run.
+
+| Tier | What it covers | Watchers | Interval | Seconds per run | Bytes per run | Failures per run |
+|---|---|---|---|---|---|---|
+| `gazette_feed` | Cellar SPARQL (16), Federal Register API (1) | 17 | 7 days | 44.9 | 2,829 | 0 |
+| `consolidation_site` | legislation.gov.uk `data.xml` and contents page (3), eCFR versioner (1), California leginfo bulk files (2) | 6 | 14 days | 1.7 | 634,952 | 0 |
+| `regulator_page` | CARB (2), FCA Handbook (1), SEBI (4), gov.uk (1), India Code (1), the 12 terms pages | 21 | 30 days | 30.5 | 1,339,711 | 4 |
+| `tracker_pointer` | A source watched only through a third-party tracker | 0 | 90 days | 0 | 0 | 0 |
+| all | | 44 | | 77.1 | 1,977,492 | 4 |
+
+Measured on 2026-11-02 from one run of `python3 tools/watch.py` in a cloud session (wall time 77 s, no paid tools; PR 20's trial run the same day took 68 s for 32 watchers with 3 failures, before seconds and bytes were recorded). One run is one sample: the Cellar queries took 1.5 to 6 s each and the SEBI connection reset took 10.7 s, so a second run will move the seconds by a few tens of per cent. Bytes are stable.
+
+Why these intervals:
+
+- `gazette_feed`, 7 days. The Official Journal and the Federal Register publish most days; an amending act or a new consolidation id shows up in Cellar within days. A weekly check bounds the lag at a week for 45 s and under 3 KB per run, and these feeds are the ones that feed `tools/update.py`.
+- `consolidation_site`, 14 days. Consolidation sites publish after the gazette, on an editorial lag, and 40 CFR 98 or Companies Act 2006 s.414CB change a few times a year. These are the heaviest downloads per watcher (the eCFR version list and the chapter 4A `data.xml` are 200 to 300 KB each), so halving the frequency halves most of the bytes for no loss of signal.
+- `regulator_page`, 30 days. Page hashes produce the most review work per signal: 4 of the 21 fail on every run (CARB 419, India Code 403, a SEBI reset) and 7 more fired on this run for per-request nonces or Internet Archive toolbars (the FCA legal page and Handbook page, the three EUR-Lex snapshot watchers, and the two fixed-timestamp 2025 snapshots, which had hashed the same on two fetches earlier that day). Circulars and programme pages change rarely. Monthly keeps the reviewer's batch to one a month until stable signals replace the noisy hashes.
+- `tracker_pointer`, 90 days. No watcher uses it yet. A tracker is someone else's reading of the law, so it is a reminder to look, not a source; quarterly is a placeholder until one is measured.
+
+Proposed ceiling. There are no paid tools, so the ceiling is minutes of GitHub Actions compute. The workflow runs every watcher on each run, at the shortest interval (7 days), so five runs in a long month. One run is 77 s of watcher time plus checkout, Python setup and the artifact upload, and Actions bills a job in whole minutes, so one job is at most 3 minutes. Proposed ceiling: 5 runs times 3 minutes, 15 minutes of compute and about 10 MB of transfer per month. A tier-aware runner (run only the tiers whose interval has elapsed) would cut watcher time to about 4 minutes a month but not the per-job overhead, so it is not worth building until the watcher count grows.
+
+The schedule stays disabled until Varun writes his figure here and enables the workflow. Agreed ceiling: _not yet set_. `.github/workflows/watch.yml` runs only on `workflow_dispatch`; the `schedule:` block it would need is a commented line in the file, and the workflow opens no pull request and pushes nothing. It uploads `queue.csv` and `seen.json` as an artifact so the rows can be reviewed and committed by hand.
