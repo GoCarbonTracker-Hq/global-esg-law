@@ -1818,5 +1818,130 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "fi-kirjanpitolaki-sustainability-reporting-finlex-versions",
+  "source_id": "FI-FINLEX-CONSOLIDATED",
+  "iso2": "FI",
+  "instrument": "fi-kirjanpitolaki-sustainability-reporting",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/1997/1336/fin@20151208",
+  "params": {
+   "regex": "dateEntryIntoForce date=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/1997/1336 (browser; the Finlex page lists the dated versions of the Act)"
+  }
+ },
+ {
+  "id": "fi-laki-1376-2016-finlex-adopted-text",
+  "source_id": "FI-FINLEX-ADOPTED",
+  "iso2": "FI",
+  "instrument": "fi-laki-1376-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2016/1376/fin@",
+  "params": {
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2016/1376 (browser; the Statute Book page of the Act)"
+  }
+ },
+ {
+  "id": "fi-laki-1249-2023-finlex-adopted-text",
+  "source_id": "FI-FINLEX-ADOPTED",
+  "iso2": "FI",
+  "instrument": "fi-laki-1249-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2023/1249/fin@",
+  "params": {
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2023/1249 (browser; the Statute Book page of the Act)"
+  }
+ },
+ {
+  "id": "fi-laki-605-2024-finlex-adopted-text",
+  "source_id": "FI-FINLEX-ADOPTED",
+  "iso2": "FI",
+  "instrument": "fi-laki-605-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2024/605/fin@",
+  "params": {
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2024/605 (browser; the Statute Book page of the Act)"
+  }
+ },
+ {
+  "id": "fi-laki-1250-2023-finlex-adopted-text",
+  "source_id": "FI-FINLEX-ADOPTED",
+  "iso2": "FI",
+  "instrument": "fi-laki-1250-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2023/1250/fin@",
+  "params": {
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2023/1250 (browser; the Statute Book page of the Act)"
+  }
+ },
+ {
+  "id": "fi-ilmastolaki-finlex-versions",
+  "source_id": "FI-FINLEX-CONSOLIDATED",
+  "iso2": "FI",
+  "instrument": "fi-ilmastolaki",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/2022/423/fin@",
+  "params": {
+   "regex": "dateEntryIntoForce date=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/2022/423 (browser; the Finlex page lists the dated versions of the Act)"
+  }
+ },
+ {
+  "id": "fi-paastokauppalaki-finlex-versions",
+  "source_id": "FI-FINLEX-CONSOLIDATED",
+  "iso2": "FI",
+  "instrument": "fi-paastokauppalaki",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/2023/1270/fin@",
+  "params": {
+   "regex": "dateEntryIntoForce date=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/2023/1270 (browser; the Finlex page lists the dated versions of the Act)"
+  }
+ },
+ {
+  "id": "fi-paastokauppalaki-2011-finlex-versions",
+  "source_id": "FI-FINLEX-CONSOLIDATED",
+  "iso2": "FI",
+  "instrument": "fi-paastokauppalaki-2011",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/2011/311/fin@20151014",
+  "params": {
+   "regex": "dateEntryIntoForce date=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/2011/311 (browser; the Finlex page lists the dated versions of the Act)"
+  }
+ },
+ {
+  "id": "fi-kuluttajansuojalaki-marketing-finlex-versions",
+  "source_id": "FI-FINLEX-CONSOLIDATED",
+  "iso2": "FI",
+  "instrument": "fi-kuluttajansuojalaki-marketing",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/1978/38/fin@20151699",
+  "params": {
+   "regex": "dateEntryIntoForce date=\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/1978/38 (browser; the Finlex page lists the dated versions of the Act)"
+  }
+ },
+ {
+  "id": "fi-konfliktimineraalilaki-finlex-adopted-text",
+  "source_id": "FI-FINLEX-ADOPTED",
+  "iso2": "FI",
+  "instrument": "fi-konfliktimineraalilaki",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2020/1196/fin@",
+  "params": {
+   "second_route": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2020/1196 (browser; the Statute Book page of the Act)"
+  }
  }
 ]

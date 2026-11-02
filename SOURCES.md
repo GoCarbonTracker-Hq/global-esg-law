@@ -770,3 +770,85 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Finland
+
+Rows `FI-FINLEX-ADOPTED` (`pass`, statute: Copyright Act 404/1961 s. 9; CC BY 4.0 as a second ground), `FI-FINLEX-CONSOLIDATED` (`pass`, terms: CC BY 4.0) and `FI-FINLEX-TRANSLATION` (`pass`, terms: CC BY 4.0; Varun to confirm, see the row notes). Run on 2026-11-02 (GEL-05-04). The finlex.fi pages are a JavaScript application, so the texts come from the Finlex open data API at `opendata.finlex.fi`, which answered every request from the cloud address. Finlex's terms page is `https://www.finlex.fi/en/data-protection`, section "Open data" (server-rendered, so `curl` gets the text). The API wants a `User-Agent` header (an empty one answers 403; curl's default is accepted), lists at most 10 documents a page, and does not answer `HEAD` (403, `MissingAuthenticationTokenException`), so the Finland watchers use `GET`.
+
+Step 1, the dated versions of a consolidated Act: the list endpoint, filtered to one Act (`documentNumber` with the year as `startYear` and `endYear`; the answer is JSON with one `akn_uri` per language and version, 10 to a page, so page until a page has fewer than 10). Run for the Climate Act (`423/2022`):
+
+```
+curl -sS -L -G -o ilmastolaki_versions.json -w '%{http_code} %{size_download} %{content_type}\n' --data-urlencode 'format=json' --data-urlencode 'startYear=2022' --data-urlencode 'endYear=2022' --data-urlencode 'documentNumber=423' --data-urlencode 'limit=10' https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/list
+```
+
+Returned `200 795 application/json`. The version label after `@` is the amending act as year plus its number padded to four digits (`20230108` is Act 108/2023); the empty label is the original text. The date a version takes effect is read from the newest document's `finlex:amendedBy` list (`dateEntryIntoForce` of the amending act); the original has `dateEntryIntoForce` at the top of the metadata. An Act whose first listed version is not the original (the Accounting Act starts at `20151208`, the Consumer Protection Act at `20151699`) has no earlier consolidation in the API.
+
+Step 2, row `FI-FINLEX-ADOPTED`, the Act as originally published (Statute Book), Finnish (`fin`):
+
+```
+curl -sS -L -o ilmastolaki_adopted_fi.xml -w '%{http_code} %{size_download} %{content_type}\n' https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2022/423/fin@
+```
+
+Returned `200 68398 application/xml;charset=UTF-8` (Akoma Ntoso; sha256 `c5cf647b29b00b142bdae1487493a80c0ac753c509f4dcb17064862318c1a2c8`, which is the `fetched_sha256` of `records/FI/fi-ilmastolaki/2022-07-01-adopted-fi.json`). A second fetch of the same URL gave the same hash (also checked for three consolidated files).
+
+Row `FI-FINLEX-CONSOLIDATED`, the consolidated text after Act 108/2023:
+
+```
+curl -sS -L -o ilmastolaki_20230108_fi.xml -w '%{http_code} %{size_download} %{content_type}\n' https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/2022/423/fin@20230108
+```
+
+Returned `200 86693 application/xml;charset=UTF-8` (sha256 `76bcc0bdc56a0c24fa163c17853b8769dbfef9f90ca0beabc4f92d8558cec627`).
+
+Text extraction (same for every row and language): the Akoma Ntoso `act` element without `meta`; preface, enacting clause, chapter and section headings, paragraphs, list items and the closing signature lines as line breaks, a number (`1 §`, `1)`, `2 luku`) on the line of its heading or text, table rows as tab-separated lines, nothing reworded. Footnote-like amendment notes that Finlex keeps inside the text (`L:lla 693/2022 muutettu 9 kohta tulee voimaan 1.1.2023. Aiempi sanamuoto kuuluu:`) stay in the text. Each record's `fetched_sha256` is that of the whole file as returned, and `fetched_url` the exact request. Checked on the day for every XML record: the non-space characters of the extracted text equal those of the element text (nothing dropped, nothing added). For Acts stored as a chapter cut, the cut is the chapter(s) whose number matches (`3 a` and `7` with a heading for the Accounting Act, `2` for the Consumer Protection Act); a chapter whose heading is missing is a repealed stub and is not stored.
+
+Dating and left-out versions: a version is stored under the entry-into-force date of its amending act. Finlex numbers versions in the order of the amending acts, not of their entry into force, and a version carries the amendments that are not yet in force as inline notes. A version is therefore left out when a later version in the list is in force on the same day or earlier (it could not stand in date order, and the later one carries its changes). A version is also not stored when the cut chapter is the same text as in the previous stored version, or when the chapter is not yet present. Left out for date order: Accounting Act `20151208` (same day as `20151620`); Consumer Protection Act `20170899`, `20170902`, `20201212`, `20220693`, `20220740`, `20260020`; `20260031` has no entry-into-force date in the API. A first consolidation whose body equals the adopted text is not stored (as for Switzerland): the original consolidations of the Climate Act and the Conflict Minerals Act differ from the adopted text only in the signature lines (the Climate Act also in one space) and are left out. The original consolidation of the Emissions Trading Act 1270/2023 differs by Finlex notes (a note on a repealed EU regulation, a directive reference) and is stored.
+
+### Languages
+
+Finnish (`fin`, file code `fi`) and Swedish (`swe`, file code `sv`) are both official and are served by the same Finlex API from the same version, so they sit under the same rows (`FI-FINLEX-ADOPTED`, `FI-FINLEX-CONSOLIDATED`) and need no row of their own. Swedish is the same request with `swe@` in place of `fin@`:
+
+```
+curl -sS -L -o ilmastolaki_adopted_sv.xml -w '%{http_code} %{size_download} %{content_type}\n' https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2022/423/swe@
+curl -sS -L -o ilmastolaki_20230108_sv.xml -w '%{http_code} %{size_download} %{content_type}\n' https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/2022/423/swe@20230108
+```
+
+Returned `200 68009 application/xml;charset=UTF-8` and `200 86475 application/xml;charset=UTF-8`. Every Finnish version has a Swedish version with the same label (checked for the five Acts that have consolidations: the Finnish and Swedish label lists were equal).
+
+English is a translation Finlex publishes as a PDF on `https://www.finlex.fi/en/legislation/translations/<year>/eng/<number>`; Finlex calls them "Unofficial translations of statutes into foreign languages". They have their own row, `FI-FINLEX-TRANSLATION` (judged on the CC BY 4.0 terms; the Copyright Act s. 9 item 5, translations made or commissioned by an authority, is not applied because no Finlex page says the ministry made or commissioned them). Request for the Climate Act (the PDF link is on the translation page; its `timestamp` query is part of the link):
+
+```
+curl -sS -L -o translations_page.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.finlex.fi/en/legislation/translations/2022/eng/423
+curl -sS -L -o ilmastolaki_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.finlex.fi/api/media/statute-foreign-language-translation/687510/mainPdf/main.pdf?timestamp=2022-06-09T21%3A00%3A00.000Z'
+```
+
+Returned `200 168889 text/html; charset=utf-8` and `200 188358 application/pdf` (sha256 `8794b8dc8292e63a82af62817090b0c10ca63d90e9eb46950262ab096efc1087`, two fetches equal). The page lists "Statute number up to which the legislative amendments have been tracked in the translation: 423 / 2022, completed 5.9.2022" and the PDF opens with "Translation from Finnish / Legally binding only in Finnish and Swedish / Ministry of the Environment". Text: `pdftotext -layout ilmastolaki_en.pdf -` with runs of spaces collapsed and blank lines dropped (as `## Brazil`); the output was checked for mojibake (the only non-ASCII characters are `á`, `–` and `’`). The English Accounting Act PDF (`https://www.finlex.fi/en/legislation/translations/1997/eng/1336`, media id 688786) is cut at the heading `Chapter 3a` up to `Chapter 4`.
+
+Translation states against the stored versions: Climate Act, tracked up to 423/2022, equals the original state, stored as the translation of the 2022-07-01 version. Accounting Act, tracked up to 1376/2016, stored as the translation of the 2016-12-31 version (Chapter 3 a). Consumer Protection Act, tracked up to 740/2022 (in force 2024-04-01), is the state of version `20220740`, which is left out for date order, so no English record is stored. No translation of the Emissions Trading Acts 1270/2023 and 311/2011, of the amending Acts 1376/2016, 1249/2023, 605/2024 and 1250/2023, or of the Auditing Act after 622/2016 exists on Finlex.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Records (fi / sv / en) | Versions stored (`in_force`) |
+|---|---|---|
+| `fi-kirjanpitolaki-sustainability-reporting` | 6 / 6 / 1 | consolidated 2016-12-31, 2021-05-10, 2023-12-31, 2024-11-15, 2025-01-17, 2026-06-30; English 2016-12-31 |
+| `fi-laki-1376-2016` | 1 / 1 / 0 | adopted 2016-12-31 |
+| `fi-laki-1249-2023` | 1 / 1 / 0 | adopted 2023-12-31 |
+| `fi-laki-605-2024` | 1 / 1 / 0 | adopted 2024-11-15 |
+| `fi-laki-1250-2023` | 1 / 1 / 0 | adopted 2023-12-31 |
+| `fi-ilmastolaki` | 3 / 3 / 1 | adopted 2022-07-01; consolidated 2023-03-01, 2025-01-01; English 2022-07-01 |
+| `fi-konfliktimineraalilaki` | 1 / 1 / 0 | adopted 2021-01-01 |
+| `fi-paastokauppalaki` | 5 / 5 / 0 | adopted 2024-01-01; consolidated 2024-01-01, 2025-07-01, 2026-01-01, 2026-08-05 |
+| `fi-paastokauppalaki-2011` | 10 / 10 / 0 | adopted 2011-05-01; consolidated 2016-01-01, 2017-07-03, 2018-07-01, 2019-03-19, 2021-01-01, 2022-01-01, 2022-06-23, 2023-03-01; repeal 2024-01-01 |
+| `fi-kuluttajansuojalaki-marketing` | 12 / 12 / 0 | adopted 1978-09-01; consolidated 2016-01-09, 2018-01-03, 2020-07-15, 2022-01-01, 2022-07-15, 2023-07-01, 2023-10-01, 2026-01-01, 2026-06-01, 2026-07-31, 2026-10-01 |
+
+The brief's candidates were checked on the day (and one more found): the CSRD transposition laws are Acts 1249/2023 to 1254/2023, not "1322 to 1326/2023" (those numbers answer 404 in the API); Act 1249/2023 is in force 2023-12-31, not 2024-01-01 (it applies from financial years starting 2024-01-01); the Emissions Trading Act 1270/2023 is in force 2024-01-01 and repeals 311/2011.
+
+### Link only
+
+None of the ten scope instruments is link only. Not in scope, so without an entry or a row:
+
+- Finanssivalvonta (`https://www.finanssivalvonta.fi`): the terms page (`https://www.finanssivalvonta.fi/finanssivalvonta/selosteet-ja-ohjeet/kayttoehdot/`, 200) says "Oikeudet sivuilla julkaistaviin teksteihin, kuviin ja tallenteisiin ovat Finanssivalvonnalla tai muilla aineiston yhteydessä mainituilla" and allows only quotation under the Copyright Act, which would give `permission requested`. Its sustainable finance pages (`/finanssisektorin-toimijalle/paaomamarkkinat/kestava-rahoitus/`, `.../ifrs/kestavyysraportoinnin-saantely/`) describe EU rules and a Markkinat-tiedote 3/2023; no enacted Finanssivalvonta regulation on sustainability was found there, and a Finlex search of the authority regulations collection for `kestävyys`, `ilmasto` and `ESG` found none from it, so no row and no entry.
+- Other families: one F5 instrument was found (`fi-konfliktimineraalilaki`, Act 1196/2020, by a title search for `konfliktimineraali`). A title search for `huolellisuusvelvoll` returned only money-laundering due diligence decrees, and `taksonomia` and `metsäkato` returned nothing, so no general due diligence act was found. F4 and F7 instruments were not searched for; no F7 register row was added.
+
+### Blocked
+
+No site was blocked from the cloud address: opendata.finlex.fi, www.finlex.fi and www.finanssivalvonta.fi all answered 200. `finlex.fi` without `www` answers 301 to `www.finlex.fi`; `data.finlex.fi` answers 307 to `/fi`; `opendata.finlex.fi/` itself answers 403 (API gateway, no token) and is not an API path. No browser recipe was needed and no record is browser-fetched.
