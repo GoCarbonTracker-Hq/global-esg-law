@@ -1,0 +1,235 @@
+[
+  {
+    "id": "rs-accounting-act",
+    "title": "Law on Accounting (Zakon o računovodstvu), Article 37: non-financial reporting",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2019/2368-19.pdf",
+    "citation": "Zakon o računovodstvu (Sl. glasnik RS 73/2019, 44/2021 - dr. zakon), Art. 37",
+    "in_force": "2020-01-01",
+    "evidence": "Final Article 66 of the Law as adopted: \"Овај закон ступа на снагу 1. јануара 2020. године.\" (National Assembly PDF https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2019/2368-19.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. 73 од 11. октобра 2019 (header line of the Pravno-informacioni sistem entry, opened 2026-11-02).",
+    "law_family": "F1",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the whole Law as adopted by the National Assembly (Cyrillic; the Latin script the gazette also serves is the same text). Article 37 reads: \"Обвезници нефинансијског извештавања су велика правна лица која су друштва од јавног интереса и која на датум биланса прелазе критеријум просечног броја од 500 запослених током пословне године.\" The Pravno-informacioni sistem title of the current consolidation is \"73/2019, 44/2021 - др. закон\": the 2021 text is marked as an amendment made by another law; it is not in the Assembly PDF and its effect on Article 37 was not read, so later amendments are not stored. No 2025 or 2026 amendment aligning the Law with the CSRD appears in that title, in the 14th-convocation list of adopted laws on parlament.gov.rs (searched for \"рачуноводств\"), or on the Ministry of Finance page (mfin.gov.rs answers 403 to the cloud address, row RS-MFIN-ADOPTED), on 2026-11-02. The Ministry page named in the register row before this update was https://mfin.gov.rs/propisi/-zakon-o-racunovodstvu-sluzbeni-glasnik-rs-br-732019. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-climate-change-act",
+    "title": "Law on Climate Change (Zakon o klimatskim promenama)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2021/337-21.pdf",
+    "citation": "Zakon o klimatskim promenama (Sl. glasnik RS 26/2021)",
+    "in_force": "2021-03-31",
+    "evidence": "Article 83 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (National Assembly PDF .../zakoni/2021/337-21.pdf, opened 2026-11-02); published in \"Службени гласник РС\", број 26 од 23. марта 2021. (header line of the Pravno-informacioni sistem entry, opened 2026-11-02), so the eighth day is 2021-03-31.",
+    "law_family": "F2",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the whole Law as adopted (Cyrillic). The Pravno-informacioni sistem register shows no amendment (\"26/2021-3\") on 2026-11-02, so the adopted text is the current text. The Ministry of Environmental Protection hosts the same text (https://www.ekologija.gov.rs/wp-content/uploads/2026/08/Zakon-o-klimatskim-promenama.pdf, whitespace-insensitive text identical to the Assembly PDF); the record is taken from the Assembly. Implemented by the Rulebook on Monitoring and Reporting of GHG Emissions (rs-mrv-rules), the Decree on Types of Activities and GHGs (rs-ghg-activities-decree) and the Rulebook on Verification (rs-verification-rules). No emissions trading system was found on the official pages read: the Law sets up GHG permits, monitoring plans, reporting and verification for operators and aircraft operators, and a tax on emissions (rs-ghg-tax-act) followed in 2025. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-env-protection-act",
+    "title": "Law on Environmental Protection (Zakon o zaštiti životne sredine)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/2f958463-27e5-4d10-921d-49872e7726bb",
+    "citation": "Zakon o zaštiti životne sredine (Sl. glasnik RS 135/2004, 36/2009, 36/2009 - dr. zakon, 72/2009 - dr. zakon, 43/2011 - US, 14/2016, 76/2018, 95/2018 - dr. zakon, 94/2024 - dr. zakon)",
+    "in_force": "2004-12-29",
+    "evidence": "Article 130 of the Law: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (ministry PDF https://www.ekologija.gov.rs/wp-content/uploads/2026/08/Zakon-o-zastiti-zivotne-sredine.pdf, opened 2026-11-02); header line of the same file: \"Службени гласник РС\", бр. 135 од 21. децембра 2004, so the eighth day is 2004-12-29.",
+    "law_family": "F2",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED",
+      "RS-EKOLOGIJA-ADOPTED"
+    ],
+    "notes": "Link only. The as-adopted text (Assembly zip https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2004/pdf_068_3630-04.zip, 200, 160332 bytes, one 56-page PDF) is in a legacy Serbian font encoding: pdftotext returns \"ZA[TITI @IVOTNE SREDINE\", \"^lan 1.\", \"ure|uje\", i.e. { | } ~ ` and ^ stand for š đ ć č ž Č and q w for lj nj, which is mojibake and is not repaired by guessing, so nothing is stored. The consolidated texts: PIS is permission requested (RS-PIS-CONSOLIDATED); the Ministry of Environmental Protection hosts two files, one in Cyrillic to 94/2024 that opens with a publisher's note and the Službeni glasnik header (a reproduction of the gazette publisher's editorial consolidation) and one in Latin to 43/2011, so row RS-EKOLOGIJA-ADOPTED is permission requested. Amending acts adopted by the Assembly (for example 286-16 and 2386-18) are separate PDFs and are not stored as text of this Law. Climate-related duties sit in the Law on Climate Change (rs-climate-change-act); this Law is the general environmental framework law. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "The only unmangled complete text found is an editorial consolidation (PIS terms need written consent; ministry copy carries the publisher's note); the as-adopted PDF is in a legacy font encoding",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-ghg-tax-act",
+    "title": "Law on the Tax on Greenhouse Gas Emissions (Zakon o porezu na emisije gasova sa efektom staklene bašte)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2230-25.pdf",
+    "citation": "Zakon o porezu na emisije gasova sa efektom staklene bašte (Sl. glasnik RS 109/2025, 80/2026)",
+    "in_force": "2025-12-12",
+    "evidence": "Article 11 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”, а примењиваће се од 1. јануара 2026. године.\" (National Assembly PDF .../zakoni/14_saziv/2230-25.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. 109 од 4. децембра 2025 (header line of the Pravno-informacioni sistem entry, opened 2026-11-02), so the eighth day is 2025-12-12.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the Law as adopted (Cyrillic), in force 2025-12-12 and applied from 2026-01-01. It introduces a tax on emissions of CO2, N2O and PFCs reported by taxpayers (Art. 1 and 2); it is a carbon price without a trading system. Amended by the Law of 2026 (rs-ghg-tax-act-amend-2026, Sl. glasnik RS 80/2026), which replaces Article 4 and adds a paragraph to Article 5; the Assembly serves the amending act, not a consolidation, so the amended state is not stored as one text. Implemented by the Decree on measures and reporting (rs-ghg-tax-measures-decree) and the Rulebook on reference values (rs-ghg-tax-benchmarks-rules). The Assembly list of adopted laws is the only free official source of the adopted text found; PIS is permission requested. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-ghg-tax-act-amend-2026",
+    "title": "Law amending the Law on the Tax on Greenhouse Gas Emissions (Zakon o izmeni i dopuni Zakona o porezu na emisije gasova sa efektom staklene bašte)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2588-26.pdf",
+    "citation": "Zakon o izmeni i dopuni Zakona o porezu na emisije gasova sa efektom staklene bašte (Sl. glasnik RS 80/2026)",
+    "in_force": "2026-09-08",
+    "amends": "rs-ghg-tax-act",
+    "evidence": "Article 3 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (National Assembly PDF .../zakoni/14_saziv/2588-26.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. ... 80 од 31. августа 2026 (header line of the Pravno-informacioni sistem entry of the amended Law, opened 2026-11-02), so the eighth day is 2026-09-08.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the amending Law as adopted: Art. 1 replaces Article 4 of the Law on the Tax on Greenhouse Gas Emissions (a tax credit of 20% of eligible investment costs for electricity producers, with a Government decree on the measures) and Art. 2 adds paragraph 10 to Article 5 (tax returns for periods ending by 31 December 2026 are filed from 2027-04-01 to 2027-05-31). It is stored as its own instrument because the Assembly publishes only the amending act. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-cbam-tax-act",
+    "title": "Law on the Tax on Imports of Carbon-Intensive Products (Zakon o porezu na uvoz ugljenično intenzivnih proizvoda)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2231-25.pdf",
+    "citation": "Zakon o porezu na uvoz ugljenično intenzivnih proizvoda (Sl. glasnik RS 109/2025, 80/2026)",
+    "in_force": "2025-12-12",
+    "evidence": "Article 18 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”, а примењује се од 1. јануара 2026. године.\" (National Assembly PDF .../zakoni/14_saziv/2231-25.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. 109 од 4. децембра 2025 (header line of the Pravno-informacioni sistem entry, opened 2026-11-02), so the eighth day is 2025-12-12.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the Law as adopted (Cyrillic), in force 2025-12-12 and applied from 2026-01-01. A tax on imports of carbon-intensive goods (a border carbon charge; the Law itself calls it a tax and it was not compared here with the EU CBAM text). Family F3 as a carbon price; F7 would also fit. Supplemented in 2026 (rs-cbam-tax-act-amend-2026). Implementing Rulebooks on the tax return and on customs data exist on PIS (not in scope: they are tax-administration forms). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-cbam-tax-act-amend-2026",
+    "title": "Law supplementing the Law on the Tax on Imports of Carbon-Intensive Products (Zakon o dopuni Zakona o porezu na uvoz ugljenično intenzivnih proizvoda)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2587-26.pdf",
+    "citation": "Zakon o dopuni Zakona o porezu na uvoz ugljenično intenzivnih proizvoda (Sl. glasnik RS 80/2026)",
+    "in_force": "2026-09-08",
+    "amends": "rs-cbam-tax-act",
+    "evidence": "Article 2 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (National Assembly PDF .../zakoni/14_saziv/2587-26.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. ... 80 од 31. августа 2026 (header line of the Pravno-informacioni sistem entry of the amended Law, opened 2026-11-02), so the eighth day is 2026-09-08.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the amending Law as adopted: it adds paragraph 5 to Article 11 (tax returns for periods ending by 31 December 2026). Stored as its own instrument because the Assembly publishes only the amending act. No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-mrv-rules",
+    "title": "Rulebook on Monitoring and Reporting of Greenhouse Gas Emissions (Pravilnik o monitoringu i izveštavanju o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/5d5816e1-2ffc-40a3-b067-35422ebf709f",
+    "citation": "Pravilnik o monitoringu i izveštavanju o emisijama gasova sa efektom staklene bašte (Sl. glasnik RS 118/2023)",
+    "in_force": "2023-12-26",
+    "evidence": "Last article: \"Овај правилник ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (PIS entry, opened 2026-11-02); header: \"Службени гласник РС\", број 118 од 18. децембра 2023., so the eighth day is 2023-12-26.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED"
+    ],
+    "notes": "Issued under Arts. 35 to 45 and 55 of the Law on Climate Change: the MRV rules for operators and aircraft operators. Link only: the only free official source found is the Pravno-informacioni sistem, whose terms need the written consent of Službeni glasnik for copying or automated extraction (rows RS-PIS-CONSOLIDATED and RS-PIS-ADOPTED are permission requested). Subordinate acts are not published by the Assembly. The official_url is the register entry on PIS (a JavaScript page). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "PIS terms need written consent; no other free official source found",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-ghg-activities-decree",
+    "title": "Decree on Types of Activities and Greenhouse Gases (Uredba o vrstama aktivnosti i gasovima sa efektom staklene bašte)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/e5932061-29c4-440f-8810-7f019ce8f82e",
+    "citation": "Uredba o vrstama aktivnosti i gasovima sa efektom staklene bašte (Sl. glasnik RS 13/2022)",
+    "in_force": "2022-02-12",
+    "evidence": "Last article: \"Ова уредба ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”, осим одредаба члана 5. ове уредбе које се примењују од 1. јануара 2023. године.\" (PIS entry, opened 2026-11-02); header: \"Службени гласник РС\", број 13 од 4. фебруара 2022., so the eighth day is 2022-02-12.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED"
+    ],
+    "notes": "Issued under Arts. 25 and 33 of the Law on Climate Change: lists the activities and gases covered by permits and MRV. Link only: the only free official source found is the Pravno-informacioni sistem, whose terms need the written consent of Službeni glasnik for copying or automated extraction (rows RS-PIS-CONSOLIDATED and RS-PIS-ADOPTED are permission requested). Subordinate acts are not published by the Assembly. The official_url is the register entry on PIS (a JavaScript page). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "PIS terms need written consent; no other free official source found",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-verification-rules",
+    "title": "Rulebook on Verification and Accreditation of Verifiers of GHG Emission Reports (Pravilnik o verifikaciji i akreditaciji verifikatora izveštaja o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/423bc135-a51c-4736-aa22-e5e47659221d",
+    "citation": "Pravilnik o verifikaciji i akreditaciji verifikatora izveštaja o emisijama gasova sa efektom staklene bašte (Sl. glasnik RS 107/2021)",
+    "in_force": "2021-11-20",
+    "evidence": "Last article: \"Овај правилник ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (PIS entry, opened 2026-11-02); header: \"Службени гласник РС\", број 107 од 12. новембра 2021., so the eighth day is 2021-11-20.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED"
+    ],
+    "notes": "Issued under Arts. 46, 48, 50 and 52 of the Law on Climate Change. Link only: the only free official source found is the Pravno-informacioni sistem, whose terms need the written consent of Službeni glasnik for copying or automated extraction (rows RS-PIS-CONSOLIDATED and RS-PIS-ADOPTED are permission requested). Subordinate acts are not published by the Assembly. The official_url is the register entry on PIS (a JavaScript page). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "PIS terms need written consent; no other free official source found",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-ghg-tax-measures-decree",
+    "title": "Decree on Types of Measures and Reporting on Measures that Reduce CO2-equivalent Emissions (Uredba o vrstama mera i načinu izveštavanja o realizovanim merama za smanjenje emisija ugljen-dioksida ekvivalenta)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/fef8070f-073e-4ec0-8445-eec579194be6",
+    "citation": "Uredba o vrstama mera i načinu izveštavanja o realizovanim merama za smanjenje emisija ugljen-dioksida ekvivalenta (CO2eq) (Sl. glasnik RS 51/2026)",
+    "in_force": "2026-06-13",
+    "evidence": "Last article: \"Ова уредба ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (PIS entry, opened 2026-11-02); header: \"Службени гласник РС\", број 51 од 5. јуна 2026., so the eighth day is 2026-06-13.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED"
+    ],
+    "notes": "Issued under Art. 4 para. 4 of the Law on the Tax on Greenhouse Gas Emissions (rs-ghg-tax-act). Link only: the only free official source found is the Pravno-informacioni sistem, whose terms need the written consent of Službeni glasnik for copying or automated extraction (rows RS-PIS-CONSOLIDATED and RS-PIS-ADOPTED are permission requested). Subordinate acts are not published by the Assembly. The official_url is the register entry on PIS (a JavaScript page). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "PIS terms need written consent; no other free official source found",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-ghg-tax-benchmarks-rules",
+    "title": "Rulebook on Reference Emission Values for Production Processes (Pravilnik o referentnim vrednostima emisija gasova sa efektom staklene bašte za proizvodne procese)",
+    "official_url": "https://pravno-informacioni-sistem.rs/reg/viewAct/7898e919-3b43-4da7-a6d1-e181f9374605",
+    "citation": "Pravilnik o referentnim vrednostima emisija gasova sa efektom staklene bašte za proizvodne procese, odnosno aktivnosti u vezi sa porezom na emisije gasova sa efektom staklene bašte (Sl. glasnik RS 62/2026)",
+    "in_force": "2026-07-16",
+    "evidence": "Last article: \"Овај правилник ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (PIS entry, opened 2026-11-02); header: \"Службени гласник РС\", број 62 од 8. јула 2026., so the eighth day is 2026-07-16.",
+    "law_family": "F3",
+    "source_row": [
+      "RS-PIS-CONSOLIDATED"
+    ],
+    "notes": "Issued under Art. 3 para. 4 of the Law on the Tax on Greenhouse Gas Emissions (rs-ghg-tax-act). Link only: the only free official source found is the Pravno-informacioni sistem, whose terms need the written consent of Službeni glasnik for copying or automated extraction (rows RS-PIS-CONSOLIDATED and RS-PIS-ADOPTED are permission requested). Subordinate acts are not published by the Assembly. The official_url is the register entry on PIS (a JavaScript page). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "link only",
+    "status_note": "PIS terms need written consent; no other free official source found",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-advertising-act",
+    "title": "Law on Advertising (Zakon o oglašavanju)",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2016/2926-15.pdf",
+    "citation": "Zakon o oglašavanju (Sl. glasnik RS 6/2016, 52/2019 - dr. zakon)",
+    "in_force": "2016-02-05",
+    "evidence": "Article 81 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”, а примењује се по истеку три месеца од дана ступања на снагу.\" (National Assembly PDF .../zakoni/2016/2926-15.pdf, opened 2026-11-02); header of the PIS entry: \"Службени гласник РС\", бр. 6 од 28. јануара 2016, so the eighth day is 2016-02-05 and the Law applies from 2016-05-05.",
+    "law_family": "F6",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the Law as adopted (Cyrillic). The Pravno-informacioni sistem title is \"6/2016, 52/2019 - др. закон\": the 2019 text was made by another law and is not in the Assembly PDF, so it is not stored. Art. 10 (\"Забрана подстицања угрожавања здравља и безбедности\"), item 5, forbids advertising that \"подстиче или одобрава поступке који су забрањени прописима о заштити животне средине, као и изношење неистинитих тврдњи (нпр. истицањем речи „еколошки сигуран”, „еколошки нешкодљив”, „еко храна”, „органски производ” и сличних речи или симбола) да роба или услуга имају позитиван или нешкодљив утицај на заштиту здравља или животне средине\" (read in the extracted text); Art. 11 forbids misleading advertising generally. It is the Serbian umbrella for environmental claims, read together with the Law on Consumer Protection (rs-consumer-protection-act). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  },
+  {
+    "id": "rs-consumer-protection-act",
+    "title": "Law on Consumer Protection (Zakon o zaštiti potrošača), unfair commercial practices Arts. 17 to 20",
+    "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/1317-26.pdf",
+    "citation": "Zakon o zaštiti potrošača (Sl. glasnik RS 35/2026), Arts. 17 to 20",
+    "in_force": "2026-05-01",
+    "evidence": "Article 220 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”, а примењује се по истеку три месеца од дана ступања на снагу овог закона, осим члана 4. став 1. и члана 6, који почињу да се примењују ступањем на снагу овог закона.\" (National Assembly PDF .../zakoni/14_saziv/1317-26.pdf, opened 2026-11-02); header of the PIS entry: \"Службени гласник РС\", број 35 од 23. априла 2026., so the eighth day is 2026-05-01 and most provisions apply from 2026-08-01.",
+    "law_family": "F6",
+    "source_row": [
+      "RS-PARLAMENT-ADOPTED"
+    ],
+    "notes": "Record text is the whole new Law as adopted (Cyrillic). Art. 219 repeals the Law on Consumer Protection of 2021 (Sl. glasnik RS 88/21) on the day this Law starts to apply (2026-08-01). In the 2026 Law Art. 17 defines unfair commercial practice (\"Непоштеном се нарочито сматра обмањујућа пословна пракса и насртљива пословна пракса\"), Art. 18 misleading commercial practice, Art. 19 misleading omission, and Art. 20 lists practices misleading in every case (read in the extracted text; the 2021 Law has the same article numbers 17 to 20). The 2021 Law is not stored: its gazette publication date was not read from an official page (the Assembly PDF 2021/1290-21.pdf has none), so its in-force date and the window 2021 to 2026-08-01 are a gap. The Ministry of Trade site (mtt.gov.rs) refused the cloud address (row RS-MTT-ADOPTED). Environmental claims are not named in Arts. 17 to 20: a search of the extracted text for \"еколошк\" and \"климат\" finds nothing, and \"животну средину\" appears only in wording on goods dangerous to the environment (in the list of consumer rights and in the dangerous-goods rules) and in the name of the competent ministry. The environmental-claims rule is Art. 10 item 5 of the Law on Advertising (rs-advertising-act). No government English translation found on 2026-11-02: looked on the Assembly site (no English text of laws), ekologija.gov.rs (WordPress API search \"Climate\", \"Environment\", \"Law on\": only international declarations), ekologija.gov.rs/en/ (home page 200, no legislation page), srbija.gov.rs/en/ (home 200, no translations) and the Ministry of Finance (mfin.gov.rs/en/, 403) and Trade (mtt.gov.rs, refused) sites.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "duty_on": "private_sector"
+  }
+]

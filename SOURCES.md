@@ -3779,6 +3779,459 @@ No scope instrument is link only. Sources without a stored text:
 
 Signal: `http_head` (Content-Length of the PDF) on `https://www.gesetze.li/konso/pdf/<LGBl number>000` without `?version=`, which serves the current version, so a new consolidation changes the size. A HEAD request answers `200` with `Content-Length` and no `Last-Modified`. `page_hash` was rejected because the HTML pages carry a per-request token, and `date_list` because the pages print dates as dd.mm.yyyy, which the watcher's regex route does not accept. The three adopted-only acts watch their LGBl PDF (`/chrono/pdf/...`), which should never change. One `terms_changed` watcher (tier `regulator_page`, as the tests require for `terms-` watchers) watches the size of the URG PDF.
 
+## Ecuador
+
+Run on 2026-11-02 (GEL-09-06). Three rows pass, all on one statute and not on any site terms: `EC-ASAMBLEA-ADOPTED` (Asamblea Nacional, gazette PDFs of enacted laws), `EC-SUPERBANCOS-CONSOLIDATED` (Superintendencia de Bancos, codified norms) and `EC-GOBEC-ADOPTED` (the gob.ec regulations portal, gazette PDFs). The statute is the Código Orgánico de la Economía Social de los Conocimientos, Creatividad e Innovación (Código Ingenios), Registro Oficial Suplemento 899 of 2016-12-09, art. 107 (not art. 103 as the brief says; art. 103 is "Protección acumulada"): "No son objeto de protección las disposiciones legales y reglamentarias, ... las resoluciones, deliberaciones y dictámenes de los organismos públicos, y los demás textos oficiales de orden legislativo, administrativo o judicial, así como sus traducciones oficiales." None of the three sites states reuse terms. Open decisions for Varun are in the row notes. No row was added for the Registro Oficial, the Superintendencia de Compañías, the Bolsa de Valores de Quito or Guayaquil, the Ministerio del Ambiente or Lexis: no text was fetched from them (reasons at the end of this section).
+
+Every `curl` below carries `-A 'Mozilla/5.0'` (no request without a User-Agent was tried on the Asamblea and Superintendencia sites). Page furniture dropped from every record (all PDFs): running heads and page numbers, the lines `Documento con posibles errores digitalizado de la publicación original. Favor verificar con imagen.` and `No imprima este documento a menos que sea absolutamente necesario.`; runs of spaces collapse to one, empty lines are removed, line breaks stay where the PDF has them, hyphenation stays. Tool: poppler `pdftotext` (no `-layout`). The Registro Oficial PDFs are set in two columns and the default reading order mixes the columns at headings (Código Orgánico del Ambiente, page 49: "CAPÍTULO II" and "LIBRO QUINTO" interleaved with article text; Reglamento: Art. 674 printed between Art. 670 and Art. 671). So each page is read as a left half then a right half: `pdftotext -f N -l N -x 0 -y 0 -W 297 -H 842 file.pdf -` then `-x 297`, joined page by page. For the Reglamento PDF, whose pages carry a running head at y 68 to 79 and a two-line footer at y 784 to 806, the crop is `-y 85 -H 695`, which removes both. Check run on every record: no U+FFFD character, and the article numbers of the cut are in unbroken sequence (Código arts. 247 to 261, Reglamento arts. 670 to 730).
+
+### Row `EC-ASAMBLEA-ADOPTED`: Registro Oficial PDFs on asambleanacional.gob.ec
+
+The listing (23 pages, `?page=0` to `?page=22`) names each law, its Registro Oficial number and a PDF link:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ley_0.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.asambleanacional.gob.ec/es/leyes-aprobadas?leyes-aprobadas=All&title=&fecha=&page=0'
+```
+
+Returned `200 49795 text/html; charset=utf-8`. The Código Orgánico del Ambiente (Registro Oficial Suplemento 983, 2017-04-12):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o coa.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.asambleanacional.gob.ec/es/system/files/ro-cod-ambiente-ro-s-983-12-04-2017.pdf'
+```
+
+Returned `200 1660486 application/pdf` (68 pages, text layer with embedded fonts); a second request returned the same bytes, sha256 `033ffdd280975aabb0b89f6634b4e7f9462b3a835d49abcbbecefdaed96e61af`, which is `fetched_sha256`. Record `ec-coa-libro4`, 2018-04-12 (`2018-04-12-adopted-es.json`): the text from the line `LIBRO CUARTO` up to, not including, `LIBRO QUINTO`, columns read as above; the furniture lines `Suplemento – Registro Oficial Nº 983`, `Registro Oficial Nº 983 – Suplemento` and `<n> – Miércoles 12 de abril de 2017` are dropped too.
+
+Two Registro Oficial PDFs on the same site have no text layer (the body pages are images): Ley Orgánica Reformatoria del Código Orgánico del Ambiente, Quinto Suplemento 360 of 2026-09-02 (`https://www.asambleanacional.gob.ec/es/system/files/ro_35.pdf`, `200 2335398 application/pdf`, 33 pages, `pdftotext` returns only the cover and the covering letter) and the reform of 2021 (`2do-supl-ro-602-de-21-12-2021.pdf`, `200 19834807 application/pdf`, 30 pages). There is no OCR in the recipe, so nothing is stored from them; they have no scope entry because whether they touch Libro Cuarto could not be read.
+
+### Row `EC-SUPERBANCOS-CONSOLIDATED`: Codificación de las Normas, Libro I
+
+The chapter list is the table on `https://www.superbancos.gob.ec/bancos/codificacion-de-normas-de-la-sb-libro-uno-sistema-financiero/` (opened with the next command, `200 209502 text/html; charset=UTF-8`); Capítulo X of Título IX links `/bancos/descargas/39342/`:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cap10.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superbancos.gob.ec/bancos/descargas/39342/'
+```
+
+Returned `200 129760 application/pdf` (the chapter heading names SB-2022-1212, SB-2022-1373 and the substituting SB-2025-02114 of 2025-08-29); a second request returned the same bytes, sha256 `771c6fa49e732290dd31429ffda6ad97cd1c985b202ffc790b5183db1c6c6277`. Record `ec-sb-saras-norm`, 2025-08-29 (`2025-08-29-consolidated-es.json`): single-column PDF, `pdftotext cap10.pdf -` in default order, the repeated page head `Codificación de las Normas de la Superintendencia de Bancos` dropped, the rest as above (339 lines, 23228 characters). The download is served by a plugin, so the URL is stable but the file behind it changes when the Superintendencia recodifies; the watcher `ec-sb-saras-norm-codificacion-pdf` hashes it.
+
+### Row `EC-GOBEC-ADOPTED`: browser recipe
+
+`www.gob.ec` answers a script with an empty reply and the proxy shows no status. The failing line first:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gob.ec/sites/default/files/regulations/2021-04/Reglamento%20al%20Co%CC%81digo%20Orga%CC%81nico%20del%20Ambiente.pdf'
+```
+
+Answered `curl: (52) Empty reply from server` (`000 0`); `curl --http1.1` on the regulation page gives the same and the same request over HTTP/2 without `-m` gave `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR`. The Playwright chromium shipped in the session opens the pages (`chromium.launch()`, `page.goto(url, {waitUntil: 'domcontentloaded'})`, wait 2.5 s, then read the `a` elements: `Documento en línea` is the PDF link). The page https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0 returned `200 27762 text/html; charset=UTF-8`. The PDF is fetched with Playwright's request client of the same browser context, which the site answers:
+
+```
+cat > pwdl.js <<'JS'
+const { chromium } = require('playwright');
+(async () => { const b = await chromium.launch(); const ctx = await b.newContext();
+  const r = await ctx.request.get(process.argv[2], {timeout: 90000});
+  console.log(r.status(), r.headers()['content-type'], r.headers()['content-length']);
+  require('fs').writeFileSync(process.argv[3], await r.body()); await b.close(); })();
+JS
+NODE_PATH=$(npm root -g) node pwdl.js 'https://www.gob.ec/sites/default/files/regulations/2021-04/Reglamento%20al%20Co%CC%81digo%20Orga%CC%81nico%20del%20Ambiente.pdf' reglamento.pdf
+```
+
+Printed `200 application/pdf 1407425`; a second run returned the same bytes, sha256 `6c5ac3e13c26606090ea50221e121ec45e758e75afe10d35af286b8c521de454`, which is `fetched_sha256` (the file is a static upload, no per-request token). It is the whole Registro Oficial Suplemento 507 of 2019-06-12 (144 pages, Decreto Ejecutivo 752). Record `ec-reglamento-coa-libro4`, 2019-06-12 (`2019-06-12-adopted-es.json`): from `LIBRO CUARTO` to, not including, `LIBRO QUINTO`, columns read with `-y 85 -H 695`. The record is browser-fetched (see the PR report, GEL-03 retro C4). The watchers carry the browser URL as `second_route`, though `tools/watch.py --dry-run --source EC-GOBEC-ADOPTED` ran on 2026-11-02 with 0 failures from its own User-Agent.
+
+### Languages
+
+Spanish is the only official language; every record has `language` es and no row of its own was added for a second language. English was looked for, and no government translation was found, at: `https://www.asambleanacional.gob.ec/en` (`404 23869 text/html`), `https://www.registroficial.gob.ec/en/` (`404 171581 text/html`), `https://www.superbancos.gob.ec/bancos/en/` (`200 168904 text/html`, a Spanish news page, not an English site) and `https://www.gob.ec/en` (no answer). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ec-lodc-art6-7 (Ley Orgánica de Defensa del Consumidor, arts. 6 and 7) | https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor | Row `EC-GOBEC-ADOPTED` passes, but the only file the portal serves (`https://www.gob.ec/sites/default/files/regulations/2018-09/Documento_Ley-Org%C3%A1nica-Defensa-Consumidor.pdf`, `200 84519 application/pdf`, 26 pages) is a Lexis compilation (every page footed `eSilec Profesional - www.lexis.com.ec`, headed `Ultima modificación: 13-oct-2011`), which is private and is never stored. The Registro Oficial Suplemento 116 of 2000-07-10 and the 2022 reformed text were not found on an official page that answered. |
+| Ley Orgánica Reformatoria del COA (RO 360, 2026-09-02) and the 2021 reform (RO 602) | not scoped | Scanned images, no text layer, no OCR; not read, so no scope entry (see `ec-coa-libro4` notes). |
+| Programa Ecuador Carbono Cero (Acuerdo MAAE-2021-018), Ley Orgánica de Economía Circular Inclusiva, Ley Orgánica de Eficiencia Energética | see `register/register.csv` | F7: register row only. |
+
+### Blocked from the cloud address
+
+- `https://www.ambiente.gob.ec/` (and its `wp-content/uploads` PDFs): `curl: (000)`, the proxy answers `CONNECT tunnel failed, response 502`; `https://www.recursosyenergia.gob.ec/`: the same. So the domain that now serves the texts of the ministry (MAATE, absorbed into the Ministerio de Energía y Minas under Decretos Ejecutivos 60 and 94 of 2025) could not be confirmed; no ministry text was read from it.
+- `https://www.gob.ec/` to `curl`: empty reply or HTTP/2 PROTOCOL_ERROR (see above); opens in Chromium. The portal's search page `https://www.gob.ec/regulaciones?search_api_fulltext=consumidor` answers Chromium `403`.
+- `https://www.bolsadequito.com/`: `406 226 text/html` to `curl -A 'Mozilla/5.0'`, `200 197323` to a full Chrome User-Agent; no terms page was found, so no row.
+- `https://www.registroficial.gob.ec/` answers `200 186643 text/html`, but it serves edition summaries (for example https://www.registroficial.gob.ec/registro-oficial-no-733/) and no gazette PDF; its only linked file is a user manual and the filing application at `https://esacc.corteconstitucional.gob.ec/app/` needs a login. `wp-json` answers `401 MISSING_AUTHORIZATION_HEADER`. No request that returns a gazette PDF was found, so no `EC-REGISTROFICIAL` row was added.
+- `https://www.supercias.gob.ec/portalscvs/index.htm`: `200 248924 text/html`, no terms or copyright page linked; no SCVS resolution text was fetched, so no row. `https://www.lexis.com.ec` answers 200 and is private: never a row.
+
+## Ukraine
+
+Rows `UA-RADA-ADOPTED`, `UA-RADA-CONSOLIDATED` and `UA-RADA-TRANSLATION` (all `permission requested`). Run on 2026-11-02. No row is `pass`, so no record is stored and all six scope instruments are link only. There is no proven fetch request for any row.
+
+zakon.rada.gov.ua (Законодавство України) is blocked from the cloud address. Every request ended before the server answered:
+
+```
+curl -sS -L -m 40 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://zakon.rada.gov.ua/laws/show/377-20
+```
+
+Returned `curl: (35) Recv failure: Connection reset by peer` (`000 0`). The same reset came for `/`, `/robots.txt`, `/laws/show/2811-20` (the copyright law whose art. 8 the brief expects to carry a pass), `/laws/show/en/377-20` (English view), `/laws/show/377-20/print` and `/laws/main/a1`, and for `zakon1.rada.gov.ua`, `zakon2.rada.gov.ua`, `zakon3.rada.gov.ua` and `data.rada.gov.ua`. Plain `http://zakon.rada.gov.ua/laws/show/377-20` answered `503 114 text/plain` ("upstream connect error or disconnect/reset before headers ... connection timeout"). Headless Chromium (Playwright `page.goto`) got `502` for `https://zakon.rada.gov.ua/laws/show/377-20`. Blocked from the cloud address: https://zakon.rada.gov.ua/ . The orchestrator can run the curl line above from the laptop. If it answers there, the print view per revision (`/laws/show/<number>/print`) and `/laws/show/<number>/ed<YYYYMMDD>` are the requests to try first; neither was reached from here, so neither is proven.
+
+Not reachable for law text either: the Internet Archive (`web.archive.org` answers `403 Blocked by egress policy`), `r.jina.ai` (422, timeout reaching zakon.rada.gov.ua).
+
+Other official hosts tried:
+
+| URL | Answer | Use |
+|---|---|---|
+| https://www.mof.gov.ua/uk | `403` Akamai "Access Denied" with curl and with headless Chromium | blocked from the cloud address: https://www.mof.gov.ua/ ; https://minfin.gov.ua also `403` |
+| https://itd.rada.gov.ua/billinfo/Bills/Card/<id> | `200 text/html; charset=utf-8` | bill cards, used as the official page for bills 15538 and 13425 and 13428; no terms, no law texts |
+| https://rada.gov.ua/ , https://w1.c1.rada.gov.ua/ | `200 171948 text/html` | no law texts, no copyright page found |
+| https://www.nssmc.gov.ua/ | `200 95602 text/html` | no copyright or reuse page found on the home page; site search for сталого розвитку returned nothing; no instrument identified, so no row |
+| https://www.kmu.gov.ua/ | `200 467815 text/html` | not used |
+
+### Bill cards
+
+The Rada bill card has an internal id; the bill number is on the page. Found by scanning ids with `curl -sSL https://itd.rada.gov.ua/billinfo/Bills/Card/<id>` and reading "Номер, дата реєстрації": id 70563 is bill 15538 (registered 2026-08-21, Cabinet of Ministers, "Опрацьовується в комітеті" since 2026-08-24); id 56689 is bill 13425 (registered 2025-06-26, "Проєкт відкликано" 2025-06-30, "Знято з розгляду" 2025-07-17); id 56691 is bill 13428 (amendments to the climate policy law, in committee).
+
+### Languages
+
+`UA-RADA-TRANSLATION` (English views under `/laws/show/en/<number>`) is on the same blocked host, so nothing was read about which English texts are official and which are marked unofficial. No English record is stored.
+
+### Link only
+
+| Instrument | Row | Reason |
+|---|---|---|
+| `ua-law-377-ix` | `UA-RADA-CONSOLIDATED` | permission requested; zakon.rada.gov.ua resets the connection |
+| `ua-accounting-law-996` | same | same |
+| `ua-climate-policy-law-3991` | same | same |
+| `ua-env-protection-law-1264` | same | same |
+| `ua-consumer-protection-law-3153` | same | same |
+| `ua-advertising-law-270` | same | same |
+
+No PDF was fetched, so no poppler command applies. No browser-fetched record exists.
+
+## Bangladesh
+
+No Bangladesh row is `pass`, so nothing is stored and all nine scope instruments are `link only`. The requests below were run on 2026-11-02 to find the texts and the terms; none is a storage recipe.
+
+**Why no row passes.** The Copyright Act 2023 (Act No. 34 of 2023) replaced the Copyright Act 2000. Read on bdlaws (`act-details-1452.html`), it has no exception for Acts or other official texts: s. 2(49) defines a government work (made by or for the Government, the legislative authority or a court), s. 15(1)(ঙ) makes the Government first owner of such a work, s. 28 gives it 60 years from first publication, and s. 14(6) and s. 70 list no official-text exclusion. So no row rests on a statute. Each publisher's own page was then read for a reuse grant: bdlaws has only a footer copyright line, the Department of Printing and Publications allows printing without modification, and Bangladesh Bank and BSEC publish a disclaimer only. All four rows are `permission requested`.
+
+### bdlaws (BD-BDLAWS-CONSOLIDATED, permission requested)
+
+```
+curl -sS -A 'Mozilla/5.0' -o act-details-1062.html -w '%{http_code} %{size_download} %{content_type}\n' http://bdlaws.minlaw.gov.bd/act-details-1062.html
+```
+
+Returned `200 148852 text/html;charset=UTF-16` in 3.2 s for the Climate Change Trust Act 2010. The body is UTF-16 (`iconv -f UTF-16 -t UTF-8` decodes it). Other acts: `act-details-791.html` (Environment Conservation Act 1995) `200 276264`, `act-details-1014.html` (Consumer Rights Protection Act 2009) `200 367900`, `act-details-1061.html` `200 168376`, `act-details-1107.html` `200 174818`, `act-details-1685.html` `200 142808`, `act-details-1452.html` (Copyright Act 2023) `200 572622` in 5.6 s. The chronological index `laws-of-bangladesh-chronological-index.html` returned `200 2615162`; the alphabetical index is 29 MB and took over two minutes. `https://` answers the same as `http://`. The site is not slow for single acts. Two fetches of `act-details-1062.html` gave the same sha256 (`af298268131fb2444894122af0cbfbcbe3546444fecaf88dcb7d4714796b6097`), so a page hash is stable and the watchers use it. HEAD answers 405. The site serves one current text per act (amendments applied, footnotes mark them) and no point-in-time versions. Index titles of Acts after 1987 are in Bangla; the act id is found by matching the Bangla title in the index. `?lang=en` changes only the menu: `act-details-1014.html?lang=en` is byte-identical to the Bangla request. The site's description says it holds Acts, Ordinances and President's Orders but not Regulations.
+
+### Languages
+
+Bangla is the only text bdlaws serves for the Acts examined. No English text was found there for any of the six Acts (the Climate Change Trust Act s. 24, the SREDA Act s. 29 and the Forest and Tree Conservation Act s. 17 let the Government publish an English text by gazette notice; none was seen). English was also looked for under `?lang=en`. The Bangladesh Bank circulars and the BSEC Code are English only.
+
+### Department of Printing and Publications (BD-DPP-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dppterms.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.dpp.gov.bd/index.php/page/view/295
+```
+
+Returned `200 41619 text/html; charset=UTF-8`. Home page `https://www.dpp.gov.bd` `200 67793 text/html; charset=UTF-8`. No gazette PDF was fetched, so no pdftotext recipe was tested for Bangla conjuncts.
+
+### Bangladesh Bank (BD-BB-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.out -w '%{http_code} %{size_download} %{content_type}\n' https://www.bb.org.bd/mediaroom/circulars/gbcrd/dec262023sfd06e.pdf
+```
+
+First run returned `200 46524 text/html`, a CAPTCHA page ("What code is in the image?", support ID in the body); `https://www.bb.org.bd/` returned `200 45968 text/html` and the circular list page `200 45292 text/html`, the same page. Headless Chromium (Playwright, `chromium.launch()`, `page.goto('https://www.bb.org.bd/', {waitUntil: 'networkidle'})`, then `context.request.get(<pdf url>)` in the same context) passed the check and returned `200 application/pdf 435006` for SFD Circular No. 06 and `200 application/pdf` for SFD Circular No. 01 (`https://www.bb.org.bd/mediaroom/circulars/gbcrd/nov062025sfd01e.pdf`). A later bare `curl` of the SFD 06 PDF also returned `200 435006 application/pdf`, so the check is not applied to every request. `pdftotext -layout` read the English text cleanly (the Bangla date line prints as mojibake, `11 ‡cŠl 1430`, from a legacy font; it is not stored). The circular list page loads its rows by script, so SFD 01 was found by trying the SFD 06 URL pattern.
+
+### BSEC (BD-BSEC-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf'
+```
+
+Returned `200 287607 application/pdf`. `pdftotext -layout cg.pdf -` gives readable English with Bangla gazette headers as mojibake (legacy fonts) and many `Could not parse ligature component` warnings. The law list is `https://sec.gov.bd/act-rules-and-regulations` (`200 893960 text/html; charset=UTF-8`). `https://sec.gov.bd/disclaimer` returned `200 198611`.
+
+### Link-only instruments
+
+- bd-bb-sfd-06-2023, bd-bb-sfd-01-2025: row BD-BB-ADOPTED is permission requested (disclaimer only; PDFs need a session that passed the JavaScript check).
+- bd-bsec-cg-code-2018: row BD-BSEC-ADOPTED is permission requested (disclaimer only).
+- bd-eca-1995, bd-environment-court-act-2010, bd-climate-change-trust-act-2010, bd-sreda-act-2012, bd-crpa-2009, bd-forest-tree-conservation-act-2026: row BD-BDLAWS-CONSOLIDATED is permission requested.
+
+### Not in scope, and sites that did not answer
+
+- Dhaka Stock Exchange, `https://www.dsebd.org` returned `200 1868223 text/html; charset=utf-8` (a script-rendered page); `https://www.dsebd.org/disclaimer` returned `403` to curl and `https://www.dsebd.org/terms` returned a script shell with no terms text. No DSE instrument in families F1 to F6 was identified, so there is no DSE row.
+- Financial Reporting Council: `https://frcbd.org` answers `200 450772 text/html` but the page is a TeePublic shop page, not the FRC; the FRC's own site `https://frc.gov.bd` fails `curl: (60) SSL certificate problem: unable to get local issuer certificate` and headless Chromium got HTTP 502 `upstream request failed` for `https://frc.gov.bd` and `https://www.frc.gov.bd`. Blocked from the cloud address. No gazetted order adopting IFRS S1 and S2 was found on any page opened, so there is no FRC entry or row.
+- No ETS or carbon tax: the bdlaws chronological index (titles searched for the Bangla words for carbon, energy, environment, climate and forest) lists no carbon tax or emissions trading Act. No register row was added.
+
+## Peru
+
+Rows `PE-ELPERUANO-ADOPTED` (`pass`, statute: Decreto Legislativo 822 art. 9 b), `PE-GOBPE-TRANSLATION` (`permission requested`) and `PE-SPIJ-CONSOLIDATED` (`permission requested`, page could not be opened). Run on 2026-11-02. Brief candidates not given a row: smv.gob.pe redirects to gob.pe/institucion/smv and the SMV resolution is read from El Peruano; the Bolsa de Valores de Lima site (https://www.bvl.com.pe) returned a 9 KB JavaScript shell with no terms page, and no BVL instrument is in scope.
+
+El Peruano's search site (https://busquedas.elperuano.pe, a React Router app) answers plain `curl`; there is no WAF challenge. The search runs through a data route, the norm page through a second one. Both return the React Router turbo-stream format (a flat JSON array in which objects hold integer references into the array); the decoder used is below (`decode(arr)(0)` returns the page data as nested dicts and lists; the hits are under `hits`, the HTML of a norm under `htmlContent`). ```
+def decode(arr):
+    memo={}
+    def res(i):
+        if i<0: return None
+        if i in memo: return memo[i]
+        v=arr[i]
+        if isinstance(v,dict):
+            o={}; memo[i]=o
+            for k,val in v.items():
+                kk=arr[int(k[1:])] if k.startswith('_') else k
+                o[kk]=res(val) if isinstance(val,int) and not isinstance(val,bool) else val
+            return o
+        if isinstance(v,list):
+            l=[]; memo[i]=l
+            for x in v: l.append(res(x) if isinstance(x,int) and not isinstance(x,bool) else x)
+            return l
+        memo[i]=v; return v
+    return res
+```
+
+Find an instrument (here the RENAMI decree, searched in the November 2024 window):
+
+```
+curl -sS -A 'Mozilla/5.0' -o s.data -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/_root.data?start=0&query=RENAMI&ci=all&fechaIni=20241101&fechaFin=20241130'
+```
+
+Returned `200 659596 text/x-script; charset=utf-8`; after decoding, `hits` holds two entries: the Normas Legales cuadernillo of the day and `op` 2343202-1, `tipoPublicacion` SE, `numeroDispositivo` N° 010-2024-MINAM. Search is fuzzy and sorted by date, so use `fechaIni`/`fechaFin` on the publication date. `fechaPublicacion` of a hit is the publication date. A norm is then at `/dispositivo/<tipoPublicacion>/<op>`:
+
+```
+curl -sS -A 'Mozilla/5.0' -o d.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/dispositivo/NL/1842032-2'
+```
+
+Returned `200 93802 text/html; charset=utf-8` (Decreto Supremo N° 013-2019-MINAM). The page carries two things: for modern norms (2018 onward, not all) a `<div class="story">` with the clean XHTML text (`hasHTML` true), and the link to the official PDF of the page, `/api/archivo/file/<file id>/*/<op>.pdf`. Norms without the HTML view are PDF-only. Two ways to fetch text, both reproducible byte for byte on two runs:
+
+HTML view, as the data route of the same page (the HTML page itself carries a per-request script token and its bytes differ per request, so it is not hashed):
+
+```
+curl -sS -A 'Mozilla/5.0' -o 1638161-1.data -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/dispositivo/NL/1638161-1.data'
+```
+
+Returned `200 125198 text/x-script; charset=utf-8` (Ley N° 30754), sha256 `8a4e32687506c29dd4ff4fbed9cefa2ca3fc13efddcdeefa6c5ad01bfc179a47` on two runs. `text` is the `story` div of the `htmlContent` field with script and style removed, `p`, `h1` to `h6`, `div`, `tr` and `br` as line breaks, table cells joined by a space, entities unescaped, runs of spaces collapsed, empty lines dropped. The XHTML inside carries a stale `<title>` from another norm (the Ley 30754 page shows the title of a water-reserve resolution); the title is not part of `story` and is not stored.
+
+PDF, with the file id from the page:
+
+```
+curl -sS -A 'Mozilla/5.0' -o 1842032-2.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/api/archivo/file/2mubNpRHaKfBVOvV7ZR2Jp/*/1842032-2.pdf'
+```
+
+Returned `200 539110 application/pdf`, sha256 `e30b179267a7b43f617b24a6be52f0a6f06082d703a1225f622f053ede55097d` on two runs. A HEAD request answers with `ETag` and `Last-Modified` (used by the watchers). The PDF is the newspaper pages the norm is printed on, in two columns, so it holds the tail of the previous norm, the head of the next one and the page headers. `pdftotext -layout` (the Brazil recipe) merges the two columns line by line and `pdftotext` in reading order mixes them, so the records were made from word positions: `pdftotext -bbox-layout file.pdf -`, blocks placed by column (x position against two equal columns), blocks that span the page as column breaks, page-header blocks (above y 80: `El Peruano ...`, `NORMAS LEGALES`, page number) dropped, then the slice between the norm's heading and its OP number line, `fi`/`fl` ligatures normalised (the PDF writes `Oficial` as `Oﬁ cial`). Nothing is reworded; line breaks are the PDF's own, and a few words keep stray spaces from the PDF text layer ('l os', 't reinta'). Condensed code (`bbox_lines`, `clean`):
+
+```
+import re,sys,subprocess
+FURN=[r'^El Peruano( ?/ ?.*)?$', r'^Lima, (lunes|martes|miércoles|jueves|viernes|sábado|domingo) \d+ de \w+ de \d{4}$', r'^NORMAS LEGALES$']
+def clean(lines):
+    lines=[l.replace('\x0c','').rstrip() for l in lines]
+    lines=[re.sub(r'[ \t]+',' ',l).strip() for l in lines]
+    isf=[any(re.match(p,l) for p in FURN) for l in lines]
+    drop=set()
+    for i,f in enumerate(isf):
+        if f:
+            drop.add(i)
+            for d in range(-3,4):
+                j=i+d
+                if 0<=j<len(lines) and re.fullmatch(r'\d{1,3}|\d{6}',lines[j]): drop.add(j)
+    out=[l for i,l in enumerate(lines) if i not in drop and l]
+    return out
+def pdflines(path):
+    return subprocess.run(['pdftotext',path,'-'],capture_output=True,text=True).stdout.split('\n')
+def find(lines,pat,start=0):
+    for i in range(start,len(lines)):
+        if re.search(pat,lines[i]): return i
+    raise SystemExit('marker not found: '+pat)
+def articles(txt):
+    return re.findall(r'(?mi)^Art[íi]culo (\d+)[º°o]?[.\- ]',txt)
+
+import html as _h
+def bbox_lines(path,ncols=2,margin=30,fullw=0.6):
+    xml=subprocess.run(['pdftotext','-bbox-layout',path,'-'],capture_output=True,text=True).stdout
+    out=[]
+    for pm in re.finditer(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>',xml,re.S):
+        W=float(pm.group(1)); body=pm.group(3)
+        colw=(W-2*margin)/ncols
+        blocks=[]
+        for b in re.finditer(r'<block xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</block>',body,re.S):
+            x0,y0,x1,y1=map(float,b.groups()[:4])
+            lines=[]
+            for ln in re.finditer(r'<line [^>]*>(.*?)</line>',b.group(5),re.S):
+                ws=[_h.unescape(w) for w in re.findall(r'>([^<]*)</word>',ln.group(1))]
+                lines.append(' '.join(ws))
+            full=(x1-x0)>fullw*W
+            if y1<80 and re.fullmatch(r'(El Peruano.*|NORMAS LEGALES|\d{1,4}|Lima, .*)',' '.join(lines)): continue
+            col=0 if full else max(0,min(ncols-1,int((x0-margin+5)//colw)))
+            blocks.append((y0,x0,col,full,lines))
+        # bands separated by full-width blocks
+        blocks.sort(key=lambda b:(b[0],b[1]))
+        band=[]; res=[]
+        def flush():
+            for c in range(ncols):
+                for b in sorted([b for b in band if b[2]==c],key=lambda b:b[0]): res.extend(b[4])
+            band.clear()
+        for b in blocks:
+            if b[3]:
+                flush(); res.extend(b[4])
+            else: band.append(b)
+        flush()
+        out.extend(res); out.append('\x0c')
+    return out
+```
+
+Check run on every PDF record: the article numbers come out in sequence (DS 013-2019: 1 to 4, then 1 to 72; DS 010-2024: 1 to 6, then 1 to 52; the SMV resolution 1 to 5). Old gazette PDFs fail this check (headings missing from the text layer), so those norms are link only.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records | Fetch |
+|---|---|---|---|
+| `pe-ley-30754` | adopted | 2018-04-18 es | HTML view, `.data` of 1638161-1 |
+| `pe-cnc-res-001-2026-ef30` | adopted | 2026-03-27 es | HTML view, `.data` of 2500411-1 (`200 122271` for the page, file id CJhU8wL-aaoAlrgffjjyFE) |
+| `pe-ds-013-2019-minam` | adopted | 2019-12-31 es | PDF, 1842032-2 |
+| `pe-ds-010-2024-minam` | adopted | 2024-11-13 es | PDF of the Separata Especial, 2343202-1 (`200 4621694 application/pdf`) |
+| `pe-smv-rsc-018-2020` | adopted | 2020-02-09 es | PDF, 1853548-1 (`200 454572 application/pdf`) |
+
+None of these is a browser-fetched record; no headless browser was needed.
+
+### Languages
+
+Spanish is the only language El Peruano serves; Constitution art. 48 makes Quechua, Aymara and other native languages co-official where they predominate, but no native-language text of any instrument in scope was found on El Peruano or on the gob.pe pages opened. English: the only government translation found is MINAM's Spanish and English publication of DS 010-2024-MINAM on gob.pe.
+
+```
+curl -sS -A 'Mozilla/5.0' -o b.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://cdn.www.gob.pe/uploads/document/file/8242222/6882169-publicacion-bilingue-renami%282%29.pdf?v=1764013910'
+```
+
+Returned `200 5611421 application/pdf` (100 pages, Spanish and English paragraphs alternating). The same cdn host without the file query string, `https://cdn.www.gob.pe/institucion/minam/informes-publicaciones/6882169-publicacion-bilingue-...`, answers `403 459 text/html` (S3 AccessDenied); the page `https://www.gob.pe/institucion/minam/informes-publicaciones/6882169-publicacion-bilingue-decreto-supremo-que-aprueba-las-disposiciones-para-el-funcionamiento-del-registro-nacional-de-medidas-de-mitigacion-renami` answers `200 33977`. The translation is credited to GIZ-supported work and marked © Ministerio del Ambiente, so row `PE-GOBPE-TRANSLATION` is `permission requested` and nothing is stored from it.
+
+### Link only
+
+- `pe-ley-28611`: row passes; El Peruano has no dispositivo page for 2005 (search hit 'BORRA' is the whole-day gazette `NL20051015.pdf`, `200 1504095 application/pdf`); its text layer misses headings (Article 58 absent), so no faithful text.
+- `pe-ley-29571`: row passes; the 2010 gazette PDF (`200 685315 application/pdf`) has no heading line for Articles 37, 52, 111, 117, 118, 124 and 151, and the page's HTML view is a page-image conversion with broken characters.
+- `pe-dl-1044`: row passes; the 2008 gazette PDF (`200 395175 application/pdf`) has no heading line for Articles 47 and 58, and its first page begins inside Decreto Legislativo 1043.
+- SPIJ (consolidated texts, the way to get these three with their amendments): blocked from the cloud address.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download}\n' 'https://spij.minjus.gob.pe/spij-ext-web/'
+```
+
+Returned `curl: (35) Recv failure: Connection reset by peer` (exit 35, `000 0`). Headless Chromium to the same URL got `502 upstream request failed`; https://www.minjus.gob.pe is reset as well. Blocked from the cloud address: https://spij.minjus.gob.pe/spij-ext-web/ and https://www.minjus.gob.pe . The orchestrator can try both from the laptop.
+
+## Malta
+
+Rows `MT-LEGISLATION-ADOPTED` and `MT-LEGISLATION-CONSOLIDATED` (both `pass`, statute: Copyright Act, Cap. 415, art. 2(1), "literary work" "does not include any written law, law report or judicial decisions"). Run on 2026-11-02 (GEL-09-02). legislation.mt has no terms-of-use page (`https://legislation.mt/terms-and-conditions` answers `200 915 text/html; charset=utf-8` with "Web Content Not Found!"), and its footer claims copyright for the Office of the State Advocate, so the row rests on the statute and Varun confirms, as for Brazil. The proviso in art. 2(1) ("save as provided in article 12 of the Statute Law Revision Act, 1980") could not be read: Act IX of 1980 as published has ten articles. Details are in the row notes. No browser was needed for legislation.mt; every request below is a plain `curl` and answered from the cloud address.
+
+Two requests per file. The ELI page lists the PDF of its language (one `getpdf/<24 hex>` link), and the PDF is the text. Run for the Climate Action Act, 2024 (Act XVI of 2024, `mt-climate-action-act-2024`), row `MT-LEGISLATION-ADOPTED`:
+
+```
+curl -sS -L -o act16.html -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/eli/act/2024/16/eng
+curl -sS -L -o act16_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/672498c6ea940e187071be7c
+```
+
+Returned `200 70046 text/html; charset=utf-8`, then `200 1405890 application/pdf` (sha256 `0330e61c4d83d6a47cc98913c49dd37f1e9f1ee19f92a6502a45a7af263bd000`). The id comes from `grep -oE 'getpdf/[a-f0-9]{24}' act16.html`. The id is stable: a second fetch of 12 random stored files reproduced `fetched_sha256` for all 12. Acts and Legal Notices are `eli/act/<year>/<number>` and `eli/ln/<year>/<number>`; the date of an adopted record is in the scope entry's `evidence`.
+
+Row `MT-LEGISLATION-CONSOLIDATED`, Climate Action Act, Cap. 643, point in time 2024-10-04:
+
+```
+curl -sS -L -o cap643.html -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/eli/cap/643/20241004/eng
+curl -sS -L -o cap643_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/67248fb2b52f1d2d2080b154
+```
+
+Returned `200 69671 text/html; charset=utf-8`, then `200 293855 application/pdf` (sha256 `74082cc0f6d4a3743e054b3e596f6697c23829ffd30ec975a506e79c0f6d0699`). The point-in-time dates of a Chapter or S.L. are the `eli/<cap/N or sl/N.M>/<YYYYMMDD>/eng` links in the page of the unversioned URL (`https://legislation.mt/eli/cap/643/eng`, which answers `302` to `/eli/cap/643/eng/portalpdf`; `curl -L` follows it); they are also in the page script as `var group1Data = [...]` with a `start` date and a `uri` per version. The first entry of a timeline, with no link, is the as-adopted date. `https://legislation.mt/eli/sitemap.xml` (`200 3170386 application/xml`) lists every ELI (21,681 URLs on the day) but no titles; titles were read from each page.
+
+Text extraction: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed and blank lines dropped, so line breaks are the PDF's line wraps and margin notes (the right-hand column of an Act) sit in the line of the clause they annotate. The output was checked for mojibake: no U+FFFD or control characters in any of the 60 stored texts, and every Maltese text contains ħ, ġ, ċ and ż. `fetched_sha256` is the hash of the PDF as returned. `fetched_url` is the `getpdf` URL. Nothing is reworded. For `mt-consumer-affairs-act-part-viii` the text is the Title cut out of the whole Chapter: from the line carrying the heading `PART VIII` (`TAQSIMA VIII`) to the line before the one carrying `Title II` (`Titolu II`); that line also carries the margin note "Added by:", which is therefore not in the record.
+
+### Languages
+
+Maltese and English are both authentic texts on legislation.mt, so both are stored under the same row and neither needs a translation row. The page of each language is `.../eng` and `.../mlt`; each lists its own PDF. Maltese PDF of the same Act:
+
+```
+curl -sS -L -o act16_mt.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/672498c4ea940e187071be5e
+```
+
+Returned `200 1403907 application/pdf` (sha256 `3450e6276d531ac7e63986853c52c3680aca115d736214b2e246669ba0430545`). The Maltese PDF of an Act or Legal Notice is the Gazette supplement: a bilingual cover page (Maltese and English side by side, which `-layout` interleaves line by line) followed by the Maltese text. Consolidated Maltese files are Maltese only (Cap. 643, 2024-10-04: `curl -sS -L -o cap643_mt.html https://legislation.mt/eli/cap/643/20241004/mlt` returned `200 69751 text/html; charset=utf-8`, PDF `getpdf/67248fb10dba9f1514bfb0c4`).
+
+Instruments published in one language: L.N. 39 of 2026 (`mt-csr-regulations-2026`) and L.N. 236 of 2026 (`mt-csr-amendment-regulations-2026`, "English Version only") answer with the same English PDF on `/eng` and `/mlt`:
+
+```
+curl -sS -L -o ln39_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/699c181af42b9f248ceae43c
+curl -sS -L -o ln39_mt.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/699c181963aaee0388a77579
+```
+
+Both returned `200 996975 application/pdf`, same sha256 (`3fd0b6fad3f85601611d...`). No Maltese text exists for them. Neither is stored, for the reason below. No government English translation exists or is needed (English is authentic); nothing was looked for outside legislation.mt.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Versions stored (`in_force`), each in en and mt |
+|---|---|---|
+| `mt-csr-act-2026` | adopted | 2026-03-20 |
+| `mt-csr-act-2026-commencement-ln-61` | adopted | 2026-03-20 |
+| `mt-climate-action-act-2024` | adopted, consolidated | 2024-10-04 (both) |
+| `mt-climate-action-act-2024-commencement-ln-248` | adopted | 2024-10-04 |
+| `mt-climate-action-act-2015` | adopted, consolidated | 2015-07-07; 2020-07-17, 2023-10-17; repeal record 2024-10-04 |
+| `mt-ghg-inventory-regs` | adopted, consolidated | 2015-08-14; 2024-10-04 |
+| `mt-ets-stationary-regs` | adopted, consolidated | 2013-01-01; 2024-10-04, 2024-11-22, 2025-07-22 |
+| `mt-ets-aviation-regs` | adopted, consolidated | 2012-11-16; 2024-10-04, 2024-11-22, 2025-07-22 |
+| `mt-ets2-regs` | adopted, consolidated | 2024-11-22 (both) |
+| `mt-ets-maritime-regs` | adopted, consolidated | 2024-11-22; 2024-11-22, 2025-07-22 |
+| `mt-cbam-implementing-regs` | adopted, consolidated | 2026-09-25 (both) |
+| `mt-consumer-affairs-act-part-viii` | consolidated | 2019-10-01, 2021-08-31, 2022-10-21, 2023-06-25, 2023-07-14 (2022-01-01 and 2023-09-19 have the same Title text as the previous version) |
+
+### Link only
+
+- `mt-csr-regulations-2026` (L.N. 39 of 2026, S.L. 386.31): rows pass; not stored because no official page states an in-force date. The regulations come into force by notice in the Gazette (reg. 1(2)); the legislation.mt page reads "Not yet in force"; no commencement notice is among the 325 Acts and Legal Notices of 2026 in the sitemap. The fetch works (`getpdf/699c181af42b9f248ceae43c`, above).
+- `mt-csr-amendment-regulations-2026` (L.N. 236 of 2026): same reason (reg. 1(3)).
+- Consumer protection and Directive (EU) 2024/825 (applies from 2026-09-27): no transposing Act or Legal Notice is on legislation.mt on 2026-11-02, so no scope entry. L.N. 145 of 2026 transposes Directive (EU) 2023/2673, not 2024/825.
+- Not used, so no row: the Government Gazette on gov.mt, MFSA and ERA. The Acts and Legal Notices are on legislation.mt as published, and nothing on the MFSA or ERA sites could be opened to judge a candidate instrument. Borza Malta answered but holds no instrument in scope.
+
+### Blocked from the cloud address
+
+All three answer `curl` with a Cloudflare challenge page, and headless Chromium (Playwright, `domcontentloaded` plus 5 s) got the same "Just a moment... Performing security verification" page with status 403, so no second route works from this address. The orchestrator can read them from the laptop.
+
+```
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gov.mt/en/Government/DOI/Government%20Gazette/Pages/default.aspx'
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.mfsa.mt/
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' https://era.org.mt/
+```
+
+Returned `403 5656 text/html; charset=UTF-8`, `403 5656 text/html; charset=UTF-8` and `403 4546 text/html; charset=UTF-8`. Also blocked: `https://www.mfsa.mt/our-work/capital-markets-rules/` (`403 5656`).
+
+## Serbia
+
+Run on 2026-11-02 (GEL-08-10). One row passes: `RS-PARLAMENT-ADOPTED` (National Assembly, adopted laws as PDF; statute basis, Law on Copyright and Related Rights čl. 6, quoted in the row). Seven rows are `permission requested`: `RS-PIS-CONSOLIDATED` and `RS-PIS-ADOPTED` (Pravno-informacioni sistem of Službeni glasnik: its terms forbid copying beyond personal non-commercial use and any automated extraction without written consent), `RS-EKOLOGIJA-ADOPTED` (Ministry of Environmental Protection: no terms page, and one of its files is a reproduction of the gazette publisher's editorial consolidation), `RS-MFIN-ADOPTED` (403 to the cloud address; the page names a CC BY-NC-ND licence), `RS-MTT-ADOPTED` (refused by the egress proxy), `RS-SEC-ADOPTED` and `RS-BELEX-ADOPTED` (no instrument in scope; copyright line only, and a personal-use disclaimer). Nothing is stored under a row that is not `pass`. The gazette and the Assembly publish in Serbian (Cyrillic; the Latin transliteration the gazette also serves is the same text), so there is one record per version, language `sr`, Cyrillic script.
+
+Row `RS-PARLAMENT-ADOPTED`. The list https://www.parlament.gov.rs/акти/донети-закони/донети-закони.45.html (current convocation) and the convocation pages linked from it (for example `.../у-сазиву-од-3-јуна-2016.4236.html`) give each law as a PDF whose file name is the Assembly case number. Request proven on 2026-11-02 for the Law on Climate Change (Sl. glasnik RS 26/2021):
+
+```
+curl -sS -L -o 337-21.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2021/337-21.pdf
+```
+
+Returned `200 437559 application/pdf` (32 pages). Seven more were fetched the same way and each returned 200 `application/pdf`: `2019/2368-19.pdf` (Law on Accounting, 434653 bytes), `2016/2926-15.pdf` (Law on Advertising, 297321), `14_saziv/2230-25.pdf` (GHG emissions tax, 112111), `14_saziv/2588-26.pdf` (amending law, 195650), `14_saziv/2231-25.pdf` (carbon-intensive imports tax, 159064), `14_saziv/2587-26.pdf` (supplementing law, 179915) and `14_saziv/1317-26.pdf` (Law on Consumer Protection, 948104). The folder is a year for older laws (2016 for the Law on Advertising, whose case number ends -15) and `14_saziv` for laws of the current convocation. A second fetch of all eight on the same day returned byte-identical files (the sha256 in each record reproduced). The server (and the egress proxy) answered some requests with `curl: (35) Recv failure: Connection reset by peer`; a retry succeeded each time. `HEAD` answers `200` with `Last-Modified` and `Content-Length` (used by the watchers).
+
+Text extraction: `pdftotext -layout file.pdf -`, then every run of spaces collapsed to one, form feeds removed, blank lines dropped; line breaks are the PDF's line wraps, page-number lines stay (nothing reworded). Checked before storing: no U+FFFD, no `(cid:` and no private-use characters in any of the eight, and Cyrillic letters are 99 to 100 percent of the letters of each (58 to 74 percent of all characters, the rest being digits, spaces and punctuation). The PDFs are the law as adopted: they have no gazette number or date, so `in_force` comes from the commencement clause of the Law read with the gazette date in the header of the Pravno-informacioni sistem entry (a few dozen reads of titles and headers; no PIS text is stored).
+
+Stored (fetched 2026-11-02), all kind `adopted`, language `sr`:
+
+| Instrument | `in_force` | Assembly file |
+|---|---|---|
+| `rs-accounting-act` | 2020-01-01 | `2019/2368-19.pdf` |
+| `rs-climate-change-act` | 2021-03-31 | `2021/337-21.pdf` |
+| `rs-ghg-tax-act` | 2025-12-12 | `14_saziv/2230-25.pdf` |
+| `rs-ghg-tax-act-amend-2026` | 2026-09-08 | `14_saziv/2588-26.pdf` |
+| `rs-cbam-tax-act` | 2025-12-12 | `14_saziv/2231-25.pdf` |
+| `rs-cbam-tax-act-amend-2026` | 2026-09-08 | `14_saziv/2587-26.pdf` |
+| `rs-advertising-act` | 2016-02-05 | `2016/2926-15.pdf` |
+| `rs-consumer-protection-act` | 2026-05-01 | `14_saziv/1317-26.pdf` |
+
+The Assembly publishes the act as adopted and each amending act as a separate PDF; it serves no consolidation, so later amendments of stored laws are not merged (see the scope notes: Law on Accounting 44/2021, Law on Advertising 52/2019). The 2026-dated tax laws carry the publication date 2026-08-31 for the amendments (`80/2026`) and 2025-12-04 for the originals (`109/2025`).
+
+### Languages
+
+The Assembly PDFs and the gazette are Serbian only, so no second language is stored. No English translation was found on any Serbian government site that opened from the cloud address, so no translation row was added and no `translation` record was made. Looked at on 2026-11-02: parlament.gov.rs (laws list and convocation pages, Serbian only); ekologija.gov.rs (`curl -sS -L https://www.ekologija.gov.rs/wp-json/wp/v2/propis?search=Climate` and `search=Environment` returned 200 with only international declarations, `https://www.ekologija.gov.rs/en/` 200 179419 bytes with no legislation page); srbija.gov.rs/en/ (200, 94117); mfin.gov.rs/en/ (403); mtt.gov.rs (refused). The English portal address named in the PIS configuration (`https://propisi.pravno-informacioni-sistem.rs/`) did not answer (curl returned no status).
+
+### Link only
+
+| Instrument | Why link only |
+|---|---|
+| `rs-env-protection-act` | The Assembly zip of the 2004 text (`2004/pdf_068_3630-04.zip`, 200, 160332 bytes, one 56-page PDF) is in a legacy font encoding: `pdftotext -layout` returns `ZA[TITI @IVOTNE SREDINE` and `^lan 1.` (mojibake, not stored). The Ministry hosts consolidations (`https://www.ekologija.gov.rs/wp-content/uploads/2026/08/Zakon-o-zastiti-zivotne-sredine.pdf`, 200, 399444 bytes, application/pdf, Cyrillic to 94/2024, opens with "НАПОМЕНА ИЗДАВАЧА" and the Službeni glasnik header, so it is the gazette publisher's editorial text; `Zakon-o-zastiti-zivotne-sredine-1.pdf`, 200, 569169 bytes, Latin, to 43/2011), row `RS-EKOLOGIJA-ADOPTED` is permission requested. |
+| `rs-mrv-rules`, `rs-ghg-activities-decree`, `rs-verification-rules`, `rs-ghg-tax-measures-decree`, `rs-ghg-tax-benchmarks-rules` | Subordinate acts: the Assembly does not publish them; the only free official source found is the Pravno-informacioni sistem, rows `RS-PIS-CONSOLIDATED` and `RS-PIS-ADOPTED` are permission requested. The request that works from the cloud address, recorded as proof and not used for storage: `curl -sS -L -o act.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://reg.pravno-informacioni-sistem.rs/api/viewdoc?uuid=<contentUrl>&regactid=<id>&doctype=reg'` returned `200 159511 text/html; charset=UTF-8` for the Law on Climate Change (ids from `GetLawActViewByGuid?guid=<guid>`, guids from `POST https://di.pravno-informacioni-sistem.rs/REG/advancedSearch`). The site shell `https://pravno-informacioni-sistem.rs/` is a Vue application (200, 13015 bytes for every path); its API hosts come from `/bandleportalconf.txt` (base64). |
+
+### Blocked from the cloud address
+
+- `https://www.mfin.gov.rs/propisi/` and the register URL `https://mfin.gov.rs/propisi/-zakon-o-racunovodstvu-sluzbeni-glasnik-rs-br-732019`: HTTP 403, 46112 bytes, text/html (service notice with a request ID), also `/en/`.
+- `https://www.mtt.gov.rs/` and `/en/`: refused by the egress proxy (`connect_rejected`, curl exit 35).
+- `https://www.belex.rs/`: TLS certificate expired (curl exit 60); `http://www.belex.rs/` answers 301 to `https://bgdx.rs/`, which opened (200, 29028 bytes).
+- No browser recipe was needed: nothing stored came from a site that refused `curl`, and `fetched_sha256` is the hash of the PDF bytes as received (a second fetch reproduced it).
+
 ## Kazakhstan
 
 Rows `KZ-ADILET-ADOPTED` and `KZ-ADILET-CONSOLIDATED` (`pass`, statute: Law No. 6-I on Copyright and Related Rights, Art. 8, repeated in item 1.7 of the Әділет user agreement), `KZ-ADILET-TRANSLATION` (`permission requested`), `KZ-KASE-ADOPTED` and `KZ-AIX-ADOPTED` (`permission requested`). Run on 2026-11-02.

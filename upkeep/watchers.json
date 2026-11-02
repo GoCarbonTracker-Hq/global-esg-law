@@ -6861,6 +6861,650 @@
   "change": "terms_changed"
  },
  {
+  "id": "ec-sb-saras-norm-codificacion-pdf",
+  "source_id": "EC-SUPERBANCOS-CONSOLIDATED",
+  "iso2": "EC",
+  "instrument": "ec-sb-saras-norm",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.ec/bancos/descargas/39342/",
+  "params": {}
+ },
+ {
+  "id": "ec-coa-libro4-asamblea-leyes-aprobadas",
+  "source_id": "EC-ASAMBLEA-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-coa-libro4",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ec/es/leyes-aprobadas",
+  "params": {}
+ },
+ {
+  "id": "ec-reglamento-coa-libro4-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-reglamento-coa-libro4",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0 (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
+ },
+ {
+  "id": "ec-lodc-art6-7-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-lodc-art6-7",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
+ },
+ {
+  "id": "ua-law-377-ix-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-law-377-ix",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/377-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-accounting-law-996-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-accounting-law-996",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/996-14",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-climate-policy-law-3991-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-climate-policy-law-3991",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3991-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-env-protection-law-1264-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-env-protection-law-1264",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/1264-12",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-consumer-protection-law-3153-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-consumer-protection-law-3153",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3153-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-advertising-law-270-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-advertising-law-270",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "bd-eca-1995-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-eca-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-791.html",
+  "params": {}
+ },
+ {
+  "id": "bd-environment-court-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-environment-court-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1061.html",
+  "params": {}
+ },
+ {
+  "id": "bd-climate-change-trust-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-climate-change-trust-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1062.html",
+  "params": {}
+ },
+ {
+  "id": "bd-sreda-act-2012-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-sreda-act-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1107.html",
+  "params": {}
+ },
+ {
+  "id": "bd-crpa-2009-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-crpa-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1014.html",
+  "params": {}
+ },
+ {
+  "id": "bd-forest-tree-conservation-act-2026-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-forest-tree-conservation-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1685.html",
+  "params": {}
+ },
+ {
+  "id": "bd-bb-sfd-06-2023-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-06-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bb-sfd-01-2025-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-01-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bsec-cg-code-2018-pdf",
+  "source_id": "BD-BSEC-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bsec-cg-code-2018",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf",
+  "params": {}
+ },
+ {
+  "id": "pe-smv-rsc-018-2020-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-smv-rsc-018-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/272ISYruaG39_ADpvQbxa1/*/1853548-1.pdf"
+ },
+ {
+  "id": "pe-cnc-res-001-2026-ef30-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-cnc-res-001-2026-ef30",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/CJhU8wL-aaoAlrgffjjyFE/*/2500411-1.PDF"
+ },
+ {
+  "id": "pe-ley-30754-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-30754",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/Ev9teLThaoJBc7Fj3Z9fB3/*/1638161-1.pdf"
+ },
+ {
+  "id": "pe-ds-013-2019-minam-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ds-013-2019-minam",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/2mubNpRHaKfBVOvV7ZR2Jp/*/1842032-2.pdf"
+ },
+ {
+  "id": "pe-ds-010-2024-minam-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ds-010-2024-minam",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/1IJnm3gAa49APwPHS3oWJJ/*/2343202-1.pdf"
+ },
+ {
+  "id": "pe-ley-28611-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-28611",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/2k4IxkoDKjXB-kayi8301O/*/NL20051015.pdf"
+ },
+ {
+  "id": "pe-ley-29571-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-29571",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/FLjXBRgxacfAreF8uHsy2D/*/538113-1.pdf"
+ },
+ {
+  "id": "pe-dl-1044-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-dl-1044",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/22AIgFtfKJZ95ZsRs-y579/*/218542-6.pdf"
+ },
+ {
+  "id": "mt-csr-act-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-act-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/act/2026/1/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-csr-act-2026-commencement-ln-61-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-act-2026-commencement-ln-61",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2026/61/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-csr-regulations-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-csr-regulations-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/386.31/eng",
+  "params": {
+   "regex": "sl/386\\.31/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-csr-amendment-regulations-2026-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-csr-amendment-regulations-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2026/236/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2024-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/643/eng",
+  "params": {
+   "regex": "cap/643/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2024-commencement-ln-248-legislation-mt",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2024-commencement-ln-248",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/ln/2024/248/eng",
+  "params": {
+   "regex": "\\b(\\d{4}-\\d{2}-\\d{2})\\b"
+  }
+ },
+ {
+  "id": "mt-climate-action-act-2015-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-climate-action-act-2015",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/543/eng",
+  "params": {
+   "regex": "cap/543/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ghg-inventory-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ghg-inventory-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.4/eng",
+  "params": {
+   "regex": "sl/643\\.4/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-stationary-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-stationary-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.2/eng",
+  "params": {
+   "regex": "sl/643\\.2/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-aviation-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-aviation-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.3/eng",
+  "params": {
+   "regex": "sl/643\\.3/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets2-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets2-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.5/eng",
+  "params": {
+   "regex": "sl/643\\.5/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-ets-maritime-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-ets-maritime-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.6/eng",
+  "params": {
+   "regex": "sl/643\\.6/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-cbam-implementing-regs-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-cbam-implementing-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/sl/643.7/eng",
+  "params": {
+   "regex": "sl/643\\.7/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-consumer-affairs-act-part-viii-legislation-mt",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "mt-consumer-affairs-act-part-viii",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/378/eng",
+  "params": {
+   "regex": "cap/378/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-terms-legislation-adopted",
+  "source_id": "MT-LEGISLATION-ADOPTED",
+  "iso2": "MT",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/415/eng",
+  "change": "terms_changed",
+  "params": {
+   "regex": "cap/415/(\\d{8})/"
+  }
+ },
+ {
+  "id": "mt-terms-legislation-consolidated",
+  "source_id": "MT-LEGISLATION-CONSOLIDATED",
+  "iso2": "MT",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://legislation.mt/eli/cap/415/eng",
+  "change": "terms_changed",
+  "params": {
+   "regex": "cap/415/(\\d{8})/"
+  }
+ },
+ {
+  "id": "rs-accounting-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-accounting-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2019/2368-19.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-climate-change-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-climate-change-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2021/337-21.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-env-protection-act-ekologija-page",
+  "source_id": "RS-EKOLOGIJA-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-env-protection-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ekologija.gov.rs/wp-json/wp/v2/propis/13084?_fields=id,modified",
+  "params": {
+   "second_route": "https://www.ekologija.gov.rs/propis/%d0%b7%d0%b0%d0%ba%d0%be%d0%bd-%d0%be-%d0%b7%d0%b0%d1%88%d1%82%d0%b8%d1%82%d0%b8-%d0%b6%d0%b8%d0%b2%d0%be%d1%82%d0%bd%d0%b5-%d1%81%d1%80%d0%b5%d0%b4%d0%b8%d0%bd%d0%b5/ (browser)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2230-25.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-act-amend-2026-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-act-amend-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2588-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-cbam-tax-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-cbam-tax-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2231-25.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-cbam-tax-act-amend-2026-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-cbam-tax-act-amend-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2587-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-mrv-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-mrv-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=5d5816e1-2ffc-40a3-b067-35422ebf709f",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/5d5816e1-2ffc-40a3-b067-35422ebf709f (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-activities-decree-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-activities-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=e5932061-29c4-440f-8810-7f019ce8f82e",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/e5932061-29c4-440f-8810-7f019ce8f82e (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-verification-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-verification-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=423bc135-a51c-4736-aa22-e5e47659221d",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/423bc135-a51c-4736-aa22-e5e47659221d (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-measures-decree-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-measures-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=fef8070f-073e-4ec0-8445-eec579194be6",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/fef8070f-073e-4ec0-8445-eec579194be6 (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-benchmarks-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-benchmarks-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=7898e919-3b43-4da7-a6d1-e181f9374605",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/7898e919-3b43-4da7-a6d1-e181f9374605 (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-advertising-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-advertising-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2016/2926-15.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-consumer-protection-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/1317-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
   "id": "kz-environmental-code-versions",
   "source_id": "KZ-ADILET-CONSOLIDATED",
   "iso2": "KZ",
