@@ -3202,3 +3202,53 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Iceland
+
+Date run: 2026-11-02, from the cloud address. No row is `pass`, so nothing is stored; the requests below are proven for the day the verdict flips. Rows: `IS-ALTHINGI-CONSOLIDATED`, `IS-STJORNARTIDINDI-ADOPTED`, `IS-GOVERNMENT-TRANSLATION`, all `permission requested`.
+
+### IS-STJORNARTIDINDI-ADOPTED (proven fetch, not stored)
+
+Stjórnartíðindi moved to island.is; `www.stjornartidindi.is` redirects to `https://island.is/stjornartidindi`. The gazette has a public JSON API (OpenAPI at `https://api.stjornartidindi.is/swagger-json`). The advert body is HTML in `advert.document.html`; the PDF (the legally binding form) is in `advert.document.pdfUrl`.
+
+One instrument, Lög um ársreikninga nr. 3/2006 (A-deild 3/2006, id `b46b4083-ecb7-46c9-a5b3-68c201a6ccd2`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o a1.json -w '%{http_code} %{size_download} %{content_type}\n' https://api.stjornartidindi.is/api/v1/adverts/b46b4083-ecb7-46c9-a5b3-68c201a6ccd2
+200 114548 application/json; charset=utf-8
+```
+
+A second fetch gave a byte-identical file (sha256 `69b78982b778bbb4c18995be85b7c0fe1ce198c781826d0afcf9690c502108be` both times), so `fetched_sha256` reproduces. Text recipe if the row flips: take `advert.document.html`, drop tags, headings and paragraphs as line breaks. The HTML puts every word on its own line, so collapse whitespace inside a paragraph before writing the record.
+
+Finding the id of an act or regulation (lean list, 94 kB for 82 hits):
+
+```
+curl -sS -A 'Mozilla/5.0' -G https://api.stjornartidindi.is/api/v1/adverts-lean --data-urlencode 'search=loftslagsmál' --data-urlencode department=a-deild --data-urlencode pageSize=100
+200 94354 application/json; charset=utf-8
+```
+
+The full list endpoint `/api/v1/adverts` returned 7321596 bytes for the same query, so the watchers use `adverts-lean`. The PDF of Markaðssetningarlög nr. 44/2026: `curl -sS -A 'Mozilla/5.0' -o 44.pdf https://adverts.stjornartidindi.is/A_nr_44_2026.pdf` returned 200, 270174 bytes, `application/pdf`. The gazette serves each act as published (one version); an amendment is another advert, so no consolidated text and no point-in-time versions exist here. Coverage: adverts since 2001 (the site says so); a search of year 1972 returned 0.
+
+### IS-ALTHINGI-CONSOLIDATED (blocked from the cloud address)
+
+```
+curl -sS -A 'Mozilla/5.0' -o al.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.althingi.is/lagas/nuna/2006003.html
+403 5528 text/html; charset=UTF-8        (body: "Just a moment...", header cf-mitigated: challenge)
+```
+
+Headless Chromium (Playwright, `chromium.launch()`, `goto` with `domcontentloaded`, then 40 s of waiting in 5 s steps) stayed on the title "Just a moment..." (HTTP 403, about 44.9 kB of challenge HTML) for `/lagas/nuna/2006003.html` and `/lagas/`. Also 403 with the same challenge: `/lagas/145a/1972073.html`, `/lagasafn/pdf/157c/1972073.pdf`, `/altext/stjt/1972073.html`, `/vefur/lagasafn.html`. Open: `/robots.txt` (200) and `/altext/xml/` (200, parliamentary data only, no Lagasafn). Recorded as blocked from the cloud address; the orchestrator can read it from the laptop.
+
+### Languages
+
+Icelandic is the only language of the gazette and of Lagasafn; no second official language is served. English: `IS-GOVERNMENT-TRANSLATION`.
+
+```
+curl -sSL -A 'Mozilla/5.0' -o ga.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.government.is/publications/legislation/act/2022-12-01-Act-on-annual-accounts
+200 235665 text/html; charset=utf-8
+```
+
+The page (Ministry of Industries, "Act on annual accounts", list date 2022-12-01) has no linked PDF or Word file in its HTML, and the amendment state is not given in the title, so no record could be matched to a stored version. The Legislation list (`https://www.government.is/publications/legislation/`) ignores the `q` parameter. For the other five instruments only the first page of the Legislation list and the gazette API were checked; no English text was found there.
+
+### Link only
+
+All six scope instruments are link only: `is-arsreikningalog-66d`, `is-loftslagslog`, `is-ets-log` and `is-markadssetningarlog` and `is-sjalfbaernilog-fjarmal` (rows `IS-ALTHINGI-CONSOLIDATED` and `IS-STJORNARTIDINDI-ADOPTED`), `is-ets-regulation-606-2021` (row `IS-STJORNARTIDINDI-ADOPTED`). Reason: both rows are `permission requested`. The Alþingi site cannot be opened from the cloud address. The gazette page grants no reuse licence and Höfundalög nr. 73/1972 9. gr. could not be opened on an official page, so the statute basis is not met. Seðlabanki Íslands and Nasdaq Iceland got no row: no instrument in scope comes from them.
