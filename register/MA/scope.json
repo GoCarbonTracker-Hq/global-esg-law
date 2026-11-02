@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ma-ammc-circ-03-19",
+    "title": "Circulaire AMMC n° 03/19 du 20 février 2019 relative aux opérations et informations financières (rapport ESG, articles 2.58 and 2.59)",
+    "official_url": "https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf",
+    "citation": "Circulaire de l'Autorité marocaine du marché des capitaux n° 03/19 of 20 February 2019, homologated by arrêté of the finance minister n° 1704.19 of 30 May 2019 (BO 6784 bis); amended by circulaire n° 02/20 of 22 December 2020 (arrêté 3730.21 of 8 December 2021)",
+    "in_force": null,
+    "evidence": "Page https://www.ammc.ma/fr/reglementations/circulaires (opened 2026-11-02) lists \"Circulaire de l'Autorité marocaine du marché des capitaux n° 03/19 relative aux opérations et informations financières\" (PDF titled BO_6784-bis_fr, 20.8 MB, scan with no text layer) and \"Circulaire de l'AMMC n°02/20 du 22 décembre 2020 complétant et modifiant la circulaire n°03/19 du 20 février 2019\"; the BO text of arrêté 3730.21 (8 December 2021, file Circulaire de l'AMMC 02-20 du 22 Décembre 2020_0.pdf, Arabic) approves 02/20 as an amendment of 03/19 and cites arrêté 1704.19 of 30 May 2019 for 03/19. No commencement clause was readable.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MA-AMMC-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "No official page opened states a first in-force date, so in_force is null; the circular is dated 20 February 2019 and was homologated on 30 May 2019 (the date in the arrêté number cited in the 02/20 gazette text). The AMMC PDF is a scan; the register row's earlier statement that article 2.58 requires an ESG report in the annual financial report was not re-read from the scan. Whether circulaire 02/20 touches the ESG chapter was not read (its French text was not on the page opened; the file is the Arabic BO page of the approving arrêté). No 2024 or 2025 amendment appears on the AMMC circulaires page. The existing register row pointed at a casablanca-bourse.com media copy; it now points at the AMMC page. Link only: row MA-AMMC-ADOPTED is permission requested (the AMMC mentions légales prohibit reproduction and modification; whether Loi 2-00 art. 8 covers a circulaire as a texte administratif is open). Government English: none looked for beyond the AMMC site, whose /en pages carry the interface only.",
+    "status": "link only",
+    "status_note": "Permission requested from AMMC, not sent. Not stored."
+  },
+  {
+    "id": "ma-loi-99-12",
+    "title": "Loi-cadre n° 99-12 portant charte nationale de l'environnement et du développement durable",
+    "official_url": "https://www.environnement.gov.ma/fr/component/content/article/3469-loi-cadre?catid=107",
+    "citation": "Dahir n° 1-14-09 du 4 joumada I 1435 (6 mars 2014) portant promulgation de la loi-cadre n° 99-12; B.O n° 6240 du 18 joumada I 1435 (20 mars 2014)",
+    "in_force": null,
+    "evidence": "Ministry of Energy Transition and Sustainable Development, Loi Cadre page (opened 2026-11-02): \"Dahir n° 1-14-09 du 4 joumada I 1435 ( 6 mars 2014 ) portant promulgation de la loi cadre n° 99-12 portant charte nationale de l'environnement et du développement durable. B.O n° 6240 du 18 joumada I 1435 ( 20 mars 2014).\" The page gives the BO publication date; no page opened states an entry-into-force date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MA-MTEDD-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Dated 2014-03-20 (BO publication) on the ministry page; in_force stays null. The PDF on the ministry site (/images/2022/avril/d1.pdf) is a scan without a text layer. Link only: row MA-MTEDD-ADOPTED is permission requested and the Bulletin Officiel on sgg.gov.ma is blocked from the cloud address. Government English: not found on environnement.gov.ma (French and Arabic pages only).",
+    "status": "link only",
+    "status_note": "Row MA-MTEDD-ADOPTED is permission requested; sgg.gov.ma blocked from the cloud address. Not stored."
+  },
+  {
+    "id": "ma-loi-11-03",
+    "title": "Loi n° 11-03 relative à la protection et à la mise en valeur de l'environnement",
+    "official_url": "https://www.environnement.gov.ma/fr/component/content/article/3469-loi-cadre?catid=107",
+    "citation": "Dahir n° 1-03-59 du 10 rabii I 1424 (12 mai 2003) portant promulgation de la loi n° 11-03; B.O n° 5118 du 18 rabii II 1424 (19 juin 2003)",
+    "in_force": null,
+    "evidence": "Ministry Loi Cadre page (opened 2026-11-02): \"Dahir n° 1-03-59 du 10 rabii I 1424 ( 12 mai 2003 ) portant promulgation de la loi n° 11-03 relative à la protection et à la mise en valeur de l'environnement. B.O n° 5118 du 18 rabii II 1424 (19 juin 2003).\" No entry-into-force date is stated.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MA-MTEDD-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Dated 2003-06-19 (BO publication) on the ministry page; in_force stays null. The ministry PDF (/images/2022/avril/Dahir_n_1-03-59_...pdf) was not opened for text. Link only for the same reasons as ma-loi-99-12. Government English: not found on environnement.gov.ma.",
+    "status": "link only",
+    "status_note": "Row MA-MTEDD-ADOPTED is permission requested; sgg.gov.ma blocked from the cloud address. Not stored."
+  }
+]
