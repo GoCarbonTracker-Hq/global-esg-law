@@ -1736,5 +1736,27 @@
     "trailer_source_url": "https://www.law.go.kr/LSW/eng/engLsInfoR.do?lsiSeq={lsiSeq}",
     "trailer_licence": "law.go.kr English text by KLRI: third-party rights excluded from open use (permission requested)",
     "notes": "fingerprint: same page and command as KR-LAWGOKR-CONSOLIDATED (hash recomputed 2026-11-02, identical). The open-use grant of that page covers Copyright Act art. 7 information and works wholly owned by Moleg; it excludes third-party rights. Every English page opened (engLsInfoR, lsiSeq 228817, 235883, 235581, 241485, 125344, 129765, 253323) opens with: \"This English translation of the legislation is provided by the Korea Legislation Research Institute solely for the purpose of facilitating understanding of Korean laws. It does not have any legal authority or official effect and may not reflect the most recent amendments.\" So the maker is KLRI, which claims copyright (row KR-KLRI-TRANSLATION). The page also says: \"외국어번역 법령정보는 공식적 효력이 있는 번역물이 아니므로 참고로만 사용하시기 바랍니다.\" No commercial-reuse grant for translations found."
+  },
+  {
+    "id": "BR-CVM-TRANSLATION",
+    "jurisdiction": "BR",
+    "publisher": "Comissão de Valores Mobiliários",
+    "source_name": "CVM English regulation page (gov.br/cvm/en/foreign-investors/regulation-of-interest), free translations of CVM resolutions",
+    "form": "translation",
+    "fetch_url": "https://www.gov.br/cvm/en/foreign-investors/regulation-files/ResolutionCVM{NNN}.pdf",
+    "pinned_version": "not pinned: not stored. ResolutionCVM193.pdf on 2026-11-02 sha256 8f2f4022156ee70a7e83e8a21eabfd15cb581a9ddd19b2c3f4edd854ea4cdb31",
+    "content_hash": "",
+    "terms_url": "https://www.gov.br/cvm/en/foreign-investors/regulation-of-interest",
+    "terms_quote": "All content on this site is published under license Creative Commons Attribution-NoDerivs 3.0 Unported.",
+    "terms_fingerprint": "b5560ee5e4e805d0f5323647a9ad4a3d76d31001c8e79105f6b5bcb4a7c30e01",
+    "verdict": "permission requested",
+    "statute_exception": "none found",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-02",
+    "trailer_instrument": "CVM free translation (resolution number set per instrument)",
+    "trailer_source_url": "https://www.gov.br/cvm/en/foreign-investors/regulation-files/ResolutionCVM{NNN}.pdf",
+    "trailer_licence": "none confirmed: Creative Commons Attribution-NoDerivs 3.0 Unported site notice",
+    "notes": "Government translation exists for Resolução CVM 193 only (ResolutionCVM193.pdf, 200, 601317 bytes, application/pdf, translation date 24 October 2023, states: \"free translation offered only as a convenience ... not legally binding\"). The page footer licence is no-derivatives, which does not allow modification of the text, and the translation is a separate work from the official act, so Lei 9.610/1998 art. 8 IV (which covers official acts) is not claimed for it and statute_exception is none found. Nothing is stored under this row. Varun to ask CVM for written permission to store and modify the translation. The pdf also reflects the original 2023 text only: it predates Res. CVM 219/2024, 227/2025 and 244/2026."
   }
 ]
