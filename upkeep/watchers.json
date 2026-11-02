@@ -5948,5 +5948,83 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "ee-rps-rt-versions",
+  "source_id": "EE-RT-CONSOLIDATED",
+  "iso2": "EE",
+  "instrument": "ee-rps",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/155849/redaktsioonid",
+  "params": {
+   "regex": "\"kehtivuseAlgus\" : \"(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "ee-aoks-ets-rt-versions",
+  "source_id": "EE-RT-CONSOLIDATED",
+  "iso2": "EE",
+  "instrument": "ee-aoks-ets",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/1035400/redaktsioonid",
+  "params": {
+   "regex": "\"kehtivuseAlgus\" : \"(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "ee-tks-rt-versions",
+  "source_id": "EE-RT-CONSOLIDATED",
+  "iso2": "EE",
+  "instrument": "ee-tks",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/1032300/redaktsioonid",
+  "params": {
+   "regex": "\"kehtivuseAlgus\" : \"(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "ee-ets-trading-order-rt-versions",
+  "source_id": "EE-RT-CONSOLIDATED",
+  "iso2": "EE",
+  "instrument": "ee-ets-trading-order",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/1036948/redaktsioonid",
+  "params": {
+   "regex": "\"kehtivuseAlgus\" : \"(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "ee-ets-auction-order-rt-versions",
+  "source_id": "EE-RT-CONSOLIDATED",
+  "iso2": "EE",
+  "instrument": "ee-ets-auction-order",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/1036568/redaktsioonid",
+  "params": {
+   "regex": "\"kehtivuseAlgus\" : \"(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "ee-rps-amendment-2025-rt-xml",
+  "source_id": "EE-RT-ADOPTED",
+  "iso2": "EE",
+  "instrument": "ee-rps-amendment-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/107012025001/xml"
+ },
+ {
+  "id": "ee-tks-2024-825-act-rt-xml",
+  "source_id": "EE-RT-ADOPTED",
+  "iso2": "EE",
+  "instrument": "ee-tks-2024-825-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/103072026019/xml"
  }
 ]
