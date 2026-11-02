@@ -6859,5 +6859,49 @@
   "tier": "regulator_page",
   "url": "https://www.gesetze.li/konso/pdf/1999160000",
   "change": "terms_changed"
+ },
+ {
+  "id": "ec-sb-saras-norm-codificacion-pdf",
+  "source_id": "EC-SUPERBANCOS-CONSOLIDATED",
+  "iso2": "EC",
+  "instrument": "ec-sb-saras-norm",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.ec/bancos/descargas/39342/",
+  "params": {}
+ },
+ {
+  "id": "ec-coa-libro4-asamblea-leyes-aprobadas",
+  "source_id": "EC-ASAMBLEA-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-coa-libro4",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ec/es/leyes-aprobadas",
+  "params": {}
+ },
+ {
+  "id": "ec-reglamento-coa-libro4-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-reglamento-coa-libro4",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0 (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
+ },
+ {
+  "id": "ec-lodc-art6-7-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-lodc-art6-7",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
  }
 ]
