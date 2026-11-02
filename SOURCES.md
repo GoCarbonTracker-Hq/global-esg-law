@@ -1270,6 +1270,139 @@ Lovdata serves Norwegian Bokmål and, where an act is enacted in Nynorsk, Nynors
 
 Not in scope and why: Finanstilsynet (finanstilsynet.no answers 200 to curl; no terms page is linked from `/en/` and no scope instrument is served by it, so no row). The sustainable finance act LOV-2021-12-22-161 and its regulation FOR-2022-12-20-2354 appeared in one search result only and their pages were not read, so they have no scope entry yet.
 
+## Ireland
+
+Rows `IE-EISB-ADOPTED`, `IE-LRC-CONSOLIDATED` and `IE-OIREACHTAS-TRANSLATION` (all `pass`, basis terms: the Oireachtas (Open Data) PSI Licence, which incorporates CC BY 4.0) and `IE-CBI-ADOPTED` (`permission requested`). Run on 2026-11-02 (GEL-05-05). Plain `curl` with no `User-Agent` answered from the cloud address on every host below (irishstatutebook.ie, revisedacts.lawreform.ie, achtanna.ie, oireachtas.ie, centralbank.ie), so no browser recipe was needed and no record is browser-fetched.
+
+Row `IE-EISB-ADOPTED`, an Act as enacted (Consumer Protection Act 2007, No. 19 of 2007) and an S.I. as made (S.I. No. 470/2024). The `/print` view carries the whole instrument in one file; the `/html` view of an Act is only its contents page:
+
+```
+curl -sS -L -o act2007_19.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.irishstatutebook.ie/eli/2007/act/19/enacted/en/print
+curl -sS -L -o si470.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.irishstatutebook.ie/eli/2024/si/470/made/en/print
+```
+
+Returned `200 586452 text/html` and `200 262532 text/html`. A second fetch gave the same sha256, so `fetched_sha256` reproduces. Pattern: `/eli/<year>/act/<number>/enacted/en/print` and `/eli/<year>/si/<number>/made/en/print`. Acts also serve XML at `.../enacted/en/xml` (`200 70479 application/xml` for Act 46 of 2015); S.I.s serve no XML (404), so the HTML print view is used for both. `text` is the contents of `<div class="act-content" id="act">`, with the S.I. title line from the page header put first for S.I.s (the Act text carries its own title); tags stripped, block elements and table rows as line breaks, table cells joined by a space, source line breaks inside a paragraph collapsed, nothing reworded. Footnotes and the explanatory note of an S.I. are in the text.
+
+Commencement and amendments are read from the Directory pages: an Act at `https://www.irishstatutebook.ie/isbc/<year>_<number>.html` (`200 58876 text/html` for 2015_46), S.I.s in blocks of 50 at `https://www.irishstatutebook.ie/eli/isbc/si<year>_<first>-<last>.html` (`HEAD` gives `200` and a `Last-Modified` header, 2026-10-28 for `si2024_451-500`). eISB serves no consolidated Act or S.I. text.
+
+Row `IE-LRC-CONSOLIDATED`, Climate Action and Low Carbon Development Act 2015 as revised by the Law Reform Commission:
+
+```
+curl -sS -L -o rev2015_46.html -w '%{http_code} %{size_download} %{content_type}\n' https://revisedacts.lawreform.ie/eli/2015/act/46/revised/en/html
+```
+
+Returned `200 255218 text/html; charset=UTF-8`, same sha256 on a second fetch. `text` is everything from `<div class="frontmatter">` to `<div class="wrapper-footer">`, so the Commission's banner, disclaimer, contents, annotations and editorial notes (CC BY 4.0) are in it. The site serves one current version per Act, printed as "Updated to 27 July 2026" (Consumer Protection Act 2007: "Updated to 24 November 2025"); that date is the record's `in_force`, and the record message says so. There are no point-in-time versions and no S.I. revisions. `.../revised/en/xml` also answers (`200 181908 application/xml`) and was not used.
+
+Cutting a Part: the Consumer Protection Act records are Part 3 only, from the line `PART 3` (the occurrence followed by the longest run before `PART 4`, so the contents-table lines are skipped) to the line before `PART 4`; in the Irish text `CUID 3` to `CUID 4`.
+
+### Languages
+
+English is the base text and the only language eISB and the Law Reform Commission serve. Irish is served by the Houses of the Oireachtas for Acts only, at achtanna.ie, as an official translation (each text is headed "An tiontú oifigiúil"). It has its own row, `IE-OIREACHTAS-TRANSLATION` (`translation`, `pass` on the PSI licence; the reading it rests on is in the row notes and in the PR). Irish records are kind `translation`, language `ga`, dated like the English official version they translate.
+
+```
+curl -sS -L -o cpa_ga.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.achtanna.ie/ga/act/ga192007
+```
+
+Returned `200 690058 text/html; charset=utf-8` for the Consumer Protection Act 2007 (`ga<number><year>` is the Act key), same sha256 on a second fetch. `text` is the contents of `<div class="html" data-lang="ga">` up to `<div class="tooltip-back-to-top">`, cut to `CUID 3`, with the interface line `[EN]` (a link to the English section) dropped. The translation is of the Act as enacted and states no later amendment state, so it is stored with the English as-enacted version (2007-05-01), not with the 2025 revision. An Act without a translation answers with the page text "The official translation of this Act is not available.": `https://www.achtanna.ie/en/act/ga462015` returned `200 18597 text/html; charset=utf-8` and `https://www.achtanna.ie/en/act/ga322021` the same message. S.I.s have no Irish text on eISB or achtanna.ie (the S.I. pages offer English only). No government English translation exists to look for, because English is the enrolled text; no English translation row was needed and no translation by a law firm, NGO or news site was used.
+
+Row `IE-CBI-ADOPTED` (no text stored): the PDF was opened to read its status and date.
+
+```
+curl -sS -L -o cbi.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.centralbank.ie/docs/default-source/regulation/industry-market-sectors/insurance-reinsurance/solvency-ii/requirements-and-guidance/guidance-re-insurance-undertakings-on-climate-change-risk.pdf?sfvrsn=a232991d_7'
+```
+
+Returned `200 536727 application/pdf`; `pdftotext -layout cbi.pdf -` gives clean text (cover "March 2023").
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records (`in_force`, language) |
+|---|---|---|
+| `ie-si-360-2017` | adopted | 2017-08-21 en |
+| `ie-si-410-2018` | adopted | 2018-10-17 en |
+| `ie-si-336-2024` | adopted | 2024-07-06 en |
+| `ie-si-498-2024` | adopted | 2024-10-01 en (making date; no commencement clause) |
+| `ie-si-309-2025` | adopted | 2025-07-07 en (making date; no commencement clause) |
+| `ie-climate-act-2015` | adopted, consolidated | 2015-12-10 en; 2026-07-27 en (Revised Act) |
+| `ie-climate-amendment-act-2021` | adopted | 2021-09-07 en |
+| `ie-si-470-2024` | adopted | 2024-09-19 en |
+| `ie-si-490-2012` | adopted | 2012-11-30 en; repeal record 2024-09-19 |
+| `ie-si-755-2020` | adopted | 2020-12-31 en; repeal record 2024-09-19 |
+| `ie-si-471-2024` | adopted | 2024-09-19 en (making date) |
+| `ie-si-740-2024` | adopted | 2024-12-19 en (making date) |
+| `ie-si-472-2024` | adopted | 2024-09-19 en (making date) |
+| `ie-cpa-2007-part-3` | adopted, consolidated, translation | 2007-05-01 en; 2025-11-24 en (Revised Act); 2007-05-01 ga |
+| `ie-si-124-2026` | adopted | 2026-09-27 en |
+| `ie-si-16-2021` | adopted | 2021-01-21 en |
+
+A text for a given version is stored only for the versions the publisher serves: the Revised Acts site has no earlier consolidations, so the Climate Act 2015 as it stood after the 2021 amendment commenced (2021-09-07) and the Consumer Protection Act 2007 as it stood before 2025-11-24 are not stored, and an S.I. amended after it was made is stored as made only.
+
+### Link only
+
+- `ie-cbi-climate-guidance-insurance`: row `IE-CBI-ADOPTED`, `permission requested` (the Central Bank disclaimer requires consent to copy or adapt; its re-use page says re-use is free but prints no conditions; the two statements conflict).
+- No other instrument is link only.
+
+### Not in scope or not found
+
+- S.I. No. 490/2012 (the brief's stationary-installation ETS regulations) was revoked on 2024-09-19 by S.I. No. 470/2024 reg. 51(1); both it and S.I. No. 755/2020 are kept with repeal records and the replacement is `ie-si-470-2024`.
+- The Companies Act 2014 (into which S.I. No. 336/2024, 498/2024 and 309/2025 insert the reporting duty) and the Consumer Rights Act 2022 (amended by S.I. No. 124/2026) are not in scope; no carbon tax instrument (Finance Act 2010) and no Central Bank Consumer Protection Code were looked at.
+- Blocked from the cloud address: none. Every URL above answered `200`.
+
+
+## Poland
+
+Run on 2026-11-02 (GEL-05-06). Two rows pass on the statute basis (Ustawa o prawie autorskim art. 4 pkt 1 and 2, quoted in the rows): `PL-ISAP-ADOPTED` (acts and regulations as published in Dziennik Ustaw) and `PL-ISAP-CONSOLIDATED` (teksty jednolite announced by obwieszczenie of the Marshal of the Sejm in Dziennik Ustaw). `PL-KNF-ADOPTED` is `permission requested` (KNF legal notice only requires naming the source) and has no instrument and no record. The Sejm site terms could not be read (isap.sejm.gov.pl and most of www.sejm.gov.pl answer 403 with an Incapsula challenge from the cloud address), so the pass rests on the statute alone; Varun to confirm. Texts come from the ELI API of the Chancellery of the Sejm, `api.sejm.gov.pl/eli`, which serves the gazette text of Dziennik Ustaw and answers curl from the cloud address. No browser recipe was needed. `dziennikustaw.gov.pl` (Rządowe Centrum Legislacji) answers 200 but its only legal page is a privacy policy, no terms page was found, and nothing is fetched from it, so it has no row.
+
+Request, row `PL-ISAP-ADOPTED`, act as published, HTML (Act of 6 December 2024, Dz. U. 2024 poz. 1863, ELI `DU/2024/1863`). The act details (`https://api.sejm.gov.pl/eli/acts/DU/2024/1863`, `200 7038 application/json`) say `textHTML` true or false and list the files:
+
+```
+curl -sS -L -o du2024_1863.html -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2024/1863/text.html
+```
+
+Returned `200 1442869 text/html;charset=utf-8`, sha256 `303ca6871e5eda537b7ed2d7ca9164ac0e668d98fc0da3c1d325deffd5a5fa70`; a second fetch gave the same hash (no per-request token). Where `textHTML` is false (recent acts):
+
+```
+curl -sS -L -o du2025_1020.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2025/1020/text.pdf
+```
+
+Returned `200 155124 application/pdf` (Dz. U. 2025 poz. 1020).
+
+Request, row `PL-ISAP-CONSOLIDATED`, tekst jednolity as HTML (obwieszczenie Dz. U. 2023 poz. 120, Accounting Act) and as PDF (Dz. U. 2026 poz. 522):
+
+```
+curl -sS -L -o du2023_120.html -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2023/120/text.html
+curl -sS -L -o du2026_522.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.sejm.gov.pl/eli/acts/DU/2026/522/text.pdf
+```
+
+Returned `200 1963732 text/html;charset=utf-8` and `200 1369897 application/pdf`. The list of the teksty jednolite of an act is the `Inf. o tekście jednolitym` group of `references` in the act details (for the Accounting Act `DU/2026/522, 2023/120, 2021/217, 2019/351, 2018/395, 2017/2342, 2016/1047, 2013/330, 2009/1223, 2002/694`); the date of each is the `announcementDate` of the obwieszczenie's own details.
+
+Text extraction. HTML: `<script>`, `<style>`, elements with class `hidden` (display none in the site CSS) and `tooltip-text` spans (a copy of each footnote, which is also printed in the `gloss-section` at the end) are dropped; block elements and headings are line breaks; an article or point number stays on the line of its text; quotation-mark blocks of amending acts stay inline; non-breaking spaces and runs of whitespace become one space; blank lines are dropped. PDF: `pdftotext -layout file.pdf -` with runs of spaces collapsed and blank lines dropped (the lines are the PDF wraps, so hyphenated words stay split and letter-spaced headings such as "O B W IE S Z CZ E N I E" stay as the PDF prints them). Checked on the day: no U+FFFD, private-use or `(cid:` characters in any of the 33 texts. `fetched_sha256` is the hash of the file as returned. `in_force`: for an adopted act the first commencement date (API `entryIntoForce`, checked against the commencement article); for a tekst jednolity the date of the obwieszczenie, which has no commencement clause.
+
+Stored on 2026-11-02 (all Polish, `pl`):
+
+| Instrument | adopted | consolidated (obwieszczenie date) |
+|---|---|---|
+| `pl-accounting-act` | none (1994 text is a scan) | 2017-11-22, 2018-01-30, 2019-01-17, 2020-12-17, 2022-11-04, 2026-03-30 |
+| `pl-csrd-act-2024` | 2025-01-01 | none |
+| `pl-csrd-act-2025` | 2025-08-12 (PDF) | none |
+| `pl-ets-act` | 2015-09-09 | 2017-03-09, 2018-05-10, 2019-12-09, 2021-01-22, 2022-04-07, 2023-01-27, 2024-09-26, 2025-11-07 (PDF), 2026-10-02 (PDF) |
+| `pl-emissions-management-act` | 2009-09-18 | 2013-05-28, 2015-12-04, 2017-02-02, 2018-06-07, 2019-07-05, 2020-05-07, 2022-03-03, 2026-03-27 (PDF) |
+| `pl-kobize-report-regulation` | 2022-10-31 | none |
+| `pl-unfair-practices-act` | 2007-12-21 | 2015-12-10, 2017-10-30, 2023-04-07 |
+| `pl-ecgt-amendment-act-2026` | 2027-09-27 (PDF, published, not yet in force) | none |
+
+### Languages
+
+Polish is the only official language. The ELI API serves `pol` only. No government English translation was found on 2026-11-02 for any instrument: the ELI API and ISAP have none, and web searches limited to gov.pl and sejm.gov.pl for English texts of the Accounting Act and the emissions trading act found only working translations of other laws and secondary descriptions. English translations by law firms, exchanges or NGOs are never stored. No translation row was added.
+
+### Link only
+
+None: every scope instrument has records. Not stored: the ISAP "tekst ujednolicony" (`text/T`, `text/U` files; an editorial consolidation by the Chancellery, not a legal act, no terms read), the KNF (no instrument in scope), and teksty jednolite before art. 49b existed.
+
+### Blocked from the cloud address
+
+- `https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20240001863`: `403 859 text/html` (Incapsula: "Request unsuccessful"), also for `isap.nsf/home.xsp`, `isap.nsf/page.xsp/informacje`, `isap.nsf/download.xsp/WDU20240001863/O/D20241863.pdf` and, with headless Chromium (Playwright), `https://isap.sejm.gov.pl/` (403, empty body). `https://isap.sejm.gov.pl/` itself answered 200 with a JavaScript shell by curl.
+- `https://www.sejm.gov.pl/Sejm10.nsf/`: `403 856`; `https://www.sejm.gov.pl/` answered 200 once (50990 bytes) and 403 on the next two requests; `https://www.sejm.gov.pl/en/` answered 403 once and 200 once. The Sejm site terms page could not be read for this reason.
+
 ## Denmark
 
 Rows `DK-RETSINFO-ADOPTED` (laws and orders as published in Lovtidende) and `DK-RETSINFO-CONSOLIDATED` (lovbekendtgørelser, LBK), both `pass` on the publisher's terms (Civilstyrelsen's open-data terms at https://www.retsinformation.dk/api: free, non-exclusive, unlimited use, commercial use and modification named) and, independently, on Ophavsloven § 9, stk. 1 (quoted in the rows). Rows `DK-KEFM-TRANSLATION` and `DK-KFST-TRANSLATION` are `permission requested`. Run on 2026-11-02. Language: Danish only; Retsinformation's FAQ says it holds no translations. retsinformation.dk answered every request from the cloud address; no browser recipe was needed for text. The terms page itself is a JavaScript application (curl gets a shell), so its fingerprint was read with Playwright chromium (`body` innerText, networkidle plus 2.5 s; the site has no `<main>` element).
