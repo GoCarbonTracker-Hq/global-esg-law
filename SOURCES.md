@@ -1608,3 +1608,75 @@ None: all six scope entries are stored. Not in scope:
 ### Blocked
 
 No Portuguese site was blocked: diariodarepublica.pt, data.dre.pt (ELI redirects), files.diariodarepublica.pt and cmvm.pt answered. `https://eur-lex.europa.eu/eli/dir/2022/2464/oj/por` answered curl with `202 0 text/html` (empty challenge body); it was not needed (blocked from the cloud address: https://eur-lex.europa.eu/ ).
+
+## Hungary
+
+Run on 2026-11-02 (GEL-05-10). One row passes: `HU-MKOZLONY-ADOPTED` (statute basis: Szjt. 1. § (4), 1999. évi LXXVI. törvény; the portal publishes no reuse terms). Three rows are `permission requested`: `HU-NJT-CONSOLIDATED` (the Nemzeti Jogszabálytár terms reserve all rights, bar database building, bulk download and commercial use), `HU-NJT-TRANSLATION` (English translations, information only, commercial use needs permission) and `HU-MNB-ADOPTED` (the MNB legal notice allows only distribution of unchanged content). So only as-published texts from Magyar Közlöny are stored; every consolidated version is link only. Language: Hungarian only. No browser recipe was needed: every host that answered at all answered `curl`.
+
+Step 1, row `HU-MKOZLONY-ADOPTED`: the month listing gives the issues of a month with publication date and the PDF link (page size is 10 issues; `page=2`, `page=3` follow; the `datePublished` meta of each entry is the issue date):
+
+```
+curl -sS -G -o list_2023_12.html --data-urlencode 'year=2023' --data-urlencode 'month=12' -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/
+```
+
+Returned `200 51123 text/html; charset=UTF-8`. The issue is the one dated the promulgation day (the date in a decree's number, or the "kihirdetés napja" footnote of an act) that holds the instrument heading.
+
+Step 2, Act CVIII of 2023 (the ESG Act), Magyar Közlöny 2023. évi 187. szám, issue dated 2023-12-22:
+
+```
+curl -sS -L -o mk_2023_187.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/hivatalos-lapok/4kRl30n61EB7V7OcUh7M65820c6443b5b/dokumentumok/b5e0520aee1a0db8631efa32546c55a00fd6037c/letoltes
+```
+
+Returned `200 1893667 application/pdf` (390 pages, sha256 `1a9b89435c2c8db02994ea38a61f25b456200013bf8a0d424ce60a04b08e1a6e`). A second fetch of the 2024-08-08 issue and of this one returned the same bytes, so `fetched_sha256` reproduces. The URL tokens change per issue, so they are read from the listing.
+
+Text: `pdftotext -layout mk_2023_187.pdf -` (poppler), runs of spaces collapsed, blank lines dropped, the running page headers (`NNNN M A G Y A R K Ö Z L Ö N Y • YYYY. évi N. szám` and the same with the page number last) dropped, and the text cut from the line that is the instrument heading (`2023. évi CVIII. törvény`, or `A Kormány 244/2024. (VIII. 8.) Korm. rendelete`) to the line before the next instrument heading in the issue. For decrees the trailing issue-section headings (`IV. A Magyar Nemzeti Bank elnökének rendeletei, ...`) are dropped. Line breaks are the PDF's line wraps. Annexes that follow the signatures are kept. The 2013-and-later issues extracted without mojibake (checked: no `õ û Ę Ħ`, only Hungarian letters).
+
+Two older issues needed more, and the stored text for them differs from a plain `pdftotext` run in these ways only:
+
+- Magyar Közlöny 2012. évi 180. szám (Act CCXVII of 2012) and 2008. évi 95. szám (Act XLVII of 2008) use legacy font encodings: `pdftotext` returns `õ` for `ő`, `û` for `ű`, and in 2012 also `Ę` for `ő` and `Ħ` for `ű`. The stored text maps `õ→ő û→ű Ę→ő Ħ→ű` and changes nothing else. Check: the non-ASCII inventory of the extracted text held only these four odd letters plus ordinary Hungarian letters and punctuation, and the ő/ű words of the result are ordinary Hungarian (compared with the words on the NJT pages read; the unmatched ones are inflected forms that do not occur there). Varun to decide whether a repaired extraction counts as the text of the file.
+- The 2008 issue is printed in two columns, which `pdftotext -layout` interleaves, so it was read with plain `pdftotext` (reading order). Its page furniture (`MAGYAR KÖZLÖNY`, `2008/95. szám`, bare page numbers inside the issue's page range) was dropped, and the instrument runs from `2008. évi XLVII.` (heading split over two lines) to `2008. évi XLVIII.`.
+
+```
+curl -sS -L -o mk_2008_95.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/hivatalos-lapok/68ecbff29cdc3f653a388acc8e3e1d1cb61d6765/dokumentumok/453afacc6a8cdda0c083bc0ff77050fb3ed08b58/letoltes
+```
+
+Returned `200 1862743 application/pdf`. The records are plain-text extracts of the signed PDF, not the authentic publication itself.
+
+Rows that were opened and not used for storage:
+
+```
+curl -sS -m 60 -o njt.html -w '%{http_code} %{size_download} %{content_type}\n' https://njt.jog.gov.hu/jogszabaly/2023-108-00-00
+```
+
+Returned `200 324996 text/html; charset=UTF-8` (server-rendered consolidated text, current version marked 2026-01-01). Versions: `curl -sS -X POST -d 'documentId=2023-108-00-00' -H 'X-Requested-With: XMLHttpRequest' https://njt.jog.gov.hu/ajax/collectAllDocumentVersion.json` returned `200 1426 application/json` (14 entries; a GET answers 405). A version page is `.../jogszabaly/2023-108-00-00.<version>`. Terms (row `HU-NJT-CONSOLIDATED`): `curl -sS https://jog.gov.hu/felhasznalasi-feltetelek` returned `200 137665 text/html; charset=utf-8`. MNB (row `HU-MNB-ADOPTED`): `curl -sS -L -o mnb.pdf https://www.mnb.hu/letoltes/2-2026-zoldi-banki-ajanlas.pdf` returned `200 965302 application/pdf`; `https://www.mnb.hu/` redirects to `/web/fooldal` (`200 1213414 text/html;charset=UTF-8`). No NJT or MNB text is stored.
+
+Watchers: the instrument watchers hash the NJT page of each instrument (a change of the page means a new consolidated version) and send a HEAD request to each MNB recommendation PDF (`Last-Modified` is present). The NJT terms forbid automated bulk querying; 14 page requests every 14 days are what the watchers add, and the terms are a point for Varun (see the PR report). No terms watcher was added for `HU-MKOZLONY-ADOPTED`: the raw HTML of its pages differs per request (a session token in the page), so a hash would report a change on every run.
+
+### Languages
+
+Run on 2026-11-02. Hungarian is the only official language and the only language Magyar Közlöny serves; all 13 stored records are `hu`. English: the Ministry of Justice translation repository on the Nemzeti Jogszabálytár is the one government source found. Row `HU-NJT-TRANSLATION` is `permission requested`, so no English is stored.
+
+```
+curl -sS -m 30 -o tr.html -w '%{http_code} %{size_download} %{content_type}\n' https://njt.jog.gov.hu/translations
+```
+
+Returned `200 44161 text/html; charset=UTF-8`. The page says the translations "serve informational purposes only, have no legal effect" and may not be used for commercial purposes without express permission. Its "latest uploads" list (2026-11-02) holds the Fundamental Law, Act LXIX of 2024, Act XIII of 2026, Act CIII of 2023 and Act CIV of 2001; none is an instrument in scope. The search endpoint answered a script with `200 17 application/json` (`{"success":false}`) even for Act CIII of 2023, which the page lists, so a per-instrument search by year and number could not be run; none of the instruments in scope is known to have a translation. Also looked at: the NJT `/translations` list only; `https://njt.hu/translations` was not reachable (see Blocked). The Magyar Közlöny site serves no English. `https://www.mnb.hu/` was not searched for English texts of the recommendations.
+
+| Instrument | Languages stored | Gap and reason |
+|---|---|---|
+| hu-esg-act-2023-cviii, hu-climate-act-2020-xliv, hu-ets-act-2012-ccxvii, hu-ucp-act-2008-xlvii and the nine ESG orders | hu | No English from the Magyar Közlöny; NJT translations are `permission requested` and none was found for these instruments. |
+| hu-accounting-act-2000-c, hu-mnb-rec-2-2026, hu-mnb-rec-16-2025, hu-mnb-rec-12-2023 | none | Link only (see below). |
+
+### Blocked and link only
+
+Blocked from the cloud address: `https://njt.hu/` and `https://njt.hu/jogszabaly/2023-108-00-00` answered `curl: (52) Empty reply from server` (exit 52, no HTTP status) on every try; `http://njt.hu/` answered `302`. The same operator's `https://njt.jog.gov.hu/` answered `200`, and the existing register rows already used it, so those URLs are used throughout. The orchestrator can open `https://njt.hu/` from the laptop to see whether it is the TLS handshake that hangs.
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| hu-accounting-act-2000-c | https://njt.jog.gov.hu/jogszabaly/2000-100-00-00 | Sustainability chapters III/A and VI/C exist only in the consolidated text; row `HU-NJT-CONSOLIDATED` is permission requested. The inserting words are inside the stored record of hu-esg-act-2023-cviii. |
+| hu-mnb-rec-2-2026 | https://www.mnb.hu/letoltes/2-2026-zoldi-banki-ajanlas.pdf | Row `HU-MNB-ADOPTED` is permission requested (opened, `200 965302 application/pdf`; no text fetch proven for storage). |
+| hu-mnb-rec-16-2025 | https://www.mnb.hu/letoltes/16-2025-bef-alapok-nevhasznalat-ajanlas.pdf | Same row (`200 209033 application/pdf`). |
+| hu-mnb-rec-12-2023 | https://www.mnb.hu/letoltes/12-20123-biztositoi-zold-ajanlas.pdf | Same row (`200 397013 application/pdf`). |
+| Act LIII of 1995, Act CLXXXV of 2012, Act LVII of 2015 (F7) | https://njt.jog.gov.hu/jogszabaly/1995-53-00-00, .../2012-185-00-00, .../2015-57-00-00 | F7: register rows only, no scope entry. |
+
+Stored by GEL-05-10 (Hungarian, adopted, as published): `hu-esg-act-2023-cviii` (2024-01-01), `hu-climate-act-2020-xliv` (2020-06-10), `hu-ets-act-2012-ccxvii` (2012-12-31), `hu-ucp-act-2008-xlvii` (2008-06-29), `hu-esg-sztfh-13-2024` (2024-08-16), `hu-esg-sztfh-12-2024` (2024-08-18), `hu-esg-korm-276-2025` (2025-09-06), `hu-esg-korm-424-2025` (2025-12-26), `hu-esg-sztfh-15-2025` (2025-12-26), `hu-esg-sztfh-11-2024` (2024-08-12), `hu-esg-ngm-29-2024`, `hu-esg-ngm-30-2024` and `hu-esg-korm-244-2024` (all 2024-08-09).
