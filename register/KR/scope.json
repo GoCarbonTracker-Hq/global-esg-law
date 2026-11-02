@@ -11,7 +11,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Art. 27 sets the target management of controlled emitters (관리업체: emissions statement, external verification). The first in-force date is the main commencement date; arts. 69-74 apply from 2022-01-01 (before the main date, no version for it), arts. 53 and 68 from 2022-07-01 and art. 23 from 2022-09-25 (history versions for those two dates are stored). Replaced the Framework Act on Low Carbon, Green Growth (repealed by art. 2 of the addenda). The earlier register note that the latest amendment was Act No. 20514 (2024-10-22) was stale: law.go.kr lists Act No. 21527 in force 2026-10-08 and later amendments dated up to 2027-09-23. English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Art. 27 sets the target management of controlled emitters (관리업체: emissions statement, external verification). The first in-force date is the main commencement date; arts. 69-74 apply from 2022-01-01 (before the main date, no version for it), arts. 53 and 68 from 2022-07-01 and art. 23 from 2022-09-25 (history versions for those two dates are stored). Replaced the Framework Act on Low Carbon, Green Growth (repealed by art. 2 of the addenda). The earlier register note that the latest amendment was Act No. 20514 (2024-10-22) was stale: law.go.kr lists Act No. 21527 in force 2026-10-08 and later amendments dated up to 2027-09-23. Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Act No. 18469 (2021-09-24), enactment, law.go.kr lsiSeq 235581, which matches the Korean 2022-03-25 version; later English versions of that instrument were not matched: law.go.kr serves the English page of Act No. 21964 (2027-09-23) as a header-only stub without text, and KLRI hseq 68875 shows Act No. 20514 (2024-10-22). Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-carbon-neutrality-act-decree",
@@ -25,7 +25,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Implements kr-carbon-neutrality-act (sets the controlled-emitter thresholds under art. 27 of the Act). English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Implements kr-carbon-neutrality-act (sets the controlled-emitter thresholds under art. 27 of the Act). Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Presidential Decree No. 32557 (2022-03-25), enactment, law.go.kr lsiSeq 241485, which matches the Korean 2022-03-25 version; the English page for lsiSeq 289965 reflects a decree in force 2026-10-08, which matches no stored Korean date (2026-11-12 is stored). Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-ets-act",
@@ -39,7 +39,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Korea emissions trading scheme (K-ETS). The brief gave Act No. 11690 of 2012; law.go.kr shows the enactment as Act No. 11419. English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Korea emissions trading scheme (K-ETS). The brief gave Act No. 11690 of 2012; law.go.kr shows the enactment as Act No. 11419. Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Act No. 11419 (2012-05-14), enactment, law.go.kr lsiSeq 125344, which matches the Korean 2012-11-15 version; KLRI also serves Act No. 11690 (2013-03-23), Act No. 20172 (2024-01-30) and Act No. 21065 (2025-10-01) versions (hseq 64708, 71781), not compared with stored dates. Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-ets-act-decree",
@@ -53,7 +53,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Implements kr-ets-act. English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Implements kr-ets-act. Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Presidential Decree No. 24180 (2012-11-15), enactment, law.go.kr lsiSeq 129765, which matches the Korean 2012-11-15 version; KLRI also serves the decree as amended through No. 24429 and No. 28562 (hseq 29619, 46598). Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-sapa",
@@ -67,7 +67,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Worker-safety duty of business owners and management; included as the social-pillar candidate in the brief. For businesses under 50 workers the Act applies from 2024-01-27 (addenda art. 1(1) proviso); no separate version is exposed for that date. law.go.kr served one version of the Act on 2026-11-02. English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Worker-safety duty of business owners and management; included as the social-pillar candidate in the brief. For businesses under 50 workers the Act applies from 2024-01-27 (addenda art. 1(1) proviso); no separate version is exposed for that date. law.go.kr served one version of the Act on 2026-11-02. Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Act No. 17907 (2021-01-26), enactment, law.go.kr lsiSeq 228817; KLRI hseq 59952 shows the same Act No., which matches the Korean 2022-01-27 version, the only one stored. Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-sapa-decree",
@@ -81,7 +81,7 @@
     "source_row": "KR-LAWGOKR-CONSOLIDATED",
     "verification": "official_text_seen",
     "status": "stored",
-    "notes": "Implements kr-sapa. English translation (not stored, no translation rows in wave 1): KLRI, https://elaw.klri.re.kr/eng_service/main.do, search the English title."
+    "notes": "Implements kr-sapa. Languages stored: Korean (ko) only. Korea has one official language. English was looked for at KLRI (https://elaw.klri.re.kr) and at law.go.kr 영문법령 (English text by KLRI): an English text exists for Presidential Decree No. 32020 (2021-10-05), enactment, law.go.kr lsiSeq 235883; KLRI hseq 59953 shows the same decree No., which matches the Korean 2022-01-27 version; the English page for lsiSeq 278597 (Decree No. 35804, 2025-10-01) is a header-only stub. Not stored: rows KR-KLRI-TRANSLATION and KR-LAWGOKR-TRANSLATION are permission requested (KLRI claims copyright and bars reproduction; law.go.kr excludes third-party rights). See SOURCES.md, South Korea, Languages."
   },
   {
     "id": "kr-kssb-ksds",
