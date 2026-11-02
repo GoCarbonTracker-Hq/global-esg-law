@@ -1,0 +1,62 @@
+[
+  {
+    "id": "my-bursa-mmlr-sustainability",
+    "title": "Bursa Malaysia Main Market and ACE Market Listing Requirements, sustainability reporting amendments (IFRS S1 and S2)",
+    "official_url": "https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/content_entry5c11a9db758f8d31544574c6/6768e229e6414a4ba0eb9f4d/files/23122024__MEDIA_RELEASE_BURSA_MALAYSIA_REQUIRES_SUSTAINABILITY_REPORTING_USING_THE_IFRS_SUSTAINABILITY_DISCLOSURE_STANDARDS.pdf?1734927108=",
+    "citation": "Bursa Malaysia amendments to the Main Market and ACE Market Listing Requirements, media release of 23 December 2024",
+    "in_force": null,
+    "evidence": "Not re-read on 2026-11-02: www.bursamalaysia.com answers every request, including this release PDF, with a Cloudflare challenge (HTTP 403). The existing register row, read by an earlier run, records staged commencement from 2025-01-01 through 2027-01-01 by cohort (large issuers 2025, other Main Market issuers 2026, ACE 2027); that is not restated as a single date here.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MY-BURSA-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Maps the existing MY row in register.csv (matched on the media release URL). Exchange rules under the Capital Markets and Services Act 2007 are binding on listed issuers but the Listing Requirements are not enacted statute. Row MY-BURSA-ADOPTED is permission requested (terms unreadable, Cloudflare). The Practice Note 9 text and the 2022 sustainability statement provisions were not opened. The SC's National Sustainability Reporting Framework (https://www.sc.com.my/nsrf) is a framework, not law, and has no scope entry. Languages: the LOM serves Malay (BM) and English (BI) versions; the National Language Acts 1963/67 make the Malay text authoritative for federal law, which the LOM terms page does not state, so that is not relied on here. No record is stored, so no language file exists. No government English translation was looked for beyond the LOM English version.",
+    "status": "link only",
+    "status_note": "Terms unreadable from the cloud address; permission not requested. Not stored."
+  },
+  {
+    "id": "my-eqa-1974",
+    "title": "Environmental Quality Act 1974 (Act 127)",
+    "official_url": "https://lom.agc.gov.my/principal.php?type=updated&language=BI",
+    "citation": "Environmental Quality Act 1974 (Act 127), Laws of Malaysia reprint",
+    "in_force": null,
+    "evidence": "No official page opened on 2026-11-02 states it: the LOM act pages are not reachable from the cloud address (act-detail.php answers 'Invalid request', the list is an encrypted JavaScript table, and Chromium got HTTP 502). Press and commentary say commencement was by Ministerial notification, which is not an official page read here.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MY-AGC-CONSOLIDATED",
+    "verification": "tracker_only",
+    "notes": "Act and its subsidiary regulations (for example the Environmental Quality (Clean Air) Regulations 2014) are separate P.U.(A) instruments and are not entered: none was opened on an official page. Link only: row MY-AGC-CONSOLIDATED is permission requested. Languages: the LOM serves Malay (BM) and English (BI) versions; the National Language Acts 1963/67 make the Malay text authoritative for federal law, which the LOM terms page does not state, so that is not relied on here. No record is stored, so no language file exists. No government English translation was looked for beyond the LOM English version.",
+    "status": "link only",
+    "status_note": "LOM terms are all rights reserved; permission not requested. Not stored."
+  },
+  {
+    "id": "my-cpa-1999",
+    "title": "Consumer Protection Act 1999 (Act 599), Part III misleading and deceptive conduct (ss. 9 to 10 as named in the brief)",
+    "official_url": "https://lom.agc.gov.my/principal.php?type=updated&language=BI",
+    "citation": "Consumer Protection Act 1999 (Act 599)",
+    "in_force": null,
+    "evidence": "No official page opened on 2026-11-02 states it: the LOM act pages are not reachable from the cloud address (act-detail.php answers 'Invalid request', the list is an encrypted JavaScript table, and Chromium got HTTP 502). ",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MY-AGC-CONSOLIDATED",
+    "verification": "tracker_only",
+    "notes": "Umbrella for environmental claims through the misleading-conduct provisions; the section wording was not read on an official page, so the section reference comes from the dispatch brief and is unchecked. Link only: row MY-AGC-CONSOLIDATED is permission requested. Languages: the LOM serves Malay (BM) and English (BI) versions; the National Language Acts 1963/67 make the Malay text authoritative for federal law, which the LOM terms page does not state, so that is not relied on here. No record is stored, so no language file exists. No government English translation was looked for beyond the LOM English version.",
+    "status": "link only",
+    "status_note": "LOM terms are all rights reserved; permission not requested. Not stored."
+  },
+  {
+    "id": "my-tda-2011",
+    "title": "Trade Descriptions Act 2011 (Act 730)",
+    "official_url": "https://lom.agc.gov.my/principal.php?type=updated&language=BI",
+    "citation": "Trade Descriptions Act 2011 (Act 730)",
+    "in_force": null,
+    "evidence": "No official page opened on 2026-11-02 states it: the LOM act pages are not reachable from the cloud address (act-detail.php answers 'Invalid request', the list is an encrypted JavaScript table, and Chromium got HTTP 502). ",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MY-AGC-CONSOLIDATED",
+    "verification": "tracker_only",
+    "notes": "Umbrella for false trade descriptions including environmental claims; its Trade Descriptions (Definition of Halal) style orders are not entered. Link only: row MY-AGC-CONSOLIDATED is permission requested. Languages: the LOM serves Malay (BM) and English (BI) versions; the National Language Acts 1963/67 make the Malay text authoritative for federal law, which the LOM terms page does not state, so that is not relied on here. No record is stored, so no language file exists. No government English translation was looked for beyond the LOM English version.",
+    "status": "link only",
+    "status_note": "LOM terms are all rights reserved; permission not requested. Not stored."
+  }
+]
