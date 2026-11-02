@@ -1,0 +1,266 @@
+[
+  {
+    "id": "br-lei-15042-2024",
+    "title": "Lei nº 15.042, de 11 de dezembro de 2024 (Sistema Brasileiro de Comércio de Emissões de Gases de Efeito Estufa, SBCE)",
+    "official_url": "https://www2.camara.leg.br/legin/fed/lei/2024/lei-15042-11-dezembro-2024-796690-norma-pl.html",
+    "citation": "Lei 15.042/2024, DOU 12/12/2024 p. 4; art. 56 reworded by Lei 15.076/2024",
+    "in_force": "2024-12-12",
+    "evidence": "Art. 58: \"Esta Lei entra em vigor na data de sua publicação.\" Publication: \"Diário Oficial da União - Seção 1 - 12/12/2024, Página 4\" (Câmara dos Deputados norma page, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CAMARA-ADOPTED",
+      "BR-CAMARA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Monitoring and reporting duties for operators above 10,000 tCO2e/year and reconciliation above 25,000 tCO2e/year (arts. 29, 30, per the earlier register row, not re-read here). Consolidated record dated 2024-12-27 (Lei 15.076/2024, published DOU 27/12/2024, art. 5 in force on publication). Official English translation: none found. Planalto copy, blocked from the cloud address: https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L15042.htm",
+    "status": "stored"
+  },
+  {
+    "id": "br-decreto-12677-2025",
+    "title": "Decreto nº 12.677, de 15 de outubro de 2025 (cria a Secretaria Extraordinária do Mercado de Carbono e regulamenta o art. 6º, parágrafo único, da Lei nº 15.042/2024)",
+    "official_url": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12677-15-outubro-2025-798146-norma-pe.html",
+    "citation": "Decreto 12.677/2025, DOU 16/10/2025 p. 1",
+    "in_force": "2025-11-06",
+    "evidence": "Art. 8: \"Este Decreto entra em vigor vinte e um dias após a data de sua publicação.\" Publication: \"Diário Oficial da União - Seção 1 - 16/10/2025, Página 1\"; 16/10/2025 plus 21 days gives 2025-11-06 (date computed, not stated).",
+    "law_family": "F3",
+    "duty_on": "state_only",
+    "source_row": [
+      "BR-CAMARA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Ministry structure decree; sets who exercises the SBCE managing-body powers until that body exists. Imposes no duty on companies. Implements br-lei-15042-2024.",
+    "status": "stored"
+  },
+  {
+    "id": "br-decreto-12768-2025",
+    "title": "Decreto nº 12.768, de 5 de dezembro de 2025 (Comitê Técnico Consultivo Permanente do SBCE)",
+    "official_url": "https://www2.camara.leg.br/legin/fed/decret/2025/decreto-12768-5-dezembro-2025-798431-norma-pe.html",
+    "citation": "Decreto 12.768/2025, DOU 8/12/2025 p. 3",
+    "in_force": "2025-12-08",
+    "evidence": "Art. 12: \"Este Decreto entra em vigor na data de sua publicação.\" Publication: \"Diário Oficial da União - Seção 1 - 8/12/2025, Página 3\".",
+    "law_family": "F3",
+    "duty_on": "state_only",
+    "source_row": [
+      "BR-CAMARA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Advisory committee of the SBCE. Imposes no duty on companies. Implements br-lei-15042-2024.",
+    "status": "stored"
+  },
+  {
+    "id": "br-lei-12187-2009",
+    "title": "Lei nº 12.187, de 29 de dezembro de 2009 (Política Nacional sobre Mudança do Clima, PNMC)",
+    "official_url": "https://www2.camara.leg.br/legin/fed/lei/2009/lei-12187-29-dezembro-2009-599441-norma-pl.html",
+    "citation": "Lei 12.187/2009, DOU 29/12/2009 ed. extra p. 109; amended by Lei 15.042/2024 and Lei 15.512/2026",
+    "in_force": "2009-12-29",
+    "evidence": "Art. 13: \"Esta Lei entra em vigor na data de sua publicação.\" Publication: \"Diário Oficial da União - Seção 1 - Edição Extra - 29/12/2009, Página 109\".",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "BR-CAMARA-ADOPTED",
+      "BR-CAMARA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National climate policy framework. Consolidated record dated 2026-09-23 (Lei 15.512/2026, DOU 23/9/2026, art. 35 in force on publication). Amendments between 2009 and 2026 are not served as separate consolidations by the Câmara.",
+    "status": "stored"
+  },
+  {
+    "id": "br-cvm-res-193-2023",
+    "title": "Resolução CVM nº 193, de 20 de outubro de 2023 (relatório de informações financeiras relacionadas à sustentabilidade, padrão ISSB)",
+    "official_url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol193.html",
+    "citation": "Resolução CVM 193/2023, DOU 23/10/2023; amended by Resoluções CVM 219/2024, 227/2025 and 244/2026",
+    "in_force": "2023-11-01",
+    "evidence": "Art. 7º: \"Esta Resolução entra em vigor em 1º de novembro de 2023.\" CVM page: \"(Publicada no DOU de 23.10.2023)\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CVM-ADOPTED",
+      "BR-CVM-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "As amended by Resolução 244/2026 the reporting is opt-in; from 2027-01-01 a listed company that does not file must explain why by market notice (Resolução 244 art. 2). Consolidated record dated 2026-06-01. Intermediate consolidations (after 219 and 227) are not served by CVM. Brief expected \"voluntary then mandatory\"; the pages read show the mandatory phase removed (arts. 2 and 5 III revoked by Res. 244).",
+    "status": "stored"
+  },
+  {
+    "id": "br-cvm-res-219-2024",
+    "title": "Resolução CVM nº 219, de 29 de outubro de 2024 (altera a Resolução CVM nº 193)",
+    "official_url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol219.html",
+    "citation": "Resolução CVM 219/2024, DOU 31/10/2024",
+    "in_force": "2024-11-01",
+    "evidence": "Art. 2º: \"Esta Resolução entra em vigor em 1º de novembro de 2024.\" CVM page: \"(Publicada no DOU de 31.10.2024)\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CVM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending resolution; text is the amendment only.",
+    "status": "stored",
+    "amends": "br-cvm-res-193-2023"
+  },
+  {
+    "id": "br-cvm-res-227-2025",
+    "title": "Resolução CVM nº 227, de 31 de março de 2025 (altera a Resolução CVM nº 193)",
+    "official_url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol227.html",
+    "citation": "Resolução CVM 227/2025, DOU 01/04/2025",
+    "in_force": "2025-04-01",
+    "evidence": "Art. 2º: \"Esta Resolução entra em vigor em 1º de abril de 2025.\" CVM page: \"(Publicada no DOU de 01.04.2025)\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CVM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending resolution; text is the amendment only.",
+    "status": "stored",
+    "amends": "br-cvm-res-193-2023"
+  },
+  {
+    "id": "br-cvm-res-244-2026",
+    "title": "Resolução CVM nº 244, de 29 de maio de 2026 (altera a Resolução CVM nº 193)",
+    "official_url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol244.html",
+    "citation": "Resolução CVM 244/2026, DOU 01/06/2026",
+    "in_force": "2026-06-01",
+    "evidence": "Art. 4º: \"Esta Resolução entra em vigor na data de sua publicação, aplicando-se aos exercícios sociais iniciados a partir de 1º de janeiro de 2026.\" CVM page: \"(Publicada no DOU de 01.06.2026)\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CVM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending resolution. The earlier register row gave 2026-05-29 (the resolution date); the CVM page gives DOU publication 2026-06-01, used here.",
+    "status": "stored",
+    "amends": "br-cvm-res-193-2023"
+  },
+  {
+    "id": "br-cvm-res-59-2021",
+    "title": "Resolução CVM nº 59, de 22 de dezembro de 2021 (registro de emissores; Formulário de Referência, itens ASG)",
+    "official_url": "https://conteudo.cvm.gov.br/legislacao/resolucoes/resol059.html",
+    "citation": "Resolução CVM 59/2021, DOU 23/12/2021; item 7.3.j of Anexo A reworded by Resolução CVM 168/2022",
+    "in_force": "2023-01-02",
+    "evidence": "Art. 9º: \"Esta Resolução entra em vigor em 2 de janeiro de 2023.\" CVM page: \"(Publicada no DOU de 23.12.2021)\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-CVM-ADOPTED",
+      "BR-CVM-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Large instrument (about 120,000 characters); the ESG disclosure items sit in the Formulário de Referência annex. The brief called it ESG items mandatory from 2023; the ESG items were not isolated here. Adopted and consolidated records share the date 2023-01-02 (Res. 168/2022 took effect 2022-10-03, before this resolution did).",
+    "status": "stored"
+  },
+  {
+    "id": "br-cmn-res-4943-2021",
+    "title": "Resolução CMN nº 4.943, de 15 de setembro de 2021 (altera a Resolução CMN nº 4.557: riscos social, ambiental e climático)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4943",
+    "citation": "Resolução CMN 4.943/2021, DOU 16/9/2021 p. 39/40",
+    "in_force": "2022-07-01",
+    "evidence": "Art. 3º: \"Esta Resolução entra em vigor em 1º de julho de 2022.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amends Resolução CMN 4.557/2017 (not in scope). Text is the amendment.",
+    "status": "stored"
+  },
+  {
+    "id": "br-cmn-res-4944-2021",
+    "title": "Resolução CMN nº 4.944, de 15 de setembro de 2021 (altera a Resolução CMN nº 4.606: metodologia simplificada, riscos social, ambiental e climático)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4944",
+    "citation": "Resolução CMN 4.944/2021, DOU 16/9/2021 p. 40/41",
+    "in_force": "2022-12-01",
+    "evidence": "Art. 2º: \"Esta Resolução entra em vigor em 1º de dezembro de 2022.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The brief grouped it with 4.943 and 4.945; its subject is the simplified capital method (Res. 4.606/2017), with climate wording in the text. Kept as F6.",
+    "status": "stored"
+  },
+  {
+    "id": "br-cmn-res-4945-2021",
+    "title": "Resolução CMN nº 4.945, de 15 de setembro de 2021 (Política de Responsabilidade Social, Ambiental e Climática, PRSAC)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=4945",
+    "citation": "Resolução CMN 4.945/2021, DOU 16/9/2021 p. 41/42; art. 2 § 2 added by Resolução CMN 5.194/2024",
+    "in_force": "2022-07-01",
+    "evidence": "Art. 17: \"Esta Resolução entra em vigor em: I - 1º de dezembro de 2022, quanto ao art. 16; e II - 1º de julho de 2022, quanto aos demais artigos.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The BCB API serves only the current text, so the one record is dated 2025-01-01 (Res. CMN 5.194/2024 insertion in force). The text as published 2021 is not served separately, so a lookup for 2022 to 2024 lists nothing for this instrument.",
+    "status": "stored"
+  },
+  {
+    "id": "br-bcb-res-139-2021",
+    "title": "Resolução BCB nº 139, de 15 de setembro de 2021 (Relatório GRSAC)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=139",
+    "citation": "Resolução BCB 139/2021, DOU 16/9/2021 p. 43; amended by Res. BCB 306/2023, 354/2023, 445/2024, 447/2024, 586/2026",
+    "in_force": "2022-12-01",
+    "evidence": "Art. 16: \"Esta Resolução entra em vigor em 1º de dezembro de 2022.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Repealed in full from 2027-01-01 by Resolução BCB 586/2026 (art. 13 II, art. 14 II); repeal record stored. The one text record is dated 2026-09-04 (art. 15 revoked on publication of Res. 586); earlier versions are not served by the BCB API, so lookups for 2022 to 2026-09-03 list nothing.",
+    "status": "stored"
+  },
+  {
+    "id": "br-bcb-res-140-2021",
+    "title": "Resolução BCB nº 140, de 15 de setembro de 2021 (Seção 9, Impedimentos Sociais, Ambientais e Climáticos, do Manual de Crédito Rural)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=140",
+    "citation": "Resolução BCB 140/2021, DOU 16/9/2021 p. 43",
+    "in_force": "2021-10-01",
+    "evidence": "Art. 2º: \"Esta Resolução entra em vigor em 1º de outubro de 2021.\"",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Rural credit eligibility rules; climate wording is thin (one mention).",
+    "status": "stored"
+  },
+  {
+    "id": "br-bcb-res-586-2026",
+    "title": "Resolução BCB nº 586, de 3 de setembro de 2026 (Relatório GRSAC, substitui a Resolução BCB nº 139)",
+    "official_url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=586",
+    "citation": "Resolução BCB 586/2026, DOU 4/9/2026 p. 212",
+    "in_force": "2026-09-04",
+    "evidence": "Art. 14: \"Esta Resolução entra em vigor: I - na data de sua publicação, em relação ao art. 13, caput, inciso I; e II - em 1º de janeiro de 2027, em relação aos demais dispositivos.\" DOU 4/9/2026.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "BR-BCB-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Only art. 13 I is in force on 2026-09-04; the text record is dated 2027-01-01 (the date the duties start). Published, not yet in force on 2026-11-02.",
+    "status": "stored",
+    "amends": "br-bcb-res-139-2021"
+  },
+  {
+    "id": "br-mte-portaria-18-2024",
+    "title": "Portaria Interministerial MTE/MDHC/MIR nº 18, de 13 de setembro de 2024 (Cadastro de Empregadores, trabalho análogo ao de escravo)",
+    "official_url": "https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/portaria-interministerial-mte-mdhc-mir-n-18-2024.pdf",
+    "citation": "Portaria Interministerial MTE/MDHC/MIR 18/2024, DOU 18/9/2024 seção 1 p. 84",
+    "in_force": "2024-09-18",
+    "evidence": "Art. 25: \"Esta Portaria entra em vigor na data de sua publicação.\" PDF header: \"Publicado em: 18/09/2024 | Edição: 181 | Seção: 1 | Página: 84\" (opened 2026-11-02).",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BR-MTE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces the earlier portaria of July 2024 (per MTE news pages; the 2016 portaria named in the brief is superseded). Disciplined further by Instrução Normativa GM/MTE nº 7/2024. Link only: BR-MTE-ADOPTED is permission requested.",
+    "status": "link only"
+  }
+]

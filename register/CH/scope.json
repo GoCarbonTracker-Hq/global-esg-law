@@ -1,0 +1,138 @@
+[
+  {
+    "id": "ch-co-art964a-c",
+    "title": "Code of Obligations (SR 220), Sixth Division, Art. 964a to 964c: transparency on non-financial matters",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377",
+    "citation": "Code of Obligations (SR 220) Art. 964a-964c, inserted by the Federal Act of 19 June 2020 (AS 2021 846)",
+    "in_force": "2022-01-01",
+    "evidence": "Footnote on the chapter heading in the consolidated text of 2022-01-01: \"Eingefügt durch Ziff. I und III 1 des BG vom 19. Juni 2020 (Indirekter Gegenvorschlag zur Volksinitiative «Für verantwortungsvolle Unternehmen – zum Schutz von Mensch und Umwelt»), in Kraft seit 1. Jan. 2022 (AS 2021 846; BBl 2017 399).\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20220101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20220101-de-xml-7.xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the whole Sixth Division (chapter heading, footnote, Art. 964a to 964c) of the German consolidated text. The 2022-01-01 text has not changed in any later consolidation up to 2027-07-01, so there is one record. The transitional provision at the end of the Code is not included. Implemented by the Ordinance on Climate Disclosures (ch-climate-disclosure-ordinance). Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-co-art964j-l",
+    "title": "Code of Obligations (SR 220), Eighth Division, Art. 964j to 964l: due diligence and transparency, minerals and metals from conflict-affected areas and child labour",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/27/317_321_377",
+    "citation": "Code of Obligations (SR 220) Art. 964j-964l, inserted by the Federal Act of 19 June 2020 (AS 2021 846)",
+    "in_force": "2022-01-01",
+    "evidence": "Footnote on the chapter heading in the consolidated text of 2022-01-01: \"Eingefügt durch Ziff. I und III 1 des BG vom 19. Juni 2020 (Indirekter Gegenvorschlag zur Volksinitiative «Für verantwortungsvolle Unternehmen – zum Schutz von Mensch und Umwelt»), in Kraft seit 1. Jan. 2022 (AS 2021 846; BBl 2017 399).\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/27/317_321_377/20220101/de/xml/fedlex-data-admin-ch-eli-cc-27-317_321_377-20220101-de-xml-7.xml on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the whole Eighth Division (chapter heading, footnote, Art. 964j to 964l) of the German consolidated text; unchanged in every later consolidation up to 2027-07-01, so there is one record. Implemented by ch-vsotr. The brief named Art. 964j to 964l; Art. 964d to 964i (commodity sector payments to governments) are not in scope. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/27/317_321_377/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-vsotr",
+    "title": "Ordinance on Due Diligence and Transparency in relation to Minerals and Metals from Conflict-Affected Areas and Child Labour (VSoTr, SR 221.433)",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2021/847",
+    "citation": "SR 221.433; AS 2021 847 (Ordinance of 3 December 2021)",
+    "in_force": "2022-01-01",
+    "evidence": "Art. 18: \"Diese Verordnung tritt am 1. Januar 2022 in Kraft.\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2021/847/20220101/de/xml/ (consolidated file) on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implements Art. 964j to 964l of the Code of Obligations (ch-co-art964j-l). The as-adopted AS text is served only as DOCX and PDF, so it is not stored; the first consolidation (2022-01-01) is the original text. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2021/847/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-climate-disclosure-ordinance",
+    "title": "Ordinance on Climate Disclosures (Verordnung über die Berichterstattung über Klimabelange, SR 221.434)",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2022/747",
+    "citation": "SR 221.434; AS 2022 747 (Ordinance of 23 November 2022)",
+    "in_force": "2024-01-01",
+    "evidence": "Art. 6: \"Diese Verordnung tritt am 1. Januar 2024 in Kraft.\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/oc/2022/747/de/xml/fedlex-data-admin-ch-eli-oc-2022-747-de-xml.xml on 2026-11-02. Federal Council release of 23 November 2022 (https://www.sif.admin.ch/en/nsb?id=91859) says the same.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CH-FEDLEX-ADOPTED",
+      "CH-FEDLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "SR number is 221.434 (the brief said 221.029). The XML metadata of the AS file shows jolux:dateEntryInForce 2023-01-01, which contradicts Art. 6; Art. 6 and the press release are used. Implements Art. 964a to 964c of the Code of Obligations (ch-co-art964a-c). The Ordinance refers to the TCFD recommendations; those documents are not stored. The as-adopted record and the 2024-01-01 consolidation both exist because their bodies differ (the consolidation drops the final provisions). Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2022/747/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-klg",
+    "title": "Federal Act on Climate Protection Targets, Innovation and Strengthening Energy Security (KlG, SR 814.310)",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2023/655",
+    "citation": "SR 814.310; AS 2023 655 (Federal Act of 30 September 2022)",
+    "in_force": "2025-01-01",
+    "evidence": "Consolidated text of 2025-01-01: \"Inkrafttreten: 1. Januar 2025\"; Art. 15 para. 3: \"Der Bundesrat bestimmt das Inkrafttreten.\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2023/655/20250101/de/xml/fedlex-data-admin-ch-eli-cc-2023-655-20250101-de-xml-2.xml on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CH-FEDLEX-ADOPTED",
+      "CH-FEDLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Only Art. 53 para. 2 first sentence, 2bis and 3 let. a of the Energy Act (annex) came into force on 2024-01-01 (decision recorded in the AS text); the Act itself is dated 2025-01-01, also for the as-adopted record. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2023/655/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-klv",
+    "title": "Climate Protection Ordinance (KlV, SR 814.310.1), implementing the Climate Protection Act",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2024/772",
+    "citation": "SR 814.310.1; AS 2024 771 (Ordinance of 27 November 2024)",
+    "in_force": "2025-01-01",
+    "evidence": "Art. 35: \"Diese Verordnung tritt am 1. Januar 2025 in Kraft.\" Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/oc/2024/772/de/xml/fedlex-data-admin-ch-eli-oc-2024-772-de-xml-2.xml on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CH-FEDLEX-ADOPTED",
+      "CH-FEDLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements ch-klg. Not in the brief; found on Fedlex. The as-adopted text contains the provisions that apply from later dates, so it is longer than the 2025-01-01 consolidation. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2024/772/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-co2-act",
+    "title": "CO2 Act (Federal Act on the Reduction of CO2 Emissions, SR 641.71)",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2012/855",
+    "citation": "SR 641.71; AS 2012 6989 (Federal Act of 23 December 2011), revised by the Federal Act of 15 March 2024 (AS 2024 376) in force 2025-01-01",
+    "in_force": "2013-01-01",
+    "evidence": "Consolidated text: \"Datum des Inkrafttretens: 1. Januar 2013\"; Fedlex data jolux:dateEntryInForce 2013-01-01 on https://fedlex.data.admin.ch/eli/cc/2012/855. Opened https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2012/855/20270101/de/xml/ on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Records start 2021-01-01: the consolidations of 2013-01-01, 2018-01-01 and 2020-01-01 are served as PDF only. The 2027-01-01 record is a published amendment (Federal Act of 20 March 2026) not yet in force on 2026-11-02. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2012/855/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-co2-ordinance",
+    "title": "CO2 Ordinance (Ordinance on the Reduction of CO2 Emissions, SR 641.711)",
+    "official_url": "https://www.fedlex.admin.ch/eli/cc/2012/856",
+    "citation": "SR 641.711; AS 2012 6989 (Ordinance of 30 November 2012)",
+    "in_force": "2013-01-01",
+    "evidence": "Fedlex data jolux:dateEntryInForce 2013-01-01 and first consolidation dated 2013-01-01 on https://fedlex.data.admin.ch/eli/cc/2012/856, opened on 2026-11-02 through https://fedlex.data.admin.ch/sparqlendpoint.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "CH-FEDLEX-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implements ch-co2-act. Records start 2021-01-01: earlier consolidations and the 2020 versions are served as PDF or DOC only, and the 2027-01-01 consolidation lists no German file yet. Official English page, unofficial and not stored: https://www.fedlex.admin.ch/eli/cc/2012/856/en.",
+    "status": "stored"
+  },
+  {
+    "id": "ch-finma-circ-2026-1",
+    "title": "FINMA Circular 2026/1 Nature-related financial risks",
+    "official_url": "https://www.finma.ch/en/documentation/circulars/",
+    "citation": "FINMA Circ. 26/1 (12 December 2024)",
+    "in_force": "2026-01-01",
+    "evidence": "Cover sheet of https://www.finma.ch/en/~/media/finma/dokumente/dokumentencenter/myfinma/rundschreiben/finma-rs-2026-01.pdf (opened 2026-11-02): date 12 December 2024, entry into force 1 January 2026.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "CH-FINMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: FINMA terms require prior written consent for any reproduction. The PDF is listed on the circulars page; the cover sheet gives both dates.",
+    "status": "link only",
+    "status_note": "Permission request to FINMA not sent."
+  }
+]

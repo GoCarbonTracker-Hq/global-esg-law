@@ -1,0 +1,73 @@
+[
+  {
+    "id": "hk-hkex-esg-code-part-d",
+    "title": "HKEX Main Board Listing Rules Appendix C2, Environmental, Social and Governance Reporting Code, Part D climate-related disclosures",
+    "official_url": "https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/Rules-and-Regulations?sc_lang=en",
+    "citation": "HKEX Main Board Listing Rules Appendix C2 (ESG Code) Part D; 2024 Amendments (consultation conclusions April 2024)",
+    "in_force": "2025-01-01",
+    "evidence": "HKEX ESG FAQ (opened https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/Rules-and-Regulations?sc_lang=en on 2026-11-02): \"For financial years commencing on or after 1 January 2025: all Main Board listed issuers are required to report on the climate-related disclosure requirements set out in Part D of the ESG Code (Climate Requirements) on a “comply or explain” basis\"; \"For financial years commencing on or after 1 January 2026, all Hang Seng Composite LargeCap Index constituents are required to report on the Climate Requirements on a mandatory basis.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "HK-HKEX-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "status_note": "Part D is comply or explain for Main Board issuers from financial years commencing on or after 2025-01-01; mandatory for Hang Seng Composite LargeCap Index constituents from financial years commencing on or after 2026-01-01.",
+    "notes": "Row HK-HKEX-ADOPTED is permission requested (HKEX Terms of Use bar copying and scripted access). The rulebook site https://en-rules.hkex.com.hk/ failed TLS verification from the cloud address, so the rule text itself was not opened; the date comes from the HKEX FAQ page. No official English translation site applies (English is an official language)."
+  },
+  {
+    "id": "hk-cap622-sch5",
+    "title": "Companies Ordinance (Cap. 622), section 388 and Schedule 5, directors’ report business review (environmental policies and performance, compliance)",
+    "official_url": "https://www.elegislation.gov.hk/hk/cap622",
+    "citation": "Companies Ordinance (Cap. 622) ss.388, 390, Schedule 5 para 2(b)",
+    "in_force": "2014-03-03",
+    "evidence": "Cap. 622 as served in the DATA.GOV.HK bulk file hkel_c_leg_cap_601_cap_end_en.zip (version 2025-05-23, opened 2026-11-02): commencement line \"[3 March 2014]\" and editorial note \"Commencement date: 3 March 2014.\"; Schedule 5 para 2: \"a business review must include ... (b) a discussion on— (i) the company’s environmental policies and performance; and (ii) the company’s compliance with the relevant laws and regulations that have a significant impact on the company\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "HK-ELEGISLATION-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "status": "link only",
+    "notes": "Date is the commencement of the Ordinance; the bulk file shows Schedule 5 in a later operational period (start 2019-02-01) because of amendments, and no earlier Schedule 5 version was read. Row is permission requested, so no text is stored. Chinese text is equally authentic; English is the stored language if the row passes."
+  },
+  {
+    "id": "hk-hkfrs-s1-s2",
+    "title": "HKFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information and HKFRS S2 Climate-related Disclosures",
+    "official_url": "https://www.hkicpa.org.hk/en/News/News-Release/20241212_HKFRS_S1_S2",
+    "citation": "HKICPA HKFRS S1 and HKFRS S2, issued 12 December 2024",
+    "in_force": "2025-08-01",
+    "evidence": "HKICPA news release 12 December 2024 (opened 2026-11-02): \"The HKFRS SDS are fully aligned with the IFRS Sustainability Disclosure Standards (ISSB Standards), with an effective date of 1 August 2025.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "HK-HKICPA-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "notes": "Voluntary until a regulator or authority mandates use, per HKICPA (from search summary of the HKICPA text; the release page was read only for the effective date). Row is permission requested (HKICPA terms: non-commercial, no modification)."
+  },
+  {
+    "id": "hk-hkma-spm-gs1",
+    "title": "HKMA Supervisory Policy Manual GS-1 Climate Risk Management",
+    "official_url": "https://brdr.hkma.gov.hk/eng/doc-ldg/docId/20211230-2-EN",
+    "citation": "HKMA SPM GS-1 Climate Risk Management, V.1, 30.12.2021",
+    "in_force": "2021-12-30",
+    "evidence": "HKMA Banking Regulatory Document Repository entry \"GS-1 Climate Risk Management\", issue date \"30 Dec 2021\" (opened 2026-11-02). No commencement clause was read, so the issue date is used.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "HK-HKMA-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "notes": "Row is permission requested (HKMA terms: non-commercial, unmodified reproduction only). A later HKMA governance annex is reported to mention a 12-month implementation period; not read here."
+  },
+  {
+    "id": "hk-taxonomy-sustainable-finance",
+    "title": "Hong Kong Taxonomy for Sustainable Finance (HKMA)",
+    "official_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/05/20240503-3/",
+    "citation": "HKMA press release 3 May 2024; Hong Kong Taxonomy for Sustainable Finance",
+    "in_force": "2024-05-03",
+    "evidence": "HKMA press release (opened 2026-11-02): \"The Hong Kong Monetary Authority (HKMA) published today (3 May) the Hong Kong Taxonomy for Sustainable Finance (Hong Kong Taxonomy)\". Publication date used; no commencement clause.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "HK-HKMA-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "notes": "A classification framework published by the HKMA, not an enacted instrument. Phase 2A was published in January 2026 per an HKMA press release URL (20260122-3), not opened here. Row is permission requested."
+  }
+]
