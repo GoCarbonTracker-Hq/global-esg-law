@@ -2729,3 +2729,63 @@ China's official language for national law is Chinese (Mandarin, simplified char
 - `https://www.sse.com.cn/lawandrules/sselawsrules/stocks/mainipo/c/10753180/files/0d6fa191e9cf4db193c86d766f79e30b.docx` (found by search): `404 150 text/html`; the SSE rule page itself opened.
 
 Everything else used answered curl: flk.npc.gov.cn, www.mee.gov.cn, kjs.mof.gov.cn, www.mof.gov.cn, www.sse.com.cn, www.gov.cn, english.www.gov.cn, www.csrc.gov.cn (home page only).
+
+## Türkiye
+
+Rows `TR-MEVZUAT-CONSOLIDATED` and `TR-RESMIGAZETE-ADOPTED`, both `pass` on the statute basis (Fikir ve Sanat Eserleri Kanunu, Law No. 5846, madde 31: "Resmen yayımlanan veya ilan olunan kanun, Cumhurbaşkanlığı kararnamesi, yönetmelik, tebliğ, genelge ve kazai kararların çoğaltılması, yayılması, işlenmesi veya her hangi bir suretle bunlardan faydalanma serbesttir."). Madde 31 does not name a board decision (Kurul Kararı), so the KGK decisions that adopted TSRS 1 and TSRS 2 are not covered by it. Rows `TR-KGK-ADOPTED` and `TR-SPK-ADOPTED` are `permission requested`. Run on 2026-11-02 from the cloud address; no site was blocked. Both sites answer plain `curl` with HTTP 200 and ordinary HTML, no browser needed, but only when the request carries a `User-Agent`: `curl` without `-A` to mevzuat.gov.tr stalled until `-m 20` expired (`curl: (28) Operation timed out after 20001 milliseconds with 0 bytes received`), so every command below sets `-A 'Mozilla/5.0'`. Language: Turkish only.
+
+Row `TR-MEVZUAT-CONSOLIDATED`, consolidated text of Climate Law No. 7552 (laws: type 1, register 5):
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 7552_mevzuat.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.mevzuat.gov.tr/mevzuatmetin/1.5.7552.htm
+```
+
+Returned `200 101504 text/html`, sha256 `52589e647c2302eb2750a0386465cf4ff46779197c4d5c2b20710493395d14a3`; a second fetch gave the same hash (no per-request token). The file is Word-exported HTML in Windows-1254 (the `<meta>` says so); it is decoded with that charset. The same file as PDF is `.../mevzuatmetin/1.5.7552.pdf` (`200 268717 application/pdf`). Regulations (yönetmelik) and communiqués (tebliğ) live under a different path, with the type number in the file name; the folder is `yonetmelik` for both. Türkiye Emisyon Ticaret Sistemi Piyasasının İşletilmesine İlişkin Yönetmelik (type 7, number 46347):
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o ets_market.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46347.htm
+```
+
+Returned `200 167769 text/html`. Kurumsal Yönetim Tebliği (type 9, number 19225): `https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/9.5.19225.htm`, `200 93888 text/html`. A wrong path does not give a 404: it returns the 64854-byte site shell with `200 text/html; charset=utf-8`, so check the size and the charset. The site serves one current consolidation per instrument, with no point-in-time versions, so a consolidated record is dated by the latest amendment the text itself marks. The type and number of an instrument come from the site's search endpoint, `POST https://www.mevzuat.gov.tr/Anasayfa/MevzuatDatatable` with a JSON body (`{"draw":1,"start":0,"length":200,"parameters":{"MevzuatTur":9,"AranacakMetin":"","AranacakYer":1,"MevzuatNo":"","BaslangicTarihi":"","BitisTarihi":"","TertipNo":0}}`, headers `Content-Type: application/json; charset=UTF-8` and the User-Agent), which returns `200` JSON with `mevzuatNo`, `mevAdi`, `resmiGazeteTarihi` and `resmiGazeteSayisi` per row; its text filter did not work, so the list was paged and filtered by name locally (types 1 laws, 7 and 3 regulations, 9 communiqués, 21 presidential regulations).
+
+Row `TR-RESMIGAZETE-ADOPTED`, as-published text. The day's index gives the item number and file type (`.htm` or `.pdf`), then the item:
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 20250709.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2025/07/20250709.htm
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 20250709-1.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2025/07/20250709-1.htm
+```
+
+Returned `200 16164 text/html` and `200 110105 text/html`; the item (Climate Law No. 7552, Resmî Gazete 32951) has sha256 `0a77a032a4f525256e033e7cbcd7dd2317ad1e203fcdb0870b7b7ae7883e9c0b`, reproduced by a second fetch. Mükerrer issues are `{YYYYMMDD}M1.htm` for the index and `{YYYYMMDD}M1-{n}.pdf` for items.
+
+Text extraction (both rows): remove `script`, `style` and `head`; collapse all whitespace in the source to single spaces (the Word export wraps lines inside paragraphs); turn block tags (`p`, `div`, `br`, headings, `tr`, `li`, `table`) into line breaks; strip the remaining tags; unescape entities; trim each line and drop empty lines. Nothing is reworded; the gazette header lines (date, number) and the Mevzuat footnotes are kept because they are in the file. `fetched_sha256` is the hash of the file as received.
+
+Stored (fetched 2026-11-02). A Mevzuat consolidation is stored only when its body differs from the gazette text; the Climate Law differs because the gazette item also carries the Law's amendments to other laws.
+
+| Instrument | Row | Versions stored (`in_force`, `tr`) |
+|---|---|---|
+| `tr-iklim-kanunu` | adopted, consolidated | 2025-07-09 (both) |
+| `tr-iklim-idari-para-cezasi-teblig` | adopted | 2025-12-27 (annex with the fine table not in the text) |
+| `tr-ets-yonetmeligi` | adopted | 2026-08-27 (Mevzuat body identical, not stored) |
+| `tr-ets-piyasa-yonetmeligi` | consolidated | 2026-10-21 |
+| `tr-kurumsal-yonetim-teblig` | adopted, consolidated | 2014-01-03, 2020-10-02 |
+| `tr-tuketici-kanunu-6502` | adopted, consolidated | 2014-05-28, 2026-07-01 |
+| `tr-ticari-reklam-yonetmeligi` | adopted, consolidated | 2015-01-10, 2026-08-01 |
+
+Reproducibility: every one of the 11 files was fetched twice and gave the same sha256, so none carries a per-request token. No record is browser-fetched.
+
+PDF: the Resmî Gazete PDF of the market regulation, `curl -sS -L -m 60 -A 'Mozilla/5.0' -o m.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2026/10/20261021-4.pdf`, returned `200 289078 application/pdf`. `pdftotext -layout m.pdf -` returned lines such as `9Z\Y"]?]Q^V^VX+MG\Z[\U\7RYRURZS^Z6` (legacy font encoding, no readable Turkish), so it is not stored; the Mevzuat text of the same regulation is. The TSRS decision PDFs of 2023-12-29 (`https://www.resmigazete.gov.tr/eskiler/2023/12/20231229M1-7.pdf`, `200 670309 application/pdf`) are page images (`pdfimages -list` shows JBIG2 images, `pdftotext` returns 12 words), so they would need OCR.
+
+### Languages
+
+No second official language: the Mevzuat Bilgi Sistemi and the Resmî Gazete publish Turkish only. No government English translation of any instrument was found on 2026-11-02, so there is no translation row. Looked at: mevzuat.gov.tr and resmigazete.gov.tr (Turkish only), the ministry English pages on `iklim.gov.tr/en` (news items summarising the Climate Law and the ETS, not translations of the text), the Ministry of Trade pages on `ticaret.gov.tr`, and the KGK site (`kgk.gov.tr`, TSRS in Turkish). Translations by law firms, news sites or chambers of commerce turned up in search and are never stored.
+
+### Link only
+
+- `tr-tsrs`: row `TR-KGK-ADOPTED`, `permission requested` (kgk.gov.tr carries only the footer "T.C. Kamu Gözetimi Kurumu © 2024"). The KGK PDFs answer curl: `curl -sS -L -m 60 -A 'Mozilla/5.0' -o tsrs1.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/Surdurulebilirlik/RaporlamaStandarti/TSRS%201(1).pdf'` returned `200 501413 application/pdf` and `.../TSRS2_.pdf` returned `200 811958 application/pdf`, both with a text layer, but nothing is stored. The Resmî Gazete copy is not covered by madde 31 (a board decision is not named) and is images only.
+- Not in scope: Sürdürülebilirlik İlkeleri Uyum Çerçevesi (SPK, 2020, amended 2022), a Board announcement on spk.gov.tr (`TR-SPK-ADOPTED`, `permission requested`: footer "Sermaye Piyasası Kurulu Tüm hakları saklıdır."); it is referred to in the notes of `tr-kurumsal-yonetim-teblig`. Borsa İstanbul has no row (no instrument in scope); its Telif Hakkı ve Çekince İhbarı bars copying and changing without prior written permission.
+- Reklam Kurulu Çevreye İlişkin Beyanlar İçeren Reklamlar Hakkında Kılavuz (Ministry of Trade): a guide, family F7, register row only.
+- The notice "Gizlilik, Kullanım ve Telif Hakları bildirimi" that both footers refer to is not linked in the page HTML and was not found (candidate paths return the home page), so its text was not read.
+
+### Blocked
+
+No site refused the cloud address. The only failure was `mevzuat.gov.tr` without a `User-Agent` header (timeout), described above.
