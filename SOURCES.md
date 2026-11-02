@@ -1403,6 +1403,145 @@ None: every scope instrument has records. Not stored: the ISAP "tekst ujednolico
 - `https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20240001863`: `403 859 text/html` (Incapsula: "Request unsuccessful"), also for `isap.nsf/home.xsp`, `isap.nsf/page.xsp/informacje`, `isap.nsf/download.xsp/WDU20240001863/O/D20241863.pdf` and, with headless Chromium (Playwright), `https://isap.sejm.gov.pl/` (403, empty body). `https://isap.sejm.gov.pl/` itself answered 200 with a JavaScript shell by curl.
 - `https://www.sejm.gov.pl/Sejm10.nsf/`: `403 856`; `https://www.sejm.gov.pl/` answered 200 once (50990 bytes) and 403 on the next two requests; `https://www.sejm.gov.pl/en/` answered 403 once and 200 once. The Sejm site terms page could not be read for this reason.
 
+## Denmark
+
+Rows `DK-RETSINFO-ADOPTED` (laws and orders as published in Lovtidende) and `DK-RETSINFO-CONSOLIDATED` (lovbekendtgørelser, LBK), both `pass` on the publisher's terms (Civilstyrelsen's open-data terms at https://www.retsinformation.dk/api: free, non-exclusive, unlimited use, commercial use and modification named) and, independently, on Ophavsloven § 9, stk. 1 (quoted in the rows). Rows `DK-KEFM-TRANSLATION` and `DK-KFST-TRANSLATION` are `permission requested`. Run on 2026-11-02. Language: Danish only; Retsinformation's FAQ says it holds no translations. retsinformation.dk answered every request from the cloud address; no browser recipe was needed for text. The terms page itself is a JavaScript application (curl gets a shell), so its fingerprint was read with Playwright chromium (`body` innerText, networkidle plus 2.5 s; the site has no `<main>` element).
+
+Row `DK-RETSINFO-ADOPTED`, Lov nr. 480 af 22. maj 2024 (ELI `lta/2024/480`):
+
+```
+curl -sS -L -o l480.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2024/480/xml
+```
+
+Returned `200 329263 application/xml`, sha256 `0fcef68162f241d82c13c7341a524fa66cf0c6eae579224a4b7d678a98bba1d3`; a second fetch gave the same hash, so `fetched_sha256` reproduces. The same URL pattern, `https://www.retsinformation.dk/eli/lta/<year>/<number>/xml`, serves every LOV, BEK and LBK.
+
+Row `DK-RETSINFO-CONSOLIDATED`, LBK nr 402 af 23/03/2026, Bekendtgørelse af årsregnskabsloven (ELI `lta/2026/402`):
+
+```
+curl -sS -L -o arl402.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2026/402/xml
+```
+
+Returned `200 860525 application/xml`. The HTML page at the ELI URL is a JavaScript shell (`curl https://www.retsinformation.dk/eli/lta/2024/480` returns `200 5193 text/html`), so the XML route is the one used. `/pdf` also answers (`https://www.retsinformation.dk/eli/lta/2024/480/pdf`: `200 343456 application/pdf`) and was not used.
+
+Finding the versions of an instrument (not part of the open-data terms' documented services, which are the harvest API `api.retsinformation.dk/v1/Documents?date=` and the ELI channels; these are the JSON calls the Retsinformation web page itself makes, used for discovery and by the watchers):
+
+```
+curl -sS -L -G -o s.json -w '%{http_code} %{size_download} %{content_type}\n' --data-urlencode 't="klimaloven"' https://www.retsinformation.dk/api/documentsearch
+curl -sS -o r.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/api/document/255879/references/0
+```
+
+Returned `200 6479 application/json; charset=utf-8` and `200 12359 application/json; charset=utf-8`. The first lists documents (a quoted phrase in `t` is an exact phrase, an unquoted one matches any word); the second, for LBK 402/2026 (internal id 255879), lists under "Dokumentets indarbejdede forskrifter" the previous LBK (`LBK nr 1057 af 23/09/2024`), its predecessor and so on, which gives the chain of consolidations back in time; "Senere ændringer til forskriften" lists amending acts not yet consolidated.
+
+Text extraction: the XML below `Meta` (`TitelGruppe`, `DokumentIndhold`, `UnderskriftGruppe`); every `Linea` (a heading, paragraph or list item) is one line; the label in `Explicatus` (`§ 9.`, `Stk. 2.`, `1)`) is put in front of the text of its paragraph, subsection or list item, and for chapters, parts and groups it is its own line. Nothing is reworded. Checked on the day for every stored file: the non-space characters of the extracted text equal those of the XML body (cut files: of the cut paragraphs). Where an instrument is stored as a cut (`dk-arl-99a`: § 99 a; `dk-markedsfoeringsloven`: §§ 5, 6 and 13), the paragraphs are found by their `Explicatus` label and `fetched_sha256` is that of the whole file as returned. `in_force` of an LOV or BEK is the commencement date read from its own ikrafttrædelse section (quoted in the scope entry); of an LBK it is the signing date (`DiesSigni`), because an LBK has no commencement clause. A version is stored only when its text differs from the previous stored version of that instrument.
+
+Stored (fetched 2026-11-02): 32 records, all `da`.
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `dk-arl-99a` (§ 99 a) | consolidated | 2009-05-25, 2013-11-01, 2015-12-10, 2019-08-08, 2024-08-27, 2026-03-23 |
+| `dk-lov-480-2024` | adopted | 2024-06-01 |
+| `dk-lov-1636-2025` | adopted | 2025-12-31 |
+| `dk-lov-52-2025` | adopted | 2025-02-01 |
+| `dk-bek-453-2025` | adopted | 2025-05-15 |
+| `dk-bek-328-2026` | adopted | 2026-02-26 |
+| `dk-bek-1700-2025` | adopted | 2026-01-01 |
+| `dk-bek-1487-2025` | adopted | 2026-01-01 |
+| `dk-klimaloven` | adopted, consolidated | 2020-06-28 (act), 2021-12-13 (LBK 2580/2021) |
+| `dk-co2-kvoteloven` | adopted, consolidated | 2013-01-01, 2016-12-14, 2021-01-19, 2022-04-27, 2024-01-01 |
+| `dk-co2-afgiftsloven` | consolidated | 2011-04-04, 2020-09-02 |
+| `dk-emissionsafgiftsloven` | adopted, consolidated | 2025-01-01, 2025-03-20 |
+| `dk-transport-ghg` | consolidated | 2011-06-21, 2019-01-17, 2020-02-10, 2021-04-07, 2021-11-29, 2026-04-16 |
+| `dk-markedsfoeringsloven` (§§ 5, 6, 13) | adopted, consolidated | 2017-07-01, 2022-06-15 |
+
+Not stored, no recipe: LBKs of the Financial Statements Act before 2009 (LBK 647/2006), of the CO2 tax act before 2011 (LBK 889/2006, 643/1998, 856/1996, 849/1995, 718/1993): the XML route answers `200 3957 application/xml` with the metadata only and no text body (`curl -sS -L -o old.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2006/647/xml`). Skipped because the text equals the previous stored version: ÅRL § 99 a in LBK 323/2011, 1441/2022 and 1057/2024; Markedsføringsloven §§ 5, 6, 13 in LBK 1420/2024. Amending acts that Retsinformation has not consolidated (CO2 tax act: 11 acts, Markedsføringsloven: Lov 558/2025 and 1322/2025) are not stored, so the latest stored LBK of those instruments is not the law as it now stands.
+
+### Link only
+
+None. All 14 scope instruments are stored.
+
+### Languages
+
+Danish is the only official language. Retsinformation (FAQ "Kan jeg finde en oversættelse af specifik lovgivning?"): "Retsinformation indeholder ikke oversættelser af lovgivning til andre sprog." English translations were looked for at the ministries and agencies:
+
+- Climate Act: the Ministry of Climate, Energy and Utilities publishes a PDF (`curl -sS -L -o k.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://en.kefm.dk/Media/1/B/Climate%20Act_Denmark%20-%20WEBTILG%c3%86NGELIG-A.pdf'` returned `200 157879 application/pdf`) headed "This is an unofficial translation of the Climate Act. Only Danish laws published in the Danish Law Gazette (Lovtidende) have legal validity", for Act No 965 of 26 June 2020. en.kefm.dk has no copyright or reuse page (its footer links only the privacy and cookie policy), so row `DK-KEFM-TRANSLATION` is `permission requested` and nothing is stored.
+- Marketing Practices Act: the Competition and Consumer Authority publishes a PDF (`curl -sS -L -o m.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kfst.dk/media/49887/mfl-english.pdf` returned `200 745015 application/pdf`) of Act No 426 of 3 May 2017 in its 2017 state. kfst.dk has no reuse terms page, so row `DK-KFST-TRANSLATION` is `permission requested`; the 2017 amendment state would also match no stored version except the as-published act.
+- Financial Statements Act: no government English found (web search on 2026-11-02; erhvervsstyrelsen.dk pages tried answer 404 or Danish guidance). Erhvervsstyrelsen guidance pages were not used, so no row for it.
+- Other instruments: no English found.
+
+Law-firm, audit-firm and NGO translations turned up in the searches and are never stored.
+
+No site was blocked from the cloud address: retsinformation.dk, api.retsinformation.dk, en.kefm.dk, kfst.dk, forbrugerombudsmanden.dk and erhvervsstyrelsen.dk all answered.
+
+## Czechia
+
+Rows `CZ-ESBIRKA-ADOPTED` (as-published text) and `CZ-ESBIRKA-CONSOLIDATED` (time versions), both `pass` on the statute basis (Copyright Act 121/2000 Sb. § 3 písm. a)). The consolidated row is flagged in its notes for Varun: the statute covers the text of a právní předpis, and whether an e-Sbírka time version made by the portal falls inside it is a reading, not a settled point. e-Sbírka has no terms-of-use page and names no licence. Run on 2026-11-02. Language: Czech only. No government English translation was found, so there is no translation row.
+
+The web pages of https://e-sbirka.gov.cz are a JavaScript application: curl returns a 1040-byte shell.
+
+```
+curl -sS -L -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://e-sbirka.gov.cz/sb/2012/383
+```
+
+Returned `200 1040 text/html`. The keyed public API (`https://api.e-sbirka.gov.cz`) wants a registered key: `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://api.e-sbirka.gov.cz/dokumenty-sbirky/%2Fsb%2F2012%2F383'` returned `401 119 application/json;charset=UTF-8` (`NEPLATNY_API_KLIC`). What works without a key is the JSON endpoint that the web application itself calls, under `https://e-sbirka.gov.cz/sbr-cache/`. No browser is needed. The e-Sbírka pages warn that identifiers of fragments and parts of the data structure may change until 2027-01-15 (https://e-sbirka.gov.cz/aktuality/20150), so a fragment id is never stored.
+
+Request 1, the list of time versions of an act (Act 383/2012 Sb.; the stale URL `/sb/2012/383` is percent-encoded as `%2Fsb%2F2012%2F383`):
+
+```
+curl -sS -L -o h.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie'
+```
+
+Returned `200 2858 application/json`: one entry per version with `datumUcinnostiZneniOd`, `typZneni` (`AKTUALNI`, `MINULE`, `BUDOUCI`, `MINULE_CASTECNE_UCINNE`, `MINULE_NEUCINNE` for a version that never took effect, `VYHLASENE` for the as-published text), `staleUrl` and the amending acts (`novely`).
+
+Request 2, row `CZ-ESBIRKA-CONSOLIDATED`, the text of the version effective 2026-01-01 (append the date to the stale URL):
+
+```
+curl -sS -L -o p0.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383%2F2026-01-01/fragmenty?cisloStranky=0'
+```
+
+Returned `200 758950 application/json`. The answer holds `pocetStranek` (here 1) and `seznam`, a list of fragments in document order, each with `kodTypuFragmentu` (`Cast`, `Paragraf`, `Nadpis_pod`, `Odstavec_Dc`, `Pismeno_Lb`, `Bod_Dd`, `PPC` for footnotes, ...), `hloubka` and `xhtml` (the text with inline tags). Larger acts are served in several pages: Act 563/1991 Sb. page 0 returned 1068765 bytes and `curl ... 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/fragmenty?cisloStranky=1'` returned `200 72329 application/json`.
+
+Request 3, row `CZ-ESBIRKA-ADOPTED`, the as-published text (date part `0000-00-00`), Decree 103/2025 Sb.:
+
+```
+curl -sS -L -o a103.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103%2F0000-00-00/fragmenty?cisloStranky=0'
+```
+
+Returned `200 63426 application/json`, sha256 `151adcc89b3ac110b35e7cbc0816e2b09be99bb4568851fa5f77aa0e70b5c894`. Two fetches of `https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/fragmenty?cisloStranky=0` gave the same hash (`18447bc326e7a5a47c050b26af3722d8b57a6dd01354dc78dcab06002b1cd978`), so `fetched_sha256` reproduces; the response carries no per-request token. For an act served in several pages, `fetched_url` is the URL of page 0 and `fetched_sha256` is the sha256 of the page responses concatenated in page order.
+
+Text extraction: one line per fragment that has `xhtml`, in document order; `<br>` as a line break, all other tags stripped, character entities unescaped, runs of spaces collapsed; nothing reworded. Fragments of type `PPC` (footnotes) are kept for whole instruments and left out of cut records. The as-published record of an act is dated the first date any provision took effect (the earliest version that is not `VYHLASENE` or `MINULE_NEUCINNE`). A time version is stored only when its text differs from the previous stored text of that instrument, so the dates below are the dates the text changed. A published version that has not taken effect (`BUDOUCI`) is stored dated its in-force date when its text differs.
+
+Cut records: `cz-accounting-act-sustainability-reporting` is Part Eight of Act 563/1991 Sb. (from the `Cast` fragment whose next fragment is the heading UVÁDĚNÍ NEFINANČNÍCH INFORMACÍ or ZPRÁVA O UDRŽITELNOSTI up to the next `Cast`); `cz-consumer-protection-act-634-1992-s4-5a` runs from the `Paragraf` fragment `§ 4` to the one before `§ 5b` (before `§ 6` in versions without `§ 5b`).
+
+Stored (fetched 2026-11-02, all Czech, `cs`):
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `cz-accounting-act-sustainability-reporting` | consolidated | 2017-01-01, 2024-01-01, 2025-09-03, 2026-01-01 |
+| `cz-act-316-2025` | adopted | 2025-09-03 |
+| `cz-ets-act-383-2012` | adopted, consolidated | 2012-11-16 (adopted); 2015-01-01, 2017-07-01, 2020-01-03, 2021-01-01, 2022-02-01, 2024-04-10, 2025-01-01, 2026-01-01 |
+| `cz-ets-decree-103-2025` | adopted | 2025-04-16 |
+| `cz-ets-indirect-cost-compensation-order-565-2020` | adopted, consolidated | 2021-01-01 (adopted); 2022-03-01, 2022-07-01, 2023-01-01, 2026-08-14, 2027-01-01 (published, not in force on 2026-11-02) |
+| `cz-consumer-protection-act-634-1992-s4-5a` | consolidated | 2008-02-12, 2015-12-28, 2023-01-06 |
+
+### Languages
+
+Czech is the only official language. e-Sbírka serves no English text of Czech acts: its FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only. A web search for English texts of Act 563/1991 and Act 383/2012 returned third-party machine translations only; https://www.mzp.gov.cz (Ministry of the Environment) answered curl with `403 30758 text/html; charset=UTF-8` (blocked from the cloud address: https://www.mzp.gov.cz/en). The Ministry of Finance and Ministry of the Interior English home pages answered 200 (`https://www.mfcr.cz/en/` 105754 bytes, `https://www.mvcr.cz/mvcren/` 19811 bytes); only their home pages were opened and no translation was looked for inside them. No translation row exists, and a translation published by a law firm, an exchange, an NGO or a news site is never stored.
+
+### Link only
+
+None. Every scope instrument has records.
+
+### Not in scope and not used
+
+- Sbírka zákonů archive (`https://aplikace.mvcr.cz/sbirka-zakonu/` answers `301` to `https://aplikace.mv.gov.cz/sbirka-zakonu/`, which answered `404 34455 text/html; charset=utf-8` for the root path): no PDF was needed, because e-Sbírka serves the as-published text of every instrument above as structured fragments, and no row exists for the archive. The `pdftotext` recipe was not used.
+- psp.cz (Poslanecká sněmovna), the bill pages: blocked from the cloud address. `curl -sS -m 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.psp.cz/sqw/historie.sqw?o=10&T=279'` ended with `curl: (35) Recv failure: Connection reset by peer`. Nothing is stored from it and no row exists. The orchestrator can try it from the laptop.
+- Česká národní banka, https://www.cnb.cz/cs/ answered `200 104560 text/html;charset=UTF-8` (after a `307` from the bare host). No ČNB instrument was examined, so there is no ČNB row; whether a ČNB notice on ESG risks is an enacted instrument in F1 to F6 was not established.
+- Government orders that set the yearly budget for indirect-cost compensation (221/2023, 203/2024, 260/2025, 136/2026 Sb.): single-year amounts, no entry.
+- Government bill sněmovní tisk 279 (amends 563/1991 Sb. again): not enacted on e-Sbírka on 2026-11-02; stays a proposal in `register/register.csv`.
+- Acts 349/2023 Sb. (consolidation package, hundreds of articles) and 462/2016 Sb. are not entries: what they added to Act 563/1991 Sb. is in the Part Eight records.
+
+Watchers: one `date_list` per scope instrument on the `historie` URL of the act (regex on `datumUcinnostiZneniOd`), tier `consolidation_site`, `second_route` the browser page of the act. `python3 tools/watch.py --dry-run --source CZ-ESBIRKA-CONSOLIDATED` and `--source CZ-ESBIRKA-ADOPTED` ran with 0 failures.
+
 ## Portugal
 
 Rows `PT-DRE-ADOPTED` and `PT-DRE-CONSOLIDATED` (both `pass`, statute: Código do Direito de Autor e dos Direitos Conexos art. 8 n.º 1 read with art. 3 n.º 1 alínea c); the reading is in the row notes and in the PR). Run on 2026-11-02. Language: Portuguese only; no government English translation of any instrument in scope was found (diariodarepublica.pt offers Portuguese only; portugal.gov.pt, gov.pt and apambiente.pt were searched), so there is no translation row.

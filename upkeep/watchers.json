@@ -3076,6 +3076,252 @@
   }
  },
  {
+  "id": "dk-arl-99a-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-arl-99a",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/255879/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2026/402 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-lov-480-2024-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-lov-480-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/243150/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2024/480 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-lov-1636-2025-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-lov-1636-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/254038/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/1636 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-lov-52-2025-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-lov-52-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/247795/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/52 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-bek-453-2025-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-bek-453-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/249512/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/453 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-bek-328-2026-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-bek-328-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/255439/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2026/328 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-bek-1700-2025-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-bek-1700-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/253960/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/1700 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-bek-1487-2025-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-bek-1487-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/253965/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/1487 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-klimaloven-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-klimaloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/227871/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2021/2580 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-co2-kvoteloven-retsinformation-references",
+  "source_id": "DK-RETSINFO-ADOPTED",
+  "iso2": "DK",
+  "instrument": "dk-co2-kvoteloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/241111/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2023/1767 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-co2-afgiftsloven-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-co2-afgiftsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/216021/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2020/1353 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-emissionsafgiftsloven-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-emissionsafgiftsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/247697/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2025/309 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-transport-ghg-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-transport-ghg",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/252126/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2026/438 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "dk-markedsfoeringsloven-retsinformation-references",
+  "source_id": "DK-RETSINFO-CONSOLIDATED",
+  "iso2": "DK",
+  "instrument": "dk-markedsfoeringsloven",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.retsinformation.dk/api/document/246620/references/0",
+  "params": {
+   "second_route": "https://www.retsinformation.dk/eli/lta/2024/1420 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
+  }
+ },
+ {
+  "id": "cz-accounting-act-sustainability-reporting-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-accounting-act-sustainability-reporting",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1991/563 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-act-316-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-act-316-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F316/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/316 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-act-383-2012-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-act-383-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2012/383 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-decree-103-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-decree-103-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/103 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-indirect-cost-compensation-order-565-2020-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-indirect-cost-compensation-order-565-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2020%2F565/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2020/565 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-consumer-protection-act-634-1992-s4-5a-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-consumer-protection-act-634-1992-s4-5a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1992%2F634/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1992/634 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
   "id": "pt-dl-89-2017-act-pdf",
   "source_id": "PT-DRE-ADOPTED",
   "iso2": "PT",
