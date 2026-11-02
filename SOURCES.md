@@ -2668,6 +2668,182 @@ Returned `200 6680329 application/pdf`, BSP Circular No. 1128 corrected copy (13
 - Blocked from the cloud address: https://www.officialgazette.gov.ph/ , https://www.congress.gov.ph/ , https://www.senate.gov.ph/ , https://issuances-library.senate.gov.ph/ , https://www.denr.gov.ph/ , https://pcw.gov.ph/ (Cloudflare 403); https://legacy.senate.gov.ph/ (403 Maintenance); https://morb.bsp.gov.ph/ (500).
 - LawPhil and ChanRobles are private and were not used.
 
+## China
+
+Run on 2026-11-02 (GEL-07-01). Rows `CN-FLK-ADOPTED`, `CN-FLK-CONSOLIDATED`, `CN-MEE-ADOPTED` and `CN-MOF-ADOPTED` pass on the statute (Copyright Law of the PRC Art. 5 item 1, quoted in each row). Rows `CN-SSE-ADOPTED`, `CN-SZSE-ADOPTED` and `CN-BSE-ADOPTED` are `permission requested` (each exchange's legal notice allows non-commercial use only). The mee.gov.cn site statement (and the identical gov.cn one) bars commercial verbatim reprint of site content and claims the site's copyright; the MEE row passes on the statute anyway and is flagged for Varun in its notes. gov.cn has no row and was not used as a source. No Chinese text was fetched by browser: every stored record came from `curl`.
+
+### flk.npc.gov.cn (rows `CN-FLK-ADOPTED`, `CN-FLK-CONSOLIDATED`)
+
+The site is a JavaScript application; the data come from `/law-search/...` JSON endpoints that answered curl from the cloud address with no cookie or token. Run for the Anti-Unfair Competition Law (2025 revision).
+
+Step 1, find the version ids (`bbbs`); `searchType` 1 is an exact title search, each version of a law is its own item with `sxrq` (in-force date), `gbrq` (promulgation date) and `sxx` (3 in force, 2 amended, 1 no longer in force):
+
+```
+curl -sS -A 'Mozilla/5.0' -H 'Content-Type: application/json;charset=UTF-8' -X POST https://flk.npc.gov.cn/law-search/search/list -d '{"searchRange":1,"sxrq":[],"gbrq":[],"searchType":1,"sxx":[],"gbrqYear":[],"flfgCodeId":[],"zdjgCodeId":[],"searchContent":"中华人民共和国反不正当竞争法","orderByParam":{"order":"-1","sort":""},"pageNum":1,"pageSize":20}' -o l.json -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 15574 application/json` (12 rows, three of them national: bbbs `ff808181971552b40197b1016efc5437` 2025-10-15, `ff8080816f135f46016f2169de9b1ace` 2019-04-23, `2c909fdd678bf17901678bf8704b0a87` 2018-01-01). Step 2 (optional), `curl -sS -A 'Mozilla/5.0' 'https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff808181971552b40197b1016efc5437'` returned `200 3140 application/json` (file paths and related documents). Step 3, the file:
+
+```
+curl -sS -A 'Mozilla/5.0' 'https://flk.npc.gov.cn/law-search/download/pc?format=docx&bbbs=ff808181971552b40197b1016efc5437' -o p.json -w '%{http_code} %{size_download} %{content_type}\n'
+curl -sS -A 'Mozilla/5.0' -o aucl.docx -w '%{http_code} %{size_download} %{content_type}\n' "$(python3 -c "import json;print(json.load(open('p.json'))['data']['url'])")"
+```
+
+The first returned `200 991 application/json` (a signed URL on `flkoss.obs-bj2.cucloud.cn`); the second `200 21842 application/vnd.openxmlformats-officedocument.wordprocessingml.document`, sha256 `03add47309479095920c170f083185a2fa7992e7553c8d8d8ce7ac656d6637b2`. A second fetch gave the same hash for all ten flk files, so `fetched_sha256` reproduces (the signed URL changes per request, the file does not). `fetched_url` in the records is the `download/pc` request. Text: the docx `word/document.xml` read with `zipfile`; one line per non-empty paragraph, leading and trailing spaces and U+3000 indents stripped, nothing else changed. The contents table that precedes the articles is kept.
+
+Stored (fetched 2026-11-02): `cn-ecology-code` 2026-08-15; `cn-epl` 2015-01-01 plus a repeal record 2026-08-15; `cn-ets-regulation` 2024-05-01 (adopted) and 2026-08-15 (consolidated); `cn-aucl` 2018-01-01, 2019-04-23, 2025-10-15; `cn-advertising-law` 2015-09-01, 2018-10-26, 2021-04-29. flk marks an item `adopted` here when its header says 修订 (full revision) or the item is the original promulgation, and `consolidated` when the header says 修正 or 根据…决定修订 (a decision amending it). flk does not hold departmental rules (the `enumData` category list has laws, administrative regulations, supervision regulations, local regulations and judicial interpretations).
+
+### mee.gov.cn (row `CN-MEE-ADOPTED`)
+
+```
+curl -sS -A 'Mozilla/5.0' -o m.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.mee.gov.cn/gzk/gz/202112/t20211210_963770.shtml
+```
+
+Returned `200 25564 text/html` (企业生态环境信息依法披露管理办法, MEE Order 24, text as amended by the 2026-09-20 decision). Same host, `.../202112/t20211213_963865.shtml` (碳排放权交易管理办法（试行）, Order 19) returned `200 23778 text/html`. Text: from `<div class="gz_content">` to `<div class="gz_footer">` (title, parenthetical, articles), block elements as line breaks, `&nbsp;` as a space. Two fetches gave the same sha256 for both pages. The database serves the current text only, so the as-promulgated 2021 text of Order 24 is not stored; the old page `https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202112/t20211221_964837.html` (200, 60438 bytes) shows the same amended text. The Order 24 page links a `.doc` and a `.pdf` of the same text.
+
+### kjs.mof.gov.cn (row `CN-MOF-ADOPTED`)
+
+www.mof.gov.cn pages answered 200 but the policy-release pages sit on `kjs.mof.gov.cn` (Accounting Department).
+
+```
+curl -sS -A 'Mozilla/5.0' -o k.html -w '%{http_code} %{size_download} %{content_type}\n' https://kjs.mof.gov.cn/zhengcefabu/202512/t20251225_3980202.htm
+curl -sS -A 'Mozilla/5.0' -o b.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kjs.mof.gov.cn/zhengcefabu/202412/P020241216565879245839.pdf
+```
+
+The first returned `200 78153 text/html` (Climate Standard notice 财会〔2025〕34号 with the whole standard in the page; sha256 `5891c643a13474e5e8ef5693926062bf0226653d9dfe2b91ce4872a4b0573581`, reproduced in later fetches; the edge now and then answers 502 Bad Gateway with a 2004-byte page, retry). Text: from `<h2 class="title_con">` to the publication-date line, page chrome lines (date and source line, a stray comment marker, the attachment-download script text) removed. The second returned `200 167900 application/pdf` (Basic Standard attachment, sha256 `fd0610c6c06f217fc58bbde54c833ddee66687694f7a24fa710d2fcacef967c5`). PDF text: `pdftotext -layout b.pdf -` (poppler), runs of spaces collapsed, form feeds and lines holding only a page number dropped; the PDF's hard line wraps stay. Checked for mojibake: no U+FFFD or private-use characters in either text.
+
+### Languages
+
+China's official language for national law is Chinese (Mandarin, simplified characters); every stored record is `zh`. No English record is stored: no row with `form` translation was added because no state-published English text was found. Looked for on 2026-11-02: english.www.gov.cn (home page 200, 58342 bytes) and a web search for an official English text of each flk law; the NPC English pages on npc.gov.cn refused the cloud address (below). English texts that turned up are on WIPO Lex, law firm sites and commercial databases, which are never stored. The SZSE English PDF of Guideline No. 17 sits under the permission-requested SZSE row.
+
+### Link only
+
+- `cn-sse-sustainability-guideline-14`, `cn-szse-sustainability-guideline-17`, `cn-bse-sustainability-guideline-11`: rows `CN-SSE-ADOPTED`, `CN-SZSE-ADOPTED`, `CN-BSE-ADOPTED` are `permission requested` (non-commercial use only). The SZSE guideline text was read (docx, 200 over http) only to find its in-force date and was not stored. Exchange rule pages did open: SSE page 200, SZSE page 200 over plain http, BSE legal notice 200 with a browser.
+- Not in scope: the Application Guide to the Basic Standard (issued 2025-09-03 per a provincial reprint; its mof.gov.cn page was not found), the draft Climate Standard application guides (comments until 2026-10-26, F7 register row), the Climate Change Response Law (draft, F7 register row), the CSRC (no instrument, so no row).
+
+### Blocked (from the cloud address)
+
+- `https://www.npc.gov.cn/`: curl `SSL routines::sslv3 alert handshake failure`, no status.
+- `https://www.szse.cn/` (https): curl `SSL_ERROR_SYSCALL`, no status; `http://www.szse.cn/` answered 200, 88325 bytes, and was used.
+- `https://www.bse.cn/`: curl `200 345 text/html` (a script that sets a cookie and reloads); headless Chromium (Playwright, goto, 3 s wait) passed and the legal notice opened, but Playwright's request client looped on 302 redirects fetching the rule PDF `https://www.bse.cn/uploads/6/file/public/202404/20240412194221_kes5c2ch9s.pdf`, so the BSE guideline was not read.
+- `https://www.sse.com.cn/lawandrules/sselawsrules/stocks/mainipo/c/10753180/files/0d6fa191e9cf4db193c86d766f79e30b.docx` (found by search): `404 150 text/html`; the SSE rule page itself opened.
+
+Everything else used answered curl: flk.npc.gov.cn, www.mee.gov.cn, kjs.mof.gov.cn, www.mof.gov.cn, www.sse.com.cn, www.gov.cn, english.www.gov.cn, www.csrc.gov.cn (home page only).
+
+## Türkiye
+
+Rows `TR-MEVZUAT-CONSOLIDATED` and `TR-RESMIGAZETE-ADOPTED`, both `pass` on the statute basis (Fikir ve Sanat Eserleri Kanunu, Law No. 5846, madde 31: "Resmen yayımlanan veya ilan olunan kanun, Cumhurbaşkanlığı kararnamesi, yönetmelik, tebliğ, genelge ve kazai kararların çoğaltılması, yayılması, işlenmesi veya her hangi bir suretle bunlardan faydalanma serbesttir."). Madde 31 does not name a board decision (Kurul Kararı), so the KGK decisions that adopted TSRS 1 and TSRS 2 are not covered by it. Rows `TR-KGK-ADOPTED` and `TR-SPK-ADOPTED` are `permission requested`. Run on 2026-11-02 from the cloud address; no site was blocked. Both sites answer plain `curl` with HTTP 200 and ordinary HTML, no browser needed, but only when the request carries a `User-Agent`: `curl` without `-A` to mevzuat.gov.tr stalled until `-m 20` expired (`curl: (28) Operation timed out after 20001 milliseconds with 0 bytes received`), so every command below sets `-A 'Mozilla/5.0'`. Language: Turkish only.
+
+Row `TR-MEVZUAT-CONSOLIDATED`, consolidated text of Climate Law No. 7552 (laws: type 1, register 5):
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 7552_mevzuat.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.mevzuat.gov.tr/mevzuatmetin/1.5.7552.htm
+```
+
+Returned `200 101504 text/html`, sha256 `52589e647c2302eb2750a0386465cf4ff46779197c4d5c2b20710493395d14a3`; a second fetch gave the same hash (no per-request token). The file is Word-exported HTML in Windows-1254 (the `<meta>` says so); it is decoded with that charset. The same file as PDF is `.../mevzuatmetin/1.5.7552.pdf` (`200 268717 application/pdf`). Regulations (yönetmelik) and communiqués (tebliğ) live under a different path, with the type number in the file name; the folder is `yonetmelik` for both. Türkiye Emisyon Ticaret Sistemi Piyasasının İşletilmesine İlişkin Yönetmelik (type 7, number 46347):
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o ets_market.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46347.htm
+```
+
+Returned `200 167769 text/html`. Kurumsal Yönetim Tebliği (type 9, number 19225): `https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/9.5.19225.htm`, `200 93888 text/html`. A wrong path does not give a 404: it returns the 64854-byte site shell with `200 text/html; charset=utf-8`, so check the size and the charset. The site serves one current consolidation per instrument, with no point-in-time versions, so a consolidated record is dated by the latest amendment the text itself marks. The type and number of an instrument come from the site's search endpoint, `POST https://www.mevzuat.gov.tr/Anasayfa/MevzuatDatatable` with a JSON body (`{"draw":1,"start":0,"length":200,"parameters":{"MevzuatTur":9,"AranacakMetin":"","AranacakYer":1,"MevzuatNo":"","BaslangicTarihi":"","BitisTarihi":"","TertipNo":0}}`, headers `Content-Type: application/json; charset=UTF-8` and the User-Agent), which returns `200` JSON with `mevzuatNo`, `mevAdi`, `resmiGazeteTarihi` and `resmiGazeteSayisi` per row; its text filter did not work, so the list was paged and filtered by name locally (types 1 laws, 7 and 3 regulations, 9 communiqués, 21 presidential regulations).
+
+Row `TR-RESMIGAZETE-ADOPTED`, as-published text. The day's index gives the item number and file type (`.htm` or `.pdf`), then the item:
+
+```
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 20250709.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2025/07/20250709.htm
+curl -sS -L -m 60 -A 'Mozilla/5.0' -o 20250709-1.htm -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2025/07/20250709-1.htm
+```
+
+Returned `200 16164 text/html` and `200 110105 text/html`; the item (Climate Law No. 7552, Resmî Gazete 32951) has sha256 `0a77a032a4f525256e033e7cbcd7dd2317ad1e203fcdb0870b7b7ae7883e9c0b`, reproduced by a second fetch. Mükerrer issues are `{YYYYMMDD}M1.htm` for the index and `{YYYYMMDD}M1-{n}.pdf` for items.
+
+Text extraction (both rows): remove `script`, `style` and `head`; collapse all whitespace in the source to single spaces (the Word export wraps lines inside paragraphs); turn block tags (`p`, `div`, `br`, headings, `tr`, `li`, `table`) into line breaks; strip the remaining tags; unescape entities; trim each line and drop empty lines. Nothing is reworded; the gazette header lines (date, number) and the Mevzuat footnotes are kept because they are in the file. `fetched_sha256` is the hash of the file as received.
+
+Stored (fetched 2026-11-02). A Mevzuat consolidation is stored only when its body differs from the gazette text; the Climate Law differs because the gazette item also carries the Law's amendments to other laws.
+
+| Instrument | Row | Versions stored (`in_force`, `tr`) |
+|---|---|---|
+| `tr-iklim-kanunu` | adopted, consolidated | 2025-07-09 (both) |
+| `tr-iklim-idari-para-cezasi-teblig` | adopted | 2025-12-27 (annex with the fine table not in the text) |
+| `tr-ets-yonetmeligi` | adopted | 2026-08-27 (Mevzuat body identical, not stored) |
+| `tr-ets-piyasa-yonetmeligi` | consolidated | 2026-10-21 |
+| `tr-kurumsal-yonetim-teblig` | adopted, consolidated | 2014-01-03, 2020-10-02 |
+| `tr-tuketici-kanunu-6502` | adopted, consolidated | 2014-05-28, 2026-07-01 |
+| `tr-ticari-reklam-yonetmeligi` | adopted, consolidated | 2015-01-10, 2026-08-01 |
+
+Reproducibility: every one of the 11 files was fetched twice and gave the same sha256, so none carries a per-request token. No record is browser-fetched.
+
+PDF: the Resmî Gazete PDF of the market regulation, `curl -sS -L -m 60 -A 'Mozilla/5.0' -o m.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.resmigazete.gov.tr/eskiler/2026/10/20261021-4.pdf`, returned `200 289078 application/pdf`. `pdftotext -layout m.pdf -` returned lines such as `9Z\Y"]?]Q^V^VX+MG\Z[\U\7RYRURZS^Z6` (legacy font encoding, no readable Turkish), so it is not stored; the Mevzuat text of the same regulation is. The TSRS decision PDFs of 2023-12-29 (`https://www.resmigazete.gov.tr/eskiler/2023/12/20231229M1-7.pdf`, `200 670309 application/pdf`) are page images (`pdfimages -list` shows JBIG2 images, `pdftotext` returns 12 words), so they would need OCR.
+
+### Languages
+
+No second official language: the Mevzuat Bilgi Sistemi and the Resmî Gazete publish Turkish only. No government English translation of any instrument was found on 2026-11-02, so there is no translation row. Looked at: mevzuat.gov.tr and resmigazete.gov.tr (Turkish only), the ministry English pages on `iklim.gov.tr/en` (news items summarising the Climate Law and the ETS, not translations of the text), the Ministry of Trade pages on `ticaret.gov.tr`, and the KGK site (`kgk.gov.tr`, TSRS in Turkish). Translations by law firms, news sites or chambers of commerce turned up in search and are never stored.
+
+### Link only
+
+- `tr-tsrs`: row `TR-KGK-ADOPTED`, `permission requested` (kgk.gov.tr carries only the footer "T.C. Kamu Gözetimi Kurumu © 2024"). The KGK PDFs answer curl: `curl -sS -L -m 60 -A 'Mozilla/5.0' -o tsrs1.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.kgk.gov.tr/Portalv2Uploads/files/Duyurular/v2/Surdurulebilirlik/RaporlamaStandarti/TSRS%201(1).pdf'` returned `200 501413 application/pdf` and `.../TSRS2_.pdf` returned `200 811958 application/pdf`, both with a text layer, but nothing is stored. The Resmî Gazete copy is not covered by madde 31 (a board decision is not named) and is images only.
+- Not in scope: Sürdürülebilirlik İlkeleri Uyum Çerçevesi (SPK, 2020, amended 2022), a Board announcement on spk.gov.tr (`TR-SPK-ADOPTED`, `permission requested`: footer "Sermaye Piyasası Kurulu Tüm hakları saklıdır."); it is referred to in the notes of `tr-kurumsal-yonetim-teblig`. Borsa İstanbul has no row (no instrument in scope); its Telif Hakkı ve Çekince İhbarı bars copying and changing without prior written permission.
+- Reklam Kurulu Çevreye İlişkin Beyanlar İçeren Reklamlar Hakkında Kılavuz (Ministry of Trade): a guide, family F7, register row only.
+- The notice "Gizlilik, Kullanım ve Telif Hakları bildirimi" that both footers refer to is not linked in the page HTML and was not found (candidate paths return the home page), so its text was not read.
+
+### Blocked
+
+No site refused the cloud address. The only failure was `mevzuat.gov.tr` without a `User-Agent` header (timeout), described above.
+
+## Chile
+
+Run on 2026-11-02 (GEL-07-05). Two rows pass, both on the publisher's terms (not a statute): `CL-BCN-ADOPTED` and `CL-BCN-CONSOLIDATED` (Biblioteca del Congreso Nacional, Ley Chile). Their deciding sentence is section 9 of the Ley Chile API conditions: the texts of laws, decrees and similar acts served through Ley Chile are outside copyright and the BCN claims no rights in them. Two rows are `permission requested`: `CL-CMF-ADOPTED` (the CMF site authorises reproduction with the source named but does not mention commercial reuse or modification) and `CL-DIARIOOFICIAL-ADOPTED` (reuse is open to all but condition a) forbids altering the content). Varun to confirm the two BCN passes: the same section says other Ley Chile content is CC BY-NC-ND, the API conditions ban bulk extraction and AI training without authorisation, and the fetches below used the older public endpoints without an API key. No browser was needed for any record.
+
+Every `leychile.cl` and `bcn.cl` host answers a request with no browser User-Agent with an empty `401` from CloudFront, and `www.diariooficial.interior.gob.cl` answers it with a `403`. A short User-Agent (`-A 'Mozilla/5.0'`) is enough; the watcher's own User-Agent (`global-esg-law-watch/1`) is also answered `200`. The failing line first:
+
+```
+curl -sS -L -o x.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `401 0` (empty content type). With the User-Agent the same URL returns the file below.
+
+Row `CL-BCN-ADOPTED`, Decreto 4 of 2023 (idNorma 1196414), JSON route:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ds4.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `200 61807 application/json; charset=utf-8`; a second request returned the same bytes (`fetched_sha256` f8ef0ccc...). The JSON is the data the Ley Chile page draws: `html` is a tree of parts (`t` is an HTML fragment, `h` the child parts, `i` the part id), `estructura` names the parts, `metadatos` the dates. Record text = every `<div class="p">` of every part in order, tags removed, `&nbsp;` and runs of spaces collapsed, empty paragraphs dropped, BCN's amendment annotations (`<span class="n">`) dropped, one paragraph per line; parts named Anexo (for Ley 21.455, the Constitutional Tribunal certificate on the bill) are left out. The text is not reworded. The version list of any norm:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o v.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte='
+```
+
+Returned `200 841 text/xml;charset=utf-8` (the body is JSON: `@vigenteDesde`, `@vigenteHasta`, `@tipoVersion` of "Texto Original", "Intermedio", "Última Versión" or "Única"). `Texto Original` and `Única` are stored under the adopted row, the others under the consolidated row. Ley 21.455 is this idNorma: row `CL-BCN-ADOPTED`, version 2022-06-13, `curl -sS -L -A 'Mozilla/5.0' -o l21455.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1177286&idVersion=2022-06-13&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='` returned `200 192678 application/json; charset=utf-8` (sha256 06f41402...); row `CL-BCN-CONSOLIDATED`, version 2025-07-11, same URL with `idVersion=2025-07-11`, returned `200 192844` (sha256 bd013320..., identical on two requests).
+
+XML route, used for the two instruments where only one or two articles are stored. Row `CL-BCN-CONSOLIDATED`, Ley 20.780 as of 2023-02-25 (idNorma 1067194; a norm is found from its number with `https://www.leychile.cl/Consulta/obtxml?opt=7&idLey=20780`, which returned `200 409864 text/xml; charset=utf-8`):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o l20780.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1067194&idVersion=2023-02-25'
+```
+
+Returned `200 344807 text/xml; charset=utf-8` (sha256 3bf915a2...). The XML (`Norma/EstructurasFuncionales/EstructuraFuncional/Texto`) is cut by the position of the element whose `Texto` starts `Artículo 8°` (idParte 9509251); each `Texto` is split into paragraphs at lines that start with whitespace, wrapped lines joined with a space. Row `CL-BCN-ADOPTED`, Ley 19.496 as published (idNorma 61438, version 1997-03-07, articles 28 and 33 cut the same way): `curl -sS -L -A 'Mozilla/5.0' -o l19496.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=61438&idVersion=1997-03-07'` returned `200 84500 text/xml; charset=utf-8` (sha256 529c5bd4...). All 18 versions of Ley 19.496 and all 10 of Ley 20.780 were fetched; the two articles of Ley 19.496 are the same in each, and the versions of Ley 20.780 in which art. 8 differs are the five stored. Both cuts were compared on 2026-11-02 with the JSON route of the same versions: identical text except for BCN's amendment annotations, which only the JSON carries.
+
+Why two routes: on the same day the XML route returned `Texto` elements cut mid-word for Ley 21.455 (art. 5 letters c) to i), "prá" and "Climá" as last characters) and a replacement character for the accented i of "Título" in Decreto 4/2023. The first XML fetch of the Ley 21.455 version 2022-06-13 was complete (188127 bytes, sha256 93f630c0...); later requests for the same URL returned 181567 bytes (0a807631...) with the cut. Because of that variance Ley 21.455 and Decreto 4 are stored from the JSON route, whose bytes were identical on repeated requests, and the XML `fetched_sha256` of the other two instruments was reproduced on a second request (the Ley 20.780 files match byte for byte). If a later run of the XML route returns different bytes, treat the stored XML hash as the date-stamped one and compare the article text, not the hash.
+
+Row `CL-CMF-ADOPTED` (permission requested, nothing stored): `curl -sS -L -A 'Mozilla/5.0' -o ncg461.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cmfchile.cl/normativa/ncg_461_2021.pdf` returned `200 563413 application/pdf`; the NCG 519 PDF (`.../ncg_519_2024.pdf`) returned `200 272348 application/pdf`. The CMF normativa page of NCG 461 answers without a User-Agent (`200 113829`). Both PDFs were read with `pdftotext -layout` only to take dates and amendments (no mojibake); nothing is stored. Row `CL-DIARIOOFICIAL-ADOPTED` (permission requested): `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.diariooficial.interior.gob.cl/` returned `403 286 text/html; charset=iso-8859-1`; with `-A 'Mozilla/5.0'` it returned `200 29180 text/html; charset=UTF-8`. Its terms page is a script-rendered shell (1325 bytes to curl) and was read with Playwright chromium after networkidle. No edition PDF was fetched, so no `pdftotext` recipe is proven for the gazette.
+
+### Languages
+
+Run on 2026-11-02. Chile has one official language, Spanish; every record has `language` es and no row of its own was added for a second language. English was looked for at the Ley Chile pages (`https://www.bcn.cl/en` returned `200 8888 text/html`, the Spanish script shell; `https://www.bcn.cl/leychile/en` `200 9602`, the same shell; the Ley Chile version lists are Spanish only), at the CMF site (`https://www.cmfchile.cl/english/` returned 404, 2319 bytes; the normativa pages are Spanish only) and at the Diario Oficial (`https://www.diariooficial.interior.gob.cl/en` returned 404, 29166 bytes). No government English translation of any scope instrument was found, so no translation row exists and no translation record is stored. Unofficial English texts of Ley 21.455 published by outside bodies were not looked at and would not be stored.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| cl-ncg-461 (CMF NCG 461) | https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html | Row `CL-CMF-ADOPTED` is permission requested: the CMF site authorises reproduction with the source named, but says nothing on commercial reuse or modification. The PDF opens (200, 563413, application/pdf). |
+| cl-ncg-519 (CMF NCG 519, amends NCG 461) | https://www.cmfchile.cl/normativa/ncg_519_2024.pdf | Same row, same reason. The PDF opens (200, 272348, application/pdf). |
+| Ley 20.920 (F7) | https://www.bcn.cl/leychile/navegar?idNorma=1090894 | F7: register row only, no scope entry. |
+
+Blocked from the cloud address: none refused a browser User-Agent. Without one, `www.bcn.cl`, `www.leychile.cl` and `nuevo.leychile.cl` answer `401` with an empty body (CloudFront) and `www.diariooficial.interior.gob.cl` answers `403`. The watchers in `upkeep/watchers.json` run from the shipped User-Agent, which the BCN hosts and the CMF accept (`--dry-run` 2026-11-02: 0 failures), and carry a browser `second_route` anyway.
+
+Stored by GEL-07-05: `cl-ley-21455` (adopted 2022-06-13, consolidated 2025-07-11), `cl-ley-20780-art8` (adopted 2014-10-01; consolidated 2016-02-08, 2020-02-24, 2023-01-01, 2023-02-25), `cl-ds-4-2023` (adopted 2023-09-29), `cl-ley-19496-art28-33` (adopted 1997-03-07).
+
 ## Israel
 
 GEL-07-03, run 2026-11-02. Rows added: `IL-KNESSET-ADOPTED` (`pass`, statute: Copyright Law 5768-2007 s.6, which the repository's brief quoted in other words; see the row), `IL-RESHUMOT-ADOPTED`, `IL-ISA-ADOPTED` and `IL-BOI-ADOPTED` (all `permission requested`). Nothing is fetched with a browser: the Knesset OData API and the PDFs on `fs.knesset.gov.il` answer plain `curl`, while the Knesset web app, gov.il and the Bank of Israel pages do not (see the end of this section). So there are no browser-fetched records and no per-request token: `fetched_sha256` is the sha256 of the PDF as received, and a second fetch of both stored PDFs gave the same hash.

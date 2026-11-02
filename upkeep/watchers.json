@@ -5110,6 +5110,303 @@
   }
  },
  {
+  "id": "cn-ecology-code-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-ecology-code",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=96630961659b4d87a65b7b1c595097fa",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=96630961659b4d87a65b7b1c595097fa (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-epl-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-epl",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=2c909fdd678bf17901678bf76c1d0717",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=2c909fdd678bf17901678bf76c1d0717 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-ets-regulation-flk-details",
+  "source_id": "CN-FLK-CONSOLIDATED",
+  "iso2": "CN",
+  "instrument": "cn-ets-regulation",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081819ff54a6401a0ae8df6842641",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff8081819ff54a6401a0ae8df6842641 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-aucl-flk-details",
+  "source_id": "CN-FLK-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-aucl",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff808181971552b40197b1016efc5437",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff808181971552b40197b1016efc5437 (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-advertising-law-flk-details",
+  "source_id": "CN-FLK-CONSOLIDATED",
+  "iso2": "CN",
+  "instrument": "cn-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081817ab231eb017abd6bd860052d",
+  "params": {
+   "second_route": "https://flk.npc.gov.cn/detail?bbbs=ff8081817ab231eb017abd6bd860052d (browser; the database page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cn-ets-measures-mee-page",
+  "source_id": "CN-MEE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-ets-measures",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mee.gov.cn/gzk/gz/202112/t20211213_963865.shtml"
+ },
+ {
+  "id": "cn-env-disclosure-measures-mee-page",
+  "source_id": "CN-MEE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-env-disclosure-measures",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mee.gov.cn/gzk/gz/202112/t20211210_963770.shtml"
+ },
+ {
+  "id": "cn-sustainability-basic-standard-mof-pdf",
+  "source_id": "CN-MOF-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-sustainability-basic-standard",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://kjs.mof.gov.cn/zhengcefabu/202412/P020241216565879245839.pdf"
+ },
+ {
+  "id": "cn-climate-standard-1-mof-page",
+  "source_id": "CN-MOF-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-climate-standard-1",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kjs.mof.gov.cn/zhengcefabu/202512/t20251225_3980202.htm"
+ },
+ {
+  "id": "cn-sse-sustainability-guideline-14-sse-page",
+  "source_id": "CN-SSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-sse-sustainability-guideline-14",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20250516_10779150.shtml"
+ },
+ {
+  "id": "cn-szse-sustainability-guideline-17-szse-page",
+  "source_id": "CN-SZSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-szse-sustainability-guideline-17",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.szse.cn/lawrules/rule/stock/supervision/currency/t20240412_606839.html",
+  "params": {
+   "second_route": "https://www.szse.cn/lawrules/rule/stock/supervision/currency/t20240412_606839.html (https resets the TLS handshake from the cloud address; open in a browser)"
+  }
+ },
+ {
+  "id": "cn-bse-sustainability-guideline-11-bse-page",
+  "source_id": "CN-BSE-ADOPTED",
+  "iso2": "CN",
+  "instrument": "cn-bse-sustainability-guideline-11",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bse.cn/uploads/6/file/public/202404/20240412194221_kes5c2ch9s.pdf",
+  "params": {
+   "second_route": "https://www.bse.cn/ (browser; bse.cn answers scripts with a JavaScript cookie challenge, so the PDF URL needs a browser session)"
+  }
+ },
+ {
+  "id": "tr-tsrs-kgk-standards-page",
+  "source_id": "TR-KGK-ADOPTED",
+  "iso2": "TR",
+  "instrument": "tr-tsrs",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.kgk.gov.tr/SustainabilityDetailForm/11455/Raporlama%20Standartlar%C4%B1",
+  "params": {
+   "note": "KGK list page of TSRS 1, TSRS 1 decision grounds and TSRS 2; a change means a PDF was replaced or added"
+  }
+ },
+ {
+  "id": "tr-kurumsal-yonetim-teblig-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-kurumsal-yonetim-teblig",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/9.5.19225.htm",
+  "params": {
+   "note": "consolidated text; the Mevzuat site serves one version, so a hash change means an amendment was processed"
+  }
+ },
+ {
+  "id": "tr-iklim-kanunu-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-iklim-kanunu",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.7552.htm",
+  "params": {
+   "note": "consolidated text; a hash change means an amendment or footnote was processed"
+  }
+ },
+ {
+  "id": "tr-iklim-idari-para-cezasi-teblig-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-iklim-idari-para-cezasi-teblig",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/9.5.42820.htm",
+  "params": {
+   "note": "consolidated text of the communiqu\u00e9; each year brings a new communiqu\u00e9 (2027/1), which this page does not show"
+  }
+ },
+ {
+  "id": "tr-ets-yonetmeligi-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-ets-yonetmeligi",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46261.htm",
+  "params": {
+   "note": "consolidated text; a hash change means an amendment was processed"
+  }
+ },
+ {
+  "id": "tr-ets-piyasa-yonetmeligi-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-ets-piyasa-yonetmeligi",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.46347.htm",
+  "params": {
+   "note": "consolidated text; a hash change means an amendment was processed"
+  }
+ },
+ {
+  "id": "tr-tuketici-kanunu-6502-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-tuketici-kanunu-6502",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6502.htm",
+  "params": {
+   "note": "consolidated text; the amendment table at its end shows each amending law"
+  }
+ },
+ {
+  "id": "tr-ticari-reklam-yonetmeligi-mevzuat-page",
+  "source_id": "TR-MEVZUAT-CONSOLIDATED",
+  "iso2": "TR",
+  "instrument": "tr-ticari-reklam-yonetmeligi",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.20435.htm",
+  "params": {
+   "note": "consolidated text; a hash change means an amendment was processed"
+  }
+ },
+ {
+  "id": "cl-ncg-461-cmf-page",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-461",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html",
+  "params": {}
+ },
+ {
+  "id": "cl-ncg-519-cmf-pdf",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-519",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/normativa/ncg_519_2024.pdf",
+  "params": {}
+ },
+ {
+  "id": "cl-ley-21455-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-21455",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1177286 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-20780-art8-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-20780-art8",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1067194&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1067194 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 20.780, not only art. 8, so a new date needs a look at art. 8"
+  }
+ },
+ {
+  "id": "cl-ds-4-2023-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ds-4-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1196414&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1196414 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-19496-art28-33-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-19496-art28-33",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=61438&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=61438 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 19.496, not only arts. 28 and 33"
+  }
+ },
+ {
   "id": "il-clean-air-law-knesset-latest-publication",
   "source_id": "IL-KNESSET-ADOPTED",
   "iso2": "IL",

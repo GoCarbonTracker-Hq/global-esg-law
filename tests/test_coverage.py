@@ -124,6 +124,22 @@ def test_place_with_no_watcher_is_listed_under_not_covered(tmp_path):
                      not_covered, re.M)
 
 
+def test_place_with_only_adopted_records_is_listed_as_published_only(tmp_path):
+    repo = make(tmp_path)
+    (repo / "register" / "AA").mkdir()
+    (repo / "register" / "AA" / "scope.json").write_text(json.dumps([
+        {"id": "law", "title": "Adopted Law", "law_family": "F1", "source_row": "PASS",
+         "status": "stored", "in_force": "2021-01-01"}]))
+    (repo / "records" / "AA" / "law").mkdir(parents=True)
+    (repo / "records" / "AA" / "law" / "2021-01-01-adopted-en.json").write_text(json.dumps(
+        {"source_id": "PASS", "in_force": "2021-01-01", "kind": "adopted", "language": "en", "text": "placeholder"}))
+    text = coverage.build(repo, today=TODAY)
+    not_covered = text.split("## Not covered")[1].split("## How to read")[0]
+    assert re.search(r"^- Places whose stored texts are the acts as published, no consolidated text \(1\): AA\. ",
+                     not_covered, re.M)
+    assert "| Places with stored text but no consolidated text (as published only) | 1 |" in text
+
+
 def test_header_carries_date_and_placeholder_sentence(tmp_path):
     text = coverage.build(make(tmp_path), today=TODAY)
     header = text.split("## Counts")[0]
