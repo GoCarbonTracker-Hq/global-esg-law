@@ -1,0 +1,56 @@
+[
+  {
+    "id": "sa-environment-law",
+    "title": "نظام البيئة (Environmental Law), Royal Decree M/165 of 19/11/1441H",
+    "official_url": "https://www.mewa.gov.sa/ar/MediaCenter/News/Pages/News2122020.aspx",
+    "citation": "Royal Decree M/165 dated 19/11/1441H (2020-07-10); Council of Ministers decision 729 dated 16/11/1441H",
+    "in_force": null,
+    "evidence": "No official page opened states the commencement date. MEWA news page (opened 2026-11-02 at the URL above, dated 01/08/1442H): \"الصادر بالمرسوم الملكي رقم (م/ 165) بتاريخ 19/ 11/ 1441هـ، وقرار مجلس الوزراء رقم (729) بتاريخ 16/ 11/ 1441هـ\". The law text on laws.boe.gov.sa (refused the cloud address) and the Umm Al-Qura decision page (terms bar scripted reads) were not read.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SA-BOE-CONSOLIDATED",
+      "SA-UQN-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Umbrella environmental law; it has no climate-change or GHG reporting duty that was read. Rows SA-BOE-CONSOLIDATED and SA-UQN-ADOPTED are permission requested, so no text is stored. English text: the Bureau of Experts site is the place a government English version would be; it could not be opened. The Gregorian date 2020-07-10 for 19/11/1441H comes from a search summary; the MEWA page gives the Hijri date only.",
+    "status": "link only",
+    "status_note": "Commencement date not read from an official page; the decree and decision dates are on the MEWA page."
+  },
+  {
+    "id": "sa-air-quality-regulation",
+    "title": "اللائحة التنفيذية لجودة الهواء (Executive Regulation on Air Quality), issued under Art. 48 of the Environmental Law",
+    "official_url": "https://www.mewa.gov.sa/ar/MediaCenter/News/Pages/news1255.aspx",
+    "citation": "Executive Regulation on Air Quality under Environmental Law Art. 48 (Royal Decree M/165, 19/11/1441H); announced by MEWA 13/10/1442H",
+    "in_force": null,
+    "evidence": "No official page opened states the commencement date. MEWA news page dated 13/10/1442H (opened 2026-11-02): \"أعلنت وزارة البيئة والمياه والزراعة، بدء تطبيق اللائحة التنفيذية لجودة الهواء في المملكة، وذلك بناء على المادة 48 من نظام البيئة\". The page covers air-emission measurement ('الانبعاثات الهوائية من المصادر'), not GHG reporting.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SA-BOE-CONSOLIDATED",
+      "SA-UQN-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Implementing regulation of sa-environment-law. A secondary legal database lists it as ministerial decision 1442/1/512258 with a later amendment in 1446H; no official page was opened to confirm either. Other Art. 48 regulations (environmental inspection and audit, protected areas, marine and coastal) are not climate rules and are not in scope. No government English text found: the MEWA and Bureau of Experts sites were the places looked at.",
+    "status": "link only",
+    "status_note": "Announced as starting to apply on 13/10/1442H; the regulation's own commencement clause was not read."
+  },
+  {
+    "id": "sa-anti-commercial-fraud-law",
+    "title": "نظام مكافحة الغش التجاري (Anti-Commercial Fraud Law), Royal Decree M/19 of 23/4/1429H",
+    "official_url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+    "citation": "Royal Decree M/19 dated 23/4/1429H (2008); Art. 23 amended (Umm Al-Qura entry seen in a search result only)",
+    "in_force": null,
+    "evidence": "No official page was opened for this law: laws.boe.gov.sa refused the cloud address and the Umm Al-Qura decision pages were not read because the site terms bar scripted extraction. The decree number and date come from search results only.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SA-BOE-CONSOLIDATED",
+      "SA-UQN-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Umbrella for false or misleading product claims; it has no environmental-claims provision that was read. A search for a 2024 replacement law found none (the 2024 commercial fraud law found is the UAE's). The official URL is the Bureau of Experts index, not the law's own page.",
+    "status": "link only",
+    "status_note": "Decree date taken from search results; no official page opened."
+  }
+]
