@@ -4316,5 +4316,59 @@
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://nbs.sk/disclaimer-sk/"
+ },
+ {
+  "id": "lv-ilgtspejas-informacijas-likums-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-ilgtspejas-informacijas-likums",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/355381"
+ },
+ {
+  "id": "lv-gada-parskatu-likums-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-gada-parskatu-likums",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/277779"
+ },
+ {
+  "id": "lv-klimatnoturibas-likums-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-klimatnoturibas-likums",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/364967"
+ },
+ {
+  "id": "lv-par-piesarnojumu-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-par-piesarnojumu",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/6075"
+ },
+ {
+  "id": "lv-mk-769-ets-iekartas-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-mk-769-ets-iekartas",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/253119"
+ },
+ {
+  "id": "lv-negodigas-komercprakses-likums-likumi-page",
+  "source_id": "LV-LIKUMI-CONSOLIDATED",
+  "iso2": "LV",
+  "instrument": "lv-negodigas-komercprakses-likums",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://likumi.lv/ta/id/167759"
  }
 ]
