@@ -3900,3 +3900,57 @@ The Rada bill card has an internal id; the bill number is on the page. Found by 
 | `ua-advertising-law-270` | same | same |
 
 No PDF was fetched, so no poppler command applies. No browser-fetched record exists.
+
+## Bangladesh
+
+No Bangladesh row is `pass`, so nothing is stored and all nine scope instruments are `link only`. The requests below were run on 2026-11-02 to find the texts and the terms; none is a storage recipe.
+
+**Why no row passes.** The Copyright Act 2023 (Act No. 34 of 2023) replaced the Copyright Act 2000. Read on bdlaws (`act-details-1452.html`), it has no exception for Acts or other official texts: s. 2(49) defines a government work (made by or for the Government, the legislative authority or a court), s. 15(1)(ঙ) makes the Government first owner of such a work, s. 28 gives it 60 years from first publication, and s. 14(6) and s. 70 list no official-text exclusion. So no row rests on a statute. Each publisher's own page was then read for a reuse grant: bdlaws has only a footer copyright line, the Department of Printing and Publications allows printing without modification, and Bangladesh Bank and BSEC publish a disclaimer only. All four rows are `permission requested`.
+
+### bdlaws (BD-BDLAWS-CONSOLIDATED, permission requested)
+
+```
+curl -sS -A 'Mozilla/5.0' -o act-details-1062.html -w '%{http_code} %{size_download} %{content_type}\n' http://bdlaws.minlaw.gov.bd/act-details-1062.html
+```
+
+Returned `200 148852 text/html;charset=UTF-16` in 3.2 s for the Climate Change Trust Act 2010. The body is UTF-16 (`iconv -f UTF-16 -t UTF-8` decodes it). Other acts: `act-details-791.html` (Environment Conservation Act 1995) `200 276264`, `act-details-1014.html` (Consumer Rights Protection Act 2009) `200 367900`, `act-details-1061.html` `200 168376`, `act-details-1107.html` `200 174818`, `act-details-1685.html` `200 142808`, `act-details-1452.html` (Copyright Act 2023) `200 572622` in 5.6 s. The chronological index `laws-of-bangladesh-chronological-index.html` returned `200 2615162`; the alphabetical index is 29 MB and took over two minutes. `https://` answers the same as `http://`. The site is not slow for single acts. Two fetches of `act-details-1062.html` gave the same sha256 (`af298268131fb2444894122af0cbfbcbe3546444fecaf88dcb7d4714796b6097`), so a page hash is stable and the watchers use it. HEAD answers 405. The site serves one current text per act (amendments applied, footnotes mark them) and no point-in-time versions. Index titles of Acts after 1987 are in Bangla; the act id is found by matching the Bangla title in the index. `?lang=en` changes only the menu: `act-details-1014.html?lang=en` is byte-identical to the Bangla request. The site's description says it holds Acts, Ordinances and President's Orders but not Regulations.
+
+### Languages
+
+Bangla is the only text bdlaws serves for the Acts examined. No English text was found there for any of the six Acts (the Climate Change Trust Act s. 24, the SREDA Act s. 29 and the Forest and Tree Conservation Act s. 17 let the Government publish an English text by gazette notice; none was seen). English was also looked for under `?lang=en`. The Bangladesh Bank circulars and the BSEC Code are English only.
+
+### Department of Printing and Publications (BD-DPP-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dppterms.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.dpp.gov.bd/index.php/page/view/295
+```
+
+Returned `200 41619 text/html; charset=UTF-8`. Home page `https://www.dpp.gov.bd` `200 67793 text/html; charset=UTF-8`. No gazette PDF was fetched, so no pdftotext recipe was tested for Bangla conjuncts.
+
+### Bangladesh Bank (BD-BB-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.out -w '%{http_code} %{size_download} %{content_type}\n' https://www.bb.org.bd/mediaroom/circulars/gbcrd/dec262023sfd06e.pdf
+```
+
+First run returned `200 46524 text/html`, a CAPTCHA page ("What code is in the image?", support ID in the body); `https://www.bb.org.bd/` returned `200 45968 text/html` and the circular list page `200 45292 text/html`, the same page. Headless Chromium (Playwright, `chromium.launch()`, `page.goto('https://www.bb.org.bd/', {waitUntil: 'networkidle'})`, then `context.request.get(<pdf url>)` in the same context) passed the check and returned `200 application/pdf 435006` for SFD Circular No. 06 and `200 application/pdf` for SFD Circular No. 01 (`https://www.bb.org.bd/mediaroom/circulars/gbcrd/nov062025sfd01e.pdf`). A later bare `curl` of the SFD 06 PDF also returned `200 435006 application/pdf`, so the check is not applied to every request. `pdftotext -layout` read the English text cleanly (the Bangla date line prints as mojibake, `11 ‡cŠl 1430`, from a legacy font; it is not stored). The circular list page loads its rows by script, so SFD 01 was found by trying the SFD 06 URL pattern.
+
+### BSEC (BD-BSEC-ADOPTED, permission requested)
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf'
+```
+
+Returned `200 287607 application/pdf`. `pdftotext -layout cg.pdf -` gives readable English with Bangla gazette headers as mojibake (legacy fonts) and many `Could not parse ligature component` warnings. The law list is `https://sec.gov.bd/act-rules-and-regulations` (`200 893960 text/html; charset=UTF-8`). `https://sec.gov.bd/disclaimer` returned `200 198611`.
+
+### Link-only instruments
+
+- bd-bb-sfd-06-2023, bd-bb-sfd-01-2025: row BD-BB-ADOPTED is permission requested (disclaimer only; PDFs need a session that passed the JavaScript check).
+- bd-bsec-cg-code-2018: row BD-BSEC-ADOPTED is permission requested (disclaimer only).
+- bd-eca-1995, bd-environment-court-act-2010, bd-climate-change-trust-act-2010, bd-sreda-act-2012, bd-crpa-2009, bd-forest-tree-conservation-act-2026: row BD-BDLAWS-CONSOLIDATED is permission requested.
+
+### Not in scope, and sites that did not answer
+
+- Dhaka Stock Exchange, `https://www.dsebd.org` returned `200 1868223 text/html; charset=utf-8` (a script-rendered page); `https://www.dsebd.org/disclaimer` returned `403` to curl and `https://www.dsebd.org/terms` returned a script shell with no terms text. No DSE instrument in families F1 to F6 was identified, so there is no DSE row.
+- Financial Reporting Council: `https://frcbd.org` answers `200 450772 text/html` but the page is a TeePublic shop page, not the FRC; the FRC's own site `https://frc.gov.bd` fails `curl: (60) SSL certificate problem: unable to get local issuer certificate` and headless Chromium got HTTP 502 `upstream request failed` for `https://frc.gov.bd` and `https://www.frc.gov.bd`. Blocked from the cloud address. No gazetted order adopting IFRS S1 and S2 was found on any page opened, so there is no FRC entry or row.
+- No ETS or carbon tax: the bdlaws chronological index (titles searched for the Bangla words for carbon, energy, environment, climate and forest) lists no carbon tax or emissions trading Act. No register row was added.

@@ -6975,5 +6975,99 @@
   "params": {
    "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
   }
+ },
+ {
+  "id": "bd-eca-1995-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-eca-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-791.html",
+  "params": {}
+ },
+ {
+  "id": "bd-environment-court-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-environment-court-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1061.html",
+  "params": {}
+ },
+ {
+  "id": "bd-climate-change-trust-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-climate-change-trust-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1062.html",
+  "params": {}
+ },
+ {
+  "id": "bd-sreda-act-2012-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-sreda-act-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1107.html",
+  "params": {}
+ },
+ {
+  "id": "bd-crpa-2009-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-crpa-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1014.html",
+  "params": {}
+ },
+ {
+  "id": "bd-forest-tree-conservation-act-2026-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-forest-tree-conservation-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1685.html",
+  "params": {}
+ },
+ {
+  "id": "bd-bb-sfd-06-2023-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-06-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bb-sfd-01-2025-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-01-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bsec-cg-code-2018-pdf",
+  "source_id": "BD-BSEC-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bsec-cg-code-2018",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf",
+  "params": {}
  }
 ]
