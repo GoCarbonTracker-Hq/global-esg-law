@@ -3202,3 +3202,82 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Malta
+
+Rows `MT-LEGISLATION-ADOPTED` and `MT-LEGISLATION-CONSOLIDATED` (both `pass`, statute: Copyright Act, Cap. 415, art. 2(1), "literary work" "does not include any written law, law report or judicial decisions"). Run on 2026-11-02 (GEL-09-02). legislation.mt has no terms-of-use page (`https://legislation.mt/terms-and-conditions` answers `200 915 text/html; charset=utf-8` with "Web Content Not Found!"), and its footer claims copyright for the Office of the State Advocate, so the row rests on the statute and Varun confirms, as for Brazil. The proviso in art. 2(1) ("save as provided in article 12 of the Statute Law Revision Act, 1980") could not be read: Act IX of 1980 as published has ten articles. Details are in the row notes. No browser was needed for legislation.mt; every request below is a plain `curl` and answered from the cloud address.
+
+Two requests per file. The ELI page lists the PDF of its language (one `getpdf/<24 hex>` link), and the PDF is the text. Run for the Climate Action Act, 2024 (Act XVI of 2024, `mt-climate-action-act-2024`), row `MT-LEGISLATION-ADOPTED`:
+
+```
+curl -sS -L -o act16.html -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/eli/act/2024/16/eng
+curl -sS -L -o act16_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/672498c6ea940e187071be7c
+```
+
+Returned `200 70046 text/html; charset=utf-8`, then `200 1405890 application/pdf` (sha256 `0330e61c4d83d6a47cc98913c49dd37f1e9f1ee19f92a6502a45a7af263bd000`). The id comes from `grep -oE 'getpdf/[a-f0-9]{24}' act16.html`. The id is stable: a second fetch of 12 random stored files reproduced `fetched_sha256` for all 12. Acts and Legal Notices are `eli/act/<year>/<number>` and `eli/ln/<year>/<number>`; the date of an adopted record is in the scope entry's `evidence`.
+
+Row `MT-LEGISLATION-CONSOLIDATED`, Climate Action Act, Cap. 643, point in time 2024-10-04:
+
+```
+curl -sS -L -o cap643.html -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/eli/cap/643/20241004/eng
+curl -sS -L -o cap643_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/67248fb2b52f1d2d2080b154
+```
+
+Returned `200 69671 text/html; charset=utf-8`, then `200 293855 application/pdf` (sha256 `74082cc0f6d4a3743e054b3e596f6697c23829ffd30ec975a506e79c0f6d0699`). The point-in-time dates of a Chapter or S.L. are the `eli/<cap/N or sl/N.M>/<YYYYMMDD>/eng` links in the page of the unversioned URL (`https://legislation.mt/eli/cap/643/eng`, which answers `302` to `/eli/cap/643/eng/portalpdf`; `curl -L` follows it); they are also in the page script as `var group1Data = [...]` with a `start` date and a `uri` per version. The first entry of a timeline, with no link, is the as-adopted date. `https://legislation.mt/eli/sitemap.xml` (`200 3170386 application/xml`) lists every ELI (21,681 URLs on the day) but no titles; titles were read from each page.
+
+Text extraction: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed and blank lines dropped, so line breaks are the PDF's line wraps and margin notes (the right-hand column of an Act) sit in the line of the clause they annotate. The output was checked for mojibake: no U+FFFD or control characters in any of the 60 stored texts, and every Maltese text contains ħ, ġ, ċ and ż. `fetched_sha256` is the hash of the PDF as returned. `fetched_url` is the `getpdf` URL. Nothing is reworded. For `mt-consumer-affairs-act-part-viii` the text is the Title cut out of the whole Chapter: from the line carrying the heading `PART VIII` (`TAQSIMA VIII`) to the line before the one carrying `Title II` (`Titolu II`); that line also carries the margin note "Added by:", which is therefore not in the record.
+
+### Languages
+
+Maltese and English are both authentic texts on legislation.mt, so both are stored under the same row and neither needs a translation row. The page of each language is `.../eng` and `.../mlt`; each lists its own PDF. Maltese PDF of the same Act:
+
+```
+curl -sS -L -o act16_mt.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/672498c4ea940e187071be5e
+```
+
+Returned `200 1403907 application/pdf` (sha256 `3450e6276d531ac7e63986853c52c3680aca115d736214b2e246669ba0430545`). The Maltese PDF of an Act or Legal Notice is the Gazette supplement: a bilingual cover page (Maltese and English side by side, which `-layout` interleaves line by line) followed by the Maltese text. Consolidated Maltese files are Maltese only (Cap. 643, 2024-10-04: `curl -sS -L -o cap643_mt.html https://legislation.mt/eli/cap/643/20241004/mlt` returned `200 69751 text/html; charset=utf-8`, PDF `getpdf/67248fb10dba9f1514bfb0c4`).
+
+Instruments published in one language: L.N. 39 of 2026 (`mt-csr-regulations-2026`) and L.N. 236 of 2026 (`mt-csr-amendment-regulations-2026`, "English Version only") answer with the same English PDF on `/eng` and `/mlt`:
+
+```
+curl -sS -L -o ln39_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/699c181af42b9f248ceae43c
+curl -sS -L -o ln39_mt.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.mt/getpdf/699c181963aaee0388a77579
+```
+
+Both returned `200 996975 application/pdf`, same sha256 (`3fd0b6fad3f85601611d...`). No Maltese text exists for them. Neither is stored, for the reason below. No government English translation exists or is needed (English is authentic); nothing was looked for outside legislation.mt.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Versions stored (`in_force`), each in en and mt |
+|---|---|---|
+| `mt-csr-act-2026` | adopted | 2026-03-20 |
+| `mt-csr-act-2026-commencement-ln-61` | adopted | 2026-03-20 |
+| `mt-climate-action-act-2024` | adopted, consolidated | 2024-10-04 (both) |
+| `mt-climate-action-act-2024-commencement-ln-248` | adopted | 2024-10-04 |
+| `mt-climate-action-act-2015` | adopted, consolidated | 2015-07-07; 2020-07-17, 2023-10-17; repeal record 2024-10-04 |
+| `mt-ghg-inventory-regs` | adopted, consolidated | 2015-08-14; 2024-10-04 |
+| `mt-ets-stationary-regs` | adopted, consolidated | 2013-01-01; 2024-10-04, 2024-11-22, 2025-07-22 |
+| `mt-ets-aviation-regs` | adopted, consolidated | 2012-11-16; 2024-10-04, 2024-11-22, 2025-07-22 |
+| `mt-ets2-regs` | adopted, consolidated | 2024-11-22 (both) |
+| `mt-ets-maritime-regs` | adopted, consolidated | 2024-11-22; 2024-11-22, 2025-07-22 |
+| `mt-cbam-implementing-regs` | adopted, consolidated | 2026-09-25 (both) |
+| `mt-consumer-affairs-act-part-viii` | consolidated | 2019-10-01, 2021-08-31, 2022-10-21, 2023-06-25, 2023-07-14 (2022-01-01 and 2023-09-19 have the same Title text as the previous version) |
+
+### Link only
+
+- `mt-csr-regulations-2026` (L.N. 39 of 2026, S.L. 386.31): rows pass; not stored because no official page states an in-force date. The regulations come into force by notice in the Gazette (reg. 1(2)); the legislation.mt page reads "Not yet in force"; no commencement notice is among the 325 Acts and Legal Notices of 2026 in the sitemap. The fetch works (`getpdf/699c181af42b9f248ceae43c`, above).
+- `mt-csr-amendment-regulations-2026` (L.N. 236 of 2026): same reason (reg. 1(3)).
+- Consumer protection and Directive (EU) 2024/825 (applies from 2026-09-27): no transposing Act or Legal Notice is on legislation.mt on 2026-11-02, so no scope entry. L.N. 145 of 2026 transposes Directive (EU) 2023/2673, not 2024/825.
+- Not used, so no row: the Government Gazette on gov.mt, MFSA and ERA. The Acts and Legal Notices are on legislation.mt as published, and nothing on the MFSA or ERA sites could be opened to judge a candidate instrument. Borza Malta answered but holds no instrument in scope.
+
+### Blocked from the cloud address
+
+All three answer `curl` with a Cloudflare challenge page, and headless Chromium (Playwright, `domcontentloaded` plus 5 s) got the same "Just a moment... Performing security verification" page with status 403, so no second route works from this address. The orchestrator can read them from the laptop.
+
+```
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gov.mt/en/Government/DOI/Government%20Gazette/Pages/default.aspx'
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.mfsa.mt/
+curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' https://era.org.mt/
+```
+
+Returned `403 5656 text/html; charset=UTF-8`, `403 5656 text/html; charset=UTF-8` and `403 4546 text/html; charset=UTF-8`. Also blocked: `https://www.mfsa.mt/our-work/capital-markets-rules/` (`403 5656`).
