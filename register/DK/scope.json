@@ -1,0 +1,232 @@
+[
+  {
+    "id": "dk-arl-99a",
+    "title": "Årsregnskabsloven (Danish Financial Statements Act), § 99 a: redegørelse for samfundsansvar, since 2024 bæredygtighedsrapportering",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2026/402",
+    "citation": "Årsregnskabsloven, LBK nr 402 af 23/03/2026, § 99 a, inserted by Lov nr. 1403 af 27. december 2008, rewritten by Lov nr. 480 af 22. maj 2024",
+    "in_force": "2009-01-01",
+    "evidence": "Lov nr. 1403 af 27. december 2008 (the act that inserted § 99 a): \"Loven træder i kraft den 1. januar 2009 og har virkning for regnskabsår, der begynder den 1. januar 2009 eller senere.\" Opened https://www.retsinformation.dk/eli/lta/2008/1403/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is § 99 a only (all its subsections), cut from each lovbekendtgørelse (LBK) of the Act by the paragraph label \"§ 99 a.\"; 6 records: LBK 395/2009, 1253/2013, 1580/2015, 838/2019, 1035/2024, 402/2026 (in_force is the LBK signing date; an LBK has no commencement clause). LBK 323/2011, 1441/2022 and 1057/2024 carry the same § 99 a text as the version before them and are not stored. LBK 647/2006 is served without XML text and predates § 99 a (inserted by Lov 1403/2008). The text change that took effect on 2024-06-01 (Lov 480/2024) first appears in LBK 1035/2024, so no LBK between 2022-11-14 and 2024-08-27 shows it; see dk-lov-480-2024. The timing provisions (§ 99 b, § 107 e and the postponement by Lov 1636/2025) are not in the record. Language: Danish only, the only official language. English: No government English found for the Danish Financial Statements Act: looked for on 2026-11-02 in a web search for an Erhvervsstyrelsen translation (only law-firm and audit-firm material, which is never stored) and on erhvervsstyrelsen.dk (the pages tried answer 404 or hold Danish guidance only); Retsinformation states it holds no translations.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-lov-480-2024",
+    "title": "Lov nr. 480 af 22. maj 2024 om ændring af årsregnskabsloven, revisorloven og forskellige andre love (CSRD transposition)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2024/480",
+    "citation": "Lov nr. 480 af 22. maj 2024 (Lovtidende A), implementing Directive (EU) 2022/2464 and Delegated Directive (EU) 2023/2775",
+    "in_force": "2024-06-01",
+    "evidence": "Lov 480/2024, ikrafttrædelsesbestemmelsen: \"Stk. 1. Loven træder i kraft den 1. juni 2024, jf. dog stk. 2 og 3.\" Stk. 2: § 2, nr. 33 on 1 January 2026; stk. 3: § 1, nr. 23 on 6 January 2030. Opened https://www.retsinformation.dk/eli/lta/2024/480/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act as published (the amendments to årsregnskabsloven in § 1, revisorloven in § 2 and other laws). Later reporting dates were postponed by Lov 1636/2025 (dk-lov-1636-2025). Language: Danish only. English: the Ministry of Business has no translation of this act that was found; looked for in the web search for Erhvervsstyrelsen translations on 2026-11-02 and via Retsinformation, which holds none.",
+    "status": "stored",
+    "amends": "dk-arl-99a"
+  },
+  {
+    "id": "dk-lov-1636-2025",
+    "title": "Lov nr. 1636 af 16. december 2025 om ændring af årsregnskabsloven, lov om finansiel virksomhed, lov om forsikringsvirksomhed m.v. (udskydelse af pligten til rapportering om bæredygtighed)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/1636",
+    "citation": "Lov nr. 1636 af 16. december 2025 (Lovtidende A)",
+    "in_force": "2025-12-31",
+    "evidence": "Lov 1636/2025: \"Stk. 1. Loven træder i kraft den 31. december 2025, jf. dog stk. 2.\" Stk. 2: \"Erhvervsministeren fastsætter tidspunktet for ikrafttrædelse af § 1, nr. 3.\" Opened https://www.retsinformation.dk/eli/lta/2025/1636/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act as published. Retsinformation marks it Historic (amending act). No ministerial order fixing the date for § 1, nr. 3 was found, so that provision may not yet have commenced; the record is dated 2025-12-31 for the rest. BEK 328/2026 (dk-bek-328-2026) and BEK 1700/2025 (dk-bek-1700-2025) refer to the postponement. Language: Danish only. English: none found (web search and Retsinformation, 2026-11-02).",
+    "status": "stored",
+    "amends": "dk-arl-99a"
+  },
+  {
+    "id": "dk-lov-52-2025",
+    "title": "Lov nr. 52 af 28. januar 2025 om uafhængige erklæringsudbydere vedrørende bæredygtighedsrapportering",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/52",
+    "citation": "Lov nr. 52 af 28. januar 2025 (Lovtidende A)",
+    "in_force": "2025-02-01",
+    "evidence": "Lov 52/2025 § 66: \"Loven træder i kraft den 1. februar 2025, jf. dog stk. 2 og 3.\" Stk. 2: § 9 on 6 January 2027; stk. 3: § 68, nr. 3 on 6 January 2030. Opened https://www.retsinformation.dk/eli/lta/2025/52/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act as published; assurance of sustainability reports under the CSRD transposition. Implementing orders on accreditation, the provider register, exams and verifier statements exist (BEK 444/2025, 449/2025, 753/2026; only BEK 453/2025 is in scope, as dk-bek-453-2025). Language: Danish only. English: none found (web search and Retsinformation, 2026-11-02).",
+    "status": "stored"
+  },
+  {
+    "id": "dk-bek-453-2025",
+    "title": "Bekendtgørelse nr. 453 af 5. maj 2025 om verifikatorers erklæringer om bæredygtighedsrapportering",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/453",
+    "citation": "BEK nr 453 af 05/05/2025 (Lovtidende A)",
+    "in_force": "2025-05-15",
+    "evidence": "BEK 453/2025 § 6: \"Bekendtgørelsen træder i kraft den 15. maj 2025.\" Opened https://www.retsinformation.dk/eli/lta/2025/453/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole order as published; issued under the assurance act (dk-lov-52-2025). Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-bek-328-2026",
+    "title": "Bekendtgørelse nr. 328 af 24. februar 2026 om udskydelse af virksomheders pligt til rapportering om bæredygtighed og afregistrering af revisorer eller uafhængige erklæringsudbydere",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2026/328",
+    "citation": "BEK nr 328 af 24/02/2026 (Lovtidende A)",
+    "in_force": "2026-02-26",
+    "evidence": "BEK 328/2026 § 2: \"Bekendtgørelsen træder i kraft den 26. februar 2026.\" Opened https://www.retsinformation.dk/eli/lta/2026/328/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole order as published; implements the postponement in dk-lov-1636-2025. Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-bek-1700-2025",
+    "title": "Bekendtgørelse nr. 1700 af 17. december 2025 om offentliggørelse af redegørelse for samfundsansvar efter årsregnskabsloven",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/1700",
+    "citation": "BEK nr 1700 af 17/12/2025 (Lovtidende A)",
+    "in_force": "2026-01-01",
+    "evidence": "BEK 1700/2025 § 10: \"Bekendtgørelsen træder i kraft den 1. januar 2026.\" Opened https://www.retsinformation.dk/eli/lta/2025/1700/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole order as published; implements årsregnskabsloven § 99 a, stk. 9 and 10 and § 99 b (dk-arl-99a). Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-bek-1487-2025",
+    "title": "Bekendtgørelse nr. 1487 af 7. oktober 2025 om offentliggørelse af en række redegørelser efter årsregnskabsloven (redegørelsesbekendtgørelsen)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/1487",
+    "citation": "BEK nr 1487 af 07/10/2025 (Lovtidende A)",
+    "in_force": "2026-01-01",
+    "evidence": "BEK 1487/2025 § 8: \"Bekendtgørelsen træder i kraft den 1. januar 2026.\" Opened https://www.retsinformation.dk/eli/lta/2025/1487/xml on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole order as published; covers statements under årsregnskabsloven §§ 77 a, 77 b, 99 c (payments to governments), 99 d (data ethics), 107 b to 107 d (governance, diversity). Not an environmental provision as such; kept in F1 because it governs publication of non-financial statements. Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-klimaloven",
+    "title": "Lov om klima (Klimaloven)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2021/2580",
+    "citation": "Lov nr. 965 af 26. juni 2020 om klima, as consolidated in LBK nr 2580 af 13/12/2021 (incorporating Lov nr. 2387 af 14/12/2021)",
+    "in_force": "2020-06-28",
+    "evidence": "Lov 965/2020 § 13: \"Loven træder i kraft dagen efter bekendtgørelsen i Lovtidende.\" Published in Lovtidende A on 27 June 2020 (Retsinformation metadata Offentliggørelsesdato 27/06/2020, ELI date_publication 27-06-2020), so in force 2020-06-28. Opened https://www.retsinformation.dk/eli/lta/2020/965/xml on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED",
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records: the act as published (2020-06-28) and LBK 2580/2021 (in_force is the LBK signing date). Retsinformation lists Lov 2387/2021 (indicative 2025 target) as incorporated in the LBK. No later amending act was found on Retsinformation (searches for \"ændring af lov om klima\" return only Lov 2387/2021; the 2024 bill on new 2045 and 2050 targets, 2024/1 LSF 33, appears only as a bill). English: the Ministry of Climate, Energy and Utilities publishes an English PDF of Act No 965 of 2020 that calls itself an unofficial translation (https://en.kefm.dk/Media/1/B/Climate%20Act_Denmark%20-%20WEBTILG%c3%86NGELIG-A.pdf); its row DK-KEFM-TRANSLATION is permission requested (no reuse terms found on en.kefm.dk), so it is not stored and not in source_row. Language: Danish only.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-co2-kvoteloven",
+    "title": "Lov om CO2-kvoter (CO2-kvoteloven)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2023/1767",
+    "citation": "Lov nr. 1095 af 28. november 2012; LBK 1605/2016, 62/2021, 536/2022; replaced by Lov nr. 1767 af 28. december 2023 om CO2-kvoter",
+    "in_force": "2013-01-01",
+    "evidence": "Lov 1095/2012 § 38: \"Loven træder i kraft den 1. januar 2013, jf. dog stk. 2.\" Stk. 2: § 5 and § 31 in force the day after publication. Opened https://www.retsinformation.dk/eli/lta/2012/1095/xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED",
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "5 records: Lov 1095/2012 as published (2013-01-01), LBK 1605/2016, LBK 62/2021, LBK 536/2022 (in_force is the LBK signing date) and Lov 1767/2023 (in force 2024-01-01 per its § 27 \"Loven træder i kraft den 1. januar 2024\", a new act that replaces the 2012 act). Lov 468/2025 (Energiklagenævnet) amends Lov 1767/2023 and is not stored. Language: Danish only. English: none found on Retsinformation (holds none) or by web search on 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-co2-afgiftsloven",
+    "title": "Lov om kuldioxidafgift af visse energiprodukter (CO2-afgiftsloven)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2020/1353",
+    "citation": "LBK nr 1353 af 02/09/2020, Bekendtgørelse af lov om kuldioxidafgift af visse energiprodukter",
+    "in_force": null,
+    "evidence": "No opened official page states a commencement date of the act. Retsinformation serves structured text only for LBK 321/2011 and LBK 1353/2020; the earlier LBKs (889/2006, 643/1998, 856/1996, 849/1995, 718/1993) answer the XML route with an empty body. Opened https://www.retsinformation.dk/eli/lta/2011/321/xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records: LBK 321/2011 (2011-04-04) and LBK 1353/2020 (2020-09-02). Retsinformation shows LBK 1353/2020 as the current text, but lists 11 later amending acts that it has not consolidated (Lov 2225/2020, 1240/2021, 832/2022, 329/2023, 1795/2023, 1797/2023, 683/2024, 1489/2024, 1776/2025, 1778/2025, 1782/2025 on CO2 tax suspension and phase-in), so the stored current text is out of date by those amendments. Those acts are not stored. Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-emissionsafgiftsloven",
+    "title": "Lov om afgift af CO2e-emissioner fra kvoteomfattede sektorer (emissionsafgiftsloven)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2025/309",
+    "citation": "Lov nr. 619 af 11. juni 2024; LBK nr 309 af 20/03/2025",
+    "in_force": "2025-01-01",
+    "evidence": "Lov 619/2024 § 14: \"Loven træder i kraft den 1. januar 2025, jf. dog stk. 2.\" Stk. 2: \"Skatteministeren fastsætter tidspunktet for ikrafttrædelse af § 2, stk. 3-6, og § 6, stk. 5 og 6.\" Opened https://www.retsinformation.dk/eli/lta/2024/619/xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED",
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records: Lov 619/2024 as published and LBK 309/2025 (in_force is the LBK signing date). BEK 1264/2024 (commencement of § 2, stk. 3-6 and § 6, stk. 5 and 6) is not stored. Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-transport-ghg",
+    "title": "Lov om reduktion af drivhusgasser fra transportsektoren m.v. (earlier title: Lov om bæredygtige biobrændstoffer og om reduktion af drivhusgasser)",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2026/438",
+    "citation": "LBK nr 438 af 16/04/2026; earlier LBK 674/2011, 62/2019, 122/2020, 591/2021, 2167/2021",
+    "in_force": null,
+    "evidence": "No opened official page states a commencement date for the act as a whole; the stored texts are lovbekendtgørelser dated by signing. Opened https://www.retsinformation.dk/eli/lta/2026/438/xml on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "6 records, one per LBK Retsinformation serves with XML text (in_force is the LBK signing date). The act sets greenhouse gas reduction duties for fuel suppliers. Lov 1676/2024, 673/2024 and 1675/2024 are listed as incorporated in LBK 438/2026 and are not stored separately. Language: Danish only. English: none found.",
+    "status": "stored"
+  },
+  {
+    "id": "dk-markedsfoeringsloven",
+    "title": "Markedsføringsloven (Marketing Practices Act), §§ 5, 6 and 13: misleading and aggressive practices, umbrella for environmental claims",
+    "official_url": "https://www.retsinformation.dk/eli/lta/2024/1420",
+    "citation": "Lov nr. 426 af 3. maj 2017 om markedsføring; LBK nr 866 af 15/06/2022; LBK nr 1420 af 02/12/2024",
+    "in_force": "2017-07-01",
+    "evidence": "Lov 426/2017 § 40: \"Loven træder i kraft den 1. juli 2017.\" Opened https://www.retsinformation.dk/eli/lta/2017/426/xml on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "DK-RETSINFO-ADOPTED",
+      "DK-RETSINFO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is §§ 5, 6 and 13 only, cut by paragraph label from each version. 2 records: Lov 426/2017 as published and LBK 866/2022 (in_force is the LBK signing date). LBK 1420/2024 has the same text of these sections as LBK 866/2022 and is not stored. Lov 558/2025 and Lov 1322/2025 amend the act and are not consolidated on Retsinformation. English: the Danish Competition and Consumer Authority publishes an English PDF of Act No 426 of 3 May 2017 (https://kfst.dk/media/49887/mfl-english.pdf); its row DK-KFST-TRANSLATION is permission requested, and it reflects the 2017 state, so it is not stored and not in source_row. A web search on 2026-11-02 for an English version at forbrugerombudsmanden.dk found price-information guidelines but no translation of the Act. Language: Danish only.",
+    "status": "stored"
+  }
+]

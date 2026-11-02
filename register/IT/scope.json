@@ -1,0 +1,157 @@
+[
+  {
+    "id": "it-dlgs-125-2024",
+    "title": "Decreto legislativo 6 settembre 2024, n. 125: sustainability reporting (transposition of Directive (EU) 2022/2464, CSRD)",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2024/09/10/24G00145/SG",
+    "citation": "D.Lgs. 6 settembre 2024, n. 125 (GU Serie Generale n. 212, 10 September 2024)",
+    "in_force": "2024-09-25",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 25/09/2024\" Opened https://www.gazzettaufficiale.it/eli/id/2024/09/10/24G00145/SG on 2026-11-02.",
+    "law_family": "F1",
+    "notes": "Two versions stored: the act as published (adopted, 2024-09-25) and the Normattiva consolidations CONSOLIDATED original (2024-09-25) and 2025-08-10 (D.L. 95/2025 converted by L. 118/2025 repealed art. 3 comma 10, inserted art. 12 comma 1 lettera b-bis and changed art. 17 and art. 18). Art. 17 comma 3 repeals D.Lgs. 254/2016 (it-dlgs-254-2016). Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-dlgs-254-2016",
+    "title": "Decreto legislativo 30 dicembre 2016, n. 254: non-financial information (transposition of Directive 2014/95/EU, NFRD), repealed",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2017/01/10/17G00002/SG",
+    "citation": "D.Lgs. 30 dicembre 2016, n. 254 (GU Serie Generale n. 7, 10 January 2017)",
+    "in_force": "2017-01-25",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 25/01/2017\" Opened https://www.gazzettaufficiale.it/eli/id/2017/01/10/17G00002/SG on 2026-11-02.",
+    "law_family": "F1",
+    "notes": "Repealed in full by D.Lgs. 125/2024 art. 17 comma 3 from 2024-09-25 (Normattiva update list: 'l'abrogazione dell'intero provvedimento'); stored as a repeal record on that date. Normattiva's later text (version 2025-02-25, after D.L. 202/2024 art. 3 comma 14-ter, converted by L. 15/2025, which keeps arts. 8 and 9 applying to earlier infringements) shows only repeal markers and annotations and is not stored as a version. Versions stored: as published 2017-01-25, consolidation 2019-01-01 (L. 145/2018), repeal 2024-09-25. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "status_note": "Repealed from 2024-09-25 by D.Lgs. 125/2024; arts. 8 and 9 continue to apply to infringements committed earlier (D.L. 202/2024 art. 3 comma 14-ter, as stated in Normattiva annotations and in CONSOB delibera 23463 recitals).",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-dlgs-30-2013",
+    "title": "Decreto legislativo 13 marzo 2013, n. 30: EU Emissions Trading System (transposition of Directive 2009/29/EC)",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2013/04/04/13G00075/SG",
+    "citation": "D.Lgs. 13 marzo 2013, n. 30 (GU Serie Generale n. 79, 4 April 2013)",
+    "in_force": "2013-04-05",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 05/04/2013\" Opened https://www.gazzettaufficiale.it/eli/id/2013/04/04/13G00075/SG on 2026-11-02.",
+    "law_family": "F3",
+    "notes": "Nine versions stored (as published 2013-04-05 and Normattiva consolidations 2014-11-12, 2015-07-23, 2016-01-01, 2016-02-02, 2019-09-05, 2019-11-03, 2020-01-01, 2020-06-25). The 2020-06-25 consolidation is far shorter than the earlier ones and carries 55 ABROGATO markers; it follows D.Lgs. 47/2020 (it-dlgs-47-2020), which now carries the national ETS rules. Whether any article of 30/2013 remains in force was not established. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-dlgs-47-2020",
+    "title": "Decreto legislativo 9 giugno 2020, n. 47: EU Emissions Trading System (transposition of Directives (EU) 2018/410, 2023/958 and 2023/959)",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2020/06/10/20G00065/SG",
+    "citation": "D.Lgs. 9 giugno 2020, n. 47 (GU Serie Generale n. 146, 10 June 2020)",
+    "in_force": "2020-06-25",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 25/06/2020\" Opened https://www.gazzettaufficiale.it/eli/id/2020/06/10/20G00065/SG on 2026-11-02.",
+    "law_family": "F3",
+    "notes": "The act as published (2020-06-25) transposes Directive (EU) 2018/410 only; the title on Normattiva now also names Directives (EU) 2023/958 and 2023/959 (title amended; the amending act was not identified). 19 versions stored: the as-published text plus 18 Normattiva consolidations from 2021-01-01 to 2026-05-23. The brief's candidate 'D.Lgs. 5 ottobre 2023, n. 147' is not an ETS act (Normattiva title: implementing rules of the Trentino-Alto Adige statute on sports activities and facilities), so it is not in scope. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-dl-111-2019",
+    "title": "Decreto-legge 14 ottobre 2019, n. 111 ('decreto clima'): urgent measures on air quality and the national climate strategy",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2019/10/14/19G00125/SG",
+    "citation": "D.L. 14 ottobre 2019, n. 111 (GU Serie Generale n. 241, 14 October 2019), converted with amendments by L. 12 dicembre 2019, n. 141",
+    "in_force": "2019-10-15",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 15/10/2019.\" Opened https://www.gazzettaufficiale.it/eli/id/2019/10/14/19G00125/SG on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "notes": "The official title is about compliance with Directive 2008/50/EC on air quality and an extension in D.L. 189/2016; the recitals name the national climate emergency strategy, which is why the brief calls it the decreto clima and files it under F2. The conversion law L. 141/2019 (it-l-141-2019) changed the text from 2019-12-14. 12 versions stored: as published 2019-10-15 and Normattiva consolidations from 2019-12-14 to 2025-05-14. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-l-141-2019",
+    "title": "Legge 12 dicembre 2019, n. 141: conversion into law, with amendments, of Decreto-legge 14 ottobre 2019, n. 111",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2019/12/13/19G00148/SG",
+    "citation": "L. 12 dicembre 2019, n. 141 (GU Serie Generale n. 292, 13 December 2019)",
+    "in_force": "2019-12-14",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 14/12/2019\" Opened https://www.gazzettaufficiale.it/eli/id/2019/12/13/19G00148/SG on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "amends": "it-dl-111-2019",
+    "notes": "The conversion law's own text (its amendments to the decree are instructions in art. 1 and an annex listing the amendments made on conversion). The decree as amended is it-dl-111-2019 from 2019-12-14. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-dlgs-30-2026",
+    "title": "Decreto legislativo 20 febbraio 2026, n. 30: empowering consumers for the green transition (transposition of Directive (EU) 2024/825, amending the Codice del consumo)",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2026/03/09/26G00047/SG",
+    "citation": "D.Lgs. 20 febbraio 2026, n. 30 (GU Serie Generale n. 56, 9 March 2026)",
+    "in_force": "2026-03-24",
+    "evidence": "GU page note: \"Entrata in vigore del provvedimento: 24/03/2026\" Opened https://www.gazzettaufficiale.it/eli/id/2026/03/09/26G00047/SG on 2026-11-02.",
+    "law_family": "F6",
+    "amends": "it-codice-consumo-arts-20-27",
+    "notes": "Promulgated and in force 2026-03-24, but art. 2 comma 1 says 'Le disposizioni del presente decreto si applicano a decorrere dal 27 settembre 2026', so the new rules on environmental claims bind traders only from that date. Dated its in-force date per the lookup policy. The text is mostly amendment instructions to the Codice del consumo (it-codice-consumo-arts-20-27). Only the as-published version exists on Normattiva. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "status_note": "In force 2026-03-24; applies from 2026-09-27 (art. 2 comma 1).",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED",
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-codice-consumo-arts-20-27",
+    "title": "Codice del consumo (D.Lgs. 6 settembre 2005, n. 206), arts. 20 to 27-quater: unfair commercial practices incl. environmental claims",
+    "official_url": "https://www.normattiva.it/eli/id/2005/10/08/005G0232/CONSOLIDATED",
+    "citation": "D.Lgs. 6 settembre 2005, n. 206, arts. 20-27-quater (GU Serie Generale n. 235, 8 October 2005, S.O. n. 162), as amended by D.Lgs. 30/2026",
+    "in_force": "2005-10-23",
+    "evidence": "Normattiva AKN of the original text, preface note: \"Entrata in vigore del decreto: 23-10-2005\" (GU ELI page https://www.gazzettaufficiale.it/eli/id/2005/10/08/005G0232/SG says the same). Opened 2026-11-02.",
+    "law_family": "F6",
+    "notes": "Record text is only the articles numbered 20 to 27 (including -bis, -ter, -quater), cut from the Normattiva XML of the whole Code by article number; the rest of the Code is not stored. One record per Normattiva consolidation date on which that cut changed (26 records from the original text of 2005-10-23 to the consolidation of 2026-10-22); consolidation dates of the Code that left the cut unchanged are not stored. The consolidations of 2026-03-24 onward carry the D.Lgs. 30/2026 amendments although those apply from 2026-09-27. The as-published (adopted) text is not stored separately: the Gazzetta Ufficiale route returns the whole 2005 Code (the selection form lists more than 100 elements, and above 100 it serves the whole document) and the Normattiva ORIGINAL version is the same text. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-NORMATTIVA-CONSOLIDATED"
+    ]
+  },
+  {
+    "id": "it-consob-23463",
+    "title": "CONSOB Delibera 12 marzo 2025, n. 23463: amendments to the Regolamento Emittenti on corporate sustainability reporting",
+    "official_url": "https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG",
+    "citation": "CONSOB delibera n. 23463 of 12 March 2025 (GU Serie Generale n. 67, 21 March 2025)",
+    "in_force": "2025-03-22",
+    "evidence": "Art. 3 comma 1 of the delibera: \"Essa entra in vigore il giorno successivo alla data di pubblicazione nella Gazzetta Ufficiale.\" Published GU n. 67 of 21 March 2025 (https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG, opened 2026-11-02).",
+    "law_family": "F1",
+    "notes": "Stored from the Gazzetta Ufficiale row only. The row IT-CONSOB-ADOPTED (consob.it) is permission requested (reuse for study, research, information and documentation only) and backs nothing here. The delibera amends the Regolamento Emittenti (delibera 11971 of 14 May 1999) arts. 81-ter, 89-quater and 89-quinquies and Allegati 3C-ter; the annexes are published in graphic format and are not in the stored text. The consolidated Regolamento Emittenti is on consob.it and is not stored. Italian is the only language the publishers serve for this act, so there is one it record per version. No government English translation found on 2026-11-02: Normattiva serves the act in Italian only (FRBRlanguage ita in the XML) and the Gazzetta Ufficiale page is Italian only, so no English record and no IT translation row.",
+    "status": "stored",
+    "duty_on": "private_sector",
+    "verification": "official_text_seen",
+    "source_row": [
+      "IT-GAZZETTA-ADOPTED"
+    ]
+  }
+]
