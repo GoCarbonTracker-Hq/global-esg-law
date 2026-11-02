@@ -1,0 +1,103 @@
+[
+  {
+    "id": "is-arsreikningalog-66d",
+    "title": "Lög um ársreikninga nr. 3/2006, 66. gr. d (ófjárhagsleg upplýsingagjöf)",
+    "official_url": "https://www.althingi.is/lagas/nuna/2006003.html",
+    "citation": "Lög um ársreikninga nr. 3/2006, 66. gr. d, inserted by 42. gr. laga nr. 73/2016 (A-deild 73/2016)",
+    "in_force": "2016-06-16",
+    "evidence": "42. gr. laga nr. 73/2016: \"Á eftir 66. gr. c laganna koma tvær nýjar greinar, 66. gr. d og 66. gr. e ... (66. gr. d.) Ófjárhagsleg upplýsingagjöf.\" 74. gr.: \"Lög þessi öðlast þegar gildi og koma til framkvæmda fyrir reikningsár sem hefst 1. janúar 2016 eða síðar.\" Signed 2016-06-16, published in Stjórnartíðindi 2016-06-27 (https://www.island.is/stjornartidindi/nr/5b09c253-b6a4-47df-8da2-0f07186d9daf, read through the API on 2026-11-02). The date is the signature date because the clause says only 'þegar'.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IS-ALTHINGI-CONSOLIDATED",
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). No CSRD transposition act in the gazette on 2026-11-02: searches of A-deild for ófjárhagslega, sjálfbærniskýrslu and 2022/2464 over 2025 and 2026 returned no act; consultation status on samradsgatt.is and althingi.is could not be opened from the cloud address, so CSRD status stays to confirm. The Alþingi URL is the usual current-text alias and was not opened. Later amendments to 3/2006 include 102/2020 (A-deild), 132/2014 and 14/2013.",
+    "status": "link only"
+  },
+  {
+    "id": "is-loftslagslog",
+    "title": "Lög um loftslagsmál nr. 70/2012",
+    "official_url": "https://www.island.is/stjornartidindi/nr/b4c53076-6e4f-43fe-aa94-421056375714",
+    "citation": "Lög um loftslagsmál nr. 70/2012 (A-deild 70/2012), as amended",
+    "in_force": "2012-06-29",
+    "evidence": "46. gr. (Gildistaka): \"Lög þessi öðlast þegar gildi og jafnframt falla úr gildi lög nr. 65/2007, um losun gróðurhúsalofttegunda.\" Signed 2012-06-29, published 2012-07-02 (A-deild 70/2012, read through the API on 2026-11-02). The date is the signature date because the clause says only 'þegar'.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IS-ALTHINGI-CONSOLIDATED",
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Amended by lög nr. 141/2012, 25/2014, 62/2015, 14/2018, 86/2019, 98/2020, 35/2021, 47/2022 and, at the commencement of lög nr. 96/2023, by 35. gr. of that act (ETS provisions moved out).",
+    "status": "link only"
+  },
+  {
+    "id": "is-ets-log",
+    "title": "Lög um viðskiptakerfi ESB með losunarheimildir nr. 96/2023",
+    "official_url": "https://www.island.is/stjornartidindi/nr/4f3c652b-6655-4afb-8827-0bf4abc464a4",
+    "citation": "Lög um viðskiptakerfi ESB með losunarheimildir nr. 96/2023 (A-deild 96/2023), amended by lög nr. 106/2025",
+    "in_force": "2023-12-22",
+    "evidence": "34. gr. (Gildistaka): \"Lög þessi öðlast þegar gildi.\" Signed 2023-12-22, published 2023-12-28 (A-deild 96/2023, read through the API on 2026-11-02). The date is the signature date because the clause says only 'þegar'.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IS-ALTHINGI-CONSOLIDATED",
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Iceland applies the EU ETS through the EEA Agreement (Directive 2003/87/EC); the directive itself has no record here. Amended by lög nr. 106/2025 (signed 2025-12-24, published 2025-12-29, in force 'þegar'); the amending act is not a separate entry.",
+    "status": "link only"
+  },
+  {
+    "id": "is-ets-regulation-606-2021",
+    "title": "Reglugerð nr. 606/2021 um viðskiptakerfi Evrópusambandsins með losunarheimildir",
+    "official_url": "https://www.island.is/stjornartidindi/nr/fb53bec8-e856-479b-965a-9a3182c146f8",
+    "citation": "Reglugerð nr. 606/2021 (B-deild 606/2021), amended by regulations 1337/2021 to 593/2026",
+    "in_force": "2021-05-28",
+    "evidence": "Final chapter (Lagastoð og gildistaka): \"Reglugerðin öðlast gildi við birtingu\"; published in Stjórnartíðindi B-deild 2021-05-28 (read through the API on 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Implements Directive 2003/87/EC and the related EEA acts for operators and aviation operators (listed in the regulation). Twelve amending regulations are listed in B-deild, the latest 593/2026 (2026-05-28). Alþingi's Lagasafn does not carry regulations, so only the gazette row applies. Its legal basis is lög nr. 70/2012 and, from 2023-12-22, lög nr. 96/2023.",
+    "status": "link only"
+  },
+  {
+    "id": "is-markadssetningarlog",
+    "title": "Markaðssetningarlög nr. 44/2026",
+    "official_url": "https://www.island.is/stjornartidindi/nr/725b9be9-902b-4056-ae9d-b2be004364cf",
+    "citation": "Markaðssetningarlög nr. 44/2026 (A-deild 44/2026)",
+    "in_force": "2026-05-07",
+    "evidence": "42. gr. (Gildistaka): \"Lög þessi öðlast þegar gildi.\" Signed 2026-05-07, published 2026-05-15 (A-deild 44/2026, read through the API on 2026-11-02). The date is the signature date because the clause says only 'þegar'.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IS-ALTHINGI-CONSOLIDATED",
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Deviation from the brief: lög nr. 57/2005 (eftirlit með viðskiptaháttum og markaðssetningu) are repealed by 42. gr. of this act, so 57/2005 gets no entry; this act is the umbrella for misleading commercial practices (it implements Directive 2005/29/EC and 2019/2161). Its list of implemented acts (41. gr.) does not name Directive (EU) 2024/825, and a search of the gazette for the directive found no separate act, so the 2024/825 transposition is not published on 2026-11-02 and the status stays to confirm.",
+    "status": "link only"
+  },
+  {
+    "id": "is-sjalfbaernilog-fjarmal",
+    "title": "Lög um upplýsingagjöf um sjálfbærni á sviði fjármálaþjónustu og flokkunarkerfi fyrir sjálfbærar fjárfestingar nr. 25/2023",
+    "official_url": "https://www.island.is/stjornartidindi/nr/12422197-7ef0-445b-a1d5-a9abbe2f92e7",
+    "citation": "Lög nr. 25/2023 (A-deild 25/2023)",
+    "in_force": "2023-06-01",
+    "evidence": "10. gr.: \"Lög þessi öðlast gildi 1. júní 2023.\" Signed 2023-05-12, published 2023-05-31 (A-deild 25/2023, read through the API on 2026-11-02).",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "IS-ALTHINGI-CONSOLIDATED",
+      "IS-STJORNARTIDINDI-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Gives effect in Iceland to the sustainable-finance disclosure and taxonomy regulations (EU) 2019/2088 and 2020/852 (the act refers to the latter in its 2. gr. and 9. gr.). Added beyond the brief's candidate list.",
+    "status": "link only"
+  }
+]
