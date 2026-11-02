@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ec-sb-saras-norm",
+    "title": "Resolución SB-2025-02114: Norma de control para la evaluación y gestión del riesgo ambiental y social (substitutes Chapter X, Title IX, Book I of the Codificación de las Normas de la Superintendencia de Bancos)",
+    "official_url": "https://www.superbancos.gob.ec/bancos/codificacion-de-normas-de-la-sb-libro-uno-sistema-financiero/",
+    "citation": "Codificación de las Normas de la Superintendencia de Bancos, Libro I, Título IX, Capítulo X; issued by Resolución SB-2022-1212 of 12 July 2022, reformed by SB-2022-1373 of 28 July 2022, substituted by Resolución SB-2025-02114 of 29 August 2025",
+    "in_force": "2025-08-29",
+    "evidence": "Chapter heading: \"sustituida con Resolución Nro. SB-2025-02114 de 29 de agosto de 2025\"; transitional provision primera: \"Las entidades controladas en el plazo de doce (12) meses contados a partir de la expedición de la presente norma deberán implementar la misma.\" The chapter has no commencement clause, so the issue date is taken as in_force. Opened https://www.superbancos.gob.ec/bancos/descargas/39342/ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "EC-SUPERBANCOS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "The official number is SB-2025-02114 (the brief and the Asobanca copy write SB-2025-2114). The existing register row pointed at a copy on asobanca.org.ec (a private banking association); its official_source_url is replaced by the Superintendencia's codification page and its title is kept. The chapter substitutes the 2022 norm and applies to entities that grant productive credit or microcredit (art. 2); art. 13 requires the SARAS report by 31 March each year and art. 14 requires the entity to keep its environmental and social risk policy and exclusion list published on its website, so it is placed in F1 as the brief suggests; the repository's other environmental-risk supervisory norms (Colombia CE 015 de 2025, Switzerland FINMA Circular 2026/1) are F6, and Varun may prefer that. One record: the current codified chapter as served on 2026-11-02, dated 2025-08-29. The superseded 2022 text (SB-2022-1212, SB-2022-1373) and the resolution as issued are not on the Superintendencia site, so no earlier record is stored. Languages stored on 2026-11-02: es (the only official language of the publisher). No government English translation is known: looked for at https://www.asambleanacional.gob.ec/en (404, 23869 bytes), https://www.registroficial.gob.ec/en/ (404), https://www.superbancos.gob.ec/bancos/en/ (200, a Spanish news page) and https://www.gob.ec/en (no answer); the three sites serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "ec-coa-libro4",
+    "title": "Código Orgánico del Ambiente, Libro Cuarto (del cambio climático), arts. 247 to 261",
+    "official_url": "https://www.asambleanacional.gob.ec/es/system/files/ro-cod-ambiente-ro-s-983-12-04-2017.pdf",
+    "citation": "Código Orgánico del Ambiente, Registro Oficial Suplemento 983 of 12 April 2017, Libro Cuarto arts. 247-261",
+    "in_force": "2018-04-12",
+    "evidence": "Disposición final única: \"El Código Orgánico del Ambiente entrará en vigencia luego de transcurridos doce meses, contados a partir de su publicación en el Registro Oficial.\" The gazette is dated \"Quito, miércoles 12 de abril de 2017\"; 2018-04-12 is computed from that, no official page states the day. Opened https://www.asambleanacional.gob.ec/es/system/files/ro-cod-ambiente-ro-s-983-12-04-2017.pdf on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": "EC-ASAMBLEA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Record text is Libro Cuarto only (heading to art. 261, the last article before Libro Quinto) of the gazette as published; the two-column pages are read left column then right column (pdftotext -x/-W crop per page) because the default reading order mixes the columns at headings. The Código gives the Autoridad Ambiental Nacional the framework and institutional rules for climate planning, adaptation and mitigation measures, GHG inventories and offset schemes (arts. 257-261); duties on companies are set by secondary rules, so duty_on is unknown. Framework climate law: no Ley Orgánica on climate action appears among the 23 pages of https://www.asambleanacional.gob.ec/es/leyes-aprobadas (opened 2026-11-02, no title with 'climát'), so Libro Cuarto is the legislative framework; the Código has been amended by Ley Orgánica Reformatoria del COA y del COOTAD (RO Suplemento 602, 2021-12-21) and Ley Orgánica Reformatoria del COA (RO Quinto Suplemento 360, 2026-09-02); both PDFs on the Asamblea site are scanned images with no text layer, so whether either amends Libro Cuarto was not read and neither has a scope entry. Only the 2017 text is stored; no consolidation is served by the Asamblea. The Programa Ecuador Carbono Cero is a voluntary register row (F7). Languages stored on 2026-11-02: es (the only official language of the publisher). No government English translation is known: looked for at https://www.asambleanacional.gob.ec/en (404, 23869 bytes), https://www.registroficial.gob.ec/en/ (404), https://www.superbancos.gob.ec/bancos/en/ (200, a Spanish news page) and https://www.gob.ec/en (no answer); the three sites serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "ec-reglamento-coa-libro4",
+    "title": "Reglamento al Código Orgánico del Ambiente (Decreto Ejecutivo 752), Libro Cuarto (cambio climático), arts. 670 to 730",
+    "official_url": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0",
+    "citation": "Decreto Ejecutivo 752 of 21 May 2019, Registro Oficial Suplemento 507 of 12 June 2019, Libro Cuarto arts. 670-730",
+    "in_force": "2019-06-12",
+    "evidence": "Disposición final única: \"El presente Reglamento entrará en vigencia a partir de su publicación en el Registro Oficial.\" Registro Oficial Suplemento 507 is dated \"Quito, miércoles 12 de junio de 2019\"; the gob.ec page gives 'Fecha de publicación: 2019-06-12'. Opened https://www.gob.ec/sites/default/files/regulations/2021-04/Reglamento%20al%20Co%CC%81digo%20Orga%CC%81nico%20del%20Ambiente.pdf on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": "EC-GOBEC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Implements ec-coa-libro4. Record text is Libro Cuarto (art. 670 to art. 730, 61 articles in sequence) of the gazette PDF hosted on gob.ec, read column by column; the file's text layer is a digitisation the Registro Oficial marks 'Documento con posibles errores digitalizado de la publicación original. Favor verificar con imagen.', so OCR errors are possible. Fetched with a browser-class client because curl is answered with an empty reply (see SOURCES.md). The brief said Decreto 752 of 2019; the date of signature is 2019-05-21 (the PDF says 'Dado en el Palacio Nacional, en Quito, a 21 de mayo de 2019') and it was published 2019-06-12. Decreto Ejecutivo 573 (2022), listed on ecolex.org as a reform of the Reglamento, was not found on an official page and is not stored, so the stored text is the 2019 original and may not be the text in force. Languages stored on 2026-11-02: es (the only official language of the publisher). No government English translation is known: looked for at https://www.asambleanacional.gob.ec/en (404, 23869 bytes), https://www.registroficial.gob.ec/en/ (404), https://www.superbancos.gob.ec/bancos/en/ (200, a Spanish news page) and https://www.gob.ec/en (no answer); the three sites serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "ec-lodc-art6-7",
+    "title": "Ley Orgánica de Defensa del Consumidor, arts. 6 and 7 (publicidad prohibida, infracciones publicitarias)",
+    "official_url": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor",
+    "citation": "Ley Orgánica de Defensa del Consumidor (Ley 21), Registro Oficial Suplemento 116 of 10 July 2000, arts. 6-7",
+    "in_force": null,
+    "evidence": "No official page opened states the commencement date. The gob.ec page lists the Registro Oficial Suplemento 116 as the publication and the PDF it links is headed 'Registro Oficial Suplemento 116 de 10-jul-2000'; the commencement clause was not read in an official text. Art. 6 of the linked compilation: \"Quedan prohibidas todas las formas de publicidad engañosa o abusiva, o que induzcan a error en la elección del bien o servicio que puedan afectar los intereses y derechos del consumidor.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "EC-GOBEC-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only. The only file the official portal serves is a Lexis (eSilec Profesional, lexis.com.ec) compilation headed 'Ultima modificación: 13-oct-2011, Estado: Vigente', a private editorial text that is not stored; the 2000 gazette and the reformed text (last reform 2022-02-11 per ministry copies) are not on any official page that answered. Art. 7 lists as advertising infractions misleading statements on country of origin, benefits, basic characteristics and 'reconocimientos, aprobaciones o distinciones oficiales o privadas'; neither article mentions environmental claims by name, so the entry is the umbrella the brief names. Languages stored on 2026-11-02: es (the only official language of the publisher). No government English translation is known: looked for at https://www.asambleanacional.gob.ec/en (404, 23869 bytes), https://www.registroficial.gob.ec/en/ (404), https://www.superbancos.gob.ec/bancos/en/ (200, a Spanish news page) and https://www.gob.ec/en (no answer); the three sites serve Spanish only.",
+    "status": "link only"
+  }
+]

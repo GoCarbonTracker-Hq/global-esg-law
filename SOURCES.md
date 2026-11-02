@@ -3321,3 +3321,80 @@ English is the language of legislation; the Kenya Law pages list only `eng` expr
 - `ke-cma-cg-code-2015`: `KE-CMA-ADOPTED` is `permission requested` (no reuse grant, "All Rights Reserved").
 - F7 register rows without scope entry: ICPAK roadmap, NSE ESG Disclosures Guidance Manual (no NSE-hosted copy found).
 - Blocked from the cloud address for scripts: every `https://kenyalaw.org/akn/...` document and `/source` URL (HTTP 202, empty body, plain `curl`); the browser recipe above passes.
+
+## Ecuador
+
+Run on 2026-11-02 (GEL-09-06). Three rows pass, all on one statute and not on any site terms: `EC-ASAMBLEA-ADOPTED` (Asamblea Nacional, gazette PDFs of enacted laws), `EC-SUPERBANCOS-CONSOLIDATED` (Superintendencia de Bancos, codified norms) and `EC-GOBEC-ADOPTED` (the gob.ec regulations portal, gazette PDFs). The statute is the Código Orgánico de la Economía Social de los Conocimientos, Creatividad e Innovación (Código Ingenios), Registro Oficial Suplemento 899 of 2016-12-09, art. 107 (not art. 103 as the brief says; art. 103 is "Protección acumulada"): "No son objeto de protección las disposiciones legales y reglamentarias, ... las resoluciones, deliberaciones y dictámenes de los organismos públicos, y los demás textos oficiales de orden legislativo, administrativo o judicial, así como sus traducciones oficiales." None of the three sites states reuse terms. Open decisions for Varun are in the row notes. No row was added for the Registro Oficial, the Superintendencia de Compañías, the Bolsa de Valores de Quito or Guayaquil, the Ministerio del Ambiente or Lexis: no text was fetched from them (reasons at the end of this section).
+
+Every `curl` below carries `-A 'Mozilla/5.0'` (no request without a User-Agent was tried on the Asamblea and Superintendencia sites). Page furniture dropped from every record (all PDFs): running heads and page numbers, the lines `Documento con posibles errores digitalizado de la publicación original. Favor verificar con imagen.` and `No imprima este documento a menos que sea absolutamente necesario.`; runs of spaces collapse to one, empty lines are removed, line breaks stay where the PDF has them, hyphenation stays. Tool: poppler `pdftotext` (no `-layout`). The Registro Oficial PDFs are set in two columns and the default reading order mixes the columns at headings (Código Orgánico del Ambiente, page 49: "CAPÍTULO II" and "LIBRO QUINTO" interleaved with article text; Reglamento: Art. 674 printed between Art. 670 and Art. 671). So each page is read as a left half then a right half: `pdftotext -f N -l N -x 0 -y 0 -W 297 -H 842 file.pdf -` then `-x 297`, joined page by page. For the Reglamento PDF, whose pages carry a running head at y 68 to 79 and a two-line footer at y 784 to 806, the crop is `-y 85 -H 695`, which removes both. Check run on every record: no U+FFFD character, and the article numbers of the cut are in unbroken sequence (Código arts. 247 to 261, Reglamento arts. 670 to 730).
+
+### Row `EC-ASAMBLEA-ADOPTED`: Registro Oficial PDFs on asambleanacional.gob.ec
+
+The listing (23 pages, `?page=0` to `?page=22`) names each law, its Registro Oficial number and a PDF link:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ley_0.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.asambleanacional.gob.ec/es/leyes-aprobadas?leyes-aprobadas=All&title=&fecha=&page=0'
+```
+
+Returned `200 49795 text/html; charset=utf-8`. The Código Orgánico del Ambiente (Registro Oficial Suplemento 983, 2017-04-12):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o coa.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.asambleanacional.gob.ec/es/system/files/ro-cod-ambiente-ro-s-983-12-04-2017.pdf'
+```
+
+Returned `200 1660486 application/pdf` (68 pages, text layer with embedded fonts); a second request returned the same bytes, sha256 `033ffdd280975aabb0b89f6634b4e7f9462b3a835d49abcbbecefdaed96e61af`, which is `fetched_sha256`. Record `ec-coa-libro4`, 2018-04-12 (`2018-04-12-adopted-es.json`): the text from the line `LIBRO CUARTO` up to, not including, `LIBRO QUINTO`, columns read as above; the furniture lines `Suplemento – Registro Oficial Nº 983`, `Registro Oficial Nº 983 – Suplemento` and `<n> – Miércoles 12 de abril de 2017` are dropped too.
+
+Two Registro Oficial PDFs on the same site have no text layer (the body pages are images): Ley Orgánica Reformatoria del Código Orgánico del Ambiente, Quinto Suplemento 360 of 2026-09-02 (`https://www.asambleanacional.gob.ec/es/system/files/ro_35.pdf`, `200 2335398 application/pdf`, 33 pages, `pdftotext` returns only the cover and the covering letter) and the reform of 2021 (`2do-supl-ro-602-de-21-12-2021.pdf`, `200 19834807 application/pdf`, 30 pages). There is no OCR in the recipe, so nothing is stored from them; they have no scope entry because whether they touch Libro Cuarto could not be read.
+
+### Row `EC-SUPERBANCOS-CONSOLIDATED`: Codificación de las Normas, Libro I
+
+The chapter list is the table on `https://www.superbancos.gob.ec/bancos/codificacion-de-normas-de-la-sb-libro-uno-sistema-financiero/` (opened with the next command, `200 209502 text/html; charset=UTF-8`); Capítulo X of Título IX links `/bancos/descargas/39342/`:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cap10.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superbancos.gob.ec/bancos/descargas/39342/'
+```
+
+Returned `200 129760 application/pdf` (the chapter heading names SB-2022-1212, SB-2022-1373 and the substituting SB-2025-02114 of 2025-08-29); a second request returned the same bytes, sha256 `771c6fa49e732290dd31429ffda6ad97cd1c985b202ffc790b5183db1c6c6277`. Record `ec-sb-saras-norm`, 2025-08-29 (`2025-08-29-consolidated-es.json`): single-column PDF, `pdftotext cap10.pdf -` in default order, the repeated page head `Codificación de las Normas de la Superintendencia de Bancos` dropped, the rest as above (339 lines, 23228 characters). The download is served by a plugin, so the URL is stable but the file behind it changes when the Superintendencia recodifies; the watcher `ec-sb-saras-norm-codificacion-pdf` hashes it.
+
+### Row `EC-GOBEC-ADOPTED`: browser recipe
+
+`www.gob.ec` answers a script with an empty reply and the proxy shows no status. The failing line first:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gob.ec/sites/default/files/regulations/2021-04/Reglamento%20al%20Co%CC%81digo%20Orga%CC%81nico%20del%20Ambiente.pdf'
+```
+
+Answered `curl: (52) Empty reply from server` (`000 0`); `curl --http1.1` on the regulation page gives the same and the same request over HTTP/2 without `-m` gave `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR`. The Playwright chromium shipped in the session opens the pages (`chromium.launch()`, `page.goto(url, {waitUntil: 'domcontentloaded'})`, wait 2.5 s, then read the `a` elements: `Documento en línea` is the PDF link). The page https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0 returned `200 27762 text/html; charset=UTF-8`. The PDF is fetched with Playwright's request client of the same browser context, which the site answers:
+
+```
+cat > pwdl.js <<'JS'
+const { chromium } = require('playwright');
+(async () => { const b = await chromium.launch(); const ctx = await b.newContext();
+  const r = await ctx.request.get(process.argv[2], {timeout: 90000});
+  console.log(r.status(), r.headers()['content-type'], r.headers()['content-length']);
+  require('fs').writeFileSync(process.argv[3], await r.body()); await b.close(); })();
+JS
+NODE_PATH=$(npm root -g) node pwdl.js 'https://www.gob.ec/sites/default/files/regulations/2021-04/Reglamento%20al%20Co%CC%81digo%20Orga%CC%81nico%20del%20Ambiente.pdf' reglamento.pdf
+```
+
+Printed `200 application/pdf 1407425`; a second run returned the same bytes, sha256 `6c5ac3e13c26606090ea50221e121ec45e758e75afe10d35af286b8c521de454`, which is `fetched_sha256` (the file is a static upload, no per-request token). It is the whole Registro Oficial Suplemento 507 of 2019-06-12 (144 pages, Decreto Ejecutivo 752). Record `ec-reglamento-coa-libro4`, 2019-06-12 (`2019-06-12-adopted-es.json`): from `LIBRO CUARTO` to, not including, `LIBRO QUINTO`, columns read with `-y 85 -H 695`. The record is browser-fetched (see the PR report, GEL-03 retro C4). The watchers carry the browser URL as `second_route`, though `tools/watch.py --dry-run --source EC-GOBEC-ADOPTED` ran on 2026-11-02 with 0 failures from its own User-Agent.
+
+### Languages
+
+Spanish is the only official language; every record has `language` es and no row of its own was added for a second language. English was looked for, and no government translation was found, at: `https://www.asambleanacional.gob.ec/en` (`404 23869 text/html`), `https://www.registroficial.gob.ec/en/` (`404 171581 text/html`), `https://www.superbancos.gob.ec/bancos/en/` (`200 168904 text/html`, a Spanish news page, not an English site) and `https://www.gob.ec/en` (no answer). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ec-lodc-art6-7 (Ley Orgánica de Defensa del Consumidor, arts. 6 and 7) | https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor | Row `EC-GOBEC-ADOPTED` passes, but the only file the portal serves (`https://www.gob.ec/sites/default/files/regulations/2018-09/Documento_Ley-Org%C3%A1nica-Defensa-Consumidor.pdf`, `200 84519 application/pdf`, 26 pages) is a Lexis compilation (every page footed `eSilec Profesional - www.lexis.com.ec`, headed `Ultima modificación: 13-oct-2011`), which is private and is never stored. The Registro Oficial Suplemento 116 of 2000-07-10 and the 2022 reformed text were not found on an official page that answered. |
+| Ley Orgánica Reformatoria del COA (RO 360, 2026-09-02) and the 2021 reform (RO 602) | not scoped | Scanned images, no text layer, no OCR; not read, so no scope entry (see `ec-coa-libro4` notes). |
+| Programa Ecuador Carbono Cero (Acuerdo MAAE-2021-018), Ley Orgánica de Economía Circular Inclusiva, Ley Orgánica de Eficiencia Energética | see `register/register.csv` | F7: register row only. |
+
+### Blocked from the cloud address
+
+- `https://www.ambiente.gob.ec/` (and its `wp-content/uploads` PDFs): `curl: (000)`, the proxy answers `CONNECT tunnel failed, response 502`; `https://www.recursosyenergia.gob.ec/`: the same. So the domain that now serves the texts of the ministry (MAATE, absorbed into the Ministerio de Energía y Minas under Decretos Ejecutivos 60 and 94 of 2025) could not be confirmed; no ministry text was read from it.
+- `https://www.gob.ec/` to `curl`: empty reply or HTTP/2 PROTOCOL_ERROR (see above); opens in Chromium. The portal's search page `https://www.gob.ec/regulaciones?search_api_fulltext=consumidor` answers Chromium `403`.
+- `https://www.bolsadequito.com/`: `406 226 text/html` to `curl -A 'Mozilla/5.0'`, `200 197323` to a full Chrome User-Agent; no terms page was found, so no row.
+- `https://www.registroficial.gob.ec/` answers `200 186643 text/html`, but it serves edition summaries (for example https://www.registroficial.gob.ec/registro-oficial-no-733/) and no gazette PDF; its only linked file is a user manual and the filing application at `https://esacc.corteconstitucional.gob.ec/app/` needs a login. `wp-json` answers `401 MISSING_AUTHORIZATION_HEADER`. No request that returns a gazette PDF was found, so no `EC-REGISTROFICIAL` row was added.
+- `https://www.supercias.gob.ec/portalscvs/index.htm`: `200 248924 text/html`, no terms or copyright page linked; no SCVS resolution text was fetched, so no row. `https://www.lexis.com.ec` answers 200 and is private: never a row.
