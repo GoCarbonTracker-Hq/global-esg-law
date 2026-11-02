@@ -1,0 +1,106 @@
+[
+  {
+    "id": "es-ley-11-2018",
+    "title": "Ley 11/2018, de 28 de diciembre, por la que se modifica el Código de Comercio, el texto refundido de la Ley de Sociedades de Capital y la Ley 22/2015, de Auditoría de Cuentas, en materia de información no financiera y diversidad",
+    "official_url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2018-17989",
+    "citation": "Ley 11/2018, de 28 de diciembre (BOE núm. 314, de 29 de diciembre de 2018, BOE-A-2018-17989); amends Código de Comercio art. 49 and Ley de Sociedades de Capital art. 262",
+    "in_force": "2018-12-30",
+    "evidence": "Disposición final séptima: \"Esta Ley entrará en vigor el día siguiente al de su publicación en el «Boletín Oficial del Estado».\" Published 2018-12-29 (BOE núm. 314); the BOE record states fecha_vigencia 20181230. Opened https://www.boe.es/diario_boe/xml.php?id=BOE-A-2018-17989 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is the whole Ley as published, in Spanish (adopted) and in Catalan, Galician and Basque (BOE supplements of 2018-12-29, translation records dated the Spanish version). The BOE consolidated API answers 404 for BOE-A-2018-17989 because the Ley amends other texts and has no consolidated text of its own; the amended provisions (Código de Comercio art. 49, Ley de Sociedades de Capital art. 262, Ley 22/2015) sit in those codes, which are not in scope here, so there is no consolidated record. Real Decreto-ley 18/2017 (BOE-A-2017-13643) was its antecedent and is not in scope. The CSRD transposition that will replace this regime is only an anteproyecto on the official pages found (see the register row on the 2024 Consejo de Estado opinion). The Valencian supplement exists and is not stored. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English'). No English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "es-ley-7-2021",
+    "title": "Ley 7/2021, de 20 de mayo, de cambio climático y transición energética",
+    "official_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447",
+    "citation": "Ley 7/2021, de 20 de mayo (BOE núm. 121, de 21 de mayo de 2021, BOE-A-2021-8447); art. 32 climate risk reporting by financial entities and listed companies",
+    "in_force": "2021-05-22",
+    "evidence": "Disposición final: \"La presente ley entrará en vigor el día siguiente al de su publicación en el «Boletín Oficial del Estado».\" Published 2021-05-21 (BOE núm. 121); the BOE record states fecha_vigencia 20210522. Opened https://www.boe.es/diario_boe/xml.php?id=BOE-A-2021-8447 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-CONSOLIDATED",
+      "ES-BOE-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole Ley. Records: as published (es) and three BOE consolidated versions (2021-05-22, 2025-12-05 after Ley 9/2025, 2026-07-01 after Real Decreto-ley 18/2026); the co-official supplements (ca, gl, eu) exist only as published and are stored as translation records dated 2021-05-22. Disposición final duodécima is implemented by Real Decreto 214/2025 (es-rd-214-2025). Art. 32 is part of the whole-Ley text; no part of the Ley is cut out. The Valencian supplement exists and is not stored. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English') and by web search for an English version on the MITECO site (none found). No English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "es-ley-1-2005",
+    "title": "Ley 1/2005, de 9 de marzo, por la que se regula el régimen del comercio de derechos de emisión de gases de efecto invernadero",
+    "official_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2005-3941",
+    "citation": "Ley 1/2005, de 9 de marzo (BOE núm. 59, de 10 de marzo de 2005, BOE-A-2005-3941)",
+    "in_force": "2005-03-11",
+    "evidence": "Disposición final cuarta: \"La presente Ley entrará en vigor el día siguiente al de su publicación en el «Boletín Oficial del Estado».\" Published 2005-03-10 (BOE núm. 59); the BOE record states fecha_vigencia 20050311. Opened https://www.boe.es/diario_boe/xml.php?id=BOE-A-2005-3941 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole Ley: as published (es) and ten BOE consolidated versions, 2005-03-11 to 2020-12-18, as the BOE open-data API lists them on 2026-11-02 (its latest version date is 2020-12-18 although the record was updated 2026-02-20). Co-official supplements exist at /boe_catalan/dias/2005/03/16/ and /boe_gallego/dias/2005/04/01/ (Catalan and Galician) but are two-column PDFs: poppler returned the text out of order (article headings out of sequence in the Galician and Catalan extractions), so none is stored. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English') and by web search for an English version on the MITECO site (none found). No English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "es-rd-214-2025",
+    "title": "Real Decreto 214/2025, de 18 de marzo, por el que se crea el registro de huella de carbono, compensación y proyectos de absorción de dióxido de carbono y por el que se establece la obligación del cálculo de la huella de carbono y de la elaboración y publicación de planes de reducción de emisiones de gases de efecto invernadero",
+    "official_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-7439",
+    "citation": "Real Decreto 214/2025, de 18 de marzo (BOE núm. 89, de 12 de abril de 2025, BOE-A-2025-7439)",
+    "in_force": "2025-06-12",
+    "evidence": "Disposición final: \"El presente real decreto entrará en vigor a los dos meses de su publicación en el «Boletín Oficial del Estado».\" Published 2025-04-12 (BOE núm. 89); the BOE record states fecha_vigencia 20250612 and the consolidated text of Real Decreto 163/2014 says it is repealed \"con efectos de 12 de junio de 2025\" by this Real Decreto. Opened https://www.boe.es/diario_boe/xml.php?id=BOE-A-2025-7439 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-CONSOLIDATED",
+      "ES-BOE-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces Real Decreto 163/2014 (the earlier, voluntary register, register row only) and sets the obligation to calculate the carbon footprint and publish reduction plans (Ley 7/2021 disposición final duodécima, es-ley-7-2021). The brief listed only the voluntary Real Decreto 163/2014; this instrument was found on the official page of that Real Decreto. One consolidated version is served; the BOE open-data API dates it 2025-06-14, two days after the in-force date the BOE record states (2025-06-12); the record keeps the API date. The Catalan supplement of 2025-04-12 is stored as a translation record dated 2025-06-12; the BOE help page names only leyes, reales decretos-leyes and reales decretos legislativos as published in co-official languages, but this Real Decreto has a Catalan PDF on the BOE site. No Galician or Basque PDF is listed in the BOE record. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English') and by web search for an English version on the MITECO site (none found). No English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "es-ley-3-1991",
+    "title": "Ley 3/1991, de 10 de enero, de Competencia Desleal",
+    "official_url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+    "citation": "Ley 3/1991, de 10 de enero (BOE núm. 10, de 11 de enero de 1991, BOE-A-1991-628)",
+    "in_force": "1991-01-31",
+    "evidence": "The text carries no commencement clause. The BOE record states fecha_vigencia 19910131 (published 1991-01-11), opened at https://www.boe.es/diario_boe/xml.php?id=BOE-A-1991-628 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole Ley: as published (es) and thirteen BOE consolidated versions, 1991-01-31 to 2025-12-28. General unfair-competition law (misleading acts, art. 5); the brief asked to confirm a 2025 amendment for environmental claims (Directive (EU) 2024/825, transposition deadline 2026-03-27): the latest consolidated version served (2025-12-28) contains no provision on environmental claims, and no transposing instrument was found on the official pages, so no amendment is recorded. The Catalan supplement of 1991-12-31 exists but is a two-column PDF whose text order poppler did not keep reliably; not stored. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English'). No English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "es-rdl-1-2007",
+    "title": "Real Decreto Legislativo 1/2007, de 16 de noviembre, por el que se aprueba el texto refundido de la Ley General para la Defensa de los Consumidores y Usuarios y otras leyes complementarias",
+    "official_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+    "citation": "Real Decreto Legislativo 1/2007, de 16 de noviembre (BOE núm. 287, de 30 de noviembre de 2007, BOE-A-2007-20555)",
+    "in_force": "2007-12-01",
+    "evidence": "Disposición final segunda: \"El presente real decreto legislativo y el texto refundido que aprueba entrarán en vigor el día siguiente al de su publicación en el «Boletín Oficial del Estado».\" Published 2007-11-30 (BOE núm. 287). Opened https://www.boe.es/diario_boe/xml.php?id=BOE-A-2007-20555 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ES-BOE-ADOPTED",
+      "ES-BOE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole text: as published (es) and twenty-five BOE consolidated versions, 2007-12-01 to 2026-02-28. General consumer law (misleading and unfair commercial practices, consumer information); the brief asked to confirm a 2025 amendment for environmental claims (Directive (EU) 2024/825): the latest consolidated version served contains no provision on environmental claims and no transposing instrument was found on the official pages, so none is recorded. The Catalan and Galician supplements of 2007-12-01 exist but are two-column PDFs whose text order poppler did not keep reliably; not stored. No government English version found: looked at the BOE Biblioteca Jurídica Digital pages (https://www.boe.es/biblioteca_juridica/, no English translation of this instrument listed; the works there are CC BY-NC-ND 4.0 and the row ES-BOE-EN-TRANSLATION is permission requested), at the BOE page of the instrument (the BOE consolidated pages answer 'Content not available in English'). No English record is stored.",
+    "status": "stored"
+  }
+]

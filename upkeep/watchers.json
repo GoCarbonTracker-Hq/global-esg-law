@@ -1820,6 +1820,423 @@
   }
  },
  {
+  "id": "th-cmsb-tor-jor-55-2563-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-cmsb-tor-jor-55-2563",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://publish.sec.or.th/nrs/8617se.pdf",
+  "params": {
+   "second_route": "https://publish.sec.or.th/nrs/8617se.pdf (browser; publish.sec.or.th answers scripts with 403 Block Response)"
+  }
+ },
+ {
+  "id": "th-sec-issb-notifications-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-sec-issb-notifications",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.or.th",
+  "params": {
+   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)"
+  }
+ },
+ {
+  "id": "th-sea-2535-s56-krisdika-page",
+  "source_id": "TH-KRISDIKA-CONSOLIDATED",
+  "iso2": "TH",
+  "instrument": "th-sea-2535-s56",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.krisdika.go.th",
+  "params": {
+   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)"
+  }
+ },
+ {
+  "id": "id-pojk-51-2017-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-51-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-seojk-16-2021-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-seojk-16-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-perpres-98-2021-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-perpres-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/187122",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-permen-lhk-21-2022-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-permen-lhk-21-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/235421/permen",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-pojk-14-2023-page",
+  "source_id": "ID-OJK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-pojk-14-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ojk.go.id/id/regulasi",
+  "params": {
+   "second_route": "https://ojk.go.id/id/regulasi (browser from a laptop; connection reset from the cloud address on 2026-11-02)"
+  }
+ },
+ {
+  "id": "id-uu-4-2023-p2sk-page",
+  "source_id": "ID-BPK-ADOPTED",
+  "iso2": "ID",
+  "instrument": "id-uu-4-2023-p2sk",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023",
+  "params": {
+   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+  }
+ },
+ {
+  "id": "nl-klimaatwet-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-klimaatwet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-besluit-bekendmaking-niet-financiele-informatie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-besluit-bekendmaking-niet-financiele-informatie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0039355/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-bw2-art391-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-bw2-art391",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003045/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wm-titel-16-2-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wm-titel-16-2",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003245/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wet-co2-heffing-industrie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wet-co2-heffing-industrie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0044578/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "es-ley-11-2018-boe-record",
+  "source_id": "ES-BOE-ADOPTED",
+  "iso2": "ES",
+  "instrument": "es-ley-11-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2018-17989"
+ },
+ {
+  "id": "es-ley-7-2021-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-7-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-1-2005-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-1-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2005-3941",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rd-214-2025-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rd-214-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-7439",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-ley-3-1991-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-ley-3-1991",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1991-628",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "es-rdl-1-2007-boe-versions",
+  "source_id": "ES-BOE-CONSOLIDATED",
+  "iso2": "ES",
+  "instrument": "es-rdl-1-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555",
+  "params": {
+   "regex": "p=(\\d{8})"
+  }
+ },
+ {
+  "id": "se-arl-ch6-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch6",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-arl-ch7-s31-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch7-s31",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-sfs-2024-347-sfs-head",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "se-sfs-2024-347",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://svenskforfattningssamling.se/doc/2024347.html",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/doc/2024347.html (browser; svenskforfattningssamling.se answers scripts with HTTP 403, a Cloudflare block page)"
+  }
+ },
+ {
+  "id": "se-klimatlag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatlag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:720",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatpolitiska-radet-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatpolitiska-radet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1268",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatrapporteringsforordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatrapporteringsforordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2014:1434",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-act-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1173",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-ordinance-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1180",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:787",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:789",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1201",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2025:589",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "terms-se-riksdagen-consolidated",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/riksdagens-oppna-data/anvandarstod/anvandningsvillkor/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-se-sfs-adopted",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://svenskforfattningssamling.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/ (browser; answers scripts with HTTP 403, a Cloudflare block page; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "terms-se-government-translation",
+  "source_id": "SE-GOVERNMENT-TRANSLATION",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.government.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)"
+  }
+ },
+ {
   "id": "it-dlgs-125-2024-normattiva-updates",
   "source_id": "IT-NORMATTIVA-CONSOLIDATED",
   "iso2": "IT",
