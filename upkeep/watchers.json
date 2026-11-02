@@ -1818,5 +1818,134 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "it-dlgs-125-2024-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-125-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2024-09-10&atto.codiceRedazionale=24G00145&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2024/09/10/24G00145/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-254-2016-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-254-2016",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2017-01-10&atto.codiceRedazionale=17G00002&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2017/01/10/17G00002/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-30-2013-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-30-2013",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2013-04-04&atto.codiceRedazionale=13G00075&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2013/04/04/13G00075/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-47-2020-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-47-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2020-06-10&atto.codiceRedazionale=20G00065&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2020/06/10/20G00065/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dl-111-2019-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dl-111-2019",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2019-10-14&atto.codiceRedazionale=19G00125&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2019/10/14/19G00125/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-l-141-2019-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-l-141-2019",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2019-12-13&atto.codiceRedazionale=19G00148&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2019/12/13/19G00148/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-dlgs-30-2026-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-dlgs-30-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2026-03-09&atto.codiceRedazionale=26G00047&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2026/03/09/26G00047/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-codice-consumo-arts-20-27-normattiva-updates",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "it-codice-consumo-arts-20-27",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2005-10-08&atto.codiceRedazionale=005G0232&tipoDettaglio=multivigenza&qId=",
+  "params": {
+   "regex": "ultimo aggiornamento all'atto:\\s*<a href=\"[^\"]*atto\\.dataVigenza=(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.normattiva.it/eli/id/2005/10/08/005G0232/CONSOLIDATED (browser; click 'aggiornamenti all'atto')"
+  }
+ },
+ {
+  "id": "it-consob-23463-gu-page",
+  "source_id": "IT-GAZZETTA-ADOPTED",
+  "iso2": "IT",
+  "instrument": "it-consob-23463",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG",
+  "params": {
+   "second_route": "https://www.gazzettaufficiale.it/eli/id/2025/03/21/25A01757/SG (browser)"
+  }
+ },
+ {
+  "id": "it-normattiva-legal-notice",
+  "source_id": "IT-NORMATTIVA-CONSOLIDATED",
+  "iso2": "IT",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.normattiva.it/staticPage/legal",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.normattiva.it/staticPage/legal (browser)"
+  }
  }
 ]
