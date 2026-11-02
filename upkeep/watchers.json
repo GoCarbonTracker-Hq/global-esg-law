@@ -3244,6 +3244,326 @@
   }
  },
  {
+  "id": "cz-accounting-act-sustainability-reporting-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-accounting-act-sustainability-reporting",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1991/563 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-act-316-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-act-316-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F316/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/316 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-act-383-2012-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-act-383-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2012/383 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-decree-103-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-decree-103-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/103 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-indirect-cost-compensation-order-565-2020-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-indirect-cost-compensation-order-565-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2020%2F565/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2020/565 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-consumer-protection-act-634-1992-s4-5a-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-consumer-protection-act-634-1992-s4-5a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1992%2F634/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1992/634 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "pt-dl-89-2017-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-89-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2017/07/14500/0426704271.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/89-2017-107773645 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-dl-98-2024-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-98-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2024/11/23200/0001500033.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/98-2024-898378509 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-lei-98-2021-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-lei-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-12-2020-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-12-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-182-2026-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-182-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-57-2008-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-57-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "hu-esg-act-2023-cviii-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-act-2023-cviii",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2023-108-00-00",
+  "params": {}
+ },
+ {
+  "id": "hu-accounting-act-2000-c-njt-page",
+  "source_id": "HU-NJT-CONSOLIDATED",
+  "iso2": "HU",
+  "instrument": "hu-accounting-act-2000-c",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2000-100-00-00",
+  "params": {}
+ },
+ {
+  "id": "hu-climate-act-2020-xliv-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-climate-act-2020-xliv",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2020-44-00-00",
+  "params": {}
+ },
+ {
+  "id": "hu-ets-act-2012-ccxvii-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-ets-act-2012-ccxvii",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2012-217-00-00",
+  "params": {}
+ },
+ {
+  "id": "hu-ucp-act-2008-xlvii-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-ucp-act-2008-xlvii",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2008-47-00-00",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-sztfh-13-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-sztfh-13-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-13-20-8K",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-sztfh-12-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-sztfh-12-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-12-20-8K",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-korm-276-2025-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-korm-276-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2025-276-20-22",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-korm-424-2025-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-korm-424-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2025-424-20-22",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-sztfh-15-2025-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-sztfh-15-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2025-15-20-8K",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-sztfh-11-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-sztfh-11-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-11-20-8K",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-ngm-29-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-ngm-29-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-29-20-2X",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-ngm-30-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-ngm-30-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-30-20-2X",
+  "params": {}
+ },
+ {
+  "id": "hu-esg-korm-244-2024-njt-page",
+  "source_id": "HU-MKOZLONY-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-esg-korm-244-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://njt.jog.gov.hu/jogszabaly/2024-244-20-22",
+  "params": {}
+ },
+ {
+  "id": "hu-mnb-rec-2-2026-pdf-head",
+  "source_id": "HU-MNB-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-mnb-rec-2-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mnb.hu/letoltes/2-2026-zoldi-banki-ajanlas.pdf",
+  "params": {}
+ },
+ {
+  "id": "hu-mnb-rec-16-2025-pdf-head",
+  "source_id": "HU-MNB-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-mnb-rec-16-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mnb.hu/letoltes/16-2025-bef-alapok-nevhasznalat-ajanlas.pdf",
+  "params": {}
+ },
+ {
+  "id": "hu-mnb-rec-12-2023-pdf-head",
+  "source_id": "HU-MNB-ADOPTED",
+  "iso2": "HU",
+  "instrument": "hu-mnb-rec-12-2023",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mnb.hu/letoltes/12-20123-biztositoi-zold-ajanlas.pdf",
+  "params": {}
+ },
+ {
   "id": "fi-kirjanpitolaki-sustainability-reporting-finlex-versions",
   "source_id": "FI-FINLEX-CONSOLIDATED",
   "iso2": "FI",

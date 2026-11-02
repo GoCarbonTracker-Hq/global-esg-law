@@ -1472,6 +1472,215 @@ Law-firm, audit-firm and NGO translations turned up in the searches and are neve
 
 No site was blocked from the cloud address: retsinformation.dk, api.retsinformation.dk, en.kefm.dk, kfst.dk, forbrugerombudsmanden.dk and erhvervsstyrelsen.dk all answered.
 
+## Czechia
+
+Rows `CZ-ESBIRKA-ADOPTED` (as-published text) and `CZ-ESBIRKA-CONSOLIDATED` (time versions), both `pass` on the statute basis (Copyright Act 121/2000 Sb. § 3 písm. a)). The consolidated row is flagged in its notes for Varun: the statute covers the text of a právní předpis, and whether an e-Sbírka time version made by the portal falls inside it is a reading, not a settled point. e-Sbírka has no terms-of-use page and names no licence. Run on 2026-11-02. Language: Czech only. No government English translation was found, so there is no translation row.
+
+The web pages of https://e-sbirka.gov.cz are a JavaScript application: curl returns a 1040-byte shell.
+
+```
+curl -sS -L -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://e-sbirka.gov.cz/sb/2012/383
+```
+
+Returned `200 1040 text/html`. The keyed public API (`https://api.e-sbirka.gov.cz`) wants a registered key: `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://api.e-sbirka.gov.cz/dokumenty-sbirky/%2Fsb%2F2012%2F383'` returned `401 119 application/json;charset=UTF-8` (`NEPLATNY_API_KLIC`). What works without a key is the JSON endpoint that the web application itself calls, under `https://e-sbirka.gov.cz/sbr-cache/`. No browser is needed. The e-Sbírka pages warn that identifiers of fragments and parts of the data structure may change until 2027-01-15 (https://e-sbirka.gov.cz/aktuality/20150), so a fragment id is never stored.
+
+Request 1, the list of time versions of an act (Act 383/2012 Sb.; the stale URL `/sb/2012/383` is percent-encoded as `%2Fsb%2F2012%2F383`):
+
+```
+curl -sS -L -o h.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie'
+```
+
+Returned `200 2858 application/json`: one entry per version with `datumUcinnostiZneniOd`, `typZneni` (`AKTUALNI`, `MINULE`, `BUDOUCI`, `MINULE_CASTECNE_UCINNE`, `MINULE_NEUCINNE` for a version that never took effect, `VYHLASENE` for the as-published text), `staleUrl` and the amending acts (`novely`).
+
+Request 2, row `CZ-ESBIRKA-CONSOLIDATED`, the text of the version effective 2026-01-01 (append the date to the stale URL):
+
+```
+curl -sS -L -o p0.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383%2F2026-01-01/fragmenty?cisloStranky=0'
+```
+
+Returned `200 758950 application/json`. The answer holds `pocetStranek` (here 1) and `seznam`, a list of fragments in document order, each with `kodTypuFragmentu` (`Cast`, `Paragraf`, `Nadpis_pod`, `Odstavec_Dc`, `Pismeno_Lb`, `Bod_Dd`, `PPC` for footnotes, ...), `hloubka` and `xhtml` (the text with inline tags). Larger acts are served in several pages: Act 563/1991 Sb. page 0 returned 1068765 bytes and `curl ... 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/fragmenty?cisloStranky=1'` returned `200 72329 application/json`.
+
+Request 3, row `CZ-ESBIRKA-ADOPTED`, the as-published text (date part `0000-00-00`), Decree 103/2025 Sb.:
+
+```
+curl -sS -L -o a103.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103%2F0000-00-00/fragmenty?cisloStranky=0'
+```
+
+Returned `200 63426 application/json`, sha256 `151adcc89b3ac110b35e7cbc0816e2b09be99bb4568851fa5f77aa0e70b5c894`. Two fetches of `https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/fragmenty?cisloStranky=0` gave the same hash (`18447bc326e7a5a47c050b26af3722d8b57a6dd01354dc78dcab06002b1cd978`), so `fetched_sha256` reproduces; the response carries no per-request token. For an act served in several pages, `fetched_url` is the URL of page 0 and `fetched_sha256` is the sha256 of the page responses concatenated in page order.
+
+Text extraction: one line per fragment that has `xhtml`, in document order; `<br>` as a line break, all other tags stripped, character entities unescaped, runs of spaces collapsed; nothing reworded. Fragments of type `PPC` (footnotes) are kept for whole instruments and left out of cut records. The as-published record of an act is dated the first date any provision took effect (the earliest version that is not `VYHLASENE` or `MINULE_NEUCINNE`). A time version is stored only when its text differs from the previous stored text of that instrument, so the dates below are the dates the text changed. A published version that has not taken effect (`BUDOUCI`) is stored dated its in-force date when its text differs.
+
+Cut records: `cz-accounting-act-sustainability-reporting` is Part Eight of Act 563/1991 Sb. (from the `Cast` fragment whose next fragment is the heading UVÁDĚNÍ NEFINANČNÍCH INFORMACÍ or ZPRÁVA O UDRŽITELNOSTI up to the next `Cast`); `cz-consumer-protection-act-634-1992-s4-5a` runs from the `Paragraf` fragment `§ 4` to the one before `§ 5b` (before `§ 6` in versions without `§ 5b`).
+
+Stored (fetched 2026-11-02, all Czech, `cs`):
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `cz-accounting-act-sustainability-reporting` | consolidated | 2017-01-01, 2024-01-01, 2025-09-03, 2026-01-01 |
+| `cz-act-316-2025` | adopted | 2025-09-03 |
+| `cz-ets-act-383-2012` | adopted, consolidated | 2012-11-16 (adopted); 2015-01-01, 2017-07-01, 2020-01-03, 2021-01-01, 2022-02-01, 2024-04-10, 2025-01-01, 2026-01-01 |
+| `cz-ets-decree-103-2025` | adopted | 2025-04-16 |
+| `cz-ets-indirect-cost-compensation-order-565-2020` | adopted, consolidated | 2021-01-01 (adopted); 2022-03-01, 2022-07-01, 2023-01-01, 2026-08-14, 2027-01-01 (published, not in force on 2026-11-02) |
+| `cz-consumer-protection-act-634-1992-s4-5a` | consolidated | 2008-02-12, 2015-12-28, 2023-01-06 |
+
+### Languages
+
+Czech is the only official language. e-Sbírka serves no English text of Czech acts: its FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only. A web search for English texts of Act 563/1991 and Act 383/2012 returned third-party machine translations only; https://www.mzp.gov.cz (Ministry of the Environment) answered curl with `403 30758 text/html; charset=UTF-8` (blocked from the cloud address: https://www.mzp.gov.cz/en). The Ministry of Finance and Ministry of the Interior English home pages answered 200 (`https://www.mfcr.cz/en/` 105754 bytes, `https://www.mvcr.cz/mvcren/` 19811 bytes); only their home pages were opened and no translation was looked for inside them. No translation row exists, and a translation published by a law firm, an exchange, an NGO or a news site is never stored.
+
+### Link only
+
+None. Every scope instrument has records.
+
+### Not in scope and not used
+
+- Sbírka zákonů archive (`https://aplikace.mvcr.cz/sbirka-zakonu/` answers `301` to `https://aplikace.mv.gov.cz/sbirka-zakonu/`, which answered `404 34455 text/html; charset=utf-8` for the root path): no PDF was needed, because e-Sbírka serves the as-published text of every instrument above as structured fragments, and no row exists for the archive. The `pdftotext` recipe was not used.
+- psp.cz (Poslanecká sněmovna), the bill pages: blocked from the cloud address. `curl -sS -m 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.psp.cz/sqw/historie.sqw?o=10&T=279'` ended with `curl: (35) Recv failure: Connection reset by peer`. Nothing is stored from it and no row exists. The orchestrator can try it from the laptop.
+- Česká národní banka, https://www.cnb.cz/cs/ answered `200 104560 text/html;charset=UTF-8` (after a `307` from the bare host). No ČNB instrument was examined, so there is no ČNB row; whether a ČNB notice on ESG risks is an enacted instrument in F1 to F6 was not established.
+- Government orders that set the yearly budget for indirect-cost compensation (221/2023, 203/2024, 260/2025, 136/2026 Sb.): single-year amounts, no entry.
+- Government bill sněmovní tisk 279 (amends 563/1991 Sb. again): not enacted on e-Sbírka on 2026-11-02; stays a proposal in `register/register.csv`.
+- Acts 349/2023 Sb. (consolidation package, hundreds of articles) and 462/2016 Sb. are not entries: what they added to Act 563/1991 Sb. is in the Part Eight records.
+
+Watchers: one `date_list` per scope instrument on the `historie` URL of the act (regex on `datumUcinnostiZneniOd`), tier `consolidation_site`, `second_route` the browser page of the act. `python3 tools/watch.py --dry-run --source CZ-ESBIRKA-CONSOLIDATED` and `--source CZ-ESBIRKA-ADOPTED` ran with 0 failures.
+
+## Portugal
+
+Rows `PT-DRE-ADOPTED` and `PT-DRE-CONSOLIDATED` (both `pass`, statute: Código do Direito de Autor e dos Direitos Conexos art. 8 n.º 1 read with art. 3 n.º 1 alínea c); the reading is in the row notes and in the PR). Run on 2026-11-02. Language: Portuguese only; no government English translation of any instrument in scope was found (diariodarepublica.pt offers Portuguese only; portugal.gov.pt, gov.pt and apambiente.pt were searched), so there is no translation row.
+
+diariodarepublica.pt is an OutSystems application: curl gets the same JavaScript shell for every page.
+
+```
+curl -sS -L -o stat.html -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/detalhe/decreto-lei/12-2020-131124444
+```
+
+Returned `200 2346 text/html; charset=utf-8` (the shell, no law text). What works from the cloud address with plain curl is the JSON the page itself loads, a POST to `/dr/screenservices/dr/...`. It needs the header `X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=` (a fixed value that the site accepted on every run, with no cookie; without the header the answer is `301`) and the `moduleVersion` and `apiVersion` tokens of the build. A redeploy changes the tokens: the answer then carries `hasModuleVersionChanged` or `hasApiVersionChanged` true. The current `moduleVersion` is at `https://diariodarepublica.pt/dr/moduleservices/moduleversioninfo`; the `apiVersion` of each action is in the request the page sends (headless Chromium, Playwright, request log). Headless Chromium was used only to find these requests, to look keys up with the site search, and to read the terms page; no record is a browser fetch.
+
+Row `PT-DRE-ADOPTED`, act as published, Decreto-Lei n.º 12/2020 (`Tipo` and `Key` come from the detail page URL `/dr/detalhe/<Tipo>/<Key>`):
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"B3l5BYZxaLmWUxGR3tmKGw"},"viewName":"Legislacao_Conteudos.Conteudo_Detalhe","screenData":{"variables":{"Tipo":"decreto-lei","_tipoInDataFetchStatus":1,"Key":"12-2020-131124444","_keyInDataFetchStatus":1,"ParteId":"","_parteIdInDataFetchStatus":1}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_adopted.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/Legislacao_Conteudos/Conteudo_Detalhe/DataActionGetAllConteudoDetalheData
+```
+
+Returned `200 257938 application/json; charset=utf-8`, sha256 `46fc0c4e6d20aa34907d5a6503bde9656abd9f209fa2be4122cb0ae4dc01f732`, the same as `fetched_sha256` of the record `2020-04-07-adopted-pt.json`; a second run gave the same hash (no per-request token in the response). The act is `data.DetalheConteudo.Texto`; `URL_PDF` in the same answer names the gazette PDF (`https://files.diariodarepublica.pt/1s/2020/04/06800/0000300030.pdf`, `curl` answers `200 2625333 application/pdf`).
+
+Row `PT-DRE-CONSOLIDATED`, the consolidated text of the same decree-law as of 2024-12-09 (`DiplomaLegisId` and `DiplomaFragId` are read from the consolidated page `/dr/legislacao-consolidada/<Tipo>/<Key>`, the page link "Versão Consolidada" on the detail page; the answer lists the fragments of the text in force on `DataSelecionada`):
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"d7Rxuzmh_VE2+P7mpys+Ew"},"viewName":"LegislacaoConsolidada.LegCons_Detalhe","screenData":{"variables":{"DiplomaLegisId":"131124444","DiplomaFragId":"131177506","DataSelecionada":"2024-12-09","DataAux":"2024-12-09","Ano":2020,"Tipo":"decreto-lei","Key":"2020-131177506","GetDiplomaFragByIdAndApplicationSetting":{}}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_cons.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/LegCons_Detalhe/DataActionGetData
+```
+
+Returned `200 290217 application/json; charset=utf-8`, sha256 `aa4b733372e28c9b6918b55635573a792c6873ed19be84390973c9a4ee87da34`, equal to `fetched_sha256` of `2024-12-09-consolidated-pt.json`. Without the `GetDiplomaFragByIdAndApplicationSetting` key the action answers a `NullReferenceException`. The dates of the consolidations come from the list of changes of the page:
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"kqtmWKfgghZe4WM2Y1nYAQ"},"viewName":"LegislacaoConsolidada.LegCons_Detalhe","screenData":{"variables":{"DiplomaLegisId":"131124444","DiplomaFragId":"131177506","Data":"2026-11-02"}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_timeline.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag
+```
+
+Returned `200 24775 application/json; charset=utf-8`: each amending act with `DataPublicacao` and, per changed provision, `DataEntradaVigor` (`1900-01-01` means the page gives no date). The candidate versions are the distinct `DataEntradaVigor` dates plus the in-force date of the act; `DataSelecionada` set to each gives that day's text.
+
+Text extraction: for the published act, `Texto` with HTML tags removed (table rows and cells as lines, entities decoded, runs of spaces collapsed, blank lines dropped) and the trailing DRE document number (a bare 8-9 digit line at the end of `Texto`) removed; for a consolidation, the fragments of `data.LegConsBase.List` in order, each as its heading (`Tituo`), its `Epigrafe` and its `Texto`, cleaned the same way. Nothing reworded. A consolidation is stored only when its text differs from the previous stored consolidation; the first consolidation of an act is stored only when its body differs from the published act (headings in capitals and the title and signature lines aside). Checked on the day: for the six published acts the gazette PDF (`pdftotext`, default mode) was compared word by word; the stored text has none of the PDF words that belong to the act (the words only in the PDF come from other acts printed on the same gazette pages) and no U+FFFD character, so no mojibake.
+
+Stored (fetched 2026-11-02), all `pt`:
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `pt-dl-89-2017` | adopted | 2017-08-02 |
+| `pt-lei-98-2021` | adopted, consolidated | 2022-02-01 (adopted), 2025-04-01 |
+| `pt-dl-12-2020` | adopted, consolidated | 2020-04-07 (adopted), 2021-12-16, 2024-12-09 |
+| `pt-dl-98-2024` | adopted | 2024-12-04 |
+| `pt-dl-182-2026` | adopted, consolidated | 2026-09-15 (both; the consolidation carries Declaração de Retificação n.º 33-A/2026/1) |
+| `pt-dl-57-2008` | adopted, consolidated | 2008-04-01 (adopted), 2015-09-24, 2021-07-28, 2022-05-28, 2023-04-03 |
+
+Dates: where an act has no entry-into-force article (Decreto-Lei n.º 89/2017, 98/2024, 182/2026) the date is the 5.º dia após a publicação of Lei n.º 74/98 art. 2 n.º 2, counted from the day after publication. DRE itself states 2024-12-04 for Decreto-Lei n.º 98/2024 (in the changes of the repealed Decreto-Lei n.º 93/2010); for the other two no DRE page states a date.
+
+### Languages
+
+Portuguese is the only official language of the Diário da República. No government English translation of any of the six instruments was found on 2026-11-02 (diariodarepublica.pt, portugal.gov.pt, gov.pt, apambiente.pt), so no translation row and no English record exists.
+
+### Link only
+
+None: all six scope entries are stored. Not in scope:
+
+- A decree-law transposing the CSRD (Directive (EU) 2022/2464): none found. The Diário da República search for "Diretiva (UE) 2022/2464" on 2026-11-02 returned two unrelated 2026 instruments. The existing register row (a gov.pt notice) stays as a notice. The claim on opencapital.pt that Decreto-Lei n.º 89/2024 transposed the CSRD is wrong: that decree-law (2024-11-18) amends the asset management regime.
+- CMVM (cmvm.pt): no CMVM instrument on sustainability reporting was identified that is an enacted instrument, so no row. The home page answers (`200`), the guessed legal-notice URLs answer `404`; the terms were not read.
+- Decreto-Lei n.º 93/2010 (aviation ETS): repealed by Decreto-Lei n.º 98/2024 (DRE Vigência NAO_VIGENTE).
+- Código das Sociedades Comerciais (Art. 66.º-B, 508.º-G and related, amended by Decreto-Lei n.º 89/2017): not stored; the Code is a large act and the articles would have to be cut out of its consolidation as the Swiss Code of Obligations divisions are.
+- Implementing orders of the CELE (portarias, for example Portaria n.º 203/2021): not searched beyond the title.
+
+### Blocked
+
+No Portuguese site was blocked: diariodarepublica.pt, data.dre.pt (ELI redirects), files.diariodarepublica.pt and cmvm.pt answered. `https://eur-lex.europa.eu/eli/dir/2022/2464/oj/por` answered curl with `202 0 text/html` (empty challenge body); it was not needed (blocked from the cloud address: https://eur-lex.europa.eu/ ).
+
+## Hungary
+
+Run on 2026-11-02 (GEL-05-10). One row passes: `HU-MKOZLONY-ADOPTED` (statute basis: Szjt. 1. § (4), 1999. évi LXXVI. törvény; the portal publishes no reuse terms). Three rows are `permission requested`: `HU-NJT-CONSOLIDATED` (the Nemzeti Jogszabálytár terms reserve all rights, bar database building, bulk download and commercial use), `HU-NJT-TRANSLATION` (English translations, information only, commercial use needs permission) and `HU-MNB-ADOPTED` (the MNB legal notice allows only distribution of unchanged content). So only as-published texts from Magyar Közlöny are stored; every consolidated version is link only. Language: Hungarian only. No browser recipe was needed: every host that answered at all answered `curl`.
+
+Step 1, row `HU-MKOZLONY-ADOPTED`: the month listing gives the issues of a month with publication date and the PDF link (page size is 10 issues; `page=2`, `page=3` follow; the `datePublished` meta of each entry is the issue date):
+
+```
+curl -sS -G -o list_2023_12.html --data-urlencode 'year=2023' --data-urlencode 'month=12' -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/
+```
+
+Returned `200 51123 text/html; charset=UTF-8`. The issue is the one dated the promulgation day (the date in a decree's number, or the "kihirdetés napja" footnote of an act) that holds the instrument heading.
+
+Step 2, Act CVIII of 2023 (the ESG Act), Magyar Közlöny 2023. évi 187. szám, issue dated 2023-12-22:
+
+```
+curl -sS -L -o mk_2023_187.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/hivatalos-lapok/4kRl30n61EB7V7OcUh7M65820c6443b5b/dokumentumok/b5e0520aee1a0db8631efa32546c55a00fd6037c/letoltes
+```
+
+Returned `200 1893667 application/pdf` (390 pages, sha256 `1a9b89435c2c8db02994ea38a61f25b456200013bf8a0d424ce60a04b08e1a6e`). A second fetch of the 2024-08-08 issue and of this one returned the same bytes, so `fetched_sha256` reproduces. The URL tokens change per issue, so they are read from the listing.
+
+Text: `pdftotext -layout mk_2023_187.pdf -` (poppler), runs of spaces collapsed, blank lines dropped, the running page headers (`NNNN M A G Y A R K Ö Z L Ö N Y • YYYY. évi N. szám` and the same with the page number last) dropped, and the text cut from the line that is the instrument heading (`2023. évi CVIII. törvény`, or `A Kormány 244/2024. (VIII. 8.) Korm. rendelete`) to the line before the next instrument heading in the issue. For decrees the trailing issue-section headings (`IV. A Magyar Nemzeti Bank elnökének rendeletei, ...`) are dropped. Line breaks are the PDF's line wraps. Annexes that follow the signatures are kept. The 2013-and-later issues extracted without mojibake (checked: no `õ û Ę Ħ`, only Hungarian letters).
+
+Two older issues needed more, and the stored text for them differs from a plain `pdftotext` run in these ways only:
+
+- Magyar Közlöny 2012. évi 180. szám (Act CCXVII of 2012) and 2008. évi 95. szám (Act XLVII of 2008) use legacy font encodings: `pdftotext` returns `õ` for `ő`, `û` for `ű`, and in 2012 also `Ę` for `ő` and `Ħ` for `ű`. The stored text maps `õ→ő û→ű Ę→ő Ħ→ű` and changes nothing else. Check: the non-ASCII inventory of the extracted text held only these four odd letters plus ordinary Hungarian letters and punctuation, and the ő/ű words of the result are ordinary Hungarian (compared with the words on the NJT pages read; the unmatched ones are inflected forms that do not occur there). Varun to decide whether a repaired extraction counts as the text of the file.
+- The 2008 issue is printed in two columns, which `pdftotext -layout` interleaves, so it was read with plain `pdftotext` (reading order). Its page furniture (`MAGYAR KÖZLÖNY`, `2008/95. szám`, bare page numbers inside the issue's page range) was dropped, and the instrument runs from `2008. évi XLVII.` (heading split over two lines) to `2008. évi XLVIII.`.
+
+```
+curl -sS -L -o mk_2008_95.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://magyarkozlony.hu/hivatalos-lapok/68ecbff29cdc3f653a388acc8e3e1d1cb61d6765/dokumentumok/453afacc6a8cdda0c083bc0ff77050fb3ed08b58/letoltes
+```
+
+Returned `200 1862743 application/pdf`. The records are plain-text extracts of the signed PDF, not the authentic publication itself.
+
+Rows that were opened and not used for storage:
+
+```
+curl -sS -m 60 -o njt.html -w '%{http_code} %{size_download} %{content_type}\n' https://njt.jog.gov.hu/jogszabaly/2023-108-00-00
+```
+
+Returned `200 324996 text/html; charset=UTF-8` (server-rendered consolidated text, current version marked 2026-01-01). Versions: `curl -sS -X POST -d 'documentId=2023-108-00-00' -H 'X-Requested-With: XMLHttpRequest' https://njt.jog.gov.hu/ajax/collectAllDocumentVersion.json` returned `200 1426 application/json` (14 entries; a GET answers 405). A version page is `.../jogszabaly/2023-108-00-00.<version>`. Terms (row `HU-NJT-CONSOLIDATED`): `curl -sS https://jog.gov.hu/felhasznalasi-feltetelek` returned `200 137665 text/html; charset=utf-8`. MNB (row `HU-MNB-ADOPTED`): `curl -sS -L -o mnb.pdf https://www.mnb.hu/letoltes/2-2026-zoldi-banki-ajanlas.pdf` returned `200 965302 application/pdf`; `https://www.mnb.hu/` redirects to `/web/fooldal` (`200 1213414 text/html;charset=UTF-8`). No NJT or MNB text is stored.
+
+Watchers: the instrument watchers hash the NJT page of each instrument (a change of the page means a new consolidated version) and send a HEAD request to each MNB recommendation PDF (`Last-Modified` is present). The NJT terms forbid automated bulk querying; 14 page requests every 14 days are what the watchers add, and the terms are a point for Varun (see the PR report). No terms watcher was added for `HU-MKOZLONY-ADOPTED`: the raw HTML of its pages differs per request (a session token in the page), so a hash would report a change on every run.
+
+### Languages
+
+Run on 2026-11-02. Hungarian is the only official language and the only language Magyar Közlöny serves; all 13 stored records are `hu`. English: the Ministry of Justice translation repository on the Nemzeti Jogszabálytár is the one government source found. Row `HU-NJT-TRANSLATION` is `permission requested`, so no English is stored.
+
+```
+curl -sS -m 30 -o tr.html -w '%{http_code} %{size_download} %{content_type}\n' https://njt.jog.gov.hu/translations
+```
+
+Returned `200 44161 text/html; charset=UTF-8`. The page says the translations "serve informational purposes only, have no legal effect" and may not be used for commercial purposes without express permission. Its "latest uploads" list (2026-11-02) holds the Fundamental Law, Act LXIX of 2024, Act XIII of 2026, Act CIII of 2023 and Act CIV of 2001; none is an instrument in scope. The search endpoint answered a script with `200 17 application/json` (`{"success":false}`) even for Act CIII of 2023, which the page lists, so a per-instrument search by year and number could not be run; none of the instruments in scope is known to have a translation. Also looked at: the NJT `/translations` list only; `https://njt.hu/translations` was not reachable (see Blocked). The Magyar Közlöny site serves no English. `https://www.mnb.hu/` was not searched for English texts of the recommendations.
+
+| Instrument | Languages stored | Gap and reason |
+|---|---|---|
+| hu-esg-act-2023-cviii, hu-climate-act-2020-xliv, hu-ets-act-2012-ccxvii, hu-ucp-act-2008-xlvii and the nine ESG orders | hu | No English from the Magyar Közlöny; NJT translations are `permission requested` and none was found for these instruments. |
+| hu-accounting-act-2000-c, hu-mnb-rec-2-2026, hu-mnb-rec-16-2025, hu-mnb-rec-12-2023 | none | Link only (see below). |
+
+### Blocked and link only
+
+Blocked from the cloud address: `https://njt.hu/` and `https://njt.hu/jogszabaly/2023-108-00-00` answered `curl: (52) Empty reply from server` (exit 52, no HTTP status) on every try; `http://njt.hu/` answered `302`. The same operator's `https://njt.jog.gov.hu/` answered `200`, and the existing register rows already used it, so those URLs are used throughout. The orchestrator can open `https://njt.hu/` from the laptop to see whether it is the TLS handshake that hangs.
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| hu-accounting-act-2000-c | https://njt.jog.gov.hu/jogszabaly/2000-100-00-00 | Sustainability chapters III/A and VI/C exist only in the consolidated text; row `HU-NJT-CONSOLIDATED` is permission requested. The inserting words are inside the stored record of hu-esg-act-2023-cviii. |
+| hu-mnb-rec-2-2026 | https://www.mnb.hu/letoltes/2-2026-zoldi-banki-ajanlas.pdf | Row `HU-MNB-ADOPTED` is permission requested (opened, `200 965302 application/pdf`; no text fetch proven for storage). |
+| hu-mnb-rec-16-2025 | https://www.mnb.hu/letoltes/16-2025-bef-alapok-nevhasznalat-ajanlas.pdf | Same row (`200 209033 application/pdf`). |
+| hu-mnb-rec-12-2023 | https://www.mnb.hu/letoltes/12-20123-biztositoi-zold-ajanlas.pdf | Same row (`200 397013 application/pdf`). |
+| Act LIII of 1995, Act CLXXXV of 2012, Act LVII of 2015 (F7) | https://njt.jog.gov.hu/jogszabaly/1995-53-00-00, .../2012-185-00-00, .../2015-57-00-00 | F7: register rows only, no scope entry. |
+
+Stored by GEL-05-10 (Hungarian, adopted, as published): `hu-esg-act-2023-cviii` (2024-01-01), `hu-climate-act-2020-xliv` (2020-06-10), `hu-ets-act-2012-ccxvii` (2012-12-31), `hu-ucp-act-2008-xlvii` (2008-06-29), `hu-esg-sztfh-13-2024` (2024-08-16), `hu-esg-sztfh-12-2024` (2024-08-18), `hu-esg-korm-276-2025` (2025-09-06), `hu-esg-korm-424-2025` (2025-12-26), `hu-esg-sztfh-15-2025` (2025-12-26), `hu-esg-sztfh-11-2024` (2024-08-12), `hu-esg-ngm-29-2024`, `hu-esg-ngm-30-2024` and `hu-esg-korm-244-2024` (all 2024-08-09).
+
 ## Finland
 
 Rows `FI-FINLEX-ADOPTED` (`pass`, statute: Copyright Act 404/1961 s. 9; CC BY 4.0 as a second ground), `FI-FINLEX-CONSOLIDATED` (`pass`, terms: CC BY 4.0) and `FI-FINLEX-TRANSLATION` (`pass`, terms: CC BY 4.0; Varun to confirm, see the row notes). Run on 2026-11-02 (GEL-05-04). The finlex.fi pages are a JavaScript application, so the texts come from the Finlex open data API at `opendata.finlex.fi`, which answered every request from the cloud address. Finlex's terms page is `https://www.finlex.fi/en/data-protection`, section "Open data" (server-rendered, so `curl` gets the text). The API wants a `User-Agent` header (an empty one answers 403; curl's default is accepted), lists at most 10 documents a page, and does not answer `HEAD` (403, `MissingAuthenticationTokenException`), so the Finland watchers use `GET`.
