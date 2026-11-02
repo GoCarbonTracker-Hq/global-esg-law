@@ -1,0 +1,124 @@
+[
+  {
+    "id": "mx-lgcc",
+    "title": "Ley General de Cambio Climático (LGCC)",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5249899&fecha=06/06/2012",
+    "citation": "Ley General de Cambio Climático, DOF 6 de junio de 2012; last reform published DOF 1 de abril de 2024",
+    "in_force": "2012-10-10",
+    "evidence": "Transitorio Primero of the decree (DOF 2012-06-06): \"La presente Ley entrará en vigor noventa días hábiles después de su publicación en el Diario Oficial de la Federación.\" The resulting date is stated in a later DOF text, the Acuerdo of 2019-10-01 (considerando): \"la Ley General de Cambio Climático, promulgada por Decreto publicado en el Diario Oficial de la Federación el seis de junio de dos mil doce y que entró en vigor el diez de octubre del mismo año\". Opened https://dof.gob.mx/nota_detalle.php?codigo=5249899&fecha=06/06/2012 and https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MX-DOF-ADOPTED",
+      "MX-DIPUTADOS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Framework act. Art. 87 to 88 require the persons responsible for sources subject to reporting to give the Registro Nacional de Emisiones their direct and indirect emissions data; the sources, gases, thresholds and methods are set by the Reglamento (mx-lgcc-reg-rne) and two SEMARNAT acuerdos (mx-rne-gases-acuerdo-2015, mx-rne-metodologias-acuerdo-2015). Art. 94 is the legal basis of the emissions trading system (mx-sce-programa-prueba-2019). Two records, language es: the decree as published in the DOF (adopted, 2012-10-10, row MX-DOF-ADOPTED; the DOF page for an edition before 2012-07-05 is informative only per its legal notice) and the Cámara de Diputados texto vigente (consolidated, last reform DOF 2024-04-01, in force 2024-04-02 by its single transitory 'entrará en vigor el día siguiente al de su publicación', row MX-DIPUTADOS-CONSOLIDATED). Gap: the Cámara serves only the current consolidation. The 13 amending decrees (DOF 2014-05-07, 2014-10-16, 2014-12-29, 2015-04-02, 2015-05-13 twice, 2016-06-01, 2018-01-19, 2018-07-13, 2020-11-06, 2022-05-11, 2023-11-15, 2024-04-01) are served only as PDFs of the decrees as published, which hold the changed provisions and not the whole Act, so no consolidation between 2012-10-10 and 2024-04-02 is stored and a lookup for a date in that window returns the 2012 text. The decree PDFs are not stored because a partial text recorded under this entry would stand in for the whole Act in the lookup. Languages: es only. No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "mx-lgcc-reg-rne",
+    "title": "Reglamento de la Ley General de Cambio Climático en Materia del Registro Nacional de Emisiones",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5365828&fecha=28/10/2014",
+    "citation": "Reglamento de la LGCC en Materia del Registro Nacional de Emisiones, DOF 28 de octubre de 2014",
+    "in_force": "2014-10-29",
+    "evidence": "Transitorio Primero: \"El presente Reglamento entrará en vigor al siguiente día de su publicación en el Diario Oficial de la Federación.\" Published DOF 2014-10-28 (day index https://dof.gob.mx/index.php?year=2014&month=10&day=28). Opened https://dof.gob.mx/nota_detalle.php?codigo=5365828&fecha=28/10/2014 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MX-DOF-ADOPTED",
+      "MX-DIPUTADOS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements art. 87 to 88 of the LGCC (mx-lgcc): it defines the Establecimientos Sujetos a Reporte, the reportable gases (art. 5), the methodologies and the reporting thresholds (art. 6), and its transitories phase in verification by emission band. One record, language es, the DOF text as published (adopted, 2014-10-29). The Cámara de Diputados lists the Reglamento as 'Nuevo Reglamento DOF 28-10-2014' with no reform; its PDF (https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGCC_MRNE_281014.pdf, 200, 396731 bytes) has the same body word for word apart from its running header and page footers, so no separate consolidated record is stored. Art. 5 and the methodology article leave details to acuerdos of the Secretaría (mx-rne-gases-acuerdo-2015, mx-rne-metodologias-acuerdo-2015). No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "mx-rne-gases-acuerdo-2015",
+    "title": "Acuerdo que establece los gases o compuestos de efecto invernadero que se agrupan para efectos de reporte de emisiones, así como sus potenciales de calentamiento",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5404077&fecha=14/08/2015",
+    "citation": "Acuerdo SEMARNAT, DOF 14 de agosto de 2015",
+    "in_force": "2015-08-15",
+    "evidence": "Transitorio Primero: \"El presente Acuerdo entrará en vigor al día siguiente de su publicación en el Diario Oficial de la Federación.\" Published DOF 2015-08-14 (day index https://dof.gob.mx/index.php?year=2015&month=08&day=14). Opened https://dof.gob.mx/nota_detalle.php?codigo=5404077&fecha=14/08/2015 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MX-DOF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Issued under art. 5 of the Reglamento (mx-lgcc-reg-rne), which has the Secretaría determine by acuerdo the specific gases within each group and their mixtures. One record, language es, the DOF text as published; no consolidated text of an acuerdo is served by the Cámara de Diputados, and no later amendment was looked for beyond the DOF day index of the publication date. No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "mx-rne-metodologias-acuerdo-2015",
+    "title": "Acuerdo que establece las particularidades técnicas y las fórmulas para la aplicación de metodologías para el cálculo de emisiones de gases o compuestos de efecto invernadero",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03/09/2015",
+    "citation": "Acuerdo SEMARNAT, DOF 3 de septiembre de 2015",
+    "in_force": "2015-09-04",
+    "evidence": "Transitorio Primero: \"El presente Acuerdo entrará en vigor al día siguiente de su publicación en el Diario Oficial de la Federación.\" Published DOF 2015-09-03 (day index https://dof.gob.mx/index.php?year=2015&month=09&day=03). Opened https://dof.gob.mx/nota_detalle.php?codigo=5406149&fecha=03/09/2015 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MX-DOF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Issued under the methodology article of the Reglamento (mx-lgcc-reg-rne), which lets the Secretaría publish technical particulars and formulas by acuerdo. Its Transitorio Segundo points to the Reglamento's Tercero Transitorio on the Potencial de Calentamiento Global until the Secretaría sets it. One record, language es, the DOF text as published (incomplete: the DOF HTML shows the formulas as 15 images, under https://www.dof.gob.mx/imagenes_diarios/2015/09/03/MAT/, which tag stripping cannot carry into the text; the articles and the text around the formulas are stored, the formulas themselves are not, and the signed DOF PDF is the authentic file). No later amendment was looked for beyond the DOF day index of the publication date. No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "mx-sce-programa-prueba-2019",
+    "title": "Acuerdo por el que se establecen las bases preliminares del Programa de Prueba del Sistema de Comercio de Emisiones",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019",
+    "citation": "Acuerdo SEMARNAT, DOF 1 de octubre de 2019, under the second transitory of the LGCC reform decree of DOF 2018-07-13 and art. 94 of the LGCC",
+    "in_force": "2019-10-02",
+    "evidence": "Transitorio Primero: \"El presente Acuerdo entrará en vigor al día siguiente de su publicación en el Diario Oficial de la Federación.\" Published DOF 2019-10-01 (the DOF page header reads 'DOF: 01/10/2019'). Opened https://dof.gob.mx/nota_detalle.php?codigo=5573934&fecha=01/10/2019 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MX-DOF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Test phase of the emissions trading system without economic effects for participants, limited to carbon dioxide, with phases through 2022 and a transitory (Décimo) that keeps its rules running for up to six months after the planned end if no new rules are issued. One record, language es, the DOF text as published (the DOF page carries the allocation and surrender calendar tables as text). Whether a later instrument extended, replaced or ended the Programa de Prueba after 2022 was not established: no DOF search was possible beyond the day index of the publication date, so this entry states only the text published in 2019. No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored"
+  },
+  {
+    "id": "mx-cnbv-emisoras-disposiciones",
+    "title": "Disposiciones de carácter general aplicables a las emisoras de valores y a otros participantes del mercado de valores (CNBV, Circular Única de Emisoras)",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=699022&fecha=19/03/2003",
+    "citation": "CNBV, Disposiciones de carácter general aplicables a las emisoras de valores y a otros participantes del mercado de valores, DOF 19 de marzo de 2003, as amended",
+    "in_force": "2003-03-20",
+    "evidence": "Disposición Primera Transitoria: \"Las presentes disposiciones entrarán en vigor el día siguiente al de su publicación en el Diario Oficial de la Federación.\" Published DOF 2003-03-19 (day index https://dof.gob.mx/index.php?year=2003&month=03&day=19). Opened https://dof.gob.mx/nota_detalle.php?codigo=699022&fecha=19/03/2003 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MX-CNBV-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only. The text in force today is the 2003 text as amended many times; the consolidated file is on cnbv.gob.mx (https://www.cnbv.gob.mx/Normatividad/Disposiciones%20de%20car%C3%A1cter%20general%20aplicables%20a%20las%20emisoras%20de%20valores%20y%20a%20otros%20participantes%20del%20mercado%20de%20valores.pdf), which could not be opened from the cloud address (certificate chain incomplete, curl exit 60) and whose row MX-CNBV-CONSOLIDATED is permission requested on the gob.mx terms. The 2003 text as published is served by the DOF under a passing row (MX-DOF-ADOPTED) but is not stored, because a 2003 record would stand as the text in force for 2003 to 2025 although the Disposiciones were amended many times since. The 2025 amendment that adds the sustainability report is stored as its own entry, mx-cnbv-emisoras-sostenibilidad-2025. Languages: es; no English found.",
+    "status": "link only"
+  },
+  {
+    "id": "mx-cnbv-emisoras-sostenibilidad-2025",
+    "title": "Resolución que modifica las Disposiciones de carácter general aplicables a las emisoras de valores y a otros participantes del mercado de valores (CNBV, información de sostenibilidad, art. 82 Bis)",
+    "official_url": "https://dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025",
+    "citation": "CNBV Resolución, DOF 28 de enero de 2025",
+    "in_force": "2025-01-29",
+    "evidence": "Transitorio Primero: \"La presente Resolución entrará en vigor el día siguiente al de su publicación en el Diario Oficial de la Federación.\" Published DOF 2025-01-28 (the DOF page header reads 'DOF: 28/01/2025'). Opened https://dof.gob.mx/nota_detalle.php?codigo=5747872&fecha=28/01/2025 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MX-DOF-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adds art. 82 Bis, which obliges issuers (Emisoras) to prepare a report with sustainability information under the IFRS Sustainability Disclosure Standards of the ISSB (IFRS S1 and S2 and later ISSB standards). Financial entities that are issuers follow the rules of their own financial authority, foreign issuers may use the standards of their home country if they say so and explain equivalence, and states and municipalities are excluded. The same resolution adds the report to the filing and registration lists (the modified articles include 2, 7, 33, 37, 40 and 50). Transitorio Segundo: the report is due from 2026 for the 2025 annual information; Tercero: the 2026 report may lack external assurance, the 2027 report needs at least limited assurance, and the article itself asks for reasonable assurance by an external auditor under art. 78 para. 2. The record holds the amending resolution only (the modified and added articles), not the Disposiciones as amended: the consolidated text is not available under a passing row (see mx-cnbv-emisoras-disposiciones). The confirmation the brief asked for: the 2025 amendment exists, was published 2025-01-28 and is in force from 2025-01-29. One record, language es, the DOF text as published (adopted). No government English translation is known on 2026-11-02: a web search for an official English text from SEMARNAT, INECC or CNBV found none (only commercial or third-party translations, which are never stored), and dof.gob.mx and diputados.gob.mx serve Spanish only.",
+    "status": "stored",
+    "status_note": "Amending resolution only; the Disposiciones as amended are not stored (link only, see amends).",
+    "amends": "mx-cnbv-emisoras-disposiciones"
+  },
+  {
+    "id": "mx-cinif-nis",
+    "title": "Normas de Información de Sostenibilidad (NIS A-1, NIS B-1), CINIF",
+    "official_url": "https://www.cinif.org.mx/normatividad_NIS2026.php",
+    "citation": "CINIF, Normas de Información de Sostenibilidad NIS A-1 and NIS B-1 (NIS 2026 edition; issue dates not read on any official page)",
+    "in_force": null,
+    "evidence": "No official page read on 2026-11-02 states a first in-force date: https://www.cinif.org.mx/normatividad_NIS2026.php (200) offers the 'Libro Electrónico NIS 2026' as a paid, login-only edition and gives no effective date in the part a plain request receives.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MX-CINIF-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only. Standards issued by a private council, not enacted law. They are the Mexican counterpart of the ISSB standards; art. 82 Bis of the CNBV Disposiciones as amended (mx-cnbv-emisoras-sostenibilidad-2025) names the ISSB standards for issuers and does not name the NIS, so no stored instrument makes the NIS mandatory. Row MX-CINIF-ADOPTED is permission requested (CINIF legal notice: 'Se prohíbe copiar, reproducir y comerciar'; the NIS book is sold behind a login). The register row says nothing about the issue dates of NIS A-1 and B-1 because no CINIF page read on the day states them. Languages: es; the CINIF menu links a page named exclusivo_nis-EN.php ('NIS - English version'), not opened, and nothing from it is stored.",
+    "status": "link only"
+  }
+]

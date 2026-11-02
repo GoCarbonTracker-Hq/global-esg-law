@@ -1,0 +1,47 @@
+[
+  {
+    "id": "th-cmsb-tor-jor-55-2563",
+    "title": "Notification of the Capital Market Supervisory Board No. Tor Jor. 55/2563, Form 56-1 One Report, and its amendments",
+    "official_url": "https://publish.sec.or.th/nrs/8617se.pdf",
+    "citation": "CMSB Notification No. Tor Jor. 55/2563",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "TH-SEC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Not opened: sec.or.th and publish.sec.or.th returned 403 Block Response to curl and to headless Chromium on 2026-11-02 (blocked from the cloud address). The register row (run2) records 2021-01-01 as the first in-force date and an SEC unofficial English form; this session could not confirm either, so in_force is null. No government English text looked for in a reachable place: the SEC's English page and the Krisdika English list are both blocked. Amendments not enumerated.",
+    "status": "link only",
+    "status_note": "row TH-SEC-ADOPTED is permission requested; site blocked from the cloud address"
+  },
+  {
+    "id": "th-sec-issb-notifications",
+    "title": "SEC notifications adopting ISSB-aligned sustainability disclosure (2025 announcement)",
+    "official_url": "https://www.sec.or.th",
+    "citation": "SEC Thailand ISSB-aligned notifications (number and date unconfirmed)",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "TH-SEC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Not opened: sec.or.th and publish.sec.or.th returned 403 Block Response to curl and to headless Chromium on 2026-11-02 (blocked from the cloud address). The register row (run2) says nine notifications effective 2026-10-26 with phased reporting from 2027, texts not opened. A web search on 2026-11-02 did not find 2026-10-26 in any retrieved source (one calendar page says 2027, the ISSB jurisdiction snapshot and law-firm pages describe phasing only), so effect date and instrument numbers are unconfirmed. One entry stands for the set until the individual notifications can be read.",
+    "status": "link only",
+    "status_note": "row TH-SEC-ADOPTED is permission requested; site blocked from the cloud address"
+  },
+  {
+    "id": "th-sea-2535-s56",
+    "title": "Securities and Exchange Act B.E. 2535 (1992), section 56 (annual report duty)",
+    "official_url": "https://www.krisdika.go.th",
+    "citation": "Securities and Exchange Act B.E. 2535, s.56",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "TH-KRISDIKA-CONSOLIDATED",
+    "verification": "tracker_only",
+    "notes": "Not opened: krisdika.go.th gave a 502 to headless Chromium and a TLS error to curl, and law.go.th gave 403. The Act's commencement date, current consolidation and the s.56 wording are unread. The registered duty to file an annual report is from the brief, not from an official page.",
+    "status": "link only",
+    "status_note": "row TH-KRISDIKA-CONSOLIDATED is permission requested; site blocked from the cloud address"
+  }
+]
