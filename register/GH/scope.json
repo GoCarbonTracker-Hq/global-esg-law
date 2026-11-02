@@ -1,0 +1,61 @@
+[
+  {
+    "id": "gh-environmental-protection-act-2025",
+    "title": "Environmental Protection Act, 2025 (Act 1124)",
+    "official_url": "https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896",
+    "citation": "Environmental Protection Act, 2025 (Act 1124), Parts One and Five (climate change, Ghana Carbon Registry, Carbon Market Committee, Mitigation Fund)",
+    "in_force": null,
+    "evidence": "Cover page of the Act PDF (repository item, opened 2026-11-02): \"DATE OF ASSENT: 6th January, 2025\". The arrangement of sections (pp. 1-7) lists no commencement section and no page states a commencement date, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Repealed the Environmental Protection Agency Act, 1994 (Act 490) (s. 171 Repeals and savings). Part Five covers climate change responses and the carbon market (ss. 144-160, regulations under s. 159). Link only: the repository PDF (200, 6441648 bytes, application/pdf, 182 pages) is a scan with no text layer and copy protection, and the cloud session has no OCR, so no text is stored. No English translation is needed. The Environmental Protection (Environmental Assessment) Regulations, 2025 and Air Quality Management Regulations, 2025 (L.I. 2507) are named by non-official summaries only; the EPA laws page (epa.gov.gh/new/laws-regulations/) has an expired TLS certificate and was not opened, so they are not in scope.",
+    "status": "link only",
+    "status_note": "Scanned PDF without text layer; OCR not available in this session."
+  },
+  {
+    "id": "gh-unfair-competition-act-2000",
+    "title": "Protection Against Unfair Competition Act, 2000 (Act 589)",
+    "official_url": "https://repository.parliament.gh/items/9f98f62d-1114-4803-8434-70c0070b3b54",
+    "citation": "Protection Against Unfair Competition Act, 2000 (Act 589), s. 3 Misleading the Public",
+    "in_force": "2000-12-22",
+    "evidence": "Repository PDF (opened 2026-11-02): \"DATE OF ASSENT: 19th December, 2000\" and \"Date of Gazette Notification: 22nd December, 2000.\" The Act has no commencement clause, so the gazette notification date is used.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Section 3(1): an act or practice in industrial or commercial activities that misleads or is likely to mislead the public with respect to an enterprise or its products or services is unfair competition; s. 3(2) lists advertising and promotion, the manufacturing process and product characteristics. It is the umbrella for environmental claims; no consumer protection act is in force and none was found on official pages. The repository also holds a scanned Revised Edition (ACT 589 Rev. Ed.pdf, no text layer), not stored. The stored file is the repository's text-layer PDF, which repeats a few typing errors (for example '(c)' for '(e)' in s. 2(2) and s. 4(2)); text is stored as served. No English translation is needed.",
+    "status": "stored"
+  },
+  {
+    "id": "gh-bog-climate-risk-directive-2024",
+    "title": "Bank of Ghana Climate-Related Financial Risk Directive, 2024",
+    "official_url": "https://www.bog.gov.gh/wp-content/uploads/2024/11/BOG-Climate-Related-Financial-Risks-Directive.pdf",
+    "citation": "Bank of Ghana Climate-Related Financial Risk Directive, 2024, issued under Act 930 s. 92(1), Act 1032 s. 84(1) and Act 774 s. 44(1)",
+    "in_force": "2026-01-01",
+    "evidence": "Directive para. 8 (PDF opened 2026-11-02): \"The effective implementation date of this Directive shall be 1st January 2026 in the case of banks and 1st January 2027 in the case of SDIs and NBFIs.\" The cover reads November 2024. The earlier register date 2024-11-01 was the issue month, not a commencement date.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "GH-BOG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Reclassified from F6 to F1: the directive sets climate-risk governance, risk management and prudential disclosure duties (Part IV, Disclosure of Climate-Related Financial Risk), not a rule on claims. SDIs and NBFIs start 2027-01-01. Link only: row GH-BOG-ADOPTED is permission requested (bog.gov.gh disclaimer grants no reuse). Looked for English only; Ghana's legislation is in English.",
+    "status": "link only",
+    "status_note": "Permission request to the Bank of Ghana not sent."
+  },
+  {
+    "id": "gh-icag-ifrs-sustainability-roadmap",
+    "title": "ICAG IFRS Sustainability Disclosure Adoption Roadmap for Ghana (IFRS S1 and S2)",
+    "official_url": "https://icagh.org/wp-content/uploads/2024/12/IFRS-SUSTAINABILITY-DISCLOSURE-ADOPTION-ROADMAP-FOR-GHANA.pdf",
+    "citation": "ICAG roadmap approved 28 March 2024 under Companies Act, 2019 (Act 992) s. 127(5)(b)",
+    "in_force": "2024-03-28",
+    "evidence": "ICAG press release (https://www.icagh.org/wp-content/uploads/2024/06/PRESS-RELEASE-IFRS-S1-S2.pdf, opened 2026-11-02): \"on 28th March 2024, it approved a roadmap for a phased approach to the adoption and implementation\"; roadmap PDF: voluntary phase from periods beginning 1 January 2024, mandatory for Significant Public Interest Entities for periods beginning on or after 1st January, 2027.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "GH-ICAG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Standard-setting by a statutory professional body, not a statute or legislative instrument; mandatory date for Other Mandatory Adopters is not fixed. Link only: row GH-ICAG-ADOPTED is permission requested (all rights reserved). English only.",
+    "status": "link only",
+    "status_note": "Permission request to ICAG not sent."
+  }
+]
