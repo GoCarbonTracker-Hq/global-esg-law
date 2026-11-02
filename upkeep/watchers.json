@@ -4115,6 +4115,18 @@
   }
  },
  {
+  "id": "ro-omf-85-2024-legislatie-page",
+  "source_id": "RO-LEGISLATIE-CONSOLIDATED",
+  "iso2": "RO",
+  "instrument": "ro-omf-85-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502",
+  "params": {
+   "second_route": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502 (browser; the portal's WAF gives scripts no response from the cloud address)"
+  }
+ },
+ {
   "id": "gr-law-4548-2018-art151-154-fek-pdf",
   "source_id": "GR-ET-ADOPTED",
   "iso2": "GR",
