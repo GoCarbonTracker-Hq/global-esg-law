@@ -5948,5 +5948,78 @@
    "regex": "<time datetime=\"(\\d{4}-\\d{2}-\\d{2})\"",
    "second_route": "https://www.argentina.gob.ar/normativa/nacional/norma-322236/normas-modifican (browser; the amending-norm tab answers HTTP 500 to scripts for some norms; the watcher lists the Bolet\u00edn Oficial dates of the norms that amend or complement this one, because a page hash would change on every request through the Cloudflare token)"
   }
+ },
+ {
+  "id": "ke-climate-change-act-2016-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-climate-change-act-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-carbon-markets-regs-2024-kenyalaw-page",
+  "source_id": "KE-KENYALAW-ADOPTED",
+  "iso2": "KE",
+  "instrument": "ke-carbon-markets-regs-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-emca-1999-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-emca-1999",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-cpa-2012-s12-13-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-cpa-2012-s12-13",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-cma-cg-code-2015-cma-pdf-page",
+  "source_id": "KE-CMA-ADOPTED",
+  "iso2": "KE",
+  "instrument": "ke-cma-cg-code-2015",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cma.or.ke/download/35/guidelines/4323/code-of-corporate-governance-practices-for-issuers-of-securities-to-the-public-2015-code.pdf",
+  "params": {
+   "second_route": "https://www.cma.or.ke/regulatory-framework/ (browser or curl; lists the Code under Guidelines; the PDF itself answered curl with 200)"
+  }
+ },
+ {
+  "id": "terms-ke-kenyalaw",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kenyalaw.org/terms-of-use/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://kenyalaw.org/terms-of-use/ (browser; curl answered 200 on 2026-11-02)"
+  }
  }
 ]

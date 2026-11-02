@@ -3202,3 +3202,50 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Kenya
+
+Run on 2026-11-02 (GEL-08-04). No licence row passes, so nothing is stored: no record files, five scope instruments, all `link only`. Rows: `KE-KENYALAW-CONSOLIDATED`, `KE-KENYALAW-ADOPTED`, `KE-PARLIAMENT-ADOPTED`, `KE-CMA-ADOPTED`, `KE-NSE-ADOPTED`, all `permission requested`. There is no proven fetch for a `pass` row. What was run to read the terms and the commencement lines is below, so the next session can repeat it.
+
+Kenya Law moved: `https://new.kenyalaw.org/` now answers 301 to `https://kenyalaw.org/`, and the old URL form is not mapped.
+
+```
+curl -sS -L -o old.html -w '%{http_code} %{size_download} %{url_effective}\n' 'http://www.kenyalaw.org/lex/actview.xql?actid=CAP.%20387'
+```
+
+Returned `404 19188 https://kenyalaw.org/lex/actview.xql?actid=CAP.%20387` (two 301s, then 404).
+
+Terms page (plain `curl` works):
+
+```
+curl -sS -A 'Mozilla/5.0' -o terms.html -w '%{http_code} %{size_download} %{content_type}\n' https://kenyalaw.org/terms-of-use/
+```
+
+Returned `200 29466 text/html; charset=utf-8`. Section 9: raw documents under CC BY-NC 4.0; section 4: "Scraping, deployment of unauthorized bots and bulk downloading from this website is strictly prohibited." That is why no row passes and why only single pages were opened.
+
+Document pages answer scripts with a challenge. Failing `curl`, for the Climate Change Act (Cap. 387A) as at 2023-09-15:
+
+```
+curl -sS -A 'Mozilla/5.0' -o cc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15'
+```
+
+Returned `202 0 text/html; charset=UTF-8`. Browser recipe: Playwright chromium (`chromium.launch()`, user agent `Mozilla/5.0`), `page.goto(url, {waitUntil: 'networkidle'})`, then 2 s; `page.content()` returned 689594 characters of HTML (the response status the script saw was 202). For the PDF, the same page is opened first, then `context.request.get('https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15/source')` in the same context returned `200 387309 application/pdf`; `pdftotext -layout` read it, with the notice "There is no copyright on the legislative content of this document. This PDF copy is licensed under a Creative Commons Attribution NonCommercial ShareAlike 4.0 License". No hash was kept because nothing is stored. Commencement lines were read the same way from the pages of `ke-climate-change-act-2016`, `ke-carbon-markets-regs-2024`, `ke-emca-1999` and `ke-cpa-2012-s12-13`.
+
+Capital Markets Authority (plain `curl` works):
+
+```
+curl -sSL -A 'Mozilla/5.0' -o code.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cma.or.ke/download/35/guidelines/4323/code-of-corporate-governance-practices-for-issuers-of-securities-to-the-public-2015-code.pdf
+```
+
+Returned `200 356766 application/pdf`; `pdftotext -layout` gave clean text. `https://cma.or.ke/disclaimer/` answers 301 to the `www` host (`200 165291` after the redirect). Parliament (`https://www.parliament.go.ke/`, 200) and NSE (`https://www.nse.co.ke/terms-and-conditions/`, 200) answered; neither grants reuse.
+
+### Languages
+
+English is the language of legislation; the Kenya Law pages list only `eng` expressions, and no Swahili text was found. No government English translation applies. No second-language or translation row was added.
+
+### Link only
+
+- `ke-climate-change-act-2016`, `ke-carbon-markets-regs-2024`, `ke-emca-1999`, `ke-cpa-2012-s12-13`: Kenya Law rows are `permission requested` (copyright claimed, NC licence, scraping and bulk download prohibited).
+- `ke-cma-cg-code-2015`: `KE-CMA-ADOPTED` is `permission requested` (no reuse grant, "All Rights Reserved").
+- F7 register rows without scope entry: ICPAK roadmap, NSE ESG Disclosures Guidance Manual (no NSE-hosted copy found).
+- Blocked from the cloud address for scripts: every `https://kenyalaw.org/akn/...` document and `/source` URL (HTTP 202, empty body, plain `curl`); the browser recipe above passes.
