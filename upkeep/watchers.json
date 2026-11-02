@@ -1820,6 +1820,42 @@
   }
  },
  {
+  "id": "th-cmsb-tor-jor-55-2563-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-cmsb-tor-jor-55-2563",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://publish.sec.or.th/nrs/8617se.pdf",
+  "params": {
+   "second_route": "https://publish.sec.or.th/nrs/8617se.pdf (browser; publish.sec.or.th answers scripts with 403 Block Response)"
+  }
+ },
+ {
+  "id": "th-sec-issb-notifications-sec-page",
+  "source_id": "TH-SEC-ADOPTED",
+  "iso2": "TH",
+  "instrument": "th-sec-issb-notifications",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sec.or.th",
+  "params": {
+   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)"
+  }
+ },
+ {
+  "id": "th-sea-2535-s56-krisdika-page",
+  "source_id": "TH-KRISDIKA-CONSOLIDATED",
+  "iso2": "TH",
+  "instrument": "th-sea-2535-s56",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.krisdika.go.th",
+  "params": {
+   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)"
+  }
+ },
+ {
   "id": "id-pojk-51-2017-page",
   "source_id": "ID-OJK-ADOPTED",
   "iso2": "ID",
