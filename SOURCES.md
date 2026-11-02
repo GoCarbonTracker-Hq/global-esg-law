@@ -3202,3 +3202,52 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Without a browser User-Agent InfoLEG answers `403 Forbidden` to curl for the root and for deep URLs (`curl -sS -o /dev/null -w '%{http_code}\n' https://servicios.infoleg.gob.ar/infolegInternet/anexos/330000-334999/333515/norma.htm` returned `403`); with the browser UA above it answers 200.
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
+
+## Nigeria
+
+Run on 2026-11-02 (GEL-08-02). Two rows pass, both on the statute: `NG-NESREA-ADOPTED` and `NG-FCCPC-ADOPTED`. The statute is the Copyright Act 2022 (printed in the Official Gazette No. 56, Vol. 110, 27 March 2023, as "Act No. 8" of 2023), section 3: "The following shall not be eligible for copyright — ... (b) official texts of a legislative or administrative nature as well as any official translations, except their compilations". The brief quoted "legislative, administrative or legal nature"; the gazette says "legislative or administrative nature". Terms-only rows `NG-SEC-ADOPTED`, `NG-NCCC-ADOPTED` and `NG-FMENV-ADOPTED` are `permission requested`. The brief's two statute publishers did not serve any scope instrument: the National Assembly Acts list holds no Climate Change Act, EIA Act, NESREA Act or FCCPA, and justice.gov.ng has no Laws of the Federation section, so neither got a row.
+
+The statute PDF itself:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o CopyrightAct.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.copyright.gov.ng/CopyrightAct/CopyrightAct2023FinalPublication1.pdf
+```
+
+Returned `200 738936 application/pdf`.
+
+Row `NG-NESREA-ADOPTED`, National Environmental Standards and Regulations Enforcement Agency (Establishment) Act 2007 (Gazette No. 92, 31 July 2007):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o NESREA-ACT.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://nesrea.gov.ng/wp-content/uploads/2025/05/NESREA-ACT.pdf
+pdftotext -layout NESREA-ACT.pdf - | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+Returned `200 314946 application/pdf` (22 pages, Word 2010 producer). A second fetch returned the same bytes (`sha256 4e7c4087871a64dd2cd3b8227d987d8bb78b69dcfa5421ef9cf5670c2c69c67d`), so `fetched_sha256` reproduces. The file URL is read from the page `https://nesrea.gov.ng/laws-regulations/` (link "Download NESREA Act"). The extracted text has no mojibake; the gazette's own quotation marks come out as ― and ‖, and the margin notes sit inside the line of the section they annotate (a limit of `pdftotext -layout`). The commencement date 30 July 2007 is printed under the margin note "Commencement". The NESREA site answers a bare curl; the `-A` header is only a precaution.
+
+Row `NG-FCCPC-ADOPTED`, Federal Competition and Consumer Protection Act 2018 (Gazette No. 18, 1 February 2019):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o FCCPA-2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://fccpc.gov.ng/wp-content/uploads/2022/07/FCCPA-2018.pdf
+```
+
+Returned `200 7842477 application/pdf` (99 pages, producer iLovePDF). Not stored: `pdftotext -layout` returns an OCR layer with mojibake ("Got'entntent Notice", "lst February", "Panr l--OslrcrlvEs"), and OCR is not part of the recipe.
+
+No browser recipe was needed. Blocked or refused from the cloud address: `https://climatecouncil.gov.ng/` answers HTTP 406 to a bare curl user agent and 200 to a browser user agent (so a `User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36` header is used); `https://ngfrepository.org.ng:8443/handle/123456789/6359` (the gazette copy of the Climate Change Act named by search) reset the connection; `https://www.environment.gov.ng` timed out; `tools/watch.py` (urllib) is reset by `https://environment.gov.ng/` while curl reaches it.
+
+Other pages opened: SEC circular and terms (`https://home.sec.gov.ng/website-terms-of-use/`, 200; the page body holds one paragraph barring copying and reproduction of the website), NGX terms (`https://ngxgroup.com/terms-and-conditions/`, 200, content subject to copyright, not read to the end), FRC Nigeria (`https://frcnigeria.gov.ng`, 200, no terms page: `/terms-of-use` and `/privacy-policy` answer 404). NGX and FRC got no row because no scope instrument rests on them.
+
+### Languages
+
+Nigeria's official language for federal legislation is English; every record is `en`. No translation exists or is needed. Looked for: nass.gov.ng, justice.gov.ng, nesrea.gov.ng, fccpc.gov.ng, climatecouncil.gov.ng and sec.gov.ng offer English only. No translation row was added.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ng-sec-ifrs-sds-circular | https://home.sec.gov.ng/for-investors/keep-track-of-circulars/implementation-of-the-ifrs-sustainability-disclosure-standards-in-nigeria/ | `NG-SEC-ADOPTED` is permission requested (SEC website terms bar copying and reproduction). |
+| ng-climate-change-act-2021 | https://climatecouncil.gov.ng/ | No official site opened serves the text; `NG-NCCC-ADOPTED` is permission requested. |
+| ng-nesrea-act-amendment-2018 | https://nesrea.gov.ng/wp-content/uploads/2025/05/NESREA_Ammended_Act_2018.pdf | Row passes; the 8-page PDF (200, 6224298 bytes, application/pdf) is an image scan with no text layer. |
+| ng-eia-act | https://environment.gov.ng/ | No official text found; `NG-FMENV-ADOPTED` is permission requested. |
+| ng-fccpa-2018 | https://fccpc.gov.ng/wp-content/uploads/2022/07/FCCPA-2018.pdf | Row passes; the PDF's OCR layer is mojibake. |
+
+Stored by GEL-08-02: `ng-nesrea-act-2007` (adopted 2007-07-30, en).
