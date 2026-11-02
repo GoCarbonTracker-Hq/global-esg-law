@@ -261,6 +261,90 @@
    "741c3362df12274d9387dc51270dc8547b84266b8bccf592a0be7b65b96c87b5"
   ]
  },
+ "terms-eu-eurlex-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+  ]
+ },
+ "terms-eu-eurlex-consolidated": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+  ]
+ },
+ "terms-eu-eurlex-translation": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "e2a1f0f3c95c3c98afb24f74439513115c6d61d20609a90b40b45d84a2a4aeb1"
+  ]
+ },
+ "terms-in-indiacode-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "cec2620b82f587be705d6056a9d6fb03221ba523c86bbb58dcd94325973cd74e"
+  ]
+ },
+ "terms-in-sebi-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "09fe7fe686f49e9d12e6b42738a9232c8b2ea3674ddc32054248e683f806d477"
+  ]
+ },
+ "terms-uk-fca-handbook": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "18742320a280486c3a68fd9e534dc353893fce420d74b875ced9c6cd4d93808d"
+  ]
+ },
+ "terms-uk-legislation-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "e92d37149ffd4f45885a3ce4b6daf4924e614da6d1c01d804a92c1b57e64a799"
+  ]
+ },
+ "terms-uk-legislation-consolidated": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "e76657fb739563c0aa6e2d30da545b69f3c5d7d24a3da0292a67333dbbe3be56"
+  ]
+ },
+ "terms-uk-srs-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "85759d4869779c9bc8682d571b79dd464f2ae57fd087954224c48e1278a4dd3e"
+  ]
+ },
+ "terms-us-ca-leginfo-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "c81a64fad492bd71e288e144acd4b04d8bf7d380bd888b70c3befe4e9694af52"
+  ]
+ },
+ "terms-us-ecfr-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "9c35ed547316536c9072e1f1bdb6b247831ee322e3f01bc8a23a232e05e02730"
+  ]
+ },
+ "terms-us-fedreg-adopted": {
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "signals": [
+   "d4dfd0a067e92bd477e88d6694dfc058642356d3cab02b2bfe7c637e7229ba8a"
+  ]
+ },
  "us-ca-leginfo-pubinfo-2025": {
   "checked_on": "2026-11-02",
   "failure": null,
