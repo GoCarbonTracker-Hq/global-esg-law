@@ -5335,6 +5335,506 @@
   }
  },
  {
+  "id": "cl-ncg-461-cmf-page",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-461",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html",
+  "params": {}
+ },
+ {
+  "id": "cl-ncg-519-cmf-pdf",
+  "source_id": "CL-CMF-ADOPTED",
+  "iso2": "CL",
+  "instrument": "cl-ncg-519",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cmfchile.cl/normativa/ncg_519_2024.pdf",
+  "params": {}
+ },
+ {
+  "id": "cl-ley-21455-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-21455",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1177286 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-20780-art8-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-20780-art8",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1067194&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1067194 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 20.780, not only art. 8, so a new date needs a look at art. 8"
+  }
+ },
+ {
+  "id": "cl-ds-4-2023-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ds-4-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1196414&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=1196414 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel)"
+  }
+ },
+ {
+  "id": "cl-ley-19496-art28-33-leychile-versions",
+  "source_id": "CL-BCN-CONSOLIDATED",
+  "iso2": "CL",
+  "instrument": "cl-ley-19496-art28-33",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=61438&formato=json&idParte=&idsParte=",
+  "params": {
+   "regex": "\"@vigenteDesde\": \"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://www.bcn.cl/leychile/navegar?idNorma=61438 (browser; Ley Chile answers curl's default User-Agent with HTTP 401 and an empty body, and the version list is also in the page's 'Versiones' panel); the list covers the whole Ley 19.496, not only arts. 28 and 33"
+  }
+ },
+ {
+  "id": "il-clean-air-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-clean-air-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000055)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-prtr-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-prtr-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000233)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-consumer-protection-law-knesset-latest-publication",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-consumer-protection-law",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000237)?$format=json",
+  "params": {
+   "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-securities-periodic-reports-regs-knesset-amendments",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-securities-periodic-reports-regs",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw?$filter=contains%28Name%2C%27%D7%93%D7%95%D7%97%D7%95%D7%AA%20%D7%AA%D7%A7%D7%95%D7%A4%D7%AA%D7%99%D7%99%D7%9D%20%D7%95%D7%9E%D7%99%D7%99%D7%93%D7%99%D7%99%D7%9D%27%29%20and%20KnessetNum%20ge%2024&$select=PublicationDate&$orderby=Id",
+  "params": {
+   "regex": "\"PublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-fuel-excise-order-2024-knesset-record",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-fuel-excise-order-2024",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214964)?$select=LastUpdatedDate",
+  "params": {
+   "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-customs-tariff-order-2024-knesset-record",
+  "source_id": "IL-KNESSET-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-customs-tariff-order-2024",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214962)?$select=LastUpdatedDate",
+  "params": {
+   "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+  }
+ },
+ {
+  "id": "il-boi-directive-345-pdf",
+  "source_id": "IL-BOI-ADOPTED",
+  "iso2": "IL",
+  "instrument": "il-boi-directive-345",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://boi.org.il/media/1quhabaa/345_et.pdf",
+  "params": {
+   "second_route": "https://www.boi.org.il/en/ (browser; boi.org.il pages answer scripts with a Radware challenge or HTTP 403, the media PDF answers curl with 200; a HEAD request to the PDF answers 302, so the PDF is hashed)"
+  }
+ },
+ {
+  "id": "vn-tt-96-2020-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-tt-96-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32793/33926-1-202113-1496-2020-tt-btc.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/thong-tu-so-96-2020-tt-btc-32793.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-bvmt-2020-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-bvmt-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2020/11/32703/33751-1-20201185-118672-2020-qh14.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-72-2020-qh14-32703.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-08-2022-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-08-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36666/39590-1-2022169-17008-2022-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-08-2022-nd-cp-36666.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-48-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-48-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/2/13/48signed-17709494694212057532218.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-48-2026-nd-cp-468907.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-06-2022-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-06-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36560/39440-1-2022131-13206-2022-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2022-nd-cp-36560.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-119-2025-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-119-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45046/56700-1-2025769-770119-2025-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/noi-dung-van-ban-so-119-2025-nd-cp-45046 (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-83-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-83-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/4/6/469161-1775104326_v1_1775438335_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-83-2026-nd-cp-469161.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-112-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-112-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/4/16/469277-1776312362_v1_1776312788_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-112-2026-nd-cp-469277.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-29-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-29-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/2/3/29signed-17701112119001776383561.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-29-2026-nd-cp-468820.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-180-2026-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-180-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/180507251028987904/2026/6/5/469621-1780632828_v1_1780643580_signed.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-180-2026-nd-cp-469621.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-bvqltd-2023-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-bvqltd-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/6/39843/45917-1-2023865-86619-2023-qh15.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-19-2023-qh15-39843.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-nd-55-2024-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-nd-55-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2024/5/41942/50266-1-2024687-68855-2024-nd-cp.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-55-2024-nd-cp-41942.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-quang-cao-2012-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-quang-cao-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2012/6/3433/11328-1-2012481-482-162012qh13pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/van-ban/luat-so-16-2012-qh13-3433.htm (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-luat-quang-cao-75-2025-pdf-head",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "vn-luat-quang-cao-75-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2025/6/45566/57708-1-2025967-96875-2025-qh15.pdf",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/noi-dung-van-ban-so-75-2025-qh15-45566 (C\u00f4ng b\u00e1o document page in a browser; it lists the PDF files and, for a law, the consolidated texts (v\u0103n b\u1ea3n h\u1ee3p nh\u1ea5t) issued later; curl to congbao.chinhphu.vn is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-terms-congbao-adopted",
+  "source_id": "VN-CONGBAO-ADOPTED",
+  "iso2": "VN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://congbao.chinhphu.vn/gioi-thieu.htm",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "vn-terms-congbao-consolidated",
+  "source_id": "VN-CONGBAO-CONSOLIDATED",
+  "iso2": "VN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://congbao.chinhphu.vn/gioi-thieu.htm",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-031-2021-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-031-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-005-2022-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-005-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059496",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-008-2022-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-008-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059686",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-005-2024-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-005-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1070272",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-015-2025-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-015-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1079295",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-ley-1931-2018-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1931-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30035792",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30035792 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-2169-2021-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-2169-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30043747",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30043747 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-1819-2016-art221-223-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1819-2016-art221-223",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30030265",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030265 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-2277-2022-art47-49-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-2277-2022-art47-49",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30045028",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30045028 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-decreto-926-2017-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-decreto-926-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30030671",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030671 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-decreto-969-2026-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-decreto-969-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30056970",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30056970 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-1480-2011-art29-33-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1480-2011-art29-33",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/1681955",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=1681955 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
   "id": "ar-cnv-rg-1115-2026-infoleg-page",
   "source_id": "AR-INFOLEG-ADOPTED",
   "iso2": "AR",

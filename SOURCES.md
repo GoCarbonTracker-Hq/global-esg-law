@@ -2790,6 +2790,392 @@ No second official language: the Mevzuat Bilgi Sistemi and the Resmî Gazete pub
 
 No site refused the cloud address. The only failure was `mevzuat.gov.tr` without a `User-Agent` header (timeout), described above.
 
+## Chile
+
+Run on 2026-11-02 (GEL-07-05). Two rows pass, both on the publisher's terms (not a statute): `CL-BCN-ADOPTED` and `CL-BCN-CONSOLIDATED` (Biblioteca del Congreso Nacional, Ley Chile). Their deciding sentence is section 9 of the Ley Chile API conditions: the texts of laws, decrees and similar acts served through Ley Chile are outside copyright and the BCN claims no rights in them. Two rows are `permission requested`: `CL-CMF-ADOPTED` (the CMF site authorises reproduction with the source named but does not mention commercial reuse or modification) and `CL-DIARIOOFICIAL-ADOPTED` (reuse is open to all but condition a) forbids altering the content). Varun to confirm the two BCN passes: the same section says other Ley Chile content is CC BY-NC-ND, the API conditions ban bulk extraction and AI training without authorisation, and the fetches below used the older public endpoints without an API key. No browser was needed for any record.
+
+Every `leychile.cl` and `bcn.cl` host answers a request with no browser User-Agent with an empty `401` from CloudFront, and `www.diariooficial.interior.gob.cl` answers it with a `403`. A short User-Agent (`-A 'Mozilla/5.0'`) is enough; the watcher's own User-Agent (`global-esg-law-watch/1`) is also answered `200`. The failing line first:
+
+```
+curl -sS -L -o x.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `401 0` (empty content type). With the User-Agent the same URL returns the file below.
+
+Row `CL-BCN-ADOPTED`, Decreto 4 of 2023 (idNorma 1196414), JSON route:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ds4.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1196414&idVersion=2023-09-29&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='
+```
+
+Returned `200 61807 application/json; charset=utf-8`; a second request returned the same bytes (`fetched_sha256` f8ef0ccc...). The JSON is the data the Ley Chile page draws: `html` is a tree of parts (`t` is an HTML fragment, `h` the child parts, `i` the part id), `estructura` names the parts, `metadatos` the dates. Record text = every `<div class="p">` of every part in order, tags removed, `&nbsp;` and runs of spaces collapsed, empty paragraphs dropped, BCN's amendment annotations (`<span class="n">`) dropped, one paragraph per line; parts named Anexo (for Ley 21.455, the Constitutional Tribunal certificate on the bill) are left out. The text is not reworded. The version list of any norm:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o v.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Consulta/get_versiones?idNorma=1177286&formato=json&idParte=&idsParte='
+```
+
+Returned `200 841 text/xml;charset=utf-8` (the body is JSON: `@vigenteDesde`, `@vigenteHasta`, `@tipoVersion` of "Texto Original", "Intermedio", "Última Versión" or "Única"). `Texto Original` and `Única` are stored under the adopted row, the others under the consolidated row. Ley 21.455 is this idNorma: row `CL-BCN-ADOPTED`, version 2022-06-13, `curl -sS -L -A 'Mozilla/5.0' -o l21455.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://nuevo.leychile.cl/servicios/Navegar/get_norma_json?idNorma=1177286&idVersion=2022-06-13&idLey=&tipoVersion=&cve=&agrupa_partes=1&r='` returned `200 192678 application/json; charset=utf-8` (sha256 06f41402...); row `CL-BCN-CONSOLIDATED`, version 2025-07-11, same URL with `idVersion=2025-07-11`, returned `200 192844` (sha256 bd013320..., identical on two requests).
+
+XML route, used for the two instruments where only one or two articles are stored. Row `CL-BCN-CONSOLIDATED`, Ley 20.780 as of 2023-02-25 (idNorma 1067194; a norm is found from its number with `https://www.leychile.cl/Consulta/obtxml?opt=7&idLey=20780`, which returned `200 409864 text/xml; charset=utf-8`):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o l20780.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=1067194&idVersion=2023-02-25'
+```
+
+Returned `200 344807 text/xml; charset=utf-8` (sha256 3bf915a2...). The XML (`Norma/EstructurasFuncionales/EstructuraFuncional/Texto`) is cut by the position of the element whose `Texto` starts `Artículo 8°` (idParte 9509251); each `Texto` is split into paragraphs at lines that start with whitespace, wrapped lines joined with a space. Row `CL-BCN-ADOPTED`, Ley 19.496 as published (idNorma 61438, version 1997-03-07, articles 28 and 33 cut the same way): `curl -sS -L -A 'Mozilla/5.0' -o l19496.xml -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.leychile.cl/Consulta/obtxml?opt=7&idNorma=61438&idVersion=1997-03-07'` returned `200 84500 text/xml; charset=utf-8` (sha256 529c5bd4...). All 18 versions of Ley 19.496 and all 10 of Ley 20.780 were fetched; the two articles of Ley 19.496 are the same in each, and the versions of Ley 20.780 in which art. 8 differs are the five stored. Both cuts were compared on 2026-11-02 with the JSON route of the same versions: identical text except for BCN's amendment annotations, which only the JSON carries.
+
+Why two routes: on the same day the XML route returned `Texto` elements cut mid-word for Ley 21.455 (art. 5 letters c) to i), "prá" and "Climá" as last characters) and a replacement character for the accented i of "Título" in Decreto 4/2023. The first XML fetch of the Ley 21.455 version 2022-06-13 was complete (188127 bytes, sha256 93f630c0...); later requests for the same URL returned 181567 bytes (0a807631...) with the cut. Because of that variance Ley 21.455 and Decreto 4 are stored from the JSON route, whose bytes were identical on repeated requests, and the XML `fetched_sha256` of the other two instruments was reproduced on a second request (the Ley 20.780 files match byte for byte). If a later run of the XML route returns different bytes, treat the stored XML hash as the date-stamped one and compare the article text, not the hash.
+
+Row `CL-CMF-ADOPTED` (permission requested, nothing stored): `curl -sS -L -A 'Mozilla/5.0' -o ncg461.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cmfchile.cl/normativa/ncg_461_2021.pdf` returned `200 563413 application/pdf`; the NCG 519 PDF (`.../ncg_519_2024.pdf`) returned `200 272348 application/pdf`. The CMF normativa page of NCG 461 answers without a User-Agent (`200 113829`). Both PDFs were read with `pdftotext -layout` only to take dates and amendments (no mojibake); nothing is stored. Row `CL-DIARIOOFICIAL-ADOPTED` (permission requested): `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.diariooficial.interior.gob.cl/` returned `403 286 text/html; charset=iso-8859-1`; with `-A 'Mozilla/5.0'` it returned `200 29180 text/html; charset=UTF-8`. Its terms page is a script-rendered shell (1325 bytes to curl) and was read with Playwright chromium after networkidle. No edition PDF was fetched, so no `pdftotext` recipe is proven for the gazette.
+
+### Languages
+
+Run on 2026-11-02. Chile has one official language, Spanish; every record has `language` es and no row of its own was added for a second language. English was looked for at the Ley Chile pages (`https://www.bcn.cl/en` returned `200 8888 text/html`, the Spanish script shell; `https://www.bcn.cl/leychile/en` `200 9602`, the same shell; the Ley Chile version lists are Spanish only), at the CMF site (`https://www.cmfchile.cl/english/` returned 404, 2319 bytes; the normativa pages are Spanish only) and at the Diario Oficial (`https://www.diariooficial.interior.gob.cl/en` returned 404, 29166 bytes). No government English translation of any scope instrument was found, so no translation row exists and no translation record is stored. Unofficial English texts of Ley 21.455 published by outside bodies were not looked at and would not be stored.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| cl-ncg-461 (CMF NCG 461) | https://www.cmfchile.cl/portal/normativa/624/w4-article-106836.html | Row `CL-CMF-ADOPTED` is permission requested: the CMF site authorises reproduction with the source named, but says nothing on commercial reuse or modification. The PDF opens (200, 563413, application/pdf). |
+| cl-ncg-519 (CMF NCG 519, amends NCG 461) | https://www.cmfchile.cl/normativa/ncg_519_2024.pdf | Same row, same reason. The PDF opens (200, 272348, application/pdf). |
+| Ley 20.920 (F7) | https://www.bcn.cl/leychile/navegar?idNorma=1090894 | F7: register row only, no scope entry. |
+
+Blocked from the cloud address: none refused a browser User-Agent. Without one, `www.bcn.cl`, `www.leychile.cl` and `nuevo.leychile.cl` answer `401` with an empty body (CloudFront) and `www.diariooficial.interior.gob.cl` answers `403`. The watchers in `upkeep/watchers.json` run from the shipped User-Agent, which the BCN hosts and the CMF accept (`--dry-run` 2026-11-02: 0 failures), and carry a browser `second_route` anyway.
+
+Stored by GEL-07-05: `cl-ley-21455` (adopted 2022-06-13, consolidated 2025-07-11), `cl-ley-20780-art8` (adopted 2014-10-01; consolidated 2016-02-08, 2020-02-24, 2023-01-01, 2023-02-25), `cl-ds-4-2023` (adopted 2023-09-29), `cl-ley-19496-art28-33` (adopted 1997-03-07).
+
+## Israel
+
+GEL-07-03, run 2026-11-02. Rows added: `IL-KNESSET-ADOPTED` (`pass`, statute: Copyright Law 5768-2007 s.6, which the repository's brief quoted in other words; see the row), `IL-RESHUMOT-ADOPTED`, `IL-ISA-ADOPTED` and `IL-BOI-ADOPTED` (all `permission requested`). Nothing is fetched with a browser: the Knesset OData API and the PDFs on `fs.knesset.gov.il` answer plain `curl`, while the Knesset web app, gov.il and the Bank of Israel pages do not (see the end of this section). So there are no browser-fetched records and no per-request token: `fetched_sha256` is the sha256 of the PDF as received, and a second fetch of both stored PDFs gave the same hash.
+
+Finding the files. The Knesset database page `https://main.knesset.gov.il/Activity/Legislation/Laws` is a JavaScript app behind a bot challenge, but the same data is in the Knesset OData API, which has no challenge. For an Act, `KNS_IsraelLaw` names it (`$filter=substringof('אוויר נקי',Name)`), `KNS_LawBinding` lists its original publication and each amending publication (`BindingType` 6012 original, 6013 amending), and `KNS_DocumentBill` with `GroupTypeID eq 9` (חוק - פרסום ברשומות) gives the Sefer HaChukkim PDF of a publication by `BillID`. Secondary legislation is in `OdataV4/ParliamentInfo/KNS_SecondaryLaw` with `KNS_DocumentSecondaryLaw` (the "פרסום ברשומות" document is the Kovetz HaTakanot PDF; the file path has backslashes, use forward slashes).
+
+Row `IL-KNESSET-ADOPTED`, proven requests (named instrument: Clean Air Law, 5768-2008):
+
+```
+curl -sS -G -o a.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_DocumentBill' --data-urlencode '$format=json' --data-urlencode '$filter=BillID eq 98122 and GroupTypeID eq 9'
+```
+
+Returned `200 427 application/json;odata=minimalmetadata;streaming=true;charset=utf-8`, with `FilePath` `https://fs.knesset.gov.il//17/law/17_lsr_299971.pdf`.
+
+```
+curl -sS -o 17_lsr_299971.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://fs.knesset.gov.il//17/law/17_lsr_299971.pdf'
+```
+
+Returned `200 571492 application/pdf`, 44 pages, sha256 `e883821bf38b4a341f2d46de3cdbdad2ae8eb3ddfc82276fb0c0353d17ff1818` twice. The second stored PDF, `curl -sS -o 18_lsr_301394.pdf 'https://fs.knesset.gov.il//18/law/18_lsr_301394.pdf'` (Protection of the Environment (Emissions and Transfers) Law, 2012, `KNS_DocumentBill` `BillID eq 419714`), returned `200 543821 application/pdf`, 28 pages, sha256 `6bdc305c5aeb353062b2fd7ecaaf4c31511ccf5ebb999648ce330a9531436979` twice. The Copyright Law as enacted, read for the statute, is `https://fs.knesset.gov.il//17/law/17_lsr_300007.pdf` (`200 224846 application/pdf`, sha256 `d687d363...`). A Kovetz HaTakanot PDF: `https://fs.knesset.gov.il/25/SecondaryLaw/25_scl_rv_4908147.pdf` returned `200 167743 application/pdf` (read, not stored).
+
+The version lists the watchers read: `curl -sS -G 'https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000055)' --data-urlencode '$format=json'` returned `200 860 application/json;odata=minimalmetadata;streaming=true;charset=utf-8` (`LatestPublicationDate` 2024-04-16).
+
+### Text extraction (Hebrew PDFs)
+
+These Sefer HaChukkim PDFs (InDesign, glyph-ID fonts) cannot be read with `pdftotext -layout` or the default mode: on every odd page the page text is drawn twice, the first copy under a white rectangle, so poppler prints each word twice and interleaves the two copies (`pdftotext -layout -f 5 -l 5 17_lsr_299971.pdf -` gives lines such as `מבנהמבנהאוויר ,לרבות` and a second pass of the same words). `pdftotext -raw` prints single copies but in visual order with the final letter ר displaced to the front of some words. `pypdf` `extract_text` shows the same doubling. The text was therefore made with the script below (pypdf 6.17.0 and poppler `pdftotext` 24.02.0, `python3 -I il_pdf.py in.pdf out.txt`): it deletes the text drawn before each white box, takes word boxes from `pdftotext -bbox`, rebuilds each row right to left, reverses each word from visual to logical order (digits and Latin words kept left to right), puts margin notes (smaller font, in the margin) ahead of the paragraph they sit beside, and drops the page footer line. Then the text is cut at the title and at the end of the Act (the contents page and, for the 2012 Act, the correction notice printed after it, are left out), runs of spaces collapsed.
+
+Checked: for every page of the 2008 and 2012 PDFs the multiset of Hebrew words was compared with `pypdf` on the trimmed PDF. On the 41 text pages of the Clean Air PDF the two agree except for apostrophes, words `pypdf` drops from square brackets, and table cells it runs together; on the 28-page 2012 PDF likewise. No U+FFFD, no control or bidi characters and no repeated lines in either stored text. Known limits: in the First Schedule table of the 2012 Act (pollutant names), parentheses and dashes next to Latin names can sit on the wrong side, and the signature names there come out letter-spaced; margin notes are lines of their own before their section. The PDFs of 1981 and earlier carry an OCR-like text layer (stray glyphs, mirrored brackets) and were not used.
+
+```
+#!/usr/bin/env python3
+"""il_pdf.py in.pdf out.txt : Sefer HaChukkim PDF -> logical Hebrew text. Needs poppler pdftotext and pypdf."""
+import html, re, subprocess, sys, tempfile
+import pypdf
+from pypdf.generic import DecodedStreamObject, NameObject
+MARKS = re.compile('[‪-‮‎‏⁦-⁩]')
+WHITE = re.compile(r'(?:1 1 1\s+scn\s*)?/GS1 gs\s*[\d. -]+ re\s*f\s*', re.S)
+WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
+PAGE = re.compile(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>', re.S)
+
+def trim(src, dst):  # step 1: drop the copy of the page text that lies under a white box
+    r = pypdf.PdfReader(src); w = pypdf.PdfWriter()
+    for p in r.pages:
+        c = p.get_contents().get_data().decode('latin1'); m = WHITE.search(c)
+        if m:
+            b = c.find('BT', max(c.find('\nQ'), 0)); c = c[:b] + c[m.end():]
+            s = DecodedStreamObject(); s.set_data(c.encode('latin1')); p[NameObject('/Contents')] = w._add_object(s)
+        w.add_page(p)
+    w.write(dst)
+
+def fix(tok):  # visual (left to right) token -> logical: reverse, then restore digit/latin runs
+    r = MARKS.sub('', html.unescape(tok))[::-1]
+    return re.sub(r'[0-9A-Za-z][0-9A-Za-z.,/:\-]*[0-9A-Za-z]|[0-9A-Za-z]', lambda m: m.group(0)[::-1], r)
+
+def rows(items, tol=3.0):
+    out = []
+    for w in sorted(items, key=lambda w: w[1]):
+        if out and abs(out[-1][0] - w[1]) <= tol: out[-1][1].append(w)
+        else: out.append([w[1], [w]])
+    return out
+
+def line(r):  # words of one row, right to left; latin runs stay left to right
+    toks = [(MARKS.sub('', w[4]), w[0], w[2], bool(re.search('[A-Za-z]', w[4]))) for w in sorted(r, key=lambda w: -w[0])]
+    out, i, px = [], 0, None
+    while i < len(toks):
+        if toks[i][3]:
+            j = i
+            while j + 1 < len(toks) and toks[j + 1][3]: j += 1
+            core = ' '.join(t[0] for t in reversed(toks[i:j + 1]))
+            lead = re.match(r'^([^0-9A-Za-z]*)', core).group(1); trail = re.search(r'([^0-9A-Za-z]*)$', core).group(1)
+            core = core[len(lead):len(core) - len(trail)]
+            out.append(trail[::-1] + core + lead[::-1]); px = toks[j][1]; i = j + 1; continue
+        t = fix(toks[i][0])
+        if px is not None and px - toks[i][2] < 0.8 and re.fullmatch('[ךרדןי][,.;:]?', t) and out: out[-1] += t  # split final letter
+        else: out.append(t)
+        px = toks[i][1]; i += 1
+    return ' '.join(out)
+
+def page_lines(ws):
+    ismarg = lambda w: abs((w[3] - w[1]) - 9.66) < 0.1 and (w[2] <= 104 or w[0] >= 398)  # margin-note font
+    body = rows([w for w in ws if not ismarg(w)]); blocks = []
+    for y, r in rows([w for w in ws if ismarg(w)]):
+        if blocks and y - blocks[-1][-1][0] <= 16: blocks[-1].append((y, r))
+        else: blocks.append([(y, r)])
+    out = []
+    for y, r in body:
+        while blocks and blocks[0][0][0] <= y + 3: out.extend(line(rr) for _, rr in blocks.pop(0))
+        out.append(line(r))
+    for b in blocks: out.extend(line(rr) for _, rr in b)
+    return out
+
+def document(pdf):
+    with tempfile.NamedTemporaryFile(suffix='.pdf') as t:
+        trim(pdf, t.name)
+        x = subprocess.run(['pdftotext', '-bbox', t.name, '-'], capture_output=True, text=True, check=True).stdout
+    lines = []
+    for m in PAGE.finditer(x):
+        ws = [(float(a), float(b), float(c), float(d), html.unescape(e)) for a, b, c, d, e in WORD.findall(m.group(3))]
+        pl = [l for l in page_lines(ws) if 'ספר החוקים' not in l]
+        if pl and re.fullmatch(r'\d{1,4}', pl[-1].strip()): pl = pl[:-1]
+        lines.extend(pl)
+    return [re.sub(r' {2,}', ' ', l).strip() for l in lines if l.strip()]
+
+if __name__ == '__main__':
+    open(sys.argv[2], 'w').write('\n'.join(document(sys.argv[1])) + '\n')
+```
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records |
+|---|---|---|
+| `il-clean-air-law` | adopted | 2011-01-01 he (the Act as published in Sefer HaChukkim 2174, 2008-07-31; start date from section 93) |
+| `il-prtr-law` | adopted | 2012-04-01 he (the Act as published in Sefer HaChukkim 2348; no commencement section, so the record takes the publication date) |
+
+Both are the as-enacted wording only. The Knesset database serves publications and no consolidated text, so later amendments are not stored.
+
+### Languages
+
+Hebrew is the language of the Acts; Reshumot publishes Israeli Acts in Hebrew only (Arabic has a special status but no Arabic text is published). No second official language exists to store. English: no government translation was found for either stored Act. Looked for: the OData `KNS_DocumentBill` list of each bill (first-reading text, Knesset plenum extracts, the Hebrew Sefer HaChukkim PDF; no English document) and `www.sviva.gov.il`, the environment ministry (connection failed from the cloud address). The Copyright Law s.6 names no translations, so an English translation would need its own row on the publisher's terms. No translation row was added and nothing English is stored.
+
+### Link only
+
+- `il-consumer-protection-law`: row passes, but the 1981 PDF text layer looks like OCR (stray glyphs, mirrored brackets) and was not checked against the page image, and the Knesset serves only the 1981 as-enacted wording of an Act amended up to 2026-07-28.
+- `il-securities-periodic-reports-regs`: the Knesset store holds only amendments of the 1970 regulations, no PDF of the principal text; Reshumot (gov.il) refused the cloud address. No sustainability disclosure amendment found.
+- `il-fuel-excise-order-2024`, `il-customs-tariff-order-2024`: orders (צו), not named in s.6 of the Copyright Law; the PDF was read for the dates and the commencement condition only.
+- `il-boi-directive-345`: row `IL-BOI-ADOPTED` is `permission requested` (the Bank of Israel terms page was blocked); the directive PDF itself answers curl (`200 360881 application/pdf`).
+- Not stored because not law: the Israel Securities Authority review report (F7 register row) and the Climate Law bill (government bill 1735, F7 register row). Nevo and Takdin are private databases: no row, never stored.
+
+### Blocked from the cloud address
+
+Failing `curl` lines and their answers, then the headless Chromium attempt. Chromium (Playwright, `page.goto(url, {waitUntil: 'domcontentloaded'})`, wait 4 s, locale he-IL) did not pass either, so no record rests on it; the orchestrator can try these from the laptop.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://main.knesset.gov.il/Activity/Legislation/Laws
+247 445 text/html; charset=utf-8
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.gov.il/he/departments/dynamiccollectors/reshumot
+403 5188 text/html; charset=UTF-8
+```
+
+- https://main.knesset.gov.il/Activity/Legislation/Laws and `/en/about/pages/terms.aspx`, https://knesset.gov.il/ , https://fs.knesset.gov.il/ (root), https://knesset.gov.il/Laws/Data/BigLaws.aspx: HTTP 247 with a 440 to 445 byte JavaScript challenge page (`window.rbzns`); Chromium also got 247 and an empty body after 8 s. Only `knesset.gov.il/Odata/...`, `knesset.gov.il/OdataV4/...` and deep `fs.knesset.gov.il` PDF paths answer.
+- https://www.gov.il/he/departments/dynamiccollectors/reshumot, https://www.gov.il/he/pages/terms and `/he/pages/terms-of-use`: HTTP 403, Cloudflare block page (5188 bytes to curl, 687 characters in Chromium).
+- https://data.gov.il/: 403, 919 bytes. https://www.nevo.co.il/: 403 (private database, not used anyway).
+- https://www.boi.org.il/en/terms-of-use/: HTTP 403 "Forbidden Transaction ID" in Chromium, a Radware loader page (200, 118350 bytes) to curl; the media PDF `https://boi.org.il/media/1quhabaa/345_et.pdf` answers 200 to GET and 302 to HEAD.
+- https://web.archive.org/ and https://www.sviva.gov.il/: no connection from the cloud address (curl exit status 000).
+- https://www.isa.gov.il/ redirects (301) to https://www.new.isa.gov.il/, which answers 200; its terms page was read with Chromium.
+
+## Vietnam
+
+Run on 2026-11-02 (GEL-07-09). Two rows pass, both on the statute basis (Law on Intellectual Property 50/2005/QH11 Điều 15 khoản 2: "Văn bản quy phạm pháp luật, văn bản hành chính, văn bản khác thuộc lĩnh vực tư pháp và bản dịch chính thức của văn bản đó" are outside copyright, quoted in the row from the consolidated text 160/2026/VBHN-LQ-VPQH): `VN-CONGBAO-ADOPTED` (the document as published in the Official Gazette) and `VN-CONGBAO-CONSOLIDATED` (the văn bản hợp nhất issued by the Office of the National Assembly or a ministry and published in the Gazette; the row notes say Varun decides whether a consolidation is an official text within Điều 15 khoản 2). Four rows are `permission requested` and store nothing: `VN-VBPL-CONSOLIDATED` (vbpl.vn), `VN-PHAPLUAT-CONSOLIDATED` (phapluat.gov.vn), `VN-VIETNAMLAW-TRANSLATION` (vietnamlaw.gov.vn) and `VN-SSC-CONSOLIDATED` (ssc.gov.vn). The Công báo site states one condition, naming the source ("Ghi rõ nguồn 'congbao.chinhphu.vn' khi phát hành lại thông tin từ các nguồn này."), carried in the licence trailer. Language: Vietnamese only; no government English text was reachable (see Languages).
+
+Two things about the host. `congbao.chinhphu.vn` resets some connections from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, also seen on `datafiles.chinhphu.vn` and `vanban.chinhphu.vn`); the same request succeeds on a retry, so the commands below are each run with up to four tries. The `g7.cdnchinhphu.vn/api/download/stream?...` links on the document pages fail TLS verification from the cloud address (`curl: (60) SSL certificate problem: unable to get local issuer certificate`, an incomplete chain), so they are not used; the `congbaocdn.chinhphu.vn` PDF link on the same page serves the same document.
+
+The document page `https://congbao.chinhphu.vn/van-ban/<slug>-<id>.htm` lists the PDF files of the document (`href` values containing `congbaocdn.chinhphu.vn`). A document printed across several Gazette issues (a law, a long decree) is several PDFs; they are read in the order listed and form one text. One 2012 file has no `.pdf` suffix in its link (`.../11328-1-2012481-482-162012qh13pdf`, served as `application/octet-stream`); it is a PDF.
+
+Row `VN-CONGBAO-ADOPTED`, Decree 06/2022/NĐ-CP (`vn-nd-06-2022`). Step 1, the document page:
+
+```
+curl -sS -L -o d06_page.html -w '%{http_code} %{size_download} %{content_type}\n' https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2022-nd-cp-36560.htm
+```
+
+Returned `200 149077 text/html; charset=utf-8`. The page carries "Ban hành: 07/01/2022 - Hiệu lực: 07/01/2022". Its size changes by about 195 bytes between two cached variants (a trailing HTML comment with the cache time), so the page is not hashed. Step 2, the signed PDF:
+
+```
+curl -sS -L -o d06.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36560/39440-1-2022131-13206-2022-nd-cp.pdf
+```
+
+Returned `200 1151972 application/pdf; charset=utf-8`, sha256 `29e28ab67fcd93754a82d0ce3a974231eae3c599c1c51e1b74e727af9d05f4e4` on two fetches (the file is static, so the hash reproduces).
+
+Row `VN-CONGBAO-CONSOLIDATED`, Law on Environmental Protection, consolidated text 09/VBHN-VPQH (`vn-luat-bvmt-2020`, record `2024-07-01-consolidated-vi.json`):
+
+```
+curl -sS -L -o v09_page.html -w '%{http_code} %{size_download} %{content_type}\n' https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-09-vbhn-vpqh-40444.htm
+curl -sS -L -o v09_0.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/8/40444/47107-1-20231209-121009-vbhn-vpqh.pdf
+curl -sS -L -o v09_1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/8/40444/47110-1-20231211-121209-vbhn-vpqh.pdf
+```
+
+Returned `200 150730 text/html; charset=utf-8`, `200 1351325 application/pdf; charset=utf-8` and `200 743354 application/pdf; charset=utf-8`. `fetched_sha256` of a record that has several files is the sha256 of the files concatenated in the order listed (`cat v09_0.pdf v09_1.pdf | sha256sum` gives `cd9925bd...fd26f27`, the value stored), and `fetched_url` lists the URLs separated by single spaces. The consolidated documents of 2026 are single PDFs under `https://congbaocdn.chinhphu.vn/180507251028987904/<yyyy>/<m>/<d>/<file>_signed.pdf`.
+
+Text extraction: `pdftotext -layout file.pdf -` (poppler) for each file, parts joined in order; runs of spaces collapsed to one, blank lines dropped, form feeds removed, and the running Gazette furniture dropped: the lines containing `CÔNG BÁO/Số` (the page header with the issue number and date) and the digital-signature block lines beginning `Người ký:`, `Email:`, `Cơ quan:`, `Thời gian ký:`, `Ký bởi:` or `Ngày ký:`. Nothing else is changed: footnotes stay where the PDF layout puts them, and the bilingual labels inside the annex forms are the official text. Checked before storing, for every file: no U+FFFD or private-use character, at least 400 characters per page (a scan has none), the text contains "Điều 1", it is NFC, and the `Điều N.` headings run in order (the Law on Environmental Protection has 171, the Consumer Law 80, the Advertising Law 43). One exception: Decree 119/2025/NĐ-CP contains two Symbol-font bullets (U+F0A7) and one summation sign in a formula that pdftotext emits as U+FFFD; they are glyphs, not mojibake, and are kept as extracted (see its scope note). Reading of the dates: a Gazette document's `in_force` is the date its own commencement clause gives (quoted in the scope `evidence`); a consolidated text carries no commencement date of its own (the page shows "01/01/1900"), so its `in_force` is the in-force date of the last amendment its preamble lists.
+
+Stored (fetched 2026-11-02, all Vietnamese, 24 records in 14 instruments):
+
+| Instrument | adopted | consolidated (`in_force`) |
+|---|---|---|
+| `vn-tt-96-2020` | 2021-01-01 | 2026-02-03 (10/VBHN-BTC) |
+| `vn-luat-bvmt-2020` | 2022-01-01 | 2023-07-01, 2024-07-01, 2025-07-01, 2026-01-01 |
+| `vn-nd-08-2022` | 2022-01-10 | none on Công báo |
+| `vn-nd-48-2026` | 2026-01-29 | none |
+| `vn-nd-06-2022` | 2022-01-07 | none |
+| `vn-nd-119-2025` | 2025-08-01 | none |
+| `vn-nd-83-2026` | 2026-03-23 | none |
+| `vn-nd-112-2026` | 2026-05-19 | none |
+| `vn-nd-29-2026` | 2026-01-19 | none |
+| `vn-nd-180-2026` | 2026-07-15 | none |
+| `vn-luat-bvqltd-2023` | 2024-07-01 | 2026-07-01 (47/VBHN-VPQH) |
+| `vn-nd-55-2024` | 2024-07-01 | 2026-07-01 (29/VBHN-BCT) |
+| `vn-luat-quang-cao-2012` | 2013-01-01 | 2025-01-01, 2025-07-01, 2026-01-01 |
+| `vn-luat-quang-cao-75-2025` | 2026-01-01 | none |
+
+Not stored: the consolidated Advertising Law 47/VBHN-VPQH of 2018-12-10 (state of 2019-01-01) is a scan with no text layer (22 pages, 185 characters), so the state of 2019-01-01 to 2024-12-31 has no record; the consolidated Circular 96 states of 2024-11-02 and 2025-05-05 are not published as consolidated texts on Công báo (the SSC copy 41/VBHN-BTC is on ssc.gov.vn, row `permission requested`). The Government portal copy of Circular 96/2020/TT-BTC (`https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/12/96-btc.pdf`, `200 3488133 application/pdf`, 107 pages) is an image-only PDF (JBIG2 scan; `pdftotext` returns 239 characters), so it is not used; the Công báo PDFs of the same circular have a text layer. Decision 232/QĐ-TTg of 2025-01-24 (carbon market Scheme, Công báo document 44071) approves an Đề án in an individual decision and is not a văn bản quy phạm pháp luật; it has a `register.csv` row with `law_family` F7 and no scope entry. Decree 396/2026/NĐ-CP (effective 2026-12-12 per the existing register note) was not on Công báo on 2026-11-02 (the newest decree listed was 393/2026/NĐ-CP) and has no entry.
+
+### Languages
+
+Vietnamese is the only official language; there is one record per dated version, under the same row as the version (`-vi.json`). English: no Vietnamese government English translation was reachable, so no `translation` record exists and no instrument has an English record. Where it was looked for:
+
+- `vietnamlaw.gov.vn` (Bộ Tư pháp, English legal translations) and `phapluat.gov.vn`: every request answers 403 from the cloud address, to `curl` and to headless Chromium alike:
+
+```
+curl -sS -L -o x.out -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://vietnamlaw.gov.vn/en
+```
+
+Returned `403 6077 text/html` (`https://phapluat.gov.vn/`: `403 6075 text/html`). Playwright chromium (`goto`, wait 9 s) got "Sorry, you have been blocked ... You are unable to access https://vietnamlaw.gov.vn/en". Rows `VN-PHAPLUAT-CONSOLIDATED` and `VN-VIETNAMLAW-TRANSLATION` are `permission requested` for that reason; whether a translation there is a "bản dịch chính thức" or one marked for reference was not readable.
+- `vbpl.vn` lists a feature "Xem văn bản tiếng Anh" but the page is a client-rendered shell and its data gateway resets the connection (below).
+- `congbao.chinhphu.vn`: Vietnamese only; neither the home page, the listings nor the document pages carry an English edition or link.
+
+### Link only
+
+None: all 14 scope instruments have at least one record.
+
+### Blocked from the cloud address
+
+- `https://phapluat.gov.vn/` and `https://vietnamlaw.gov.vn/en`: `403 6075` and `403 6077 text/html`, a security-check page; headless Chromium: "Sorry, you have been blocked".
+- `https://vbpl.vn/` answers 200 to `curl -A 'Mozilla/5.0'` (`200 80059 text/html`) and 403 to headless Chromium; `https://vbpl.vn/van-ban/chi-tiet/1` answers `200 88663 text/html` but with no document text (Next.js shell); `https://vbpl.vn/van-ban?keyword=...` answers 403 (`403 1653 text/html`); `https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/1` (the data API the pages call): `curl: (35) Recv failure: Connection reset by peer`; `https://vbpl.vn/sitemap/0.xml` 403. `https://phapdien.moj.gov.vn/` and the `moj.gov.vn` home: reset, and 403.
+- `https://g7.cdnchinhphu.vn/api/download/stream?...` (the second download link on every Công báo page): `curl: (60) SSL certificate problem: unable to get local issuer certificate`.
+- `https://congbao.chinhphu.vn/tim-kiem?keyword=...` (site search) answers `302` to `/` for scripts, so documents were found through the type listings (`/van-ban-dang-cong-bao/<type>/trang-<n>.htm`) and web search instead.
+- Intermittent resets (retry succeeds): `congbao.chinhphu.vn`, `datafiles.chinhphu.vn`, `vanban.chinhphu.vn`.
+
+No browser recipe was needed: every stored record was fetched with `curl`.
+
+### Watchers
+
+One `http_head` watcher per scope instrument on the first as-published PDF (its Content-Length is stable; the Công báo document pages are not hashable, since a trailing cache-time comment alternates between two variants, and no Công báo page lists dates in the ISO form `date_list` reads). They notice a replaced PDF, not a new consolidation or an amendment; those arrive through the Công báo "Văn bản mới" listings, which the watcher kinds cannot read (the RSS feed `https://congbao.chinhphu.vn/cac-van-ban-moi-ban-hanh.rss` has RFC 822 dates and a changing `lastBuildDate`). Two `page_hash` terms watchers (`vn-terms-congbao-adopted`, `vn-terms-congbao-consolidated`) watch `https://congbao.chinhphu.vn/gioi-thieu.htm`, which gave the same hash on three fetches.
+
+## Colombia
+
+Run on 2026-11-02 (GEL-07-06). Rows: `CO-IMPRENTA-ADOPTED` (pass, statute basis: Ley 23 de 1982 art. 41, a reproduction permission tied to fidelity to the official edition; the pass is flagged for Varun in the row notes), `CO-SFC-ADOPTED` and `CO-SFC-TRANSLATION` (pass, terms basis: the Superintendencia Financiera portal terms allow free use, copy and modification with a citation), `CO-SUIN-CONSOLIDATED` and `CO-FUNCIONPUBLICA-CONSOLIDATED` (permission requested). Language: Spanish only; the one English text found is the SFC's own version of Circular Externa 031 de 2021 (see Languages). No consolidated text is stored: the only sites that offer consolidations (SUIN-Juriscol, Función Pública) are not pass, so each stored law is the adopted text as published, and later amendments are named in the scope notes.
+
+Certificate chains: www.suin-juriscol.gov.co, lexis.minjusticia.gov.co, api-cms.minjusticia.gov.co, utu.minjusticia.gov.co, dike.minjusticia.gov.co and www.funcionpublica.gov.co send an incomplete chain (the Sectigo intermediate is missing), so curl through the cloud proxy fails with `SSL certificate problem: unable to get local issuer certificate`. Verification stays on: the intermediate named in the certificate's Authority Information Access field was fetched from `crt.sectigo.com` and appended to a private CA file that is passed to curl with `--cacert`:
+
+```
+openssl s_client -connect www.suin-juriscol.gov.co:443 -servername www.suin-juriscol.gov.co -proxy 127.0.0.1:44381 -showcerts   # issuer Sectigo Public Server Authentication CA EV R36, CA Issuers URI in the certificate
+curl -sS -o ev.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAEVR36.crt        # 200 1615
+curl -sS -o ov.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt        # minjusticia.gov.co hosts
+curl -sS -o rsa.crt http://crt.sectigo.com/SectigoRSAOrganizationValidationSecureServerCA.crt # funcionpublica.gov.co, 200 1565
+for f in ev ov rsa; do openssl x509 -inform DER -in $f.crt -out $f.pem; done
+cat /root/.ccr/ca-bundle.crt ev.pem ov.pem rsa.pem > bundle.pem
+```
+
+Every `curl` below that touches those hosts carries `--cacert bundle.pem`. Chromium (Playwright) behind the same proxy answered `502 upstream request failed` for https://www.suin-juriscol.gov.co/ even after the intermediates were added to the NSS database at /root/.pki/nssdb, so no browser recipe was proven; none is needed, because the text comes from the JSON services below.
+
+### Row `CO-IMPRENTA-ADOPTED`: Diario Oficial PDF
+
+The Diario Oficial is served by a JSF application at `svrpubindc.imprenta.gov.co/diario/` (complete certificate chain). The edition PDF is behind a session: search by edition number, press `Ver Diario`, then fetch the object URL, all with one cookie jar. Run for Ley 1931 de 2018, edition 50.667 (27 July 2018):
+
+```
+curl -sS -L -c cj.txt -o index.html -w '%{http_code} %{size_download} %{content_type}\n' https://svrpubindc.imprenta.gov.co/diario/
+```
+
+Returned `200 45103 text/html;charset=UTF-8`. The form action (with the `jsessionid`) and the hidden `javax.faces.ViewState` are read from `index.html`.
+
+```
+curl -sS -L -b cj.txt -c cj.txt --data-urlencode 'frmConDiario=frmConDiario' --data-urlencode 'numeroDiarioOf=50667' --data-urlencode 'btnBuscar=btnBuscar' --data-urlencode 'javax.faces.ViewState=<value>' -o result.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/index.xhtml;jsessionid=<id>'
+```
+
+Returned `200 32223 text/html;charset=UTF-8` (one row, `data-rk="50.667"`). The next request presses the row button (`dtbDiariosOficiales:0:j_idt34`) with `dtbDiariosOficiales_selection=50.667` and the new ViewState:
+
+```
+curl -sS -L -b cj.txt -c cj.txt --data-urlencode 'frmConDiario=frmConDiario' --data-urlencode 'numeroDiarioOf=50667' --data-urlencode 'dtbDiariosOficiales_selection=50.667' --data-urlencode 'dtbDiariosOficiales:0:j_idt34=' --data-urlencode 'javax.faces.ViewState=<value>' -o view.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/index.xhtml;jsessionid=<id>'
+```
+
+Returned `200 15775 text/html;charset=UTF-8`; `view.html` holds `<object type="application/pdf" data="/diario/javax.faces.resource/dynamiccontent.properties.xhtml?ln=primefaces&pfdrid=...&id=...&uid=...">`.
+
+```
+curl -sS -L -b cj.txt -o d50667.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/javax.faces.resource/dynamiccontent.properties.xhtml?ln=primefaces&pfdrid=<...>&pfdrt=sc&id=<...>&pfdrid_c=false&uid=<...>'
+```
+
+Returned `200 21365161` (the server sends no `Content-Type` header, the answer is chunked; `file` says PDF 1.7, 148 pages), sha256 `c30e64c607845dd4a673f9dc63de808f124c20071887662ff15a4e5710b9ec5b`. The token URL is per session, so `fetched_url` in the four Diario records is the URL of that run and will not answer again; the bytes do reproduce: a second full run gave the same sha256 for editions 50667, 50101, 52247 and 53578. A search by norm type and number (`tipoNorma_input=01`, `numeroNorma=1819`) also works for some laws (1819 found, 2277 not), so the edition number is taken from the SUIN index (`documents_pdn`, field `numerodiariooficial`) or from the date range search (`fechaInicial_input=13/12/2022`).
+
+Text recipe, per instrument: `pdftotext d50667.pdf d50667_d.txt` (poppler, default reading-order mode; `-layout` interleaves the two columns of every page and was not used). Page furniture is dropped (the lines `Edición N`, weekday and date, `DIARIO OFICIAL`, page numbers, and lone 1 to 3 digit lines), runs of spaces collapse, empty lines are removed, nothing else is changed, hyphenation at line ends stays as the edition has it. The law is cut from its heading line to its closing line: `LEY 1931 DE 2018` to `Luis Fernando Mejía Alzate.`; `PARTE IX` to the line before `PARTE X` (Ley 1819 arts. 221 to 223); `TÍTULO IV` to the line before `CAPÍTULO II` (Ley 2277 arts. 47 to 49); `DECRETO NÚMERO 0969 DE 2026` to `Irene Vélez Torres.`. Each cut was checked against the same cut taken with `pdftotext -raw` (content-stream order): after removing furniture, whitespace and hyphens the strings are identical for Decreto 969, differ by three footnote or page digits for Ley 1931 and by the column order of the tariff tables (and a page digit) for Ley 1819 and Ley 2277. Ley 1931 has its 36 articles in sequence. The `-raw` mode loses the spaces of some lines (runs such as `Losretiros,parcialesototales`) and so was not used for the record text.
+
+Stored: `co-ley-1931-2018` (2018-07-27), `co-ley-1819-2016-art221-223` (2016-12-29), `co-ley-2277-2022-art47-49` (2022-12-13), `co-decreto-969-2026` (2026-08-05).
+
+### Row `CO-SFC-ADOPTED`: Superintendencia Financiera circulars
+
+The circular pages are on superfinanciera.gov.co (no challenge, complete chain). Page listing the sustainable-finance circulars:
+
+```
+curl -sS -L -o sfc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/'
+```
+
+Returned `200 224069 text/html; charset=UTF-8`. The circular, Circular Externa 031 de 2021:
+
+```
+curl -sS -L -o ce031_21.docx -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619'
+```
+
+Returned `200 71188 application/octet-stream` (Word 2007+, `content-disposition: attachment; filename="ce031_21.docx"`). The annex file `idFile=1057620` is a zip with `Anexo 2 ASG.docx` and `P3 Tit V - Cap I - RNVE.docx`; it is not stored. Text recipe: unzip `word/document.xml`, one line per `w:p` paragraph, the `w:t` runs of the paragraph joined, tabs kept as tabs, runs of spaces collapsed, empty paragraphs dropped; nothing else (the closing `50000` is a paragraph of the file). `fetched_sha256` is the hash of the .docx. Stored: `co-sfc-ce-031-2021` (2021-12-22), `co-sfc-ce-005-2022` (`idFile=1059496`, 200 75884, 2022-04-08) and `co-sfc-ce-008-2022` (`idFile=1059686`, 200 69634, 2022-04-28). Terms: `idFile=1038273` returned `200 46748 application/octet-stream`.
+
+### Languages
+
+Spanish is the only official language and the only one the Diario Oficial, SUIN-Juriscol and the SFC serve for these laws. English: the SFC publishes its own English version of Circular Externa 031 de 2021 on the same page, row `CO-SFC-TRANSLATION` (pass on the SFC terms; the file itself says it is not an official translation, so the statute exception for official texts is not used):
+
+```
+curl -sS -L -o ce031_21_en.docx -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1058633'
+```
+
+Returned `200 70601 application/octet-stream`. It is stored as `2021-12-22-translation-en.json` under `co-sfc-ce-031-2021` (same recipe). Its amendment state is the circular as issued, which is the stored Spanish version. The SFC page lists no English version for Circular Externa 005 or 008 de 2022, 005 de 2024 or 015 de 2025. For the laws and decrees: no government English translation was found in the SUIN index (`documents_pdn`, English queries return only Spanish documents), the Diario Oficial search (Spanish only) or the ministry sites linked from SUIN. Each scope entry says so.
+
+### SUIN-Juriscol (row `CO-SUIN-CONSOLIDATED`, permission requested, nothing stored)
+
+`www.suin-juriscol.gov.co` returns one 4758-byte Angular shell for every path, including `viewDocument.asp?id=...`. The index and the documents sit on `lexis.minjusticia.gov.co` and answer curl (with the private CA file):
+
+```
+curl -sS --cacert bundle.pem -H 'Content-Type: application/json' -d '{"size":3,"query":{"match":{"titulo":"Ley 1931 de 2018"}}}' -w '\n%{http_code} %{size_download} %{content_type}\n' https://lexis.minjusticia.gov.co/elasticsearch/documents_pdn/_search
+```
+
+Returned `200 3523 application/json` (`numerodiariooficial`, `estado`, `fecha`, `documentofuente` and the `visualizacion` id of the document). The document: `curl -sS --cacert bundle.pem -o l1931.json -w '%{http_code} %{size_download} %{content_type}\n' https://lexis.minjusticia.gov.co/suin-search/api/documentos/30035792` returned `200 129339 application/json` (`data.textoHtml`, annotated). It was read to find edition numbers and the SUIN `estado`, and not stored.
+
+### Link only
+
+- `co-ley-2169-2021`: row `CO-IMPRENTA-ADOPTED` passes, no record. The text layer of Diario Oficial 51.896 (90 pages, `200 3914540`, sha256 `203c6181779169e44f3b6cf6286be6f8999a6b3a1ababbfe1e96c2c17d28bf9b`) gives the 38 articles out of order in default mode (11 in sequence) and loses the start of the law and many spaces in `-raw` mode; the law's sanction block shares its page with a Government objection message. No clean text.
+- `co-decreto-926-2017`: edition 50.251 (96 pages, `200 10106876`): the decree starts on the cover page together with Decretos 925 and 928 and the masthead; default and raw order differ on 4 per cent of the cut. No clean text.
+- `co-ley-1480-2011-art29-33`: edition 48.220 (36 pages, `200 537754`) uses a legacy font encoding; art. 29 extracts as `especí¿FDV DQXQFLDGDV HQ OD SXEOLFLGDG`. No OCR in the recipe.
+- `co-sfc-ce-005-2024` (`idFile=1070272`, `200 667582`) and `co-sfc-ce-015-2025` (`idFile=1079295`, `200 251023`): PDFs without a text layer (`pdftotext` writes nothing), the row passes, no record.
+
+### Blocked from the cloud address
+
+- `https://www.secretariasenado.gov.co/` (and `/senado/basedoc/ley_1931_2018.html`): `curl: (35) Recv failure: Connection reset by peer`; the proxy log shows `ws_closed_mid_exchange` for `www.secretariasenado.gov.co:443`.
+- `https://diariooficial.gov.co`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `https://www.imprenta.gov.co/diariooficial`: `429` on 10102 bytes of `text/html` (rate limit page); `https://www.imprenta.gov.co/diario-oficial` answered `200` and holds no search.
+- `https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=87654`: no answer in 30 s (`curl: (28)`).
+- Chromium (Playwright, proxy set) to `https://www.suin-juriscol.gov.co/`: `502 upstream request failed`. The same URL answers curl `200 4758 text/html` once the Sectigo intermediate is supplied.
+
 ## Argentina
 
 Rows `AR-ARGENTINAGOB-ADOPTED` (`pass`, terms: CC BY 4.0), `AR-INFOLEG-ADOPTED` (`permission requested`) and `AR-BOLETINOFICIAL-ADOPTED` (`permission requested`, page could not be opened). Run on 2026-11-02.
