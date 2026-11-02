@@ -6,8 +6,6 @@ This is a map of what the repository holds and when it was last checked. It is n
 
 The cadence values in `upkeep/cadence.json` are placeholders pending GEL-02-06; no cadence has been measured yet, so `stale` marks a cell against an assumed rhythm, not an observed one.
 
-`upkeep/seen.json` does not exist yet, so no watcher has run; every last checked date below comes from the `checked_on` of a licence row in `sources.json`.
-
 ## Counts
 
 | Count | Value | As of | Command |
@@ -23,18 +21,18 @@ The cadence values in `upkeep/cadence.json` are placeholders pending GEL-02-06; 
 | Instruments with stored text | 24 | 2026-11-02 | `python3 tools/coverage.py` |
 | Instruments link only | 7 | 2026-11-02 | `python3 tools/coverage.py` |
 | Record files (text versions) | 76 | 2026-11-02 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 4 | 2026-11-02 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 0 | 2026-11-02 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 44 | 2026-11-02 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 44 | 2026-11-02 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-02 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-02 | `python3 tools/coverage.py` |
-| Places with no watcher | 247 | 2026-11-02 | `python3 tools/coverage.py` |
+| Places with no watcher | 246 | 2026-11-02 | `python3 tools/coverage.py` |
 | Places with instruments but no stored text (link only) | 191 | 2026-11-02 | `python3 tools/coverage.py` |
 
 ## Not covered
 
 Counts as of 2026-11-02, from `python3 tools/coverage.py`.
 
-- Places with no watcher (247): AD, AE, AF, AG, AI, AL, AM, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW.
+- Places with no watcher (246): AD, AE, AF, AG, AI, AL, AM, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW.
 - Families with no instrument anywhere in the register (0): none.
 - Families with no stored text in any place (3): F2, F4, F7.
 - EU: families with no instrument (4): F2, F3, F4, F7.
@@ -132,7 +130,7 @@ One row per place in the register, one column per law family, as of 2026-11-02.
 | ER | Eritrea |  |  |  |  |  |  | B · official_text_seen · no link · unchecked |
 | ES | Spain | B · official_page_seen · link only · unchecked |  |  |  |  |  |  |
 | ET | Ethiopia |  |  |  |  |  |  |  |
-| EU | European Union | A · official_text_seen · text 8 · checked 2026-11-01 · changed 2026-11-10 |  |  |  | A · official_text_seen · text 3 · checked 2026-11-01 · changed 2026-03-18 | A · official_text_seen · text 22 · checked 2026-11-01 · changed 2026-07-02 |  |
+| EU | European Union | A · official_text_seen · text 8 · checked 2026-11-02 · changed 2026-11-10 |  |  |  | A · official_text_seen · text 3 · checked 2026-11-02 · changed 2026-03-18 | A · official_text_seen · text 22 · checked 2026-11-02 · changed 2026-07-02 |  |
 | FI | Finland | A · official_text_seen · link only · unchecked |  |  |  |  |  |  |
 | FJ | Fiji |  |  | A · official_text_seen · link only · unchecked |  |  |  |  |
 | FK | Falkland Islands |  |  |  |  |  |  |  |
@@ -140,7 +138,7 @@ One row per place in the register, one column per law family, as of 2026-11-02.
 | FO | Faroe Islands |  |  |  |  |  |  |  |
 | FR | France | A · official_text_seen · link only · unchecked |  |  |  |  |  |  |
 | GA | Gabon |  | B · tracker_only · link only · unchecked | A · official_text_seen · link only · unchecked |  |  |  |  |
-| GB | UK | A · official_page_seen/official_text_seen · text 10, link only 1 · checked 2026-11-01 · changed 2022-04-06 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-01 |  |
+| GB | UK | A · official_page_seen/official_text_seen · text 10, link only 1 · checked 2026-11-02 · changed 2022-04-06 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-02 |  |
 | GD | Grenada |  |  |  |  |  | A · official_text_seen · link only · unchecked |  |
 | GE | Georgia |  |  |  |  |  |  |  |
 | GF | French Guiana |  |  |  |  |  |  |  |
@@ -168,7 +166,7 @@ One row per place in the register, one column per law family, as of 2026-11-02.
 | IE | Ireland | A · official_text_seen · link only · unchecked |  |  |  |  |  |  |
 | IL | Israel |  |  |  |  |  |  |  |
 | IM | Isle of Man |  |  |  |  |  |  |  |
-| IN | India | A · official_text_seen · link only · checked 2026-11-01 |  |  | A · tracker_only · link only · checked 2026-11-01 |  |  |  |
+| IN | India | A · official_text_seen · link only · checked 2026-11-02 |  |  | A · tracker_only · link only · checked 2026-11-02 |  |  |  |
 | IO | British Indian Ocean Territory |  |  |  |  |  |  |  |
 | IQ | Iraq |  |  |  |  |  |  |  |
 | IR | Iran |  | B · tracker_only · link only · unchecked |  |  |  |  |  |
@@ -296,7 +294,7 @@ One row per place in the register, one column per law family, as of 2026-11-02.
 | UA | Ukraine | B · official_page_seen · link only · unchecked |  | A · official_page_seen · link only · unchecked |  |  |  |  |
 | UG | Uganda | B · official_page_seen · link only · unchecked |  |  |  |  |  |  |
 | UM | U.S. Outlying Islands |  |  |  |  |  |  |  |
-| US | US | A · official_text_seen · text 6 · checked 2026-11-01 · changed 2025-10-11 |  | A · official_text_seen · text 27 · checked 2026-11-01 · changed 2026-10-14 |  |  |  |  |
+| US | US | A · official_text_seen · text 6 · checked 2026-11-02 · changed 2025-10-11 |  | A · official_text_seen · text 27 · checked 2026-11-02 · changed 2026-10-14 |  |  |  |  |
 | UY | Uruguay |  | B · official_text_seen · link only · unchecked |  |  |  |  |  |
 | UZ | Uzbekistan |  |  |  |  |  |  |  |
 | VA | Vatican City |  | B · official_page_seen · link only · unchecked |  |  |  |  |  |
@@ -322,49 +320,49 @@ As of 2026-11-02. `versions` is the number of record files; `checked from` says 
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
 |---|---|---|---|---|---|---|---|---|
-| eu-csrd-2022-2464 | F1 | text 3 | 3 | 2026-11-01 | licence row | gazette_feed | 2026-03-18 | current |
-| eu-esrs-2023-2772 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2023-12-25 | current |
-| eu-taxonomy-2020-852 | F6 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2020-07-12 | current |
-| eu-sfdr-2019-2088 | F6 | text 4 | 4 | 2026-11-01 | licence row | gazette_feed | 2026-07-02 | current |
-| eu-csddd-2024-1760 | F5 | text 3 | 3 | 2026-11-01 | licence row | gazette_feed | 2026-03-18 | current |
-| eu-omnibus-stop-the-clock-2025-794 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2025-04-17 | current |
-| eu-omnibus-content-2026-470 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2026-03-18 | current |
-| eu-esrs-amendment-2025-1416 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2025-11-13 | current |
-| eu-esrs-amendment-2026-1563 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2026-11-10 | current |
-| eu-taxonomy-climate-da-2021-2139 | F6 | text 6 | 6 | 2026-11-01 | licence row | gazette_feed | 2026-01-01 | current |
-| eu-taxonomy-disclosures-da-2021-2178 | F6 | text 4 | 4 | 2026-11-01 | licence row | gazette_feed | 2026-01-01 | current |
-| eu-taxonomy-complementary-climate-da-2022-1214 | F6 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2022-08-04 | current |
-| eu-taxonomy-environmental-da-2023-2486 | F6 | text 2 | 2 | 2026-11-01 | licence row | gazette_feed | 2026-01-01 | current |
-| eu-taxonomy-climate-amendment-da-2023-2485 | F6 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2023-12-11 | current |
-| eu-taxonomy-simplification-da-2026-73 | F6 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2026-01-28 | current |
-| eu-sfdr-rts-2022-1288 | F6 | text 2 | 2 | 2026-11-01 | licence row | gazette_feed | 2023-02-20 | current |
+| eu-csrd-2022-2464 | F1 | text 3 | 3 | 2026-11-02 | watcher | gazette_feed | 2026-03-18 | current |
+| eu-esrs-2023-2772 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2023-12-25 | current |
+| eu-taxonomy-2020-852 | F6 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2020-07-12 | current |
+| eu-sfdr-2019-2088 | F6 | text 4 | 4 | 2026-11-02 | watcher | gazette_feed | 2026-07-02 | current |
+| eu-csddd-2024-1760 | F5 | text 3 | 3 | 2026-11-02 | watcher | gazette_feed | 2026-03-18 | current |
+| eu-omnibus-stop-the-clock-2025-794 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2025-04-17 | current |
+| eu-omnibus-content-2026-470 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2026-03-18 | current |
+| eu-esrs-amendment-2025-1416 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2025-11-13 | current |
+| eu-esrs-amendment-2026-1563 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2026-11-10 | current |
+| eu-taxonomy-climate-da-2021-2139 | F6 | text 6 | 6 | 2026-11-02 | watcher | gazette_feed | 2026-01-01 | current |
+| eu-taxonomy-disclosures-da-2021-2178 | F6 | text 4 | 4 | 2026-11-02 | watcher | gazette_feed | 2026-01-01 | current |
+| eu-taxonomy-complementary-climate-da-2022-1214 | F6 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2022-08-04 | current |
+| eu-taxonomy-environmental-da-2023-2486 | F6 | text 2 | 2 | 2026-11-02 | watcher | gazette_feed | 2026-01-01 | current |
+| eu-taxonomy-climate-amendment-da-2023-2485 | F6 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2023-12-11 | current |
+| eu-taxonomy-simplification-da-2026-73 | F6 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2026-01-28 | current |
+| eu-sfdr-rts-2022-1288 | F6 | text 2 | 2 | 2026-11-02 | watcher | gazette_feed | 2023-02-20 | current |
 
 ### GB (UK)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
 |---|---|---|---|---|---|---|---|---|
-| gb-ca2006-s414cb | F1 | text 2 | 2 | 2026-11-01 | licence row | consolidation_site | 2022-04-06 | current |
-| gb-ca2006-s414a-414d | F1 | text 7 | 7 | 2026-11-01 | licence row | consolidation_site | 2022-04-06 | current |
-| gb-uksi-2022-31 | F1 | text 1 | 1 | 2026-11-01 | licence row | consolidation_site | 2022-04-06 | current |
-| gb-fca-esg-sdr | F6 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
-| gb-uk-srs-s1-s2 | F1 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
+| gb-ca2006-s414cb | F1 | text 2 | 2 | 2026-11-02 | watcher | consolidation_site | 2022-04-06 | current |
+| gb-ca2006-s414a-414d | F1 | text 7 | 7 | 2026-11-02 | watcher | consolidation_site | 2022-04-06 | current |
+| gb-uksi-2022-31 | F1 | text 1 | 1 | 2026-11-02 | watcher | consolidation_site | 2022-04-06 | current |
+| gb-fca-esg-sdr | F6 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
+| gb-uk-srs-s1-s2 | F1 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
 
 ### IN (India)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
 |---|---|---|---|---|---|---|---|---|
-| in-companies-act-2013-s135 | F4 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
-| in-sebi-lodr-reg-34-2-f | F1 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
-| in-sebi-brsr-circular-2021 | F1 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
-| in-sebi-brsr-core-circular-2023 | F1 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
-| in-sebi-brsr-assessment-circular-2025 | F1 | link only | 0 | 2026-11-01 | licence row | regulator_page |  | current |
+| in-companies-act-2013-s135 | F4 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
+| in-sebi-lodr-reg-34-2-f | F1 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
+| in-sebi-brsr-circular-2021 | F1 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
+| in-sebi-brsr-core-circular-2023 | F1 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
+| in-sebi-brsr-assessment-circular-2025 | F1 | link only | 0 | 2026-11-02 | watcher | regulator_page |  | current |
 
 ### US (US)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
 |---|---|---|---|---|---|---|---|---|
-| us-sec-climate-disclosure-33-11275 | F1 | text 1 | 1 | 2026-11-01 | licence row | gazette_feed | 2024-05-28 | current |
-| us-epa-ghgrp-40cfr98 | F3 | text 27 | 27 | 2026-11-01 | licence row | consolidation_site | 2026-10-14 | current |
-| us-ca-sb253 | F1 | text 2 | 2 | 2026-11-01 | licence row | regulator_page | 2025-10-11 | current |
-| us-ca-sb261 | F1 | text 2 | 2 | 2026-11-01 | licence row | regulator_page | 2025-10-11 | current |
-| us-ca-sb219 | F1 | text 1 | 1 | 2026-11-01 | licence row | regulator_page | 2025-01-01 | current |
+| us-sec-climate-disclosure-33-11275 | F1 | text 1 | 1 | 2026-11-02 | watcher | gazette_feed | 2024-05-28 | current |
+| us-epa-ghgrp-40cfr98 | F3 | text 27 | 27 | 2026-11-02 | watcher | consolidation_site | 2026-10-14 | current |
+| us-ca-sb253 | F1 | text 2 | 2 | 2026-11-02 | watcher | regulator_page | 2025-10-11 | current |
+| us-ca-sb261 | F1 | text 2 | 2 | 2026-11-02 | watcher | regulator_page | 2025-10-11 | current |
+| us-ca-sb219 | F1 | text 1 | 1 | 2026-11-02 | watcher | regulator_page | 2025-01-01 | current |
