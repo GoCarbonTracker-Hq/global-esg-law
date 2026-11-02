@@ -1080,6 +1080,128 @@ The DOF and the Cámara de Diputados serve these texts in Spanish only and no ve
 - `https://www.diputados.gob.mx/LeyesBiblio/` (directory): `403 214 text/html; charset=iso-8859-1`; `index.htm` under it answers 200 (629398 bytes).
 - gob.mx pages (`https://www.gob.mx/cnbv`, `.../normatividad-103922`, `https://www.gob.mx/semarnat`, the RENE page) answered 200 but carry a per-request CSRF token, so a hash of the page never repeats and no `page_hash` watcher was set on them.
 
+## Germany
+
+Rows `DE-GII-CONSOLIDATED` (consolidated, Gesetze im Internet) and `DE-BGBL-ADOPTED` (adopted, Bundesgesetzblatt), both `pass` on the statute basis (Urheberrechtsgesetz § 5 Abs. 1 and 2; the quoted sentences and the reading are in the row notes, and Varun decides whether to keep them at pass). Rows `DE-GII-TRANSLATION` and `DE-BAFIN-ADOPTED` are `permission requested`. Run on 2026-11-02 (GEL-04-01). Language: German only; see Languages below.
+
+### Row DE-GII-CONSOLIDATED
+
+gesetze-im-internet.de answered `curl` from the cloud address. Each instrument is one zip with one XML file; the site keeps the current consolidation only. Request for the Bundes-Klimaschutzgesetz:
+
+```
+curl -sS -L -o ksg.zip -w '%{http_code} %{size_download} %{content_type}\n' https://www.gesetze-im-internet.de/ksg/xml.zip
+```
+
+Returned `200 14696 application/zip` (inside: `BJNR251310019.xml`, 70103 bytes, `Last-Modified: Tue, 19 Nov 2024 20:40:50 GMT`). `fetched_sha256` is the sha256 of the zip as returned (KSG `9244806f532e026ced641a931dcfae2d03fc18fc849b67873e7ce2ed2b82863c`); two fetches an hour apart gave the same hash for KSG and LkSG, and the 10 zips were each fetched twice on the day. The instrument page URL in the scope entry gives the slug (`ksg`, `lksg`, `tehg_2025`, `behg`, `behv`, `ebev_2030`, `ehv_2030_2`, `becv`, `minrohsorgg`, `hgb`). The table of contents of the whole site is `https://www.gesetze-im-internet.de/gii-toc.xml` (200, 1290948 bytes, `application/xml`).
+
+Text extraction (stdlib Python, ElementTree): per `norm` element, the heading (`gliederungsbez` and `gliederungstitel`, or `enbez` and `titel`; the first norm contributes the short title `langue`), then the `text` element with block elements (`P`, list items `DT`/`DD`, `Title`, `Ident`) as line breaks, `BR` as a line break (a space inside a table), table rows with cells joined by ` | `, an image as `[Abbildung]`, then the norm's `fussnoten` as a `[Fußnote] ...` line. Not included: the `standangabe` lines (they go into the record `message`) and the `gliederungskennzahl` numbers. Checked: the non-space characters of every consolidated text equal those of the XML text nodes of the same norms except the classification digits (`gliederungskennzahl`); nothing is dropped. For `de-hgb-nfe` only the norms `§ 289b`, `§ 289c`, `§ 289d`, `§ 289e`, `§ 315b`, `§ 315c` are kept.
+
+### Row DE-BGBL-ADOPTED
+
+Since 2023-01-01 the official Bundesgesetzblatt is on recht.bund.de and `curl` works. Request for the Treibhausgas-Emissionshandelsgesetz (BGBl. 2025 I Nr. 70):
+
+```
+curl -sS -L -o tehg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.recht.bund.de/bgbl/1/2025/70/regelungstext.pdf?__blob=publicationFile&v=1'
+```
+
+Returned `200 675100 application/pdf`, sha256 `bd930f0ca07e5ba7e249420e9c2e06b756377aa319a319e4b92fc8f530e29414`, reproduced by a second fetch. The cloud proxy refused the same request with `curl: (35) SSL_ERROR_SYSCALL` in several attempts between the two successful ones; a retry after a few seconds worked (the same happened once for `.../2026/201/...`). The page of a promulgation is `https://www.recht.bund.de/bgbl/1/<year>/<number>/VO.html`; it lists the PDF, a ZIP and the MD5 of the PDF. Used here: 2025/70 (TEHG), 2026/201 (EHV 2030); 2024/235 and 2025/209 were read for the commencement dates of amending acts and are not stored.
+
+Before 2023 the issues are at bgbl.de, a JavaScript viewer. `curl` gets only the shell:
+
+```
+curl -sS -L -o lksg_shell.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl121s2959.pdf'
+```
+
+Returned `200 18637 text/html;charset=UTF-8` (no PDF). The PDF itself sits behind a per-session `_csrf` token in a `media.xav` URL that answers a script with a redirect to a 404 page. Browser recipe (Playwright, headless Chromium; `jumpTo` is `bgbl1<yy>s<page, 4 digits>.pdf`): open the URL, wait for `networkidle`, wait for the embedded pdf.js viewer frame (`viewer.html`) to hold `PDFViewerApplication.pdfDocument`, then read the file bytes with `pdfDocument.getData()` and write them out:
+
+```
+node fetch_bgbl.js bgbl121s2959.pdf lksg.pdf
+```
+
+Returned the 11-page PDF of the Lieferkettensorgfaltspflichtengesetz (BGBl. 2021 I Nr. 46, S. 2959), 132788 bytes, `application/pdf`. A second run gave 132794 bytes and a different sha256 (`b2856d07...` against `7b1bb23f...`) with identical `pdftotext` output: the PDF is re-stamped per request, so `fetched_sha256` of the browser-fetched records does not reproduce, as for `## New Zealand`. `fetched_url` of those records is the `start.xav` URL above. Browser-fetched records (the 7 pre-2023 adopted records, listed in the PR report) stay subject to Varun's open decision on the New Zealand recipe (GEL-03 retro C4). The pre-2023 files carry no terms page of their own (see the row notes).
+
+Text extraction from the PDFs: `pdftotext file.pdf -` (poppler 24.02.0, reading order, no `-layout`: the Bundesgesetzblatt is set in two columns and `-layout` interleaves the columns line by line). Then form feeds removed, soft hyphens at line ends joined (`­` plus newline removed), runs of spaces collapsed, empty lines dropped, and a line that holds only the control character `\x01` (a formula graphic in the EBeV 2030) written as `[Abbildung]`. Checked: no U+FFFD, no private-use characters and no other control characters in any of the nine texts. Known limits: the page headers and footers stay in the text; the tables of contents and the annexes with tables can come out in a different order than on the page (the KSG table of contents is interleaved); real hyphens at line ends stay as printed. The body text reads in order (checked against the consolidated text, which shares at least 88 per cent of its 8-word runs with the PDFs of the unamended acts; the rest is hyphenation, tables and page furniture).
+
+Each adopted record is the whole promulgation (all articles, for example the five articles of the LkSG Act), because the PDF is cut per act. The instrument itself is Article 1 in most of them.
+
+### Row DE-BAFIN-ADOPTED and BaFin
+
+`curl -sS -L -o nb.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.bafin.de/DE/service/nutzungsbedingungen/nutzungsbedingungen_node.html` returned `200 75566 text/html;charset=utf-8`; the Merkblatt page `https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html` returned `200 80672 text/html;charset=utf-8`. Nothing is stored (permission requested).
+
+### Languages
+
+German is the only official language of the federal statutes; gesetze-im-internet.de and the Bundesgesetzblatt serve German only, so every record has `language` `de`. English: the Federal Ministry of Justice lists translations at `https://www.gesetze-im-internet.de/Teilliste_translations.html` (`curl` returned `200 72262 text/html`). Row `DE-GII-TRANSLATION` is `permission requested`: the page limits use to "einzelne Vervielfältigungen wie Downloads oder Ausdrucke zum privaten, nicht kommerziellen Gebrauch" and credits outside translators; UrhG § 5 does not name translations. So no English record is stored. Translations exist on the page for the KSG (`https://www.gesetze-im-internet.de/englisch_ksg/index.html`, `200 12484 text/html`; its Stand names the 2021 and 2024 amendments, equal to the stored consolidated state) and for the HGB (Books 1 to 4, `englisch_hgb/index.html`); none for the other instruments of this place (the page text was searched for each).
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records (`in_force`, de) |
+|---|---|---|
+| `de-hgb-nfe` (HGB §§ 289b-289e, 315b-315c) | consolidated | 2017-04-19 |
+| `de-lksg` | adopted, consolidated | 2023-01-01 (both) |
+| `de-ksg` | adopted, consolidated | 2019-12-18 (adopted), 2024-07-17 (consolidated) |
+| `de-tehg` | adopted, consolidated | 2025-03-06 (both) |
+| `de-behg` | adopted, consolidated | 2019-12-20 (adopted), 2025-03-06 (consolidated) |
+| `de-behv` | adopted, consolidated | 2020-12-24 (adopted), 2025-09-16 (consolidated) |
+| `de-ebev-2030` | adopted, consolidated | 2022-12-31 (both) |
+| `de-ehv-2030` | adopted, consolidated | 2026-07-15 (both) |
+| `de-becv` | adopted, consolidated | 2021-07-28 (both) |
+| `de-minrohsorgg` | adopted, consolidated | 2020-05-07 (both) |
+
+Only the current consolidation is served, so a consolidated record is dated with the in-force date of the amendment the Stand line names, read in the amending act; the states between adoption and that date are not stored. Browser-fetched (bgbl.de): the adopted records of `de-lksg`, `de-ksg`, `de-behg`, `de-behv`, `de-ebev-2030`, `de-becv`, `de-minrohsorgg`.
+
+### Link only
+
+- `de-bafin-merkblatt-nachhaltigkeitsrisiken`: row `DE-BAFIN-ADOPTED`, permission requested (the terms allow storing, passing on and copying with the source named but do not mention changing the text).
+- Not an instrument: the CSRD-Umsetzungsgesetz is a bill (Bundestag Drucksache 21/2465, 2025-10-29); it has a `register.csv` row with `law_family` F7 and no scope entry. No Nachhaltigkeitsbericht is in the HGB text on gesetze-im-internet.de.
+- Not in scope: the amending acts (KSG 2021 and 2024, the TEHG/BEHG Act of 2025) are in the consolidated texts; the Bundes-Klimaanpassungsgesetz, Energieeffizienzgesetz, Wärmeplanungsgesetz and the Wertpapierhandels- and Kreditwesengesetz were not assessed (see `## Next` in the PR).
+- Blocked from the cloud address: none refused outright. `www.recht.bund.de` dropped the TLS connection (`SSL_ERROR_SYSCALL`) intermittently for large PDFs; `dip.bundestag.de` answers `200` with a 2375-byte JavaScript shell (no content for a script).
+
+## Taiwan
+
+Run on 2026-11-02 (GEL-04-10). Two rows pass: `TW-MOJ-CONSOLIDATED` (Ministry of Justice Laws and Regulations Database, Chinese; statute: Copyright Act art. 9 item 1, plus the site's Open Government Data License v1.0 statement) and `TW-MOJ-TRANSLATION` (the same database's English site; terms). `TW-TWSE-ADOPTED` is `permission requested`. No browser recipe was needed for any stored text.
+
+The database serves the current consolidated text of every law only. It has no earlier consolidation and no as-promulgated text, so each stored instrument has one dated version (its `in_force` is the date of the last amendment's commencement, or its issue date where the history entry states none). Attached tables (PDF/ODT) are not stored.
+
+Row `TW-MOJ-CONSOLIDATED`, bulk open data file of acts (`tw-climate-change-response-act`, `O0020098`, found by the `pcode` in `LawURL`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o ChLaw.zip -w '%{http_code} %{size_download} %{content_type}\n' https://law.moj.gov.tw/api/ch/law/json
+unzip -p ChLaw.zip ChLaw.json | sha256sum
+```
+
+Returned `200 6135777 application/octet-stream`, a ZIP with `ChLaw.json`, `manifest.csv`, `schema.csv`; `ChLaw.json` has the top keys `UpdateDate` (2026/10/22) and `Laws` (1351 entries). Regulations are in a second file: `curl -sS -A 'Mozilla/5.0' -o ChOrder.zip ... https://law.moj.gov.tw/api/ch/order/json` returned `200 25791396 application/octet-stream` (`ChOrder.json`, 10453 entries, including repealed ones, which carry `LawAbandonNote`). Entry keys: `LawName`, `LawURL`, `LawModifiedDate`, `LawEffectiveDate`, `LawAbandonNote`, `LawHistories`, `LawForeword`, `LawArticles` (list of `ArticleType` C chapter or A article, `ArticleNo`, `ArticleContent`). The record `text` is the law name, the foreword if any, then each chapter heading and each article as `ArticleNo`, a space and `ArticleContent`, line breaks kept, trailing spaces trimmed, nothing reworded.
+
+`fetched_url` is the bulk URL (it names no single law; the instrument is in the record path and `message`). `fetched_sha256` is the sha256 of the JSON file inside the ZIP, not of the ZIP: the ZIP bytes differ on every request (its entries carry timestamps), the JSON reproduced identically across repeated requests on 2026-11-02. The files are refreshed weekly (the site says Fridays), so a hash fetched after the next refresh will differ. Hashes on the day: `ChLaw.json` a8a65758ce551d73c8674492d728be89a8295976739584bf3de3a6485ea450b4, `ChOrder.json` 90f83d88c95b6879b1bcebb5b630f45b83915557448cdce3630b09f8ab17b076, `EnLaw.json` bb202b2a49ded98ca9a2d241794a7a267e6ae4eac48ab5a69a35550d8040fcd4, `EnOrder.json` 5a2a07f98c016b4be9a55efb0f7b00c94a9a9c493df5dd524fa947dfecc99495. The server resets the connection now and then (`curl: (35) Recv failure: Connection reset by peer`); a retry worked each time.
+
+### Languages
+
+Chinese is the only official language the database serves. English is a separate row.
+
+Row `TW-MOJ-TRANSLATION`, `tw-climate-change-response-act`:
+
+```
+curl -sS -A 'Mozilla/5.0' -o EnLaw.zip -w '%{http_code} %{size_download} %{content_type}\n' https://law.moj.gov.tw/api/en/law/json
+```
+
+Returned `200 6767621 application/octet-stream` (`EnLaw.json`, 973 entries). Regulations: `https://law.moj.gov.tw/api/en/order/json` returned `200 9457054 application/octet-stream` (`EnOrder.json`, 2214 entries). Entry keys: `EngLawName`, `EngLawURL`, `EngLawModifiedDate`, `EngLawHistories`, `EngLawForeword`, `EngLawArticles` (`EngArticleType`, `EngArticleNo`, `EngArticleContent`). An English record is stored only when `EngLawModifiedDate` equals the `LawModifiedDate` of the stored Chinese version, and carries that version's `in_force`; the English page also prints the same "Amended Date" (for example https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020098 returned `200 21219 text/html; charset=utf-8` and shows 2023-02-15). The English site states that the Chinese version prevails. Stored in English: `tw-climate-change-response-act`, `tw-climate-change-response-act-rules`, `tw-carbon-fee-regs`, `tw-hfc-management-regs`, `tw-annual-report-regs`. For the other eight instruments the English files hold no entry for the `pcode`, and the English law page answers HTTP 200 with an empty body (0 bytes; a translated law returns about 90 KB); each scope `notes` says so. English texts on twse-regulation.twse.com.tw are credited there to Baker McKenzie Taipei, a law firm, and are never stored.
+
+Terms pages opened: https://law.moj.gov.tw/Service/Copyright.aspx (`200 35307 text/html; charset=utf-8`) and https://law.moj.gov.tw/ENG/Service/Copyright.aspx (`200 20989 text/html; charset=utf-8`).
+
+Row `TW-TWSE-ADOPTED` (not pass, nothing stored): `curl -sS -A 'Mozilla/5.0' -o dat01.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209'` returned `200 15115 text/html; charset=utf-8` (the legislative history; the version links carry `FLDATE=YYYYMMDD`, used by the watcher). The exchange's terms page https://www.twse.com.tw/zh/terms/use.html returned `307 947 text/html; charset=UTF-8` to curl and the same security page to headless Chromium (Playwright): "FOR SECURITY REASONS, THIS PAGE CAN NOT BE ACCESSED".
+
+Watcher notes: the stdlib `urllib` of Python 3.13 rejects the law.moj.gov.tw certificate chain (`CERTIFICATE_VERIFY_FAILED: Missing Subject Key Identifier`) although curl accepts it, so `python3 tools/watch.py --source TW-MOJ-CONSOLIDATED` run with 3.13 reports 13 failures; the same dry run with `python3.12` fetched all 13 watchers (a connection reset on one of them in one run). MOJ pages carry a per-request script nonce, so a `page_hash` of a Chinese MOJ page changes on every request; the eight Chinese-only instruments use it for lack of a stable signal (the Chinese history pages print only Republic of China dates, which `date_list` cannot read).
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `tw-twse-sustainability-report-rules` | https://twse-regulation.twse.com.tw/ENG/EN/law/DAT08.aspx?FLCODE=FL075209 | Row `TW-TWSE-ADOPTED` is permission requested: the terms page is blocked from the cloud address (307 security page). |
+| FSC Sustainable Development Roadmap for listed companies (2022, F7) | https://www.fsc.gov.tw/ch/index.jsp | F7: register row only, no scope entry. |
+
+Blocked from the cloud address: https://www.moenv.gov.tw/ (Ministry of Environment, `403 5332 text/html; charset=UTF-8` to curl with a browser User-Agent; Chromium not tried); https://www.twse.com.tw/zh/terms/use.html, https://www.twse.com.tw/zh/terms/privacy.html and the `/en/terms/use.html` page (`307 947`, security page; Chromium gave the same). Not blocked, not used as a source: https://law.fsc.gov.tw/ (`200 43853 text/html; charset=utf-8`), https://data.gov.tw/license (`200`, read for the Open Government Data License text).
+
+Stored by GEL-04-10: `tw-climate-change-response-act`, `tw-climate-change-response-act-rules`, `tw-climate-risk-assessment-guidelines`, `tw-ghg-inventory-registration-regs`, `tw-carbon-fee-regs`, `tw-ghg-voluntary-reduction-regs`, `tw-ghg-reduction-credit-trading-regs`, `tw-ghg-increment-offset-regs`, `tw-ghg-verification-bodies-regs`, `tw-ghg-offset-project-regs`, `tw-electricity-emission-factor-regs`, `tw-hfc-management-regs`, `tw-annual-report-regs`.
+
 ## Italy
 
 Rows `IT-NORMATTIVA-CONSOLIDATED` (pass, terms: CC BY 4.0 on dati.normattiva.it), `IT-GAZZETTA-ADOPTED` (pass, statute: Legge 633/1941 art. 5) and `IT-CONSOB-ADOPTED` (permission requested). Run 2026-11-02 from the cloud address. Italian is the only language the publishers serve; no government English translation was found, so there is no translation row and no English record.
