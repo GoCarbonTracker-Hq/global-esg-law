@@ -1928,6 +1928,66 @@
   }
  },
  {
+  "id": "nl-klimaatwet-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-klimaatwet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-besluit-bekendmaking-niet-financiele-informatie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-besluit-bekendmaking-niet-financiele-informatie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0039355/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-bw2-art391-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-bw2-art391",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003045/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wm-titel-16-2-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wm-titel-16-2",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003245/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
+  "id": "nl-wet-co2-heffing-industrie-bwb-versions",
+  "source_id": "NL-OVERHEID-CONSOLIDATED",
+  "iso2": "NL",
+  "instrument": "nl-wet-co2-heffing-industrie",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0044578/manifest.xml",
+  "params": {
+   "regex": "<datum_inwerkingtreding>(\\d{4}-\\d{2}-\\d{2})</datum_inwerkingtreding>"
+  }
+ },
+ {
   "id": "se-arl-ch6-sfsr-amendments",
   "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
   "iso2": "SE",

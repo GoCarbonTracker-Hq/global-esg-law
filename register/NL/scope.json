@@ -1,0 +1,85 @@
+[
+  {
+    "id": "nl-klimaatwet",
+    "title": "Klimaatwet (Climate Act)",
+    "official_url": "https://wetten.overheid.nl/BWBR0042394",
+    "citation": "Stb. 2019, 253 (Wet van 2 juli 2019); BWB BWBR0042394",
+    "in_force": "2019-09-01",
+    "evidence": "Consolidation 2019-09-01 on wetten.overheid.nl (XML of https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/2019-09-01_0/xml/BWBR0042394_2019-09-01_0.xml, opened 2026-11-02) records the commencement decree Stb. 2019, 254 with inwerkingtreding.datum 2019-09-01; Art. 10 of the act: \"Deze wet treedt in werking op een bij koninklijk besluit te bepalen tijdstip dat voor de verschillende artikelen of onderdelen daarvan verschillend kan worden vastgesteld.\"",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "NL-OVERHEID-CONSOLIDATED",
+      "NL-OFFBEK-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records: the Staatsblad text (adopted, in_force 2019-09-01) and the consolidations of 2022-03-02, 2023-07-22 and 2026-01-01. The consolidations of 2019-09-01 and 2020-01-01 are not stored because their body equals the adopted text (similarity 0.998 after removing case, numbering and punctuation; the 2020-01-01 text is identical to 2019-09-01). The 2022-03-02 text adds the European Climate Law references. Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (4 records on disk.)",
+    "status": "stored"
+  },
+  {
+    "id": "nl-besluit-bekendmaking-niet-financiele-informatie",
+    "title": "Besluit bekendmaking niet-financiële informatie (NFRD transposition)",
+    "official_url": "https://wetten.overheid.nl/BWBR0039355",
+    "citation": "Stb. 2017, 100 (Besluit van 14 maart 2017); BWB BWBR0039355",
+    "in_force": "2017-03-24",
+    "evidence": "Art. 7: \"Dit besluit treedt in werking met ingang van de dag na de datum van uitgifte van het Staatsblad waarin het wordt geplaatst. Het besluit is van toepassing op bestuursverslagen die betrekking hebben op boekjaren die zijn aangevangen op of na 1 januari 2017.\" Staatsblad issued 2017-03-23; the consolidation on wetten.overheid.nl gives inwerkingtreding 2017-03-24 (opened 2026-11-02).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NL-OVERHEID-CONSOLIDATED",
+      "NL-OFFBEK-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Based on Burgerlijk Wetboek Boek 2 art. 391 lid 5 (nl-bw2-art391), which names the non-financial statement of Directive 2013/34/EU. One record: the Staatsblad text without its Nota van toelichting and transposition table. The only consolidation (2017-03-24) has the same body as the adopted text (similarity 0.977), so it is not stored; the consolidated text has not changed since. Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (1 records on disk.)",
+    "status": "stored"
+  },
+  {
+    "id": "nl-bw2-art391",
+    "title": "Burgerlijk Wetboek Boek 2, artikel 391 (bestuursverslag, including non-financial information)",
+    "official_url": "https://wetten.overheid.nl/BWBR0003045",
+    "citation": "BW Boek 2 art. 391; BWB BWBR0003045; lid 5 as amended by Stb. 2016, 352",
+    "in_force": "2016-12-06",
+    "evidence": "In the consolidation of 2016-12-06 (https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003045/2016-12-06_0/xml/BWBR0003045_2016-12-06_0.xml, opened 2026-11-02, bron Stb.2016-352) lid 5 reads: \"Bij algemene maatregel van bestuur kunnen nadere voorschriften worden gesteld omtrent de inhoud van het bestuursverslag. Deze voorschriften kunnen in het bijzonder betrekking hebben op ... een niet-financiële verklaring als bedoeld in richtlijn 2013/34/EU\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NL-OVERHEID-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Artikel 391 only, cut from the whole Book 2 consolidation by its article number. Stored: the six distinct texts of art. 391 from 2016-12-06 (first text naming a niet-financiële verklaring) to 2026-07-01; a consolidation is stored only when the article text differs from the previous stored one. Earlier consolidations (2002-04-23 to 2015-11-26, 83 files) are not stored because they do not mention the non-financial statement of Directive 2013/34/EU (the 2005-07-27 text mentions niet-financiële prestatie-indicatoren in lid 1 only). From 2023-12-30 the article has four leden: lid 5 (the basis of the Besluit nl-besluit-bekendmaking-niet-financiele-informatie) and lid 6 are no longer in art. 391 in the consolidated text; where the basis moved was not checked. The CSRD implementation bill (Kamerstuk 36678) is not enacted, so art. 391 does not yet carry the CSRD. Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (6 records on disk.)",
+    "status": "stored"
+  },
+  {
+    "id": "nl-wm-titel-16-2",
+    "title": "Wet milieubeheer, titel 16.2 (Broeikasgassen en broeikasgasemissierechten, EU ETS)",
+    "official_url": "https://wetten.overheid.nl/BWBR0003245",
+    "citation": "Wet milieubeheer (BWBR0003245) titel 16.2, inserted by Stb. 2004, 511",
+    "in_force": "2004-10-20",
+    "evidence": "The first consolidation containing the title (https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0003245/2004-10-20_0/xml/BWBR0003245_2004-10-20_0.xml, opened 2026-11-02) marks Titel 16.2 with bron Stb.2004-511 and inwerkingtreding.datum 2004-10-20.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NL-OVERHEID-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Titel 16.2 only (Afdelingen 16.2.1 to 16.2.5), cut from the whole Wet milieubeheer consolidation by its element path /Hoofdstuk16/Titeldeel16.2. 27 distinct texts stored, 2004-10-20 to 2026-01-01; a consolidation is stored only when the title text differs from the previous stored one (135 consolidations scanned). The title was inserted in 2004 to implement Directive 2003/87/EC; the text of other Wm chapters on emissions (Hoofdstuk 16a, 16b, 16c) is not in this entry. Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (27 records on disk.)",
+    "status": "stored"
+  },
+  {
+    "id": "nl-wet-co2-heffing-industrie",
+    "title": "Wet CO2-heffing industrie (amends the Wet belastingen op milieugrondslag and the Wet milieubeheer)",
+    "official_url": "https://wetten.overheid.nl/BWBR0044578",
+    "citation": "Stb. 2020, 544 (Wet van 16 december 2020); BWB BWBR0044578",
+    "in_force": "2021-01-01",
+    "evidence": "Art. X lid 1 of the Staatsblad text: \"Deze wet treedt in werking op 1 januari 2021.\" (opened 2026-11-02 at https://repository.overheid.nl/frbr/officielepublicaties/stb/2020/stb-2020-544/1/xml/stb-2020-544.xml). Art. X lid 3: art. IV (amending the Wet belastingen op milieugrondslag) enters into force when chapter 5 of the Omgevingswet does; the consolidation marks art. IV \"nog niet inwerking getreden\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NL-OVERHEID-CONSOLIDATED",
+      "NL-OFFBEK-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "An amending act: its own text mostly inserts a CO2 levy for industry into the Wet milieubeheer (Hoofdstuk 16b, not stored as a separate entry) and the Wet belastingen op milieugrondslag. The consolidated text on wetten.overheid.nl keeps only the act's own provisions (3.3 thousand characters against 46 thousand in the Staatsblad text), so both are stored: the adopted text and consolidations of 2021-01-01 and 2024-01-01. The amended acts' own consolidated texts are not stored (Wbm is not in this entry). Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (3 records on disk.)",
+    "status": "stored"
+  }
+]

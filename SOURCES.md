@@ -838,6 +838,61 @@ All six, reason: the row is `permission requested` and the site refused the clou
 
 Dropped candidate: Permen ESDM 16/2022 (no official URL found; jdih.esdm.go.id reset the connection). PDF extraction (`pdftotext -layout`) was not used: no PDF could be fetched.
 
+## Netherlands
+
+Rows `NL-OVERHEID-CONSOLIDATED` (`pass`, terms basis: CC0 1.0 on the Basis Wetten Bestand dataset record; Auteurswet art. 11 as corroboration) and `NL-OFFBEK-ADOPTED` (`pass`, statute basis: Auteurswet art. 11 as quoted on the overheid.nl reuse page). `NL-AFM-ADOPTED` is `permission requested` (afm.nl footer: "© Copyright AFM 2026 - alle rechten voorbehouden"); nothing is stored or linked under it. Run on 2026-11-02. No browser was needed: the texts come from the repository hosts, which answer plain `curl`. The www pages (wetten.overheid.nl) answer plain `curl` with an empty reply or `HTTP/2 PROTOCOL_ERROR` but answer `-A 'Mozilla/5.0'`; they are not used for fetching.
+
+Row `NL-OVERHEID-CONSOLIDATED`, step 1: list the point-in-time versions of an instrument (Klimaatwet, BWB id `BWBR0042394`):
+
+```
+curl -sS -L -o klimaatwet_manifest.xml -w '%{http_code} %{size_download} %{content_type}\n' https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/manifest.xml
+```
+
+Returned `200 4035 application/xml`. Each `expression` has `datum_inwerkingtreding`, `zichtdatum_eind` and a file label. Several expressions can share one in-force date (suffix `_0`, `_1`); the one with `zichtdatum_eind` 9999-12-31 and the highest suffix is stored. BWB ids come from the SRU service `https://zoekservice.overheid.nl/sru/Search?version=1.2&operation=searchRetrieve&x-connection=BWB&query=overheidbwb.titel any "..."` (200, `application/xml`); each record carries `locatie_toestand` and `locatie_manifest`.
+
+Step 2, the consolidated text as of 2026-01-01:
+
+```
+curl -sS -L -o klimaatwet_20260101.xml -w '%{http_code} %{size_download} %{content_type}\n' https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0042394/2026-01-01_0/xml/BWBR0042394_2026-01-01_0.xml
+```
+
+Returned `200 61319 application/xml`, sha256 `a1d00abcb4dc58488ab85dad41edb4736f9ed04abb6e48a1fadf4d3d226589ed`. The same bytes come from the wetten.overheid.nl export form (POST, `exportopties=rbXml`), so the repository file is the one the site serves.
+
+Row `NL-OFFBEK-ADOPTED`, the as-published Staatsblad text (Stb. 2019, 253):
+
+```
+curl -sS -L -o stb-2019-253.xml -w '%{http_code} %{size_download} %{content_type}\n' https://repository.overheid.nl/frbr/officielepublicaties/stb/2019/stb-2019-253/1/xml/stb-2019-253.xml
+```
+
+Returned `200 19955 application/xml;charset=UTF-8`, sha256 `47dd738f06033020507f0f67a9dbbbaddbed6b5645f870315863969c6c91b9e5` (the file starts with a byte order mark). Staatsblad ids are searched with `https://repository.overheid.nl/sru?version=2.0&operation=searchRetrieve&query=dt.identifier==stb-2019-253` (200, `application/xml`; `dt.title any "..."` searches titles).
+
+Text extraction: Python stdlib `xml.etree`. Consolidated files: the `wetgeving` element, or for a cut the `artikel` whose `kop/nr` is 391 (BW Boek 2) or the `titeldeel` whose `bwb-ng-variabel-deel` path ends `/Titeldeel16.2` (Wet milieubeheer). Staatsblad files: `intitule`, `aanhef`, `wettekst`, `wetsluiting` (the Nota van toelichting and its annexes are left out). Metadata elements (`meta-data`, `jcis`) are dropped; headings, articles, paragraphs, list items and definitions become lines; the number of a `lid` or `li` stays on the line of its text; inline markup (`intref`, `extref`, `nadruk`, `inf`) is stripped; footnotes (`noot`) become `[Noot] ...` lines. Nothing is reworded. `fetched_sha256` is the hash of the whole file as returned. A consolidation is stored only when its text differs from the previous stored one; for an act with a Staatsblad record, the first consolidations are skipped when their body matches it (similarity at least 0.97 after removing case, numbering and punctuation; the ratios are in the scope notes).
+
+Stored (fetched 2026-11-02, all `nl`):
+
+| Instrument | Rows | Versions stored (`in_force`) |
+|---|---|---|
+| `nl-klimaatwet` | adopted, consolidated | adopted 2019-09-01; consolidated 2022-03-02, 2023-07-22, 2026-01-01 |
+| `nl-besluit-bekendmaking-niet-financiele-informatie` | adopted | adopted 2017-03-24 (the only consolidation has the same body) |
+| `nl-bw2-art391` | consolidated | 2016-12-06, 2017-04-13, 2019-07-01, 2020-01-01, 2023-12-30, 2026-07-01 |
+| `nl-wm-titel-16-2` | consolidated | 27 versions, 2004-10-20 to 2026-01-01 |
+| `nl-wet-co2-heffing-industrie` | adopted, consolidated | adopted 2021-01-01; consolidated 2021-01-01, 2024-01-01 |
+
+### Languages
+
+Dutch is the only official language the publisher serves for these instruments, so no second-language record exists. No government English translation was found for any of the five instruments: wetten.overheid.nl exposes one Dutch expression per version; https://www.overheid.nl/english and a rijksoverheid.nl / government.nl search for the Climate Act title returned no translation. Therefore there is no translation row and no English record. The same request pattern would serve a translation if one appeared (a translation row is judged on its own terms, not on Auteurswet art. 11 alone).
+
+### Link only
+
+- None of the five scope instruments is link only.
+- Not in scope.json, register row only (law_family F7, nothing stored): the CSRD implementation bill (Kamerstuk 36678, still in the Tweede Kamer per `kst-36678-12` of 2026-05-13; no Staatsblad publication found) and the initiative bill Wet verantwoord en duurzaam internationaal ondernemen (Kamerstuk 35761, last document 2023-10-11).
+- AFM (`NL-AFM-ADOPTED`, `permission requested`): no AFM instrument in scope.
+
+### Blocked
+
+- `https://wetten.overheid.nl/` and `https://wetten.overheid.nl/BWBR0042394/2026-01-01/0` with plain `curl`: `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR` or `curl: (52) Empty reply from server`; with `-A 'Mozilla/5.0'` both answer 200 (`118289 text/html;charset=UTF-8` for the Klimaatwet page). Not a block for the stored texts, which come from the repository hosts.
+- The wetgevingskalender page `https://wetgevingskalender.overheid.nl/Regeling/WGK014704` answers 200 (`17912`) but carries no readable bill status in the HTML received; the bill status was read from the Kamerstuk instead.
+
 ## Sweden
 
 Row `SE-RIKSDAGEN-CONSOLIDATED` (`pass`, statute: Upphovsrättslag (1960:729) 9 §, with the open data terms as a second basis). Rows `SE-SFS-ADOPTED` and `SE-GOVERNMENT-TRANSLATION` are `permission requested` because both sites answer 403 from the cloud address; nothing is stored under them. Run on 2026-11-02 (GEL-04-06). Language: Swedish.
