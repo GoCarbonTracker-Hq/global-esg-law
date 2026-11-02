@@ -3670,3 +3670,40 @@ Returned `403 5188 text/html; charset=UTF-8`. Headless Chromium (Playwright `chr
 | pk-sbp-shsfd-circular-07-2025 | https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025 | Row `PK-SBP-ADOPTED` is permission requested (SBP disclaimer grants no reuse). |
 
 Not in scope.json: the SECP order of 2024-12-31 adopting IFRS S1 and S2 and the June 2024 ESG Disclosure Guidelines, because no official SECP page could be opened (see Blocked). The existing PSX ESG register row is a primer and stays as a register row with a notes sentence.
+
+## Uruguay
+
+Rows `UY-IMPO-ADOPTED` (`pass`, terms: IMPO Licencia de Datos Abiertos - Uruguay), `UY-PARLAMENTO-ADOPTED`, `UY-PRESIDENCIA-ADOPTED`, `UY-BCU-ADOPTED` and `UY-BVM-ADOPTED` (all `permission requested`). Run on 2026-11-02.
+
+The only Uruguayan source that passes is IMPO (Centro de Información Oficial, https://www.impo.com.uy). Its datos-abiertos page (https://www.impo.com.uy/datos-abiertos/) offers every public item of its databases as open data in JSON, and the linked licence allows commercial use, adaptation and transformation with a Nota de Origen. Ley 9.739 art. 45 num. 5 (faithful reproduction of laws is not illicit reproduction) was read and not relied on: it limits the author's right and does not remove copyright. The pass rests on the IMPO terms, `verdict_basis` terms.
+
+IMPO serves each norm in JSON by adding `?json=true` to its page URL. `/bases/leyes-originales/<n>-<year>` and `/bases/decretos-originales/<n>-<year>` give the text as published in the Diario Oficial ("Documento original"). The JSON keys used are `vistos` (header and recitals, or for a law the header and enacting formula), `articulos[]` (`tituloArticulo`, `textoArticulo`, which may hold HTML tables) and `firmantes`. The response is declared ISO-8859-1 and the bytes are Windows-1252 (a UTF-8 decode fails), so `fetched_sha256` is the hash of the bytes as returned and the text is decoded as cp1252. `text` is `vistos`, then each article's title and text, then `firmantes`, with tags stripped, `<br>`, `</p>`, `</div>`, `</tr>` and `</li>` as line breaks, table cells separated by a space, runs of spaces collapsed, empty lines dropped, nothing reworded. For `uy-ley-19996-art326-327` and `uy-ley-17250-art24` the text is only the named articles (their title lines and texts). A second fetch of each of the seven files on the same day reproduced `fetched_sha256`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o decreto441.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.impo.com.uy/bases/decretos-originales/441-2021?json=true'
+```
+
+Returned `200 8196 application/json; charset=ISO-8859-1`, Decreto N° 441/021, Documento original. The same request for Ley 17.283 (`https://www.impo.com.uy/bases/leyes-originales/17283-2000?json=true`) returned `200 32576 application/json; charset=ISO-8859-1`. The HTML page (`https://www.impo.com.uy/bases/decretos-originales/310-2017`, `200 188661 text/html; charset=ISO-8859-1`) also opens with curl. No browser recipe was needed for IMPO, and no browser-fetched record exists.
+
+IMPO also serves a "Documento Actualizado" at `/bases/leyes/<n>-<year>` and `/bases/decretos/<n>-<year>` (`?json=true` works). It states no consolidation date and exposes no earlier versions, so no consolidated row or record exists; the watchers hash that current text so that a change in it is noticed. Instruments amended since adoption (Ley 17.250, Ley 19.996, possibly others) therefore carry the adopted text only; each `notes` says so.
+
+### Languages
+
+Spanish only (`es`). IMPO has no language switch. No government English translation was found for any instrument: looked for on the IMPO site and the Presidencia portal (https://www.gub.uy/presidencia/). No translation row exists and none was added for a translation by a law firm, exchange or NGO.
+
+### Link only
+
+None of the seven scope instruments is link only; all are stored under `UY-IMPO-ADOPTED`. The other rows hold no text:
+
+- `UY-PARLAMENTO-ADOPTED`: https://parlamento.gub.uy answers curl with `403 919 text/html` ("The request could not be satisfied") for `/` and `/documentosyleyes/leyes`, with and without a browser User-Agent. Headless Chromium (Playwright, `networkidle` plus 2 s) opens them with 200, and its Condiciones de uso (https://parlamento.gub.uy/condiciones) allow personal, informational and non-commercial use only with no modification, so the row is permission requested. The laws are taken from IMPO instead.
+- `UY-PRESIDENCIA-ADOPTED`: https://www.gub.uy/presidencia/ opens with curl (200), but its Términos y condiciones de uso grant no reuse licence, so permission requested. Decrees are taken from IMPO.
+- `UY-BCU-ADOPTED`: https://www.bcu.gub.uy/ is blocked from the cloud address (see Blocked). No BCU instrument is in scope.
+- `UY-BVM-ADOPTED`: https://www.bvm.com.uy opens (200) but no terms page was found, so unknown, not pass. Its Legal y Reglamentaria page lists only Ley 18.627, Decreto 322/011, Ley 19.484 and Decreto 77/2017.
+
+### Not in scope
+
+No binding sustainability disclosure rule for issuers was found on an official page; `register.csv` carries one F7 row saying so. Ley 19.147 (Observatorio Ambiental Nacional) was checked and dropped: it is not a climate law. Periodic IMESI rate decrees after Decreto 441/021 were not searched.
+
+### Blocked
+
+- https://www.bcu.gub.uy/ : curl `SSL certificate problem: unable to get local issuer certificate` (also with `--cacert /root/.ccr/ca-bundle.crt`); Chromium HTTP 502 `upstream request failed`. To be read from the laptop.
