@@ -4055,6 +4055,269 @@
   }
  },
  {
+  "id": "lt-company-reporting-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-company-reporting-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true",
+  "params": {
+   "second_route": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-financial-reporting-act-ix575-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-financial-reporting-act-ix575",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-consolidated-reporting-act-ix576-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-consolidated-reporting-act-ix576",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-climate-change-management-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-climate-change-management-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "lt-unfair-commercial-practices-act-tar-page",
+  "source_id": "LT-TAR-CONSOLIDATED",
+  "iso2": "LT",
+  "instrument": "lt-unfair-commercial-practices-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A",
+  "params": {
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+  }
+ },
+ {
+  "id": "ro-omf-85-2024-legislatie-page",
+  "source_id": "RO-LEGISLATIE-CONSOLIDATED",
+  "iso2": "RO",
+  "instrument": "ro-omf-85-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502",
+  "params": {
+   "second_route": "https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502 (browser; the portal's WAF gives scripts no response from the cloud address)"
+  }
+ },
+ {
+  "id": "gr-law-4548-2018-art151-154-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-law-4548-2018-art151-154",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/1/2018/104/pdf"
+ },
+ {
+  "id": "gr-law-5164-2024-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-law-5164-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/1/2024/202/pdf"
+ },
+ {
+  "id": "gr-law-4936-2022-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-law-4936-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/1/2022/105/pdf"
+ },
+ {
+  "id": "gr-kya-ets-2024-86227-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-kya-ets-2024-86227",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/2/2024/4674/pdf"
+ },
+ {
+  "id": "gr-kya-ets-2025-7560-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-kya-ets-2025-7560",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/2/2025/472/pdf"
+ },
+ {
+  "id": "gr-kya-ets-2025-28010-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-kya-ets-2025-28010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/2/2025/1268/pdf"
+ },
+ {
+  "id": "gr-law-5317-2026-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-law-5317-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/1/2026/108/pdf"
+ },
+ {
+  "id": "gr-law-2251-1994-unfair-practices-fek-pdf",
+  "source_id": "GR-ET-ADOPTED",
+  "iso2": "GR",
+  "instrument": "gr-law-2251-1994-unfair-practices",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.et.gr/apiFEK/1/1994/191/pdf"
+ },
+ {
+  "id": "sk-accounting-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-accounting-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2002/431/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-105-2024-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-105-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/105/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-ets-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2012/414/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-186-2023-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-186-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2023/186/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-236-2024-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-236-2024",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/236/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-125-2026-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-125-2026",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2026/125/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-consumer-protection-act-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-consumer-protection-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2024/108/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "sk-act-310-2025-slovlex-versions",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "sk-act-310-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2025/310/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "terms-sk-slovlex-copyright-act",
+  "source_id": "SK-SLOVLEX-CONSOLIDATED",
+  "iso2": "SK",
+  "instrument": "*",
+  "kind": "date_list",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://static.slov-lex.sk/static/SK/ZZ/2015/185/",
+  "params": {
+   "regex": "href=\"(\\d{8})\\.html\""
+  }
+ },
+ {
+  "id": "terms-sk-nbs-adopted",
+  "source_id": "SK-NBS-ADOPTED",
+  "iso2": "SK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://nbs.sk/disclaimer-sk/"
+ },
+ {
   "id": "hr-zor-2024-nn-eli-rdf",
   "source_id": "HR-NN-ADOPTED",
   "iso2": "HR",

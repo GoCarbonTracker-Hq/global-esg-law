@@ -1,0 +1,87 @@
+[
+  {
+    "id": "lt-company-reporting-act",
+    "title": "Law on Accounting of Companies and Company Groups (Įmonių ir įmonių grupių atskaitomybės įstatymas), No. XIV-2811",
+    "official_url": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true",
+    "citation": "Act No. XIV-2811 of 2024-06-25",
+    "in_force": null,
+    "evidence": "No official page was opened: e-tar.lt and e-seimas.lrs.lt answered the cloud address with a Cloudflare challenge on 2026-11-02, so no sentence stating the in-force date was read.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LT-TAR-CONSOLIDATED",
+      "LT-SEIMAS-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "CSRD transposition (sustainability report). Adopted 2024-06-25 and commencement 2024-07-01 are taken from the existing register.csv row and the brief, not from a page opened in this session; in_force stays null for that reason. A later amendment for Directive (EU) 2025/794 was not looked up. Link only: rows LT-TAR-CONSOLIDATED and LT-SEIMAS-ADOPTED are permission requested (page not opened). English: not looked for on e-seimas.lrs.lt (site blocked); no translation row passes.",
+    "status": "link only"
+  },
+  {
+    "id": "lt-financial-reporting-act-ix575",
+    "title": "Law on Financial Reporting of Companies (Įmonių finansinės atskaitomybės įstatymas; e-tar title: Įmonių atskaitomybės įstatymas), No. IX-575",
+    "official_url": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true",
+    "citation": "Act No. IX-575 (historical, NFRD provisions)",
+    "in_force": null,
+    "evidence": "No official page was opened: e-tar.lt and e-seimas.lrs.lt answered the cloud address with a Cloudflare challenge on 2026-11-02, so no sentence stating the in-force date was read.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LT-TAR-CONSOLIDATED",
+      "LT-SEIMAS-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Historical. A web search result for the e-tar.lt edition list (not opened) describes it as no longer in force from 2024-07-01, replaced by XIV-2811, last edition 2023-06-22 to 2024-06-30. NFRD non-financial statement provisions not read. Link only: rows LT-TAR-CONSOLIDATED and LT-SEIMAS-ADOPTED are permission requested (page not opened). English: not looked for on e-seimas.lrs.lt (site blocked); no translation row passes.",
+    "status": "link only"
+  },
+  {
+    "id": "lt-consolidated-reporting-act-ix576",
+    "title": "Law on Consolidated Financial Reporting of Groups of Companies (Įmonių grupių konsoliduotosios finansinės atskaitomybės įstatymas), No. IX-576",
+    "official_url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E",
+    "citation": "Act No. IX-576 (historical, NFRD provisions)",
+    "in_force": null,
+    "evidence": "No official page was opened: e-tar.lt and e-seimas.lrs.lt answered the cloud address with a Cloudflare challenge on 2026-11-02, so no sentence stating the in-force date was read.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LT-TAR-CONSOLIDATED",
+      "LT-SEIMAS-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Historical. A web search result (not opened) describes it as no longer in force from 2024-07-01, replaced by XIV-2811. e-tar.lt titles for it vary (konsoliduotosios atskaitomybės / konsoliduotos finansinės atskaitomybės); the title here is the brief's. Link only: rows LT-TAR-CONSOLIDATED and LT-SEIMAS-ADOPTED are permission requested (page not opened). English: not looked for on e-seimas.lrs.lt (site blocked); no translation row passes.",
+    "status": "link only"
+  },
+  {
+    "id": "lt-climate-change-management-act",
+    "title": "Law on Climate Change Management (Klimato kaitos valdymo įstatymas), No. XI-329",
+    "official_url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB",
+    "citation": "Act No. XI-329 as amended",
+    "in_force": null,
+    "evidence": "No official page was opened: e-tar.lt and e-seimas.lrs.lt answered the cloud address with a Cloudflare challenge on 2026-11-02, so no sentence stating the in-force date was read.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LT-TAR-CONSOLIDATED",
+      "LT-SEIMAS-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Also carries the EU ETS (family F3 noted). A web search result (not opened) gives adoption 2009-07-07, entry into force 2009-07-23, and a consolidated edition valid 2026-06-30 to 2026-12-31; none of that was read on an official page by this session. Title changed from 'klimato kaitos valdymo finansinių instrumentų įstatymas' by amendment XIV-2783 per the same result. Link only: rows LT-TAR-CONSOLIDATED and LT-SEIMAS-ADOPTED are permission requested (page not opened). English: not looked for on e-seimas.lrs.lt (site blocked); no translation row passes.",
+    "status": "link only"
+  },
+  {
+    "id": "lt-unfair-commercial-practices-act",
+    "title": "Law on the Prohibition of Unfair Commercial Practices to Consumers (Nesąžiningos komercinės veiklos vartotojams draudimo įstatymas), No. X-1409",
+    "official_url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A",
+    "citation": "Act No. X-1409",
+    "in_force": null,
+    "evidence": "No official page was opened: e-tar.lt and e-seimas.lrs.lt answered the cloud address with a Cloudflare challenge on 2026-11-02, so no sentence stating the in-force date was read.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LT-TAR-CONSOLIDATED",
+      "LT-SEIMAS-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Umbrella for environmental claims. A web search result (not opened) gives adoption 2007-12-21 and entry into force 2008-02-01. The act transposing Directive (EU) 2024/825 was not identified: searches found only unrelated amendments to the Consumer Rights Protection Act I-657, so no entry was written for it. Link only: rows LT-TAR-CONSOLIDATED and LT-SEIMAS-ADOPTED are permission requested (page not opened). English: not looked for on e-seimas.lrs.lt (site blocked); no translation row passes.",
+    "status": "link only"
+  }
+]
