@@ -4712,5 +4712,149 @@
   "params": {
    "second_route": "https://pisrs.si/pregledPredpisa?id=PRAV10781 (browser; the PISRS site is a JavaScript application; the URL watched is the JSON its page loads, which lists the act status, the amendments in its citation and the NPB versions)"
   }
+ },
+ {
+  "id": "co-sfc-ce-031-2021-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-031-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-005-2022-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-005-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059496",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-008-2022-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-008-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059686",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-005-2024-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-005-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1070272",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-sfc-ce-015-2025-sfc-file",
+  "source_id": "CO-SFC-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-sfc-ce-015-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1079295",
+  "params": {
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+  }
+ },
+ {
+  "id": "co-ley-1931-2018-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1931-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30035792",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30035792 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-2169-2021-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-2169-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30043747",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30043747 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-1819-2016-art221-223-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1819-2016-art221-223",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30030265",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030265 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-2277-2022-art47-49-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-2277-2022-art47-49",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30045028",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30045028 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-decreto-926-2017-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-decreto-926-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30030671",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030671 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-decreto-969-2026-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-decreto-969-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/30056970",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30056970 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
+ },
+ {
+  "id": "co-ley-1480-2011-art29-33-suin-annotations",
+  "source_id": "CO-IMPRENTA-ADOPTED",
+  "iso2": "CO",
+  "instrument": "co-ley-1480-2011-art29-33",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexis.minjusticia.gov.co/suin-search/api/documentos/1681955",
+  "params": {
+   "second_route": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=1681955 (browser; the host sends an incomplete certificate chain and the page is an Angular shell, the JSON at the watched URL carries the SUIN vigencia notes and update time)"
+  }
  }
 ]

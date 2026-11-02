@@ -2398,3 +2398,103 @@ The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni 
 
 - `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
 - `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
+
+## Colombia
+
+Run on 2026-11-02 (GEL-07-06). Rows: `CO-IMPRENTA-ADOPTED` (pass, statute basis: Ley 23 de 1982 art. 41, a reproduction permission tied to fidelity to the official edition; the pass is flagged for Varun in the row notes), `CO-SFC-ADOPTED` and `CO-SFC-TRANSLATION` (pass, terms basis: the Superintendencia Financiera portal terms allow free use, copy and modification with a citation), `CO-SUIN-CONSOLIDATED` and `CO-FUNCIONPUBLICA-CONSOLIDATED` (permission requested). Language: Spanish only; the one English text found is the SFC's own version of Circular Externa 031 de 2021 (see Languages). No consolidated text is stored: the only sites that offer consolidations (SUIN-Juriscol, Función Pública) are not pass, so each stored law is the adopted text as published, and later amendments are named in the scope notes.
+
+Certificate chains: www.suin-juriscol.gov.co, lexis.minjusticia.gov.co, api-cms.minjusticia.gov.co, utu.minjusticia.gov.co, dike.minjusticia.gov.co and www.funcionpublica.gov.co send an incomplete chain (the Sectigo intermediate is missing), so curl through the cloud proxy fails with `SSL certificate problem: unable to get local issuer certificate`. Verification stays on: the intermediate named in the certificate's Authority Information Access field was fetched from `crt.sectigo.com` and appended to a private CA file that is passed to curl with `--cacert`:
+
+```
+openssl s_client -connect www.suin-juriscol.gov.co:443 -servername www.suin-juriscol.gov.co -proxy 127.0.0.1:44381 -showcerts   # issuer Sectigo Public Server Authentication CA EV R36, CA Issuers URI in the certificate
+curl -sS -o ev.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAEVR36.crt        # 200 1615
+curl -sS -o ov.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt        # minjusticia.gov.co hosts
+curl -sS -o rsa.crt http://crt.sectigo.com/SectigoRSAOrganizationValidationSecureServerCA.crt # funcionpublica.gov.co, 200 1565
+for f in ev ov rsa; do openssl x509 -inform DER -in $f.crt -out $f.pem; done
+cat /root/.ccr/ca-bundle.crt ev.pem ov.pem rsa.pem > bundle.pem
+```
+
+Every `curl` below that touches those hosts carries `--cacert bundle.pem`. Chromium (Playwright) behind the same proxy answered `502 upstream request failed` for https://www.suin-juriscol.gov.co/ even after the intermediates were added to the NSS database at /root/.pki/nssdb, so no browser recipe was proven; none is needed, because the text comes from the JSON services below.
+
+### Row `CO-IMPRENTA-ADOPTED`: Diario Oficial PDF
+
+The Diario Oficial is served by a JSF application at `svrpubindc.imprenta.gov.co/diario/` (complete certificate chain). The edition PDF is behind a session: search by edition number, press `Ver Diario`, then fetch the object URL, all with one cookie jar. Run for Ley 1931 de 2018, edition 50.667 (27 July 2018):
+
+```
+curl -sS -L -c cj.txt -o index.html -w '%{http_code} %{size_download} %{content_type}\n' https://svrpubindc.imprenta.gov.co/diario/
+```
+
+Returned `200 45103 text/html;charset=UTF-8`. The form action (with the `jsessionid`) and the hidden `javax.faces.ViewState` are read from `index.html`.
+
+```
+curl -sS -L -b cj.txt -c cj.txt --data-urlencode 'frmConDiario=frmConDiario' --data-urlencode 'numeroDiarioOf=50667' --data-urlencode 'btnBuscar=btnBuscar' --data-urlencode 'javax.faces.ViewState=<value>' -o result.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/index.xhtml;jsessionid=<id>'
+```
+
+Returned `200 32223 text/html;charset=UTF-8` (one row, `data-rk="50.667"`). The next request presses the row button (`dtbDiariosOficiales:0:j_idt34`) with `dtbDiariosOficiales_selection=50.667` and the new ViewState:
+
+```
+curl -sS -L -b cj.txt -c cj.txt --data-urlencode 'frmConDiario=frmConDiario' --data-urlencode 'numeroDiarioOf=50667' --data-urlencode 'dtbDiariosOficiales_selection=50.667' --data-urlencode 'dtbDiariosOficiales:0:j_idt34=' --data-urlencode 'javax.faces.ViewState=<value>' -o view.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/index.xhtml;jsessionid=<id>'
+```
+
+Returned `200 15775 text/html;charset=UTF-8`; `view.html` holds `<object type="application/pdf" data="/diario/javax.faces.resource/dynamiccontent.properties.xhtml?ln=primefaces&pfdrid=...&id=...&uid=...">`.
+
+```
+curl -sS -L -b cj.txt -o d50667.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://svrpubindc.imprenta.gov.co/diario/javax.faces.resource/dynamiccontent.properties.xhtml?ln=primefaces&pfdrid=<...>&pfdrt=sc&id=<...>&pfdrid_c=false&uid=<...>'
+```
+
+Returned `200 21365161` (the server sends no `Content-Type` header, the answer is chunked; `file` says PDF 1.7, 148 pages), sha256 `c30e64c607845dd4a673f9dc63de808f124c20071887662ff15a4e5710b9ec5b`. The token URL is per session, so `fetched_url` in the four Diario records is the URL of that run and will not answer again; the bytes do reproduce: a second full run gave the same sha256 for editions 50667, 50101, 52247 and 53578. A search by norm type and number (`tipoNorma_input=01`, `numeroNorma=1819`) also works for some laws (1819 found, 2277 not), so the edition number is taken from the SUIN index (`documents_pdn`, field `numerodiariooficial`) or from the date range search (`fechaInicial_input=13/12/2022`).
+
+Text recipe, per instrument: `pdftotext d50667.pdf d50667_d.txt` (poppler, default reading-order mode; `-layout` interleaves the two columns of every page and was not used). Page furniture is dropped (the lines `Edición N`, weekday and date, `DIARIO OFICIAL`, page numbers, and lone 1 to 3 digit lines), runs of spaces collapse, empty lines are removed, nothing else is changed, hyphenation at line ends stays as the edition has it. The law is cut from its heading line to its closing line: `LEY 1931 DE 2018` to `Luis Fernando Mejía Alzate.`; `PARTE IX` to the line before `PARTE X` (Ley 1819 arts. 221 to 223); `TÍTULO IV` to the line before `CAPÍTULO II` (Ley 2277 arts. 47 to 49); `DECRETO NÚMERO 0969 DE 2026` to `Irene Vélez Torres.`. Each cut was checked against the same cut taken with `pdftotext -raw` (content-stream order): after removing furniture, whitespace and hyphens the strings are identical for Decreto 969, differ by three footnote or page digits for Ley 1931 and by the column order of the tariff tables (and a page digit) for Ley 1819 and Ley 2277. Ley 1931 has its 36 articles in sequence. The `-raw` mode loses the spaces of some lines (runs such as `Losretiros,parcialesototales`) and so was not used for the record text.
+
+Stored: `co-ley-1931-2018` (2018-07-27), `co-ley-1819-2016-art221-223` (2016-12-29), `co-ley-2277-2022-art47-49` (2022-12-13), `co-decreto-969-2026` (2026-08-05).
+
+### Row `CO-SFC-ADOPTED`: Superintendencia Financiera circulars
+
+The circular pages are on superfinanciera.gov.co (no challenge, complete chain). Page listing the sustainable-finance circulars:
+
+```
+curl -sS -L -o sfc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/'
+```
+
+Returned `200 224069 text/html; charset=UTF-8`. The circular, Circular Externa 031 de 2021:
+
+```
+curl -sS -L -o ce031_21.docx -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619'
+```
+
+Returned `200 71188 application/octet-stream` (Word 2007+, `content-disposition: attachment; filename="ce031_21.docx"`). The annex file `idFile=1057620` is a zip with `Anexo 2 ASG.docx` and `P3 Tit V - Cap I - RNVE.docx`; it is not stored. Text recipe: unzip `word/document.xml`, one line per `w:p` paragraph, the `w:t` runs of the paragraph joined, tabs kept as tabs, runs of spaces collapsed, empty paragraphs dropped; nothing else (the closing `50000` is a paragraph of the file). `fetched_sha256` is the hash of the .docx. Stored: `co-sfc-ce-031-2021` (2021-12-22), `co-sfc-ce-005-2022` (`idFile=1059496`, 200 75884, 2022-04-08) and `co-sfc-ce-008-2022` (`idFile=1059686`, 200 69634, 2022-04-28). Terms: `idFile=1038273` returned `200 46748 application/octet-stream`.
+
+### Languages
+
+Spanish is the only official language and the only one the Diario Oficial, SUIN-Juriscol and the SFC serve for these laws. English: the SFC publishes its own English version of Circular Externa 031 de 2021 on the same page, row `CO-SFC-TRANSLATION` (pass on the SFC terms; the file itself says it is not an official translation, so the statute exception for official texts is not used):
+
+```
+curl -sS -L -o ce031_21_en.docx -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1058633'
+```
+
+Returned `200 70601 application/octet-stream`. It is stored as `2021-12-22-translation-en.json` under `co-sfc-ce-031-2021` (same recipe). Its amendment state is the circular as issued, which is the stored Spanish version. The SFC page lists no English version for Circular Externa 005 or 008 de 2022, 005 de 2024 or 015 de 2025. For the laws and decrees: no government English translation was found in the SUIN index (`documents_pdn`, English queries return only Spanish documents), the Diario Oficial search (Spanish only) or the ministry sites linked from SUIN. Each scope entry says so.
+
+### SUIN-Juriscol (row `CO-SUIN-CONSOLIDATED`, permission requested, nothing stored)
+
+`www.suin-juriscol.gov.co` returns one 4758-byte Angular shell for every path, including `viewDocument.asp?id=...`. The index and the documents sit on `lexis.minjusticia.gov.co` and answer curl (with the private CA file):
+
+```
+curl -sS --cacert bundle.pem -H 'Content-Type: application/json' -d '{"size":3,"query":{"match":{"titulo":"Ley 1931 de 2018"}}}' -w '\n%{http_code} %{size_download} %{content_type}\n' https://lexis.minjusticia.gov.co/elasticsearch/documents_pdn/_search
+```
+
+Returned `200 3523 application/json` (`numerodiariooficial`, `estado`, `fecha`, `documentofuente` and the `visualizacion` id of the document). The document: `curl -sS --cacert bundle.pem -o l1931.json -w '%{http_code} %{size_download} %{content_type}\n' https://lexis.minjusticia.gov.co/suin-search/api/documentos/30035792` returned `200 129339 application/json` (`data.textoHtml`, annotated). It was read to find edition numbers and the SUIN `estado`, and not stored.
+
+### Link only
+
+- `co-ley-2169-2021`: row `CO-IMPRENTA-ADOPTED` passes, no record. The text layer of Diario Oficial 51.896 (90 pages, `200 3914540`, sha256 `203c6181779169e44f3b6cf6286be6f8999a6b3a1ababbfe1e96c2c17d28bf9b`) gives the 38 articles out of order in default mode (11 in sequence) and loses the start of the law and many spaces in `-raw` mode; the law's sanction block shares its page with a Government objection message. No clean text.
+- `co-decreto-926-2017`: edition 50.251 (96 pages, `200 10106876`): the decree starts on the cover page together with Decretos 925 and 928 and the masthead; default and raw order differ on 4 per cent of the cut. No clean text.
+- `co-ley-1480-2011-art29-33`: edition 48.220 (36 pages, `200 537754`) uses a legacy font encoding; art. 29 extracts as `especí¿FDV DQXQFLDGDV HQ OD SXEOLFLGDG`. No OCR in the recipe.
+- `co-sfc-ce-005-2024` (`idFile=1070272`, `200 667582`) and `co-sfc-ce-015-2025` (`idFile=1079295`, `200 251023`): PDFs without a text layer (`pdftotext` writes nothing), the row passes, no record.
+
+### Blocked from the cloud address
+
+- `https://www.secretariasenado.gov.co/` (and `/senado/basedoc/ley_1931_2018.html`): `curl: (35) Recv failure: Connection reset by peer`; the proxy log shows `ws_closed_mid_exchange` for `www.secretariasenado.gov.co:443`.
+- `https://diariooficial.gov.co`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `https://www.imprenta.gov.co/diariooficial`: `429` on 10102 bytes of `text/html` (rate limit page); `https://www.imprenta.gov.co/diario-oficial` answered `200` and holds no search.
+- `https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=87654`: no answer in 30 s (`curl: (28)`).
+- Chromium (Playwright, proxy set) to `https://www.suin-juriscol.gov.co/`: `502 upstream request failed`. The same URL answers curl `200 4758 text/html` once the Sectigo intermediate is supplied.
