@@ -1818,5 +1818,53 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "my-bursa-mmlr-sustainability-release-head",
+  "source_id": "MY-BURSA-ADOPTED",
+  "iso2": "MY",
+  "instrument": "my-bursa-mmlr-sustainability",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/content_entry5c11a9db758f8d31544574c6/6768e229e6414a4ba0eb9f4d/files/23122024__MEDIA_RELEASE_BURSA_MALAYSIA_REQUIRES_SUSTAINABILITY_REPORTING_USING_THE_IFRS_SUSTAINABILITY_DISCLOSURE_STANDARDS.pdf?1734927108=",
+  "params": {
+   "second_route": "https://www.bursamalaysia.com/regulation/listing_requirements (browser; bursamalaysia.com answers scripts with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "my-eqa-1974-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-eqa-1974",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
+ },
+ {
+  "id": "my-cpa-1999-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-cpa-1999",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
+ },
+ {
+  "id": "my-tda-2011-lom-home-page",
+  "source_id": "MY-AGC-CONSOLIDATED",
+  "iso2": "MY",
+  "instrument": "my-tda-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lom.agc.gov.my/",
+  "params": {
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+  }
  }
 ]

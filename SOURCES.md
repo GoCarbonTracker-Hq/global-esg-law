@@ -770,3 +770,44 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Malaysia
+
+Rows `MY-AGC-CONSOLIDATED`, `MY-AGC-ADOPTED`, `MY-BURSA-ADOPTED` and `MY-SC-ADOPTED`, all `permission requested` (terms basis). No row passes, so no text is stored and no fetch recipe for law text was proven. Run on 2026-11-02.
+
+The terms pages that decided the rows (these are the only requests that worked):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o tnc.html -w '%{http_code} %{size_download} %{content_type}\n' https://lom.agc.gov.my/tnc.php
+```
+
+Returned `200 17069 text/html; charset=UTF-8`: "Copyright 2023 by Attorney General's Chambers, Malaysia, all rights reserved." The footer separator is random, so only items 1 to 11 are hashed (see the row notes).
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o disclaimer.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sc.com.my/about/disclaimer
+```
+
+Returned `200 80953 text/html; charset=utf-8`: reproduction needs the SC's prior written permission.
+
+### Languages
+
+The Laws of Malaysia portal offers Malay (`language=BM`) and English (`language=BI`) under the same terms, so a second language would need no row of its own. No language was fetched. No government English translation source other than the LOM English versions was found.
+
+### Link only
+
+- `my-eqa-1974`, `my-cpa-1999`, `my-tda-2011`: row `MY-AGC-CONSOLIDATED`, all rights reserved. Also no working per-instrument request: act pages are not reachable from the cloud address.
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://lom.agc.gov.my/act-detail.php?language=BI&act=127'
+```
+
+Returned `200 15 text/html; charset=UTF-8` (body: `Invalid request`). The list pages (`principal.php?type=updated&language=BI`, `subsid.php?type=pua`, `200 21775 text/html`) fill their tables by JavaScript from `json-updated-2024.php`, whose response is encrypted in the page, and the file links in the HTML are signed `processFile.php?isDirect=1&token=...` URLs, so no URL can be built for a chosen Act. Headless Chromium (Playwright with the session proxy) got `502 upstream request failed` for `lom.agc.gov.my`. The `/federal-gazette` path and `federalgazette.agc.gov.my` from the brief were not retried.
+- `my-bursa-mmlr-sustainability`: row `MY-BURSA-ADOPTED`, terms unreadable. Blocked from the cloud address: https://www.bursamalaysia.com/ (also `/terms_of_use`, `/legal_disclaimer` and the release PDF named in `register.csv`).
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.bursamalaysia.com/
+```
+
+Returned `403 5379 text/html; charset=UTF-8` (Cloudflare "Just a moment..."). Chromium with the proxy got the same challenge and did not clear it. The orchestrator can read the Bursa terms and the Listing Requirements sustainability provisions from the laptop.
+- Not reached: https://www.parlimen.gov.my/ did not connect (curl status 000).
+- Not law, no scope entry: the SC National Sustainability Reporting Framework (https://www.sc.com.my/nsrf, row `MY-SC-ADOPTED`, permission requested). Not enacted: the Climate Change Bill and the carbon tax (F7 rows in `register.csv`).
