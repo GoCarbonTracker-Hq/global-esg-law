@@ -2817,5 +2817,158 @@
   "params": {
    "second_route": "https://lovdata.no/dokument/NL/lov/2009-01-09-2 (browser; lovdata.no answers scripts with HTTP 405 'Request stopped by Varnish IPS')"
   }
+ },
+ {
+  "id": "ie-si-360-2017-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-360-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2017_351-400.html"
+ },
+ {
+  "id": "ie-si-410-2018-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-410-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2018_401-450.html"
+ },
+ {
+  "id": "ie-si-336-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-336-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_301-350.html"
+ },
+ {
+  "id": "ie-si-498-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-498-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_451-500.html"
+ },
+ {
+  "id": "ie-si-309-2025-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-309-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2025_301-350.html"
+ },
+ {
+  "id": "ie-climate-act-2015-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-climate-act-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/isbc/2015_46.html"
+ },
+ {
+  "id": "ie-climate-amendment-act-2021-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-climate-amendment-act-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/isbc/2021_32.html"
+ },
+ {
+  "id": "ie-si-470-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-470-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_451-500.html"
+ },
+ {
+  "id": "ie-si-490-2012-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-490-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2012_451-500.html"
+ },
+ {
+  "id": "ie-si-755-2020-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-755-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2020_751-760.html"
+ },
+ {
+  "id": "ie-si-471-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-471-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_451-500.html"
+ },
+ {
+  "id": "ie-si-740-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-740-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_701-750.html"
+ },
+ {
+  "id": "ie-si-472-2024-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-472-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2024_451-500.html"
+ },
+ {
+  "id": "ie-cpa-2007-part-3-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-cpa-2007-part-3",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/isbc/2007_19.html"
+ },
+ {
+  "id": "ie-si-124-2026-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-124-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2026_101-150.html"
+ },
+ {
+  "id": "ie-si-16-2021-isbc-directory",
+  "source_id": "IE-EISB-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-si-16-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.irishstatutebook.ie/eli/isbc/si2021_1-50.html"
+ },
+ {
+  "id": "ie-cbi-climate-guidance-insurance-climate-page",
+  "source_id": "IE-CBI-ADOPTED",
+  "iso2": "IE",
+  "instrument": "ie-cbi-climate-guidance-insurance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.centralbank.ie/financial-system/climate-change/financial-regulation-and-supervision"
  }
 ]
