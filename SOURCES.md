@@ -770,3 +770,31 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Thailand
+
+Run 2026-11-02 by GEL-04-09. No licence row passes and nothing is stored: every official Thai host refused the cloud address, so no terms page and no law text could be read. All six rows are `permission requested` (page could not be opened). `pdftotext -layout` (poppler, runs of spaces collapsed, output checked for mojibake) is the intended PDF method for the SEC notifications once a fetch works; it was not run.
+
+### Fetch attempts (no proven fetch)
+
+curl with `-A "Mozilla/5.0"`, then headless Chromium (Playwright, `goto` with `waitUntil: domcontentloaded`, 3 s wait, `page.content()`):
+
+| URL | curl | Chromium |
+|---|---|---|
+| `https://www.sec.or.th` | connection reset by peer, no status | 403, 13713 bytes, title `Block Response` |
+| `https://publish.sec.or.th` | 403, 13730 bytes, text/html | 403, `Block Response` (checked on `/nrs/8617se.pdf`) |
+| `https://ratchakitcha.soc.go.th` | 403, 5359 bytes, text/html | 403, 44831 bytes, title `Just a moment...` (challenge did not clear in 3 s) |
+| `https://www.krisdika.go.th` | TLS error, self-signed certificate | 502, 174 bytes |
+| `https://law.go.th` | 403, 919 bytes, text/html | 403, CloudFront `The request could not be satisfied` |
+| `https://www.set.or.th` | 302, then 403 | 403, 917 bytes |
+| `web.archive.org` copies of the pages above | connection reset | not tried |
+
+### Languages
+
+None proven. No Thai or English text was fetched from any source. The English rows `TH-SEC-TRANSLATION` and `TH-KRISDIKA-TRANSLATION` exist as `permission requested` so a later session can judge them once the terms are readable.
+
+### Link only
+
+- `th-cmsb-tor-jor-55-2563`, `th-sec-issb-notifications`: row `TH-SEC-ADOPTED`, permission requested; sec.or.th and publish.sec.or.th blocked from the cloud address.
+- `th-sea-2535-s56`: row `TH-KRISDIKA-CONSOLIDATED`, permission requested; krisdika.go.th and law.go.th blocked from the cloud address.
+- Register row only: Climate Change Act (draft; a web search found no Gazette publication), Thailand Taxonomy (F7).
