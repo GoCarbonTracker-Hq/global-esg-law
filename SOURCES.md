@@ -2029,3 +2029,89 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - Not in scope, found but not searched or not confirmed: Brussels COBRACE (Numac 2013A31357; ETS provisions not confirmed), the Flemish decree of 5 April 1995 (not found by title search on Justel), the federal aviation ETS cooperation agreement of 2 September 2013 and its assent acts (listed by Justel, not opened), the Moniteur belge text of the CSA as published (the Code in one issue).
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
+
+## Slovenia
+
+Rows `SI-UL-ADOPTED` (gazette HTML) and `SI-PISRS-GAZETTE` (gazette PDF on PISRS), both `pass` on the statute basis (ZASP 9. člen: "uradna besedila z zakonodajnega, upravnega in sodnega področja" are not copyright-protected), and `SI-PISRS-NPB` (`pass` on terms: the Government Office for Legislation lists the unofficial consolidated texts on the open data portal under CC BY 4.0). `SI-PISRS-TRANSLATION`, `SI-ATVP-ADOPTED` and `SI-BSI-ADOPTED` are `permission requested`. Run on 2026-11-02. No browser was needed for any stored record: every text came from plain `curl` requests, so there is no browser-fetched record in this place.
+
+pisrs.si is an Angular application: `curl https://pisrs.si/` returns an 11805-byte page that needs JavaScript. The data come from a JSON back end at `https://pisrs.si/api/` whose address the application reads from `https://pisrs.si/assets/config.json` (`BACKEND_ENDPOINT`); the calls below are the ones the public pages make without a login, found by watching the page's requests in Playwright chromium. They need no key and no cookie and answered curl from the cloud address. The documented developer API (`https://pisrs.si/swagger`, server `https://pisrs.si/extapi`) says "Za uporabo API potrebujete dovoljenje" and was not used.
+
+### Rows SI-PISRS-NPB (consolidated), SI-UL-ADOPTED and SI-PISRS-GAZETTE (adopted)
+
+Find the register id of an act (`zunanjiId`, for example `ZAKO4291` for the Companies Act) with the search the site's own search box makes. Run for "Podnebni zakon":
+
+```
+curl -sS -X POST -H 'Content-Type: application/json' -d '{"simpleSearch":true,"besedilo":{"word1":"Podnebni zakon","word1InContent":false,"word1InTitle":true},"nazivZbirke":["Register predpisov","Neuradna prečiščena besedila"]}' -o f.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://pisrs.si/api/filter/filter?cursorMark=*'
+```
+
+Returned `200 3541 application/json`; `data.seznam[]` holds `zunanjiId`, `sop` (the gazette item number, for example `2025-01-2264`), `nazivAkta`, `datumObjave`, and `nazivZbirke` ("Register predpisov" for the act, "Neuradna prečiščena besedila" for a consolidated version).
+
+Row `SI-PISRS-NPB`, step 1, list the consolidated versions of the Companies Act (ZGD-1) and the file ids:
+
+```
+curl -sS -o zbirka.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/rezultat/zbirka/id/ZAKO4291
+```
+
+Returned `200 17197 application/json`. `data.datoteke[]` has, per version (`npbVerzija.naziv`: "Osnovni", "NPB 1", ...), the file ids by type (`HTML_DOCUMENT`, `WORD_DOCUMENT_DOCX`, `PDF_DOCUMENT`). `data.evidencniPodatki` has `veljaOd` (first in-force date), `ulStLeto`, `citat` (the amendments, each with its `sop`). The same record by gazette item: `curl -sS -o sop.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/rezultat/zbirka/sop/2017-01-0730` returned `200 2139 application/json` (ZGD-1J); its `veljaOd` is the in-force date PISRS shows for an amending act.
+
+Step 2, the version text, ZGD-1 NPB 24 (`HTML_DOCUMENT` 612427594):
+
+```
+curl -sS -o npb24.html -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/datoteke/integracije/612427594
+```
+
+Returned `200 1371818 text/html; charset=UTF-8`, sha256 `26f74dcbb228b53c64d3c5318b4f4f68e8fe1389f3efebab2957c42fd79323a0`; a second fetch gave the same hash, so `fetched_sha256` reproduces. The file starts with "Opozorilo: Neuradno prečiščeno besedilo predpisa predstavlja zgolj informativni delovni pripomoček", lists the amendments it contains, then "(neuradno prečiščeno besedilo št. 24)" and "Datum začetka uporabe: 24.07.2026". That line is the `in_force` of the version. NPB files up to about number 20 of ZGD-1 have no such line: their date is the `veljaOd` of the last amending act the file lists, read with the `zbirka/sop/` call above.
+
+Text extraction (NPB files): the `<head>` removed, block elements (`p`, `div`, `h1` to `h6`, `li`, `tr`) as line breaks, tags stripped, entities decoded, no-break spaces as spaces, runs of spaces collapsed; headings, the "Opomba" notes and the "Datum konca veljavnosti" lines of repealed articles are kept. For three small acts (`si-uredba-sfdr`, `si-ziuezo`, `si-uredba-brezplacni-kuponi`) the record is the whole NPB file text, header included; for the other acts it is a cut: the Companies Act from the line `70.c člen` up to the heading of the next article not numbered 70, ZVO-2 from `4. Trgovanje s pravicami do emisije toplogrednih plinov v EU` to `5. Zavezujoče letno zmanjšanje`, ZVPot-1 from `VIII. poglavje NEPOŠTENE POSLOVNE PRAKSE` to `IX. poglavje`. A consolidated version is stored only when its cut differs (words only, whitespace ignored) from the version before; the record carries the date of the first version with that text.
+
+Row `SI-UL-ADOPTED`, the act as published, Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1M), Uradni list RS 102/2024:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o 2024-01-3204.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-3204
+```
+
+Returned `200 204130 text/html; charset=utf-8`, sha256 `22f064f48beeb279eb6408f6b64abc77ae36fef459c2874cf22ceb5cf0e3d519`, the same on a second fetch. The path needs only the SOP number (`sop` from the PISRS record); the readable-title part of the URL in the register is optional. Text extraction: the contents of `<div class="content-segments">` (the page title, menus and footers are outside it), block elements as line breaks, tags stripped, runs of spaces collapsed. The issue and date are in `<h2 class="h5 ul-content-title">` ("Uradni list RS, št. 102/2024 z dne 3. 12. 2024").
+
+Row `SI-PISRS-GAZETTE`, the act as published after 1 March 2026 (uradni-list.si item pages dated 2026 answer `200 73373 text/html` with no act text), ZGD-1O, Uradni list RS 1270/2026:
+
+```
+curl -sS -o u20261270.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/uradni-list/objava/u20261270.pdf
+```
+
+Returned `200 239430 application/pdf`, sha256 `4a1bc4bb8fe97b331a52d8223d9ce9b4d00e0663f10a0e8b89efb58f181fdbf9`, the same on a second fetch. The file name is `u` + year + four-digit item number (`u20261799.pdf` for ZVPot-1A, `u2006042.pdf` style for older issues: `https://pisrs.si/api/uradni-list/objava/u2006042.pdf` is `virPovezaveOblike` of ZGD-1). Text: `pdftotext -layout u20261270.pdf -`, form feeds as line breaks, runs of spaces collapsed, blank-line runs collapsed; the page furniture ("Stran N od M") is left in. Checked for mojibake: the diacritics č š ž and the guillemets » « came out intact in both PDFs (ZGD-1O 34679 characters, ZVPot-1A 68741 characters).
+
+Stored (fetched 2026-11-02), `sl` only:
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `si-zgd-1-art70c` | consolidated | 2017-04-15, 2024-12-18, 2025-10-08, 2026-02-25, 2026-07-24 |
+| `si-zgd-1m` | adopted | 2024-12-18 |
+| `si-zgd-1n` | adopted | 2025-10-08 |
+| `si-zgd-1o` | adopted (PDF) | 2026-07-24 |
+| `si-poz` | adopted | 2025-08-09 |
+| `si-zvo-2-ets` | adopted, consolidated | 2022-04-13, 2025-08-09 |
+| `si-zvpot-1` | adopted, consolidated | 2022-10-26, 2026-12-12 (future date) |
+| `si-zvpot-1a` | adopted (PDF) | 2026-11-13 (in force 2026-11-13, applies 30 days later) |
+| `si-uredba-sfdr` | adopted, consolidated | 2023-02-25, 2026-01-03 |
+| `si-ziuezo` | adopted, consolidated | 2025-04-23, 2026-02-25 |
+| `si-uredba-brezplacni-kuponi` | adopted, consolidated | 2024-03-30, 2025-08-09 |
+| `si-pravilnik-mrv` | adopted | 2011-07-30 |
+
+### Languages
+
+Slovenian is the only language the gazette and PISRS serve for the acts: Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, `https://www.uradni-list.si/glasilo-uradni-list-rs`, and the PISRS act pages, and none exists. English is a translation on its own row, `SI-PISRS-TRANSLATION`, `permission requested`: the list `https://pisrs.si/aktualno/zakonodaja-v-anglescini` is `curl -sS -o en.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/navigation/gethtml/13`, which returned `200 326133 application/json` (the page's HTML in `data.html`, 391 table rows, each with the file link `/Prevodi/EN-....doc`). It states no licence; the CC BY 4.0 of the Government Office is on the Slovenian NPB dataset. ZASP 9. člen (2) protects translations unless published as official texts. The file links do not work with curl: `curl -sS -o EN.doc -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/Prevodi/EN-2022-01-3083.doc` returned `200 11805 text/html; charset=UTF-8` (the PISRS application shell, not a Word file). No translation is stored. English files exist for the Companies Act (marked * as not the latest text; state of NPB 16, 2019) and ZVPot-1 (the 2022 text); none for the Climate Act, ZVO-2, the ETS decrees, SFDR decree, green bonds act, ZGD-1M, 1N, 1O or ZVPot-1A.
+
+### Link only
+
+No instrument is link only. Rows with no instrument:
+
+- `SI-ATVP-ADOPTED` (`permission requested`): `https://www.a-tvp.si/` is blocked from the cloud address, see Blocked. No ATVP instrument is in scope.
+- `SI-BSI-ADOPTED` (`permission requested`): the bsi.si terms allow reproduction only "pod pogojem, da je vidno označen vir podatkov in da ostanejo podatki nespremenjeni"; the site answers curl with 200. No Banka Slovenije instrument is in scope.
+- `SI-PISRS-TRANSLATION` (`permission requested`): see Languages.
+
+The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni zakon replaced on 2025-08-09 (see the scope notes).
+
+### Blocked
+
+- `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
+- `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
