@@ -2029,3 +2029,49 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - Not in scope, found but not searched or not confirmed: Brussels COBRACE (Numac 2013A31357; ETS provisions not confirmed), the Flemish decree of 5 April 1995 (not found by title search on Justel), the federal aviation ETS cooperation agreement of 2 September 2013 and its assent acts (listed by Justel, not opened), the Moniteur belge text of the CSA as published (the Code in one issue).
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
+
+## Greece
+
+Row `GR-ET-ADOPTED` (Εθνικό Τυπογραφείο, Government Gazette ΦΕΚ A and B as published), `pass` on the statute basis: Ν. 2121/1993 art. 2 para 5 leaves official legislative and administrative texts outside copyright (read on the Hellenic Copyright Organisation's text, https://library.opi.gr/n-2121-1993/, 2026-11-02). The et.gr terms (https://www.et.gr/index.php/oroi-chrisis, sections 1.2 and 2.4) limit the website's own content to personal non-commercial use, so on the terms alone the row would be `permission requested`; the verdict is a reading of the statute and is flagged in the PR. There is no consolidated row (et.gr serves gazette issues only; kodiko.gr and e-nomothesia.gr are private services, never a row) and no translation row (no government English text was found). Run on 2026-11-02.
+
+The gazette API is documented at https://et.gr/ypiresia-api-gia-fek/: `GET https://api.et.gr/apiFEK/{issue}/{year}/{sheet}/{pdf|html}` with issue 1 = ΦΕΚ Α΄ and 2 = ΦΕΚ Β΄. It answers plain `curl`, no challenge, no User-Agent needed. `HEAD` returns 404 (GET only), so the watchers hash the PDF.
+
+Request, row `GR-ET-ADOPTED`, Ν. 5164/2024 (ΦΕΚ Α΄ 202/12.12.2024):
+
+```
+curl -sS -L -o fek_a_202_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.et.gr/apiFEK/1/2024/202/pdf
+```
+
+Returned `200 976072 application/pdf` (56 pages), sha256 `f5f566b9562abb1cdc189a89a2047e57b92fcb295d63046cf411aa96e743e9b8`. A second fetch gave the identical hash, and so did `https://api.et.gr/apiLAW/1/2024/5164/pdf` (law type 1 = Νόμος, year, law number). The same request for a ΦΕΚ Β΄ issue, ΚΥΑ ΥΠΕΝ/ΔΚΑΠΑ/86227/2245: `curl -sS -L -o fek_b_4674_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.et.gr/apiFEK/2/2024/4674/pdf` returned `200 545311 application/pdf`. All seven stored PDFs were fetched twice on the day and the two downloads were byte-identical, so `fetched_sha256` reproduces.
+
+Text extraction: poppler `pdftotext FILE -` (reading order, not `-layout`: the gazette is set in two columns and `-layout` interleaves the columns line by line). Then: form feeds become line breaks, runs of spaces collapse to one, empty lines are dropped, and the character U+2206 (INCREMENT), which the 2018, 2022 and 2024-08 PDFs use for the capital delta, is replaced by U+0394 (Δ) so the Greek reads correctly. Nothing else is changed: page headers ("Τεύχος Α΄ 202/12.12.2024 ΕΦΗΜΕΡΙΔΑ ΤΗΣ ΚΥΒΕΡΝΗΣΕΩΣ"), page numbers and line-end hyphens of the gazette stay in the text. Mojibake check on the day, counting characters outside ASCII, Greek and ordinary punctuation: clean for ΦΕΚ Α΄ 104/2018, 105/2022, 202/2024, 108/2026 and ΦΕΚ Β΄ 472/2025, 1268/2025; ΦΕΚ Β΄ 4674/2024 is clean except three lines of an annex correspondence table (legacy font encoding, for example `ɳʌɽʌʉϭʋɲʌ͘ϮϵʏɻʎɃɷɻɶʀɲʎ;ȵȵͿϮϬϮϯͬϵϱϵ`), stored as extracted and named in the scope notes. ΦΕΚ Β΄ 3763/2017 (the decision that 4674/2024 replaced) extracts as almost wholly legacy-font mojibake (over 1,200 occurrences of ɲ alone), so it is not stored and is not in scope. ΦΕΚ Α΄ 191/1994 is an image scan with no text layer (pdftotext returns 20 characters); no OCR was used.
+
+Stored (fetched 2026-11-02). The publisher serves one text per gazette issue and no point-in-time versions, so each instrument has one `adopted` record:
+
+| Instrument | Gazette | `in_force` | Records |
+|---|---|---|---|
+| `gr-law-4548-2018-art151-154` | Α΄ 104/13.06.2018 (Articles 151 to 154 cut at their headings) | 2019-01-01 | el |
+| `gr-law-5164-2024` | Α΄ 202/12.12.2024 | 2024-12-12 | el |
+| `gr-law-4936-2022` | Α΄ 105/27.05.2022 | 2022-05-27 | el |
+| `gr-kya-ets-2024-86227` | Β΄ 4674/09.08.2024 | 2024-08-09 | el |
+| `gr-kya-ets-2025-7560` | Β΄ 472/10.02.2025 | 2025-02-10 | el |
+| `gr-kya-ets-2025-28010` | Β΄ 1268/14.03.2025 | 2025-03-14 | el |
+| `gr-law-5317-2026` | Α΄ 108/10.07.2026 | 2026-07-10 | el |
+
+### Languages
+
+Greek is the only official language. The gazette API serves the Greek gazette only (`/pdf` and an HTML stub with links to the PDF and the viewer). No government English text of any of these acts was found: looked for on api.et.gr, search.et.gr and www.et.gr (all Greek; `https://www.et.gr/en/` answers 301 and search.et.gr/en answers the Greek site), and on the Hellenic Parliament site, which refused the cloud address. So no English record and no translation row exists; each scope entry says where English was looked for. Nothing is stored from a law firm, an exchange, an NGO or a news site.
+
+### Link only
+
+- `gr-law-2251-1994-unfair-practices`: row `GR-ET-ADOPTED` passes, but the as-published gazette (Α΄ 191/1994, `https://api.et.gr/apiFEK/1/1994/191/pdf`, `200 1159243 application/pdf`, 12 pages) is a scanned image with no text. The current text of Articles 9α to 9στ exists officially only inside the amending act, which is stored as `gr-law-5317-2026`; a consolidated text exists only on kodiko.gr and e-nomothesia.gr (private, never stored). `in_force` is null: no readable official page states it.
+- Not in scope: ΚΥΑ 181478/965/2017 (Β΄ 3763), replaced by the 2024 decision; the brief's candidate stop-the-clock transposition (Directive (EU) 2025/794) and any Greek act of 2025 or 2026 changing Ν. 5164/2024: none found on official pages. Article 92 of Ν. 5172/2025 (transitional rule on assurance of sustainability reports for 2024) was found and is noted in `gr-law-5164-2024`; the act is a violence-against-women act and is not stored.
+
+### Blocked from the cloud address
+
+- https://www.hellenicparliament.gr/ and https://www.hellenicparliament.gr/Nomothetiko-Ergo: HTTP 403, `Access Denied`, body from the CDN (`errors.edgesuite.net`), 379 and 399 bytes.
+- https://www.bankofgreece.gr/ and https://www.bankofgreece.gr/en/main-tasks: HTTP 403, `Access Denied`, 371 and 392 bytes.
+- https://www.hcmc.gr/ and https://www.hcmc.gr/el_GR/web/portal: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer.
+- https://www.minenv.gr/ and https://www.e-nomothesia.gr/: no answer within 40 seconds (exit 000); e-nomothesia is a private service in any case.
+
+No row exists for the Hellenic Parliament, the HCMC or the Bank of Greece: no instrument of theirs is in scope and their terms could not be opened. The orchestrator can read them from the laptop. No browser recipe was needed; no record is browser-fetched.

@@ -3367,5 +3367,27 @@
     "trailer_source_url": "https://wallex.wallonie.be/eli/{type}/{yyyy}/{mm}/{dd}/{numac}/",
     "trailer_licence": "Wallex mentions légales: free use, non-commercial and non-advertising only (permission requested)",
     "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://wallex.wallonie.be/contents/djas/1/1043.html' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Recomputed 2026-11-02. Commercial reproduction needs prior authorisation (wallex.avis@spw.wallonie.be); not sent. Not used: Walloon acts are stored from Justel (row BE-JUSTEL-CONSOLIDATED). The Vlaamse Codex (codex.vlaanderen.be) was opened and its Algemeen and FAQ pages searched for a copyright or reuse statement; none was found, so no row (unknown is not pass)."
+  },
+  {
+    "id": "GR-ET-ADOPTED",
+    "jurisdiction": "GR",
+    "publisher": "Εθνικό Τυπογραφείο (National Printing Office), Προεδρία της Κυβέρνησης",
+    "source_name": "Government Gazette (ΦΕΚ) issues A and B as published, PDF through api.et.gr and search.et.gr",
+    "form": "adopted",
+    "fetch_url": "https://api.et.gr/apiFEK/{issue}/{year}/{number}/pdf (issue 1 = ΦΕΚ Α΄, 2 = ΦΕΚ Β΄; HTML stub with the same path and /html)",
+    "pinned_version": "gazette issue, year and sheet number (Αρ. Φύλλου)",
+    "content_hash": "",
+    "terms_url": "https://www.et.gr/index.php/oroi-chrisis",
+    "terms_quote": "Απαγορεύεται η αναπαραγωγή του περιεχομένου του διαδικτυακού τόπου για εμπορικούς σκοπούς ή/και για μη προσωπική χρήση, η μετατροπή / αντιγραφή /ενοικίαση / δανεισμός /μετάδοση και εκπομπή του χωρίς σχετική άδεια.",
+    "terms_fingerprint": "d4f41d341e87d5f5e961e62d4d911cb852e865ecaf43883813d5f6bdc5544f51",
+    "verdict": "pass",
+    "statute_exception": "Ν. 2121/1993 (Πνευματική ιδιοκτησία) άρθρο 2 παρ. 5, read on the Hellenic Copyright Organisation's annotated text (https://library.opi.gr/n-2121-1993/, updated to ν. 5324/2026, ΦΕΚ Α΄ 121/30.07.2026, opened 2026-11-02): «5. Η προστασία του παρόντος νόμου δεν εκτείνεται σε επίσημα κείμενα με τα οποία εκφράζεται η άσκηση πολιτειακής αρμοδιότητας και ιδίως σε νομοθετικά, διοικητικά ή δικαστικά κείμενα, καθώς και στις εκφράσεις της λαϊκής παράδοσης, στις ειδήσεις και στα απλά γεγονότα ή στοιχεία.» The article names no translations, so it is not applied to translations.",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-02",
+    "trailer_instrument": "Government Gazette (ΦΕΚ) text as published (issue, year and sheet number set per instrument)",
+    "trailer_source_url": "https://api.et.gr/apiFEK/{issue}/{year}/{number}/pdf",
+    "trailer_licence": "Not copyright-protected (Ν. 2121/1993 art. 2 para 5, official legislative and administrative texts); et.gr site terms restrict the site's own content to personal non-commercial use",
+    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://www.et.gr/index.php/oroi-chrisis' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Recomputed twice 2026-11-02, identical. The terms page (same text at https://search.et.gr/el/oroi-xrisis/) governs the et.gr website, owned by the Προεδρία της Κυβέρνησης: section 1.2 limits use of the site to personal, informational, non-commercial purposes and section 2.4 (quoted) forbids commercial reproduction and any non-personal use of the site's content without permission. On the terms alone the row would be permission requested. The verdict rests on the statute: the stored text is the text of the gazette, an official text expressing the exercise of state authority (legislative acts, ministerial decisions), which Ν. 2121/1993 art. 2 para 5 leaves outside copyright, so the site terms cannot restrict it. This is a reading of the statute, not a statement by et.gr: no et.gr page says the gazette text is free to reuse, and the site publishes a gazette-API page (https://et.gr/ypiresia-api-gia-fek/) that gives no licence. Flagged for Varun. Scope: ΦΕΚ A and B issues as PDFs through https://api.et.gr/apiFEK/{issue}/{year}/{number}/pdf (issue 1 = A, 2 = B; the API page lists 15 issue codes). The PDF is the signed gazette; the et.gr page header of each issue states the authentic text is the printed gazette. No consolidated text and no English translation is published by et.gr, so there is no GR consolidated or translation row. The Hellenic Parliament (hellenicparliament.gr), the Hellenic Capital Market Commission (hcmc.gr) and the Bank of Greece (bankofgreece.gr) have no row: no instrument of theirs is in scope, and their sites refused the cloud address (see SOURCES.md, Greece, Blocked)."
   }
 ]
