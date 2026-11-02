@@ -11,7 +11,7 @@
  "per_tier": {
   "gazette_feed": {
    "interval_days": 7,
-   "watchers": 17,
+   "watchers": 23,
    "seconds_per_run": 93.07,
    "bytes_per_run": 2755,
    "failures_per_run": 1
@@ -25,7 +25,7 @@
   },
   "regulator_page": {
    "interval_days": 30,
-   "watchers": 77,
+   "watchers": 78,
    "seconds_per_run": 226.42,
    "bytes_per_run": 5354132,
    "failures_per_run": 16

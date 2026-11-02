@@ -2616,3 +2616,148 @@ Capital Market Authority, `https://cma.gov.sa/`: pages are SharePoint pages, rea
 ### Languages
 
 Arabic is the official language of the Saudi texts. English: the Bureau of Experts is the place a government translation would be served; it could not be opened, so whether it calls its English an official translation (statute basis) is unknown and no translation row exists. No English text from a law firm, exchange or news site is used.
+
+## Israel
+
+GEL-07-03, run 2026-11-02. Rows added: `IL-KNESSET-ADOPTED` (`pass`, statute: Copyright Law 5768-2007 s.6, which the repository's brief quoted in other words; see the row), `IL-RESHUMOT-ADOPTED`, `IL-ISA-ADOPTED` and `IL-BOI-ADOPTED` (all `permission requested`). Nothing is fetched with a browser: the Knesset OData API and the PDFs on `fs.knesset.gov.il` answer plain `curl`, while the Knesset web app, gov.il and the Bank of Israel pages do not (see the end of this section). So there are no browser-fetched records and no per-request token: `fetched_sha256` is the sha256 of the PDF as received, and a second fetch of both stored PDFs gave the same hash.
+
+Finding the files. The Knesset database page `https://main.knesset.gov.il/Activity/Legislation/Laws` is a JavaScript app behind a bot challenge, but the same data is in the Knesset OData API, which has no challenge. For an Act, `KNS_IsraelLaw` names it (`$filter=substringof('אוויר נקי',Name)`), `KNS_LawBinding` lists its original publication and each amending publication (`BindingType` 6012 original, 6013 amending), and `KNS_DocumentBill` with `GroupTypeID eq 9` (חוק - פרסום ברשומות) gives the Sefer HaChukkim PDF of a publication by `BillID`. Secondary legislation is in `OdataV4/ParliamentInfo/KNS_SecondaryLaw` with `KNS_DocumentSecondaryLaw` (the "פרסום ברשומות" document is the Kovetz HaTakanot PDF; the file path has backslashes, use forward slashes).
+
+Row `IL-KNESSET-ADOPTED`, proven requests (named instrument: Clean Air Law, 5768-2008):
+
+```
+curl -sS -G -o a.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_DocumentBill' --data-urlencode '$format=json' --data-urlencode '$filter=BillID eq 98122 and GroupTypeID eq 9'
+```
+
+Returned `200 427 application/json;odata=minimalmetadata;streaming=true;charset=utf-8`, with `FilePath` `https://fs.knesset.gov.il//17/law/17_lsr_299971.pdf`.
+
+```
+curl -sS -o 17_lsr_299971.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://fs.knesset.gov.il//17/law/17_lsr_299971.pdf'
+```
+
+Returned `200 571492 application/pdf`, 44 pages, sha256 `e883821bf38b4a341f2d46de3cdbdad2ae8eb3ddfc82276fb0c0353d17ff1818` twice. The second stored PDF, `curl -sS -o 18_lsr_301394.pdf 'https://fs.knesset.gov.il//18/law/18_lsr_301394.pdf'` (Protection of the Environment (Emissions and Transfers) Law, 2012, `KNS_DocumentBill` `BillID eq 419714`), returned `200 543821 application/pdf`, 28 pages, sha256 `6bdc305c5aeb353062b2fd7ecaaf4c31511ccf5ebb999648ce330a9531436979` twice. The Copyright Law as enacted, read for the statute, is `https://fs.knesset.gov.il//17/law/17_lsr_300007.pdf` (`200 224846 application/pdf`, sha256 `d687d363...`). A Kovetz HaTakanot PDF: `https://fs.knesset.gov.il/25/SecondaryLaw/25_scl_rv_4908147.pdf` returned `200 167743 application/pdf` (read, not stored).
+
+The version lists the watchers read: `curl -sS -G 'https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000055)' --data-urlencode '$format=json'` returned `200 860 application/json;odata=minimalmetadata;streaming=true;charset=utf-8` (`LatestPublicationDate` 2024-04-16).
+
+### Text extraction (Hebrew PDFs)
+
+These Sefer HaChukkim PDFs (InDesign, glyph-ID fonts) cannot be read with `pdftotext -layout` or the default mode: on every odd page the page text is drawn twice, the first copy under a white rectangle, so poppler prints each word twice and interleaves the two copies (`pdftotext -layout -f 5 -l 5 17_lsr_299971.pdf -` gives lines such as `מבנהמבנהאוויר ,לרבות` and a second pass of the same words). `pdftotext -raw` prints single copies but in visual order with the final letter ר displaced to the front of some words. `pypdf` `extract_text` shows the same doubling. The text was therefore made with the script below (pypdf 6.17.0 and poppler `pdftotext` 24.02.0, `python3 -I il_pdf.py in.pdf out.txt`): it deletes the text drawn before each white box, takes word boxes from `pdftotext -bbox`, rebuilds each row right to left, reverses each word from visual to logical order (digits and Latin words kept left to right), puts margin notes (smaller font, in the margin) ahead of the paragraph they sit beside, and drops the page footer line. Then the text is cut at the title and at the end of the Act (the contents page and, for the 2012 Act, the correction notice printed after it, are left out), runs of spaces collapsed.
+
+Checked: for every page of the 2008 and 2012 PDFs the multiset of Hebrew words was compared with `pypdf` on the trimmed PDF. On the 41 text pages of the Clean Air PDF the two agree except for apostrophes, words `pypdf` drops from square brackets, and table cells it runs together; on the 28-page 2012 PDF likewise. No U+FFFD, no control or bidi characters and no repeated lines in either stored text. Known limits: in the First Schedule table of the 2012 Act (pollutant names), parentheses and dashes next to Latin names can sit on the wrong side, and the signature names there come out letter-spaced; margin notes are lines of their own before their section. The PDFs of 1981 and earlier carry an OCR-like text layer (stray glyphs, mirrored brackets) and were not used.
+
+```
+#!/usr/bin/env python3
+"""il_pdf.py in.pdf out.txt : Sefer HaChukkim PDF -> logical Hebrew text. Needs poppler pdftotext and pypdf."""
+import html, re, subprocess, sys, tempfile
+import pypdf
+from pypdf.generic import DecodedStreamObject, NameObject
+MARKS = re.compile('[‪-‮‎‏⁦-⁩]')
+WHITE = re.compile(r'(?:1 1 1\s+scn\s*)?/GS1 gs\s*[\d. -]+ re\s*f\s*', re.S)
+WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
+PAGE = re.compile(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>', re.S)
+
+def trim(src, dst):  # step 1: drop the copy of the page text that lies under a white box
+    r = pypdf.PdfReader(src); w = pypdf.PdfWriter()
+    for p in r.pages:
+        c = p.get_contents().get_data().decode('latin1'); m = WHITE.search(c)
+        if m:
+            b = c.find('BT', max(c.find('\nQ'), 0)); c = c[:b] + c[m.end():]
+            s = DecodedStreamObject(); s.set_data(c.encode('latin1')); p[NameObject('/Contents')] = w._add_object(s)
+        w.add_page(p)
+    w.write(dst)
+
+def fix(tok):  # visual (left to right) token -> logical: reverse, then restore digit/latin runs
+    r = MARKS.sub('', html.unescape(tok))[::-1]
+    return re.sub(r'[0-9A-Za-z][0-9A-Za-z.,/:\-]*[0-9A-Za-z]|[0-9A-Za-z]', lambda m: m.group(0)[::-1], r)
+
+def rows(items, tol=3.0):
+    out = []
+    for w in sorted(items, key=lambda w: w[1]):
+        if out and abs(out[-1][0] - w[1]) <= tol: out[-1][1].append(w)
+        else: out.append([w[1], [w]])
+    return out
+
+def line(r):  # words of one row, right to left; latin runs stay left to right
+    toks = [(MARKS.sub('', w[4]), w[0], w[2], bool(re.search('[A-Za-z]', w[4]))) for w in sorted(r, key=lambda w: -w[0])]
+    out, i, px = [], 0, None
+    while i < len(toks):
+        if toks[i][3]:
+            j = i
+            while j + 1 < len(toks) and toks[j + 1][3]: j += 1
+            core = ' '.join(t[0] for t in reversed(toks[i:j + 1]))
+            lead = re.match(r'^([^0-9A-Za-z]*)', core).group(1); trail = re.search(r'([^0-9A-Za-z]*)$', core).group(1)
+            core = core[len(lead):len(core) - len(trail)]
+            out.append(trail[::-1] + core + lead[::-1]); px = toks[j][1]; i = j + 1; continue
+        t = fix(toks[i][0])
+        if px is not None and px - toks[i][2] < 0.8 and re.fullmatch('[ךרדןי][,.;:]?', t) and out: out[-1] += t  # split final letter
+        else: out.append(t)
+        px = toks[i][1]; i += 1
+    return ' '.join(out)
+
+def page_lines(ws):
+    ismarg = lambda w: abs((w[3] - w[1]) - 9.66) < 0.1 and (w[2] <= 104 or w[0] >= 398)  # margin-note font
+    body = rows([w for w in ws if not ismarg(w)]); blocks = []
+    for y, r in rows([w for w in ws if ismarg(w)]):
+        if blocks and y - blocks[-1][-1][0] <= 16: blocks[-1].append((y, r))
+        else: blocks.append([(y, r)])
+    out = []
+    for y, r in body:
+        while blocks and blocks[0][0][0] <= y + 3: out.extend(line(rr) for _, rr in blocks.pop(0))
+        out.append(line(r))
+    for b in blocks: out.extend(line(rr) for _, rr in b)
+    return out
+
+def document(pdf):
+    with tempfile.NamedTemporaryFile(suffix='.pdf') as t:
+        trim(pdf, t.name)
+        x = subprocess.run(['pdftotext', '-bbox', t.name, '-'], capture_output=True, text=True, check=True).stdout
+    lines = []
+    for m in PAGE.finditer(x):
+        ws = [(float(a), float(b), float(c), float(d), html.unescape(e)) for a, b, c, d, e in WORD.findall(m.group(3))]
+        pl = [l for l in page_lines(ws) if 'ספר החוקים' not in l]
+        if pl and re.fullmatch(r'\d{1,4}', pl[-1].strip()): pl = pl[:-1]
+        lines.extend(pl)
+    return [re.sub(r' {2,}', ' ', l).strip() for l in lines if l.strip()]
+
+if __name__ == '__main__':
+    open(sys.argv[2], 'w').write('\n'.join(document(sys.argv[1])) + '\n')
+```
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records |
+|---|---|---|
+| `il-clean-air-law` | adopted | 2011-01-01 he (the Act as published in Sefer HaChukkim 2174, 2008-07-31; start date from section 93) |
+| `il-prtr-law` | adopted | 2012-04-01 he (the Act as published in Sefer HaChukkim 2348; no commencement section, so the record takes the publication date) |
+
+Both are the as-enacted wording only. The Knesset database serves publications and no consolidated text, so later amendments are not stored.
+
+### Languages
+
+Hebrew is the language of the Acts; Reshumot publishes Israeli Acts in Hebrew only (Arabic has a special status but no Arabic text is published). No second official language exists to store. English: no government translation was found for either stored Act. Looked for: the OData `KNS_DocumentBill` list of each bill (first-reading text, Knesset plenum extracts, the Hebrew Sefer HaChukkim PDF; no English document) and `www.sviva.gov.il`, the environment ministry (connection failed from the cloud address). The Copyright Law s.6 names no translations, so an English translation would need its own row on the publisher's terms. No translation row was added and nothing English is stored.
+
+### Link only
+
+- `il-consumer-protection-law`: row passes, but the 1981 PDF text layer looks like OCR (stray glyphs, mirrored brackets) and was not checked against the page image, and the Knesset serves only the 1981 as-enacted wording of an Act amended up to 2026-07-28.
+- `il-securities-periodic-reports-regs`: the Knesset store holds only amendments of the 1970 regulations, no PDF of the principal text; Reshumot (gov.il) refused the cloud address. No sustainability disclosure amendment found.
+- `il-fuel-excise-order-2024`, `il-customs-tariff-order-2024`: orders (צו), not named in s.6 of the Copyright Law; the PDF was read for the dates and the commencement condition only.
+- `il-boi-directive-345`: row `IL-BOI-ADOPTED` is `permission requested` (the Bank of Israel terms page was blocked); the directive PDF itself answers curl (`200 360881 application/pdf`).
+- Not stored because not law: the Israel Securities Authority review report (F7 register row) and the Climate Law bill (government bill 1735, F7 register row). Nevo and Takdin are private databases: no row, never stored.
+
+### Blocked from the cloud address
+
+Failing `curl` lines and their answers, then the headless Chromium attempt. Chromium (Playwright, `page.goto(url, {waitUntil: 'domcontentloaded'})`, wait 4 s, locale he-IL) did not pass either, so no record rests on it; the orchestrator can try these from the laptop.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://main.knesset.gov.il/Activity/Legislation/Laws
+247 445 text/html; charset=utf-8
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.gov.il/he/departments/dynamiccollectors/reshumot
+403 5188 text/html; charset=UTF-8
+```
+
+- https://main.knesset.gov.il/Activity/Legislation/Laws and `/en/about/pages/terms.aspx`, https://knesset.gov.il/ , https://fs.knesset.gov.il/ (root), https://knesset.gov.il/Laws/Data/BigLaws.aspx: HTTP 247 with a 440 to 445 byte JavaScript challenge page (`window.rbzns`); Chromium also got 247 and an empty body after 8 s. Only `knesset.gov.il/Odata/...`, `knesset.gov.il/OdataV4/...` and deep `fs.knesset.gov.il` PDF paths answer.
+- https://www.gov.il/he/departments/dynamiccollectors/reshumot, https://www.gov.il/he/pages/terms and `/he/pages/terms-of-use`: HTTP 403, Cloudflare block page (5188 bytes to curl, 687 characters in Chromium).
+- https://data.gov.il/: 403, 919 bytes. https://www.nevo.co.il/: 403 (private database, not used anyway).
+- https://www.boi.org.il/en/terms-of-use/: HTTP 403 "Forbidden Transaction ID" in Chromium, a Radware loader page (200, 118350 bytes) to curl; the media PDF `https://boi.org.il/media/1quhabaa/345_et.pdf` answers 200 to GET and 302 to HEAD.
+- https://web.archive.org/ and https://www.sviva.gov.il/: no connection from the cloud address (curl exit status 000).
+- https://www.isa.gov.il/ redirects (301) to https://www.new.isa.gov.il/, which answers 200; its terms page was read with Chromium.
