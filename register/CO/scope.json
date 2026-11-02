@@ -1,0 +1,201 @@
+[
+  {
+    "id": "co-sfc-ce-031-2021",
+    "title": "Superintendencia Financiera de Colombia, Circular Externa 031 de 2021 (revelación de información sobre asuntos sociales y ambientales, incluidos los climáticos, por emisores)",
+    "official_url": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/",
+    "citation": "Circular Externa 031 de 2021 (22 December 2021), adds Anexo 2 to Capítulo I, Título V, Parte III of the Circular Básica Jurídica",
+    "in_force": "2021-12-22",
+    "evidence": "Circular text, last paragraph before the signature: \"La presente Circular rige a partir de su publicación.\" Header \"( Diciembre 22 )\". The SFC page does not state the publication date, so the issue date is used. Opened https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-SFC-ADOPTED",
+      "CO-SFC-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces nothing; adds Anexo 2 and a numeral 3 to the Circular Básica Jurídica (Anexo 2 and the amended pages are in the zip idFile=1057620 and are not stored; the record is the circular itself, which carries the transition dates 2024 and the implementation plan of 10 February 2023). Languages stored on 2026-11-02: es (the circular) and en (translation record under CO-SFC-TRANSLATION: the English version the SFC publishes on the same page, idFile=1058633, which states it is not an official translation; it is the circular as issued, so its amendment state matches the stored version). The SFC page also lists a 10 October 2023 concept on applying IFRS S1 and S2 against this circular; it is not an instrument in scope. Whether later circulars amend it: I don't know.",
+    "status": "stored"
+  },
+  {
+    "id": "co-sfc-ce-005-2022",
+    "title": "Superintendencia Financiera de Colombia, Circular Externa 005 de 2022 (adopción de la Taxonomía Verde de Colombia)",
+    "official_url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059496",
+    "citation": "Circular Externa 005 de 2022 (8 April 2022)",
+    "in_force": "2022-04-08",
+    "evidence": "Circular text: \"La presente Circular rige a partir de su publicación.\" Header \"( Abril 08 )\"; the page lists it under 2022 without a publication date, so the issue date is used. Opened https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059496 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "CO-SFC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Circular text only; the annex (zip idFile=1059497) is not stored. Family F6 is assigned by analogy with the Brazilian CMN climate-risk resolutions in this register; Varun may move it. No government English translation known on 2026-11-02: looked for on the SFC sustainable-finance page, which lists an English version only for Circular Externa 031 de 2021.",
+    "status": "stored"
+  },
+  {
+    "id": "co-sfc-ce-008-2022",
+    "title": "Superintendencia Financiera de Colombia, Circular Externa 008 de 2022 (emisión de bonos vinculados al desempeño sostenible)",
+    "official_url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059686",
+    "citation": "Circular Externa 008 de 2022 (28 April 2022)",
+    "in_force": "2022-04-28",
+    "evidence": "Circular text: \"La presente Circular rige a partir de su publicación.\" Header \"( Abril 28 )\"; no publication date on the page, so the issue date is used. Opened https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059686 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-SFC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Circular text only; the annex (zip idFile=1059687) is not stored. Family F6 by analogy with the sustainable-finance rules filed under F6 elsewhere in this register; Varun may move it. No government English translation known on 2026-11-02: the SFC page lists an English version only for Circular Externa 031 de 2021.",
+    "status": "stored"
+  },
+  {
+    "id": "co-sfc-ce-005-2024",
+    "title": "Superintendencia Financiera de Colombia, Circular Externa 005 de 2024 (integración de factores ASG en los mecanismos de revelación de información de los FIC)",
+    "official_url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1070272",
+    "citation": "Circular Externa 005 de 2024",
+    "in_force": null,
+    "evidence": "No official page opened states the date: the SFC page https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ lists it as 'Circular Externa 005 de 2024' without a date, and the PDF (idFile=1070272, 667582 bytes) has no text layer.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "CO-SFC-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Row CO-SFC-ADOPTED passes, but no text is stored: pdftotext returns no text for the PDF (image-only), and OCR is not part of the recipe. Annexes at idFile=1070271 (3077331 bytes, PDF). Family F6 by analogy (see co-sfc-ce-008-2022). No government English translation known on 2026-11-02 (SFC page lists none).",
+    "status": "link only",
+    "status_note": "PDF served by the SFC has no text layer (pdftotext output is empty), so no record can be made from it"
+  },
+  {
+    "id": "co-sfc-ce-015-2025",
+    "title": "Superintendencia Financiera de Colombia, Circular Externa 015 de 2025 (gestión de los riesgos ambientales y sociales, incluido el climático)",
+    "official_url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1079295",
+    "citation": "Circular Externa 015 de 2025",
+    "in_force": null,
+    "evidence": "No official page opened states the date: the SFC page lists it as 'Circular Externa 015 de 2025' without a date (the related Carta Circular 67 de 2025 and Carta Circular 19 de 2026 announce an implementation plan and early-adoption measures), and the PDF (idFile=1079295, 251023 bytes) has no text layer.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "CO-SFC-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Row CO-SFC-ADOPTED passes, but no text is stored: pdftotext returns no text for the PDF (image-only), and OCR is not part of the recipe. Annex at idFile=1079296 (zip). Family F6 by analogy with the Brazilian CMN climate-risk resolutions. No government English translation known on 2026-11-02 (SFC page lists none).",
+    "status": "link only",
+    "status_note": "PDF served by the SFC has no text layer (pdftotext output is empty), so no record can be made from it"
+  },
+  {
+    "id": "co-ley-1931-2018",
+    "title": "Ley 1931 de 2018 (directrices para la gestión del cambio climático)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30035792",
+    "citation": "Ley 1931 de 2018 (27 July 2018), Diario Oficial 50.667",
+    "in_force": "2018-07-27",
+    "evidence": "Art. 36: \"La presente ley rige a partir de su promulgación\"; published in Diario Oficial 50.667 of 27 July 2018 (SUIN: \"DIARIO OFICIAL AÑO CLIV No. 50.667 27 DE JULIO DE 2018 PÁG. 7\"; the Diario PDF cover reads \"viernes, 27 de julio de 2018\"). Opened the Diario PDF and https://lexis.minjusticia.gov.co/suin-search/api/documentos/30035792 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record is the law as published in Diario Oficial 50.667. SUIN and Función Pública mark art. 33 modified by art. 262 of Ley 2294 de 2023 (destination of the PNCTE revenue); those consolidations are not stored because rows CO-SUIN-CONSOLIDATED and CO-FUNCIONPUBLICA-CONSOLIDATED are permission requested. Arts. 29 to 33 set up the cupos transables de emisión; the PNCTE decree is co-decreto-969-2026. Spanish is the only official language. No government English translation known on 2026-11-02: looked for in the SUIN index and the Diario Oficial (Spanish only), and on the Ministerio de Ambiente and Cancillería sites linked from SUIN. Text layer: pdftotext (default reading-order mode) of the Diario Oficial PDF, cut by the heading and the closing signature; the same cut in raw mode agrees word for word apart from page numbers and the column order of one tariff table.",
+    "status": "stored"
+  },
+  {
+    "id": "co-ley-2169-2021",
+    "title": "Ley 2169 de 2021 (desarrollo bajo en carbono: metas y medidas mínimas de carbono neutralidad y resiliencia climática)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30043747",
+    "citation": "Ley 2169 de 2021 (22 December 2021), Diario Oficial 51.896",
+    "in_force": "2021-12-22",
+    "evidence": "Art. 38: \"La presente ley rige a partir de su promulgación\"; Diario Oficial 51.896 of 22 December 2021 (SUIN: DO 51896 pag 3; the PDF cover reads \"miércoles, 22 de diciembre de 2021\"). Opened the Diario PDF and https://lexis.minjusticia.gov.co/suin-search/api/documentos/30043747 on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: the text layer of Diario Oficial 51.896 does not give a trustworthy text for this law. The default pdftotext order puts only 11 of the 38 articles in sequence and the raw mode order loses the start of the law and the spaces of some lines, and the sanction block shares its page with an objection message of the Government. Ley 2277 de 2022 art. 49 (new art. 223 of Ley 1819 de 2016) refers to the goals of this law. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only).",
+    "status": "link only",
+    "status_note": "Diario Oficial 51.896 text layer reads out of order (pdftotext default and raw modes disagree); no clean text could be cut"
+  },
+  {
+    "id": "co-ley-1819-2016-art221-223",
+    "title": "Ley 1819 de 2016, Parte IX, arts. 221 to 223 (impuesto nacional al carbono), as published",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030265",
+    "citation": "Ley 1819 de 2016 (29 December 2016) arts. 221-223, Diario Oficial 50.101",
+    "in_force": "2016-12-29",
+    "evidence": "Art. 376: \"La presente ley rige a partir de su promulgación\"; Diario Oficial 50.101 of 29 December 2016 (SUIN: DO 50101). Opened the Diario PDF and https://lexis.minjusticia.gov.co/suin-search/api/documentos/30030265 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record is Parte IX only (arts. 221, 222, 223) as first published; the three articles were replaced by arts. 47 to 49 of Ley 2277 de 2022 (see co-ley-2277-2022-art47-49), so the Ley 1819 text is the version for 2016-12-29 to 2022-12-12. The tariff table is emitted column by column by pdftotext. Art. 221 par. 3 and art. 222 par. 2 are regulated by co-decreto-926-2017. The rest of Ley 1819 is not in scope. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only). Text layer: pdftotext (default reading-order mode) of the Diario Oficial PDF, cut by the heading and the closing signature; the same cut in raw mode agrees word for word apart from page numbers and the column order of one tariff table.",
+    "status": "stored"
+  },
+  {
+    "id": "co-ley-2277-2022-art47-49",
+    "title": "Ley 2277 de 2022, Título IV Capítulo I, arts. 47 to 49 (impuesto nacional al carbono)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30045028",
+    "citation": "Ley 2277 de 2022 (13 December 2022) arts. 47-49, Diario Oficial 52.247",
+    "in_force": "2022-12-13",
+    "evidence": "Art. 96: \"La presente ley rige a partir de su promulgación\" (and lists provisions with their own start dates); Diario Oficial 52.247 of 13 December 2022 (PDF cover \"martes, 13 de diciembre de 2022\"; the ES index lacks the DO number). Opened the Diario PDF on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record is Título IV 'Impuestos ambientales', Capítulo I only (arts. 47, 48, 49: modification of arts. 221, 222 and 223 of Ley 1819 de 2016, including the tariff table and the destination of the revenue to FONSUREC); Capítulo II (single-use plastics tax) is not in scope. The tariff phase-in runs to 2028. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only). Text layer: pdftotext (default reading-order mode) of the Diario Oficial PDF, cut by the heading and the closing signature; the same cut in raw mode agrees word for word apart from page numbers and the column order of one tariff table.",
+    "status": "stored",
+    "amends": "co-ley-1819-2016-art221-223"
+  },
+  {
+    "id": "co-decreto-926-2017",
+    "title": "Decreto 926 de 2017 (procedimiento para hacer efectiva la no causación del impuesto nacional al carbono)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30030671",
+    "citation": "Decreto 926 de 2017 (1 June 2017), Diario Oficial 50.251",
+    "in_force": "2017-06-01",
+    "evidence": "Art. 5: \"El presente decreto rige a partir de la fecha de su publicación,\"; Diario Oficial 50.251 of 1 June 2017 (PDF cover \"jueves, 1º de junio de 2017\"). Opened the Diario PDF on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: the decree starts on the cover page of the edition, which also carries Decretos 925 and 928 and the masthead, and the default pdftotext order and the raw order disagree on 4 per cent of the cut (the raw mode loses spaces on 19 long runs). Adds Título 5 to Parte 5 of Libro 1 of Decreto 1625 de 2016 and Título 11 to Parte 2 of Libro 2 of Decreto 1076 de 2015; regulates art. 221 par. 3 and art. 222 par. 2 of Ley 1819 de 2016. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only).",
+    "status": "link only",
+    "status_note": "Diario Oficial 50.251 front page interleaves several decrees; no clean text could be cut"
+  },
+  {
+    "id": "co-decreto-969-2026",
+    "title": "Decreto 0969 de 2026 (Programa Nacional de Cupos Transables de Emisión de GEI, PNCTE; adds Capítulo 14 to Título 9 of Parte 2 of Libro II of Decreto 1076 de 2015)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=30056970",
+    "citation": "Decreto 0969 de 2026 (4 August 2026), Diario Oficial 53.578",
+    "in_force": "2026-08-05",
+    "evidence": "Art. 2: \"El presente decreto rige a partir de su publicación en el Diario Oficial.\" Published in Diario Oficial 53.578 of 5 August 2026 (SUIN: \"DIARIO OFICIAL AÑO CLXII NO. 53.578, BOGOTÁ D. C., 5 DE AGOSTO DE 2026 PÁG. 121\"; the edition is Extraordinaria on its cover). Opened the Diario PDF on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "This is the PNCTE regulation the brief asked to confirm: a decreto exists and is in force from its publication. It implements arts. 29 to 33 of Ley 1931 de 2018 (co-ley-1931-2018). SUIN lists it without an estado value on 2026-11-02. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only). Text layer: pdftotext (default reading-order mode) of the Diario Oficial PDF, cut by the heading and the closing signature; the same cut in raw mode agrees word for word apart from page numbers and the column order of one tariff table.",
+    "status": "stored"
+  },
+  {
+    "id": "co-ley-1480-2011-art29-33",
+    "title": "Ley 1480 de 2011, Estatuto del Consumidor, arts. 29 to 33 (publicidad engañosa)",
+    "official_url": "https://www.suin-juriscol.gov.co/viewDocument.asp?id=1681955",
+    "citation": "Ley 1480 de 2011 (12 October 2011) arts. 29-33, Diario Oficial 48.220",
+    "in_force": "2012-04-12",
+    "evidence": "Art. 84: \"La presente ley entrará en vigencia seis (6) meses después de su promulgación\"; promulgated in Diario Oficial 48.220 of 12 October 2011 (PDF cover \"miércoles, 12 de octubre de 2011\"); 2012-04-12 is that date counted, not a date the page states. Opened the Diario PDF on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CO-IMPRENTA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: the Diario Oficial 48.220 PDF uses a legacy font encoding, so the text layer of arts. 29 to 33 is garbled (art. 29 reads 'especí¿FDV\\x03DQXQFLDGDV\\x03HQ\\x03OD\\x03SXEOLFLGDG'). Storing it would need OCR, which the recipe does not include. Arts. 29 to 33 are the umbrella rules on information, binding advertising and misleading advertising that apply to environmental claims; no ESG-specific provision was found in Ley 1480. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only).",
+    "status": "link only",
+    "status_note": "Diario Oficial 48.220 text layer is garbled (legacy font encoding); no clean text could be cut"
+  }
+]
