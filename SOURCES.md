@@ -2030,6 +2030,375 @@ Dutch and French are the two authentic languages of a federal act and are stored
 - `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
 - `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
 
+## Lithuania
+
+Rows `LT-TAR-CONSOLIDATED`, `LT-SEIMAS-ADOPTED` and `LT-SEIMAS-TRANSLATION`, all `permission requested` (terms page not opened). No `pass` row, so no fetch request is proven and no text is stored. Run on 2026-11-02.
+
+Every official Lithuanian site answered the cloud address with a Cloudflare challenge. The failing request, then the browser attempt:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB
+```
+
+Returned `403 5462 text/html; charset=UTF-8` (title "Luktelėkite...", "Saugumo patvirtinimo atlikimas", Cloudflare Ray ID). The same answer, with 5.3 to 5.6 KB bodies, came for `https://www.e-tar.lt/`, `/portal/lt/index`, `/rs/actualedition/...`, `https://e-seimas.lrs.lt/`, `/rs/legalact/TAD/...`, `/portal/legalAct/...`, `https://www.lb.lt/`, `https://finmin.lrv.lt/`, `https://lrv.lt/`, `https://am.lrv.lt/`, `https://www.vtd.lt/`, `https://www.infolex.lt/`, `https://www.registrucentras.lt/`, `https://vkontrole.lt/`.
+
+```
+node probe.js https://www.e-tar.lt https://e-seimas.lrs.lt https://www.lb.lt
+```
+
+with Playwright chromium (`goto`, `waitUntil: domcontentloaded`, then polling the page title every 2.5 s for up to 100 s, and a second variant with `--disable-blink-features=AutomationControlled`, a desktop User-Agent and `navigator.webdriver` hidden, waiting 25 s). The title stayed "Luktelėkite..." on every page, status 403. No TAR open-data endpoint was reachable: `https://data.gov.lt/` and `https://get.data.gov.lt/` answered 500 (about 39 KB error page), `https://opendata.registrucentras.lt` did not connect. EUR-Lex (`eur-lex.europa.eu`) answered `202 0` to curl and "upstream request failed" to the browser, so the national transposition table could not be read either.
+
+Blocked from the cloud address: https://www.e-tar.lt/ , https://e-seimas.lrs.lt/ , https://www.lb.lt/ , https://finmin.lrv.lt/ , https://lrv.lt/ , https://am.lrv.lt/ , https://www.vtd.lt/ , https://www.infolex.lt/ , https://www.registrucentras.lt/ , https://vkontrole.lt/ (HTTP 403 Cloudflare). `https://www.lrs.lt/` answered `200 201137 text/html`; it is the Seimas home page and carries no legal text. The orchestrator can run the requests from the laptop.
+
+### Languages
+
+No language or translation source was proven. Lithuanian is the only official language; the English translations on e-seimas.lrs.lt (Teisės aktų vertimai) were not reachable, and the Seimas marks them unofficial, so `LT-SEIMAS-TRANSLATION` could pass only on quoted terms.
+
+### Link only
+
+All five scope instruments, because the rows are `permission requested` and no request works:
+
+- `lt-company-reporting-act` (XIV-2811), `lt-financial-reporting-act-ix575` (IX-575, historical), `lt-consolidated-reporting-act-ix576` (IX-576, historical), `lt-climate-change-management-act` (XI-329), `lt-unfair-commercial-practices-act` (X-1409). Their official URLs come from the existing register row (XIV-2811) or from web search results for e-tar.lt pages that were not opened; `in_force` is null in every entry.
+- Not written: an entry for the act transposing Directive (EU) 2024/825. Searches found no such act, only unrelated amendments to the Consumer Rights Protection Act I-657.
+- Not given a row: Lietuvos bankas (`lb.lt`, blocked); no Lietuvos bankas instrument is in scope.
+
+## Romania
+
+Attempted 2026-11-02 (GEL-06-02). No row is `pass`, so there is no proven fetch request and no record. The four rows added (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`, `RO-MONITORUL-OFICIAL-ADOPTED`, `RO-ASF-ADOPTED`) are all `permission requested`. The portal that carries the law text, `legislatie.just.ro`, gave no response to any request from the cloud address.
+
+### Portalul Legislativ (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`)
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://legislatie.just.ro/Public/DetaliiDocumentAfis/278502
+```
+
+Answer: `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)`, status `000`, 0 bytes. The same request with `--http1.1` answered `curl: (52) Empty reply from server`. `https://legislatie.just.ro/`, `/robots.txt` and `/apiws/FreeWebService.svc` gave the same. `http://legislatie.just.ro/` answered `301` (178 bytes) and redirects to the refused HTTPS host. A 245-byte "Request Rejected ... Your support ID is" body (an F5-style WAF page) came from `https://asfromania.ro/`, not from the portal; the portal sent no body at all.
+
+Browser recipe tried (Playwright, headless Chromium, `locale: ro-RO`, a desktop Chrome user agent, `page.goto(url, {waitUntil: 'networkidle'})`): `https://legislatie.just.ro/` and `/Public/DetaliiDocumentAfis/278502` both returned status `502` with the 174-byte body `upstream request failed`, the agent proxy's answer to a refused upstream. `https://monitoruloficial.ro/e-monitor/` got the same `502` in Chromium although plain curl reached it. Recorded as **blocked from the cloud address**. The portal terms page was not opened, so nothing was fetched from it; the portal's SOAP API (`/apiws/FreeWebService.svc`) was refused the same way. No retry was made with any technique meant to defeat the WAF.
+
+### Monitorul Oficial (`RO-MONITORUL-OFICIAL-ADOPTED`)
+
+`https://monitoruloficial.ro/e-monitor/` opened with plain curl (`curl -sS -m 45 -A 'Mozilla/5.0' -o e.html -w '%{http_code} %{size_download} %{content_type}\n' https://monitoruloficial.ro/e-monitor/` gave `200 159380 text/html; charset=UTF-8`, sha256 of the HTML `56b6f94c9160ff2b5d3bf5a0f9fef942a1632901f157c65e01309ba3865b8636`), but only after retries: the host alternates between this answer and `curl: (35) SSL_ERROR_SYSCALL` or `curl: (60)`. The page says the free electronic format covers Partea I in Romanian from 2000, Partea I in Hungarian from 2008 and Partea a II-a from 2000 as portable documents, and the paid archive covers the rest. It lists no PDF links. The guessed `https://monitoruloficial.ro/Monitorul-Oficial--PI--75--2024.pdf` answered `200 153376 text/html` (the site's 404 page, not a PDF). `https://monitoruloficial.ro/conditii-de-utilizare/` (`200 170338 text/html`) holds a cookie policy only. No request that returns a gazette issue was found, and "gratuit și liber" is not a reuse licence, so the row is `permission requested` and OMF 85/2024 (Monitorul Oficial Partea I nr. 75 of 26 January 2024, per the register) has no as-published record.
+
+### Autoritatea de Supraveghere Financiară (`RO-ASF-ADOPTED`)
+
+`curl -sS -A 'Mozilla/5.0' -o asf.html -w '%{http_code} %{size_download} %{content_type}\n' https://asfromania.ro/` answered `200 245 text/html` with the "Request Rejected" body. Blocked from the cloud address; no ASF instrument is in scope.
+
+### Languages
+
+Romanian is the only official language of the portal. Hungarian Partea I exists on e-Monitor but no request to it was found. No government English translation was found: the Ministry of Justice and Ministry of Finance pages that would hold one could not be opened (`https://www.mfinante.gov.ro/` answered `302` with no body, `https://www.mfe.gov.ro/` and `https://www.gov.ro/` gave no response). No translation row exists.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `ro-omf-85-2024` | Row `RO-LEGISLATIE-CONSOLIDATED` is `permission requested`: the portal and its terms could not be opened, and no working request to the text was found (curl over HTTP/2 and HTTP/1.1, Playwright Chromium, Monitorul Oficial guessed PDF URL). |
+
+Candidates from the brief that were not confirmed on an official page and are not in scope: Legea contabilității nr. 82/1991, OMFP nr. 1802/2014 (pct. 492^1 et seq., 563^1 et seq.), HG nr. 780/2006, Legea nr. 363/2007, the act transposing Directive (EU) 2024/825, and a framework climate law (none known). Dry run of the watcher: `python3 tools/watch.py --dry-run --source RO-LEGISLATIE-CONSOLIDATED` printed `watch_failed, RemoteDisconnected: Remote end closed connection without response` for `ro-omf-85-2024-legislatie-page`; the other three rows have no watcher (no instrument uses them).
+
+## Greece
+
+Row `GR-ET-ADOPTED` (Εθνικό Τυπογραφείο, Government Gazette ΦΕΚ A and B as published), `pass` on the statute basis: Ν. 2121/1993 art. 2 para 5 leaves official legislative and administrative texts outside copyright (read on the Hellenic Copyright Organisation's text, https://library.opi.gr/n-2121-1993/, 2026-11-02). The et.gr terms (https://www.et.gr/index.php/oroi-chrisis, sections 1.2 and 2.4) limit the website's own content to personal non-commercial use, so on the terms alone the row would be `permission requested`; the verdict is a reading of the statute and is flagged in the PR. There is no consolidated row (et.gr serves gazette issues only; kodiko.gr and e-nomothesia.gr are private services, never a row) and no translation row (no government English text was found). Run on 2026-11-02.
+
+The gazette API is documented at https://et.gr/ypiresia-api-gia-fek/: `GET https://api.et.gr/apiFEK/{issue}/{year}/{sheet}/{pdf|html}` with issue 1 = ΦΕΚ Α΄ and 2 = ΦΕΚ Β΄. It answers plain `curl`, no challenge, no User-Agent needed. `HEAD` returns 404 (GET only), so the watchers hash the PDF.
+
+Request, row `GR-ET-ADOPTED`, Ν. 5164/2024 (ΦΕΚ Α΄ 202/12.12.2024):
+
+```
+curl -sS -L -o fek_a_202_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.et.gr/apiFEK/1/2024/202/pdf
+```
+
+Returned `200 976072 application/pdf` (56 pages), sha256 `f5f566b9562abb1cdc189a89a2047e57b92fcb295d63046cf411aa96e743e9b8`. A second fetch gave the identical hash, and so did `https://api.et.gr/apiLAW/1/2024/5164/pdf` (law type 1 = Νόμος, year, law number). The same request for a ΦΕΚ Β΄ issue, ΚΥΑ ΥΠΕΝ/ΔΚΑΠΑ/86227/2245: `curl -sS -L -o fek_b_4674_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://api.et.gr/apiFEK/2/2024/4674/pdf` returned `200 545311 application/pdf`. All seven stored PDFs were fetched twice on the day and the two downloads were byte-identical, so `fetched_sha256` reproduces.
+
+Text extraction: poppler `pdftotext FILE -` (reading order, not `-layout`: the gazette is set in two columns and `-layout` interleaves the columns line by line). Then: form feeds become line breaks, runs of spaces collapse to one, empty lines are dropped, and the character U+2206 (INCREMENT), which the 2018, 2022 and 2024-08 PDFs use for the capital delta, is replaced by U+0394 (Δ) so the Greek reads correctly. Nothing else is changed: page headers ("Τεύχος Α΄ 202/12.12.2024 ΕΦΗΜΕΡΙΔΑ ΤΗΣ ΚΥΒΕΡΝΗΣΕΩΣ"), page numbers and line-end hyphens of the gazette stay in the text. Mojibake check on the day, counting characters outside ASCII, Greek and ordinary punctuation: clean for ΦΕΚ Α΄ 104/2018, 105/2022, 202/2024, 108/2026 and ΦΕΚ Β΄ 472/2025, 1268/2025; ΦΕΚ Β΄ 4674/2024 is clean except three lines of an annex correspondence table (legacy font encoding, for example `ɳʌɽʌʉϭʋɲʌ͘ϮϵʏɻʎɃɷɻɶʀɲʎ;ȵȵͿϮϬϮϯͬϵϱϵ`), stored as extracted and named in the scope notes. ΦΕΚ Β΄ 3763/2017 (the decision that 4674/2024 replaced) extracts as almost wholly legacy-font mojibake (over 1,200 occurrences of ɲ alone), so it is not stored and is not in scope. ΦΕΚ Α΄ 191/1994 is an image scan with no text layer (pdftotext returns 20 characters); no OCR was used.
+
+Stored (fetched 2026-11-02). The publisher serves one text per gazette issue and no point-in-time versions, so each instrument has one `adopted` record:
+
+| Instrument | Gazette | `in_force` | Records |
+|---|---|---|---|
+| `gr-law-4548-2018-art151-154` | Α΄ 104/13.06.2018 (Articles 151 to 154 cut at their headings) | 2019-01-01 | el |
+| `gr-law-5164-2024` | Α΄ 202/12.12.2024 | 2024-12-12 | el |
+| `gr-law-4936-2022` | Α΄ 105/27.05.2022 | 2022-05-27 | el |
+| `gr-kya-ets-2024-86227` | Β΄ 4674/09.08.2024 | 2024-08-09 | el |
+| `gr-kya-ets-2025-7560` | Β΄ 472/10.02.2025 | 2025-02-10 | el |
+| `gr-kya-ets-2025-28010` | Β΄ 1268/14.03.2025 | 2025-03-14 | el |
+| `gr-law-5317-2026` | Α΄ 108/10.07.2026 | 2026-07-10 | el |
+
+### Languages
+
+Greek is the only official language. The gazette API serves the Greek gazette only (`/pdf` and an HTML stub with links to the PDF and the viewer). No government English text of any of these acts was found: looked for on api.et.gr, search.et.gr and www.et.gr (all Greek; `https://www.et.gr/en/` answers 301 and search.et.gr/en answers the Greek site), and on the Hellenic Parliament site, which refused the cloud address. So no English record and no translation row exists; each scope entry says where English was looked for. Nothing is stored from a law firm, an exchange, an NGO or a news site.
+
+### Link only
+
+- `gr-law-2251-1994-unfair-practices`: row `GR-ET-ADOPTED` passes, but the as-published gazette (Α΄ 191/1994, `https://api.et.gr/apiFEK/1/1994/191/pdf`, `200 1159243 application/pdf`, 12 pages) is a scanned image with no text. The current text of Articles 9α to 9στ exists officially only inside the amending act, which is stored as `gr-law-5317-2026`; a consolidated text exists only on kodiko.gr and e-nomothesia.gr (private, never stored). `in_force` is null: no readable official page states it.
+- Not in scope: ΚΥΑ 181478/965/2017 (Β΄ 3763), replaced by the 2024 decision; the brief's candidate stop-the-clock transposition (Directive (EU) 2025/794) and any Greek act of 2025 or 2026 changing Ν. 5164/2024: none found on official pages. Article 92 of Ν. 5172/2025 (transitional rule on assurance of sustainability reports for 2024) was found and is noted in `gr-law-5164-2024`; the act is a violence-against-women act and is not stored.
+
+### Blocked from the cloud address
+
+- https://www.hellenicparliament.gr/ and https://www.hellenicparliament.gr/Nomothetiko-Ergo: HTTP 403, `Access Denied`, body from the CDN (`errors.edgesuite.net`), 379 and 399 bytes.
+- https://www.bankofgreece.gr/ and https://www.bankofgreece.gr/en/main-tasks: HTTP 403, `Access Denied`, 371 and 392 bytes.
+- https://www.hcmc.gr/ and https://www.hcmc.gr/el_GR/web/portal: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer.
+- https://www.minenv.gr/ and https://www.e-nomothesia.gr/: no answer within 40 seconds (exit 000); e-nomothesia is a private service in any case.
+
+No row exists for the Hellenic Parliament, the HCMC or the Bank of Greece: no instrument of theirs is in scope and their terms could not be opened. The orchestrator can read them from the laptop. No browser recipe was needed; no record is browser-fetched.
+
+## Slovakia
+
+Run on 2026-11-02 (GEL-06-05). Two rows pass on the statute: `SK-SLOVLEX-ADOPTED` and `SK-SLOVLEX-CONSOLIDATED` (Slov-Lex, the electronic Zbierka zákonov run by the Ministry of Justice). The statute is the Copyright Act, zákon č. 185/2015 Z. z., § 5 písm. b) (text of a legal regulation is not a subject of copyright), read on Slov-Lex itself. Slov-Lex publishes no terms of use or open data statement that was found: `www.slov-lex.sk` is a JavaScript application whose footer links only to cookies and accessibility pages. `SK-NBS-ADOPTED` is `permission requested`: https://nbs.sk/disclaimer-sk/ allows reuse without consent but not an altered file, and tag stripping alters it. No scope instrument uses the NBS row.
+
+Text extraction: the print HTML of each version, from the element `id="predpis"` to the end of the page (the act text and its footnotes; the page header, history table and relations panel are left out), script and style removed, closing block tags (`p`, `div`, `h1` to `h6`, `li`, `tr`) as line breaks, tags stripped, character references decoded, runs of spaces collapsed, blank lines dropped. The first line of a record is the act number as the page prints it. Every Slov-Lex page says the HTML is informative and the PDF is the binding text; the stored text is the HTML. Varun to confirm that is acceptable (the PDF recipe is below).
+
+Row `SK-SLOVLEX-ADOPTED`, Act 431/2002 Z. z. as published (vyhlásené znenie):
+
+```
+curl -sS -L -o zz431_adopted.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/vyhlasene_znenie.print.html
+```
+
+Returned `200 444893 text/html`. sha256 `57a8002195263d358751061b5f3b81398081eb5401e63225ee27888017c4d531`, the same on a second fetch. The same request pattern gave the adopted text of the other seven acts (`.../ZZ/<year>/<number>/vyhlasene_znenie.print.html`, all 200 text/html).
+
+Row `SK-SLOVLEX-CONSOLIDATED`, Act 431/2002 Z. z., časová verzia in force from 2024-06-01:
+
+```
+curl -sS -L -o zz431_20240601.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/20240601.print.html
+```
+
+Returned `200 1176694 text/html`. sha256 `95733c5137ce0d2892e92bd6a073fcabf13d7163199f67440b10c78581f05198`, the same on a second fetch. The version dates come from the history page of the act, which is plain HTML and needs no browser:
+
+```
+curl -sS -L -o zz431_index.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2002/431/
+```
+
+Returned `200 21953 text/html`. Each history row carries `data-ucinnostod="YYYY-MM-DD"` (first day in force) and the link `YYYYMMDD.html`; the print form of a version is the same link with `.print.html`. The `upkeep` watchers read the `href="YYYYMMDD.html"` links of this page. A časová verzia of an act that is itself an amending act shows only the provisions in force on that date, so the first record of such an act can be much shorter than the adopted text. Dates stored: the adopted text takes the first commencement date read from the act's own commencement clause (see each scope entry's `evidence`), and each časová verzia takes its `data-ucinnostod`.
+
+PDF recipe (binding text; not used for storage):
+
+```
+curl -sS -L -o zz431_20240601.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/pdf/SK/ZZ/2002/431/ZZ_2002_431_20240601.pdf
+pdftotext -layout zz431_20240601.pdf - | sed 's/  */ /g'
+```
+
+Returned `200 1122401 application/pdf`; the header of the PDF reads "Obsah dokumentu je právne záväzný". `pdftotext` gave 4512 lines of clean Slovak text (checked the first 30 lines for mojibake: none). The path `https://static.slov-lex.sk/static/SK/ZZ/2002/431/ZZ_2002_431_20240601.pdf` (under `/static/SK/`) returned `404 146 text/html`; the working path is under `/pdf/SK/` (the page itself links `/static/pdf/SK/ZZ/...`, which also serves the file).
+
+Row for the statute (the terms page of the two passing rows), Act 185/2015 Z. z. in force from 2026-09-01:
+
+```
+curl -sS -L -o a185.html -w '%{http_code} %{size_download} %{content_type}\n' https://static.slov-lex.sk/static/SK/ZZ/2015/185/20260901.print.html
+```
+
+Returned `200 1081852 text/html`. sha256 `8e93fdddc5b137756c4a96efb46b90cdc62495434ad5a50636e63a8edc30730a`.
+
+Row `SK-NBS-ADOPTED` (terms page only, nothing stored):
+
+```
+curl -sS -L -o nbs_dis.html -w '%{http_code} %{size_download} %{content_type}\n' https://nbs.sk/disclaimer-sk/
+```
+
+Returned `200 166160 text/html; charset=UTF-8`.
+
+Blocked from the cloud address: nothing. `curl https://www.slov-lex.sk/` returns `200 1354 text/html`, an empty JavaScript shell (the same 1354 bytes for any path, for example `/podmienky-pouzivania`), so the portal's own search and document viewer cannot be read with `curl`; the static portal `static.slov-lex.sk` answered every request without a challenge, so no browser recipe is needed and no record was fetched with a browser.
+
+### Languages
+
+Run on 2026-11-02. Slovak (sk) is the only language Slov-Lex serves: the history and version pages of the static portal have no language switch and the year index lists Slovak titles only. English was looked for on the static portal and by web search for an English text of Act 414/2012 and Act 431/2002 on Slovak government sites; none found. The only English texts the search turned up are on FAOLEX, climate-laws.org (machine translation, which the page itself says) and similar third-party sites, which get no row. No translation row was added and no English record is stored. The Copyright Act § 5 písm. b) names "ich preklad" but not the body that makes the translation, so it would not cover a translation by itself.
+
+| Instrument | Languages stored | Gap and reason |
+|---|---|---|
+| sk-accounting-act, sk-act-105-2024, sk-ets-act, sk-act-186-2023, sk-act-236-2024, sk-act-125-2026, sk-consumer-protection-act, sk-act-310-2025 | sk | No government English found. |
+
+Link-only instruments: none. All eight scope instruments are stored. Not in scope, with the reason:
+
+| Item | Why not |
+|---|---|
+| Framework climate act (zákon o zmene klímy) | Not in the Zbierka: the titles of the Zbierka year indexes for 2022 to 2026 (`https://static.slov-lex.sk/static/SK/ZZ/<year>/`) contain no climate act (checked for "klím", "emisn", "skleníkov" in 2022 and 2023, for a wider set of terms in 2024 to 2026). Draft stage only in the news results found; no official page for the bill was opened, so no F7 register row was written. |
+| Národná banka Slovenska | Row `SK-NBS-ADOPTED` is permission requested. No NBS instrument was selected: the NBS climate pages found describe its own operations and the ECB expectations, not a Slovak rule. |
+
+## Latvia
+
+Rows `LV-LIKUMI-CONSOLIDATED` and `LV-LIKUMI-TRANSLATION`, both `pass` on the statute basis (Autortiesību likums 6. pants, quoted in the rows; both are judgement calls listed in the row notes). Row `LV-VESTNESIS-ADOPTED` is `permission requested` (vestnesis.lv/atkalizmantosana asks for a written agreement and a fee), so no as-published text is stored; the base ("Pamata") edition on Likumi.lv carries each act's original wording. Plain `curl` with the header `User-Agent: Mozilla/5.0` is answered by likumi.lv, vestnesis.lv, vvc.gov.lv, data.gov.lv and www.bank.lv from the cloud address on 2026-11-02; no browser recipe was needed and nothing was blocked. Latvian is the only official language. Run on 2026-11-02 for the Law on Sustainability Disclosures (Ilgtspējas informācijas atklāšanas likums, Likumi.lv id 355381).
+
+Step 1, list the editions of an act. The page holds a JSON list of its editions (`"iso_value":"2024\/10\/17"` with a label Pamata, Vēsturiskā, Spēkā esošā or Nākotnes; Nākotnes is a published edition not yet in force):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o act.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/id/355381
+```
+
+Returned `200 123086 text/html; charset=UTF-8`; the list read `2025-10-24 Spēkā esošā` and `2024-10-17 Pamata`.
+
+Step 2, row `LV-LIKUMI-CONSOLIDATED`, the edition that starts on 2024-10-17 (the slug in the path is cosmetic; `redakcijas-datums/YYYY/MM/DD` selects the edition):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ed.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/id/355381-ilgtspejas-informacijas-atklasanas-likums/redakcijas-datums/2024/10/17
+```
+
+Returned `200 120571 text/html; charset=UTF-8`. Text recipe: take the HTML between `<div class="doc-body">` and `<td width="30" id="td-blank">`; drop the grey notice block (`notify-msg`, "Tiesību akts netiek attēlots spēkā esošajā redakcijā") that sits at the top of editions other than the current one; collapse all whitespace to single spaces; turn `<br>` and the closing tags of p, div, h1 to h6, tr, li and table into line breaks; strip the remaining tags; unescape entities; trim each line and drop empty lines. Headings and paragraphs keep their wording. `fetched_sha256` is the hash of the HTML as received. Every response carries a per-request script token (`eval("\x76\x61\x72 ...")` setting `g_carrot`), so a second fetch of the same URL does not reproduce the hash: two fetches on 2026-11-02 gave `58c7d659...` and `a0626452...` for this URL, and the text is identical. The `fetched_sha256` in `records/LV/lv-ilgtspejas-informacijas-likums/2024-10-17-consolidated-lv.json` is from the fetch that wrote the record. For the same reason the watchers are `page_hash` on the act page and will report a change on every real run (see the PR report).
+
+### Languages
+
+Latvian (`lv`) is the only official language, served by the request above.
+
+English, row `LV-LIKUMI-TRANSLATION`: the State Language Centre translation. Likumi.lv serves one English text per act and ignores the edition date in the path; the amendment state is in the text:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o en.html -w '%{http_code} %{size_download} %{content_type}\n' https://likumi.lv/ta/en/en/id/355381-ilgtspejas-informacijas-atklasanas-likums
+```
+
+Returned `200 98006 text/html; charset=UTF-8` (sha256 `8b7ddc4b...`, not reproducible, same token). Same text recipe. The header says "Text consolidated by Valsts valodas centrs (State Language Centre) with amending laws of: 2 October 2025 [shall come into force on 24 October 2025]" and the page ends "Translation © 2025 Valsts valodas centrs (State Language Centre)". Where the text is not current a notice sits above it ("The translation of this document is outdated. Translation validity: A.–B. Amendments not included: ...", dropped from `text` and quoted in the record `message`). Rule used: the record is dated the start of the stated validity, or the last "shall come into force on" date in the header when there is no notice, and is stored only when a stored Latvian edition starts on that date. Result: `lv-ilgtspejas-informacijas-likums` 2025-10-24, `lv-gada-parskatu-likums` 2024-10-17, `lv-par-piesarnojumu` 2025-10-18, `lv-negodigas-komercprakses-likums` 2023-03-02, `lv-mk-769-ets-iekartas` 2012-12-05 (the translation is outdated: validity 05.12.2012 to 08.07.2014). `lv-klimatnoturibas-likums` has none: the English page says "This document has not been officially translated by the State Language Centre". The brief's vestnesis.lv English route does not exist; Latvijas Vēstnesis publishes Latvian only.
+
+### Link only and not stored
+
+No scope instrument is link only. Sources without records:
+
+- `LV-VESTNESIS-ADOPTED`, https://www.vestnesis.lv/ta/id/355381 (redirects to `https://www.vestnesis.lv/op/2024/193.1`), `curl -sS -L -A 'Mozilla/5.0' -o op.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.vestnesis.lv/ta/id/355381` returned `200 337081 text/html; charset=UTF-8`; the as-published text is readable, but the verdict is `permission requested` (terms page https://www.vestnesis.lv/atkalizmantosana, returned `200 274638 text/html; charset=UTF-8`). Nothing stored.
+- Latvijas Banka, https://www.bank.lv/ returned `200 77655 text/html; charset=utf-8`; no copyright or reuse page was found in the site footer or under /par-mums/noderigi (two guessed paths answered 404), so no row was written: no scope instrument uses it. The Bank's regulations are served as legal acts on Likumi.lv (type "Latvijas bankas noteikumi"); that type was not searched for ESG instruments.
+
+## Croatia
+
+Row `HR-NN-ADOPTED` (Narodne novine, the official gazette), `pass` on the statute basis: the site's terms grant no licence ("Svi sadržaji objavljeni na ovim internetskim stranicama zaštićeni su autorskim pravom i mogu se koristiti samo pod uvjetima propisanim Zakonom"), and the Copyright Act (ZAPSP, NN 111/2021) čl. 18 st. 3 ends protection of official legislative texts once published for official information (quoted in the row). No consolidated row: Narodne novine (NN) publishes the text of each act as adopted and each amending act as its own item; a pročišćeni tekst was not found for any instrument in scope, so the amendments are separate instruments in `register/HR/scope.json` (with `amends` where the amended act is in scope). zakon.hr is a private consolidation service and is not used. Language: Croatian only. Run on 2026-11-02 for the Accounting Act (Zakon o računovodstvu, NN 85/2024, item 1474). NN answered every plain `curl` from the cloud address (no User-Agent needed); its data-access page asks scripts for at most three requests per second.
+
+Fetch (the same document is at `https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1474`; the gazette month in the `clanci` URL is the month of the printed issue date):
+
+```
+curl -sS -L -o zor_85_2024.html -w '%{http_code} %{size_download} %{content_type}\n' https://narodne-novine.nn.hr/clanci/sluzbeni/2024_07_85_1474.html
+```
+
+Returned `200 297976 text/html; charset=utf-8` (an earlier request the same day returned 298056 bytes). Text extraction: the page content between `<div class="sl-content">` and `<div id="sticky-anchor2">` (the gazette item, without NN's page frame, metadata panel or footer); tags stripped, `p`, `div`, `h1` to `h6`, `li`, `tr`, `table` and `br` as line breaks, table cells separated by a space, non-breaking spaces as spaces, runs of spaces collapsed, empty lines dropped, nothing reworded. The item text starts with the promulgation decree ("Odluka o proglašenju") and the item number, as published. `fetched_sha256` is the hash of the HTML as received. It does not reproduce: the page carries a comment `<!--Cached 2.11.2026. 22:20:11-->` that changes per request (the only difference found between two fetches of NN 85/2024; the extracted text was identical). No browser recipe was needed.
+
+Discovery of an act's amendments and repeal: the metadata endpoint appends `/rdf` (or `/json-ld`) to the ELI URL and lists `amended_by`, `repealed_by`, `repeals`, `based_on`:
+
+```
+curl -sS -L -o zor_85_2024.rdf -w '%{http_code} %{size_download} %{content_type}\n' https://narodne-novine.nn.hr/eli/sluzbeni/2024/85/1474/rdf
+```
+
+Returned `200 6527 application/rdf+xml; charset=utf-8`. The body is identical across requests (same sha256 on two fetches), so the watchers hash it (`kind` `page_hash`, `tier` `consolidation_site`, one per instrument, `-nn-eli-rdf`). The metadata is not complete: for the Consumer Protection Act (NN 19/22) it lists only NN 59/2026, while NN 59/2026 itself cites NN 59/2023 as an earlier amendment. The issue sitemap `https://narodne-novine.nn.hr/sitemap_1_{year}_{issue}.xml` (`200 3094` for issue 85/2024) lists every item of an issue and was used to find items by title.
+
+Terms and statute pages opened the same day: `https://narodne-novine.nn.hr/data_access_hr.aspx` (`200 16039 text/html; charset=utf-8`; the "Opći uvjeti korištenja" box is in the footer of every page, the page hash varies per request, so the row fingerprint hashes only that box), and the Copyright Act `https://narodne-novine.nn.hr/clanci/sluzbeni/2021_10_111_1941.html` (`200 555391 text/html; charset=utf-8`).
+
+Stored (fetched 2026-11-02, one record per instrument in Croatian, kind `adopted`; `in_force` is the commencement the act itself states, or publication date plus the days its commencement clause names; a repeal is its own record without text):
+
+| Instrument | NN | `in_force` of the record | Repeal record |
+|---|---|---|---|
+| `hr-zor-2024` | 85/2024 | 2024-07-27 | |
+| `hr-zor-2024-izm-145-24` | 145/2024 | 2024-12-14 | |
+| `hr-zor-2024-izm-151-25` | 151/2025 | 2025-12-31 | |
+| `hr-zor-2024-izm-59-26` | 59/2026 | 2026-06-10 | |
+| `hr-zor-2015` | 78/2015 | 2016-01-01 | 2024-07-27 |
+| `hr-zor-2015-izm-120-16` | 120/2016 | 2017-01-01 | 2024-07-27 |
+| `hr-zor-2015-izm-116-18` | 116/2018 | 2018-12-29 | 2024-07-27 |
+| `hr-zor-2015-izm-42-20` | 42/2020 | 2020-04-08 | 2024-07-27 |
+| `hr-zor-2015-izm-82-23` | 82/2023 | 2023-07-28 | 2024-07-27 |
+| `hr-reviziji-izm-85-24` | 85/2024 | 2024-07-27 | |
+| `hr-reviziji-izm-151-25` | 151/2025 | 2025-12-31 | |
+| `hr-ztk-izm-85-24` | 85/2024 | 2024-07-27 | |
+| `hr-zkpzos-2025` | 67/2025 | 2025-04-17 | |
+| `hr-zkpzos-2019` | 127/2019 | 2020-01-01 | 2025-04-17 |
+| `hr-uredba-pracenje-ghg-2017` | 5/2017 | 2017-01-26 | |
+| `hr-uredba-trgovanje-ets-2020` | 89/2020 | 2020-08-08 | |
+| `hr-pravilnik-besplatna-dodjela-2020` | 89/2020 | 2020-08-08 | |
+| `hr-uredba-mehanizmi-ets-2023` | 107/2023 | 2023-09-23 | |
+| `hr-uredba-mehanizmi-ets-izm-145-24` | 145/2024 | 2024-12-14 | |
+| `hr-eudr-provedba-2025` | 151/2025 | 2025-12-23 | |
+| `hr-zzp-2022` | 19/2022 | 2022-05-28 | |
+| `hr-zzp-izm-59-26` | 59/2026 | 2026-06-17 | |
+
+An amending act's record is the amending text only, not the amended act with the change applied; where a later provision commences on another date (for example NN 59/2026 on the Consumer Protection Act, in force in stages from 2026-06-17 to 2026-11-17) the record carries the general commencement date and the scope `notes` name the others.
+
+### Languages
+
+Croatian is the only official language the publisher serves, so there are no second-language records. No government English translation of any instrument in scope was found on 2026-11-02: the NN site serves the Croatian gazette texts; web searches for an official English text of the Accounting Act, the Climate Change and Ozone Layer Protection Act and the Consumer Protection Act returned none (the only English text found, an unofficial translation of the 2014 Consumer Protection Act hosted by the Croatian National Bank, is of a repealed act, is not an official government translation, and is not stored). Under ZAPSP čl. 15 st. 3 a translation of an official text is protected unless it was made for official public information and published as such, so a translation row would need that shown per source; none exists, so there is no `translation` row and no English record.
+
+### Link only, dropped and not reached
+
+- No scope instrument is `link only`: all 22 have a record.
+- `sabor.hr` (`200 53279`) and `hanfa.hr` (`200 41102`) answered from the cloud address. No instrument in scope is stored from either, so neither has a licence row; HANFA's terms were not read, so no verdict is claimed for them. Sabor's bill history and acts as passed were not used.
+- Dropped candidates: the Uredba o dražbi emisijskih jedinica stakleničkih plinova (NN 19/13) is named in neither NN 127/19 nor NN 67/25 among the regulations that stay in force, so it is not shown as in force on any official list read; the former act NN 127/19, named in the brief as current, was repealed by NN 67/25 (kept as a historical entry). NN 134/2015 (a Uredba amending the 2015 Accounting Act), NN 114/2022 (euro conversion) and NN 47/2020 are not stored (no non-financial or climate content found, or not opened). No F4 or F7 instrument was found.
+- Not blocked: no URL refused the cloud address.
+
+## Slovenia
+
+Rows `SI-UL-ADOPTED` (gazette HTML) and `SI-PISRS-GAZETTE` (gazette PDF on PISRS), both `pass` on the statute basis (ZASP 9. člen: "uradna besedila z zakonodajnega, upravnega in sodnega področja" are not copyright-protected), and `SI-PISRS-NPB` (`pass` on terms: the Government Office for Legislation lists the unofficial consolidated texts on the open data portal under CC BY 4.0). `SI-PISRS-TRANSLATION`, `SI-ATVP-ADOPTED` and `SI-BSI-ADOPTED` are `permission requested`. Run on 2026-11-02. No browser was needed for any stored record: every text came from plain `curl` requests, so there is no browser-fetched record in this place.
+
+pisrs.si is an Angular application: `curl https://pisrs.si/` returns an 11805-byte page that needs JavaScript. The data come from a JSON back end at `https://pisrs.si/api/` whose address the application reads from `https://pisrs.si/assets/config.json` (`BACKEND_ENDPOINT`); the calls below are the ones the public pages make without a login, found by watching the page's requests in Playwright chromium. They need no key and no cookie and answered curl from the cloud address. The documented developer API (`https://pisrs.si/swagger`, server `https://pisrs.si/extapi`) says "Za uporabo API potrebujete dovoljenje" and was not used.
+
+### Rows SI-PISRS-NPB (consolidated), SI-UL-ADOPTED and SI-PISRS-GAZETTE (adopted)
+
+Find the register id of an act (`zunanjiId`, for example `ZAKO4291` for the Companies Act) with the search the site's own search box makes. Run for "Podnebni zakon":
+
+```
+curl -sS -X POST -H 'Content-Type: application/json' -d '{"simpleSearch":true,"besedilo":{"word1":"Podnebni zakon","word1InContent":false,"word1InTitle":true},"nazivZbirke":["Register predpisov","Neuradna prečiščena besedila"]}' -o f.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://pisrs.si/api/filter/filter?cursorMark=*'
+```
+
+Returned `200 3541 application/json`; `data.seznam[]` holds `zunanjiId`, `sop` (the gazette item number, for example `2025-01-2264`), `nazivAkta`, `datumObjave`, and `nazivZbirke` ("Register predpisov" for the act, "Neuradna prečiščena besedila" for a consolidated version).
+
+Row `SI-PISRS-NPB`, step 1, list the consolidated versions of the Companies Act (ZGD-1) and the file ids:
+
+```
+curl -sS -o zbirka.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/rezultat/zbirka/id/ZAKO4291
+```
+
+Returned `200 17197 application/json`. `data.datoteke[]` has, per version (`npbVerzija.naziv`: "Osnovni", "NPB 1", ...), the file ids by type (`HTML_DOCUMENT`, `WORD_DOCUMENT_DOCX`, `PDF_DOCUMENT`). `data.evidencniPodatki` has `veljaOd` (first in-force date), `ulStLeto`, `citat` (the amendments, each with its `sop`). The same record by gazette item: `curl -sS -o sop.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/rezultat/zbirka/sop/2017-01-0730` returned `200 2139 application/json` (ZGD-1J); its `veljaOd` is the in-force date PISRS shows for an amending act.
+
+Step 2, the version text, ZGD-1 NPB 24 (`HTML_DOCUMENT` 612427594):
+
+```
+curl -sS -o npb24.html -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/datoteke/integracije/612427594
+```
+
+Returned `200 1371818 text/html; charset=UTF-8`, sha256 `26f74dcbb228b53c64d3c5318b4f4f68e8fe1389f3efebab2957c42fd79323a0`; a second fetch gave the same hash, so `fetched_sha256` reproduces. The file starts with "Opozorilo: Neuradno prečiščeno besedilo predpisa predstavlja zgolj informativni delovni pripomoček", lists the amendments it contains, then "(neuradno prečiščeno besedilo št. 24)" and "Datum začetka uporabe: 24.07.2026". That line is the `in_force` of the version. NPB files up to about number 20 of ZGD-1 have no such line: their date is the `veljaOd` of the last amending act the file lists, read with the `zbirka/sop/` call above.
+
+Text extraction (NPB files): the `<head>` removed, block elements (`p`, `div`, `h1` to `h6`, `li`, `tr`) as line breaks, tags stripped, entities decoded, no-break spaces as spaces, runs of spaces collapsed; headings, the "Opomba" notes and the "Datum konca veljavnosti" lines of repealed articles are kept. For three small acts (`si-uredba-sfdr`, `si-ziuezo`, `si-uredba-brezplacni-kuponi`) the record is the whole NPB file text, header included; for the other acts it is a cut: the Companies Act from the line `70.c člen` up to the heading of the next article not numbered 70, ZVO-2 from `4. Trgovanje s pravicami do emisije toplogrednih plinov v EU` to `5. Zavezujoče letno zmanjšanje`, ZVPot-1 from `VIII. poglavje NEPOŠTENE POSLOVNE PRAKSE` to `IX. poglavje`. A consolidated version is stored only when its cut differs (words only, whitespace ignored) from the version before; the record carries the date of the first version with that text.
+
+Row `SI-UL-ADOPTED`, the act as published, Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1M), Uradni list RS 102/2024:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o 2024-01-3204.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-3204
+```
+
+Returned `200 204130 text/html; charset=utf-8`, sha256 `22f064f48beeb279eb6408f6b64abc77ae36fef459c2874cf22ceb5cf0e3d519`, the same on a second fetch. The path needs only the SOP number (`sop` from the PISRS record); the readable-title part of the URL in the register is optional. Text extraction: the contents of `<div class="content-segments">` (the page title, menus and footers are outside it), block elements as line breaks, tags stripped, runs of spaces collapsed. The issue and date are in `<h2 class="h5 ul-content-title">` ("Uradni list RS, št. 102/2024 z dne 3. 12. 2024").
+
+Row `SI-PISRS-GAZETTE`, the act as published after 1 March 2026 (uradni-list.si item pages dated 2026 answer `200 73373 text/html` with no act text), ZGD-1O, Uradni list RS 1270/2026:
+
+```
+curl -sS -o u20261270.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/uradni-list/objava/u20261270.pdf
+```
+
+Returned `200 239430 application/pdf`, sha256 `4a1bc4bb8fe97b331a52d8223d9ce9b4d00e0663f10a0e8b89efb58f181fdbf9`, the same on a second fetch. The file name is `u` + year + four-digit item number (`u20261799.pdf` for ZVPot-1A, `u2006042.pdf` style for older issues: `https://pisrs.si/api/uradni-list/objava/u2006042.pdf` is `virPovezaveOblike` of ZGD-1). Text: `pdftotext -layout u20261270.pdf -`, form feeds as line breaks, runs of spaces collapsed, blank-line runs collapsed; the page furniture ("Stran N od M") is left in. Checked for mojibake: the diacritics č š ž and the guillemets » « came out intact in both PDFs (ZGD-1O 34679 characters, ZVPot-1A 68741 characters).
+
+Stored (fetched 2026-11-02), `sl` only:
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `si-zgd-1-art70c` | consolidated | 2017-04-15, 2024-12-18, 2025-10-08, 2026-02-25, 2026-07-24 |
+| `si-zgd-1m` | adopted | 2024-12-18 |
+| `si-zgd-1n` | adopted | 2025-10-08 |
+| `si-zgd-1o` | adopted (PDF) | 2026-07-24 |
+| `si-poz` | adopted | 2025-08-09 |
+| `si-zvo-2-ets` | adopted, consolidated | 2022-04-13, 2025-08-09 |
+| `si-zvpot-1` | adopted, consolidated | 2022-10-26, 2026-12-12 (future date) |
+| `si-zvpot-1a` | adopted (PDF) | 2026-11-13 (in force 2026-11-13, applies 30 days later) |
+| `si-uredba-sfdr` | adopted, consolidated | 2023-02-25, 2026-01-03 |
+| `si-ziuezo` | adopted, consolidated | 2025-04-23, 2026-02-25 |
+| `si-uredba-brezplacni-kuponi` | adopted, consolidated | 2024-03-30, 2025-08-09 |
+| `si-pravilnik-mrv` | adopted | 2011-07-30 |
+
+### Languages
+
+Slovenian is the only language the gazette and PISRS serve for the acts: Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, `https://www.uradni-list.si/glasilo-uradni-list-rs`, and the PISRS act pages, and none exists. English is a translation on its own row, `SI-PISRS-TRANSLATION`, `permission requested`: the list `https://pisrs.si/aktualno/zakonodaja-v-anglescini` is `curl -sS -o en.json -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/api/navigation/gethtml/13`, which returned `200 326133 application/json` (the page's HTML in `data.html`, 391 table rows, each with the file link `/Prevodi/EN-....doc`). It states no licence; the CC BY 4.0 of the Government Office is on the Slovenian NPB dataset. ZASP 9. člen (2) protects translations unless published as official texts. The file links do not work with curl: `curl -sS -o EN.doc -w '%{http_code} %{size_download} %{content_type}\n' https://pisrs.si/Prevodi/EN-2022-01-3083.doc` returned `200 11805 text/html; charset=UTF-8` (the PISRS application shell, not a Word file). No translation is stored. English files exist for the Companies Act (marked * as not the latest text; state of NPB 16, 2019) and ZVPot-1 (the 2022 text); none for the Climate Act, ZVO-2, the ETS decrees, SFDR decree, green bonds act, ZGD-1M, 1N, 1O or ZVPot-1A.
+
+### Link only
+
+No instrument is link only. Rows with no instrument:
+
+- `SI-ATVP-ADOPTED` (`permission requested`): `https://www.a-tvp.si/` is blocked from the cloud address, see Blocked. No ATVP instrument is in scope.
+- `SI-BSI-ADOPTED` (`permission requested`): the bsi.si terms allow reproduction only "pod pogojem, da je vidno označen vir podatkov in da ostanejo podatki nespremenjeni"; the site answers curl with 200. No Banka Slovenije instrument is in scope.
+- `SI-PISRS-TRANSLATION` (`permission requested`): see Languages.
+
+The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni zakon replaced on 2025-08-09 (see the scope notes).
+
+### Blocked
+
+- `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
+- `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
+
 ## Bulgaria
 
 Row `BG-PARLIAMENT-ADOPTED`, `pass` on the publisher's terms (verdict_basis `terms`): the Народно събрание terms page https://www.parliament.bg/bg/terms-of-use licenses the portal content under CC BY 4.0 (the quoted sentence and its fingerprint are in the row; Закон за авторското право и сродните му права чл. 4, т. 1 is quoted in the row as a second ground but the row rests on the terms). The portal serves each act once, as passed, with the Decree of promulgation; it has no point-in-time consolidation, so Bulgaria has no consolidated row. Language: Bulgarian only. Run on 2026-11-02 for the Accounting Act (ДВ бр. 95/2015, parliament.bg act id 15501).

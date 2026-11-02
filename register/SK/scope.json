@@ -1,0 +1,143 @@
+[
+  {
+    "id": "sk-accounting-act",
+    "title": "Act No. 431/2002 Z. z. on Accounting (zákon o účtovníctve)",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2002/431/",
+    "citation": "Act No. 431/2002 Z. z. on Accounting, as amended; § 20 (annual report, non-financial information) and §§ 20c to 20g (sustainability reporting)",
+    "in_force": "2003-01-01",
+    "evidence": "§ 41: \"Tento zákon nadobúda účinnosť 1. januára 2003 okrem § 3 ods. 4 až 7, ktoré nadobúdajú účinnosť 1. januára 2004.\" Vyhlásené znenie opened at https://static.slov-lex.sk/static/SK/ZZ/2002/431/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 01.08.2002.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act stored in every version, not a cut of § 20: the act is one text and the sections move between versions. The non-financial information provisions (§ 20 ods. 9 to 15, public-interest entities above 500 employees) first appear in the 2017-01-01 časová verzia; sustainability reporting (§§ 20c and 20g) appears in the 2024-06-01 version, after Act 105/2024 (sk-act-105-2024, in force 2024-06-01). Later versions follow the history page. Records stored on 2026-11-02: 44 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 43 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored"
+  },
+  {
+    "id": "sk-act-105-2024",
+    "title": "Act No. 105/2024 Coll., amending Act No. 431/2002 Coll. on Accounting and certain other acts",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2024/105/20240601.print.html",
+    "citation": "Act No. 105/2024 Z. z. of 24 April 2024 (promulgated 20 May 2024), amending Act No. 431/2002 Z. z.",
+    "in_force": "2024-06-01",
+    "evidence": "Čl. VI: \"Tento zákon nadobúda účinnosť 1. júna 2024.\" Opened https://static.slov-lex.sk/static/SK/ZZ/2024/105/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 20.05.2024.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending act. The text adds Directive (EU) 2022/2464 to the lists of transposed directives in the annex of Act 431/2002 (Čl. I bod 62) and of the other acts it amends (Čl. II to V). The Slov-Lex časová verzia of 2024-06-01 has the same text as the vyhlásené znenie, so it is stored as a second record of the same date. The consolidated effect on the Accounting Act is in sk-accounting-act. Records stored on 2026-11-02: 2 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 1 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored",
+    "amends": "sk-accounting-act"
+  },
+  {
+    "id": "sk-ets-act",
+    "title": "Act No. 414/2012 Z. z. on Emission Allowance Trading and on Amendment of Certain Acts (zákon o obchodovaní s emisnými kvótami)",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2012/414/",
+    "citation": "Act No. 414/2012 Z. z. of 28 November 2012, as amended",
+    "in_force": "2013-01-01",
+    "evidence": "Čl. IV ods. 1: \"Tento zákon nadobúda účinnosť 1. januára 2013.\" Opened https://static.slov-lex.sk/static/SK/ZZ/2012/414/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 20.12.2012.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act stored in every version the history page lists. Amending acts that are in scope: sk-act-186-2023, sk-act-236-2024, sk-act-125-2026. Records stored on 2026-11-02: 22 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 21 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored"
+  },
+  {
+    "id": "sk-act-186-2023",
+    "title": "Act No. 186/2023 Z. z. amending Act No. 414/2012 Z. z. on Emission Allowance Trading and supplementing Act No. 587/2004 Z. z. on the Environmental Fund",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2023/186/",
+    "citation": "Act No. 186/2023 Z. z. of 10 May 2023 (promulgated 1 June 2023)",
+    "in_force": "2023-06-01",
+    "evidence": "Čl. III: \"Tento zákon nadobúda účinnosť dňom vyhlásenia okrem čl. I bodov 38 až 41 a 43 a čl. II bodov 2, 3 a 6, ktoré nadobúdajú účinnosť 1. januára 2024, a čl. I bodu 42, ktorý nadobúda účinnosť 1. januára 2025.\" The Zbierka page gives Dátum vyhlásenia 01.06.2023 (https://static.slov-lex.sk/static/SK/ZZ/2023/186/vyhlasene_znenie.print.html, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending act with staged commencement; each časová verzia shows only the provisions in force on its date, so the 2023-06-01 and 2024-01-01 records are shorter than the vyhlásené znenie and the 2025-01-01 record equals it. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored",
+    "amends": "sk-ets-act"
+  },
+  {
+    "id": "sk-act-236-2024",
+    "title": "Act No. 236/2024 Z. z. amending Act No. 414/2012 Z. z. on Emission Allowance Trading and amending certain other acts",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2024/236/",
+    "citation": "Act No. 236/2024 Z. z. of 18 September 2024 (promulgated 27 September 2024)",
+    "in_force": "2024-09-27",
+    "evidence": "Čl. X: \"Tento zákon nadobúda účinnosť dňom vyhlásenia okrem čl. I bodov 43, 49, 64, 66, 69, 78, 80 a 95, ktoré nadobúdajú účinnosť 1. októbra 2025, a čl. I bodov 11, 60, 71, 83, 84 a 88, ktoré nadobúdajú účinnosť 1. januára 2026.\" The Zbierka page gives Dátum vyhlásenia 27.09.2024 (https://static.slov-lex.sk/static/SK/ZZ/2024/236/vyhlasene_znenie.print.html, opened 2026-11-02).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amending act with staged commencement; each časová verzia shows only the provisions in force on its date, and the 2026-01-01 record equals the vyhlásené znenie. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored",
+    "amends": "sk-ets-act"
+  },
+  {
+    "id": "sk-act-125-2026",
+    "title": "Act No. 125/2026 Z. z. amending Act No. 414/2012 Z. z. on Emission Allowance Trading and amending Act No. 587/2004 Z. z. on the Environmental Fund",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2026/125/",
+    "citation": "Act No. 125/2026 Z. z. of 28 May 2026 (promulgated 16 June 2026)",
+    "in_force": "2026-07-15",
+    "evidence": "Čl. III: \"Tento zákon nadobúda účinnosť 15. júla 2026.\" Opened https://static.slov-lex.sk/static/SK/ZZ/2026/125/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 16.06.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The Slov-Lex časová verzia of 2026-07-15 has the same text as the vyhlásené znenie, so it is stored as a second record of the same date. Records stored on 2026-11-02: 2 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 1 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored",
+    "amends": "sk-ets-act"
+  },
+  {
+    "id": "sk-consumer-protection-act",
+    "title": "Act No. 108/2024 Z. z. on Consumer Protection and on Amendment of Certain Acts (zákon o ochrane spotrebiteľa)",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2024/108/",
+    "citation": "Act No. 108/2024 Z. z. of 24 April 2024 (promulgated 22 May 2024), as amended; unfair commercial practices and Príloha č. 1",
+    "in_force": "2024-07-01",
+    "evidence": "Čl. XXV: \"Tento zákon nadobúda účinnosť 1. júla 2024.\" Opened https://static.slov-lex.sk/static/SK/ZZ/2024/108/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 22.05.2024.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act stored. It replaced Act No. 250/2007 Z. z. (the previous unfair commercial practices rules; not in scope here). Environmental-claim provisions are added by Act 310/2025 (sk-act-310-2025), which applies from 2026-09-27: the 2026-09-27 časová verzia is the first to carry them. Records stored on 2026-11-02: 6 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 5 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored"
+  },
+  {
+    "id": "sk-act-310-2025",
+    "title": "Act No. 310/2025 Z. z. amending Act No. 108/2024 Z. z. on Consumer Protection (transposition of Directive (EU) 2024/825) and amending certain other acts",
+    "official_url": "https://static.slov-lex.sk/static/SK/ZZ/2025/310/",
+    "citation": "Act No. 310/2025 Z. z. of 21 October 2025 (promulgated 19 November 2025)",
+    "in_force": "2026-01-01",
+    "evidence": "Čl. V: \"Tento zákon nadobúda účinnosť 1. januára 2026 okrem čl. I bodov 3, 21, 28, 38, 54, 56, čl. II bodov 1, 3, 4, 6, 8 až 10, 13 a 14, ktoré nadobúdajú účinnosť 31. júla 2026, a čl. I bodov 2, 4 až 10, 16 až 18, 20, 22 až 26, 31, 45, 50 až 53 a 57, ktoré nadobúdajú účinnosť 27. septembra 2026.\" Čl. I adds to Príloha č. 4 of Act 108/2024 the entry for Directive (EU) 2024/825. Opened https://static.slov-lex.sk/static/SK/ZZ/2025/310/vyhlasene_znenie.print.html on 2026-11-02; the Zbierka page gives Dátum vyhlásenia 19.11.2025.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SK-SLOVLEX-ADOPTED",
+      "SK-SLOVLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Transposition of Directive (EU) 2024/825 into Act 108/2024. in_force is the first commencement date; the Directive-related provisions named in the evidence apply from 2026-09-27. Staged commencement: the 2026-01-01 časová verzia shows only the provisions in force then and is shorter than the vyhlásené znenie; the 2026-09-27 record equals it. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
+    "status": "stored",
+    "amends": "sk-consumer-protection-act"
+  }
+]
