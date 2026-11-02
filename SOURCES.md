@@ -1763,6 +1763,111 @@ None of the ten scope instruments is link only. Not in scope, so without an entr
 
 No site was blocked from the cloud address: opendata.finlex.fi, www.finlex.fi and www.finanssivalvonta.fi all answered 200. `finlex.fi` without `www` answers 301 to `www.finlex.fi`; `data.finlex.fi` answers 307 to `/fi`; `opendata.finlex.fi/` itself answers 403 (API gateway, no token) and is not an API path. No browser recipe was needed and no record is browser-fetched.
 
+## Austria
+
+Rows `AT-RIS-ADOPTED` (Bundesgesetzblatt authentisch), `AT-RIS-CONSOLIDATED` (Bundesrecht konsolidiert) and `AT-RIS-TRANSLATION` (English translations), all `pass` on the publisher's terms: the Federal Chancellery's OGD-RIS FAQ says "Die Nutzung der RIS-Daten via OGD erfolgt gemäß der Namensnennung 4.0 International - Creative Commons" (CC BY 4.0, commercial reuse and modification allowed, attribution required), and the data.gv.at dataset "RIS Daten Version 2.6" lists the same licence. Urheberrechtsgesetz § 7 Abs. 1 (laws, ordinances and official enactments are not protected) is recorded as corroboration for the two official-text rows, not relied on. `AT-FMA-ADOPTED` is `permission requested` (fma.gv.at legal notice: "The commercial use of material presented on the FMA ‘s website requires the FMA ‘s express permission."). Run on 2026-11-02, a Monday, from 20:20 to 21:00 Vienna time.
+
+### What is blocked and what answers
+
+The RIS web pages are blocked from the cloud address for `curl` and for headless Chromium alike. Every page of `www.ris.bka.gv.at` (including the Impressum and the Nutzungsbedingungen) and the HTML pages of `ogd.ris.bka.gv.at` (`/eli/...`, `GeltendeFassung.wxe`) answer with a Myra "Security Check" page:
+
+```
+curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007500'
+```
+
+Returned `503 30734 text/html`. Playwright chromium (`chromium.launch()`, `page.goto(url)`, wait 4 s) on `https://www.ris.bka.gv.at/`, `/Impressum.aspx`, `/Dokumente/BgblAuth/BGBLA_2026_I_6/BGBLA_2026_I_6.html` and `/Englische-Rv/` returned status 503 and the page title "Security Check" for each, so there is no browser recipe. Blocked from the cloud address: https://www.ris.bka.gv.at/ and https://ogd.ris.bka.gv.at/eli/ (for the orchestrator to read from the laptop; the RIS terms page, the Impressum and the Englische-Rv list were not read for that reason).
+
+What answers `curl` is the OGD-RIS API on `data.bka.gv.at` (v2.6, JSON, no key) and the document files it lists on `ogd.ris.bka.gv.at/Dokumente/...` (XML, HTML, RTF, PDF). All texts below come from these two. The terms were read on the OGD-RIS FAQ page of the API host:
+
+```
+curl -sS -L -o terms.html -w '%{http_code} %{size_download} %{content_type}\n' https://data.bka.gv.at/ris/api/v2.6/
+```
+
+Returned `200 19355 text/html; charset=utf-8` (fingerprint recipe in the row notes; the hash was the same on three runs). The FAQ sets technical conditions: at most 0.5 requests per second, no parallel connections, queries only between 20:00 and 05:00 Vienna time or on weekends and Austrian holidays, and a notice to ris.it@bka.gv.at before a bulk use. The fetch for this wave ran as one connection with one request about every 2.5 s, started after 20:00 CET. The three `tools/watch.py --dry-run` runs (below) sent their requests back to back (11 requests in about 7 seconds), faster than 0.5 per second; no notice to the Chancellery was sent. A cloud session that runs the watcher for real should run it between 20:00 and 05:00 Vienna time.
+
+### Row `AT-RIS-ADOPTED`
+
+Proven for the Klimaschutzgesetz, BGBl. I Nr. 106/2011. Step 1 lists the documents of a Bundesgesetzblatt number (Teil I, II and III share a number, so the part is picked from the ID):
+
+```
+curl -sS -L -o ksg_list.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BgblAuth&Bgblnummer=106/2011'
+```
+
+Returned `200 4848 application/json; charset=utf-8` (three hits; the Teil I one is `BGBLA_2011_I_106`, Ausgabedatum 2011-11-21). Step 2, the authentic text as XML:
+
+```
+curl -sS -L -o BGBLA_2011_I_106.xml -w '%{http_code} %{size_download} %{content_type}\n' https://ogd.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2011_I_106/BGBLA_2011_I_106.xml
+```
+
+Returned `200 21011 application/xml; charset=utf-8`, sha256 `e8d009241ab8adb720925d94ccf976306eddce136ca6b814c134f868186895ac`; a second fetch reproduced it (no per-request token in the XML). The same pattern gave the other adopted records (`BGBLA_2017_I_20`, `BGBLA_2011_I_118`, `BGBLA_2022_I_10`, `BGBLA_2026_I_6`). The record text is the whole file, one line per heading, paragraph, list item or table row. For the NEHG 2022 the record is Artikel 9 of BGBl. I Nr. 10/2022 (the Act sits inside the tax reform Act): it is cut from the line "Artikel 9" up to the signatures, and `fetched_url` and `fetched_sha256` are those of the whole file.
+
+### Row `AT-RIS-CONSOLIDATED`
+
+Proven for the Klimaschutzgesetz in the version of 2015-11-07. RIS serves a consolidated law as one XML file per paragraph or annex version (a file name `NOR<number>`), each with its own `Inkrafttretensdatum` and `Ausserkrafttretensdatum`; there is no whole-law file on the OGD host (the whole-law page `GeltendeFassung.wxe` is blocked, above). Step 1 lists the files valid on a date (`DokumenteProSeite=OneHundred` raises the page size from 20 to 100; without `Fassung.FassungVom` the call lists every version of every paragraph, with the date range of each):
+
+```
+curl -sS -L -o ksg_v20151107.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=BrKons&Gesetzesnummer=20007500&Fassung.FassungVom=2015-11-07&DokumenteProSeite=OneHundred'
+```
+
+Returned `200 21111 application/json; charset=utf-8` (13 hits, in the order of the law). Step 2, one norm file (§ 10, valid 2015-11-07 to 2017-04-25):
+
+```
+curl -sS -L -o NOR40175651.xml -w '%{http_code} %{size_download} %{content_type}\n' https://ogd.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40175651/NOR40175651.xml
+```
+
+Returned `200 3466 application/xml; charset=utf-8`, reproduced byte for byte by a second fetch. The Gesetzesnummer of a law is found with `...Bundesrecht?Applikation=BrKons&Titel=<words>` (KSG 20007500, EZG 2011 20007503, NEHG 2022 20011818, DriBeG 20013107, UWG 10002665, UGB 10001702, NEHG price determination 20012110). `Abschnitt.Typ=Paragraph&Abschnitt.Von=<n>&Abschnitt.Bis=<n>` limits a call to some paragraphs (UGB §§ 243b and 267a, UWG §§ 1 to 2a); a stored version date is the first date on which the set of valid files differs, which is the earliest `Inkrafttretensdatum` of a new file or the day after an `Ausserkrafttretensdatum`.
+
+A record is assembled from the files valid on its date, in the order of the law, and stored when its text differs from the previous version. `fetched_url` is the Step 1 call for that date, `fetched_sha256` the sha256 of those files as returned, concatenated in the order of the listing (checked: recomputed from the 2015-11-07 listing above it equals the stored `fetched_sha256` of `records/AT/at-ksg/2015-11-07-consolidated-de.json`). For the UGB the record holds two sections: `fetched_url` is the call for § 243b, the § 267a file comes from the same call with `Abschnitt.Von=267a&Abschnitt.Bis=267a`, and the hash covers the § 243b file and then the § 267a file. RIS gives some versions of the NEHG 2022 (§§ 22, 24, 25) the `Inkrafttretensdatum` 9000-01-01 (no date set, they wait for a condition); they are not stored.
+
+Text extraction (both XML kinds): the elements under `nutzdaten` without the page header and footer (`kzinhalt`, `fzinhalt`); for a norm file the RIS metadata block before the heading "Text" is dropped (for a § 0 file, from the heading "Langtitel"), and so is the trailer from "Zuletzt aktualisiert am" or "Schlagworte" on; headings, paragraphs (`absatz`) and list items as lines, the list number on the line of its text, a table row as one line with " | " between cells, a `tab` as a space, whitespace collapsed, nothing reworded. The HTML files are not used: they carry every text twice (a screen-reader copy in `sr-only` spans). Checked on 2026-11-02: for each of the 448 norm files fetched and the five BGBl. files, the non-space characters of the extracted text equal those of the XML text (apart from the " | " separators).
+
+### Languages
+
+German is the only language in which RIS serves any in-scope instrument: the document list of every BrKons and BgblAuth file offers the same document as XML, HTML, RTF and PDF, with no second language. No Croatian, Slovene or Hungarian version was looked for beyond that. Every record is `language` `de`, file name ending `-de.json`.
+
+English is a translation of the Federal Chancellery (and ministries) published in RIS as application `Erv`, so it has its own row, `AT-RIS-TRANSLATION` (`translation`, `pass` on the OGD terms; § 7 Abs. 1 UrhG does not name translations and is not applied). Request 1 lists the application (the API ignores `Titel` and `Suchworte` for `Erv`, so the call returns all documents; 136 on 2026-11-02, matched by title by hand):
+
+```
+curl -sS -L -o erv_list.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://data.bka.gv.at/ris/api/v2.6/Bundesrecht?Applikation=Erv'
+```
+
+Returned `200 25514 application/json; charset=utf-8` (first page of 20; pages are walked with `Seitennummer`). Request 2, the Federal Act against Unfair Competition (`ERV_1984_448`):
+
+```
+curl -sS -L -o ERV_1984_448.xml -w '%{http_code} %{size_download} %{content_type}\n' https://ogd.ris.bka.gv.at/Dokumente/Erv/ERV_1984_448/ERV_1984_448.xml
+```
+
+Returned `200 389829 application/xml; charset=utf-8`, sha256 `e6eec5e3ab84dac254db0829bd59f6608b427b33aaeb5ef61690b31948e7ebd7`, reproduced by a second fetch. The file is one table with a German column and an English column. The English text of §§ 1 to 2a is the English cells from the heading row "Unfair Commercial Practices" (before "§ 1. (1) Anyone who") to the row before the body of § 3, one cell block per line, extracted as above. The state of the translation is read from the file, not from the API metadata ("date of the version: 1 April 2026", "as amended by BGBl. I No. 99/2023"): the file's English cell reads "was not promulgated in the Federal Law Gazette as of: 20 July 2022 pursuant to Federal Law Gazette I no. 110/2022" and names BGBl. I Nr. 99/2023 as the amendment entailing the latest update of the translation, while its German column is updated to "Fassung: 27.9.2026". The stored record is therefore dated 2022-07-20, the German version of §§ 1 to 2a it matches (it has the ranking, online marketplace and consumer review rules of BGBl. I Nr. 110/2022 and none of the 2026 text), and its `message` says so.
+
+English looked for and not found in `Erv`: Unternehmensgesetzbuch, Klimaschutzgesetz, Emissionszertifikategesetz 2011, Nationales Emissionszertifikatehandelsgesetz 2022, Nachhaltigkeitsberichtsgesetz, Drittlandunternehmen-Berichterstattungsgesetz, Nachhaltigkeits- und Diversitätsverbesserungsgesetz (a title search over the 136 for Commercial Code, Companies, Accounting, Reporting, Emission, Greenhouse, Sustainability and Climate Protection found only the UWG and unrelated acts and ordinances). No English exists for the UWG versions of 1984 to 2015, 2016-12-31, 2026-07-29 and 2026-09-27 either; the translation of 2022 matches only the 2022-07-20 version.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records (`in_force`) |
+|---|---|---|
+| `at-nabeg` | adopted | 2026-02-19 |
+| `at-dribeg` | consolidated | 2026-02-19 |
+| `at-ugb-243b-267a` (§§ 243b, 267a) | consolidated | 2016-12-06, 2026-02-19 |
+| `at-nadiveg-2017` | adopted | 2016-12-06 |
+| `at-ksg` | adopted, consolidated | adopted 2011-11-22; consolidated 2011-11-22, 2013-06-18, 2015-11-07, 2017-04-26 |
+| `at-ezg-2011` | adopted, consolidated | adopted 2011-12-13; consolidated 2011-12-13, 2013-01-01, 2013-06-19, 2014-01-01, 2015-08-14, 2015-11-07, 2020-12-23, 2021-12-31, 2024-01-01, 2026-01-01 |
+| `at-nehg-2022` | adopted, consolidated | adopted 2022-04-01 (Artikel 9); consolidated 2022-04-01, 2022-07-01, 2022-10-01, 2022-12-07, 2023-06-01, 2023-07-22, 2024-06-01, 2024-06-06, 2026-07-30 |
+| `at-nehg-preisstabilitaets-vo` | consolidated | 2022-12-15 |
+| `at-uwg-s1-2a` (§§ 1 to 2a) | consolidated, translation | de: 1984-11-23, 1988-07-30, 2000-04-01, 2007-12-12, 2015-04-23, 2016-12-31, 2022-07-20, 2026-07-29, 2026-09-27; en: 2022-07-20 |
+
+No record was fetched with a browser. The NaDiVeG (BGBl. I Nr. 20/2017) is an addition to the candidate list: it is the Act that inserted UGB §§ 243b and 267a. No NaBeG adopted record other than the whole BGBl. text exists, because the Act is a bundle of 21 articles.
+
+### Link only
+
+None of the nine scope entries is link only.
+
+- Not in scope: the Finanzmarktaufsicht (row `AT-FMA-ADOPTED`, `permission requested`). `curl https://www.fma.gv.at/` answers `403 5308 text/html; charset=UTF-8` (Cloudflare "Just a moment..."); `curl https://www.fma.gv.at/en/fma/fma-circulars/` answers `403 5413 text/html; charset=UTF-8`. In Playwright chromium (open `https://www.fma.gv.at/en/` first, wait 4 s, then the page, wait 8 s) the English home page (200) and the legal notice `https://www.fma.gv.at/en/copyright-and-disclaimer/` (200, read for the row) opened, and `https://www.fma.gv.at/en/fma/fma-circulars/`, `https://www.fma.gv.at/en/cross-sectoral-topics/sustainable-finance/` and `https://www.fma.gv.at/en/banks/sustainable-finance-banks/` stayed at the same 403 challenge. Blocked from the cloud address: those three URLs and `https://www.fma.gv.at/` (curl). No FMA guideline page was opened, so no FMA instrument has a scope entry.
+- Not enumerated: NEHG 2022 and EZG 2011 implementing ordinances other than the price determination (BGBl. II Nr. 460/2022), the UWG Anhang (blacklist, where the green-claim bans of Directive (EU) 2024/825 sit), and UGB sections other than §§ 243b and 267a.
+
+### Watchers
+
+Eleven watchers were added (nine instruments, the English translation of the UWG, the OGD terms page). A consolidated-law watcher is a `date_list` on the API call with `Fassung.FassungVom=2099-12-31`, which lists the files valid after the last known version (at most 100 for these laws), and reads every `"Inkrafttretensdatum"`; a new amendment shows as a new date. A repeal that creates no new file is not seen. The two adopted-only instruments (`at-nabeg`, `at-nadiveg-2017`) and the translation use `page_hash` on the XML file, because the `ogd.ris.bka.gv.at` files answer a HEAD request with neither `Last-Modified` nor `Content-Length` (so `http_head` fails). `second_route` names the blocked `www.ris.bka.gv.at` page for a browser.
+
 ## France
 
 Rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` (`pass`, terms basis: Licence Ouverte 2.0 as stated on the DILA data sheets), `FR-LEGIFRANCE-TRANSLATION` and `FR-AMF-DOCTRINE` (`permission requested`). Run on 2026-11-02.
