@@ -51,7 +51,10 @@ def build(repo=ROOT, branch=None):
         row = {**row, "trailer_instrument": entry["title"], "trailer_source_url": entry["official_url"],
                "iso2": iso2, "instrument_id": instrument_id}
         records.append((effective, row_id, path, record, row))
-    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[1], item[2].as_posix()))
+    # Same date and instrument: official-language records first (a translation never replaces one in a
+    # lookup), then by language code, then as before.
+    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[3]["kind"] == "translation",
+                                   item[3]["language"], item[1], item[2].as_posix()))
     tmp = tempfile.TemporaryDirectory()
     index = Path(tmp.name) / "index"
     parent = None
@@ -64,7 +67,7 @@ def build(repo=ROOT, branch=None):
         message = (record.get("message") or f"{row['trailer_instrument']} {verb} {effective}") + "\n\n"
         message += (f"Instrument: {row['trailer_instrument']}\nSource-url: {row['trailer_source_url']}\n"
                     f"In-force: {effective}\nKind: {kind}\nLicence: {row['trailer_licence']}\n"
-                    f"Jurisdiction: {row['iso2']}\nInstrument-id: {row['instrument_id']}")
+                    f"Jurisdiction: {row['iso2']}\nInstrument-id: {row['instrument_id']}\nLanguage: {record['language']}")
         ident = ["-c", "user.name=Global ESG Law Builder", "-c", "user.email=builder@global-esg-law.invalid"]
         rel = str(path.relative_to(repo))
         if branch:

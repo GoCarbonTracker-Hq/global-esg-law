@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ask what law applied on a date: python3 tools/law.py <ISO2> <YYYY-MM-DD> [--repo PATH] [--ref history] [--json]"""
+"""Ask what law applied on a date: python3 tools/law.py <ISO2> <YYYY-MM-DD> [--repo PATH] [--ref history] [--lang CODE] [--json]"""
 import argparse
 import json
 import re
@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = {"Instrument": "title", "Source-url": "source_url", "In-force": "in_force", "Kind": "kind",
-          "Licence": "licence", "Jurisdiction": "jurisdiction", "Instrument-id": "id"}
+          "Licence": "licence", "Jurisdiction": "jurisdiction", "Instrument-id": "id", "Language": "language"}
 
 
 def _commits(repo, ref):
@@ -39,8 +39,32 @@ def known(repo=ROOT, ref="history"):
     return sorted(registered | {c["jurisdiction"] for c in _commits(repo, ref) if "jurisdiction" in c})
 
 
-def lookup(iso2, on, repo=ROOT, ref="history"):
-    """Return (in_force list, not_yet list of {id, title, in_force}, first date or None)."""
+def _version(records, lang):
+    """One version of one instrument: all records sharing its in_force date, in commit order.
+    Returns (shown record, fallback flag, languages list). Per language the last record wins (so a
+    consolidated text replaces the adopted one, as before). The official record is the first
+    non-translation language, which tools/build.py orders ahead of every translation."""
+    by_lang = {}
+    for c in records:
+        by_lang[c.get("language")] = c
+    ordered = sorted(by_lang.values(), key=lambda c: records.index(c))
+    official = next((c for c in ordered if c["kind"] != "translation"), ordered[0])
+    shown, fallback = official, False
+    if lang:
+        if lang in by_lang:
+            shown = by_lang[lang]
+        else:
+            fallback = True
+    languages = [{"language": c.get("language"), "kind": c["kind"], "commit": c["commit"]}
+                 for c in [shown] + [c for c in ordered if c is not shown]]
+    return shown, fallback, languages
+
+
+def lookup(iso2, on, repo=ROOT, ref="history", lang=None, detail=False):
+    """Return (in_force list, not_yet list of {id, title, in_force}, first date or None).
+    One item per instrument: the official-language record of its latest version on or before `on`.
+    With lang, the record in that language when the version has one, else the official record
+    (fallback true). detail adds language, languages (the shown record first), and fallback."""
     versions = sorted((c for c in _commits(repo, ref) if c.get("jurisdiction") == iso2),
                       key=lambda c: c["in_force"])  # sorted() is stable, so commit order breaks ties
     latest, pending = {}, {}
@@ -49,14 +73,25 @@ def lookup(iso2, on, repo=ROOT, ref="history"):
             if c["in_force"] <= on:
                 latest.pop(c["id"], None)
         elif c["in_force"] <= on:
-            latest[c["id"]] = c
+            if c["id"] in latest and latest[c["id"]][0]["in_force"] == c["in_force"]:
+                latest[c["id"]].append(c)  # another record of the same version
+            else:
+                latest[c["id"]] = [c]
         else:
             pending.setdefault(c["id"], c)
     scope = _scope(repo, iso2)
     keys = ("id", "title", "in_force", "kind", "source_url", "licence", "commit")
+    chosen = []
+    for records in latest.values():
+        shown, fallback, languages = _version(records, lang)
+        chosen.append((shown, fallback, languages))
     found = []
-    for c in sorted(latest.values(), key=lambda c: (c["in_force"], c["id"])):
+    for c, fallback, languages in sorted(chosen, key=lambda t: (t[0]["in_force"], t[0]["id"])):
         item = {k: c[k] for k in keys}
+        if detail:
+            item.update(language=c.get("language"), languages=languages)
+            if lang:
+                item["fallback"] = fallback
         for key in ("status_note", "amends"):
             value = scope.get(c["id"], {}).get(key)
             if value:
@@ -67,8 +102,8 @@ def lookup(iso2, on, repo=ROOT, ref="history"):
     return found, not_yet, versions[0]["in_force"] if versions else None
 
 
-def in_force(iso2, on, repo=ROOT, ref="history"):
-    return lookup(iso2, on, repo, ref)[0]
+def in_force(iso2, on, repo=ROOT, ref="history", lang=None, detail=False):
+    return lookup(iso2, on, repo, ref, lang, detail)[0]
 
 
 def main(argv=None):
@@ -78,8 +113,12 @@ def main(argv=None):
     ap.add_argument("--repo", default=str(ROOT))
     ap.add_argument("--ref", default="history")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--lang", help="ISO 639-1 code: show that language's record when the version has one, else the official record")
     args = ap.parse_args(argv)
     iso2 = args.iso2.upper()
+    if args.lang is not None and not re.fullmatch(r"[a-z]{2}", args.lang):
+        print(f"malformed language {args.lang!r}, expected an ISO 639-1 code such as en", file=sys.stderr)
+        return 2
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", args.date):
         print(f"malformed date {args.date!r}, expected YYYY-MM-DD", file=sys.stderr)
         return 2
@@ -94,16 +133,21 @@ def main(argv=None):
         if iso2 not in names:
             print(f"unknown jurisdiction {iso2!r}; known: {', '.join(names)}", file=sys.stderr)
             return 2
-        found, not_yet, first = lookup(iso2, args.date, args.repo, args.ref)
+        found, not_yet, first = lookup(iso2, args.date, args.repo, args.ref, args.lang, detail=True)
     except subprocess.CalledProcessError as exc:
         print(exc.stderr.strip() or exc, file=sys.stderr)
         return 1
     if args.json:
-        print(json.dumps({"jurisdiction": iso2, "date": args.date, "in_force": found, "not_yet_in_force": not_yet}, indent=2))
+        print(json.dumps({"jurisdiction": iso2, "date": args.date, "lang": args.lang, "in_force": found, "not_yet_in_force": not_yet}, indent=2))
         return 0
     for item in found:
         print(f"{item['id']}\t{item['in_force']}\t{item['kind']}\t{item['title']}"
               + (f"\tamends {item['amends']}" if "amends" in item else ""))
+        for other in item["languages"][1:]:
+            print(f"  {other['language'] or '-'}\t{other['kind']}")
+        if args.lang:
+            print(f"note {item['id']}: no {args.lang} record for this version, showing the official record ({item['language'] or '-'})"
+                  if item["fallback"] else f"note {item['id']}: showing the {item['language']} record")
     for item in found:
         if "status_note" in item:
             print(f"note {item['id']}: {item['status_note']}")

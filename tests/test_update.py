@@ -107,7 +107,7 @@ def make(repo, queue=QUEUE):
         folder = repo / "records" / iso2 / iid
         folder.mkdir(parents=True)
         (folder / f"{day}-{kind}.json").write_text(json.dumps({
-            "source_id": sid, "in_force": day, "kind": kind, "text": "placeholder text",
+            "source_id": sid, "in_force": day, "kind": kind, "language": "en", "text": "placeholder text",
             "fetched_url": "https://example.invalid/old", "fetched_sha256": "0" * 64}))
     (repo / "SOURCES.md").write_text("# Sources\n\n## EU\n\nPilot recipe text.\n\n## US\n\nPilot recipe text.\n")
     (repo / "upkeep").mkdir()
@@ -144,9 +144,9 @@ def test_confirmed_row_becomes_record_that_passes_gate(tmp_path):
     results = update.update(repo, fetch, TODAY, row=EU_KEY, commit=False, out=out)
     assert [(r["key"], r["status"]) for r in results] == [(EU_KEY, "stored")]
     assert fetch.calls == [(EU_URL, {"Accept": "application/xhtml+xml", "Accept-Language": "eng"})]
-    path = repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated.json"
+    path = repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json"
     record = json.loads(path.read_text())
-    assert set(record) == {"source_id", "in_force", "kind", "text", "fetched_url", "fetched_sha256"}
+    assert set(record) == {"source_id", "in_force", "kind", "language", "text", "fetched_url", "fetched_sha256"}
     assert (record["source_id"], record["in_force"], record["kind"]) == ("EU-EURLEX-CONSOLIDATED", "2027-01-01", "consolidated")
     assert record["text"] == "placeholder consolidated text\n\nsecond placeholder paragraph\n"
     assert record["fetched_url"] == EU_URL and record["fetched_sha256"] == hashlib.sha256(EU_BODY).hexdigest()
@@ -155,12 +155,12 @@ def test_confirmed_row_becomes_record_that_passes_gate(tmp_path):
     assert changed["status"] == "stored" and changed["source_row"] == ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"]
     sources_md = (repo / "SOURCES.md").read_text()
     assert sources_md.count("### upkeep") == 1 and sources_md.startswith("# Sources\n\n## EU\n\nPilot recipe text.\n\n## US\n")
-    assert ("- 2026-11-02: `records/EU/eu-act/2027-01-01-consolidated.json`, row `EU-EURLEX-CONSOLIDATED`, "
+    assert ("- 2026-11-02: `records/EU/eu-act/2027-01-01-consolidated-en.json`, row `EU-EURLEX-CONSOLIDATED`, "
             f"fetched `{EU_URL}`, sha256 `{record['fetched_sha256']}`, queue row `{EU_KEY}`.") in sources_md
     row = rows(repo)[EU_KEY]
-    assert row["outcome"] == "stored" and row["notes"] == "stored records/EU/eu-act/2027-01-01-consolidated.json"
+    assert row["outcome"] == "stored" and row["notes"] == "stored records/EU/eu-act/2027-01-01-consolidated-en.json"
     assert (repo / "upkeep" / "queue.csv").read_bytes().count(b"\r\n") == len(QUEUE) + 1
-    assert "wrote records/EU/eu-act/2027-01-01-consolidated.json" in out.getvalue()
+    assert "wrote records/EU/eu-act/2027-01-01-consolidated-en.json" in out.getvalue()
     assert git(repo, "branch", "--list", "upkeep/*") == ""  # --no-commit creates no branch
 
 
@@ -169,10 +169,10 @@ def test_all_three_recipes_fetch_the_documented_urls(tmp_path):
     fetch = FakeFetch()
     results = update.update(repo, fetch, TODAY, commit=False, out=io.StringIO())
     stored = {r["key"]: r["path"] for r in results if r["status"] == "stored"}
-    assert stored == {EU_KEY: "records/EU/eu-act/2027-01-01-consolidated.json",
-                      GB_KEY: "records/GB/gb-sec/2027-02-02-consolidated.json",
-                      SI_KEY: "records/GB/gb-si/2027-02-03-adopted.json",
-                      US_KEY: "records/US/us-part/2027-03-03-consolidated.json"}
+    assert stored == {EU_KEY: "records/EU/eu-act/2027-01-01-consolidated-en.json",
+                      GB_KEY: "records/GB/gb-sec/2027-02-02-consolidated-en.json",
+                      SI_KEY: "records/GB/gb-si/2027-02-03-adopted-en.json",
+                      US_KEY: "records/US/us-part/2027-03-03-consolidated-en.json"}
     assert [c[0] for c in fetch.calls] == [EU_URL, GB_URL, SI_URL, US_URL, BANNED_URL]
     assert fetch.calls[3][1] == {"Accept-Encoding": "gzip"}
     gb = json.loads((repo / stored[GB_KEY]).read_text())
@@ -218,7 +218,7 @@ def test_gate_failure_reverts_record_scope_and_sources(tmp_path):
     results = update.update(repo, fetch, TODAY, row="eu-banned:2027-06-06", commit=False, out=io.StringIO())
     assert results[0]["status"] == "refused" and "gate: " in results[0]["detail"]
     row = rows(repo)["eu-banned:2027-06-06"]
-    assert row["outcome"] == "confirm" and row["notes"].startswith("refused 2026-11-02: gate: records/EU/eu-banned/2027-06-06-consolidated.json: standards text by name")
+    assert row["outcome"] == "confirm" and row["notes"].startswith("refused 2026-11-02: gate: records/EU/eu-banned/2027-06-06-consolidated-en.json: standards text by name")
     after = tree(repo)
     assert {k for k in set(after) | set(before) if after.get(k) != before.get(k)} == {"upkeep/queue.csv"}
 
@@ -233,7 +233,7 @@ def test_fetch_failure_is_a_refusal_in_notes(tmp_path, bodies, reason):
     results = update.update(repo, FakeFetch(bodies), TODAY, row=EU_KEY, commit=False, out=io.StringIO())
     assert results[0]["status"] == "refused"
     assert reason in rows(repo)[EU_KEY]["notes"] and rows(repo)[EU_KEY]["outcome"] == "confirm"
-    assert not (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated.json").exists()
+    assert not (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").exists()
 
 
 def test_rows_without_instrument_or_date_are_left_open(tmp_path):
@@ -256,10 +256,10 @@ def test_commit_flow_makes_one_commit_on_an_upkeep_branch_and_never_touches_main
     assert git(repo, "status", "--porcelain") == ""
     assert git(repo, "rev-list", "--count", f"main..{EU_BRANCH}") == "1"
     assert git(repo, "diff", "--name-only", "main", EU_BRANCH).splitlines() == [
-        "SOURCES.md", "records/EU/eu-act/2027-01-01-consolidated.json", "register/EU/scope.json", "upkeep/queue.csv"]
+        "SOURCES.md", "records/EU/eu-act/2027-01-01-consolidated-en.json", "register/EU/scope.json", "upkeep/queue.csv"]
     body = git(repo, "log", "-1", "--format=%B", EU_BRANCH)
     assert body.startswith("upkeep: eu-act 2027-01-01 (consolidated)") and f"Queue-row: {EU_KEY}" in body
-    assert "placeholder consolidated text" in git(repo, "show", f"{EU_BRANCH}:records/EU/eu-act/2027-01-01-consolidated.json")
+    assert "placeholder consolidated text" in git(repo, "show", f"{EU_BRANCH}:records/EU/eu-act/2027-01-01-consolidated-en.json")
     assert rows(repo)[EU_KEY]["outcome"] == "confirm"  # main's queue is untouched; the stored mark is on the branch
     printed = out.getvalue()
     assert f"git push -u origin {EU_BRANCH}" in printed and f"gh pr create --head {EU_BRANCH}" in printed
@@ -337,7 +337,7 @@ def test_dry_run_fetches_and_writes_nothing(tmp_path):
     assert git(repo, "branch", "--list", "upkeep/*") == "" and git(repo, "status", "--porcelain") == ""
     assert {r["status"] for r in results} <= {"planned", "open"}
     planned = {r["key"]: r["detail"] for r in results if r["status"] == "planned"}
-    assert planned[EU_KEY] == (f"would fetch {EU_URL}, write records/EU/eu-act/2027-01-01-consolidated.json, "
+    assert planned[EU_KEY] == (f"would fetch {EU_URL}, write records/EU/eu-act/2027-01-01-consolidated-en.json, "
                                f"mark eu-act stored in register/EU/scope.json, add a SOURCES.md line, commit to {EU_BRANCH}")
     assert planned["in-sebi:2027-05-05"].startswith("would refuse: source IN-SEBI-ADOPTED verdict")
     assert rows(repo)["in-sebi:2027-05-05"]["notes"] == ""
