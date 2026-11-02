@@ -1818,5 +1818,179 @@
   "params": {
    "second_route": "https://www.jse.co.za/ (browser; jse.co.za answers scripts with HTTP 403)"
   }
+ },
+ {
+  "id": "tw-climate-change-response-act-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-change-response-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020098",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020098 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-climate-change-response-act-rules-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-change-response-act-rules",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020103",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020103 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-climate-risk-assessment-guidelines-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-climate-risk-assessment-guidelines",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143 (browser; compare the last \u6cbf\u9769 entry with 2025-07-16)"
+  }
+ },
+ {
+  "id": "tw-ghg-inventory-registration-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-inventory-registration-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102 (browser; compare the last \u6cbf\u9769 entry with 2025-12-19)"
+  }
+ },
+ {
+  "id": "tw-carbon-fee-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-carbon-fee-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020139",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020139 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-ghg-voluntary-reduction-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-voluntary-reduction-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+  }
+ },
+ {
+  "id": "tw-ghg-reduction-credit-trading-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-reduction-credit-trading-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138 (browser; compare the last \u6cbf\u9769 entry with 2024-08-15)"
+  }
+ },
+ {
+  "id": "tw-ghg-increment-offset-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-increment-offset-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+  }
+ },
+ {
+  "id": "tw-ghg-verification-bodies-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-verification-bodies-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104 (browser; compare the last \u6cbf\u9769 entry with 2025-03-19)"
+  }
+ },
+ {
+  "id": "tw-ghg-offset-project-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-ghg-offset-project-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101 (browser; compare the last \u6cbf\u9769 entry with 2018-12-27)"
+  }
+ },
+ {
+  "id": "tw-electricity-emission-factor-regs-moj-history-page",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-electricity-emission-factor-regs",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079",
+  "params": {
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079 (browser; compare the last \u6cbf\u9769 entry with 2020-11-11)"
+  }
+ },
+ {
+  "id": "tw-hfc-management-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-hfc-management-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=O0020141",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020141 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-annual-report-regs-moj-english-history",
+  "source_id": "TW-MOJ-CONSOLIDATED",
+  "iso2": "TW",
+  "instrument": "tw-annual-report-regs",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://law.moj.gov.tw/ENG/LawClass/LawHistory.aspx?pcode=G0400022",
+  "params": {
+   "regex": "(?:Amended|Announced) Date\uff1a</th>\\s*<td>(\\d{4}-\\d{2}-\\d{2})</td>",
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0400022 (browser; Chinese legislative history, the English page lags the Chinese amendment)"
+  }
+ },
+ {
+  "id": "tw-twse-sustainability-report-rules-twse-history",
+  "source_id": "TW-TWSE-ADOPTED",
+  "iso2": "TW",
+  "instrument": "tw-twse-sustainability-report-rules",
+  "kind": "date_list",
+  "tier": "regulator_page",
+  "url": "https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209",
+  "params": {
+   "regex": "FLDATE=(\\d{8})",
+   "second_route": "https://twse-regulation.twse.com.tw/TW/law/DAT01.aspx?FLCODE=FL075209 (browser; legislative history, the links carry the version dates)"
+  }
  }
 ]
