@@ -7069,5 +7069,77 @@
   "tier": "regulator_page",
   "url": "https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf",
   "params": {}
+ },
+ {
+  "id": "pe-smv-rsc-018-2020-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-smv-rsc-018-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/272ISYruaG39_ADpvQbxa1/*/1853548-1.pdf"
+ },
+ {
+  "id": "pe-cnc-res-001-2026-ef30-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-cnc-res-001-2026-ef30",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/CJhU8wL-aaoAlrgffjjyFE/*/2500411-1.PDF"
+ },
+ {
+  "id": "pe-ley-30754-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-30754",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/Ev9teLThaoJBc7Fj3Z9fB3/*/1638161-1.pdf"
+ },
+ {
+  "id": "pe-ds-013-2019-minam-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ds-013-2019-minam",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/2mubNpRHaKfBVOvV7ZR2Jp/*/1842032-2.pdf"
+ },
+ {
+  "id": "pe-ds-010-2024-minam-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ds-010-2024-minam",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/1IJnm3gAa49APwPHS3oWJJ/*/2343202-1.pdf"
+ },
+ {
+  "id": "pe-ley-28611-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-28611",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/2k4IxkoDKjXB-kayi8301O/*/NL20051015.pdf"
+ },
+ {
+  "id": "pe-ley-29571-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-ley-29571",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/FLjXBRgxacfAreF8uHsy2D/*/538113-1.pdf"
+ },
+ {
+  "id": "pe-dl-1044-elperuano-pdf",
+  "source_id": "PE-ELPERUANO-ADOPTED",
+  "iso2": "PE",
+  "instrument": "pe-dl-1044",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://busquedas.elperuano.pe/api/archivo/file/22AIgFtfKJZ95ZsRs-y579/*/218542-6.pdf"
  }
 ]

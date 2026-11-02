@@ -3954,3 +3954,154 @@ Returned `200 287607 application/pdf`. `pdftotext -layout cg.pdf -` gives readab
 - Dhaka Stock Exchange, `https://www.dsebd.org` returned `200 1868223 text/html; charset=utf-8` (a script-rendered page); `https://www.dsebd.org/disclaimer` returned `403` to curl and `https://www.dsebd.org/terms` returned a script shell with no terms text. No DSE instrument in families F1 to F6 was identified, so there is no DSE row.
 - Financial Reporting Council: `https://frcbd.org` answers `200 450772 text/html` but the page is a TeePublic shop page, not the FRC; the FRC's own site `https://frc.gov.bd` fails `curl: (60) SSL certificate problem: unable to get local issuer certificate` and headless Chromium got HTTP 502 `upstream request failed` for `https://frc.gov.bd` and `https://www.frc.gov.bd`. Blocked from the cloud address. No gazetted order adopting IFRS S1 and S2 was found on any page opened, so there is no FRC entry or row.
 - No ETS or carbon tax: the bdlaws chronological index (titles searched for the Bangla words for carbon, energy, environment, climate and forest) lists no carbon tax or emissions trading Act. No register row was added.
+
+## Peru
+
+Rows `PE-ELPERUANO-ADOPTED` (`pass`, statute: Decreto Legislativo 822 art. 9 b), `PE-GOBPE-TRANSLATION` (`permission requested`) and `PE-SPIJ-CONSOLIDATED` (`permission requested`, page could not be opened). Run on 2026-11-02. Brief candidates not given a row: smv.gob.pe redirects to gob.pe/institucion/smv and the SMV resolution is read from El Peruano; the Bolsa de Valores de Lima site (https://www.bvl.com.pe) returned a 9 KB JavaScript shell with no terms page, and no BVL instrument is in scope.
+
+El Peruano's search site (https://busquedas.elperuano.pe, a React Router app) answers plain `curl`; there is no WAF challenge. The search runs through a data route, the norm page through a second one. Both return the React Router turbo-stream format (a flat JSON array in which objects hold integer references into the array); the decoder used is below (`decode(arr)(0)` returns the page data as nested dicts and lists; the hits are under `hits`, the HTML of a norm under `htmlContent`). ```
+def decode(arr):
+    memo={}
+    def res(i):
+        if i<0: return None
+        if i in memo: return memo[i]
+        v=arr[i]
+        if isinstance(v,dict):
+            o={}; memo[i]=o
+            for k,val in v.items():
+                kk=arr[int(k[1:])] if k.startswith('_') else k
+                o[kk]=res(val) if isinstance(val,int) and not isinstance(val,bool) else val
+            return o
+        if isinstance(v,list):
+            l=[]; memo[i]=l
+            for x in v: l.append(res(x) if isinstance(x,int) and not isinstance(x,bool) else x)
+            return l
+        memo[i]=v; return v
+    return res
+```
+
+Find an instrument (here the RENAMI decree, searched in the November 2024 window):
+
+```
+curl -sS -A 'Mozilla/5.0' -o s.data -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/_root.data?start=0&query=RENAMI&ci=all&fechaIni=20241101&fechaFin=20241130'
+```
+
+Returned `200 659596 text/x-script; charset=utf-8`; after decoding, `hits` holds two entries: the Normas Legales cuadernillo of the day and `op` 2343202-1, `tipoPublicacion` SE, `numeroDispositivo` N° 010-2024-MINAM. Search is fuzzy and sorted by date, so use `fechaIni`/`fechaFin` on the publication date. `fechaPublicacion` of a hit is the publication date. A norm is then at `/dispositivo/<tipoPublicacion>/<op>`:
+
+```
+curl -sS -A 'Mozilla/5.0' -o d.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/dispositivo/NL/1842032-2'
+```
+
+Returned `200 93802 text/html; charset=utf-8` (Decreto Supremo N° 013-2019-MINAM). The page carries two things: for modern norms (2018 onward, not all) a `<div class="story">` with the clean XHTML text (`hasHTML` true), and the link to the official PDF of the page, `/api/archivo/file/<file id>/*/<op>.pdf`. Norms without the HTML view are PDF-only. Two ways to fetch text, both reproducible byte for byte on two runs:
+
+HTML view, as the data route of the same page (the HTML page itself carries a per-request script token and its bytes differ per request, so it is not hashed):
+
+```
+curl -sS -A 'Mozilla/5.0' -o 1638161-1.data -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/dispositivo/NL/1638161-1.data'
+```
+
+Returned `200 125198 text/x-script; charset=utf-8` (Ley N° 30754), sha256 `8a4e32687506c29dd4ff4fbed9cefa2ca3fc13efddcdeefa6c5ad01bfc179a47` on two runs. `text` is the `story` div of the `htmlContent` field with script and style removed, `p`, `h1` to `h6`, `div`, `tr` and `br` as line breaks, table cells joined by a space, entities unescaped, runs of spaces collapsed, empty lines dropped. The XHTML inside carries a stale `<title>` from another norm (the Ley 30754 page shows the title of a water-reserve resolution); the title is not part of `story` and is not stored.
+
+PDF, with the file id from the page:
+
+```
+curl -sS -A 'Mozilla/5.0' -o 1842032-2.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://busquedas.elperuano.pe/api/archivo/file/2mubNpRHaKfBVOvV7ZR2Jp/*/1842032-2.pdf'
+```
+
+Returned `200 539110 application/pdf`, sha256 `e30b179267a7b43f617b24a6be52f0a6f06082d703a1225f622f053ede55097d` on two runs. A HEAD request answers with `ETag` and `Last-Modified` (used by the watchers). The PDF is the newspaper pages the norm is printed on, in two columns, so it holds the tail of the previous norm, the head of the next one and the page headers. `pdftotext -layout` (the Brazil recipe) merges the two columns line by line and `pdftotext` in reading order mixes them, so the records were made from word positions: `pdftotext -bbox-layout file.pdf -`, blocks placed by column (x position against two equal columns), blocks that span the page as column breaks, page-header blocks (above y 80: `El Peruano ...`, `NORMAS LEGALES`, page number) dropped, then the slice between the norm's heading and its OP number line, `fi`/`fl` ligatures normalised (the PDF writes `Oficial` as `Oﬁ cial`). Nothing is reworded; line breaks are the PDF's own, and a few words keep stray spaces from the PDF text layer ('l os', 't reinta'). Condensed code (`bbox_lines`, `clean`):
+
+```
+import re,sys,subprocess
+FURN=[r'^El Peruano( ?/ ?.*)?$', r'^Lima, (lunes|martes|miércoles|jueves|viernes|sábado|domingo) \d+ de \w+ de \d{4}$', r'^NORMAS LEGALES$']
+def clean(lines):
+    lines=[l.replace('\x0c','').rstrip() for l in lines]
+    lines=[re.sub(r'[ \t]+',' ',l).strip() for l in lines]
+    isf=[any(re.match(p,l) for p in FURN) for l in lines]
+    drop=set()
+    for i,f in enumerate(isf):
+        if f:
+            drop.add(i)
+            for d in range(-3,4):
+                j=i+d
+                if 0<=j<len(lines) and re.fullmatch(r'\d{1,3}|\d{6}',lines[j]): drop.add(j)
+    out=[l for i,l in enumerate(lines) if i not in drop and l]
+    return out
+def pdflines(path):
+    return subprocess.run(['pdftotext',path,'-'],capture_output=True,text=True).stdout.split('\n')
+def find(lines,pat,start=0):
+    for i in range(start,len(lines)):
+        if re.search(pat,lines[i]): return i
+    raise SystemExit('marker not found: '+pat)
+def articles(txt):
+    return re.findall(r'(?mi)^Art[íi]culo (\d+)[º°o]?[.\- ]',txt)
+
+import html as _h
+def bbox_lines(path,ncols=2,margin=30,fullw=0.6):
+    xml=subprocess.run(['pdftotext','-bbox-layout',path,'-'],capture_output=True,text=True).stdout
+    out=[]
+    for pm in re.finditer(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>',xml,re.S):
+        W=float(pm.group(1)); body=pm.group(3)
+        colw=(W-2*margin)/ncols
+        blocks=[]
+        for b in re.finditer(r'<block xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</block>',body,re.S):
+            x0,y0,x1,y1=map(float,b.groups()[:4])
+            lines=[]
+            for ln in re.finditer(r'<line [^>]*>(.*?)</line>',b.group(5),re.S):
+                ws=[_h.unescape(w) for w in re.findall(r'>([^<]*)</word>',ln.group(1))]
+                lines.append(' '.join(ws))
+            full=(x1-x0)>fullw*W
+            if y1<80 and re.fullmatch(r'(El Peruano.*|NORMAS LEGALES|\d{1,4}|Lima, .*)',' '.join(lines)): continue
+            col=0 if full else max(0,min(ncols-1,int((x0-margin+5)//colw)))
+            blocks.append((y0,x0,col,full,lines))
+        # bands separated by full-width blocks
+        blocks.sort(key=lambda b:(b[0],b[1]))
+        band=[]; res=[]
+        def flush():
+            for c in range(ncols):
+                for b in sorted([b for b in band if b[2]==c],key=lambda b:b[0]): res.extend(b[4])
+            band.clear()
+        for b in blocks:
+            if b[3]:
+                flush(); res.extend(b[4])
+            else: band.append(b)
+        flush()
+        out.extend(res); out.append('\x0c')
+    return out
+```
+
+Check run on every PDF record: the article numbers come out in sequence (DS 013-2019: 1 to 4, then 1 to 72; DS 010-2024: 1 to 6, then 1 to 52; the SMV resolution 1 to 5). Old gazette PDFs fail this check (headings missing from the text layer), so those norms are link only.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Records | Fetch |
+|---|---|---|---|
+| `pe-ley-30754` | adopted | 2018-04-18 es | HTML view, `.data` of 1638161-1 |
+| `pe-cnc-res-001-2026-ef30` | adopted | 2026-03-27 es | HTML view, `.data` of 2500411-1 (`200 122271` for the page, file id CJhU8wL-aaoAlrgffjjyFE) |
+| `pe-ds-013-2019-minam` | adopted | 2019-12-31 es | PDF, 1842032-2 |
+| `pe-ds-010-2024-minam` | adopted | 2024-11-13 es | PDF of the Separata Especial, 2343202-1 (`200 4621694 application/pdf`) |
+| `pe-smv-rsc-018-2020` | adopted | 2020-02-09 es | PDF, 1853548-1 (`200 454572 application/pdf`) |
+
+None of these is a browser-fetched record; no headless browser was needed.
+
+### Languages
+
+Spanish is the only language El Peruano serves; Constitution art. 48 makes Quechua, Aymara and other native languages co-official where they predominate, but no native-language text of any instrument in scope was found on El Peruano or on the gob.pe pages opened. English: the only government translation found is MINAM's Spanish and English publication of DS 010-2024-MINAM on gob.pe.
+
+```
+curl -sS -A 'Mozilla/5.0' -o b.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://cdn.www.gob.pe/uploads/document/file/8242222/6882169-publicacion-bilingue-renami%282%29.pdf?v=1764013910'
+```
+
+Returned `200 5611421 application/pdf` (100 pages, Spanish and English paragraphs alternating). The same cdn host without the file query string, `https://cdn.www.gob.pe/institucion/minam/informes-publicaciones/6882169-publicacion-bilingue-...`, answers `403 459 text/html` (S3 AccessDenied); the page `https://www.gob.pe/institucion/minam/informes-publicaciones/6882169-publicacion-bilingue-decreto-supremo-que-aprueba-las-disposiciones-para-el-funcionamiento-del-registro-nacional-de-medidas-de-mitigacion-renami` answers `200 33977`. The translation is credited to GIZ-supported work and marked © Ministerio del Ambiente, so row `PE-GOBPE-TRANSLATION` is `permission requested` and nothing is stored from it.
+
+### Link only
+
+- `pe-ley-28611`: row passes; El Peruano has no dispositivo page for 2005 (search hit 'BORRA' is the whole-day gazette `NL20051015.pdf`, `200 1504095 application/pdf`); its text layer misses headings (Article 58 absent), so no faithful text.
+- `pe-ley-29571`: row passes; the 2010 gazette PDF (`200 685315 application/pdf`) has no heading line for Articles 37, 52, 111, 117, 118, 124 and 151, and the page's HTML view is a page-image conversion with broken characters.
+- `pe-dl-1044`: row passes; the 2008 gazette PDF (`200 395175 application/pdf`) has no heading line for Articles 47 and 58, and its first page begins inside Decreto Legislativo 1043.
+- SPIJ (consolidated texts, the way to get these three with their amendments): blocked from the cloud address.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download}\n' 'https://spij.minjus.gob.pe/spij-ext-web/'
+```
+
+Returned `curl: (35) Recv failure: Connection reset by peer` (exit 35, `000 0`). Headless Chromium to the same URL got `502 upstream request failed`; https://www.minjus.gob.pe is reset as well. Blocked from the cloud address: https://spij.minjus.gob.pe/spij-ext-web/ and https://www.minjus.gob.pe . The orchestrator can try both from the laptop.
