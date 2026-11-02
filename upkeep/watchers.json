@@ -4974,5 +4974,54 @@
   "params": {
    "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
   }
+ },
+ {
+  "id": "sa-environment-law-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "sa-air-quality-regulation-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-air-quality-regulation",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "sa-anti-commercial-fraud-law-boe-page",
+  "source_id": "SA-BOE-CONSOLIDATED",
+  "iso2": "SA",
+  "instrument": "sa-anti-commercial-fraud-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
+  "params": {
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "terms-sa-cma-adopted",
+  "source_id": "SA-CMA-ADOPTED",
+  "iso2": "SA",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://cma.gov.sa/en/Pages/terms.aspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://cma.gov.sa/en/Pages/terms.aspx (SharePoint page; curl returns a 1.2 KB shell, read it with a headless browser)"
+  }
  }
 ]
