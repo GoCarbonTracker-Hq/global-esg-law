@@ -2057,6 +2057,186 @@
   }
  },
  {
+  "id": "se-arl-ch6-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch6",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-arl-ch7-s31-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-arl-ch7-s31",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=1995:1554",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-sfs-2024-347-sfs-head",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "se-sfs-2024-347",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://svenskforfattningssamling.se/doc/2024347.html",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/doc/2024347.html (browser; svenskforfattningssamling.se answers scripts with HTTP 403, a Cloudflare block page)"
+  }
+ },
+ {
+  "id": "se-klimatlag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatlag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:720",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatpolitiska-radet-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatpolitiska-radet",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1268",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatrapporteringsforordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatrapporteringsforordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2014:1434",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-act-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1173",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-ets-ordinance-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-ets-ordinance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2020:1180",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:787",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-klimatdeklaration-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-klimatdeklaration-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2021:789",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-lag-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-lag",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2017:1201",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "se-reduktion-forordning-sfsr-amendments",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "se-reduktion-forordning",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://rkrattsbaser.gov.se/sfsr?bet=2025:589",
+  "params": {
+   "regex": "Ikraft: (\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "terms-se-riksdagen-consolidated",
+  "source_id": "SE-RIKSDAGEN-CONSOLIDATED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/riksdagens-oppna-data/anvandarstod/anvandningsvillkor/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-se-sfs-adopted",
+  "source_id": "SE-SFS-ADOPTED",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://svenskforfattningssamling.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://svenskforfattningssamling.se/ (browser; answers scripts with HTTP 403, a Cloudflare block page; the terms page itself was never opened)"
+  }
+ },
+ {
+  "id": "terms-se-government-translation",
+  "source_id": "SE-GOVERNMENT-TRANSLATION",
+  "iso2": "SE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.government.se/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)"
+  }
+ },
+ {
   "id": "mx-lgcc-diputados-pdf-head",
   "source_id": "MX-DIPUTADOS-CONSOLIDATED",
   "iso2": "MX",
