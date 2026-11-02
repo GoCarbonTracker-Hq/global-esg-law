@@ -1,9 +1,1017 @@
 {
+ "au-aasb-s2-versions": {
+  "bytes": 191,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.51,
+  "signals": [
+   "2024-11-25",
+   "2026-12-31",
+   "2035-04-01"
+  ]
+ },
+ "au-aasb-s2025-1-versions": {
+  "bytes": 159,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.38,
+  "signals": [
+   "2025-12-17",
+   "2036-04-01"
+  ]
+ },
+ "au-assa-2025-10-versions": {
+  "bytes": 127,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.34,
+  "signals": [
+   "2025-12-23"
+  ]
+ },
+ "au-assa-5010-versions": {
+  "bytes": 159,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.37,
+  "signals": [
+   "2025-02-12",
+   "2025-12-24"
+  ]
+ },
+ "au-climate-change-act-2022-versions": {
+  "bytes": 191,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.76,
+  "signals": [
+   "2022-09-13",
+   "2023-04-12",
+   "2025-02-20"
+  ]
+ },
+ "au-corporations-act-2001-pt2m3-versions": {
+  "bytes": 5631,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.41,
+  "signals": [
+   "2001-06-28",
+   "2001-07-15",
+   "2001-09-18",
+   "2001-09-27",
+   "2001-12-15",
+   "2002-03-11",
+   "2002-07-01",
+   "2003-01-01",
+   "2003-04-11",
+   "2003-07-01",
+   "2003-11-28",
+   "2003-12-17",
+   "2003-12-18",
+   "2004-01-14",
+   "2004-06-30",
+   "2004-07-01",
+   "2004-07-13",
+   "2004-07-26",
+   "2004-12-01",
+   "2005-01-01",
+   "2005-02-22",
+   "2005-11-18",
+   "2006-09-14",
+   "2006-12-13",
+   "2007-01-01",
+   "2007-02-20",
+   "2007-04-01",
+   "2007-05-13",
+   "2007-06-28",
+   "2007-07-01",
+   "2007-09-01",
+   "2007-09-24",
+   "2007-10-22",
+   "2007-12-21",
+   "2007-12-28",
+   "2007-12-31",
+   "2008-01-01",
+   "2008-06-25",
+   "2008-06-26",
+   "2008-07-01",
+   "2008-10-18",
+   "2008-11-22",
+   "2008-12-10",
+   "2009-01-01",
+   "2009-01-08",
+   "2009-02-25",
+   "2009-07-01",
+   "2009-11-06",
+   "2009-11-24",
+   "2009-12-11",
+   "2010-01-01",
+   "2010-02-20",
+   "2010-02-27",
+   "2010-03-01",
+   "2010-04-01",
+   "2010-04-15",
+   "2010-05-06",
+   "2010-06-28",
+   "2010-07-01",
+   "2010-07-06",
+   "2010-08-01",
+   "2010-12-13",
+   "2010-12-18",
+   "2011-01-01",
+   "2011-03-22",
+   "2011-04-13",
+   "2011-05-10",
+   "2011-07-01",
+   "2011-12-08",
+   "2012-01-30",
+   "2012-04-20",
+   "2012-06-28",
+   "2012-06-30",
+   "2012-07-01",
+   "2012-07-25",
+   "2012-10-01",
+   "2012-11-18",
+   "2012-11-28",
+   "2012-12-03",
+   "2012-12-05",
+   "2012-12-11",
+   "2013-01-03",
+   "2013-06-27",
+   "2013-07-01",
+   "2013-07-19",
+   "2014-07-01",
+   "2014-12-19",
+   "2015-03-19",
+   "2015-04-14",
+   "2015-07-01",
+   "2016-03-19",
+   "2016-09-24",
+   "2017-03-01",
+   "2017-03-15",
+   "2017-03-29",
+   "2017-04-05",
+   "2017-06-22",
+   "2017-07-01",
+   "2017-09-19",
+   "2017-09-28",
+   "2018-01-01",
+   "2018-03-05",
+   "2018-03-06",
+   "2018-03-30",
+   "2018-04-04",
+   "2018-04-12",
+   "2018-07-01",
+   "2018-09-18",
+   "2018-09-22",
+   "2018-10-19",
+   "2019-01-01",
+   "2019-03-13",
+   "2019-04-05",
+   "2019-04-06",
+   "2019-07-01",
+   "2020-02-18",
+   "2020-02-27",
+   "2020-03-25",
+   "2020-06-23",
+   "2020-12-16",
+   "2020-12-18",
+   "2021-01-01",
+   "2021-04-04",
+   "2021-04-05",
+   "2021-07-01",
+   "2021-08-02",
+   "2021-08-14",
+   "2021-09-01",
+   "2021-09-14",
+   "2021-10-01",
+   "2021-10-05",
+   "2021-12-08",
+   "2022-01-01",
+   "2022-02-23",
+   "2022-04-01",
+   "2022-06-22",
+   "2022-07-01",
+   "2022-08-10",
+   "2022-09-28",
+   "2022-10-01",
+   "2023-03-01",
+   "2023-07-01",
+   "2023-07-04",
+   "2023-09-15",
+   "2023-09-21",
+   "2023-10-20",
+   "2023-11-28",
+   "2024-01-01",
+   "2024-04-09",
+   "2024-05-22",
+   "2024-06-12",
+   "2024-06-29",
+   "2024-07-01",
+   "2024-07-10",
+   "2024-09-18",
+   "2024-09-24",
+   "2024-10-14",
+   "2024-12-11",
+   "2024-12-24",
+   "2025-02-21",
+   "2025-03-17",
+   "2025-07-01",
+   "2025-07-09",
+   "2025-12-05",
+   "2025-12-19",
+   "2026-06-30",
+   "2026-07-01",
+   "2026-08-27",
+   "2026-09-19",
+   "2026-12-01",
+   "2026-12-04",
+   "2027-04-08",
+   "2027-07-01"
+  ]
+ },
+ "au-modern-slavery-act-2018-versions": {
+  "bytes": 191,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.81,
+  "signals": [
+   "2018-12-10",
+   "2024-10-14",
+   "2024-11-07"
+  ]
+ },
+ "au-nger-act-2007-versions": {
+  "bytes": 959,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.36,
+  "signals": [
+   "2007-09-28",
+   "2008-09-16",
+   "2009-03-15",
+   "2009-09-19",
+   "2009-10-16",
+   "2011-09-16",
+   "2011-12-08",
+   "2011-12-27",
+   "2012-04-02",
+   "2012-07-01",
+   "2012-12-14",
+   "2013-04-12",
+   "2013-07-01",
+   "2014-06-24",
+   "2014-07-01",
+   "2014-12-13",
+   "2016-07-01",
+   "2017-03-01",
+   "2018-12-29",
+   "2019-08-30",
+   "2021-09-01",
+   "2022-09-14",
+   "2023-04-12",
+   "2023-12-15",
+   "2024-03-20",
+   "2024-10-14",
+   "2025-11-03"
+  ]
+ },
+ "au-nger-regulations-2008-versions": {
+  "bytes": 1183,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.38,
+  "signals": [
+   "2008-06-26",
+   "2009-03-15",
+   "2009-12-17",
+   "2011-07-01",
+   "2011-12-08",
+   "2012-04-02",
+   "2012-04-24",
+   "2012-07-01",
+   "2012-07-19",
+   "2013-07-01",
+   "2013-07-16",
+   "2014-07-01",
+   "2014-09-09",
+   "2015-07-01",
+   "2015-10-07",
+   "2016-05-10",
+   "2016-07-01",
+   "2017-03-01",
+   "2018-07-01",
+   "2019-10-22",
+   "2020-07-01",
+   "2021-07-01",
+   "2022-07-01",
+   "2023-04-29",
+   "2023-05-27",
+   "2023-07-01",
+   "2023-11-01",
+   "2024-03-20",
+   "2024-06-22",
+   "2024-10-14",
+   "2025-06-28",
+   "2025-10-24",
+   "2025-11-03",
+   "2026-07-01"
+  ]
+ },
+ "au-nger-safeguard-rule-2015-versions": {
+  "bytes": 543,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.57,
+  "signals": [
+   "2015-10-08",
+   "2019-03-07",
+   "2019-09-26",
+   "2020-03-04",
+   "2020-05-12",
+   "2020-10-02",
+   "2020-10-03",
+   "2021-07-17",
+   "2021-10-02",
+   "2022-09-02",
+   "2023-07-01",
+   "2023-10-07",
+   "2024-04-27",
+   "2024-08-31"
+  ]
+ },
+ "au-safeguard-crediting-act-2023-versions": {
+  "bytes": 127,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.42,
+  "signals": [
+   "2023-04-11"
+  ]
+ },
+ "au-tlaa-2024-87-versions": {
+  "bytes": 127,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.48,
+  "signals": [
+   "2024-09-17"
+  ]
+ },
+ "br-bcb-res-139-2021-bcb-normativo": {
+  "bytes": 28895,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.13,
+  "signals": [
+   "22f64f530e0222a5bca14dc4be3394aefcdc38258583c8c2738924352cb7a0f8"
+  ]
+ },
+ "br-bcb-res-140-2021-bcb-normativo": {
+  "bytes": 13646,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.15,
+  "signals": [
+   "d03f2423999ac1e765b8dbb8ab773cbb0afca1c77002dcc43a55cc4491f34324"
+  ]
+ },
+ "br-bcb-res-586-2026-bcb-normativo": {
+  "bytes": 22018,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.86,
+  "signals": [
+   "01913658151f233ce0cf3539222534ebc2ca8459ec304f0ae9ad7e97301eef83"
+  ]
+ },
+ "br-cmn-res-4943-2021-bcb-normativo": {
+  "bytes": 50416,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.03,
+  "signals": [
+   "d2fb8a91391380222db30de1662723dff87567c9bfeb1bf89a6c45cacfa26097"
+  ]
+ },
+ "br-cmn-res-4944-2021-bcb-normativo": {
+  "bytes": 26865,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.85,
+  "signals": [
+   "934129293482591e3877f0ce242531e8905bc1e72d63eb49c70f067e4e782bc2"
+  ]
+ },
+ "br-cmn-res-4945-2021-bcb-normativo": {
+  "bytes": 46997,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.21,
+  "signals": [
+   "38e3425a59e47fbab2d89f15c5e8e09402c940e93e7f26e585dc268538cdfd25"
+  ]
+ },
+ "br-cvm-res-193-2023-cvm-resolution-page": {
+  "bytes": 62713,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.93,
+  "signals": [
+   "6b5d2d10401f1335c3c1310b2bc6fc2c25a7c86f82da60eb54b45899d5c082ff"
+  ]
+ },
+ "br-cvm-res-219-2024-cvm-resolution-page": {
+  "bytes": 59547,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.86,
+  "signals": [
+   "3c85ecf6a38995b6a0bb44bf0f4e117b3cca60510ea7b5454805554dafd8479d"
+  ]
+ },
+ "br-cvm-res-227-2025-cvm-resolution-page": {
+  "bytes": 59533,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.04,
+  "signals": [
+   "e4a40ce8044869688bf501b8fcbdd07d4ca8ede8918de2c18aa1c775b5efc633"
+  ]
+ },
+ "br-cvm-res-244-2026-cvm-resolution-page": {
+  "bytes": 60011,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.28,
+  "signals": [
+   "2be856ebd3a4ebf2ea21e619474e00d0430e10b455a1b9778f4cfdd80015c687"
+  ]
+ },
+ "br-cvm-res-59-2021-cvm-resolution-page": {
+  "bytes": 62652,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.99,
+  "signals": [
+   "08afb0ef3cd042c1c4cf857e7ea3619a2d20097f4eed15c53dc47e50b69551de"
+  ]
+ },
+ "br-decreto-12677-2025-camara-norma-page": {
+  "bytes": 42119,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.71,
+  "signals": [
+   "09710e9d0219be5d65bd45c0b16daa763c0e9910471d236bd09a7f88f361b507"
+  ]
+ },
+ "br-decreto-12768-2025-camara-norma-page": {
+  "bytes": 40896,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.84,
+  "signals": [
+   "c281885a6d1c892a6e94c8a8944b2c4a6f486f5ae33d960223dd19c5ef40fbf9"
+  ]
+ },
+ "br-lei-12187-2009-camara-norma-page": {
+  "bytes": 47109,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.08,
+  "signals": [
+   "3787e9a92a803a0046f8af60085de1e594ee6c1a88ab1b73561d6f85721c8c64"
+  ]
+ },
+ "br-lei-15042-2024-camara-norma-page": {
+  "bytes": 43749,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.89,
+  "signals": [
+   "3bbad5550de869ad44e93dd9c7b418f3b0669297e919987cc5aa6fad797616b0"
+  ]
+ },
+ "br-mte-portaria-18-2024-mte-pdf": {
+  "bytes": 384528,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.51,
+  "signals": [
+   "ddc528206be3038fa71e9441fa54f9a595da2e15e43dce293c1f7f06172447c5"
+  ]
+ },
+ "ca-cepa-s46-ghg-notice-2023-page": {
+  "bytes": 161371,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.42,
+  "signals": [
+   "a3709cf402eca5ed55c534e9dfaaca6123719c8b8bc15152455fa87b85463f70"
+  ]
+ },
+ "ca-cepa-s46-ghg-notice-amend-2025-page": {
+  "bytes": 113288,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.37,
+  "signals": [
+   "d5d4339cd9364dad64ec9488c6b3092fcdb33e8e616ea32731e419cbf3cee0a0"
+  ]
+ },
+ "ca-clean-fuel-regs-pit-index": {
+  "bytes": 13654,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.25,
+  "signals": [
+   "2022-06-21",
+   "2024-09-30"
+  ]
+ },
+ "ca-cneaa-pit-index": {
+  "bytes": 13717,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.27,
+  "signals": [
+   "2021-06-29",
+   "2023-03-31"
+  ]
+ },
+ "ca-competition-act-s74-01-pit-index": {
+  "bytes": 15899,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.26,
+  "signals": [
+   "2002-12-31",
+   "2003-04-01",
+   "2003-07-02",
+   "2005-04-01",
+   "2007-06-22",
+   "2009-03-12",
+   "2010-03-12",
+   "2014-07-01",
+   "2014-11-01",
+   "2015-02-26",
+   "2015-03-09",
+   "2017-09-21",
+   "2017-12-12",
+   "2018-05-01",
+   "2019-01-15",
+   "2019-04-03",
+   "2019-06-17",
+   "2019-12-18",
+   "2020-07-01",
+   "2022-06-23",
+   "2023-06-23",
+   "2023-12-15",
+   "2024-06-20",
+   "2024-12-15",
+   "2025-06-20",
+   "2026-03-26"
+  ]
+ },
+ "ca-faflcsca-pit-index": {
+  "bytes": 13802,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.25,
+  "signals": [
+   "2023-05-11",
+   "2024-01-01"
+  ]
+ },
+ "ca-fsda-pit-index": {
+  "bytes": 14032,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.26,
+  "signals": [
+   "2008-06-26",
+   "2010-12-15",
+   "2013-06-26",
+   "2020-12-01",
+   "2026-02-13"
+  ]
+ },
+ "ca-ggppa-pit-index": {
+  "bytes": 15621,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.25,
+  "signals": [
+   "2018-06-21",
+   "2018-10-19",
+   "2019-01-01",
+   "2019-04-01",
+   "2019-07-01",
+   "2020-01-01",
+   "2020-12-04",
+   "2021-06-29",
+   "2021-08-12",
+   "2022-01-01",
+   "2022-06-09",
+   "2022-09-01",
+   "2022-10-11",
+   "2022-12-15",
+   "2023-01-01",
+   "2023-04-01",
+   "2023-06-22",
+   "2023-06-23",
+   "2023-07-01",
+   "2024-06-20",
+   "2025-03-15",
+   "2025-06-02",
+   "2026-03-12",
+   "2026-03-26"
+  ]
+ },
+ "ca-methane-regs-pit-index": {
+  "bytes": 14224,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.23,
+  "signals": [
+   "2018-04-04",
+   "2020-01-01",
+   "2023-01-01",
+   "2025-12-12"
+  ]
+ },
+ "ca-obps-regs-pit-index": {
+  "bytes": 14674,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.27,
+  "signals": [
+   "2019-06-28",
+   "2019-08-01",
+   "2020-01-01",
+   "2020-05-31",
+   "2021-02-16",
+   "2021-08-12",
+   "2022-01-01",
+   "2022-05-20",
+   "2023-11-09",
+   "2024-01-01",
+   "2025-03-15",
+   "2025-04-01"
+  ]
+ },
+ "ca-offset-credit-regs-pit-index": {
+  "bytes": 13713,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.24,
+  "signals": [
+   "2022-05-20"
+  ]
+ },
+ "ca-osfi-b15-page": {
+  "bytes": 145939,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.18,
+  "signals": [
+   "d458562407d7fa9f0f302989bff36099cc3ce1e6a2cbd57267920d87000e9649"
+  ]
+ },
+ "ch-climate-disclosure-ordinance-fedlex-consolidations": {
+  "bytes": 15,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.49,
+  "signals": [
+   "2024-01-01"
+  ]
+ },
+ "ch-co-art964a-c-fedlex-consolidations": {
+  "bytes": 1115,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.44,
+  "signals": [
+   "1912-01-01",
+   "1937-07-01",
+   "1942-07-01",
+   "1942-07-09",
+   "1945-03-01",
+   "1947-01-01",
+   "1949-10-20",
+   "1950-01-01",
+   "1953-01-01",
+   "1957-01-01",
+   "1958-07-01",
+   "1963-01-01",
+   "1965-04-15",
+   "1965-07-01",
+   "1966-02-01",
+   "1970-12-19",
+   "1972-01-01",
+   "1972-07-01",
+   "1973-02-15",
+   "1976-07-01",
+   "1977-01-01",
+   "1983-01-01",
+   "1983-04-01",
+   "1984-01-01",
+   "1984-07-01",
+   "1985-01-01",
+   "1985-06-01",
+   "1986-10-20",
+   "1988-01-01",
+   "1988-04-01",
+   "1989-01-01",
+   "1990-07-01",
+   "1991-01-01",
+   "1991-07-01",
+   "1992-07-01",
+   "1993-07-01",
+   "1994-01-01",
+   "1994-05-01",
+   "1995-01-01",
+   "1996-01-01",
+   "1996-07-01",
+   "1996-10-01",
+   "1997-01-01",
+   "1999-05-01",
+   "2000-01-01",
+   "2000-04-01",
+   "2000-05-01",
+   "2001-01-01",
+   "2001-05-01",
+   "2001-06-01",
+   "2002-06-01",
+   "2002-07-01",
+   "2003-01-01",
+   "2003-04-01",
+   "2003-06-01",
+   "2004-01-01",
+   "2004-05-01",
+   "2004-07-01",
+   "2005-01-01",
+   "2005-06-01",
+   "2005-07-01",
+   "2005-12-01",
+   "2006-01-01",
+   "2006-04-01",
+   "2007-01-01",
+   "2007-05-01",
+   "2008-01-01",
+   "2008-08-01",
+   "2009-10-01",
+   "2010-01-01",
+   "2011-01-01",
+   "2012-01-01",
+   "2012-03-01",
+   "2012-10-01",
+   "2013-01-01",
+   "2013-05-28",
+   "2014-01-01",
+   "2014-07-01",
+   "2015-07-01",
+   "2016-01-01",
+   "2016-07-01",
+   "2017-01-01",
+   "2017-04-01",
+   "2019-11-01",
+   "2020-01-01",
+   "2020-04-01",
+   "2021-01-01",
+   "2021-02-01",
+   "2021-05-01",
+   "2021-07-01",
+   "2022-01-01",
+   "2023-01-01",
+   "2023-02-09",
+   "2023-09-01",
+   "2024-01-01",
+   "2025-01-01",
+   "2025-07-08",
+   "2025-10-01",
+   "2026-01-01",
+   "2026-10-01",
+   "2027-07-01"
+  ]
+ },
+ "ch-co-art964j-l-fedlex-consolidations": {
+  "bytes": 1115,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.54,
+  "signals": [
+   "1912-01-01",
+   "1937-07-01",
+   "1942-07-01",
+   "1942-07-09",
+   "1945-03-01",
+   "1947-01-01",
+   "1949-10-20",
+   "1950-01-01",
+   "1953-01-01",
+   "1957-01-01",
+   "1958-07-01",
+   "1963-01-01",
+   "1965-04-15",
+   "1965-07-01",
+   "1966-02-01",
+   "1970-12-19",
+   "1972-01-01",
+   "1972-07-01",
+   "1973-02-15",
+   "1976-07-01",
+   "1977-01-01",
+   "1983-01-01",
+   "1983-04-01",
+   "1984-01-01",
+   "1984-07-01",
+   "1985-01-01",
+   "1985-06-01",
+   "1986-10-20",
+   "1988-01-01",
+   "1988-04-01",
+   "1989-01-01",
+   "1990-07-01",
+   "1991-01-01",
+   "1991-07-01",
+   "1992-07-01",
+   "1993-07-01",
+   "1994-01-01",
+   "1994-05-01",
+   "1995-01-01",
+   "1996-01-01",
+   "1996-07-01",
+   "1996-10-01",
+   "1997-01-01",
+   "1999-05-01",
+   "2000-01-01",
+   "2000-04-01",
+   "2000-05-01",
+   "2001-01-01",
+   "2001-05-01",
+   "2001-06-01",
+   "2002-06-01",
+   "2002-07-01",
+   "2003-01-01",
+   "2003-04-01",
+   "2003-06-01",
+   "2004-01-01",
+   "2004-05-01",
+   "2004-07-01",
+   "2005-01-01",
+   "2005-06-01",
+   "2005-07-01",
+   "2005-12-01",
+   "2006-01-01",
+   "2006-04-01",
+   "2007-01-01",
+   "2007-05-01",
+   "2008-01-01",
+   "2008-08-01",
+   "2009-10-01",
+   "2010-01-01",
+   "2011-01-01",
+   "2012-01-01",
+   "2012-03-01",
+   "2012-10-01",
+   "2013-01-01",
+   "2013-05-28",
+   "2014-01-01",
+   "2014-07-01",
+   "2015-07-01",
+   "2016-01-01",
+   "2016-07-01",
+   "2017-01-01",
+   "2017-04-01",
+   "2019-11-01",
+   "2020-01-01",
+   "2020-04-01",
+   "2021-01-01",
+   "2021-02-01",
+   "2021-05-01",
+   "2021-07-01",
+   "2022-01-01",
+   "2023-01-01",
+   "2023-02-09",
+   "2023-09-01",
+   "2024-01-01",
+   "2025-01-01",
+   "2025-07-08",
+   "2025-10-01",
+   "2026-01-01",
+   "2026-10-01",
+   "2027-07-01"
+  ]
+ },
+ "ch-co2-act-fedlex-consolidations": {
+  "bytes": 81,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.82,
+  "signals": [
+   "2013-01-01",
+   "2018-01-01",
+   "2020-01-01",
+   "2021-01-01",
+   "2022-01-01",
+   "2025-01-01",
+   "2027-01-01"
+  ]
+ },
+ "ch-co2-ordinance-fedlex-consolidations": {
+  "bytes": 422,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.43,
+  "signals": [
+   "2013-01-01",
+   "2013-02-12",
+   "2013-06-01",
+   "2014-01-01",
+   "2014-06-01",
+   "2014-12-01",
+   "2014-12-09",
+   "2015-01-01",
+   "2015-05-01",
+   "2016-01-01",
+   "2016-05-01",
+   "2016-08-01",
+   "2017-01-01",
+   "2017-06-01",
+   "2017-06-15",
+   "2017-12-01",
+   "2018-01-01",
+   "2018-11-01",
+   "2019-02-19",
+   "2019-11-01",
+   "2020-01-01",
+   "2020-11-01",
+   "2021-01-01",
+   "2021-02-10",
+   "2022-01-01",
+   "2022-03-04",
+   "2022-06-01",
+   "2022-10-01",
+   "2023-01-01",
+   "2023-02-15",
+   "2023-10-25",
+   "2023-11-01",
+   "2023-11-10",
+   "2024-01-01",
+   "2025-01-01",
+   "2025-05-01",
+   "2026-01-01",
+   "2027-01-01"
+  ]
+ },
+ "ch-finma-circ-2026-1-finma-circulars-page": {
+  "bytes": 78930,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.31,
+  "signals": [
+   "abf771c4bc6f3fda0dfda57c239d579ba3b50ffcce73e7c4ae20020881f48304"
+  ]
+ },
+ "ch-klg-fedlex-consolidations": {
+  "bytes": 15,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.42,
+  "signals": [
+   "2025-01-01"
+  ]
+ },
+ "ch-klv-fedlex-consolidations": {
+  "bytes": 37,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.58,
+  "signals": [
+   "2025-01-01",
+   "2026-01-01",
+   "2026-11-01"
+  ]
+ },
+ "ch-vsotr-fedlex-consolidations": {
+  "bytes": 26,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.59,
+  "signals": [
+   "2022-01-01",
+   "2024-01-01"
+  ]
+ },
  "eu-csddd-cellar-consolidations": {
   "bytes": 74,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 5.01,
+  "seconds": 3.8,
   "signals": [
    "2024-07-05",
    "2025-04-17",
@@ -11,10 +1019,10 @@
   ]
  },
  "eu-csrd-cellar-consolidations": {
-  "bytes": 74,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 4.19,
+  "failure": "TimeoutError: The read operation timed out",
+  "seconds": 30.67,
   "signals": [
    "2022-12-16",
    "2025-04-17",
@@ -25,7 +1033,7 @@
   "bytes": 353,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.67,
+  "seconds": 7.26,
   "signals": [
    "2024-02-05",
    "2024-04-19",
@@ -45,7 +1053,7 @@
   "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.94,
+  "seconds": 0.72,
   "signals": [
    "2026-09-25",
    "2026-10-15"
@@ -55,7 +1063,7 @@
   "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 4.94,
+  "seconds": 5.14,
   "signals": [
    "2023-12-22",
    "2025-01-01"
@@ -65,7 +1073,7 @@
   "bytes": 680,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.7,
+  "seconds": 0.89,
   "signals": [
    "2008-03-11",
    "2013-06-26",
@@ -97,7 +1105,7 @@
   "bytes": 440,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.71,
+  "seconds": 20.55,
   "signals": [
    "2023-02-23",
    "2023-04-13",
@@ -120,7 +1128,7 @@
   "bytes": 74,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 3.39,
+  "seconds": 3.93,
   "signals": [
    "2020-07-12",
    "2024-01-09",
@@ -131,7 +1139,7 @@
   "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 5.72,
+  "seconds": 4.31,
   "signals": [
    "2022-07-25",
    "2023-02-20"
@@ -141,7 +1149,7 @@
   "bytes": 276,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.67,
+  "seconds": 0.8,
   "signals": [
    "2020-10-15",
    "2020-12-14",
@@ -158,7 +1166,7 @@
   "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.93,
+  "seconds": 0.77,
   "signals": [
    "2024-05-22",
    "2024-10-22"
@@ -168,7 +1176,7 @@
   "bytes": 118,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 4.6,
+  "seconds": 3.84,
   "signals": [
    "2023-01-01",
    "2024-01-01",
@@ -181,7 +1189,7 @@
   "bytes": 44,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.96,
+  "seconds": 0.76,
   "signals": [
    "2025-04-29"
   ]
@@ -190,7 +1198,7 @@
   "bytes": 96,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 4.64,
+  "seconds": 4.3,
   "signals": [
    "2021-12-10",
    "2023-01-01",
@@ -202,7 +1210,7 @@
   "bytes": 52,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 6.04,
+  "seconds": 4.26,
   "signals": [
    "2023-11-21",
    "2026-01-01"
@@ -212,17 +1220,17 @@
   "bytes": 73,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.71,
+  "seconds": 0.9,
   "signals": [
    "2026-01-16",
    "2026-04-23"
   ]
  },
  "gb-ca2006-ch4a-versions": {
-  "bytes": 210978,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 0.15,
+  "failure": "TimeoutError: The read operation timed out",
+  "seconds": 30.11,
   "signals": [
    "2013-10-01",
    "2015-04-06",
@@ -237,7 +1245,7 @@
   "bytes": 86613,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.15,
+  "seconds": 1.15,
   "signals": [
    "2016-12-26",
    "2022-04-06"
@@ -249,7 +1257,7 @@
   "failure": null,
   "seconds": 0.54,
   "signals": [
-   "007c4de5bb822be2d20f867aff60c946ec647fbdc0a2419af8045ee0c2ad0e55"
+   "8d8a11ed5b3dcfd9433585fbe923e6fe487fea1b72630c6e995fd8d12f77fa6f"
   ]
  },
  "gb-uk-srs-govuk-page": {
@@ -258,30 +1266,75 @@
   "failure": null,
   "seconds": 0.26,
   "signals": [
-   "1a9326446c78e88529746775f23c4fdfd32f05ef863e0c6581d03a152ca99139"
+   "2e6da96d31623f7a43edb8f30e30a98b786ba58a59694e1e216b3ac2eaaec998"
   ]
  },
  "gb-uksi-2022-31-contents-page": {
   "bytes": 29144,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.24,
+  "seconds": 2.74,
   "signals": [
    "734c3cd2680d4d85dfdad827737d826f2d2be95f43df2ef6df6d7705bbe061fe"
+  ]
+ },
+ "hk-cap622-sch5-open-data-zip": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.1,
+  "signals": [
+   "Last-Modified: Mon, 19 Oct 2026 13:00:05 GMT"
+  ]
+ },
+ "hk-hkex-esg-code-part-d-page": {
+  "bytes": 248567,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 3.55,
+  "signals": [
+   "1b37d94aea0598efc4a515e0bc4bf031e1c50dcd5b989d49f8fa85c06f1fa824"
+  ]
+ },
+ "hk-hkfrs-s1-s2-page": {
+  "bytes": 158400,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 2.86,
+  "signals": [
+   "5fb4646ffa9d163b1b744178ee799848fdf9637eb56f1e1aa76e59dc0766e748"
+  ]
+ },
+ "hk-hkma-spm-gs1-page": {
+  "bytes": 199759,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 4.29,
+  "signals": [
+   "2fd140e66804d87f5e52292b60c231a029dc3f52d6ef0dfbfa949e785ae6f961"
+  ]
+ },
+ "hk-taxonomy-sustainable-finance-page": {
+  "bytes": 83502,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 3.76,
+  "signals": [
+   "259086e5e18bb4d794d31438af4fdd4330495ca003e35784d50597d3e971ebe0"
   ]
  },
  "in-companies-act-2013-indiacode-page": {
   "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 403",
-  "seconds": 0.84,
+  "seconds": 0.66,
   "signals": null
  },
  "in-sebi-brsr-circular-2021-page": {
   "bytes": 8266,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.92,
+  "seconds": 0.81,
   "signals": [
    "570f47495b3567584be7c5c74183cdb5436269031ad63f61f0e322ed10022d7e"
   ]
@@ -290,7 +1343,7 @@
   "bytes": 8261,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.81,
+  "seconds": 0.79,
   "signals": [
    "20cd41ebbdf160f3f2b48c518c726733ac1a3189d19fdc761c3d132cc8ac945d"
   ]
@@ -299,43 +1352,520 @@
   "bytes": 8860,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 1.07,
+  "seconds": 0.95,
   "signals": [
    "9ded469080d9115ea1b621d9b08ed53c1170555770dbcf6988a7e35ea07e2e70"
   ]
  },
  "in-sebi-lodr-regulations-page": {
-  "bytes": 0,
+  "bytes": 8519,
   "checked_on": "2026-11-02",
-  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
-  "seconds": 10.68,
+  "failure": null,
+  "seconds": 0.8,
   "signals": [
    "741c3362df12274d9387dc51270dc8547b84266b8bccf592a0be7b65b96c87b5"
   ]
  },
- "terms-eu-eurlex-adopted": {
-  "bytes": 146194,
+ "jp-cao-disclosure-order-egov-revisions": {
+  "bytes": 38935,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 3.06,
+  "seconds": 0.35,
+  "signals": [
+   "2017-04-01",
+   "2017-07-14",
+   "2018-01-26",
+   "2018-04-01",
+   "2018-11-30",
+   "2019-01-31",
+   "2019-05-07",
+   "2019-06-21",
+   "2019-07-01",
+   "2019-12-27",
+   "2020-03-06",
+   "2020-03-23",
+   "2020-04-17",
+   "2020-05-01",
+   "2020-12-23",
+   "2021-02-15",
+   "2021-03-01",
+   "2021-06-25",
+   "2021-11-22",
+   "2022-01-29",
+   "2022-09-01",
+   "2023-01-31",
+   "2023-04-01",
+   "2023-06-01",
+   "2023-10-01",
+   "2023-12-27",
+   "2024-04-01",
+   "2024-08-01",
+   "2025-01-31",
+   "2025-02-25",
+   "2025-04-01",
+   "2025-05-01",
+   "2026-02-20",
+   "2026-04-01",
+   "2026-05-01",
+   "2026-06-25",
+   "2026-10-05"
+  ]
+ },
+ "jp-fiea-egov-revisions": {
+  "bytes": 52045,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.41,
+  "signals": [
+   "2016-04-01",
+   "2017-05-24",
+   "2017-06-02",
+   "2017-12-01",
+   "2018-04-01",
+   "2018-06-01",
+   "2019-06-07",
+   "2019-06-14",
+   "2019-09-14",
+   "2019-12-11",
+   "2019-12-14",
+   "2019-12-16",
+   "2020-04-01",
+   "2020-05-01",
+   "2020-06-12",
+   "2020-12-01",
+   "2021-02-15",
+   "2021-03-01",
+   "2021-05-01",
+   "2021-11-01",
+   "2021-11-22",
+   "2022-04-01",
+   "2022-05-09",
+   "2022-05-18",
+   "2022-05-25",
+   "2022-06-01",
+   "2022-06-10",
+   "2022-06-17",
+   "2022-09-01",
+   "2022-11-01",
+   "2023-04-01",
+   "2023-06-01",
+   "2023-06-14",
+   "2023-11-29",
+   "2024-02-01",
+   "2024-04-01",
+   "2024-05-22",
+   "2024-06-14",
+   "2024-11-01",
+   "2024-11-21",
+   "2025-04-01",
+   "2025-05-01",
+   "2025-06-01",
+   "2025-10-01",
+   "2026-01-01",
+   "2026-05-01",
+   "2026-05-21",
+   "2026-05-25",
+   "2026-07-23",
+   "2026-08-12",
+   "2026-11-30",
+   "2027-03-31",
+   "2027-04-01",
+   "2027-07-22",
+   "2027-10-01",
+   "2028-01-01",
+   "2028-06-13"
+  ]
+ },
+ "jp-gw-act-egov-revisions": {
+  "bytes": 11234,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.35,
+  "signals": [
+   "2016-05-27",
+   "2018-12-01",
+   "2021-06-02",
+   "2022-04-01",
+   "2022-05-20",
+   "2022-06-17",
+   "2022-07-01",
+   "2023-04-01",
+   "2024-06-19",
+   "2025-04-01",
+   "2025-06-01",
+   "2026-01-01"
+  ]
+ },
+ "jp-gw-reporting-order-egov-revisions": {
+  "bytes": 15221,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.33,
+  "signals": [
+   "2017-04-01",
+   "2018-12-01",
+   "2019-10-10",
+   "2019-12-16",
+   "2020-06-05",
+   "2021-01-22",
+   "2022-04-01",
+   "2023-04-01",
+   "2024-04-01",
+   "2025-04-01",
+   "2026-04-01",
+   "2026-07-01"
+  ]
+ },
+ "jp-gx-act-egov-revisions": {
+  "bytes": 6714,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.36,
+  "signals": [
+   "2023-05-19",
+   "2023-06-30",
+   "2024-02-16",
+   "2025-06-14",
+   "2025-08-04",
+   "2026-01-05",
+   "2026-04-01"
+  ]
+ },
+ "jp-gx-order-egov-revisions": {
+  "bytes": 2224,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.39,
+  "signals": [
+   "2024-02-16",
+   "2026-04-01"
+  ]
+ },
+ "jp-gx-regulation-egov-revisions": {
+  "bytes": 2265,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.59,
+  "signals": [
+   "2024-02-16",
+   "2026-04-01"
+  ]
+ },
+ "jp-ssbj-standards-page": {
+  "bytes": 28871,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.42,
+  "signals": [
+   "02a4352abe85fdf28babe110c6b1420672e38c314940eb88c452c2c8d712dfa7"
+  ]
+ },
+ "jp-tse-cg-code-page": {
+  "bytes": 34554,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.46,
+  "signals": [
+   "da5fc82c54ccf882c87563217ee559eb002d15b4f8db8a305301ee3a36e89a94"
+  ]
+ },
+ "kr-carbon-neutrality-act-decree-lawgokr-history": {
+  "bytes": 16433,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.89,
+  "signals": [
+   "2022-03-25",
+   "2022-06-16",
+   "2022-07-01",
+   "2022-07-12",
+   "2022-09-25",
+   "2022-12-30",
+   "2023-06-11",
+   "2023-07-10",
+   "2024-01-01",
+   "2024-02-15",
+   "2024-10-25",
+   "2025-01-01",
+   "2025-02-21",
+   "2025-04-08",
+   "2025-10-01",
+   "2025-10-23",
+   "2026-01-02",
+   "2026-03-31",
+   "2026-05-06",
+   "2026-05-12",
+   "2026-09-18",
+   "2026-09-22",
+   "2026-10-08",
+   "2026-11-12"
+  ]
+ },
+ "kr-carbon-neutrality-act-lawgokr-history": {
+  "bytes": 14877,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.91,
+  "signals": [
+   "2022-03-25",
+   "2022-07-01",
+   "2022-09-25",
+   "2023-03-28",
+   "2023-07-10",
+   "2024-01-01",
+   "2024-10-22",
+   "2025-09-26",
+   "2025-10-01",
+   "2025-10-23",
+   "2025-11-11",
+   "2026-01-01",
+   "2026-04-07",
+   "2026-05-12",
+   "2026-06-02",
+   "2026-09-18",
+   "2026-10-08",
+   "2026-11-12",
+   "2027-03-09",
+   "2027-09-23"
+  ]
+ },
+ "kr-ets-act-decree-lawgokr-history": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.09,
+  "signals": null
+ },
+ "kr-ets-act-lawgokr-history": {
+  "bytes": 13069,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.92,
+  "signals": [
+   "2012-11-15",
+   "2013-03-23",
+   "2017-07-26",
+   "2019-01-17",
+   "2020-06-01",
+   "2022-03-25",
+   "2024-01-30",
+   "2025-02-07",
+   "2025-10-01",
+   "2025-11-29",
+   "2026-01-01",
+   "2026-01-02",
+   "2026-04-07",
+   "2026-04-29",
+   "2027-03-09"
+  ]
+ },
+ "kr-krx-governance-report-krx-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "TimeoutError: The read operation timed out",
+  "seconds": 31.07,
+  "signals": null
+ },
+ "kr-kssb-ksds-kasb-list-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 3.03,
+  "signals": null
+ },
+ "kr-sapa-decree-lawgokr-history": {
+  "bytes": 6237,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.89,
+  "signals": [
+   "2022-01-27",
+   "2022-12-08",
+   "2025-08-07",
+   "2025-08-28",
+   "2025-10-01"
+  ]
+ },
+ "kr-sapa-lawgokr-history": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.38,
+  "signals": null
+ },
+ "nz-ccra-2002-part-1b-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.11,
+  "signals": null
+ },
+ "nz-ccra-2002-part-4-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.16,
+  "signals": null
+ },
+ "nz-ccra-zero-carbon-2019-61-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.22,
+  "signals": null
+ },
+ "nz-ets-forestry-regs-2022-266-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.4,
+  "signals": null
+ },
+ "nz-ets-liquid-fossil-fuels-regs-2008-356-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.12,
+  "signals": null
+ },
+ "nz-ets-stationary-energy-regs-2009-285-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.29,
+  "signals": null
+ },
+ "nz-ets-waste-regs-2010-338-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.11,
+  "signals": null
+ },
+ "nz-fmc-act-2013-part-7a-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.43,
+  "signals": null
+ },
+ "nz-fmc-climate-regs-2023-222-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.11,
+  "signals": null
+ },
+ "nz-fsca-2021-39-versions": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.21,
+  "signals": null
+ },
+ "nz-nzcs-1-latest-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.16,
+  "signals": null
+ },
+ "nz-nzcs-2-latest-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.11,
+  "signals": null
+ },
+ "nz-nzcs-3-latest-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 202",
+  "seconds": 0.22,
+  "signals": null
+ },
+ "sg-cpa-2018-sso-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 403",
+  "seconds": 0.18,
+  "signals": null
+ },
+ "sg-cpa-mrv-regs-2018-sso-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 403",
+  "seconds": 0.2,
+  "signals": null
+ },
+ "sg-mas-erm-asset-managers-mas-guideline-page": {
+  "bytes": 853817,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.7,
+  "signals": [
+   "5847d7ec7e35244d37dd6ed7a2a254f074f661f76874bdddb1b0dc318291f812"
+  ]
+ },
+ "sg-mas-erm-banks-mas-guideline-page": {
+  "bytes": 853817,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.76,
+  "signals": [
+   "4145355a0dec73e61c5ab1638a8e1893abb6894a19dced61f671863d4a3a580b"
+  ]
+ },
+ "sg-mas-erm-insurers-mas-guideline-page": {
+  "bytes": 854833,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.87,
+  "signals": [
+   "464119295f493db1794798e948ad46337201e468bfa5c9bf24e1d6c41860c63c"
+  ]
+ },
+ "sg-sgx-lr-711a-711b-rulebook-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 1.11,
+  "signals": [
+   "Last-Modified: Mon, 02 Nov 2026 02:35:50 GMT"
+  ]
+ },
+ "sg-sgx-pn-7-6-rulebook-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 0.38,
+  "signals": [
+   "Last-Modified: Mon, 02 Nov 2026 02:35:50 GMT"
+  ]
+ },
+ "terms-eu-eurlex-adopted": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.06,
   "signals": [
    "1197db78f434debed205476a888fb6dbaa3f9a4493cb67455a8fc4a94dab8c54"
   ]
  },
  "terms-eu-eurlex-consolidated": {
-  "bytes": 146196,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 3.26,
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.26,
   "signals": [
    "cd52563f5f67efe936393a512c8606f6ad8cde7903957afd87ec128ffb35e810"
   ]
  },
  "terms-eu-eurlex-translation": {
-  "bytes": 146195,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 1.87,
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.43,
   "signals": [
    "e8a6cfc477a98a979c0449b70caa08709606d52cd62ddfdb8b8612d965a1b51e"
   ]
@@ -344,16 +1874,16 @@
   "bytes": 6762,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 1.47,
+  "seconds": 1.4,
   "signals": [
-   "cec2620b82f587be705d6056a9d6fb03221ba523c86bbb58dcd94325973cd74e"
+   "ebdcc34375206808f787ba7473842b7635c2629b83cfb00d17d69c2c455f602f"
   ]
  },
  "terms-in-sebi-adopted": {
   "bytes": 9259,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 1.13,
+  "seconds": 0.82,
   "signals": [
    "09fe7fe686f49e9d12e6b42738a9232c8b2ea3674ddc32054248e683f806d477"
   ]
@@ -364,7 +1894,7 @@
   "failure": null,
   "seconds": 0.56,
   "signals": [
-   "6eb111d74e79d5995b0f02f6519358a12485360d18dcfb7ed444f15bf2d54b7c"
+   "3f69b1999e7ad0425dff958d0711a5aa4af0df734ff5dcbb16c33875360cec45"
   ]
  },
  "terms-uk-legislation-adopted": {
@@ -380,7 +1910,7 @@
   "bytes": 17301,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.11,
+  "seconds": 0.15,
   "signals": [
    "e76657fb739563c0aa6e2d30da545b69f3c5d7d24a3da0292a67333dbbe3be56"
   ]
@@ -389,7 +1919,7 @@
   "bytes": 404271,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 1.05,
+  "seconds": 0.23,
   "signals": [
    "85759d4869779c9bc8682d571b79dd464f2ae57fd087954224c48e1278a4dd3e"
   ]
@@ -398,25 +1928,25 @@
   "bytes": 13806,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.43,
+  "seconds": 0.93,
   "signals": [
    "c81a64fad492bd71e288e144acd4b04d8bf7d380bd888b70c3befe4e9694af52"
   ]
  },
  "terms-us-ecfr-adopted": {
-  "bytes": 72061,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 1.23,
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.07,
   "signals": [
    "a9b8eb7c161eaed77cb3f37f540506f16e6e100fa07570ec50b6ea0f5acefc23"
   ]
  },
  "terms-us-fedreg-adopted": {
-  "bytes": 73613,
+  "bytes": 0,
   "checked_on": "2026-11-02",
-  "failure": null,
-  "seconds": 0.85,
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.26,
   "signals": [
    "3aa208eb1a66202b1fee6c9e44b722e66b2bb1c8c5784de49ebe1381e4817e04"
   ]
@@ -425,16 +1955,16 @@
   "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.4,
+  "seconds": 0.46,
   "signals": [
-   "Last-Modified: Mon, 26 Oct 2026 04:26:08 GMT"
+   "Last-Modified: Mon, 02 Nov 2026 05:26:09 GMT"
   ]
  },
  "us-ca-sb219-leginfo-pubinfo-2023": {
   "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.21,
+  "seconds": 0.61,
   "signals": [
    "Last-Modified: Mon, 25 Nov 2024 05:26:38 GMT"
   ]
@@ -443,21 +1973,21 @@
   "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 419",
-  "seconds": 0.16,
+  "seconds": 0.2,
   "signals": null
  },
  "us-ca-sb261-carb-financial-risk-page": {
   "bytes": 0,
   "checked_on": "2026-11-02",
   "failure": "HTTP 419",
-  "seconds": 0.13,
+  "seconds": 0.18,
   "signals": null
  },
  "us-ecfr-40cfr98-versions": {
   "bytes": 308217,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.5,
+  "seconds": 1.12,
   "signals": [
    "2017-01-01",
    "2017-03-06",
@@ -493,12 +2023,99 @@
   "bytes": 225,
   "checked_on": "2026-11-02",
   "failure": null,
-  "seconds": 0.11,
+  "seconds": 0.17,
   "signals": [
    "2024-03-28",
    "2024-04-12",
    "2026-05-21",
    "2026-06-03"
   ]
+ },
+ "za-bbbee-act-53-2003-govza-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.5,
+  "signals": null
+ },
+ "za-carbon-tax-act-15-2019-govza-page": {
+  "bytes": 42098,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 4.57,
+  "signals": [
+   "bd7a54dd16d02d1ccb70a9c67f8b936afd08ad5351c5620d010468b7713d476c"
+  ]
+ },
+ "za-climate-change-act-22-2024-govza-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.28,
+  "signals": null
+ },
+ "za-companies-act-71-2008-govza-page": {
+  "bytes": 43431,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 13.43,
+  "signals": [
+   "d09ee8ec2761a28e619097c95fd8200df14d8258b018a7e6612f20100ee1a867"
+  ]
+ },
+ "za-companies-regs-2011-govza-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error _ssl.c:1018: The handshake operation timed out>",
+  "seconds": 30.04,
+  "signals": null
+ },
+ "za-jse-listings-8-63-pdf-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "HTTP 403",
+  "seconds": 0.26,
+  "signals": null
+ },
+ "za-nger-regs-2017-pdf-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 8.42,
+  "signals": [
+   "Last-Modified: Sun, 09 Dec 2018 22:54:15 GMT"
+  ]
+ },
+ "za-nger-regs-amendment-2020-govza-page": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.49,
+  "signals": null
+ },
+ "za-pa-g3-2025-banks-pdf-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 2.38,
+  "signals": [
+   "Last-Modified: Tue, 14 Oct 2025 13:56:57 GMT"
+  ]
+ },
+ "za-pa-gn3-2025-insurers-pdf-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": null,
+  "seconds": 2.17,
+  "signals": [
+   "Last-Modified: Tue, 14 Oct 2025 13:00:20 GMT"
+  ]
+ },
+ "za-pfa-reg-28-pdf-head": {
+  "bytes": 0,
+  "checked_on": "2026-11-02",
+  "failure": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "seconds": 10.26,
+  "signals": null
  }
 }

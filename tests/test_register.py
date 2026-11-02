@@ -1,9 +1,9 @@
-"""The register rows of the four pilot places carry a real status, not the placeholder."""
+"""The register rows of every place with a scope.json carry a real status, not the placeholder."""
 import csv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PILOT = ("EU", "GB", "IN", "US")
+PILOT = tuple(sorted(p.parent.name for p in (ROOT / "register").glob("*/scope.json")))  # every place with a scope list
 PLACEHOLDER = "scope list entry"
 
 
