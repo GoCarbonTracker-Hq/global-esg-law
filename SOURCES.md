@@ -1240,3 +1240,32 @@ Italian only. Looked for an English text on Normattiva (the XML language is `ita
 - D.Lgs. 5 ottobre 2023, n. 147 (a brief candidate) is not an ETS act and is not in scope. D.Lgs. 152/2006 is F7, a register row only.
 - The Codice del consumo has no `adopted` record (the Gazzetta route returns the whole 2005 Code); the Normattiva original version stands for it.
 - D.Lgs. 254/2016 version 2025-02-25 (repeal markers and annotations only) is not stored; the repeal is a repeal record on 2024-09-25.
+
+## Norway
+
+Rows `NO-LOVDATA-CONSOLIDATED`, `NO-LOVDATA-ADOPTED` and `NO-LOVDATA-TRANSLATION` (all three `permission requested`, basis terms). Run on 2026-11-02 (GEL-05-08). No proven fetch exists for any row, so no text is stored and all seven scope instruments are link only.
+
+Lovdata is blocked from the cloud address for every client tried:
+
+```
+curl -sS -L -o o.bin -w '%{http_code} %{size_download} %{content_type}\n' https://api.lovdata.no/v1/publicData/list
+```
+
+Returned `405 316 text/html; charset=utf-8` ("Request stopped by Varnish IPS"). The same answer came with a browser `User-Agent`, and for `https://api.lovdata.no/`, `https://lovdata.no/`, `/robots.txt`, `/info/brukeravtale`, `/info/information_in_english`, `/dokument/NL/lov/1998-07-17-56` and `https://lovtidend.no/`. Headless Chromium (Playwright `page.goto(url, {waitUntil:'networkidle'})`) got the same 405 page (312 bytes of HTML). Blocked from the cloud address: https://api.lovdata.no/ , https://lovdata.no/ , https://lovtidend.no/ . The orchestrator can run the same `curl` from the laptop.
+
+The WebFetch tool was served 200 by the same URLs, so the facts in the licence rows and scope entries were read that way. It returns model-summarised text, so quotes are not byte-checked, no `sha256` or fingerprint can be taken, and nothing from it is stored as law text. What it showed (2026-11-02): `https://api.lovdata.no/v1/publicData/list` is JSON naming `gjeldende-lover.tar.bz2`, `gjeldende-sentrale-forskrifter.tar.bz2` (last modified 2026-11-01), `lovtidend-avd1-2026.tar.bz2`, `lovtidend-avd1-2001-2025.tar.bz2` and two avd. II files; the brief's file names `gratis-nl-*` are not in the list. The terms page (section 2.3) puts "Regelverk i Norsk Lovtidend", "Gjeldende formelle lover" and "Gjeldende sentrale forskrifter" under NLOD 2.0 and says "Massenedlasting og systematiske uttrekk er ikke tillatt. For større nedlastinger, bruk våre åpne API-er." A laptop run should open the terms page, compute the fingerprint, download `gjeldende-lover.tar.bz2` and then set the rows. The unproven request to try is `curl -sS -L -O https://api.lovdata.no/v1/publicData/get/gjeldende-lover.tar.bz2`; the `get` path is not confirmed.
+
+### Languages
+
+Lovdata serves Norwegian Bokmål and, where an act is enacted in Nynorsk, Nynorsk; none of the seven instruments showed a Nynorsk version. English (NLE pages, `https://lovdata.no/dokument/NLE/lov/<date-number>`) is hosted by Lovdata, provided by ministries, and marked unofficial, so it has its own row `NO-LOVDATA-TRANSLATION`, terms only (Åndsverkloven § 14 names "offisielle oversettelser" but Lovdata says these are not official). NLE pages: klimaloven 200 (matches current state), åpenhetsloven 200 (state before 2024-11-01, so matches no current version), markedsføringsloven 200 (last consolidated 2020-05-20, stale); 404 for regnskapsloven, klimakvoteloven, klimakvoteforskriften and LOV-2024-06-21-42. Regjeringen.no (a possible second source of English) answers 403 with a Cloudflare challenge to curl and times out in Chromium: blocked from the cloud address: https://www.regjeringen.no/ .
+
+### Link only
+
+| Instrument | Reason |
+|---|---|
+| `no-regnskapsloven-ch2` | Row `NO-LOVDATA-CONSOLIDATED` permission requested; Lovdata blocked. No English on Lovdata. |
+| `no-endringslov-2024-42` | Row `NO-LOVDATA-ADOPTED` permission requested; Lovdata blocked. Official URL is the Ministry of Finance page (403 to the cloud address, not opened). |
+| `no-klimaloven`, `no-apenhetsloven`, `no-markedsforingsloven` | Rows `NO-LOVDATA-CONSOLIDATED` and `NO-LOVDATA-TRANSLATION` permission requested; Lovdata blocked. |
+| `no-klimakvoteloven`, `no-klimakvoteforskriften` | Row `NO-LOVDATA-CONSOLIDATED` permission requested; Lovdata blocked. |
+
+Not in scope and why: Finanstilsynet (finanstilsynet.no answers 200 to curl; no terms page is linked from `/en/` and no scope instrument is served by it, so no row). The sustainable finance act LOV-2021-12-22-161 and its regulation FOR-2022-12-20-2354 appeared in one search result only and their pages were not read, so they have no scope entry yet.
