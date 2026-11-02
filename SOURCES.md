@@ -3409,3 +3409,60 @@ All five instruments in `register/EG/scope.json`: `eg-fra-bod-107-2021`, `eg-fra
 Law 82 of 2002 Art. 141 (official documents, including laws and decisions, are not protected) was not applied: the text was read on ar.wikisource.org only, it protects original collections, and the extraction fails in any case. Varun decides whether to apply it to FRA decisions and gazette extracts.
 
 Not in scope, with reason: Consumer Protection Law 181 of 2018 (cpa.gov.eg answered `502`; no official page opened); a framework climate law (none found on any page opened); EGX (https://www.egx.com.eg/ and egx.com.eg refused the cloud address with an empty reply or no connection; blocked from the cloud address: https://www.egx.com.eg/); manshurat.org (NGO database, never a source); sis.gov.eg, egypt.gov.eg, ecs.gov.eg, idsc.gov.eg and gpp.gov.eg gave no connection (000).
+
+## Morocco
+
+Fetched 2026-11-02 (GEL-09-08). No row passes, so no record is stored and nothing under `records/MA/`. Every Morocco row is `permission requested`; the instruments are link only. Hosts reached from the cloud address: ammc.ma, environnement.gov.ma, wipo.int. Hosts refused: sgg.gov.ma, casablanca-bourse.com (and media.casablanca-bourse.com), adala.justice.gov.ma, justice.gov.ma, douane.gov.ma; tax.gov.ma answers 403.
+
+### Rows added
+
+| Row | Verdict | Why |
+|---|---|---|
+| MA-SGG-ADOPTED | permission requested | Bulletin Officiel site could not be opened; statute (Loi 2-00 art. 8) read only on a WIPO Lex copy |
+| MA-AMMC-ADOPTED | permission requested | AMMC mentions légales claim the content and forbid reproduction, adaptation and modification |
+| MA-CASABLANCA-BOURSE-ADOPTED | permission requested | site could not be opened |
+| MA-MTEDD-ADOPTED | permission requested | footer "Tous droits réservés", scanned PDFs, statute basis not confirmed on an official page |
+
+No English row: no government English translation of a Moroccan instrument was found on an opened official page, and law-firm or news translations get no row. Amazigh is official but no legislative text is served in it. A second language needs no row of its own (same publisher row).
+
+### Proven requests (no fetch for storage; these show what answered)
+
+AMMC circulaires page and the Circulaire 03/19 PDF (the published BO text, titled `BO_6784-bis_fr`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o c0319.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf'
+200 21815800 application/pdf
+```
+
+sha256 of the PDF as received: `e6f4ed76552ae2cf7424febb84711cb765910cfce679e6183dc6370996cd9095`. `pdftotext -layout c0319.pdf -` returns 151 bytes: the file is a scan with no text layer and the environment has no OCR tool, so no text could be extracted. The circulaires page `https://www.ammc.ma/fr/reglementations/circulaires` (200, 105 KB, text/html) also lists circulaire 02/20 (310 KB PDF, 200, application/pdf, sha256 `a99d513c699f751348475e830bb57240ec032c86ce4b3352e713e6d25df787f4`; Arabic BO page of the approving arrêté 3730.21, `pdftotext` extracts it with mojibake in Arabic ligatures).
+
+AMMC terms: `curl -sS -A 'Mozilla/5.0' https://www.ammc.ma/fr/node/98` returns 200 text/html (mentions légales; quoted in the row).
+
+Ministry Loi Cadre page and a dahir scan:
+
+```
+curl -sS -A 'Mozilla/5.0' -o lc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.environnement.gov.ma/fr/component/content/article/3469-loi-cadre?catid=107'
+200 42233 text/html; charset=utf-8
+curl -sS -A 'Mozilla/5.0' -o d1.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.environnement.gov.ma/images/2022/avril/d1.pdf'
+200 312283 application/pdf
+```
+
+`pdftotext d1.pdf -` returns 5 bytes: a scan, no text layer.
+
+Statute read for the rows (WIPO Lex, not a Moroccan official page): `curl -sS -A 'Mozilla/5.0' https://www.wipo.int/wipolex/fr/text/191410` returns 200 text/html, 307783 bytes, sha256 `2c0eada926c760765db057635e1a603ca0d6a0708808f30fed5914d7739c5374`; it carries Loi 2-00 as amended by Loi 34-05 with article 8. The Arabic wording was not read.
+
+### Languages
+
+Arabic and French are the languages of the Bulletin Officiel; Amazigh has no legislative texts. Neither edition could be fetched (sgg.gov.ma blocked), so nothing is stored in `ar`, `fr` or `en`.
+
+### Link only, with the reason
+
+- ma-ammc-circ-03-19: MA-AMMC-ADOPTED is permission requested; the PDF is also a scan.
+- ma-loi-99-12 and ma-loi-11-03: MA-MTEDD-ADOPTED is permission requested; the ministry PDFs are scans; the BO is blocked.
+- Not in scope.json: Loi 31-08 art. 21 to 24 (no official page opened that serves it; sgg.gov.ma and adala.justice.gov.ma are blocked), the taxe carbone (press reports only), a framework climate law (none found published; avant-projet 62-25 on the carbon market and projet 05.26 on météorologie are drafts). The carbon tax and the 62-25 draft are `register.csv` rows with `law_family` F7.
+
+### Blocked from the cloud address
+
+- `https://www.sgg.gov.ma/` , `/arabe/Accueil.aspx` , `/fr` , `/Legislation/BulletinOfficiel.aspx` , `/Portals/1/lois/Loi_2-00_Fr.pdf`: `curl: (35) Recv failure: Connection reset by peer`; headless Chromium (Playwright 1.x, `page.goto`) HTTP 502, 174 bytes; `http://www.sgg.gov.ma/` answers 302 to the https home page; a fetch agent got 503. `https://sgg.gov.ma/` : `CONNECT tunnel failed, response 502`.
+- `https://www.casablanca-bourse.com/` : `curl: (60) SSL certificate problem: unable to get local issuer certificate`; with `--cacert /root/.ccr/ca-bundle.crt` and Chromium: 502; `http://` : 503 (114 bytes). `https://media.casablanca-bourse.com/sites/default/files/Circulaire_AMMC_n_03_19_1.pdf` : connection reset.
+- `https://adala.justice.gov.ma/` , `https://www.justice.gov.ma/` : connection reset. `https://www.douane.gov.ma/` : empty reply. `https://www.tax.gov.ma/` : 403 (12763 bytes).
