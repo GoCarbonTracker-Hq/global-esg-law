@@ -6371,6 +6371,706 @@
   "params": {}
  },
  {
+  "id": "cy-companies-amendment-3-2025-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-companies-amendment-3-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-auditors-amendment-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-auditors-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-transparency-amendment-2-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-transparency-amendment-2-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-law-2011-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-law-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2024-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/878233CFCD915888C2258B66002FB199?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/F0CF43ACA530EFBAC2258CD2003C75E2?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-ets-amendment-2-2025-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-ets-amendment-2-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/D22C2A963427AE00C2258D5B003E7B86?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "cy-consumer-protection-law-2021-gazette-annex-list",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-consumer-protection-law-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/dmlgaz_appsw_gr/dmlgaz_appsw_gr?OpenDocument&OpenView&Count=1000&cp=12&app=16",
+  "params": {}
+ },
+ {
+  "id": "cy-consumer-protection-amendment-3-2026-gazette-page",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "cy-consumer-protection-amendment-3-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/3ECEBA072E9DDD4DC2258E370035196F?OpenDocument",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-gpo-adopted",
+  "source_id": "CY-GPO-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mof.gov.cy/mof/gpo/gpo.nsf/terms-el/terms-el?opendocument",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cylaw-consolidated",
+  "source_id": "CY-CYLAW-CONSOLIDATED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cylaw.org/terms.html",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cysec-adopted",
+  "source_id": "CY-CYSEC-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cysec.gov.cy/el-GR/terms/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cy-cse-adopted",
+  "source_id": "CY-CSE-ADOPTED",
+  "iso2": "CY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cse.com.cy/el-GR/disclaimer/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "ae-dl-11-2024-climate-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-dl-11-2024-climate",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/2558",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2558 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-cma-governance-guide-art76-page",
+  "source_id": "AE-CMA-ADOPTED",
+  "iso2": "AE",
+  "instrument": "ae-cma-governance-guide-art76",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.uaecma.gov.ae/en/regulations/corporate-governance",
+  "params": {
+   "second_route": "https://www.uaecma.gov.ae/en/regulations/corporate-governance (live page, open in a browser); decision text at https://legislation.uaecma.gov.ae/en does not answer from the cloud address"
+  }
+ },
+ {
+  "id": "ae-law-24-1999-environment-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-law-24-1999-environment",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/1146",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1146 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-law-15-2020-consumer-protection-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-law-15-2020-consumer-protection",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/1455",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1455 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "ae-cr-66-2023-consumer-protection-regulation-portal-page",
+  "source_id": "AE-UAELEGISLATION-CONSOLIDATED",
+  "iso2": "AE",
+  "instrument": "ae-cr-66-2023-consumer-protection-regulation",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://uaelegislation.gov.ae/en/legislations/2157",
+  "params": {
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2157 (browser; the portal answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "pk-climate-change-act-2017-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-climate-change-act-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator35e25fe56389d477d508cdf8a693e868.pdf"
+ },
+ {
+  "id": "pk-epa-1997-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-epa-1997",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator17094efb999f9a865461eb1498175947.pdf"
+ },
+ {
+  "id": "pk-petroleum-levy-climate-support-levy-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-petroleum-levy-climate-support-levy",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator1bc3ad732b91e47508abf826f2840d15.pdf"
+ },
+ {
+  "id": "pk-competition-act-2010-s10-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-competition-act-2010-s10",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administratore1b5ab79c2c1975670e6aa7fe57e57d6.pdf"
+ },
+ {
+  "id": "pk-sbp-shsfd-circular-07-2025-page",
+  "source_id": "PK-SBP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "pk-sbp-shsfd-circular-07-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025",
+  "params": {
+   "second_route": "https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025 (browser; sbp.org.pk answers scripts with HTTP 403, headless Chromium gets 200); the Annexure PDF https://www.sbp.org.pk/assets/documents/circulars/SHSFD-2025-C7-Annex.pdf answers curl"
+  }
+ },
+ {
+  "id": "pk-terms-pakistancode-consolidated",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://pakistancode.gov.pk/english/Xki72HF.php",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-na-adopted",
+  "source_id": "PK-NA-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://na.gov.pk/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://na.gov.pk/ (browser from the laptop; the cloud address fails certificate verification and headless Chromium got HTTP 502)"
+  }
+ },
+ {
+  "id": "pk-terms-senate-adopted",
+  "source_id": "PK-SENATE-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://senate.gov.pk/en/messence.php?id=111&cattitle=TermsOfUse",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-secp-adopted",
+  "source_id": "PK-SECP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.secp.gov.pk/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.secp.gov.pk/ (browser from the laptop; secp.gov.pk answers curl and headless Chromium with a Cloudflare challenge, HTTP 403, \"Just a moment...\"); the terms page was not located"
+  }
+ },
+ {
+  "id": "pk-terms-psx-adopted",
+  "source_id": "PK-PSX-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.psx.com.pk/psx/terms-of-use",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-sbp-adopted",
+  "source_id": "PK-SBP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sbp.org.pk/our-operations/disclaimer",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.sbp.org.pk/our-operations/disclaimer (browser; curl is answered HTTP 403)"
+  }
+ },
+ {
+  "id": "uy-ley-17283-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-17283",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/17283-2000?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-19439-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-19439",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/19439-2016?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-238-2009-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-238-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/238-2009?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-310-2017-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-310-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/310-2017?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-19996-art326-327-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-19996-art326-327",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/19996-2021?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-decreto-441-2021-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-decreto-441-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/decretos/441-2021?json=true",
+  "params": {}
+ },
+ {
+  "id": "uy-ley-17250-art24-impo-actualizado",
+  "source_id": "UY-IMPO-ADOPTED",
+  "iso2": "UY",
+  "instrument": "uy-ley-17250-art24",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.impo.com.uy/bases/leyes/17250-2000?json=true",
+  "params": {}
+ },
+ {
+  "id": "li-pgr-art-1096b-k-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-pgr-art-1096b-k",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/1926004000"
+ },
+ {
+  "id": "li-ehg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ehg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2012346000"
+ },
+ {
+  "id": "li-ehv-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ehv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2012379000"
+ },
+ {
+  "id": "li-co2-gesetz-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-co2-gesetz",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2013358000"
+ },
+ {
+  "id": "li-co2-verordnung-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-co2-verordnung",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2013359000"
+ },
+ {
+  "id": "li-usg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-usg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2008199000"
+ },
+ {
+  "id": "li-ewr-fndg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-ewr-fndg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/2022120000"
+ },
+ {
+  "id": "li-uwg-lilex-current-pdf",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "li-uwg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/konso/pdf/1992121000"
+ },
+ {
+  "id": "li-lgbl-2024-171-wpg-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2024-171-wpg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2024171000"
+ },
+ {
+  "id": "li-lgbl-2024-172-offg-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2024-172-offg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2024172000"
+ },
+ {
+  "id": "li-lgbl-2025-517-lgbl-pdf",
+  "source_id": "LI-LGBL-ADOPTED",
+  "iso2": "LI",
+  "instrument": "li-lgbl-2025-517",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gesetze.li/chrono/pdf/2025517000"
+ },
+ {
+  "id": "terms-li-lilex-urg-art5",
+  "source_id": "LI-LILEX-CONSOLIDATED",
+  "iso2": "LI",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.gesetze.li/konso/pdf/1999160000",
+  "change": "terms_changed"
+ },
+ {
+  "id": "ec-sb-saras-norm-codificacion-pdf",
+  "source_id": "EC-SUPERBANCOS-CONSOLIDATED",
+  "iso2": "EC",
+  "instrument": "ec-sb-saras-norm",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.ec/bancos/descargas/39342/",
+  "params": {}
+ },
+ {
+  "id": "ec-coa-libro4-asamblea-leyes-aprobadas",
+  "source_id": "EC-ASAMBLEA-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-coa-libro4",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ec/es/leyes-aprobadas",
+  "params": {}
+ },
+ {
+  "id": "ec-reglamento-coa-libro4-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-reglamento-coa-libro4",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/reglamento-al-codigo-organico-ambiente-0 (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
+ },
+ {
+  "id": "ec-lodc-art6-7-gobec-page",
+  "source_id": "EC-GOBEC-ADOPTED",
+  "iso2": "EC",
+  "instrument": "ec-lodc-art6-7",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor",
+  "params": {
+   "second_route": "https://www.gob.ec/regulaciones/21-ley-organica-defensa-consumidor (browser; gob.ec answers scripts with an empty reply or an HTTP/2 PROTOCOL_ERROR)"
+  }
+ },
+ {
+  "id": "ua-law-377-ix-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-law-377-ix",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/377-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-accounting-law-996-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-accounting-law-996",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/996-14",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-climate-policy-law-3991-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-climate-policy-law-3991",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3991-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-env-protection-law-1264-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-env-protection-law-1264",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/1264-12",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-consumer-protection-law-3153-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-consumer-protection-law-3153",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/3153-20",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "ua-advertising-law-270-rada-page",
+  "source_id": "UA-RADA-CONSOLIDATED",
+  "iso2": "UA",
+  "instrument": "ua-advertising-law-270",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
+  "params": {
+   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "bd-eca-1995-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-eca-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-791.html",
+  "params": {}
+ },
+ {
+  "id": "bd-environment-court-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-environment-court-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1061.html",
+  "params": {}
+ },
+ {
+  "id": "bd-climate-change-trust-act-2010-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-climate-change-trust-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1062.html",
+  "params": {}
+ },
+ {
+  "id": "bd-sreda-act-2012-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-sreda-act-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1107.html",
+  "params": {}
+ },
+ {
+  "id": "bd-crpa-2009-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-crpa-2009",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1014.html",
+  "params": {}
+ },
+ {
+  "id": "bd-forest-tree-conservation-act-2026-act-page",
+  "source_id": "BD-BDLAWS-CONSOLIDATED",
+  "iso2": "BD",
+  "instrument": "bd-forest-tree-conservation-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://bdlaws.minlaw.gov.bd/act-details-1685.html",
+  "params": {}
+ },
+ {
+  "id": "bd-bb-sfd-06-2023-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-06-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bb-sfd-01-2025-circular-list",
+  "source_id": "BD-BB-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bb-sfd-01-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bb.org.bd/en/index.php/mediaroom/circular",
+  "params": {
+   "second_route": "https://www.bb.org.bd/en/index.php/mediaroom/circular (browser; www.bb.org.bd answers scripts with a CAPTCHA page, HTTP 200 text/html, until a browser has passed its JavaScript check)"
+  }
+ },
+ {
+  "id": "bd-bsec-cg-code-2018-pdf",
+  "source_id": "BD-BSEC-ADOPTED",
+  "iso2": "BD",
+  "instrument": "bd-bsec-cg-code-2018",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://sec.gov.bd/storage/laws/Corporate_Governance_Code_10.06.2018.pdf",
+  "params": {}
+ },
+ {
   "id": "pe-smv-rsc-018-2020-elperuano-pdf",
   "source_id": "PE-ELPERUANO-ADOPTED",
   "iso2": "PE",
