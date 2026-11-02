@@ -1346,3 +1346,70 @@ A text for a given version is stored only for the versions the publisher serves:
 - S.I. No. 490/2012 (the brief's stationary-installation ETS regulations) was revoked on 2024-09-19 by S.I. No. 470/2024 reg. 51(1); both it and S.I. No. 755/2020 are kept with repeal records and the replacement is `ie-si-470-2024`.
 - The Companies Act 2014 (into which S.I. No. 336/2024, 498/2024 and 309/2025 insert the reporting duty) and the Consumer Rights Act 2022 (amended by S.I. No. 124/2026) are not in scope; no carbon tax instrument (Finance Act 2010) and no Central Bank Consumer Protection Code were looked at.
 - Blocked from the cloud address: none. Every URL above answered `200`.
+
+## Portugal
+
+Rows `PT-DRE-ADOPTED` and `PT-DRE-CONSOLIDATED` (both `pass`, statute: Código do Direito de Autor e dos Direitos Conexos art. 8 n.º 1 read with art. 3 n.º 1 alínea c); the reading is in the row notes and in the PR). Run on 2026-11-02. Language: Portuguese only; no government English translation of any instrument in scope was found (diariodarepublica.pt offers Portuguese only; portugal.gov.pt, gov.pt and apambiente.pt were searched), so there is no translation row.
+
+diariodarepublica.pt is an OutSystems application: curl gets the same JavaScript shell for every page.
+
+```
+curl -sS -L -o stat.html -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/detalhe/decreto-lei/12-2020-131124444
+```
+
+Returned `200 2346 text/html; charset=utf-8` (the shell, no law text). What works from the cloud address with plain curl is the JSON the page itself loads, a POST to `/dr/screenservices/dr/...`. It needs the header `X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=` (a fixed value that the site accepted on every run, with no cookie; without the header the answer is `301`) and the `moduleVersion` and `apiVersion` tokens of the build. A redeploy changes the tokens: the answer then carries `hasModuleVersionChanged` or `hasApiVersionChanged` true. The current `moduleVersion` is at `https://diariodarepublica.pt/dr/moduleservices/moduleversioninfo`; the `apiVersion` of each action is in the request the page sends (headless Chromium, Playwright, request log). Headless Chromium was used only to find these requests, to look keys up with the site search, and to read the terms page; no record is a browser fetch.
+
+Row `PT-DRE-ADOPTED`, act as published, Decreto-Lei n.º 12/2020 (`Tipo` and `Key` come from the detail page URL `/dr/detalhe/<Tipo>/<Key>`):
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"B3l5BYZxaLmWUxGR3tmKGw"},"viewName":"Legislacao_Conteudos.Conteudo_Detalhe","screenData":{"variables":{"Tipo":"decreto-lei","_tipoInDataFetchStatus":1,"Key":"12-2020-131124444","_keyInDataFetchStatus":1,"ParteId":"","_parteIdInDataFetchStatus":1}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_adopted.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/Legislacao_Conteudos/Conteudo_Detalhe/DataActionGetAllConteudoDetalheData
+```
+
+Returned `200 257938 application/json; charset=utf-8`, sha256 `46fc0c4e6d20aa34907d5a6503bde9656abd9f209fa2be4122cb0ae4dc01f732`, the same as `fetched_sha256` of the record `2020-04-07-adopted-pt.json`; a second run gave the same hash (no per-request token in the response). The act is `data.DetalheConteudo.Texto`; `URL_PDF` in the same answer names the gazette PDF (`https://files.diariodarepublica.pt/1s/2020/04/06800/0000300030.pdf`, `curl` answers `200 2625333 application/pdf`).
+
+Row `PT-DRE-CONSOLIDATED`, the consolidated text of the same decree-law as of 2024-12-09 (`DiplomaLegisId` and `DiplomaFragId` are read from the consolidated page `/dr/legislacao-consolidada/<Tipo>/<Key>`, the page link "Versão Consolidada" on the detail page; the answer lists the fragments of the text in force on `DataSelecionada`):
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"d7Rxuzmh_VE2+P7mpys+Ew"},"viewName":"LegislacaoConsolidada.LegCons_Detalhe","screenData":{"variables":{"DiplomaLegisId":"131124444","DiplomaFragId":"131177506","DataSelecionada":"2024-12-09","DataAux":"2024-12-09","Ano":2020,"Tipo":"decreto-lei","Key":"2020-131177506","GetDiplomaFragByIdAndApplicationSetting":{}}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_cons.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/LegCons_Detalhe/DataActionGetData
+```
+
+Returned `200 290217 application/json; charset=utf-8`, sha256 `aa4b733372e28c9b6918b55635573a792c6873ed19be84390973c9a4ee87da34`, equal to `fetched_sha256` of `2024-12-09-consolidated-pt.json`. Without the `GetDiplomaFragByIdAndApplicationSetting` key the action answers a `NullReferenceException`. The dates of the consolidations come from the list of changes of the page:
+
+```
+curl -sS -X POST -H 'Content-Type: application/json; charset=UTF-8' -H 'Accept: application/json' -H 'X-CSRFToken: T6C+9iB49TLra4jEsMeSckDMNhQ=' --data '{"versionInfo":{"moduleVersion":"M7FN8WxHoE3CxIH1MRFuNw","apiVersion":"kqtmWKfgghZe4WM2Y1nYAQ"},"viewName":"LegislacaoConsolidada.LegCons_Detalhe","screenData":{"variables":{"DiplomaLegisId":"131124444","DiplomaFragId":"131177506","Data":"2026-11-02"}},"clientVariables":{"CookiePath":"/dr/"}}' -o dl12_timeline.json -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag
+```
+
+Returned `200 24775 application/json; charset=utf-8`: each amending act with `DataPublicacao` and, per changed provision, `DataEntradaVigor` (`1900-01-01` means the page gives no date). The candidate versions are the distinct `DataEntradaVigor` dates plus the in-force date of the act; `DataSelecionada` set to each gives that day's text.
+
+Text extraction: for the published act, `Texto` with HTML tags removed (table rows and cells as lines, entities decoded, runs of spaces collapsed, blank lines dropped) and the trailing DRE document number (a bare 8-9 digit line at the end of `Texto`) removed; for a consolidation, the fragments of `data.LegConsBase.List` in order, each as its heading (`Tituo`), its `Epigrafe` and its `Texto`, cleaned the same way. Nothing reworded. A consolidation is stored only when its text differs from the previous stored consolidation; the first consolidation of an act is stored only when its body differs from the published act (headings in capitals and the title and signature lines aside). Checked on the day: for the six published acts the gazette PDF (`pdftotext`, default mode) was compared word by word; the stored text has none of the PDF words that belong to the act (the words only in the PDF come from other acts printed on the same gazette pages) and no U+FFFD character, so no mojibake.
+
+Stored (fetched 2026-11-02), all `pt`:
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `pt-dl-89-2017` | adopted | 2017-08-02 |
+| `pt-lei-98-2021` | adopted, consolidated | 2022-02-01 (adopted), 2025-04-01 |
+| `pt-dl-12-2020` | adopted, consolidated | 2020-04-07 (adopted), 2021-12-16, 2024-12-09 |
+| `pt-dl-98-2024` | adopted | 2024-12-04 |
+| `pt-dl-182-2026` | adopted, consolidated | 2026-09-15 (both; the consolidation carries Declaração de Retificação n.º 33-A/2026/1) |
+| `pt-dl-57-2008` | adopted, consolidated | 2008-04-01 (adopted), 2015-09-24, 2021-07-28, 2022-05-28, 2023-04-03 |
+
+Dates: where an act has no entry-into-force article (Decreto-Lei n.º 89/2017, 98/2024, 182/2026) the date is the 5.º dia após a publicação of Lei n.º 74/98 art. 2 n.º 2, counted from the day after publication. DRE itself states 2024-12-04 for Decreto-Lei n.º 98/2024 (in the changes of the repealed Decreto-Lei n.º 93/2010); for the other two no DRE page states a date.
+
+### Languages
+
+Portuguese is the only official language of the Diário da República. No government English translation of any of the six instruments was found on 2026-11-02 (diariodarepublica.pt, portugal.gov.pt, gov.pt, apambiente.pt), so no translation row and no English record exists.
+
+### Link only
+
+None: all six scope entries are stored. Not in scope:
+
+- A decree-law transposing the CSRD (Directive (EU) 2022/2464): none found. The Diário da República search for "Diretiva (UE) 2022/2464" on 2026-11-02 returned two unrelated 2026 instruments. The existing register row (a gov.pt notice) stays as a notice. The claim on opencapital.pt that Decreto-Lei n.º 89/2024 transposed the CSRD is wrong: that decree-law (2024-11-18) amends the asset management regime.
+- CMVM (cmvm.pt): no CMVM instrument on sustainability reporting was identified that is an enacted instrument, so no row. The home page answers (`200`), the guessed legal-notice URLs answer `404`; the terms were not read.
+- Decreto-Lei n.º 93/2010 (aviation ETS): repealed by Decreto-Lei n.º 98/2024 (DRE Vigência NAO_VIGENTE).
+- Código das Sociedades Comerciais (Art. 66.º-B, 508.º-G and related, amended by Decreto-Lei n.º 89/2017): not stored; the Code is a large act and the articles would have to be cut out of its consolidation as the Swiss Code of Obligations divisions are.
+- Implementing orders of the CELE (portarias, for example Portaria n.º 203/2021): not searched beyond the title.
+
+### Blocked
+
+No Portuguese site was blocked: diariodarepublica.pt, data.dre.pt (ELI redirects), files.diariodarepublica.pt and cmvm.pt answered. `https://eur-lex.europa.eu/eli/dir/2022/2464/oj/por` answered curl with `202 0 text/html` (empty challenge body); it was not needed (blocked from the cloud address: https://eur-lex.europa.eu/ ).

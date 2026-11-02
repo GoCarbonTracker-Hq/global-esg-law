@@ -2970,5 +2970,77 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.centralbank.ie/financial-system/climate-change/financial-regulation-and-supervision"
+ },
+ {
+  "id": "pt-dl-89-2017-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-89-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2017/07/14500/0426704271.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/89-2017-107773645 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-dl-98-2024-act-pdf",
+  "source_id": "PT-DRE-ADOPTED",
+  "iso2": "PT",
+  "instrument": "pt-dl-98-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://files.diariodarepublica.pt/1s/2024/11/23200/0001500033.pdf",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/98-2024-898378509 (browser; diariodarepublica.pt is a JavaScript application, curl gets an empty shell). The PDF is the act as published and does not change when the act is amended; no GET route lists later versions of this act, DRE shows none."
+  }
+ },
+ {
+  "id": "pt-lei-98-2021-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-lei-98-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2021-177023480 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-12-2020-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-12-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2020-131177506 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-182-2026-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-182-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2026-1170259475 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
+ },
+ {
+  "id": "pt-dl-57-2008-consolidated-page",
+  "source_id": "PT-DRE-CONSOLIDATED",
+  "iso2": "PT",
+  "instrument": "pt-dl-57-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075",
+  "params": {
+   "second_route": "https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2008-34454075 (browser; diariodarepublica.pt answers curl with the same JavaScript shell for every page, so this hash moves only when DRE redeploys its app. The real signal is the list of changes in the page, also served by POST https://diariodarepublica.pt/dr/screenservices/dr/LegislacaoConsolidada/AlteracoesTimelineByDiplomaLegisId/DataActionGetConsolidacaoByDiplomaFrag, see SOURCES.md ## Portugal)"
+  }
  }
 ]
