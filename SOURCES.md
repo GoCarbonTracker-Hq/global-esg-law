@@ -893,6 +893,67 @@ Dutch is the only official language the publisher serves for these instruments, 
 - `https://wetten.overheid.nl/` and `https://wetten.overheid.nl/BWBR0042394/2026-01-01/0` with plain `curl`: `curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR` or `curl: (52) Empty reply from server`; with `-A 'Mozilla/5.0'` both answer 200 (`118289 text/html;charset=UTF-8` for the Klimaatwet page). Not a block for the stored texts, which come from the repository hosts.
 - The wetgevingskalender page `https://wetgevingskalender.overheid.nl/Regeling/WGK014704` answers 200 (`17912`) but carries no readable bill status in the HTML received; the bill status was read from the Kamerstuk instead.
 
+## Spain
+
+Rows `ES-BOE-ADOPTED` and `ES-BOE-CONSOLIDATED` (`pass`, the BOE reuse conditions of the Aviso legal allow commercial reuse and modification; TRLPI art. 13 recorded as a second ground), `ES-BOE-TRANSLATION` (`pass`, TRLPI art. 13 on official translations, and the same reuse conditions) and `ES-BOE-EN-TRANSLATION` (`permission requested`, nothing stored). Run on 2026-11-02 (GEL-04-04). boe.es answered `curl` with no challenge, so no browser recipe is needed and no record is browser-fetched. The reuse conditions require the source to be named ("Basado en datos de la Agencia Estatal Boletín Oficial del Estado"), consolidated texts to be marked informative only, and modifications to be identified: the stored text is the BOE text with tags stripped and no wording changed.
+
+Step 1, row `ES-BOE-ADOPTED`, the text as published (Spanish), Ley 7/2021:
+
+```
+curl -sS -L -o ley7_adopted.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.boe.es/diario_boe/xml.php?id=BOE-A-2021-8447
+```
+
+Returned `200 253322 application/xml; charset=utf-8`, sha256 `dc4a4ef225acd1ea1d0879e72a011b94c42a0b2da61f01fdc87ee497e2469267`; a second fetch gave the same hash. The `texto` element of the document is the law: each child element (`p`, table rows, list items) is one line, inner tags removed, runs of spaces collapsed. The record's `in_force` is the `fecha_vigencia` of the same file's metadata.
+
+Step 2, row `ES-BOE-CONSOLIDATED`, every version of a consolidated text, Ley 7/2021:
+
+```
+curl -sS -L -H 'Accept: application/xml' -o ley7_texto.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2021-8447/texto
+```
+
+Returned `200 233713 application/xml`, sha256 `49ca8be49bae5e4c9c9d5dc74bad161725a6dff1f2166ab1fd3c8b778a18dcb8` (reproduced on a second fetch). The header is required: the same URL without `Accept: application/xml` answers `400 187 application/xml` (so `tools/watch.py`, which sends no `Accept`, cannot use the API; the watchers read the `act.php` page instead). The file holds blocks (`bloque`), each with all its versions (`version`, attributes `fecha_vigencia`, `fecha_publicacion`, `id_norma`). The text at a date D is the concatenation, in file order, of the latest version of each block whose `fecha_vigencia` is on or before D; a record is written for every distinct `fecha_vigencia` of the file, and a version whose text equals the previous one would be skipped (none was). The BOE page `https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447` shows the same latest text; the open-data file gives the per-version texts the page does not link in one request. The metadata-only endpoint is `.../id/<BOE-ID>/metadatos`; instruments the BOE does not consolidate (a law that only amends other texts) answer `404 170 application/xml`: Ley 11/2018, `https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2018-17989/texto`. The BOE identifier of an instrument is read from its ELI page (for example `https://www.boe.es/eli/es/l/2005/03/09/1`). The open-data search endpoint answered `500` on every query tried.
+
+One date oddity: Real Decreto 214/2025 is dated 2025-06-12 in its BOE record (published 2025-04-12, "a los dos meses"), while the API dates its only consolidated version 2025-06-14; the consolidated record keeps the API date.
+
+### Languages
+
+Spanish is the only official language of the State (Constitution art. 3.1) and is stored under the two rows above. The BOE also publishes laws, royal decrees-laws and legislative royal decrees as supplements in Catalan, Galician, Basque and Valencian, as published only (no consolidations). They are PDFs, served at the paths the as-published XML gives in `url_pdf_catalan`, `url_pdf_gallego`, `url_pdf_euskera` and `url_pdf_valenciano`. Row `ES-BOE-TRANSLATION`, Ley 7/2021:
+
+```
+curl -sS -L -o ley7_ca.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.boe.es/boe_catalan/dias/2021/05/21/pdfs/BOE-A-2021-8447-C.pdf
+curl -sS -L -o ley7_gl.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.boe.es/boe_gallego/dias/2021/05/21/pdfs/BOE-A-2021-8447-G.pdf
+curl -sS -L -o ley7_eu.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.boe.es/boe_euskera/dias/2021/05/21/pdfs/BOE-A-2021-8447-E.pdf
+```
+
+Returned `200 649073 application/pdf` (sha256 `aa5cb57d49f9f583aadec45c65c58f2c3df5d413efb063c8a4398c56bac33dd9`), `200 647281 application/pdf` and `200 612907 application/pdf`; the Catalan hash reproduced on a second fetch. Real Decreto 214/2025 has a Catalan PDF too (`https://www.boe.es/boe_catalan/dias/2025/04/12/pdfs/BOE-A-2025-7439-C.pdf`, `200 260172 application/pdf`).
+
+Text extraction from the PDF: poppler `pdftotext <file> -` (without `-layout`: with `-layout` the two-column pages of the older supplements interleave the columns and the single-column ones gain nothing), form feeds as page breaks, runs of spaces collapsed, and on each page the first seven and last four lines dropped only when they match the gazette header and footer (the "BOLETÍN OFICIAL DEL ESTADO" line, the supplement line, the date line, the section and page line, "https://www.boe.es", the ISSN line, a bare page number). Checked for mojibake: no private-use, replacement or symbol characters in any stored text, and no header or footer line left. Small-capital glyphs come out lower case (the Basque "FELIPE e." for the king's signature line). Each translation record is dated the Spanish version it translates; the Valencian supplement is not stored.
+
+Stored: Ley 11/2018 (ca, gl, eu), Ley 7/2021 (ca, gl, eu), Real Decreto 214/2025 (ca). Not stored, with the reason: the supplements of Ley 3/1991 (ca, 1991-12-31), Ley 1/2005 (ca 2005-03-16, gl 2005-04-01) and Real Decreto Legislativo 1/2007 (ca and gl, 2007-12-01) are two-column PDFs of several items per page. Poppler returned them out of order: checked against the Spanish article headings, 3 article-heading inversions in the Galician Ley 1/2005, 1 in the Catalan, and 16 and 9 in the Galician and Catalan Real Decreto Legislativo 1/2007, where the Spanish text has 0 and 1. A text with out-of-order paragraphs is not stored. Ley 3/1991 (ca) had no inversion but shares the layout and was left out with them.
+
+English: row `ES-BOE-EN-TRANSLATION`. The BOE Biblioteca Jurídica Digital is excluded from the general reuse conditions and distributed under CC BY-NC-ND 4.0 (Aviso legal, condición primera), so it is `permission requested`; no English translation of any instrument in scope was found there (https://www.boe.es/biblioteca_juridica/ and its search listing). The BOE consolidated pages answer "Content not available in English". A web search for an English version of Ley 7/2021 and Real Decreto 214/2025 on the MITECO site found none. No English record is stored for any instrument.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | es adopted | es consolidated | ca | gl | eu | en |
+|---|---|---|---|---|---|---|
+| `es-ley-11-2018` | 2018-12-30 | none (not consolidated by the BOE) | 1 | 1 | 1 | 0 |
+| `es-ley-7-2021` | 2021-05-22 | 2021-05-22, 2025-12-05, 2026-07-01 | 1 | 1 | 1 | 0 |
+| `es-ley-1-2005` | 2005-03-11 | 10, 2005-03-11 to 2020-12-18 | 0 | 0 | 0 | 0 |
+| `es-rd-214-2025` | 2025-06-12 | 2025-06-14 | 1 | 0 | 0 | 0 |
+| `es-ley-3-1991` | 1991-01-31 | 13, 1991-01-31 to 2025-12-28 | 0 | 0 | 0 | 0 |
+| `es-rdl-1-2007` | 2007-12-01 | 25, 2007-12-01 to 2026-02-28 | 0 | 0 | 0 | 0 |
+
+`fetched_sha256` of a consolidated record is the hash of the whole API file for the instrument, so every version of one instrument carries the same hash, and it changes whenever the BOE adds a version.
+
+### Link only
+
+None: every instrument in scope has records. Not in scope and not stored: Real Decreto 163/2014 (voluntary register, repealed with effect from 2025-06-12 by Real Decreto 214/2025; register row F7 only); the CSRD transposition (only the 2024 anteproyecto found; no promulgated law on the BOE); the transposition of Directive (EU) 2024/825 on environmental claims (not found in the consolidated Ley 3/1991 or Real Decreto Legislativo 1/2007, versions to 2025-12-28 and 2026-02-28); the CNMV guides (no enacted CNMV instrument in families F1 to F6 was found, so no CNMV row; its terms were not opened).
+
+### Blocked
+
+No URL refused the cloud address. One watcher dry run of `https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447` ended in `Connection reset by peer` once and passed on the two reruns.
+
 ## Sweden
 
 Row `SE-RIKSDAGEN-CONSOLIDATED` (`pass`, statute: Upphovsrättslag (1960:729) 9 §, with the open data terms as a second basis). Rows `SE-SFS-ADOPTED` and `SE-GOVERNMENT-TRANSLATION` are `permission requested` because both sites answer 403 from the cloud address; nothing is stored under them. Run on 2026-11-02 (GEL-04-06). Language: Swedish.
