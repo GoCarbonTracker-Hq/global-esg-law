@@ -3707,3 +3707,74 @@ No binding sustainability disclosure rule for issuers was found on an official p
 ### Blocked
 
 - https://www.bcu.gub.uy/ : curl `SSL certificate problem: unable to get local issuer certificate` (also with `--cacert /root/.ccr/ca-bundle.crt`); Chromium HTTP 502 `upstream request failed`. To be read from the laptop.
+
+## Liechtenstein
+
+Rows `LI-LILEX-CONSOLIDATED` and `LI-LGBL-ADOPTED`, both `pass` on the statute basis (Copyright Act URG, LGBl 1999 Nr. 160, Art. 5 para. 1 let. a and para. 2, quoted in the rows). Rows `LI-REGIERUNG-ADOPTED` and `LI-FMA-ADOPTED` are `permission requested`; nothing is stored under them. The site www.gesetze.li (LILEX, run by the Rechtsdienst der Regierung) answered curl from the cloud address on 2026-11-02 with the default curl `User-Agent` and with `Mozilla/5.0` alike, no challenge. The law text is served as PDF only; the HTML pages list versions and metadata. Language: German only. Run on 2026-11-02 for the Emissionshandelsgesetz (EHG, LGBl 2012 Nr. 346, number `2012346`).
+
+Step 1, list the versions of a law (the `<option value="N">` elements of the page give the version number N and its validity range; the numbering skips numbers, so it cannot be guessed):
+
+```
+curl -sS -L -o ehg_versions.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.gesetze.li/konso/2012346000
+```
+
+Returned `200 16783 text/html;charset=UTF-8`; versions 1 to 8 (`01.12.2012` to `01.08.2026`). The chronology with the amending LGBl of each version is on `https://www.gesetze.li/konso/2012346000/meta?version=8` (`200 28718 text/html;charset=UTF-8`). The HTML pages carry a per-request token, so their hashes do not reproduce (this is why the watchers use HEAD, see below).
+
+Step 2, row `LI-LILEX-CONSOLIDATED`, the consolidated text of version 8 (valid from 2026-08-01):
+
+```
+curl -sS -L -o ehg_v8.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gesetze.li/konso/pdf/2012346000?version=8'
+```
+
+Returned `200 224325 application/pdf;charset=UTF-8`, sha256 `d45d690b86e97dbf1bd2c29ef21823fb8af829e1d0f48405b95e6a39248af999`; a second fetch minutes later returned the same bytes, so `fetched_sha256` reproduces. Without `?version=` the same path serves the current version.
+
+Row `LI-LGBL-ADOPTED`, the act as published in the Landesgesetzblatt:
+
+```
+curl -sS -L -o ehg_lgbl.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.gesetze.li/chrono/pdf/2012346000
+```
+
+Returned `200 83889 application/pdf;charset=UTF-8`, sha256 `195f1c253bf071344cec7edafc398051ca4a2e93352b3bdcb9f29ac789329d7d`.
+
+Text extraction (both rows): `pdftotext -layout file.pdf -` (poppler), pages split on the form feed, runs of spaces collapsed, empty lines dropped, one line of the PDF per line of text. Consolidated PDFs: the first line of each page (LR number and short title) and the last line (`Fassung: dd.mm.yyyy` and page number) are dropped as layout. LGBl PDFs: only a lone page number at the end of a page is dropped. Hyphenation at line ends stays as printed ("Nachhaltigkeitsberichter-" then "stattung"), footnote numbers stay attached to their word, and footnote texts stay where the PDF prints them (page bottom). Checked for mojibake: no U+FFFD and no `(cid:` in any of the 61 consolidated and 11 LGBl texts; the only non-Latin characters are mathematical signs in formulas of the CO2 Ordinance and the USG. Each consolidated PDF carries its own `Fassung:` date, and all 61 equal the version start date from the version list. Formulas and tables come out as flat lines.
+
+Cuts: for `li-pgr-art-1096b-k` the consolidated record is one chapter of the PGR (4.6 MB PDF), from the heading `III. Nachhaltigkeitsberichterstattung` up to the heading `2. Unterabschnitt` (Konsolidierter Geschäftsbericht). Versions: the eight PGR versions from 2024-07-01 (version numbers 128, 130 to 136) were fetched; the chapter is identical in all of them once footnote numbers (2000 to 2099) are ignored, so only the first is stored. For the other instruments every version the site lists is stored, because every consolidation differs from the one before. The first consolidation is stored beside the as-published LGBl text because the two differ (word sequences compared: similarity 0.91 to 0.95 for the six acts that have both).
+
+Stored (fetched 2026-11-02), all `language` de:
+
+| Instrument | Row | Records (`in_force`) |
+|---|---|---|
+| `li-pgr-art-1096b-k` | adopted, consolidated | 2024-07-01 (adopted LGBl 2024 Nr. 170), 2024-07-01 (consolidated chapter) |
+| `li-lgbl-2024-171-wpg` | adopted | 2024-07-01 |
+| `li-lgbl-2024-172-offg` | adopted | 2024-07-01 |
+| `li-lgbl-2025-517` | adopted | 2025-11-01 |
+| `li-ehg` | adopted, consolidated | 2012-12-01 (adopted), 8 consolidated 2012-12-01 to 2026-08-01 |
+| `li-ehv` | adopted, consolidated | 2012-12-01 (adopted), 4 consolidated 2012-12-01 to 2026-08-01 |
+| `li-co2-gesetz` | adopted, consolidated | 2013-12-01 (adopted), 8 consolidated 2013-12-01 to 2026-08-01 |
+| `li-co2-verordnung` | adopted, consolidated | 2013-12-01 (adopted), 24 consolidated 2013-12-01 to 2026-08-01 |
+| `li-usg` | adopted, consolidated | 2008-09-01 (adopted), 9 consolidated 2009-12-23 to 2026-08-01 |
+| `li-ewr-fndg` | adopted, consolidated | 2022-05-01 (adopted), 2 consolidated 2022-05-01 and 2026-01-01 |
+| `li-uwg` | adopted, consolidated | 1994-11-01 (adopted, date from the LILEX chronology), 6 consolidated 2008-11-14 to 2025-02-01 |
+
+Versions of a law that the version list does not show (for example USG versions 1 and 8, UWG versions 1 to 7) are not served and are not stored. No dated version is stored from a browser; every record in this section came from curl.
+
+### Languages
+
+German is the only official language of Liechtenstein and the only language `gesetze.li` serves (`curl -sS -L -o /dev/null -w '%{http_code} %{size_download}\n' https://www.gesetze.li/en` returned `404 7356`; the search form has no language field). No government English translation was found, so there is no translation row and no `en` record. Places looked at on 2026-11-02: gesetze.li (all pages above), `https://www.regierung.li/en` (`200 27337 text/html`, no law translations linked), `https://www.llv.li/en` (`403 0`, blocked from the cloud address, see below). A translation by a law firm, an exchange, an NGO or a news site would not be stored.
+
+### Link only
+
+No scope instrument is link only. Sources without a stored text:
+
+- `LI-REGIERUNG-ADOPTED`, `permission requested`: the regierung.li Impressum (`https://www.regierung.li/text/16369/impressum`, `200`) says "Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen." The CSRD press release the register row used to point at is on this site; the row now points at the LILEX page of the PGR.
+- `LI-FMA-ADOPTED`, `permission requested`: `https://www.fma-li.li/` answered `403 115089 text/html` (anti-robot validation page); one earlier request the same day returned `200 585968`. No FMA instrument is in scope.
+- Not in scope: the Wirtschaftsprüfergesetz and the Offenlegungsgesetz as consolidated texts (only their 2024 amending acts are stored), the Energieeffizienzgesetz and its Verordnung (family F7: register rows only).
+
+### Blocked from the cloud address
+
+- `https://www.fma-li.li/` and `https://www.fma-li.li/de/impressum`: `403`, "Visitor anti-robot validation" page (115089 and 115100 bytes); `https://www.fma-li.li/de/` and `/de/rechtliche-hinweise`: connection dropped by the tunnel (curl exit 000).
+- `https://www.llv.li/en` and `https://www.llv.li/en/national-administration/legal-service-of-the-government`: `403`, 5311 and 5564 bytes.
+
+### Watchers
+
+Signal: `http_head` (Content-Length of the PDF) on `https://www.gesetze.li/konso/pdf/<LGBl number>000` without `?version=`, which serves the current version, so a new consolidation changes the size. A HEAD request answers `200` with `Content-Length` and no `Last-Modified`. `page_hash` was rejected because the HTML pages carry a per-request token, and `date_list` because the pages print dates as dd.mm.yyyy, which the watcher's regex route does not accept. The three adopted-only acts watch their LGBl PDF (`/chrono/pdf/...`), which should never change. One `terms_changed` watcher (tier `regulator_page`, as the tests require for `terms-` watchers) watches the size of the URG PDF.
