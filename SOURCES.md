@@ -2399,6 +2399,111 @@ The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni 
 - `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
 - `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
 
+## Luxembourg
+
+Rows `LU-LEGILUX-ADOPTED` (Mémorial A text as published) and `LU-LEGILUX-CONSOLIDATED` (textes consolidés and codes) are `pass` on the terms basis; `LU-CSSF-ADOPTED` is `permission requested` and no CSSF text is stored. Run on 2026-11-02 (GEL-06-09). No record was fetched with a browser: every record comes from `curl`.
+
+Legilux has two hosts. `https://legilux.public.lu/...` (every HTML and ELI path, the `/jo/fr/pdf` and `/jo/fr/html` routes included) answers curl with the 2118-byte Angular shell, so it cannot be read without a browser. `https://data.legilux.public.lu/...` (the Casemates open-data host) serves the files themselves to plain curl, and its SPARQL endpoint lists the dated versions. The endpoint is `/sparqlendpoint`; `/sparql` returns the 698-byte Casemates shell to a GET. Both hosts reset the connection now and then (`curl: (35) Recv failure: Connection reset by peer`); a retry worked each time.
+
+```
+curl -sS -L -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo/fr/html
+```
+
+Returned `200 2118 text/html;charset=UTF-8` (the shell, no law text).
+
+### Terms (rows LU-LEGILUX-*)
+
+The terms are not in the HTML of any page; the help page `https://legilux.public.lu/help/projet-casemates` loads its text from a fragment found by capturing the page's network requests with Playwright chromium:
+
+```
+curl -sS -o intro.html -w '%{http_code} %{size_download} %{content_type}\n' https://legilux.public.lu/api/assets/faq/questions/12-introduction.html
+```
+
+Returned `200 2441 text/html`. It says: "Les textes et les métadonnées sont mis à disposition selon la licence d’utilisation http://creativecommons.org/licenses/by/4.0/ qui autorise leur réutilisation pour des utilisations commerciales ou non." (fingerprint of the stripped text `bd91a4f1c164ae514a623c1925a753da9b127275215649646eb1114f5c4f407d`). The same licence is stated by the data.public.lu dataset "Legilux - Journal officiel du Grand-Duché de Luxembourg" (licence `cc-by`, `curl -sS -A 'Mozilla/5.0' 'https://data.public.lu/api/1/datasets/?q=legilux&page_size=20'` returned `200 11921 application/json`; the call was reset once before it answered) and by the metadata of each file (`jo:license`). The site's general terms, `.../api/assets/faq/questions/14-utilisation.html` (`200 6718 text/html`), say that "Sauf indication contraire" documents are for private use, may not be modified and may not be distributed outside the site. The CC BY statement is read as the contrary indication for the open-data files; this is the one judgment in the rows and Varun is asked to confirm it in the PR.
+
+The licence is checked per file before a record is made:
+
+```
+curl -sS -L -G -H 'Accept: text/csv' --data-urlencode 'query=PREFIX j: <http://data.legilux.public.lu/resource/ontology/jolux#> SELECT ?l WHERE { <http://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/consolide/20250726/fr/xml> j:license ?l }' -o q2.csv -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/sparqlendpoint
+```
+
+Returned `200 50 text/csv;charset=UTF-8` with `http://creativecommons.org/licenses/by/4.0/`. 149013 of the 500579 files that carry a licence statement carry `http://data.legilux.public.lu/resource/authority/license/licenceSCL` instead ("Licence de réutilisation SCL", no text found); those are not stored. A file with no licence statement at all is not stored either. The Loi du 18 avril 2001 sur les droits d’auteur, art. 10, 8° ("les actes officiels de l'autorité et leur traduction officielle") is an exception to the author's right, listed under the chapeau "l'auteur ne peut interdire", not an exclusion from protection, so no row rests on it.
+
+### Row LU-LEGILUX-ADOPTED
+
+The Mémorial A text of an act as Akoma Ntoso XML. Run for the Loi du 15 décembre 2020 relative au climat (ELI `loi/2020/12/15/a994`):
+
+```
+curl -sS -L -o a994.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo/fr/xml
+```
+
+Returned `200 174544 application/xml`, sha256 `1b728f8a8971b3fbeb9c598b41b39ebf6b753f7d29b6cdaa39855c549092e9d7`, identical on a second fetch (no per-request token). The same file comes from the ELI route with a header: `curl -sS -L -H 'Accept: application/xml' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo` returned `200 174544 application/xml`. The same path with `/html` instead of `/xml` returns an XHTML file.
+
+### Row LU-LEGILUX-CONSOLIDATED
+
+The dated versions of an act are the works that are `jo:isMemberOf` the act and typed `jo:Consolidation`; `jo:dateApplicability` is the date the version applies from. The query uses the same JOLux ontology as the Fedlex query in `## Switzerland`:
+
+```
+curl -sS -L -G -H 'Accept: text/csv' --data-urlencode 'query=PREFIX j: <http://data.legilux.public.lu/resource/ontology/jolux#> SELECT DISTINCT ?c ?d WHERE { ?c j:isMemberOf <http://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994> . ?c a j:Consolidation . ?c j:dateApplicability ?d } ORDER BY ?d' -o q1.csv -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/sparqlendpoint
+```
+
+Returned `200 578 text/csv;charset=UTF-8`: six consolidations, 2021-01-01, 2022-07-05, 2024-01-01, 2024-06-08, 2024-10-01 and 2025-07-26. The file of one version:
+
+```
+curl -sS -L -o a994_20250726.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/consolide/20250726/fr/xml
+```
+
+Returned `200 417458 application/xml`, sha256 `b75c8a28d1b0c2c0d7613bfaba4437f9d5d2278f92c245d68f8344bae2d35838`, identical on a second fetch. A consolidation listed in the graph without a file answers `404` (`loi/2002/12/19/n1/consolide/20250302`) or the 698-byte shell with status 200 (`code/consommation/20170101`); neither is a version Legilux serves. The consumer Code is not an act with its own members: its versions are members of the introducing law (`loi/2011/04/08/n2`) and its files are `.../eli/etat/leg/code/consommation/{YYYYMMDD}/fr/xml`:
+
+```
+curl -sS -L -o code.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/code/consommation/20260927/fr/xml
+```
+
+Returned `200 1970599 application/xml`, sha256 `3f11b794f60e2e5104cf2029aa9553c0d0d2e959d849f20ec1429649b2502d2c`.
+
+### Text extraction
+
+`text` is the Akoma Ntoso `preface` and `body` (and `attachments`, where an annex exists) of the file: headings and paragraphs as line breaks, the number and heading of an article or chapter on one line, a paragraph number on the line of its text, list markers (`1°`, `a)`, `-`) rebuilt from the list type, table rows as one line with cells separated by ` | `. The Legilux modification notes are kept as `[Note] ...` lines after the block that cites them (the marker is added by the extraction, as `[Fussnote]` is in `## Switzerland`). Passages Legilux marks as deleted (`<del>`) are left out because they are no longer text of that version. Nothing is reworded. `fetched_sha256` is the sha256 of the whole file as returned. For the law of 19 December 2002 (about 450 kB) the text is Art. 68bis and 68ter, and for the Code de la consommation (about 1.9 MB a version) it is Chapter 2 of Title 2 of Book 1 (Art. L. 122-1 ff., unfair commercial practices), cut out by its element id or heading. A cut instrument stores a version only when the cut text differs from the previous stored one. For each stored file the letters and digits of the XML body (minus deleted passages and notes) were checked to be a subsequence of the extracted text; the extra characters are list markers.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Versions stored (`in_force`), all `fr` |
+|---|---|---|
+| `lu-climate-law-2020` | adopted, consolidated | 2020-12-20 (adopted); 2021-01-01, 2022-07-05, 2024-01-01, 2024-06-08, 2024-10-01, 2025-07-26 (consolidated) |
+| `lu-climate-pact-law-2021` | adopted | 2021-01-01 |
+| `lu-ghg-allocations-rgd-2022` | adopted | 2022-07-05 |
+| `lu-ets-aid-law-2022` | adopted, consolidated | 2022-07-19; 2026-01-04 |
+| `lu-ghg-inventory-rgd-2017` | adopted | 2017-05-01 |
+| `lu-rcs-act-2002` | consolidated | 2025-12-23 (Art. 68bis and 68ter only) |
+| `lu-sfdr-law-2022` | adopted | 2022-01-01 |
+| `lu-consumer-code-unfair-practices` | consolidated | 2018-07-01, 2022-12-04, 2024-07-22, 2024-09-10, 2024-12-31, 2025-11-25, 2026-09-27 (Chapter 2 only) |
+| `lu-consumer-law-2026-green-transition` | adopted | 2026-09-27 |
+
+### Languages
+
+Legilux serves one expression, French (`FRA`), for every act and consolidation above (a SPARQL query of `jo:language` over each act and its consolidations returned `FRA` alone, 2026-11-02). French is the language of legislation (loi du 24 février 1984 sur le régime des langues, art. 2). No German text as enacted and no government English translation was found: the only other expressions Legilux lists are for treaties and a few unrelated acts. So there is no translation row, and no instrument has a `de` or `en` record.
+
+### Link only
+
+- `lu-nfi-law-2016`: row `LU-LEGILUX-ADOPTED` passes, but every file of the act carries `licenceSCL`, not CC BY 4.0, so nothing is stored. Its provisions are in the consolidated law of 2002 (`lu-rcs-act-2002`).
+- Projet de loi n° 8370 (CSRD transposition): not enacted, register row with family F7 and no scope entry. `https://www.chd.lu/fr/dossier/8370` returned `200 174523 text/html; charset=UTF-8`: "Projet de loi", "En commission", filed 29.03.2024, last updated 22.12.2025.
+- Dropped: the Loi modifiée du 23 décembre 2004 (ETS) and its texte coordonné. Art. 48 of the climate law repeals it and Legilux shows it as no longer in force since 2020-12-20.
+- Not stored, stored versions missing: earlier states of Art. 68bis and 68ter (the only consolidation with a file is 2025-12-23), and the three consolidations of the Code before 2018-07-01 (no file).
+
+### Row LU-CSSF-ADOPTED (blocked from the cloud address for curl)
+
+```
+curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.cssf.lu/en/terms-of-service-and-privacy-policy/
+```
+
+Answered `curl: (52) Empty reply from server` (three tries), and on a later run `400 2798 text/html; charset=UTF-8`; the home page `https://www.cssf.lu/en/` answered `200` once and `400` or an empty reply on other runs. Headless Chromium opens it (Playwright as pre-installed; waits for `networkidle` plus 2.5 s, then takes `innerText` of `<main>`):
+
+```
+node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage();const r=await p.goto('https://www.cssf.lu/en/terms-of-service-and-privacy-policy/',{waitUntil:'networkidle',timeout:60000});await p.waitForTimeout(2500);const t=await p.evaluate(()=>(document.querySelector('main')||document.body).innerText);console.log(r.status(),t.length);console.log(t);await b.close()})()"
+```
+
+Status `200`; the text of `<main>` has 32764 characters. It gives the sentence in the row (reproduction or distribution only with prior written consent). No CSSF text was fetched or stored.
+
 ## Bulgaria
 
 Row `BG-PARLIAMENT-ADOPTED`, `pass` on the publisher's terms (verdict_basis `terms`): the Народно събрание terms page https://www.parliament.bg/bg/terms-of-use licenses the portal content under CC BY 4.0 (the quoted sentence and its fingerprint are in the row; Закон за авторското право и сродните му права чл. 4, т. 1 is quoted in the row as a second ground but the row rests on the terms). The portal serves each act once, as passed, with the Decree of promulgation; it has no point-in-time consolidation, so Bulgaria has no consolidated row. Language: Bulgarian only. Run on 2026-11-02 for the Accounting Act (ДВ бр. 95/2015, parliament.bg act id 15501).

@@ -4714,6 +4714,136 @@
   }
  },
  {
+  "id": "lu-climate-law-2020-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-climate-law-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2020%2F12%2F15%2Fa994%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-climate-pact-law-2021-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-climate-pact-law-2021",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2021%2F06%2F25%2Fa482%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2021/06/25/a482/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ghg-allocations-rgd-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-ghg-allocations-rgd-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Frgd%2F2022%2F06%2F22%2Fa328%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/rgd/2022/06/22/a328/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ets-aid-law-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-ets-aid-law-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2022%2F07%2F15%2Fa356%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2022/07/15/a356/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-ghg-inventory-rgd-2017-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-ghg-inventory-rgd-2017",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Frgd%2F2017%2F04%2F24%2Fa446%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/rgd/2017/04/24/a446/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-rcs-act-2002-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-rcs-act-2002",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2002%2F12%2F19%2Fn1%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2002/12/19/n1/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-nfi-law-2016-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-nfi-law-2016",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2016%2F07%2F23%2Fn19%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2016/07/23/n19/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-sfdr-law-2022-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-sfdr-law-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2022%2F02%2F25%2Fa82%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2022/02/25/a82/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-consumer-code-unfair-practices-legilux-consolidations",
+  "source_id": "LU-LEGILUX-CONSOLIDATED",
+  "iso2": "LU",
+  "instrument": "lu-consumer-code-unfair-practices",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2011%2F04%2F08%2Fn2%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/code/consommation/20260927 (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
+  "id": "lu-consumer-law-2026-green-transition-legilux-consolidations",
+  "source_id": "LU-LEGILUX-ADOPTED",
+  "iso2": "LU",
+  "instrument": "lu-consumer-law-2026-green-transition",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://data.legilux.public.lu/sparqlendpoint?query=PREFIX+j%3A+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Fresource%2Fontology%2Fjolux%23%3E+SELECT+DISTINCT+%3Fd+WHERE+%7B+%3Fc+j%3AisMemberOf+%3Chttp%3A%2F%2Fdata.legilux.public.lu%2Feli%2Fetat%2Fleg%2Floi%2F2026%2F06%2F09%2Fa283%3E+.+%3Fc+a+j%3AConsolidation+.+%3Fc+j%3AdateApplicability+%3Fd+%7D+ORDER+BY+%3Fd&format=text%2Fcsv",
+  "params": {
+   "regex": "\\n(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://legilux.public.lu/eli/etat/leg/loi/2026/06/09/a283/jo (browser; legilux.public.lu is a JavaScript application, its Versions panel lists the consolidations; the SPARQL route answered curl on 2026-11-02, with an occasional connection reset)"
+  }
+ },
+ {
   "id": "bg-zschet-parliament-act",
   "source_id": "BG-PARLIAMENT-ADOPTED",
   "iso2": "BG",
