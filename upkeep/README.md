@@ -173,7 +173,7 @@ The India, FCA and UK SRS watchers only ever produce queue rows because their li
 
 ## Cadence and ceiling (GEL-02-06)
 
-Every watcher carries a `tier` that says what kind of source it reads. The tier sets how often the source needs a look and what a look costs. `cadence.json` holds the figures; `tools/watch.py` writes the per-watcher `seconds` and `bytes` into `seen.json` on every run, so the table can be re-measured from any later run.
+Every watcher carries a `tier` that says what kind of source it reads. The tier sets how often the source needs a look and what a look costs. `cadence.json` holds the figures: `tiers` maps each tier to its interval in days (what `tools/coverage.py` reads to mark a cell stale), `per_tier` holds the measured watchers, seconds, bytes and failures per run, `runs` lists the measured runs, and `measured`, `measured_on` and `paid_tools` say where the numbers come from. `tools/watch.py` writes the per-watcher `seconds` and `bytes` into `seen.json` on every run, so the table can be re-measured from any later run.
 
 | Tier | What it covers | Watchers | Interval | Seconds per run | Bytes per run | Failures per run |
 |---|---|---|---|---|---|---|
