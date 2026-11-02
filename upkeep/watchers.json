@@ -7335,5 +7335,173 @@
   "params": {
    "regex": "cap/415/(\\d{8})/"
   }
+ },
+ {
+  "id": "rs-accounting-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-accounting-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2019/2368-19.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-climate-change-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-climate-change-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2021/337-21.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-env-protection-act-ekologija-page",
+  "source_id": "RS-EKOLOGIJA-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-env-protection-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ekologija.gov.rs/wp-json/wp/v2/propis/13084?_fields=id,modified",
+  "params": {
+   "second_route": "https://www.ekologija.gov.rs/propis/%d0%b7%d0%b0%d0%ba%d0%be%d0%bd-%d0%be-%d0%b7%d0%b0%d1%88%d1%82%d0%b8%d1%82%d0%b8-%d0%b6%d0%b8%d0%b2%d0%be%d1%82%d0%bd%d0%b5-%d1%81%d1%80%d0%b5%d0%b4%d0%b8%d0%bd%d0%b5/ (browser)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2230-25.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-act-amend-2026-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-act-amend-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2588-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-cbam-tax-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-cbam-tax-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2231-25.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-cbam-tax-act-amend-2026-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-cbam-tax-act-amend-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2587-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-mrv-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-mrv-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=5d5816e1-2ffc-40a3-b067-35422ebf709f",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/5d5816e1-2ffc-40a3-b067-35422ebf709f (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-activities-decree-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-activities-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=e5932061-29c4-440f-8810-7f019ce8f82e",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/e5932061-29c4-440f-8810-7f019ce8f82e (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-verification-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-verification-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=423bc135-a51c-4736-aa22-e5e47659221d",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/423bc135-a51c-4736-aa22-e5e47659221d (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-measures-decree-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-measures-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=fef8070f-073e-4ec0-8445-eec579194be6",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/fef8070f-073e-4ec0-8445-eec579194be6 (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-ghg-tax-benchmarks-rules-pis-register",
+  "source_id": "RS-PIS-CONSOLIDATED",
+  "iso2": "RS",
+  "instrument": "rs-ghg-tax-benchmarks-rules",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://reg.pravno-informacioni-sistem.rs/api/GetLawActViewByGuid?guid=7898e919-3b43-4da7-a6d1-e181f9374605",
+  "params": {
+   "second_route": "https://pravno-informacioni-sistem.rs/reg/viewAct/7898e919-3b43-4da7-a6d1-e181f9374605 (browser; JavaScript page)"
+  }
+ },
+ {
+  "id": "rs-advertising-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-advertising-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/2016/2926-15.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
+ },
+ {
+  "id": "rs-consumer-protection-act-parlament-pdf",
+  "source_id": "RS-PARLAMENT-ADOPTED",
+  "iso2": "RS",
+  "instrument": "rs-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/1317-26.pdf",
+  "params": {
+   "second_route": "the same PDF opens in a browser; the Assembly list https://www.parlament.gov.rs/\u0430\u043a\u0442\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438/\u0434\u043e\u043d\u0435\u0442\u0438-\u0437\u0430\u043a\u043e\u043d\u0438.45.html names amending acts"
+  }
  }
 ]
