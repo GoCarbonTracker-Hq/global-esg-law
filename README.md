@@ -73,7 +73,7 @@ Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref hi
 python3 tools/build.py --branch history
 ```
 
-This builds `history` from scratch from `records/` and replaces the branch if it exists.
+This builds `history` from scratch from `records/` and replaces the branch if it exists. It is the only build command: once anything under `records/` is tracked by git, a run without `--branch` exits 2 and writes nothing, so commits can no longer land on the checked-out branch by mistake. Records added by `tools/update.py` (see `upkeep/README.md`) are ordinary record files, so the same command rebuilds the branch, upkeep versions included, in `In-force` order.
 
 ## Tests
 

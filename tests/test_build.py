@@ -64,6 +64,30 @@ def test_branch_build_is_orphan_and_rebuild_equal(tmp_path):
     assert subprocess.check_output(["git", "-C", str(tmp_path), "status", "--porcelain"], text=True) == "?? records/\n?? register/\n?? sources.json\n"
 
 
+def test_branch_required_once_records_are_tracked(tmp_path):
+    fixture(tmp_path)
+    build.build(tmp_path)  # an empty repo (nothing tracked under records/) still builds without a branch
+    assert subprocess.check_output(["git", "-C", str(tmp_path), "rev-list", "--count", "HEAD"], text=True).strip() == "2"
+    subprocess.run(["git", "-C", str(tmp_path), "add", "-A"], check=True)
+    subprocess.run(["git", "-C", str(tmp_path), "commit", "-q", "-m", "track everything"], check=True)
+    head = subprocess.check_output(["git", "-C", str(tmp_path), "rev-parse", "HEAD"], text=True)
+    try:
+        build.build(tmp_path)
+    except build.BranchRequired as exc:
+        assert "--branch" in str(exc)
+    else:
+        raise AssertionError("build without a branch ran on a populated repo")
+    run = subprocess.run([sys.executable, str(ROOT / "tools" / "build.py"), "--repo", str(tmp_path)], capture_output=True, text=True)
+    assert run.returncode == 2 and run.stdout == ""
+    assert run.stderr == "records/ is tracked by git: --branch is required (python3 tools/build.py --branch history)\n"
+    assert subprocess.check_output(["git", "-C", str(tmp_path), "rev-parse", "HEAD"], text=True) == head
+    assert subprocess.check_output(["git", "-C", str(tmp_path), "status", "--porcelain"], text=True) == ""
+    assert build.main(["--repo", str(tmp_path), "--branch"]) == 2  # a flag with no value is no flag
+    assert build.main(["--repo", str(tmp_path), "--branch", "history"]) == 0
+    assert subprocess.check_output(["git", "-C", str(tmp_path), "rev-list", "--count", "history"], text=True).strip() == "2"
+    assert subprocess.check_output(["git", "-C", str(tmp_path), "rev-parse", "HEAD"], text=True) == head
+
+
 def test_trailers_come_from_scope_json(tmp_path):
     fixture(tmp_path)
     build.build(tmp_path)
