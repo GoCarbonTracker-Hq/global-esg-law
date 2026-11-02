@@ -1828,7 +1828,91 @@
   "tier": "consolidation_site",
   "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201",
   "params": {
-   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201 (browser; ejustice.just.fgov.be sits behind an F5 gateway that answers scripts with a JavaScript challenge and, after the first browser request, a CAPTCHA)"
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201 (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-csa-art-3-6-3-32-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-csa-art-3-6-3-32",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2019A40586&cn_search=&caller=list&&view_numac=2019A40586f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2019A40586&cn_search=&caller=list&&view_numac=2019A40586f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-loi-2024-01-15-climat-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-loi-2024-01-15-climat",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024001055&cn_search=&caller=list&&view_numac=2024001055f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024001055&cn_search=&caller=list&&view_numac=2024001055f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-ar-2024-06-16-climate-financing-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-ar-2024-06-16-climate-financing",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024006472&cn_search=&caller=list&&view_numac=2024006472f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024006472&cn_search=&caller=list&&view_numac=2024006472f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-wallonia-ets-decree-2004-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-wallonia-ets-decree-2004",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2004203609&cn_search=&caller=list&&view_numac=2004203609f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2004203609&cn_search=&caller=list&&view_numac=2004203609f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-wallonia-ets2-decree-2025-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-wallonia-ets2-decree-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2025003404&cn_search=&caller=list&&view_numac=2025003404f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2025003404&cn_search=&caller=list&&view_numac=2025003404f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-flanders-ets2-decree-2026-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-flanders-ets2-decree-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2026003185&cn_search=&caller=list&&view_numac=2026003185f",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2026003185&cn_search=&caller=list&&view_numac=2026003185f (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
+  }
+ },
+ {
+  "id": "be-cde-book-vi-art-vi92-vi103-justel-page",
+  "source_id": "BE-JUSTEL-CONSOLIDATED",
+  "iso2": "BE",
+  "instrument": "be-cde-book-vi-art-vi92-vi103",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.ejustice.just.fgov.be/eli/loi/2013/02/28/2013A11134/justel",
+  "params": {
+   "second_route": "https://www.ejustice.just.fgov.be/eli/loi/2013/02/28/2013A11134/justel (browser; ejustice.just.fgov.be sits behind an F5 gateway: a browser User-Agent gets a JavaScript challenge and then a CAPTCHA, while the watcher's own User-Agent gets the page, one request in three failing with an empty reply)"
   }
  }
 ]

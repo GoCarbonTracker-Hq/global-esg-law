@@ -5,15 +5,137 @@
     "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024011683&cn_search=2024120201&caller=eli&&view_numac=2024120201",
     "citation": "Loi du 2 décembre 2024 (Numac 2024011683), Moniteur belge 20 décembre 2024, p. 136124; transposes Directive (EU) 2022/2464",
     "in_force": "2024-12-30",
-    "evidence": "Header of the Justel consolidated text (French) opened with headless Chromium on 2026-11-02: \"Publication: 20 décembre 2024 ... Numéro: 2024011683 ... Dossier numéro: 2024-12-02/07 ... Entrée en vigueur : 30 décembre 2024\". Art. 2: \"La présente loi transpose la directive (UE) 2022/2464 du Parlement européen et du Conseil du 14 décembre 2022\".",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"Publication: 20 décembre 2024 ... Numéro: 2024011683 ... Entrée en vigueur : 30 décembre 2024\". Art. 2: \"La présente loi transpose la directive (UE) 2022/2464 du Parlement européen et du Conseil du 14 décembre 2022\".",
     "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED",
+      "BE-MONITEUR-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored 2026-11-02: adopted text as published in the Moniteur belge of 2024-12-20 (fr, nl), and the three Justel versions, each in fr and nl: 2024-12-30 (archive 001), 2025-12-23 (archive 002, after the amending law of 12 December 2025, art. 116 stop-the-clock) and 2026-07-31 (current, after the law of 15 July 2026, art. 116). German: Justel lists no official translation; it lists the unofficial German coordination (Inoffizielle Koordinierung, numac 2026002484, Moniteur belge 2026-04-15) which states it reflects the act as amended by the law of 12 December 2025, so it is stored as a translation dated 2025-12-23. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02. The act amends the Code des sociétés et des associations (be-csa-art-3-6-3-32), the law of 20 September 1948 and others; only the CSA articles are in scope.",
+    "status": "stored",
+    "amends": "be-csa-art-3-6-3-32"
+  },
+  {
+    "id": "be-csa-art-3-6-3-32",
+    "title": "Code des sociétés et des associations, Art. 3:6 and 3:32 with the sustainability reporting sections 3:6/1 to 3:6/9 and 3:32/1 to 3:32/6 (rapport de gestion, déclaration non financière)",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2019A40586&cn_search=&caller=list&&view_numac=2019A40586f",
+    "citation": "Loi du 23 mars 2019 introduisant le Code des sociétés et des associations (Numac 2019A40586), Moniteur belge 4 avril 2019, Art. 3:6 § 4 and 3:32 § 2; sections 3:6/1 ff. inserted by the law of 2 December 2024",
+    "in_force": "2019-05-01",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"23 MARS 2019. - Code des sociétés et des associations ... Publication: 4 avril 2019 ... Entrée en vigueur : 1 mai 2019 1 janvier 2020 ... 25 versions archivées\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is the Justel title line plus Art. 3:6 to the line before Art. 3:7 and Art. 3:32 to the line before Art. 3:33 (the article, its sub-articles /1 and following, and their footnotes). Justel offers 26 versions (25 archives and the current text); the cut text changed in 4, stored in fr and nl: 2019-05-01 (archive 001, the Code as it entered into force), 2020-05-06 (archive 002), 2024-12-30 (archive 024, first text with the sustainability sections, same date as the law of 2 December 2024) and 2026-09-01 (current text, delayed entry into force of an amendment published 2026-04-02). Version dates come from the header of the preceding archive (see SOURCES.md ## Belgium) and can be off for retroactive or staggered amendments; the fetched_url names the exact archive. The Code as published in the Moniteur belge is not stored. German: Justel lists German coordinations of Book 3 as separate entries (numac 2020021215 and others, unofficial, not fetched). No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "be-loi-2024-01-15-climat",
+    "title": "Loi du 15 janvier 2024 relative à la gouvernance de la politique climatique fédérale",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024001055&cn_search=&caller=list&&view_numac=2024001055f",
+    "citation": "Loi du 15 janvier 2024 (Numac 2024001055), Moniteur belge 7 février 2024, p. 14809",
+    "in_force": "2024-02-17",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"15 JANVIER 2024. - Loi relative à la gouvernance de la politique climatique fédérale ... Publication: 7 février 2024 ... Entrée en vigueur : 17 février 2024 ... 1 arrêté d'exécution\".",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED",
+      "BE-MONITEUR-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored 2026-11-02: adopted text as published in the Moniteur belge of 2024-02-07 (fr, nl), the Justel text (fr, nl; no amendments, one version) and the official German translation by the Zentrale Dienststelle für Deutsche Übersetzungen (numac 2025006369, Moniteur belge 2025-09-09), dated 2024-02-17. Implemented by be-ar-2024-06-16-climate-financing. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "be-ar-2024-06-16-climate-financing",
+    "title": "Arrêté royal du 16 juin 2024 relatif à la mise en oeuvre du mécanisme d'évaluation, de suivi et de rapportage du financement de la politique climatique fédérale",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2024006472&cn_search=&caller=list&&view_numac=2024006472f",
+    "citation": "Arrêté royal du 16 juin 2024 (Numac 2024006472), Moniteur belge 19 juillet 2024, p. 86869",
+    "in_force": "2024-07-29",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"16 JUIN 2024. - Arrêté royal reltif à la mise en oeuvre du mécanisme d'évaluation, de suivi et de rapportage du financement de la politique climatique fédérale ... Publication: 19 juillet 2024 ... Entrée en vigueur : 29 juillet 2024\" (the title spells \"reltif\" in the source).",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The one implementing order Justel lists for be-loi-2024-01-15-climat. Stored 2026-11-02: adopted text (Moniteur belge 2024-07-19, fr, nl) and the Justel text (fr, nl; one version). No German translation listed. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "be-wallonia-ets-decree-2004",
+    "title": "Décret du 10 novembre 2004 instaurant un système d'échange de quotas d'émission de gaz à effet de serre, créant un Fonds wallon Kyoto et relatif aux mécanismes de flexibilité du Protocole de Kyoto",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2004203609&cn_search=&caller=list&&view_numac=2004203609f",
+    "citation": "Décret de la Région wallonne du 10 novembre 2004 (Numac 2004203609), Moniteur belge 2 décembre 2004, p. 80700",
+    "in_force": "2004-12-02",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"10 NOVEMBRE 2004. - Décret instaurant un système d'échange de quotas d'émission de gaz à effet de serre ... Publication: 2 décembre 2004 ... Entrée en vigueur : 2 décembre 2004 ... 11 versions archivées 78 arrêtés d'exécution\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED",
+      "BE-MONITEUR-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "ETS is a regional competence; no federal ETS act was found on Justel (the federal level has the aviation cooperation agreement of 2 September 2013 and its assent acts, not stored). Stored 2026-11-02: adopted French text (Moniteur belge 2004-12-02) and 11 French Justel versions (2006-07-22 to 2025-05-02); the Dutch text, which the Justel title calls \"(VERTALING)\", is stored as 11 translation records of the same dates. Archive 001 (valid 2004-12-02 to 2006-07-22) holds only the modified articles and is not stored; the adopted text covers that period. Dates follow the preceding archive's header (earliest \"En vigueur jusqu'au\" on or after the amending decree's publication), so retroactive parts of later amendments are not separate versions. The Moniteur's Dutch text of 2004-12-02 is not stored separately. The 78 implementing orders are not in scope. Amended by be-wallonia-ets2-decree-2025. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "be-wallonia-ets2-decree-2025",
+    "title": "Décret du 17 avril 2025 modifiant le décret du 10 novembre 2004 instaurant un système d'échange de quotas d'émission de gaz à effet de serre, en vue d'introduire un système d'échange de quotas d'émission pour les bâtiments, le transport routier et d'autres secteurs",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2025003404&cn_search=&caller=list&&view_numac=2025003404f",
+    "citation": "Décret de la Région wallonne du 17 avril 2025 (Numac 2025003404), Moniteur belge 2 mai 2025, p. 45952; partially transposes Directive (EU) 2023/959",
+    "in_force": "2023-12-31",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"17 AVRIL 2025. - Décret modifiant le décret du 10 novembre 2004 ... Publication: 2 mai 2025 ... Entrée en vigueur : 31 décembre 2023 30 juin 2024\".",
+    "law_family": "F3",
     "duty_on": "private_sector",
     "source_row": [
       "BE-JUSTEL-CONSOLIDATED",
       "BE-MONITEUR-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "notes": "Link only: the Justel and Moniteur belge rows are permission requested because the site terms and Code de droit économique art. XI.172 § 2 could not be opened (the site served a CAPTCHA to the cloud address after the first request; see SOURCES.md ## Belgium). The page shows 2 archived versions (versions antérieures from 2024-12-20) and its note says updated to 2026-07-31; Art. 116 para 1/1 carries the stop-the-clock exemption, so the page appears to include the amending law of 12 December 2025, which was not opened and is not in scope. The page also offers NL and DE language links; neither was opened. Not searched or not confirmed on an official page in this session, so not in scope: Code des sociétés et des associations art. 3:6 § 4 and 3:32 § 2 (F1), the federal climate governance act of 2023-12-21 (F2), the regional ETS acts (F3; the Walloon décret du 10 novembre 2004 is on wallex.wallonie.be, whose terms are non-commercial, row BE-WALLEX-CONSOLIDATED), and Code de droit économique Livre VI art. VI.92 to VI.103 (F6). No government English translation was looked for beyond the Justel language bar (nl, fr, de).",
+    "notes": "The page gives two in-force dates (2023-12-31 and 2024-06-30, retroactive to the decree's publication); the first is used. Stored 2026-11-02: adopted text (Moniteur belge 2025-05-02, fr, nl) and the Justel text (fr, nl; one version). The Dutch pages carry no translation label; the decree is Walloon, so French is presumably the enacted language, which the pages do not state. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored",
+    "amends": "be-wallonia-ets-decree-2004"
+  },
+  {
+    "id": "be-flanders-ets2-decree-2026",
+    "title": "Décret du 3 avril 2026 modifiant le décret du 5 avril 1995 contenant des dispositions générales en matière de politique environnementale, en ce qui concerne la mise en place d'un système d'échange de quotas d'émission pour le secteur du bâtiment, le secteur du transport routier et d'autres secteurs",
+    "official_url": "https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=fr&lg_txt=f&type=&sort=&numac_search=2026003185&cn_search=&caller=list&&view_numac=2026003185f",
+    "citation": "Décret de l'Autorité flamande du 3 avril 2026 (Numac 2026003185), Moniteur belge 30 avril 2026, p. 24204",
+    "in_force": "2026-05-10",
+    "evidence": "Header of the Justel page (fr) fetched 2026-11-02: \"3 AVRIL 2026. - Décret modifiant le décret du 5 avril 1995 ... Publication: 30 avril 2026 ... Entrée en vigueur : 10 mai 2026\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED",
+      "BE-MONITEUR-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Flemish ETS rules sit in the decree of 5 April 1995 (DABM), which this decree amends; the DABM itself was not found by title search on Justel and is not in scope. Stored 2026-11-02: adopted text (Moniteur belge 2026-04-30, fr, nl) and the Justel text (fr, nl; one version). The Dutch pages carry no translation label; the decree is Flemish, so Dutch is presumably the enacted language, which the pages do not state. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
+    "status": "stored"
+  },
+  {
+    "id": "be-cde-book-vi-art-vi92-vi103",
+    "title": "Code de droit économique, Livre VI, Art. VI.92 to VI.103 (pratiques commerciales déloyales vis-à-vis des consommateurs)",
+    "official_url": "https://www.ejustice.just.fgov.be/eli/loi/2013/02/28/2013A11134/justel",
+    "citation": "Loi du 28 février 2013 introduisant le Code de droit économique (Numac 2013A11134), Moniteur belge 29 mars 2013; Art. VI.92 inserted by L 2013-12-21/23, in force 31 May 2014",
+    "in_force": "2014-05-31",
+    "evidence": "Justel page (fr) fetched 2026-11-02, Art. VI.92 footnote: \"(1)<Inséré par L 2013-12-21/23, art. 3, 009; En vigueur : 31-05-2014>\"; Art. VI.93: \"Une pratique commerciale est déloyale lorsqu'elle: a) est contraire aux exigences de la diligence professionnelle\"; page header: \"148 versions archivées\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BE-JUSTEL-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: Justel serves the whole Code as one page of about 6 MB per version and lists 148 archived versions, so the dated versions of VI.92 to VI.103 could not be fetched in the time box (about 150 requests of 6 MB at one request per several seconds, one in three failing). Row BE-JUSTEL-CONSOLIDATED passes. The Code carries the umbrella for environmental claims (misleading practices, Art. VI.97 ff.). No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
     "status": "link only"
   }
 ]

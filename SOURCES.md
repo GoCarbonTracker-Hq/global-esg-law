@@ -770,3 +770,72 @@ The site rate-limits: about 20 requests in a few minutes brought a human-verific
 - `nz-ets-liquid-fossil-fuels-regs-2008-356`: row passes; the fetch got 4 of 11 versions before the WAF challenge returned (2008-09-29, 2010-01-01, 2010-10-01, 2011-12-05), so none stored.
 - `nz-ets-waste-regs-2010-338` and `nz-ets-forestry-regs-2022-266`: row passes; the WAF challenge returned before any version was fetched.
 - Not used: fma.govt.nz answers 403 with a Cloudflare challenge from the cloud address (blocked from the cloud address: https://www.fma.govt.nz/ ). legislation.govt.nz API (https://api.legislation.govt.nz) answers 401 "API key is required"; no key was requested.
+
+## Belgium
+
+Rows `BE-JUSTEL-CONSOLIDATED` (consolidated), `BE-MONITEUR-ADOPTED` (adopted) and `BE-MONITEUR-TRANSLATION` (translation) are `pass`; `BE-FSMA-ADOPTED` is `pass` (CC BY 4.0) but no FSMA text is stored; `BE-WALLEX-CONSOLIDATED` is `permission requested`. Run on 2026-11-02. The terms are one PDF, the FPS Justice terms of use of the portal that serves the Moniteur belge and Justel (section III: "Les informations publiées sur ce site internet sont libres de droits, sauf mention contraire. Elles peuvent être réutilisées sans condition à des fins privées, associatives, scientifiques et commerciales."), and Code de droit économique art. XI.172 § 2 ("Les actes officiels de l'autorité ne donnent pas lieu au droit d'auteur", read on Justel):
+
+```
+curl -sS -L -A 'global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)' -o terms_fr.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.ejustice.just.fgov.be/img_2024/pdf/GebruiksvoorwaardenFR.pdf
+```
+
+Returned `200 41067 application/pdf`; `pdftotext -layout terms_fr.pdf - | sed 's/  */ /g'` is the fingerprint input (sha256 `d81f1ad3000097279f4b5bbbad834c961f2ad0a086c39678ef0737813add2199`, reproduced from a second fetch).
+
+### Access (read this first)
+
+www.ejustice.just.fgov.be sits behind an F5 gateway. A browser User-Agent gets a JavaScript challenge; headless Chromium passed it once (the first request of the session, text of the CSRD act), then got a CAPTCHA ("This question is for testing whether you are a human visitor") on every later request for over an hour. A non-browser User-Agent gets the page with no challenge: the one `tools/watch.py` sends (`global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)`) works with `curl`, `urllib` and without `--compressed`. About one request in three answers `curl: (52) Empty reply from server` (or `RemoteDisconnected`) and succeeds when repeated after a few seconds; the fetches below were paced at one request every 5 seconds or more with up to 6 repeats. Every stored record was fetched this way; no record is browser-fetched. The responses are not gzip-encoded, so `fetched_sha256` is the hash of the body as returned, and two fetches of the same URL returned the same bytes (checked for three of the URLs below). Blocked from the cloud address: https://www.ejustice.just.fgov.be/ for browser User-Agents (CAPTCHA page, HTTP 200, 244-byte "Request Rejected" or ~46 KB CAPTCHA); https://justice.belgium.be/ answered `curl` with the same CAPTCHA page but opened in headless Chromium.
+
+### Row BE-MONITEUR-ADOPTED
+
+The Moniteur belge text of an act, by publication date and numac. Run for the federal climate governance act of 15 January 2024 (numac 2024001055, Moniteur belge 2024-02-07):
+
+```
+curl -sS -L -A 'global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)' -o mon_climat_fr.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ejustice.just.fgov.be/cgi/article_body.pl?language=fr&caller=summary&pub_date=2024-02-07&numac=2024001055'
+```
+
+Returned `200 26016 text/html` (sha256 `59d56f20f0745847e3cde9537c56dc7c41dbd2b37b8c8d834f8838572faf4900`). `language=nl` gives the Dutch text. Text extraction: the `intro-text` paragraph (title) and the `<main>` content up to the first `links` block; `<br>` and block ends as line breaks, `<sup>` content inline, tags stripped, no-break spaces as spaces, blank lines dropped, nothing reworded. The Moniteur page is an HTML rendering of the issue, not the authentic printed text.
+
+### Row BE-JUSTEL-CONSOLIDATED
+
+The Justel database, one page per version: `article.pl?language={fr|nl}[&arch=NNN]&lg_txt={f|n}&type=&sort=&numac_search={numac}&cn_search=&caller=list&&view_numac={numac}f`, where `arch=001` is the oldest archived version and the page without `arch` is the current text. The header of an archive lists the amending acts with "publié le" and "En vigueur jusqu'au" dates; the number of archives is in the header ("11 versions archivées"). Run for the CSRD transposition act (numac 2024011683), Dutch, archive 001:
+
+```
+curl -sS -L -A 'global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)' -o jus_csrd_arch001_nl.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ejustice.just.fgov.be/cgi_loi/article.pl?language=nl&arch=001&lg_txt=n&type=&sort=&numac_search=2024011683&cn_search=&caller=list&&view_numac=2024011683f'
+```
+
+Returned `200 204560 text/html; charset=ISO-8859-1` (sha256 `a3858734173656705af9e2a0fa8bc16addfb22b4571f19a99417deb3f50052aa`). The pages are ISO-8859-1. Text extraction: the title line (`list-item--title`, including its parenthetical NOTE) and the "Texte" box, `<br>` and block ends as line breaks, footnote lines kept, tags stripped, nothing reworded. For the Code des sociétés et des associations (2.1 MB a page) the record text is the title line plus Art. 3:6 up to Art. 3:7 and Art. 3:32 up to Art. 3:33, cut by the article headings.
+
+Version dates. A Justel version has no start date of its own. The first version starts at the act's entry into force; each later version starts on the earliest "En vigueur jusqu'au" date of the preceding archive's header that is not before the publication date of the amending act (the amendment's own entry into force), or on the publication date when there is none. This is exact for the CSRD act (2025-12-23 and 2026-07-31 match the "En vigueur" notes in the text) and for the CSA version of 2024-12-30; where a decree has retroactive or staggered parts (Walloon decrees of 2024 and 2025) the date is the first one that applies after publication. A version is stored only if its text differs from the previous stored one; archive 001 of the Walloon decree holds only the modified articles (it has no Art. 1) and is not stored.
+
+### Row BE-MONITEUR-TRANSLATION
+
+Same two URL patterns with `language=de` (Moniteur: `article_body.pl?language=de&caller=summary&pub_date={date}&numac={numac of the translation}`). Run for the German translation of the climate governance act (numac 2025006369, Moniteur belge 2025-09-09):
+
+```
+curl -sS -L -A 'global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)' -o mon_climat_de.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.ejustice.just.fgov.be/cgi/article_body.pl?language=de&caller=summary&pub_date=2025-09-09&numac=2025006369'
+```
+
+Returned `200 26024 text/html` (sha256 `93ab9c4b03868e3d0193f0453e703b5b475b047f6db59d326ca86dded4c39f98`). German texts are separate Justel/Moniteur entries (the "Traduction allemande" or "Coordination officieuse en langue allemande" of the act, found with the Justel search form: POST `https://www.ejustice.just.fgov.be/cgi_loi/rech_res.pl`, fields `dt`, `text1`, `pdd`/`pdf` or `ddd`/`ddf` as ISO dates, `chercher=c`, `fr=f`, `language=fr`, `la=F`), not the German language bar of the original's page, which shows the French text with German labels. Dutch of the Walloon decree of 2004 is stored under this row because its Justel title says "(VERTALING)".
+
+### Languages
+
+Dutch and French are the two authentic languages of a federal act and are stored under the same rows (`adopted` from the Moniteur belge, `consolidated` from Justel). German is a separate translation entry (`translation`), `in_force` the date of the nl/fr version it translates. No Belgian government English was found; for each instrument the scope `notes` say where it was looked for (Justel and Moniteur language bars: nl, fr, de only).
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row(s) | Records (kind, language: count) |
+|---|---|---|
+| `be-loi-2024-12-02-csrd` | adopted, consolidated, translation | adopted fr 1, nl 1; consolidated fr 3, nl 3 (2024-12-30, 2025-12-23, 2026-07-31); translation de 1 (unofficial coordination, dated 2025-12-23) |
+| `be-csa-art-3-6-3-32` | consolidated | fr 4, nl 4 (2019-05-01, 2020-05-06, 2024-12-30, 2026-09-01; the cut text is unchanged in the other 22 of 26 versions) |
+| `be-loi-2024-01-15-climat` | adopted, consolidated, translation | adopted fr 1, nl 1; consolidated fr 1, nl 1; translation de 1 |
+| `be-ar-2024-06-16-climate-financing` | adopted, consolidated | adopted fr 1, nl 1; consolidated fr 1, nl 1 |
+| `be-wallonia-ets-decree-2004` | adopted, consolidated, translation | adopted fr 1; consolidated fr 11; translation nl 11 (2006-07-22 to 2025-05-02) |
+| `be-wallonia-ets2-decree-2025` | adopted, consolidated | fr 1+1, nl 1+1 |
+| `be-flanders-ets2-decree-2026` | adopted, consolidated | fr 1+1, nl 1+1 |
+
+### Link only
+
+- `be-cde-book-vi-art-vi92-vi103`: row `BE-JUSTEL-CONSOLIDATED` passes. The Code de droit économique page is about 6 MB per version and Justel lists 148 archived versions; the 148 requests were not reached in the time box (a 6 MB fetch took 5 tries on the one run). Scope entry, official URL and watcher exist.
+- Not in scope, found but not searched or not confirmed: Brussels COBRACE (Numac 2013A31357; ETS provisions not confirmed), the Flemish decree of 5 April 1995 (not found by title search on Justel), the federal aviation ETS cooperation agreement of 2 September 2013 and its assent acts (listed by Justel, not opened), the Moniteur belge text of the CSA as published (the Code in one issue).
+- `BE-FSMA-ADOPTED` (CC BY 4.0, https://www.fsma.be/en/disclaimer-copyright): no enacted FSMA instrument in F1 to F6 found; the sustainable-finance pages are explanatory.
+- `BE-WALLEX-CONSOLIDATED`: `permission requested` (Wallex mentions légales allow free use "uniquement pour un usage qui ne soit ni commercial, ni publicitaire"); not used, the Walloon texts come from Justel. The Vlaamse Codex (codex.vlaanderen.be) states no reuse terms on the pages read, so it has no row.
