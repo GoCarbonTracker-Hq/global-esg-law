@@ -1714,5 +1714,27 @@
     "trailer_source_url": "https://www.gov.br/cvm/en/foreign-investors/regulation-files/ResolutionCVM{NNN}.pdf",
     "trailer_licence": "none confirmed: Creative Commons Attribution-NoDerivs 3.0 Unported site notice",
     "notes": "Government translation exists for Resolução CVM 193 only (ResolutionCVM193.pdf, 200, 601317 bytes, application/pdf, translation date 24 October 2023, states: \"free translation offered only as a convenience ... not legally binding\"). The page footer licence is no-derivatives, which does not allow modification of the text, and the translation is a separate work from the official act, so Lei 9.610/1998 art. 8 IV (which covers official acts) is not claimed for it and statute_exception is none found. Nothing is stored under this row. Varun to ask CVM for written permission to store and modify the translation. The pdf also reflects the original 2023 text only: it predates Res. CVM 219/2024, 227/2025 and 244/2026."
+  },
+  {
+    "id": "CH-FEDLEX-TRANSLATION",
+    "jurisdiction": "CH",
+    "publisher": "Swiss Federal Chancellery (Fedlex)",
+    "source_name": "Fedlex English translations of consolidated SR texts (information only, no legal force), Akoma Ntoso XML",
+    "form": "translation",
+    "fetch_url": "https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/{path}/{YYYYMMDD}/en/xml/fedlex-data-admin-ch-eli-cc-{path}-{YYYYMMDD}-en-xml[-{n}].xml (looked up with SPARQL, language ENG)",
+    "pinned_version": "consolidation date (YYYYMMDD, dateApplicability) of the English expression",
+    "content_hash": "",
+    "terms_url": "https://www.fedlex.admin.ch/en/legal-information",
+    "terms_quote": "The contents of the publications platform do not constitute protected works within the meaning of copyright law (see Article 5 of the Copyright Act of 9 October 1992).",
+    "terms_fingerprint": "5c4b0d163c505bde11a6a936445c6057dad956d26f386cfdf9720c85e4b9ddfd",
+    "verdict": "pass",
+    "statute_exception": "Swiss Copyright Act (URG, SR 231.1) Art. 5 para. 1 let. a: \"Durch das Urheberrecht nicht geschützt sind: a. Gesetze, Verordnungen, völkerrechtliche Verträge und andere amtliche Erlasse\"; para. 2: \"Ebenfalls nicht geschützt sind amtliche oder gesetzlich geforderte Sammlungen und Übersetzungen der Werke nach Absatz 1.\" Opened as XML from the Fedlex data API on 2026-11-02 (https://fedlex.data.admin.ch/eli/cc/1993/1798_1798_1798/20250701, sha256 4f98ae50ab3d5e7b91c1b26692a3fd208a1db725ad4d446dd206c8c3e698e7cb)",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-02",
+    "trailer_instrument": "Fedlex SR consolidated text, English translation (SR number and consolidation date set per instrument)",
+    "trailer_source_url": "https://www.fedlex.admin.ch/eli/cc/{path}/{YYYYMMDD}/en",
+    "trailer_licence": "Not copyright-protected (CH URG Art. 5 para. 2, official translation); English has no legal force and is not an official publication (PublV Art. 49); only the Federal Chancellery publication is authoritative",
+    "notes": "fingerprint: sha256 of the whitespace-collapsed innerText of the <main> element of https://www.fedlex.admin.ch/en/legal-information, read with Playwright chromium after networkidle plus 2 s (the page is a JavaScript application, so curl returns an empty shell). Recomputed 2026-11-02; the same method on the German page returns the fingerprint of the two existing Fedlex rows (41a9f798...). Opened on 2026-11-02: the English legal notice (copyright paragraph quoted in terms_quote; it also says the PDF texts of the AS are authoritative and that exploitation is subject to Publication Ordinance (PublV, SR 170.512.1) Art. 49), and the English XML of ch-klg as consolidated on 2025-01-01 (https://fedlex.data.admin.ch/filestore/fedlex.data.admin.ch/eli/cc/2023/655/20250101/en/xml/fedlex-data-admin-ch-eli-cc-2023-655-20250101-en-xml.xml). Every English file carries as its first paragraph: \"English is not an official language of the Swiss Confederation. This translation is provided for information purposes only and has no legal force.\" and names the Federal Chancellery (#ch.bk) as publisher and rightsHolder in its FRBR metadata. Decision: pass on statute. The translations are made and published by the Federal Chancellery on the platform whose legal notice declares its contents not protected under URG Art. 5, and Art. 5 para. 2 withholds protection from 'amtliche ... Übersetzungen' of laws and ordinances. The reading relied on is that 'amtlich' means issued by the authority, not that the translation is legally binding; the statute names 'gesetzlich geforderte' translations separately, and the disclaimer only denies legal force. The disclaimer is the point a court could read the other way (an information-only translation is not an 'amtliche Übersetzung'); no page opened says either way, so Varun decides whether to keep the row at pass. The official-text exception of the two existing rows does not carry over by itself: this row rests on para. 2. Reuse conditions of PublV Art. 49 para. 1 apply as for the other Fedlex rows (no change of content, tag stripping keeps the words; notice that this is not an official publication, carried in the licence trailer; the English has no legal force). Only English files whose own header states the amendment state they reflect are stored, and only when that state equals the stored version. Not every SR text has an English expression: ch-climate-disclosure-ordinance, ch-klv and the as-adopted texts have none."
   }
 ]
