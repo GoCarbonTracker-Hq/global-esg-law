@@ -2398,3 +2398,90 @@ The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni 
 
 - `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
 - `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
+
+## Vietnam
+
+Run on 2026-11-02 (GEL-07-09). Two rows pass, both on the statute basis (Law on Intellectual Property 50/2005/QH11 Điều 15 khoản 2: "Văn bản quy phạm pháp luật, văn bản hành chính, văn bản khác thuộc lĩnh vực tư pháp và bản dịch chính thức của văn bản đó" are outside copyright, quoted in the row from the consolidated text 160/2026/VBHN-LQ-VPQH): `VN-CONGBAO-ADOPTED` (the document as published in the Official Gazette) and `VN-CONGBAO-CONSOLIDATED` (the văn bản hợp nhất issued by the Office of the National Assembly or a ministry and published in the Gazette; the row notes say Varun decides whether a consolidation is an official text within Điều 15 khoản 2). Four rows are `permission requested` and store nothing: `VN-VBPL-CONSOLIDATED` (vbpl.vn), `VN-PHAPLUAT-CONSOLIDATED` (phapluat.gov.vn), `VN-VIETNAMLAW-TRANSLATION` (vietnamlaw.gov.vn) and `VN-SSC-CONSOLIDATED` (ssc.gov.vn). The Công báo site states one condition, naming the source ("Ghi rõ nguồn 'congbao.chinhphu.vn' khi phát hành lại thông tin từ các nguồn này."), carried in the licence trailer. Language: Vietnamese only; no government English text was reachable (see Languages).
+
+Two things about the host. `congbao.chinhphu.vn` resets some connections from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, also seen on `datafiles.chinhphu.vn` and `vanban.chinhphu.vn`); the same request succeeds on a retry, so the commands below are each run with up to four tries. The `g7.cdnchinhphu.vn/api/download/stream?...` links on the document pages fail TLS verification from the cloud address (`curl: (60) SSL certificate problem: unable to get local issuer certificate`, an incomplete chain), so they are not used; the `congbaocdn.chinhphu.vn` PDF link on the same page serves the same document.
+
+The document page `https://congbao.chinhphu.vn/van-ban/<slug>-<id>.htm` lists the PDF files of the document (`href` values containing `congbaocdn.chinhphu.vn`). A document printed across several Gazette issues (a law, a long decree) is several PDFs; they are read in the order listed and form one text. One 2012 file has no `.pdf` suffix in its link (`.../11328-1-2012481-482-162012qh13pdf`, served as `application/octet-stream`); it is a PDF.
+
+Row `VN-CONGBAO-ADOPTED`, Decree 06/2022/NĐ-CP (`vn-nd-06-2022`). Step 1, the document page:
+
+```
+curl -sS -L -o d06_page.html -w '%{http_code} %{size_download} %{content_type}\n' https://congbao.chinhphu.vn/van-ban/nghi-dinh-so-06-2022-nd-cp-36560.htm
+```
+
+Returned `200 149077 text/html; charset=utf-8`. The page carries "Ban hành: 07/01/2022 - Hiệu lực: 07/01/2022". Its size changes by about 195 bytes between two cached variants (a trailing HTML comment with the cache time), so the page is not hashed. Step 2, the signed PDF:
+
+```
+curl -sS -L -o d06.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/1/36560/39440-1-2022131-13206-2022-nd-cp.pdf
+```
+
+Returned `200 1151972 application/pdf; charset=utf-8`, sha256 `29e28ab67fcd93754a82d0ce3a974231eae3c599c1c51e1b74e727af9d05f4e4` on two fetches (the file is static, so the hash reproduces).
+
+Row `VN-CONGBAO-CONSOLIDATED`, Law on Environmental Protection, consolidated text 09/VBHN-VPQH (`vn-luat-bvmt-2020`, record `2024-07-01-consolidated-vi.json`):
+
+```
+curl -sS -L -o v09_page.html -w '%{http_code} %{size_download} %{content_type}\n' https://congbao.chinhphu.vn/van-ban/van-ban-hop-nhat-so-09-vbhn-vpqh-40444.htm
+curl -sS -L -o v09_0.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/8/40444/47107-1-20231209-121009-vbhn-vpqh.pdf
+curl -sS -L -o v09_1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2023/8/40444/47110-1-20231211-121209-vbhn-vpqh.pdf
+```
+
+Returned `200 150730 text/html; charset=utf-8`, `200 1351325 application/pdf; charset=utf-8` and `200 743354 application/pdf; charset=utf-8`. `fetched_sha256` of a record that has several files is the sha256 of the files concatenated in the order listed (`cat v09_0.pdf v09_1.pdf | sha256sum` gives `cd9925bd...fd26f27`, the value stored), and `fetched_url` lists the URLs separated by single spaces. The consolidated documents of 2026 are single PDFs under `https://congbaocdn.chinhphu.vn/180507251028987904/<yyyy>/<m>/<d>/<file>_signed.pdf`.
+
+Text extraction: `pdftotext -layout file.pdf -` (poppler) for each file, parts joined in order; runs of spaces collapsed to one, blank lines dropped, form feeds removed, and the running Gazette furniture dropped: the lines containing `CÔNG BÁO/Số` (the page header with the issue number and date) and the digital-signature block lines beginning `Người ký:`, `Email:`, `Cơ quan:`, `Thời gian ký:`, `Ký bởi:` or `Ngày ký:`. Nothing else is changed: footnotes stay where the PDF layout puts them, and the bilingual labels inside the annex forms are the official text. Checked before storing, for every file: no U+FFFD or private-use character, at least 400 characters per page (a scan has none), the text contains "Điều 1", it is NFC, and the `Điều N.` headings run in order (the Law on Environmental Protection has 171, the Consumer Law 80, the Advertising Law 43). One exception: Decree 119/2025/NĐ-CP contains two Symbol-font bullets (U+F0A7) and one summation sign in a formula that pdftotext emits as U+FFFD; they are glyphs, not mojibake, and are kept as extracted (see its scope note). Reading of the dates: a Gazette document's `in_force` is the date its own commencement clause gives (quoted in the scope `evidence`); a consolidated text carries no commencement date of its own (the page shows "01/01/1900"), so its `in_force` is the in-force date of the last amendment its preamble lists.
+
+Stored (fetched 2026-11-02, all Vietnamese, 24 records in 14 instruments):
+
+| Instrument | adopted | consolidated (`in_force`) |
+|---|---|---|
+| `vn-tt-96-2020` | 2021-01-01 | 2026-02-03 (10/VBHN-BTC) |
+| `vn-luat-bvmt-2020` | 2022-01-01 | 2023-07-01, 2024-07-01, 2025-07-01, 2026-01-01 |
+| `vn-nd-08-2022` | 2022-01-10 | none on Công báo |
+| `vn-nd-48-2026` | 2026-01-29 | none |
+| `vn-nd-06-2022` | 2022-01-07 | none |
+| `vn-nd-119-2025` | 2025-08-01 | none |
+| `vn-nd-83-2026` | 2026-03-23 | none |
+| `vn-nd-112-2026` | 2026-05-19 | none |
+| `vn-nd-29-2026` | 2026-01-19 | none |
+| `vn-nd-180-2026` | 2026-07-15 | none |
+| `vn-luat-bvqltd-2023` | 2024-07-01 | 2026-07-01 (47/VBHN-VPQH) |
+| `vn-nd-55-2024` | 2024-07-01 | 2026-07-01 (29/VBHN-BCT) |
+| `vn-luat-quang-cao-2012` | 2013-01-01 | 2025-01-01, 2025-07-01, 2026-01-01 |
+| `vn-luat-quang-cao-75-2025` | 2026-01-01 | none |
+
+Not stored: the consolidated Advertising Law 47/VBHN-VPQH of 2018-12-10 (state of 2019-01-01) is a scan with no text layer (22 pages, 185 characters), so the state of 2019-01-01 to 2024-12-31 has no record; the consolidated Circular 96 states of 2024-11-02 and 2025-05-05 are not published as consolidated texts on Công báo (the SSC copy 41/VBHN-BTC is on ssc.gov.vn, row `permission requested`). The Government portal copy of Circular 96/2020/TT-BTC (`https://datafiles.chinhphu.vn/cpp/files/vbpq/2020/12/96-btc.pdf`, `200 3488133 application/pdf`, 107 pages) is an image-only PDF (JBIG2 scan; `pdftotext` returns 239 characters), so it is not used; the Công báo PDFs of the same circular have a text layer. Decision 232/QĐ-TTg of 2025-01-24 (carbon market Scheme, Công báo document 44071) approves an Đề án in an individual decision and is not a văn bản quy phạm pháp luật; it has a `register.csv` row with `law_family` F7 and no scope entry. Decree 396/2026/NĐ-CP (effective 2026-12-12 per the existing register note) was not on Công báo on 2026-11-02 (the newest decree listed was 393/2026/NĐ-CP) and has no entry.
+
+### Languages
+
+Vietnamese is the only official language; there is one record per dated version, under the same row as the version (`-vi.json`). English: no Vietnamese government English translation was reachable, so no `translation` record exists and no instrument has an English record. Where it was looked for:
+
+- `vietnamlaw.gov.vn` (Bộ Tư pháp, English legal translations) and `phapluat.gov.vn`: every request answers 403 from the cloud address, to `curl` and to headless Chromium alike:
+
+```
+curl -sS -L -o x.out -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://vietnamlaw.gov.vn/en
+```
+
+Returned `403 6077 text/html` (`https://phapluat.gov.vn/`: `403 6075 text/html`). Playwright chromium (`goto`, wait 9 s) got "Sorry, you have been blocked ... You are unable to access https://vietnamlaw.gov.vn/en". Rows `VN-PHAPLUAT-CONSOLIDATED` and `VN-VIETNAMLAW-TRANSLATION` are `permission requested` for that reason; whether a translation there is a "bản dịch chính thức" or one marked for reference was not readable.
+- `vbpl.vn` lists a feature "Xem văn bản tiếng Anh" but the page is a client-rendered shell and its data gateway resets the connection (below).
+- `congbao.chinhphu.vn`: Vietnamese only; neither the home page, the listings nor the document pages carry an English edition or link.
+
+### Link only
+
+None: all 14 scope instruments have at least one record.
+
+### Blocked from the cloud address
+
+- `https://phapluat.gov.vn/` and `https://vietnamlaw.gov.vn/en`: `403 6075` and `403 6077 text/html`, a security-check page; headless Chromium: "Sorry, you have been blocked".
+- `https://vbpl.vn/` answers 200 to `curl -A 'Mozilla/5.0'` (`200 80059 text/html`) and 403 to headless Chromium; `https://vbpl.vn/van-ban/chi-tiet/1` answers `200 88663 text/html` but with no document text (Next.js shell); `https://vbpl.vn/van-ban?keyword=...` answers 403 (`403 1653 text/html`); `https://vbpl-bientap-gateway.moj.gov.vn/api/qtdc/public/doc/1` (the data API the pages call): `curl: (35) Recv failure: Connection reset by peer`; `https://vbpl.vn/sitemap/0.xml` 403. `https://phapdien.moj.gov.vn/` and the `moj.gov.vn` home: reset, and 403.
+- `https://g7.cdnchinhphu.vn/api/download/stream?...` (the second download link on every Công báo page): `curl: (60) SSL certificate problem: unable to get local issuer certificate`.
+- `https://congbao.chinhphu.vn/tim-kiem?keyword=...` (site search) answers `302` to `/` for scripts, so documents were found through the type listings (`/van-ban-dang-cong-bao/<type>/trang-<n>.htm`) and web search instead.
+- Intermittent resets (retry succeeds): `congbao.chinhphu.vn`, `datafiles.chinhphu.vn`, `vanban.chinhphu.vn`.
+
+No browser recipe was needed: every stored record was fetched with `curl`.
+
+### Watchers
+
+One `http_head` watcher per scope instrument on the first as-published PDF (its Content-Length is stable; the Công báo document pages are not hashable, since a trailing cache-time comment alternates between two variants, and no Công báo page lists dates in the ISO form `date_list` reads). They notice a replaced PDF, not a new consolidation or an amendment; those arrive through the Công báo "Văn bản mới" listings, which the watcher kinds cannot read (the RSS feed `https://congbao.chinhphu.vn/cac-van-ban-moi-ban-hanh.rss` has RFC 822 dates and a changing `lastBuildDate`). Two `page_hash` terms watchers (`vn-terms-congbao-adopted`, `vn-terms-congbao-consolidated`) watch `https://congbao.chinhphu.vn/gioi-thieu.htm`, which gave the same hash on three fetches.
