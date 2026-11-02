@@ -8,6 +8,8 @@ The name is wider than what is built. Version 1 covers four jurisdictions (EU, G
 
 "Stored" means the text is in `records/`, one file per version in force on a date. "Link only" means the instrument is listed with its official URL and no text is stored (permission requested, see `sources.json`).
 
+The tables below were written by hand and their counts are as of the build date in the heading. [`COVERAGE.md`](COVERAGE.md) is the generated map: one row per place in the register, one column per law family, with the storage form, last checked date and staleness of each cell, plus a per-instrument table for the four pilot places. It is regenerated with `python3 tools/coverage.py` and carries the date of its own run, so where the two differ, `COVERAGE.md` is the newer count.
+
 ### European Union (EU)
 
 | Instrument | Held as |
