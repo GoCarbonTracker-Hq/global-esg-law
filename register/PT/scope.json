@@ -1,0 +1,98 @@
+[
+  {
+    "id": "pt-dl-89-2017",
+    "title": "Decreto-Lei n.º 89/2017, de 28 de julho (disclosure of non-financial and diversity information by large companies and groups, transposing Directive 2014/95/EU)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/89-2017-107773645",
+    "citation": "Decreto-Lei n.º 89/2017, de 28 de julho, Diário da República n.º 145/2017, Série I, p. 4267-4271",
+    "in_force": "2017-08-02",
+    "evidence": "The decree-law has no article fixing its entry into force; Art. 5 (Produção de efeitos) reads: \"O disposto no presente decreto-lei é aplicável aos exercícios anuais que se iniciem em ou após 1 de janeiro de 2017.\" Lei n.º 74/98 Art. 2 n.º 2: \"Na falta de fixação do dia, os diplomas referidos no número anterior entram em vigor no 5.º dia após a publicação\", counted from the day after publication (n.º 4); published 2017-07-28, so 2017-08-02. The date is computed from that statute, no DRE page states it. Opened https://diariodarepublica.pt/dr/detalhe/decreto-lei/89-2017-107773645 and https://diariodarepublica.pt/dr/detalhe/lei/74-1998-234316 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "PT-DRE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "NFRD transposition. The decree-law amends the Código das Sociedades Comerciais (Art. 66.º-B and 508.º-G among others) and other acts; the amended Code is not stored, so the Code text now in force is not in the corpus. DRE shows no consolidated version of this decree-law and leaves its Vigência field empty, so the one record is the act as published (2017-08-02). The CSRD (Directive (EU) 2022/2464) is not transposed here: no decree-law transposing it was found in the Diário da República on 2026-11-02 (search \"Diretiva (UE) 2022/2464\" returns two unrelated 2026 instruments); the opencapital.pt claim that Decreto-Lei n.º 89/2024 transposed it is wrong, that decree-law (2024-11-18) amends the asset management regime. No government English translation of this decree-law was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  },
+  {
+    "id": "pt-lei-98-2021",
+    "title": "Lei n.º 98/2021, de 31 de dezembro (Lei de Bases do Clima, Climate Framework Law)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/lei/98-2021-176907481",
+    "citation": "Lei n.º 98/2021, de 31 de dezembro, Diário da República n.º 253/2021, Série I, p. 5-32",
+    "in_force": "2022-02-01",
+    "evidence": "Art. 81.º (Entrada em vigor): \"A presente lei entra em vigor no primeiro dia do segundo mês seguinte ao da sua publicação.\" Published 2021-12-31, so 2022-02-01. Opened https://files.diariodarepublica.pt/1s/2021/12/25300/0000500032.pdf (200, application/pdf) and the detail page on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "PT-DRE-ADOPTED",
+      "PT-DRE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records: the act as published (2022-02-01) and the consolidated text of 2025-04-01 (Lei n.º 36/2025, deep-sea mining moratorium, in force 2025-04-01). The first consolidation (2022-02-01) has the same body as the published act and is not stored. No government English translation of Lei n.º 98/2021 was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  },
+  {
+    "id": "pt-dl-12-2020",
+    "title": "Decreto-Lei n.º 12/2020, de 6 de abril (European Union Emissions Trading Scheme for stationary installations, CELE)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/12-2020-131124444",
+    "citation": "Decreto-Lei n.º 12/2020, de 6 de abril, Diário da República n.º 68/2020, Série I, p. 3-30; amended by Decreto-Lei n.º 114/2021 and Decreto-Lei n.º 101/2024",
+    "in_force": "2020-04-07",
+    "evidence": "Art. 49.º (Entrada em vigor): \"O presente decreto-lei entra em vigor no dia seguinte ao da sua publicação.\" Published 2020-04-06, so 2020-04-07. Opened https://diariodarepublica.pt/dr/detalhe/decreto-lei/12-2020-131124444 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PT-DRE-ADOPTED",
+      "PT-DRE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Transposes Directive (EU) 2018/410 and, after the 2024 amendment, Directive (EU) 2023/959. Records: the act as published (2020-04-07) and consolidated texts of 2021-12-16 (Decreto-Lei n.º 114/2021) and 2024-12-09 (Decreto-Lei n.º 101/2024); the 2020-04-07 consolidation has the same body as the published act and is not stored. The two amending decree-laws are not separate entries; their effect is in the consolidations. Aviation is regulated by pt-dl-98-2024 and the buildings and road transport scheme by pt-dl-182-2026. Implementing orders (portarias, for example Portaria n.º 203/2021 on indirect cost aid) are not in scope yet. No government English translation of Decreto-Lei n.º 12/2020 was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  },
+  {
+    "id": "pt-dl-98-2024",
+    "title": "Decreto-Lei n.º 98/2024, de 29 de novembro (European emissions trading scheme, international aviation activities)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/98-2024-898378509",
+    "citation": "Decreto-Lei n.º 98/2024, de 29 de novembro, Diário da República n.º 232/2024, Série I, p. 15-33",
+    "in_force": "2024-12-04",
+    "evidence": "The decree-law has no entry-into-force article (its norma revogatória reads \"É revogado o Decreto-Lei n.º 93/2010, de 27 de julho, na sua redação atual.\"). Lei n.º 74/98 Art. 2 n.º 2 gives the 5.º dia após a publicação, 2024-12-04 for publication on 2024-11-29. The DRE consolidated page of the repealed Decreto-Lei n.º 93/2010 (https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2010-884939942) lists Decreto-Lei n.º 98/2024 in its changes with DataEntradaVigor 2024-12-04. Opened 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "PT-DRE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Replaces Decreto-Lei n.º 93/2010, which it repeals; that decree-law is out of force (DRE Vigência NAO_VIGENTE) and is not in scope. DRE shows no consolidated version of this decree-law, so the one record is the act as published. No government English translation of Decreto-Lei n.º 98/2024 was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  },
+  {
+    "id": "pt-dl-182-2026",
+    "title": "Decreto-Lei n.º 182/2026, de 10 de setembro (European emissions trading scheme for buildings, road transport and other sectors, ETS2)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/182-2026-1168979172",
+    "citation": "Decreto-Lei n.º 182/2026, de 10 de setembro, Diário da República n.º 176/2026, Série I, p. 113-128",
+    "in_force": "2026-09-15",
+    "evidence": "The decree-law has no entry-into-force article (Art. 30.º refers to \"a data de entrada em vigor do presente decreto-lei\" without fixing it). Lei n.º 74/98 Art. 2 n.º 2 gives the 5.º dia após a publicação, counted from the day after publication, so 2026-09-15 for publication on 2026-09-10. No DRE page states the date; it is computed from that statute (the 15.º day applies in the Azores and Madeira, n.º 3). Opened https://diariodarepublica.pt/dr/detalhe/decreto-lei/182-2026-1168979172 and https://diariodarepublica.pt/dr/detalhe/lei/74-1998-234316 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PT-DRE-ADOPTED",
+      "PT-DRE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Transposes Directive (EU) 2023/959 in part. Two records dated 2026-09-15: the act as published, and the DRE consolidated text, which carries Declaração de Retificação n.º 33-A/2026/1 of 2026-09-14 (it changes the Código dos Impostos Especiais de Consumo article references in Art. 3, from Art. 4.º to Art. 9.º and to Art. 7.º n.º 2). The rectification is not stored as its own record. No government English translation of Decreto-Lei n.º 182/2026 was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  },
+  {
+    "id": "pt-dl-57-2008",
+    "title": "Decreto-Lei n.º 57/2008, de 26 de março (unfair commercial practices of businesses in relations with consumers, umbrella rule for environmental claims)",
+    "official_url": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/57-2008-246504",
+    "citation": "Decreto-Lei n.º 57/2008, de 26 de março, Diário da República n.º 60/2008, Série I, p. 1747-1754; amended by Decretos-Leis 205/2015, 9/2021, 109-G/2021 and 10/2023",
+    "in_force": "2008-04-01",
+    "evidence": "Art. 28.º (Entrada em vigor): \"O presente decreto-lei entra em vigor no 1.º dia útil do mês seguinte ao da sua publicação.\" Published 2008-03-26, so 2008-04-01 (a Tuesday). Opened https://diariodarepublica.pt/dr/detalhe/decreto-lei/57-2008-246504 on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "PT-DRE-ADOPTED",
+      "PT-DRE-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Transposes Directive 2005/29/EC. The text has no environmental-claims provision of its own; it is the general misleading-practices rule (Art. 7.º to 9.º) under which environmental claims fall. Records: the act as published (2008-04-01) and consolidated texts of 2015-09-24, 2021-07-28, 2022-05-28 and 2023-04-03; the 2008-04-01 consolidation has the same body as the published act and is not stored. Directive (EU) 2024/825 (empowering consumers for the green transition) was not found transposed in the Diário da República on 2026-11-02. No government English translation of Decreto-Lei n.º 57/2008 was found on 2026-11-02: looked for on diariodarepublica.pt (the Diário da República offers Portuguese only), portugal.gov.pt, gov.pt and apambiente.pt.",
+    "status": "stored"
+  }
+]

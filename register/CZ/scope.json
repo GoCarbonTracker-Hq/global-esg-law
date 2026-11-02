@@ -1,0 +1,93 @@
+[
+  {
+    "id": "cz-accounting-act-sustainability-reporting",
+    "title": "Act No. 563/1991 Sb., on Accounting (zákon o účetnictví), Part Eight: non-financial information (2017 to 2023) and sustainability report (§ 32f to 32k, from 2024)",
+    "official_url": "https://e-sbirka.gov.cz/sb/1991/563",
+    "citation": "Zákon č. 563/1991 Sb., o účetnictví, část osmá (§ 32f a násl.), inserted by zákon č. 462/2016 Sb. and rewritten by zákon č. 349/2023 Sb.; amended by zákon č. 316/2025 Sb.",
+    "in_force": "2017-01-01",
+    "evidence": "Zákon č. 462/2016 Sb., kterým se mění zákon č. 563/1991 Sb.: \"Tento zákon nabývá účinnosti dnem 1. ledna 2017.\" The e-Sbírka time version of 563/1991 effective 2017-01-01 (novela 462/2016 Sb.) is the first with the heading \"UVÁDĚNÍ NEFINANČNÍCH INFORMACÍ\"; the versions of 2016-01-01 and 2016-09-19 have no such heading. Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2016%2F462/fragmenty?cisloStranky=0 and the 563/1991 historie on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "CZ-ESBIRKA-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is Part Eight (ČÁST OSMÁ, from its heading to the next Part) of the Czech consolidated text, cut by the Part headings; footnotes (PPC fragments) are not included. 2017-01-01 to 2023-12-31: heading UVÁDĚNÍ NEFINANČNÍCH INFORMACÍ (§ 32f to 32i). 2024-01-01: heading ZPRÁVA O UDRŽITELNOSTI (§ 32f to 32k), the first version after zákon č. 349/2023 Sb. (the consolidation package; its clause: 'Tento zákon nabývá účinnosti dnem 1. ledna 2024, s výjimkou ustanovení ...'). 2025-09-03 and 2026-01-01 are the two stages of zákon č. 316/2025 Sb. (cz-act-316-2025). A version is stored only when the text of the Part differs from the previous stored one; 2017-07-01, 2018-01-01, 2021-01-01, 2022-01-01, 2025-01-01 and the published future version 2028-01-10 (zákon č. 317/2025 Sb.) have the same Part text and are not stored. The government bill that would amend the Act again (sněmovní tisk 279) is not enacted: see its register row. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cz-act-316-2025",
+    "title": "Act No. 316/2025 Sb., amending the Act on Accounting, the Act on Auditors and the Act on Supplementary Taxes (zákon č. 316/2025 Sb.)",
+    "official_url": "https://e-sbirka.gov.cz/sb/2025/316",
+    "citation": "Zákon č. 316/2025 Sb. ze dne 23. července 2025, kterým se mění zákon č. 563/1991 Sb., zákon č. 93/2009 Sb. a zákon č. 416/2023 Sb.",
+    "in_force": "2025-09-03",
+    "evidence": "Zákon č. 316/2025 Sb.: \"Tento zákon nabývá účinnosti dnem 1. ledna 2026, s výjimkou ustanovení čl. I bodů 1 až 11, 38, 39, 42, 43 a 55, čl. II bodů 2 až 4 a 9 a čl. V a VI, která nabývají účinnosti dnem následujícím po dni jeho vyhlášení.\" Promulgated 2025-09-02 (e-Sbírka metadata datumCasVyhlaseni 2025-09-02T13:32:25+02:00), so the first provisions took effect 2025-09-03; e-Sbírka lists the time version of 2025-09-03 as MINULE_CASTECNE_UCINNE. Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F316%2F0000-00-00/fragmenty?cisloStranky=0 on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "CZ-ESBIRKA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Amending act; the stored text is the act as published (kind adopted). It is the main sustainability-reporting novela that the brief described as the 2024 bill passed by the Senate in July 2025: e-Sbírka lists it as the novela behind the 563/1991 versions of 2025-09-03 and 2026-01-01, whose Part Eight differs from the earlier text. The amended Act's Part Eight is stored under cz-accounting-act-sustainability-reporting. Only the adopted record exists: e-Sbírka lists time versions of the act dated 2025-09-03 and 2026-01-01, and their text is identical to the adopted text (compared on 2026-11-02). Not assessed here: which articles of the Act implement which provisions of Directive (EU) 2022/2464. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored",
+    "amends": "cz-accounting-act-sustainability-reporting"
+  },
+  {
+    "id": "cz-ets-act-383-2012",
+    "title": "Act No. 383/2012 Sb., on the conditions for trading in greenhouse gas emission allowances (zákon o podmínkách obchodování s povolenkami na emise skleníkových plynů)",
+    "official_url": "https://e-sbirka.gov.cz/sb/2012/383",
+    "citation": "Zákon č. 383/2012 Sb., o podmínkách obchodování s povolenkami na emise skleníkových plynů",
+    "in_force": "2012-11-16",
+    "evidence": "§ 31 (final provision): \"Tento zákon nabývá účinnosti dnem 1. ledna 2013 s výjimkou ustanovení § 7 odst. 4 a 5, § 12, § 23 a 24, § 25 odst. 1 až 5 a 8 a § 27, která nabývají účinnosti dnem jeho vyhlášení.\" Promulgated 2012-11-16 (e-Sbírka metadata datumCasVyhlaseni 2012-11-16); the main body took effect 2013-01-01. Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383%2F0000-00-00/fragmenty?cisloStranky=0 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CZ-ESBIRKA-ADOPTED",
+      "CZ-ESBIRKA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole Act, every version e-Sbírka serves whose text differs from the previous stored one. The adopted record is dated 2012-11-16 (the date the first provisions took effect); the time versions of 2012-11-16 and 2013-01-01 have the same text as the adopted one and are not stored. Latest version stored: 2026-01-01 (zákon č. 481/2024 Sb.). Implemented by cz-ets-decree-103-2025 and cz-ets-indirect-cost-compensation-order-565-2020. The government orders that set each year's budget for indirect-cost compensation (221/2023, 203/2024, 260/2025, 136/2026 Sb.) are single-year amounts and have no entry. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cz-ets-decree-103-2025",
+    "title": "Decree No. 103/2025 Sb., implementing certain provisions of the Act on the conditions for trading in greenhouse gas emission allowances (vyhláška č. 103/2025 Sb.)",
+    "official_url": "https://e-sbirka.gov.cz/sb/2025/103",
+    "citation": "Vyhláška č. 103/2025 Sb. ze dne 8. dubna 2025, k provedení některých ustanovení zákona o podmínkách obchodování s povolenkami na emise skleníkových plynů",
+    "in_force": "2025-04-16",
+    "evidence": "Vyhláška č. 103/2025 Sb.: \"Tato vyhláška nabývá účinnosti dnem následujícím po dni jejího vyhlášení.\" Promulgated 2025-04-15 (e-Sbírka metadata datumCasVyhlaseni 2025-04-15T13:11:37+02:00). Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/fragmenty?cisloStranky=0 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "CZ-ESBIRKA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Issued by the Ministry of the Environment under the authorisations in § 3 odst. 8, § 4b odst. 5 and § 15a odst. 7 and 8 of cz-ets-act-383-2012 (forms of the permit applications and the monitoring plan template); the Act's sentence in § 3 odst. 8 reads 'Ministerstvo stanoví vyhláškou podrobné náležitosti, formu a datovou strukturu formuláře žádosti o vydání povolení a vzor plánu pro monitorování emisí'. The time version of 2025-04-16 is the same text as the adopted one, so one record. e-Sbírka lists no later version. The earlier Decree 287/2010 Sb. (aviation) is repealed and not in scope. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cz-ets-indirect-cost-compensation-order-565-2020",
+    "title": "Government Order No. 565/2020 Sb., on the conditions for granting compensation of indirect costs for sectors at significant risk of carbon leakage (nařízení vlády č. 565/2020 Sb.)",
+    "official_url": "https://e-sbirka.gov.cz/sb/2020/565",
+    "citation": "Nařízení vlády č. 565/2020 Sb. ze dne 30. listopadu 2020, o podmínkách poskytnutí kompenzací nepřímých nákladů pro odvětví, u kterých bylo zjištěno značné riziko úniku uhlíku v důsledku promítnutí nákladů spojených s emisemi skleníkových plynů do cen elektřiny",
+    "in_force": "2021-01-01",
+    "evidence": "Nařízení vlády č. 565/2020 Sb.: \"Toto nařízení nabývá účinnosti dnem 1. ledna 2021.\" Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2020%2F565%2F0000-00-00/fragmenty?cisloStranky=0 on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CZ-ESBIRKA-ADOPTED",
+      "CZ-ESBIRKA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Order of the Government under the compensation provision of cz-ets-act-383-2012 (the Act: 'Žádost o poskytnutí kompenzace lze podat nejdříve po vyhlášení nařízení vlády podle odstavce 1'). Adopted record dated 2021-01-01; the time version of 2021-01-01 has the same text. The version of 2027-01-01 is a published amendment not yet in force on 2026-11-02 and is stored dated its in-force date. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored"
+  },
+  {
+    "id": "cz-consumer-protection-act-634-1992-s4-5a",
+    "title": "Act No. 634/1992 Sb., on Consumer Protection (zákon o ochraně spotřebitele), § 4 to 5a: unfair commercial practices, misleading actions and omissions",
+    "official_url": "https://e-sbirka.gov.cz/sb/1992/634",
+    "citation": "Zákon č. 634/1992 Sb., o ochraně spotřebitele, § 4 až 5a (§ 4 nekalá obchodní praktika, § 5 klamavá konání, § 5a klamavá opomenutí)",
+    "in_force": "2008-02-12",
+    "evidence": "Zákon č. 36/2008 Sb., kterým se mění zákon č. 634/1992 Sb.: \"Tento zákon nabývá účinnosti dnem jeho vyhlášení.\" e-Sbírka lists the 634/1992 time version effective 2008-02-12 (novela 36/2008 Sb.), the earliest version stored. Opened https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2008%2F36/fragmenty?cisloStranky=0 and the 634/1992 historie on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "CZ-ESBIRKA-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella for environmental claims: the text stored (version of 2023-01-06) has no sentence that names environmental or climate claims; § 5 (misleading actions) and § 5a (misleading omissions) are the general rules a green claim would be tested against. That use is the brief's reading, not a statement of the Act. Record text runs from the § 4 paragraph to the paragraph before § 5b (or before § 6 in versions without § 5b), so § 5b to 5d are not stored. Versions before 2008-02-12 were not stored. Stored versions are those where the cut text differs: 2008-02-12, 2015-12-28, 2023-01-06; the many later time versions, including the published future version of 2027-01-01 (zákon č. 159/2026 Sb.), carry the same § 4 to 5a text. The Act is also amended by 277/2025 Sb. (version of 2025-08-20) without changing these sections. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
+    "status": "stored"
+  }
+]

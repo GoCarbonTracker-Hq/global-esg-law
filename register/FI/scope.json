@@ -1,0 +1,165 @@
+[
+  {
+    "id": "fi-kirjanpitolaki-sustainability-reporting",
+    "title": "Accounting Act (Kirjanpitolaki 1336/1997), Chapter 3 a (statement of non-financial information, 2016 to 2023) and Chapter 7 (sustainability report, since 2023)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/1997/1336",
+    "citation": "Kirjanpitolaki 1336/1997, 3 a luku inserted by Act 1376/2016, replaced as a reporting duty by a new 7 luku (Kestävyysraportti) under Act 1249/2023; later versions follow Acts 605/2024, 991/2024 and 555/2026",
+    "in_force": "2016-12-31",
+    "evidence": "Act 1376/2016 (which inserted Chapter 3 a): \"Tämä laki tulee voimaan 31 päivänä joulukuuta 2016.\" and \"Tämän lain 3 a lukua sovelletaan ensimmäisen kerran 31 päivänä joulukuuta 2017 päättyvältä tilikaudelta laadittavaan toimintakertomukseen ja erilliseen selvitykseen.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2016/1376/fin@ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FI-FINLEX-CONSOLIDATED",
+      "FI-FINLEX-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Chapter 3 a (heading \"Selvitys muista kuin taloudellisista tiedoista\") while it has text, and Chapter 7 \"Kestävyysraportti\" from the version of Act 1249/2023; the rest of the Act is not stored. Chapter 3 a still exists in later versions as a repealed stub, which is not stored. The brief named Chapter 3 a and the CSRD laws \"1322 to 1326/2023\"; those numbers do not exist in the Statute Book. The CSRD transposition is Acts 1249/2023 to 1254/2023 (HE 20/2023), in force 31 December 2023; only 1249/2023 and 1250/2023 are entries of their own (1251/2023 amends the Act on the annual fee of auditors, 1252/2023 the Limited Liability Companies Act, 1253/2023 the Co-operatives Act, 1254/2023 the Act on Credit Institutions; none of those is stored). Consolidated versions stored (in_force, the entry into force of the amending act): 2016-12-31 (Act 1376/2016), 2021-05-10 (383/2021, Chapter 3 a section 2), 2023-12-31 (1249/2023), 2024-11-15 (605/2024), 2025-01-17 (991/2024), 2026-06-30 (555/2026); of the other 8 versions the API serves, 20151208 and 20151620 predate Chapter 3 a and the remaining six leave the text unchanged. The API serves no consolidation before label 20151208 (in force 2016-01-01). Languages stored on 2026-11-02: fi and sv (official, the same chapters of the same versions) and en (translation record 2016-12-31 under FI-FINLEX-TRANSLATION: Finlex PDF of the Accounting Act marked \"UNOFFICIAL TRANSLATION – MINISTRY OF ECONOMIC AFFAIRS AND EMPLOYMENT 2017\", amendments tracked up to 1376/2016, cut at Chapter 3a). No English for the 7 luku versions: the only English Accounting Act on Finlex (https://www.finlex.fi/en/legislation/translations/1997/eng/1336) stops at 1376/2016, so the 2023 and later versions have none. Implemented by the adopted acts fi-laki-1376-2016, fi-laki-1249-2023 and fi-laki-605-2024.",
+    "status": "stored"
+  },
+  {
+    "id": "fi-laki-1376-2016",
+    "title": "Act amending the Accounting Act (1376/2016): statement of non-financial information (Directive 2014/95/EU)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2016/1376",
+    "citation": "Laki kirjanpitolain muuttamisesta 1376/2016 (HE 208/2016)",
+    "in_force": "2016-12-31",
+    "evidence": "\"Tämä laki tulee voimaan 31 päivänä joulukuuta 2016.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2016/1376/fin@ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "FI-FINLEX-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adopted text in fi and sv, whole Act. It inserted Chapter 3 a into the Accounting Act (see fi-kirjanpitolaki-sustainability-reporting, which this entry amends) and amended Chapter 3. The Act names Directive 2014/95/EU. No English: Finlex has no separate translation of this amending act (the English Accounting Act is a whole-Act translation and is stored as the Chapter 3 a cut of the consolidated entry).",
+    "status": "stored",
+    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+  },
+  {
+    "id": "fi-laki-1249-2023",
+    "title": "Act amending the Accounting Act (1249/2023): sustainability reporting (Directive (EU) 2022/2464, CSRD)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2023/1249",
+    "citation": "Laki kirjanpitolain muuttamisesta 1249/2023 (HE 20/2023)",
+    "in_force": "2023-12-31",
+    "evidence": "\"Tämä laki tulee voimaan 31 päivänä joulukuuta 2023. Tätä lakia sovelletaan: 1) 1 päivänä tammikuuta 2024 ja sen jälkeen alkavina tilikausina yleisen edun kannalta merkittävään yhteisöön: a) joka on suuryritys ja jolla on keskimäärin 500 työntekijää tilikauden aikana; ...\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2023/1249/fin@ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "FI-FINLEX-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "In force 2023-12-31 (the brief expected 2024-01-01); the first reporting year is the financial year starting on or after 2024-01-01 for large public-interest entities with more than 500 employees, 2025-01-01 for other large undertakings, 2026-01-01 for listed small and medium-sized undertakings. The Act repealed Chapter 3 a and added a new Chapter 7, the sustainability report, in place of the Chapter 7 repealed in 2015. Adopted text in fi and sv, whole Act. No English: not listed among Finlex translations (looked for in the alphabetical index under K and at https://www.finlex.fi/en/legislation/translations/2023). Companion Acts 1250/2023 (fi-laki-1250-2023), 1251 to 1255/2023 (not in scope).",
+    "status": "stored",
+    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+  },
+  {
+    "id": "fi-laki-605-2024",
+    "title": "Act amending Chapters 1 and 7 of the Accounting Act (Laki kirjanpitolain 1 ja 7 luvun muuttamisesta, 605/2024)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2024/605",
+    "citation": "Laki kirjanpitolain 1 ja 7 luvun muuttamisesta 605/2024",
+    "in_force": "2024-11-15",
+    "evidence": "\"Tämä laki tulee voimaan 15 päivänä marraskuuta 2024. Lakia sovelletaan 1 päivänä tammikuuta 2025 ja sen jälkeen alkaviin tilikausiin.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2024/605/fin@ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "FI-FINLEX-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Amends the size thresholds in Chapter 1 (sections 4 a to 4 c, 6 a) and the scope and exemptions of Chapter 7 (sections 1, 17, 20) after Act 1249/2023. Adopted text in fi and sv, whole Act. No English: not listed among Finlex translations (index search under K and the 2024 list).",
+    "status": "stored",
+    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+  },
+  {
+    "id": "fi-laki-1250-2023",
+    "title": "Act amending the Auditing Act (Laki tilintarkastuslain muuttamisesta, 1250/2023): assurance of sustainability reporting",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/saadoskokoelma/2023/1250",
+    "citation": "Laki tilintarkastuslain muuttamisesta 1250/2023 (HE 20/2023)",
+    "in_force": "2023-12-31",
+    "evidence": "\"Tämä laki tulee voimaan 31 päivänä joulukuuta 2023.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2023/1250/fin@ on 2026-11-02.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "FI-FINLEX-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Amends the Auditing Act (1141/2015) for the assurance of sustainability reporting; its transitional text refers to the sustainability reporting auditor (kestävyysraportointitarkastaja) and the special qualification in Chapter 6, section 1 a. Adopted text in fi and sv, whole Act. The Auditing Act itself is not an entry (it is not an ESG instrument as a whole); no consolidated text is stored. No English for this amending act: the Finlex English Auditing Act (https://www.finlex.fi/en/legislation/translations/2015/eng/1141) tracks amendments only up to 622/2016.",
+    "status": "stored"
+  },
+  {
+    "id": "fi-ilmastolaki",
+    "title": "Climate Act (Ilmastolaki 423/2022)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/2022/423",
+    "citation": "Ilmastolaki 423/2022",
+    "in_force": "2022-07-01",
+    "evidence": "5 luku, 22 §: \"Tämä laki tulee voimaan 1 päivänä heinäkuuta 2022. Tällä lailla kumotaan ilmastolaki (609/2015).\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2022/423/fin@ on 2026-11-02.",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "FI-FINLEX-ADOPTED",
+      "FI-FINLEX-CONSOLIDATED",
+      "FI-FINLEX-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Sets up the climate policy planning system (Chapter 2) and its reporting and monitoring (Chapter 3), run by the Government and authorities; it imposes no reporting duty on companies in the chapters read. Replaced the Climate Act 609/2015, which is not an entry. Records: adopted 2022-07-01; consolidated 2023-03-01 (Act 108/2023: Finlex editorial note \"muutt. 3 ja 19 §:ää sekä 5 §; lis. 14 a § ja 4 a luku\") and 2025-01-01 (Act 896/2024: \"kum. 14 a §; muutt. 3 ja 21 b §:ää\"); each in fi and sv. The original consolidation (2022-07-01) has the same body as the adopted text (it differs in the signature lines and one space) and is not stored. English: translation record 2022-07-01 (Finlex PDF headed \"Ministry of the Environment\", amendments tracked up to 423/2022, completed 5.9.2022), which is the state of the adopted text; the English does not include 108/2023 or 896/2024, so it is stored once.",
+    "status": "stored"
+  },
+  {
+    "id": "fi-paastokauppalaki",
+    "title": "Emissions Trading Act (Päästökauppalaki 1270/2023)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/2023/1270",
+    "citation": "Päästökauppalaki 1270/2023",
+    "in_force": "2024-01-01",
+    "evidence": "18 luku, 104 §: \"Tämä laki tulee voimaan 1 päivänä tammikuuta 2024. Tällä lailla kumotaan päästökauppalaki (311/2011), jäljempänä kumottu laki, ja lentoliikenteen päästökaupasta annettu laki (34/2010), jäljempänä kumottu laki.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2023/1270/fin@ on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FI-FINLEX-ADOPTED",
+      "FI-FINLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces fi-paastokauppalaki-2011 and the aviation emissions trading Act 34/2010 (not an entry). Records in fi and sv: adopted 2024-01-01; consolidated 2024-01-01, 2025-07-01 (Act 324/2025), 2026-01-01 (Act 440/2025) and 2026-08-05 (Act 550/2026). The brief gave 1270/2023 with the number confirmed. No English: the Finlex translation index (letters P and L, https://www.finlex.fi/en/legislation/translations/alphabetically/P) lists no translation of 1270/2023 or 311/2011; only the aviation Act 34/2010 is translated.",
+    "status": "stored"
+  },
+  {
+    "id": "fi-paastokauppalaki-2011",
+    "title": "Emissions Trading Act (Päästökauppalaki 311/2011), repealed from 2024-01-01",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/2011/311",
+    "citation": "Päästökauppalaki 311/2011",
+    "in_force": "2011-05-01",
+    "evidence": "13 luku, 78 §: \"Tämä laki tulee voimaan 1 päivänä toukokuuta 2011.\" (Chapters 1, 7 and 9 to 12 and parts of other chapters from 1 January 2012 and 1 January 2013.) Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2011/311/fin@ on 2026-11-02.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FI-FINLEX-ADOPTED",
+      "FI-FINLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Records in fi and sv: adopted 2011-05-01; consolidated 2016-01-01, 2017-07-03, 2018-07-01, 2019-03-19, 2021-01-01, 2022-01-01, 2022-06-23, 2023-03-01 (the API serves no consolidation between 2011 and the 2016 one, so the amendments of 2012 to 2015 are not stored as dated versions); and a repeal record dated 2024-01-01 (Act 1270/2023, 104 §: \"Tällä lailla kumotaan päästökauppalaki (311/2011)\"). The sections that entered into force on 2012-01-01 and 2013-01-01 are in the one 2011-05-01 text. No English: not in the Finlex translation index (the Act it repealed, 683/2004, is not listed either).",
+    "status": "stored",
+    "status_note": "Repealed in full from 2024-01-01 by Act 1270/2023; repeal records in fi and sv."
+  },
+  {
+    "id": "fi-kuluttajansuojalaki-marketing",
+    "title": "Consumer Protection Act (Kuluttajansuojalaki 38/1978), Chapter 2, marketing and procedures towards consumers",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/1978/38",
+    "citation": "Kuluttajansuojalaki 38/1978, 2 luku",
+    "in_force": "1978-09-01",
+    "evidence": "Final provisions of the Act as adopted: \"3§ Tämä laki tulee voimaan 1 päivänä syyskuuta 1978.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/1978/38/fin@ on 2026-11-02.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FI-FINLEX-ADOPTED",
+      "FI-FINLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Record text is Chapter 2 only (heading \"Markkinointi ja menettelyt asiakassuhteessa\" in the consolidations, \"Markkinoinnin sääntely\" as adopted); it is the umbrella for environmental claims (it holds the rules against misleading marketing; the 2026 versions add an item 2 a on durability, repairability, recyclability and other environmental properties of a product and new sections 6 a and 6 b, with Finlex notes that Act 573/2026 takes effect for them on 27.9.2026). The rest of the Act is not stored. Records in fi and sv: adopted 1978-09-01; consolidated versions whose Chapter 2 text changed: 2016-01-09, 2018-01-03, 2020-07-15, 2022-01-01, 2022-07-15, 2023-07-01, 2023-10-01, 2026-01-01, 2026-06-01, 2026-07-31, 2026-10-01. Versions left out because a later version of the API is in force earlier (Finlex numbers versions by amending act, not by entry into force): 20170899, 20170902, 20201212, 20220693, 20220740, 20260020; 20260031 has no entry-into-force date in the API. The API serves no consolidation before 2015-12-30. English: the Finlex translation (https://www.finlex.fi/en/legislation/translations/1978/eng/38, Ministry of Justice, completed 2.1.2024) tracks amendments up to 740/2022, in force 2024-04-01, and that state is version 20220740, which is one of the left-out versions, so it matches no stored version and no English record is stored.",
+    "status": "stored"
+  },
+  {
+    "id": "fi-konfliktimineraalilaki",
+    "title": "Conflict Minerals Act (Laki konfliktimineraalien ja niiden malmien markkinoille saattamisesta, 1196/2020)",
+    "official_url": "https://www.finlex.fi/fi/lainsaadanto/2020/1196",
+    "citation": "Laki konfliktimineraalien ja niiden malmien markkinoille saattamisesta 1196/2020 (HE 203/2020), national provisions for Regulation (EU) 2017/821",
+    "in_force": "2021-01-01",
+    "evidence": "13 §, Voimaantulo: \"Tämä laki tulee voimaan 1 päivänä tammikuuta 2021.\" Opened https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute/2020/1196/fin@ on 2026-11-02.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FI-FINLEX-ADOPTED",
+      "FI-FINLEX-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Supplies the national rules for Regulation (EU) 2017/821 on supply chain due diligence for tin, tantalum, tungsten and gold imports: the competent authority is the Finnish Safety and Chemicals Agency (Turvallisuus- ja kemikaalivirasto) with the Customs (2 §). Not in the brief; found by a Finlex title search for \"konfliktimineraali\". Records: adopted 2021-01-01 in fi and sv. The Finlex consolidation has one version, the original, whose body equals the adopted text (it lacks only the signature lines), so no consolidated record is stored. The EU Regulation itself is not stored here. No English: not in the Finlex translation index (letter K) and https://www.finlex.fi/en/legislation/translations/2020/eng/1196 answers 404.",
+    "status": "stored"
+  }
+]
