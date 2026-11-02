@@ -6028,6 +6028,349 @@
   "url": "https://www.riigiteataja.ee/public-api/api/v1/akt/103072026019/xml"
  },
  {
+  "id": "ke-climate-change-act-2016-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-climate-change-act-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-carbon-markets-regs-2024-kenyalaw-page",
+  "source_id": "KE-KENYALAW-ADOPTED",
+  "iso2": "KE",
+  "instrument": "ke-carbon-markets-regs-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-emca-1999-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-emca-1999",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-cpa-2012-s12-13-kenyalaw-page",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "ke-cpa-2012-s12-13",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31",
+  "params": {
+   "second_route": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+  }
+ },
+ {
+  "id": "ke-cma-cg-code-2015-cma-pdf-page",
+  "source_id": "KE-CMA-ADOPTED",
+  "iso2": "KE",
+  "instrument": "ke-cma-cg-code-2015",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cma.or.ke/download/35/guidelines/4323/code-of-corporate-governance-practices-for-issuers-of-securities-to-the-public-2015-code.pdf",
+  "params": {
+   "second_route": "https://www.cma.or.ke/regulatory-framework/ (browser or curl; lists the Code under Guidelines; the PDF itself answered curl with 200)"
+  }
+ },
+ {
+  "id": "terms-ke-kenyalaw",
+  "source_id": "KE-KENYALAW-CONSOLIDATED",
+  "iso2": "KE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kenyalaw.org/terms-of-use/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://kenyalaw.org/terms-of-use/ (browser; curl answered 200 on 2026-11-02)"
+  }
+ },
+ {
+  "id": "is-arsreikningalog-66d-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-arsreikningalog-66d",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=%C3%A1rsreikninga&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-loftslagslog-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-loftslagslog",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=l%C3%B6gum+um+loftslagsm%C3%A1l&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-ets-log-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-ets-log",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=vi%C3%B0skiptakerfi+ESB+me%C3%B0+losunarheimildir&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-ets-regulation-606-2021-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-ets-regulation-606-2021",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=regluger%C3%B0+nr.+606%2F2021+vi%C3%B0skiptakerfi+Evr%C3%B3pusambandsins+me%C3%B0+losunarheimildir&department=b-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-markadssetningarlog-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-markadssetningarlog",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=marka%C3%B0ssetningarlaga&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "is-sjalfbaernilog-fjarmal-gazette-adverts",
+  "source_id": "IS-STJORNARTIDINDI-ADOPTED",
+  "iso2": "IS",
+  "instrument": "is-sjalfbaernilog-fjarmal",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://api.stjornartidindi.is/api/v1/adverts-lean?search=uppl%C3%BDsingagj%C3%B6f+um+sj%C3%A1lfb%C3%A6rni+%C3%A1+svi%C3%B0i+fj%C3%A1rm%C3%A1la%C3%BEj%C3%B3nustu&department=a-deild&pageSize=100",
+  "params": {
+   "regex": "\"publicationDate\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "eg-fra-bod-107-2021-fra-legislation-page",
+  "source_id": "EG-FRA-ADOPTED",
+  "iso2": "EG",
+  "instrument": "eg-fra-bod-107-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
+  "params": {
+   "second_route": "https://fra.gov.eg/\u062a\u0634\u0631\u064a\u0639\u0627\u062a-\u0627\u0644\u0627\u0633\u062a\u062f\u0627\u0645\u0629-\u0648\u0633\u0648\u0642-\u0627\u0644\u0643\u0631\u0628\u0648\u0646/ (browser)"
+  }
+ },
+ {
+  "id": "eg-fra-bod-108-2021-fra-legislation-page",
+  "source_id": "EG-FRA-ADOPTED",
+  "iso2": "EG",
+  "instrument": "eg-fra-bod-108-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
+  "params": {
+   "second_route": "https://fra.gov.eg/\u062a\u0634\u0631\u064a\u0639\u0627\u062a-\u0627\u0644\u0627\u0633\u062a\u062f\u0627\u0645\u0629-\u0648\u0633\u0648\u0642-\u0627\u0644\u0643\u0631\u0628\u0648\u0646/ (browser)"
+  }
+ },
+ {
+  "id": "eg-law-4-1994-environment-eeaa-laws-page",
+  "source_id": "EG-EEAA-ADOPTED",
+  "iso2": "EG",
+  "instrument": "eg-law-4-1994-environment",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eeaa.gov.eg/Laws/55/index",
+  "params": {
+   "second_route": "https://www.eeaa.gov.eg/Laws/55/index (browser; the cloud address saw timeouts and resets)"
+  }
+ },
+ {
+  "id": "eg-pm-decree-4664-2022-fra-legislation-page",
+  "source_id": "EG-FRA-ADOPTED",
+  "iso2": "EG",
+  "instrument": "eg-pm-decree-4664-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
+  "params": {
+   "second_route": "https://fra.gov.eg/\u062a\u0634\u0631\u064a\u0639\u0627\u062a-\u0627\u0644\u0627\u0633\u062a\u062f\u0627\u0645\u0629-\u0648\u0633\u0648\u0642-\u0627\u0644\u0643\u0631\u0628\u0648\u0646/ (browser)"
+  }
+ },
+ {
+  "id": "eg-fra-bod-31-2024-fra-legislation-page",
+  "source_id": "EG-FRA-ADOPTED",
+  "iso2": "EG",
+  "instrument": "eg-fra-bod-31-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
+  "params": {
+   "second_route": "https://fra.gov.eg/\u062a\u0634\u0631\u064a\u0639\u0627\u062a-\u0627\u0644\u0627\u0633\u062a\u062f\u0627\u0645\u0629-\u0648\u0633\u0648\u0642-\u0627\u0644\u0643\u0631\u0628\u0648\u0646/ (browser)"
+  }
+ },
+ {
+  "id": "ma-ammc-circ-03-19-pdf-head",
+  "source_id": "MA-AMMC-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-ammc-circ-03-19",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-99-12-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-99-12",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/d1.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-11-03-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-11-03",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/Dahir_n_1-03-59_du_10_rabii_I_1424__12_mai_2003__portant_promulgation_de_la_loi_n_11-03_relative_%C3%A0_la_protection_et_%C3%A0_la_mise_en_valeur_de_lenvironnement.pdf",
+  "params": {}
+ },
+ {
+  "id": "ng-sec-ifrs-sds-circular-page",
+  "source_id": "NG-SEC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-sec-ifrs-sds-circular",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://home.sec.gov.ng/for-investors/keep-track-of-circulars/implementation-of-the-ifrs-sustainability-disclosure-standards-in-nigeria/",
+  "params": {}
+ },
+ {
+  "id": "ng-climate-change-act-2021-documents-page",
+  "source_id": "NG-NCCC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://climatecouncil.gov.ng/documents-and-decisions/",
+  "params": {
+   "second_route": "https://climatecouncil.gov.ng/documents-and-decisions/ (browser; the site answers HTTP 406 to a bare curl user agent)"
+  }
+ },
+ {
+  "id": "ng-nesrea-act-2007-laws-page",
+  "source_id": "NG-NESREA-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-nesrea-act-2007",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nesrea.gov.ng/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "ng-nesrea-act-amendment-2018-laws-page",
+  "source_id": "NG-NESREA-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-nesrea-act-amendment-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nesrea.gov.ng/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "ng-eia-act-ministry-page",
+  "source_id": "NG-FMENV-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-eia-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://environment.gov.ng/",
+  "params": {
+   "second_route": "https://environment.gov.ng/ (browser; the watcher's urllib request was reset by the host from the cloud address on 2026-11-02, while curl returned HTTP 200)"
+  }
+ },
+ {
+  "id": "ng-fccpa-2018-library-page",
+  "source_id": "NG-FCCPC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-fccpa-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fccpc.gov.ng/resources-library/fccpa/",
+  "params": {}
+ },
+ {
+  "id": "gh-environmental-protection-act-2025-repository-pdf",
+  "source_id": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-environmental-protection-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://repository.parliament.gh/server/api/core/bitstreams/1e06a2ff-8e7a-494e-a4d9-795f9c89002e/content",
+  "params": {
+   "second_route": "https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896 (browser; the repository item pages answer scripts from the cloud address with HTTP 403 \"You got banned permanently from this server\")"
+  }
+ },
+ {
+  "id": "gh-unfair-competition-act-2000-repository-pdf",
+  "source_id": "GH-PARLIAMENT-REPOSITORY-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-unfair-competition-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://repository.parliament.gh/server/api/core/bitstreams/9366072e-0b2a-4a75-a3ea-2747973f4a87/content",
+  "params": {
+   "second_route": "https://repository.parliament.gh/items/9f98f62d-1114-4803-8434-70c0070b3b54 (browser; the repository item pages answer scripts from the cloud address with HTTP 403 \"You got banned permanently from this server\")"
+  }
+ },
+ {
+  "id": "gh-bog-climate-risk-directive-2024-pdf",
+  "source_id": "GH-BOG-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-bog-climate-risk-directive-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bog.gov.gh/wp-content/uploads/2024/11/BOG-Climate-Related-Financial-Risks-Directive.pdf",
+  "params": {}
+ },
+ {
+  "id": "gh-icag-ifrs-sustainability-roadmap-pdf",
+  "source_id": "GH-ICAG-ADOPTED",
+  "iso2": "GH",
+  "instrument": "gh-icag-ifrs-sustainability-roadmap",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://icagh.org/wp-content/uploads/2024/12/IFRS-SUSTAINABILITY-DISCLOSURE-ADOPTION-ROADMAP-FOR-GHANA.pdf",
+  "params": {}
+ },
+ {
   "id": "cy-companies-amendment-3-2025-gazette-annex-list",
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
