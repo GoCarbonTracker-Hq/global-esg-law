@@ -3242,5 +3242,83 @@
   "params": {
    "second_route": "https://www.retsinformation.dk/eli/lta/2024/1420 (browser; Retsinformation is a JavaScript application, the page lists 'Konsolideret ved' and 'Senere \u00e6ndringer til forskriften'; the watched URL is the JSON that page loads)"
   }
+ },
+ {
+  "id": "cz-accounting-act-sustainability-reporting-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-accounting-act-sustainability-reporting",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1991%2F563/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1991/563 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-act-316-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-act-316-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F316/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/316 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-act-383-2012-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-act-383-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2012%2F383/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2012/383 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-decree-103-2025-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-ADOPTED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-decree-103-2025",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2025%2F103/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2025/103 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-ets-indirect-cost-compensation-order-565-2020-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-ets-indirect-cost-compensation-order-565-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F2020%2F565/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/2020/565 (browser; the page is a JavaScript application)"
+  }
+ },
+ {
+  "id": "cz-consumer-protection-act-634-1992-s4-5a-esbirka-versions",
+  "source_id": "CZ-ESBIRKA-CONSOLIDATED",
+  "iso2": "CZ",
+  "instrument": "cz-consumer-protection-act-634-1992-s4-5a",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://e-sbirka.gov.cz/sbr-cache/dokumenty-sbirky/%2Fsb%2F1992%2F634/historie",
+  "params": {
+   "regex": "\"datumUcinnostiZneniOd\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://e-sbirka.gov.cz/sb/1992/634 (browser; the page is a JavaScript application)"
+  }
  }
 ]
