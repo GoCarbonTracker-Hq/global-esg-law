@@ -3203,6 +3203,79 @@ Spanish only (`es`); the portal has no language switch and no other official lan
 - Not used: https://www.boletinoficial.gob.ar/ is blocked from the cloud address (`curl: (35) Recv failure: Connection reset by peer`, and headless Chromium got HTTP 502 `upstream request failed`, for `/` and `/detalleAviso/primera/338937`). https://www.cnv.gov.ar/ redirects to https://www.argentina.gob.ar/cnv, whose pages are under the portal's CC BY 4.0 footer, but no RG text is hosted there; no CNV row was added.
 - Ley 23.966 Título III (t.o. 1998) was not located on the portal; the carbon dioxide tax is carried by `ar-ley-27430-titulo-iv` and `ar-decreto-501-2018`.
 
+## Estonia
+
+Rows `EE-RT-ADOPTED` and `EE-RT-CONSOLIDATED` are `pass` on the statute basis (Autoriõiguse seadus § 5 p 3: acts and administrative documents and their official translations are outside copyright; Riigi Teataja seadus § 12 lg 1 asks only that other sites name Riigi Teataja as the place of the official text). `EE-RT-TRANSLATION` (English) and `EE-FI-ADOPTED` (Finantsinspektsioon) are `permission requested`. Run on 2026-11-02 from the cloud address. Language: Estonian only; English is a translation (below). www.riigiteataja.ee serves a JavaScript shell for every HTML page, so texts come from the Riigi Teataja public API (`/public-api/api/v1/`, named in the site's FAQ item 9 "Avaandmed"). It answered curl from the cloud address with no challenge.
+
+Failing request (the HTML page of an act, a shell without text):
+
+```
+curl -sS -o h.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/akt/107012025001
+```
+
+Returned `200 61752 text/html` (the same 61752 bytes for every path, for example `/en` and `/akt/110072025003`). No browser recipe is needed: the API below answers curl.
+
+Step 1, list the versions of a consolidated text. The group id is `grupiId` in `GET /public-api/api/v1/akt/{id}` of any version (Raamatupidamise seadus: 155849). The answer lists every version with its RT id and `kehtivuseAlgus` as a UTC instant; the stored `in_force` is that instant's Europe/Tallinn calendar date (`2025-06-30T21:00:00Z` is 2025-07-01):
+
+```
+curl -sS -o rps_versions.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/155849/redaktsioonid
+```
+
+Returned `200 6353 application/json;charset=UTF-8` (27 versions, 2003-01-01 to 2027-01-01). `GET /public-api/api/v1/akt/lyhendid` lists abbreviations with the current RT id (RPS 110072025003, AÕKS 130062026006, TKS 103072026030). The site's search API, `https://www.riigiteataja.ee/api/oigusakt_otsing/1/otsi?leht=1&limiit=50&pealkiri=<words>&tekst=koik` (FAQ item 9), answered `200 2422 application/json` for `lyhend=RPS&limiit=5` and was used to find the regulations and the amending acts (`tekst=algtekst`).
+
+Step 2, row `EE-RT-CONSOLIDATED`, the Accounting Act as consolidated from 2025-07-01 (RT id 107012025012):
+
+```
+curl -sS -o rps_20250701.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/107012025012/xml
+```
+
+Returned `200 702167 application/octet-stream;charset=UTF-8` (XML), sha256 `b1d7c7843bcab40ae9842f91247ea4e9982a3d9dd1abe80edba58b0ce0ab95c7`; a second fetch gave the same hash, so `fetched_sha256` reproduces (no per-request token).
+
+Row `EE-RT-ADOPTED`, the act as published, here RT I, 07.01.2025, 1 (RT id 107012025001):
+
+```
+curl -sS -o csrd.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/akt/107012025001/xml
+```
+
+Returned `200 54786 application/octet-stream;charset=UTF-8`, sha256 `fd6326a224efaf989f18207d4b87d99daf46af43c8da7df48bd5ba3cc34887e5`. The `/blob-xml` variant returns the same act reserialised (54766 bytes, `application/xml`); `/xml` is the one used. Consolidated texts of 2003 to 2016 are served by the same call (the first Accounting Act text is id 229287).
+
+Text extraction: Python stdlib `xml.etree`, run from a script kept outside the repository. Each structural element (`peatykk`, `jagu`, `jaotis`, `paragrahv`, `loige`, `punkt`, `alampunkt`) is one line: its `kuvatavNr` label, its heading and its `sisuTekst`, in document order; inline tags dropped, `<sup>` digits written as Unicode superscript digits (`§ 24¹`), no-break spaces made plain spaces. Amending acts carry their body as HTML in CDATA; the tags are stripped, each `<p>` is a line. Each `muutmismarge` (amendment note) is a line in the Riigi Teataja form `[RT I, 10.07.2025, 2 - jõust. 20.07.2025]`; base64 attachments (`fail`) are dropped. The cut records take whole elements by id or heading: Accounting Act `para24`, `para24b1`, `para24b2`, `para31`, `para31b1`, `para31b2`, `para61b3`; Ambient Air Protection Act the `jagu` titled "Kasvuhoonegaaside lubatud heitkogustega kauplemine"; Consumer Protection Act `para2`, `para70` and the `jagu` "Kaupleja ja tarbija vahelise tehinguga seotud kauplemisvõte". A consolidation is stored only when its cut text differs from the previous stored version, so the dates below are the dates the text changed. `fetched_url` is the exact `/xml` request; the cut is out of that file. The extraction was checked for leftover tags, entities and no-break spaces (none) and for mojibake (none; the files are UTF-8).
+
+Stored (fetched 2026-11-02, Estonian):
+
+| Instrument | Row | Records | `in_force` dates |
+|---|---|---|---|
+| `ee-rps` | consolidated | 14 | 2003-01-01, 2005-12-01, 2007-01-01, 2007-11-19, 2008-07-10, 2009-04-06, 2010-01-01, 2010-11-15, 2011-01-01, 2016-01-01, 2017-01-01, 2021-06-01, 2025-01-17, 2025-07-01 |
+| `ee-rps-amendment-2025` | adopted | 1 | 2025-01-17 |
+| `ee-aoks-ets` | consolidated | 36 | every version of the Act from 2017-01-01 to 2034-01-01 (the division changed in each); first 2017-01-01, last 2034-01-01 |
+| `ee-ets-trading-order` | consolidated | 5 | 2017-01-01, 2018-08-10, 2020-01-24, 2021-01-01, 2022-01-14 |
+| `ee-ets-auction-order` | consolidated | 2 | 2017-01-01, 2023-07-08 |
+| `ee-tks` | consolidated | 6 | 2016-03-01, 2020-01-17, 2022-05-28, 2026-07-13, 2026-09-01, 2026-09-27 |
+| `ee-tks-2024-825-act` | adopted | 1 | 2026-07-13 |
+
+Versions the site already serves but that are not yet in force (Accounting Act 2027-01-01; Ambient Air Protection Act 2026-12-11, 2027-07-01, 2034-01-01) are ordinary records dated their in-force date where the cut text differs; the Accounting Act 2027-01-01 cut equals the 2025-07-01 text, so it has no record.
+
+### Link only
+
+None of the seven scope instruments is link only. Not in scope, with the reason: Kliimakindla majanduse seadus (bill 928 SE, in committee, not in Riigi Teataja) and Kliimapoliitika põhialused aastani 2050 (Riigikogu resolution, a plan) are F7 register rows; the Finantsinspektsioon sustainability roadmap is guidance on fi.ee, row `EE-FI-ADOPTED` is `permission requested` ("Veebilehel sisalduva informatsiooni reprodutseerimine ja levitamine ilma Finantsinspektsiooni eelneva loata on keelatud."), so nothing is stored. The consolidated Audiitortegevuse seadus (assurance of the sustainability report) was not made a scope entry; it is named in the `ee-rps-amendment-2025` notes.
+
+### Languages
+
+Run on 2026-11-02. Estonian is the only official language, served under the rows above, so no second-language row exists. English: the site calls its translations "unofficial texts – they do not have legal force" (https://www.riigiteataja.ee/en/introduction), says certified (sworn) translators make the Act translations and ministries organise the regulation translations (FAQ item 5), and no live page grants reuse. The statute exception covers "ametlikud tõlked" only, so row `EE-RT-TRANSLATION` rests on terms and is `permission requested`. No English record is stored. Where a translation exists it is found by `tolkeSeosId` in `GET /public-api/api/v1/akt/{id}` of the Estonian version; the English act is then `GET /public-api/api/v1/en/akt/{tolkeSeosId}/xml`:
+
+```
+curl -sS -o en_rps.xml -w '%{http_code} %{size_download} %{content_type}\n' https://www.riigiteataja.ee/public-api/api/v1/en/akt/510072025005/xml
+```
+
+Returned `200 1217759 application/octet-stream;charset=UTF-8` (Accounting Act, English, version in force 2025-07-20, group 100007, 13 versions). Probed, not stored: translations are linked from 13 of 27 Accounting Act versions (2011-01-01 to 2025-07-20), 34 of 36 Ambient Air Protection Act versions (2017-01-01 to 2026-12-11) and 23 of 23 Consumer Protection Act versions; the two regulations and the two as-published acts have none. When the row passes, each English version must be matched to the Estonian version by its act-level last amendment note before it is stored.
+
+Terms pages were read with Playwright chromium (the pages are Angular applications): https://www.riigiteataja.ee/et/kkk with "Ava kõik" clicked, https://www.riigiteataja.ee/en/introduction, and the statute text at https://www.riigiteataja.ee/akt/112072025009; `fi.ee` terms by curl (`200 83661 text/html; charset=UTF-8`). The fingerprints are in the rows.
+
+### Blocked
+
+No site was blocked from the cloud address: riigiteataja.ee (API, search API, static index `/avaandmed/ERT/`), fi.ee and riigikogu.ee all answered curl with 200. The Riigikogu bill list search (`https://www.riigikogu.ee/tegevus/eelnoud/`) is a JavaScript page; the bill page was found by web search and answers `200`.
+
+
 ## United Arab Emirates
 
 Run on 2026-11-02 (GEL-08-01). No row passes and no text is stored; every AE instrument is `link only`. There is no proven fetch request to record for a `pass` row.
