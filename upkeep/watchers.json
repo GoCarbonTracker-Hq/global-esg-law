@@ -6233,6 +6233,100 @@
   }
  },
  {
+  "id": "ma-ammc-circ-03-19-pdf-head",
+  "source_id": "MA-AMMC-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-ammc-circ-03-19",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-99-12-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-99-12",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/d1.pdf",
+  "params": {}
+ },
+ {
+  "id": "ma-loi-11-03-ministry-pdf-head",
+  "source_id": "MA-MTEDD-ADOPTED",
+  "iso2": "MA",
+  "instrument": "ma-loi-11-03",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.environnement.gov.ma/images/2022/avril/Dahir_n_1-03-59_du_10_rabii_I_1424__12_mai_2003__portant_promulgation_de_la_loi_n_11-03_relative_%C3%A0_la_protection_et_%C3%A0_la_mise_en_valeur_de_lenvironnement.pdf",
+  "params": {}
+ },
+ {
+  "id": "ng-sec-ifrs-sds-circular-page",
+  "source_id": "NG-SEC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-sec-ifrs-sds-circular",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://home.sec.gov.ng/for-investors/keep-track-of-circulars/implementation-of-the-ifrs-sustainability-disclosure-standards-in-nigeria/",
+  "params": {}
+ },
+ {
+  "id": "ng-climate-change-act-2021-documents-page",
+  "source_id": "NG-NCCC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://climatecouncil.gov.ng/documents-and-decisions/",
+  "params": {
+   "second_route": "https://climatecouncil.gov.ng/documents-and-decisions/ (browser; the site answers HTTP 406 to a bare curl user agent)"
+  }
+ },
+ {
+  "id": "ng-nesrea-act-2007-laws-page",
+  "source_id": "NG-NESREA-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-nesrea-act-2007",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nesrea.gov.ng/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "ng-nesrea-act-amendment-2018-laws-page",
+  "source_id": "NG-NESREA-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-nesrea-act-amendment-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nesrea.gov.ng/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "ng-eia-act-ministry-page",
+  "source_id": "NG-FMENV-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-eia-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://environment.gov.ng/",
+  "params": {
+   "second_route": "https://environment.gov.ng/ (browser; the watcher's urllib request was reset by the host from the cloud address on 2026-11-02, while curl returned HTTP 200)"
+  }
+ },
+ {
+  "id": "ng-fccpa-2018-library-page",
+  "source_id": "NG-FCCPC-ADOPTED",
+  "iso2": "NG",
+  "instrument": "ng-fccpa-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fccpc.gov.ng/resources-library/fccpa/",
+  "params": {}
+ },
+ {
   "id": "pe-smv-rsc-018-2020-elperuano-pdf",
   "source_id": "PE-ELPERUANO-ADOPTED",
   "iso2": "PE",
