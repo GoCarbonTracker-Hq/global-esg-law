@@ -24,7 +24,7 @@
     "duty_on": "private_sector",
     "source_row": "AU-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "Extract only: the Act is about 6.6 million characters per compilation, so each record holds ss 292A, 296A to 296E and Part 10.77 (the three blocks that carry the sustainability duty and its phase-in), taken unchanged from the compilation's EPUB; fetched_sha256 is the hash of the whole EPUB. Two stored versions: the 2024-09-18 text, and the 2025-12-05 text (compilation C2025C00696, which adds ss 1707DA and 1707DB after the Treasury Laws Amendment (Strengthening Financial Systems and Other Measures) Act 2025, Sch 4 Pt 1, commencing 2025-12-05). The 13 other compilations from 2024-09-18 to 2026-09-19 (listed in SOURCES.md) have identical extracts and are not stored again. Duty applies to financial years starting on or after 2025-01-01 for Group 1 entities.",
+    "notes": "Extract only: the Act is about 6.6 million characters per compilation, so each record holds ss 292A, 296A to 296E and Part 10.77 (the three blocks that carry the sustainability duty and its phase-in), taken unchanged from the compilation's EPUB; fetched_sha256 is the hash of the whole EPUB. Two stored versions: the 2024-09-18 text, and the 2025-12-05 text (compilation C2025C00696, which adds 1707DA after the Treasury Laws Amendment (Strengthening Financial Systems and Other Measures) Act 2025, Sch 4 Pt 1, commencing 2025-12-05). The 13 other compilations from 2024-09-18 to 2026-09-19 (listed in SOURCES.md) have identical extracts and are not stored again. Duty applies to financial years starting on or after 2025-01-01 for Group 1 entities.",
     "status": "stored"
   },
   {
