@@ -2399,6 +2399,224 @@ The brief's candidate ZVO-2 is in scope for its ETS chapter, which the Podnebni 
 - `https://www.a-tvp.si/`: `curl -sS -I -A 'Mozilla/5.0' https://www.a-tvp.si/` returns `HTTP/2 403` with `cf-mitigated: challenge`; headless Chromium stays on the Cloudflare page "Just a moment..." (403) after 7 s. Blocked from the cloud address; the orchestrator can read it from the laptop.
 - `https://www.e-uprava.gov.si/`: `curl: (56) CONNECT tunnel failed, response 502` (000). Not needed.
 
+## Luxembourg
+
+Rows `LU-LEGILUX-ADOPTED` (Mémorial A text as published) and `LU-LEGILUX-CONSOLIDATED` (textes consolidés and codes) are `pass` on the terms basis; `LU-CSSF-ADOPTED` is `permission requested` and no CSSF text is stored. Run on 2026-11-02 (GEL-06-09). No record was fetched with a browser: every record comes from `curl`.
+
+Legilux has two hosts. `https://legilux.public.lu/...` (every HTML and ELI path, the `/jo/fr/pdf` and `/jo/fr/html` routes included) answers curl with the 2118-byte Angular shell, so it cannot be read without a browser. `https://data.legilux.public.lu/...` (the Casemates open-data host) serves the files themselves to plain curl, and its SPARQL endpoint lists the dated versions. The endpoint is `/sparqlendpoint`; `/sparql` returns the 698-byte Casemates shell to a GET. Both hosts reset the connection now and then (`curl: (35) Recv failure: Connection reset by peer`); a retry worked each time.
+
+```
+curl -sS -L -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo/fr/html
+```
+
+Returned `200 2118 text/html;charset=UTF-8` (the shell, no law text).
+
+### Terms (rows LU-LEGILUX-*)
+
+The terms are not in the HTML of any page; the help page `https://legilux.public.lu/help/projet-casemates` loads its text from a fragment found by capturing the page's network requests with Playwright chromium:
+
+```
+curl -sS -o intro.html -w '%{http_code} %{size_download} %{content_type}\n' https://legilux.public.lu/api/assets/faq/questions/12-introduction.html
+```
+
+Returned `200 2441 text/html`. It says: "Les textes et les métadonnées sont mis à disposition selon la licence d’utilisation http://creativecommons.org/licenses/by/4.0/ qui autorise leur réutilisation pour des utilisations commerciales ou non." (fingerprint of the stripped text `bd91a4f1c164ae514a623c1925a753da9b127275215649646eb1114f5c4f407d`). The same licence is stated by the data.public.lu dataset "Legilux - Journal officiel du Grand-Duché de Luxembourg" (licence `cc-by`, `curl -sS -A 'Mozilla/5.0' 'https://data.public.lu/api/1/datasets/?q=legilux&page_size=20'` returned `200 11921 application/json`; the call was reset once before it answered) and by the metadata of each file (`jo:license`). The site's general terms, `.../api/assets/faq/questions/14-utilisation.html` (`200 6718 text/html`), say that "Sauf indication contraire" documents are for private use, may not be modified and may not be distributed outside the site. The CC BY statement is read as the contrary indication for the open-data files; this is the one judgment in the rows and Varun is asked to confirm it in the PR.
+
+The licence is checked per file before a record is made:
+
+```
+curl -sS -L -G -H 'Accept: text/csv' --data-urlencode 'query=PREFIX j: <http://data.legilux.public.lu/resource/ontology/jolux#> SELECT ?l WHERE { <http://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/consolide/20250726/fr/xml> j:license ?l }' -o q2.csv -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/sparqlendpoint
+```
+
+Returned `200 50 text/csv;charset=UTF-8` with `http://creativecommons.org/licenses/by/4.0/`. 149013 of the 500579 files that carry a licence statement carry `http://data.legilux.public.lu/resource/authority/license/licenceSCL` instead ("Licence de réutilisation SCL", no text found); those are not stored. A file with no licence statement at all is not stored either. The Loi du 18 avril 2001 sur les droits d’auteur, art. 10, 8° ("les actes officiels de l'autorité et leur traduction officielle") is an exception to the author's right, listed under the chapeau "l'auteur ne peut interdire", not an exclusion from protection, so no row rests on it.
+
+### Row LU-LEGILUX-ADOPTED
+
+The Mémorial A text of an act as Akoma Ntoso XML. Run for the Loi du 15 décembre 2020 relative au climat (ELI `loi/2020/12/15/a994`):
+
+```
+curl -sS -L -o a994.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo/fr/xml
+```
+
+Returned `200 174544 application/xml`, sha256 `1b728f8a8971b3fbeb9c598b41b39ebf6b753f7d29b6cdaa39855c549092e9d7`, identical on a second fetch (no per-request token). The same file comes from the ELI route with a header: `curl -sS -L -H 'Accept: application/xml' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/jo` returned `200 174544 application/xml`. The same path with `/html` instead of `/xml` returns an XHTML file.
+
+### Row LU-LEGILUX-CONSOLIDATED
+
+The dated versions of an act are the works that are `jo:isMemberOf` the act and typed `jo:Consolidation`; `jo:dateApplicability` is the date the version applies from. The query uses the same JOLux ontology as the Fedlex query in `## Switzerland`:
+
+```
+curl -sS -L -G -H 'Accept: text/csv' --data-urlencode 'query=PREFIX j: <http://data.legilux.public.lu/resource/ontology/jolux#> SELECT DISTINCT ?c ?d WHERE { ?c j:isMemberOf <http://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994> . ?c a j:Consolidation . ?c j:dateApplicability ?d } ORDER BY ?d' -o q1.csv -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/sparqlendpoint
+```
+
+Returned `200 578 text/csv;charset=UTF-8`: six consolidations, 2021-01-01, 2022-07-05, 2024-01-01, 2024-06-08, 2024-10-01 and 2025-07-26. The file of one version:
+
+```
+curl -sS -L -o a994_20250726.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/loi/2020/12/15/a994/consolide/20250726/fr/xml
+```
+
+Returned `200 417458 application/xml`, sha256 `b75c8a28d1b0c2c0d7613bfaba4437f9d5d2278f92c245d68f8344bae2d35838`, identical on a second fetch. A consolidation listed in the graph without a file answers `404` (`loi/2002/12/19/n1/consolide/20250302`) or the 698-byte shell with status 200 (`code/consommation/20170101`); neither is a version Legilux serves. The consumer Code is not an act with its own members: its versions are members of the introducing law (`loi/2011/04/08/n2`) and its files are `.../eli/etat/leg/code/consommation/{YYYYMMDD}/fr/xml`:
+
+```
+curl -sS -L -o code.xml -w '%{http_code} %{size_download} %{content_type}\n' https://data.legilux.public.lu/eli/etat/leg/code/consommation/20260927/fr/xml
+```
+
+Returned `200 1970599 application/xml`, sha256 `3f11b794f60e2e5104cf2029aa9553c0d0d2e959d849f20ec1429649b2502d2c`.
+
+### Text extraction
+
+`text` is the Akoma Ntoso `preface` and `body` (and `attachments`, where an annex exists) of the file: headings and paragraphs as line breaks, the number and heading of an article or chapter on one line, a paragraph number on the line of its text, list markers (`1°`, `a)`, `-`) rebuilt from the list type, table rows as one line with cells separated by ` | `. The Legilux modification notes are kept as `[Note] ...` lines after the block that cites them (the marker is added by the extraction, as `[Fussnote]` is in `## Switzerland`). Passages Legilux marks as deleted (`<del>`) are left out because they are no longer text of that version. Nothing is reworded. `fetched_sha256` is the sha256 of the whole file as returned. For the law of 19 December 2002 (about 450 kB) the text is Art. 68bis and 68ter, and for the Code de la consommation (about 1.9 MB a version) it is Chapter 2 of Title 2 of Book 1 (Art. L. 122-1 ff., unfair commercial practices), cut out by its element id or heading. A cut instrument stores a version only when the cut text differs from the previous stored one. For each stored file the letters and digits of the XML body (minus deleted passages and notes) were checked to be a subsequence of the extracted text; the extra characters are list markers.
+
+### Stored (fetched 2026-11-02)
+
+| Instrument | Row | Versions stored (`in_force`), all `fr` |
+|---|---|---|
+| `lu-climate-law-2020` | adopted, consolidated | 2020-12-20 (adopted); 2021-01-01, 2022-07-05, 2024-01-01, 2024-06-08, 2024-10-01, 2025-07-26 (consolidated) |
+| `lu-climate-pact-law-2021` | adopted | 2021-01-01 |
+| `lu-ghg-allocations-rgd-2022` | adopted | 2022-07-05 |
+| `lu-ets-aid-law-2022` | adopted, consolidated | 2022-07-19; 2026-01-04 |
+| `lu-ghg-inventory-rgd-2017` | adopted | 2017-05-01 |
+| `lu-rcs-act-2002` | consolidated | 2025-12-23 (Art. 68bis and 68ter only) |
+| `lu-sfdr-law-2022` | adopted | 2022-01-01 |
+| `lu-consumer-code-unfair-practices` | consolidated | 2018-07-01, 2022-12-04, 2024-07-22, 2024-09-10, 2024-12-31, 2025-11-25, 2026-09-27 (Chapter 2 only) |
+| `lu-consumer-law-2026-green-transition` | adopted | 2026-09-27 |
+
+### Languages
+
+Legilux serves one expression, French (`FRA`), for every act and consolidation above (a SPARQL query of `jo:language` over each act and its consolidations returned `FRA` alone, 2026-11-02). French is the language of legislation (loi du 24 février 1984 sur le régime des langues, art. 2). No German text as enacted and no government English translation was found: the only other expressions Legilux lists are for treaties and a few unrelated acts. So there is no translation row, and no instrument has a `de` or `en` record.
+
+### Link only
+
+- `lu-nfi-law-2016`: row `LU-LEGILUX-ADOPTED` passes, but every file of the act carries `licenceSCL`, not CC BY 4.0, so nothing is stored. Its provisions are in the consolidated law of 2002 (`lu-rcs-act-2002`).
+- Projet de loi n° 8370 (CSRD transposition): not enacted, register row with family F7 and no scope entry. `https://www.chd.lu/fr/dossier/8370` returned `200 174523 text/html; charset=UTF-8`: "Projet de loi", "En commission", filed 29.03.2024, last updated 22.12.2025.
+- Dropped: the Loi modifiée du 23 décembre 2004 (ETS) and its texte coordonné. Art. 48 of the climate law repeals it and Legilux shows it as no longer in force since 2020-12-20.
+- Not stored, stored versions missing: earlier states of Art. 68bis and 68ter (the only consolidation with a file is 2025-12-23), and the three consolidations of the Code before 2018-07-01 (no file).
+
+### Row LU-CSSF-ADOPTED (blocked from the cloud address for curl)
+
+```
+curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.cssf.lu/en/terms-of-service-and-privacy-policy/
+```
+
+Answered `curl: (52) Empty reply from server` (three tries), and on a later run `400 2798 text/html; charset=UTF-8`; the home page `https://www.cssf.lu/en/` answered `200` once and `400` or an empty reply on other runs. Headless Chromium opens it (Playwright as pre-installed; waits for `networkidle` plus 2.5 s, then takes `innerText` of `<main>`):
+
+```
+node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage();const r=await p.goto('https://www.cssf.lu/en/terms-of-service-and-privacy-policy/',{waitUntil:'networkidle',timeout:60000});await p.waitForTimeout(2500);const t=await p.evaluate(()=>(document.querySelector('main')||document.body).innerText);console.log(r.status(),t.length);console.log(t);await b.close()})()"
+```
+
+Status `200`; the text of `<main>` has 32764 characters. It gives the sentence in the row (reproduction or distribution only with prior written consent). No CSSF text was fetched or stored.
+
+## Bulgaria
+
+Row `BG-PARLIAMENT-ADOPTED`, `pass` on the publisher's terms (verdict_basis `terms`): the Народно събрание terms page https://www.parliament.bg/bg/terms-of-use licenses the portal content under CC BY 4.0 (the quoted sentence and its fingerprint are in the row; Закон за авторското право и сродните му права чл. 4, т. 1 is quoted in the row as a second ground but the row rests on the terms). The portal serves each act once, as passed, with the Decree of promulgation; it has no point-in-time consolidation, so Bulgaria has no consolidated row. Language: Bulgarian only. Run on 2026-11-02 for the Accounting Act (ДВ бр. 95/2015, parliament.bg act id 15501).
+
+The law pages (`https://www.parliament.bg/bg/laws/ID/<id>`) are a JavaScript application (curl returns a 4304-byte shell). The application reads a public JSON API, and the act text is the HTML in the field `L_ActL_final_body`. Proven request for the row, no headers needed (a browser `User-Agent` also works):
+
+```
+curl -sS -L -o act15501.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.bg/api/v1/act/15501
+```
+
+Returned `200 472412 application/json`, sha256 `12137ce57d5d19cb39eb9089b7b080d4226fcb38c7ef6932a61de18c88231f28`. A second fetch gave the same hash (no per-request token), and the hash equals `fetched_sha256` in `records/BG/bg-zschet/2016-01-01-adopted-bg.json`. `fetched_sha256` is the hash of the JSON as returned. Other fields of the same answer: `L_Act_dv_iss` and `L_Act_dv_year` (gazette issue and year, here 95 and 2015), `L_Act_date2` (the day the Assembly passed the act, not the gazette day), `L_ActL_final` (title). The gazette day is not served anywhere on parliament.bg.
+
+Text extraction: Python `html.parser` on `L_ActL_final_body`; comments (the Word conditional blocks) and `script`, `style`, `xml` content dropped; the end of every block element (`p`, `div`, `br`, `h1` to `h6`, `li`, `tr`, `table`, `td`, `th`, lists) a line break; runs of spaces collapsed and non-breaking spaces turned into spaces; empty lines dropped; nothing reworded. The text starts with the Decree (Указ) and ends with the line saying the Assembly passed the act. Checked: no U+FFFD in any record.
+
+Terms page, read with Playwright chromium (the page is a JavaScript shell): `page.goto('https://www.parliament.bg/bg/terms-of-use', waitUntil: 'networkidle')`, wait 2 s, innerText of `<main>`, whitespace collapsed, sha256 `d478c61d...a928d` (same on two runs); `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.bg/bg/terms-of-use` returned `200 4304 text/html; charset=UTF-8` (the shell).
+
+Finding the act id of an instrument (no consolidated search exists): the title search of the law list answers only for the current Assembly (`curl -sS -H 'Content-Type: application/json' -d '{"L_Act_string":"акциз"}' https://www.parliament.bg/api/v1/fn-acts/1` returned 1 act; the same with `"счетоводство"` returned `[]`, so the search does not reach acts of earlier Assemblies), and adding `A_ns_id` answered HTTP 500. Ids came from probing `GET /api/v1/act/<id>` (an empty `{}`-like answer for ids that are not acts; `L_Act_T_id` 1 is a law, 2 a decision): ids around 14600 to 15700 hold the acts of 2014 and 2015, 165500 to 167600 those of 2024 to 2026. The EU dossier API (`POST /api/v1/fn-dossier` with `{"RN_FULL":"2022/2464"}`, then `GET /api/v1/eu-dossier/<ID>`) names the Bulgarian acts that transpose a directive with their gazette issue, which is how ДВ бр. 72/2024 and бр. 79/2024 were tied to Directive (EU) 2022/2464.
+
+Stored on 2026-11-02 (all `kind` adopted, language bg, one record per act):
+
+| Instrument | Act id | `in_force` | Request |
+|---|---|---|---|
+| `bg-zschet` | 15501 | 2016-01-01 | `https://www.parliament.bg/api/v1/act/15501` |
+| `bg-zschet-zid-2024` | 165592 | 2024-07-06 | `https://www.parliament.bg/api/v1/act/165592` |
+| `bg-zoik` | 14595 | 2014-03-11 | `https://www.parliament.bg/api/v1/act/14595` |
+| `bg-zzp-zid-2026` | 167077 | 2026-09-27 | `https://www.parliament.bg/api/v1/act/167077` |
+
+### Link only
+
+The row passes for all three, and the text was fetched, but no dated record is stored because no official page opened states the in-force day:
+
+- `bg-zschet-zid-2025` (ДВ бр. 17/2025, act id 165958): "from the day of promulgation"; the gazette day is not on parliament.bg.
+- `bg-znfo-zid-2024` (ДВ бр. 79/2024, act id 165596): no commencement clause in the text; the gazette day is not on parliament.bg.
+- `bg-zoik-zid-2025` (ДВ бр. 81/2025, act id 166596): specific provisions dated, no general clause; the gazette day is not on parliament.bg. The Ministry of Environment and Water copy of the consolidated climate act lists "бр. 81 от 3.10.2025 г." without an in-force day.
+
+The base Consumer Protection Act (ДВ бр. 99/2005, чл. 68в to 68м) is not in scope: no official page was found that holds its text (see Blocked). Consolidated versions of every Bulgarian act exist only on lex.bg, ciela.net and apis.bg, which are private services and are never used.
+
+### Languages
+
+Bulgarian is the only official language. No government English translation was found for any instrument: the English interface of parliament.bg (`https://www.parliament.bg/en/laws/ID/<id>`) shows the same Bulgarian text, the act API has language id 1 only, and web searches for an official English text of the Accounting Act, the Climate Change Mitigation Act and the Consumer Protection Act amendments returned none from a government publisher. So there is no translation row and no English record. The English text of the Copyright Act used in the row's second ground comes from the Bulgarian Center for Expertise and Management (cem.bg); it is quoted in the row only and not stored.
+
+### Blocked from the cloud address
+
+- `https://dv.parliament.bg/` (official gazette): `curl -sS -m 40 -A 'Mozilla/5.0' https://dv.parliament.bg/` ended with `curl: (35) Recv failure: Connection reset by peer`; `https://dv.parliament.bg/DVWeb/index.faces`, `.../DVWeb/broeveList.faces` and `.../DVWeb/showMaterialDV.jsp?idMat=99076` returned `000` (no answer, tunnel closed after 10 s); `http://dv.parliament.bg/` returned `503 114 text/plain`. No browser recipe was tried on these.
+- `https://lex.bg/`: `403 5301 text/html` (private service, unused).
+- Answered and not used: `https://www.fsc.bg/` (`200 96601 text/html`; no instrument of the Комисия за финансов надзор is in scope, so no row and no terms were read).
+
+## Malaysia
+
+Rows `MY-AGC-CONSOLIDATED`, `MY-AGC-ADOPTED`, `MY-BURSA-ADOPTED` and `MY-SC-ADOPTED`, all `permission requested` (terms basis). No row passes, so no text is stored and no fetch recipe for law text was proven. Run on 2026-11-02.
+
+The terms pages that decided the rows (these are the only requests that worked):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o tnc.html -w '%{http_code} %{size_download} %{content_type}\n' https://lom.agc.gov.my/tnc.php
+```
+
+Returned `200 17069 text/html; charset=UTF-8`: "Copyright 2023 by Attorney General's Chambers, Malaysia, all rights reserved." The footer separator is random, so only items 1 to 11 are hashed (see the row notes).
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o disclaimer.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sc.com.my/about/disclaimer
+```
+
+Returned `200 80953 text/html; charset=utf-8`: reproduction needs the SC's prior written permission.
+
+### Languages
+
+The Laws of Malaysia portal offers Malay (`language=BM`) and English (`language=BI`) under the same terms, so a second language would need no row of its own. No language was fetched. No government English translation source other than the LOM English versions was found.
+
+### Link only
+
+- `my-eqa-1974`, `my-cpa-1999`, `my-tda-2011`: row `MY-AGC-CONSOLIDATED`, all rights reserved. Also no working per-instrument request: act pages are not reachable from the cloud address.
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://lom.agc.gov.my/act-detail.php?language=BI&act=127'
+```
+
+Returned `200 15 text/html; charset=UTF-8` (body: `Invalid request`). The list pages (`principal.php?type=updated&language=BI`, `subsid.php?type=pua`, `200 21775 text/html`) fill their tables by JavaScript from `json-updated-2024.php`, whose response is encrypted in the page, and the file links in the HTML are signed `processFile.php?isDirect=1&token=...` URLs, so no URL can be built for a chosen Act. Headless Chromium (Playwright with the session proxy) got `502 upstream request failed` for `lom.agc.gov.my`. The `/federal-gazette` path and `federalgazette.agc.gov.my` from the brief were not retried.
+- `my-bursa-mmlr-sustainability`: row `MY-BURSA-ADOPTED`, terms unreadable. Blocked from the cloud address: https://www.bursamalaysia.com/ (also `/terms_of_use`, `/legal_disclaimer` and the release PDF named in `register.csv`).
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.bursamalaysia.com/
+```
+
+Returned `403 5379 text/html; charset=UTF-8` (Cloudflare "Just a moment..."). Chromium with the proxy got the same challenge and did not clear it. The orchestrator can read the Bursa terms and the Listing Requirements sustainability provisions from the laptop.
+- Not reached: https://www.parlimen.gov.my/ did not connect (curl status 000).
+- Not law, no scope entry: the SC National Sustainability Reporting Framework (https://www.sc.com.my/nsrf, row `MY-SC-ADOPTED`, permission requested). Not enacted: the Climate Change Bill and the carbon tax (F7 rows in `register.csv`).
+
+## Saudi Arabia
+
+GEL-07-10, run 2026-11-02. No row passes, so no recipe is proven and no text is stored: all three scope instruments are link only. Rows added: `SA-BOE-CONSOLIDATED`, `SA-UQN-ADOPTED`, `SA-CMA-ADOPTED`, `SA-SAUDIEXCHANGE-ADOPTED`, all `permission requested`.
+
+Pass rows with a proven fetch: none. Link-only instruments and why:
+
+- `sa-environment-law`, `sa-air-quality-regulation`, `sa-anti-commercial-fraud-law`: the Bureau of Experts site (`laws.boe.gov.sa`) refused the cloud address, and the Umm Al-Qura gazette terms bar scripted copying (below). Commencement dates were not read from an official page, so `in_force` is null.
+
+Blocked from the cloud address (for the orchestrator to read from the laptop):
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code}\n' https://laws.boe.gov.sa/
+curl: (35) Recv failure: Connection reset by peer
+```
+
+Same answer for `https://laws.boe.gov.sa/BoeLaws/Laws/` and `https://www.boe.gov.sa/`. Chromium (Playwright `page.goto(url, {waitUntil: 'networkidle'})`) got HTTP 502 for all three. The agent proxy log showed `ws_closed_mid_exchange` for `laws.boe.gov.sa:443`. No request that works was found, so there is no browser recipe either. `https://www.saudiexchange.sa/`, the ESG guidelines page and the terms path answer HTTP 403 "Access Denied" (Akamai) to curl and to Chromium.
+
+Umm Al-Qura gazette, `https://www.uqn.gov.sa/` (301 to www, then `200 text/html`, about 790 KB per page; plain `curl -L -A 'Mozilla/5.0'` works): the page `/terms-and-conditions` allows only personal non-commercial use and bars automated copying or extraction without prior written consent, so the row is `permission requested`. Only the terms page and the home page were fetched with a script; no decision page was read. Row `SA-UQN-ADOPTED` fingerprint method is in the row notes.
+
+Capital Market Authority, `https://cma.gov.sa/`: pages are SharePoint pages, read with Playwright chromium after `networkidle` plus 2 s (curl returns a 1.2 KB shell for the terms path). `https://cma.gov.sa/en/Pages/terms.aspx` says the CMA owns the copyright and allows copying only for personal use or use within the user's organisation: `permission requested`. The green debt guideline PDF answers to curl (`200 7538737 application/pdf` at `https://cma.gov.sa/en/RulesRegulations/Regulations/Documents/Green_Social_Sustainability_Sustainability_Guidelines.en.pdf`) but is not stored.
+
+### Languages
+
+Arabic is the official language of the Saudi texts. English: the Bureau of Experts is the place a government translation would be served; it could not be opened, so whether it calls its English an official translation (statute basis) is unknown and no translation row exists. No English text from a law firm, exchange or news site is used.
+
 ## China
 
 Run on 2026-11-02 (GEL-07-01). Rows `CN-FLK-ADOPTED`, `CN-FLK-CONSOLIDATED`, `CN-MEE-ADOPTED` and `CN-MOF-ADOPTED` pass on the statute (Copyright Law of the PRC Art. 5 item 1, quoted in each row). Rows `CN-SSE-ADOPTED`, `CN-SZSE-ADOPTED` and `CN-BSE-ADOPTED` are `permission requested` (each exchange's legal notice allows non-commercial use only). The mee.gov.cn site statement (and the identical gov.cn one) bars commercial verbatim reprint of site content and claims the site's copyright; the MEE row passes on the statute anyway and is flagged for Varun in its notes. gov.cn has no row and was not used as a source. No Chinese text was fetched by browser: every stored record came from `curl`.
