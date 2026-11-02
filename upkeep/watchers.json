@@ -6563,5 +6563,122 @@
   "params": {
    "second_route": "https://uaelegislation.gov.ae/en/legislations/2157 (browser; the portal answers scripts with a Cloudflare 403)"
   }
+ },
+ {
+  "id": "pk-climate-change-act-2017-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-climate-change-act-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator35e25fe56389d477d508cdf8a693e868.pdf"
+ },
+ {
+  "id": "pk-epa-1997-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-epa-1997",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator17094efb999f9a865461eb1498175947.pdf"
+ },
+ {
+  "id": "pk-petroleum-levy-climate-support-levy-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-petroleum-levy-climate-support-levy",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administrator1bc3ad732b91e47508abf826f2840d15.pdf"
+ },
+ {
+  "id": "pk-competition-act-2010-s10-pdf",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "pk-competition-act-2010-s10",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pakistancode.gov.pk/pdffiles/administratore1b5ab79c2c1975670e6aa7fe57e57d6.pdf"
+ },
+ {
+  "id": "pk-sbp-shsfd-circular-07-2025-page",
+  "source_id": "PK-SBP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "pk-sbp-shsfd-circular-07-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025",
+  "params": {
+   "second_route": "https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025 (browser; sbp.org.pk answers scripts with HTTP 403, headless Chromium gets 200); the Annexure PDF https://www.sbp.org.pk/assets/documents/circulars/SHSFD-2025-C7-Annex.pdf answers curl"
+  }
+ },
+ {
+  "id": "pk-terms-pakistancode-consolidated",
+  "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://pakistancode.gov.pk/english/Xki72HF.php",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-na-adopted",
+  "source_id": "PK-NA-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://na.gov.pk/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://na.gov.pk/ (browser from the laptop; the cloud address fails certificate verification and headless Chromium got HTTP 502)"
+  }
+ },
+ {
+  "id": "pk-terms-senate-adopted",
+  "source_id": "PK-SENATE-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://senate.gov.pk/en/messence.php?id=111&cattitle=TermsOfUse",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-secp-adopted",
+  "source_id": "PK-SECP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.secp.gov.pk/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.secp.gov.pk/ (browser from the laptop; secp.gov.pk answers curl and headless Chromium with a Cloudflare challenge, HTTP 403, \"Just a moment...\"); the terms page was not located"
+  }
+ },
+ {
+  "id": "pk-terms-psx-adopted",
+  "source_id": "PK-PSX-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.psx.com.pk/psx/terms-of-use",
+  "change": "terms_changed"
+ },
+ {
+  "id": "pk-terms-sbp-adopted",
+  "source_id": "PK-SBP-ADOPTED",
+  "iso2": "PK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.sbp.org.pk/our-operations/disclaimer",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.sbp.org.pk/our-operations/disclaimer (browser; curl is answered HTTP 403)"
+  }
  }
 ]

@@ -3624,3 +3624,49 @@ None stored. Arabic and English from the portal and gazette: not reachable. Engl
 | `ae-cma-governance-guide-art76` | CMA terms reserve rights; decision text not reachable. |
 
 Candidates not entered in scope: the national carbon credit registry resolution and carbon pricing executive regulation under Decree-Law 11/2024 (no official page found or openable), and the ADX and DFM ESG guides and MOCCAE rules (ADX and MOCCAE blocked; DFM guide is a company document with no reuse grant).
+
+## Pakistan
+
+Run on 2026-11-02 (GEL-08-05). No row passes, so nothing is stored and there is no proven store-and-hash fetch for a `pass` row. Six rows were added, all `permission requested`: `PK-PAKISTANCODE-CONSOLIDATED` (Pakistan Code; the only rights line is the footer "© Copyright 2022 - Ministry of Law and Justice", and the Copyright Ordinance 1962 vests copyright in Government works in Government, s. 2(m) and s. 13(d), with no exclusion of enacted text; s. 57(q)(i) is a defence for Gazette matter and was not applied), `PK-NA-ADOPTED`, `PK-SENATE-ADOPTED` (terms: all rights reserved), `PK-SECP-ADOPTED`, `PK-PSX-ADOPTED` (terms: personal, non-commercial use only; no modification) and `PK-SBP-ADOPTED`. The requests below were proven only to read the instrument and its date.
+
+Row `PK-PAKISTANCODE-CONSOLIDATED`, Pakistan Climate Change Act 2017. The law page is found from the alphabetical list (`https://pakistancode.gov.pk/english/LGu0xAD?alp=P&page=1&action=inactive`), and the page links the text PDF:
+
+```
+curl -sS -L -o cc_page.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://pakistancode.gov.pk/english/UY2FqaJw1-apaUY2Fqa-apaUY2JxZpc%3D-sg-jjjjjjjjjjjjj'
+curl -sS -L -o cc.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://pakistancode.gov.pk/pdffiles/administrator35e25fe56389d477d508cdf8a693e868.pdf
+```
+
+Returned `200 55353 text/html; charset=UTF-8` and `200 190247 application/pdf` (sha256 of the PDF `d9a6a6f7842cdaef46069a5a74015fe4b0af83c128ef63ca10319ce62eadf7f6`). Text was read with `pdftotext -layout cc.pdf cc.txt`: 29224 characters, 99 non-ASCII (quotation marks and dashes), no mojibake. The site serves one revised text per law and no point-in-time versions; the law page carries a visitor counter, so the HTML hash does not reproduce and the watchers hash the PDF. The same request shape worked for the Pakistan Environmental Protection Act 1997 (904506 bytes), the Petroleum Products (Petroleum Levy) and Climate Support Levy Ordinance 1961 (212418) and the Competition Act 2010 (294557), all `200 application/pdf`. The site's HEAD request answers HTTP 500, so no `http_head` watcher is used.
+
+### Languages
+
+English is the language the federal statutes are enacted in, and the Pakistan Code is the only English source reached. The site has an Urdu interface (`https://pakistancode.gov.pk/english/UHyrdu.php`, HTTP 200); the per-law Urdu text was not examined, because the row is not pass. No government translation source exists for English, since English is the original, so no translation row was added.
+
+### Browser recipe (SBP)
+
+`https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025` answers curl with a block page:
+
+```
+curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025
+```
+
+Returned `403 5188 text/html; charset=UTF-8`. Headless Chromium (Playwright `chromium.launch()`, a desktop Chrome user agent, `page.goto(url, {waitUntil: 'domcontentloaded'})`, then a 6 s wait, then `page.content()`) returned HTTP 200 and 130858 characters of HTML, with the circular dated December 26, 2025. The Annexure PDF answers curl: `curl -sS -L -o annex.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.sbp.org.pk/assets/documents/circulars/SHSFD-2025-C7-Annex.pdf` returned `200 1280859 application/pdf`; `pdftotext -layout` gave 31252 characters. Nothing was stored, so no `fetched_sha256` was taken and no record is browser-fetched. The `tools/watch.py --dry-run` baseline reached the circular page with the watcher user agent in the same session although curl got 403; the cause was not found.
+
+### Blocked from the cloud address
+
+- `https://www.secp.gov.pk/` and `https://www.secp.gov.pk/wp-content/uploads/2025/01/Press-release-on-Jan-1.pdf`: curl `403 5331 text/html` (Cloudflare "Just a moment..."); headless Chromium also HTTP 403 with the challenge page, after a 15 s wait.
+- `https://na.gov.pk/` and `https://www.na.gov.pk/` (including `/uploads/documents/685e84982a59e_906.pdf`, the Finance Act 2025 as found by a web search): curl `SSL certificate problem: unable to get local issuer certificate`; headless Chromium HTTP 502, 174 bytes. Certificate verification was not disabled.
+- `https://drs.molaw.gov.pk/Home` (Gazette Document Retrieval System): curl no reply; headless Chromium HTTP 502. `https://www.egazette.gov.pk`: no reply.
+- `https://www.cc.gov.pk/` (Competition Commission): HTTP 406.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| pk-climate-change-act-2017 | https://pakistancode.gov.pk/english/UY2FqaJw1-apaUY2Fqa-apaUY2JxZpc%3D-sg-jjjjjjjjjjjjj | Row `PK-PAKISTANCODE-CONSOLIDATED` is permission requested. |
+| pk-epa-1997 | https://pakistancode.gov.pk/english/UY2FqaJw1-apaUY2Fqa-apqaZQ%3D%3D-sg-jjjjjjjjjjjjj | Same row. |
+| pk-petroleum-levy-climate-support-levy | https://pakistancode.gov.pk/english/UY2FqaJw1-apaUY2Fqa-cJyd-sg-jjjjjjjjjjjjj | Same row; `in_force` null because the Finance Act 2025 (na.gov.pk) could not be opened. |
+| pk-competition-act-2010-s10 | https://pakistancode.gov.pk/english/UY2FqaJw1-apaUY2Fqa-apaUY2FsbJk%3D-sg-jjjjjjjjjjjjj | Same row. |
+| pk-sbp-shsfd-circular-07-2025 | https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025 | Row `PK-SBP-ADOPTED` is permission requested (SBP disclaimer grants no reuse). |
+
+Not in scope.json: the SECP order of 2024-12-31 adopting IFRS S1 and S2 and the June 2024 ESG Disclosure Guidelines, because no official SECP page could be opened (see Blocked). The existing PSX ESG register row is a primer and stays as a register row with a notes sentence.
