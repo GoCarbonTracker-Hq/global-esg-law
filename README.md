@@ -1,65 +1,19 @@
 # global-esg-law
 
-This repository records ESG-relevant law of the EU, the UK, India and the US as dated git history. It holds law text only where the matching row in `sources.json` has the verdict `pass`. Nothing in this repository says or implies that any company complies with any law.
+This repository records ESG-relevant law of the EU, the UK, India and the US as dated git history. It holds law text only where the matching row in `sources.json` has the verdict `pass`. The repository records what law is in force on a date and says nothing about whether any company complies with it.
 
 The name is wider than what is built. Version 1 covers four jurisdictions (EU, GB, IN, US), listed below.
 
-## What is covered (as of 2026-11-01)
+## What is covered
 
-"Stored" means the text is in `records/`, one file per version in force on a date. "Link only" means the instrument is listed with its official URL and no text is stored (permission requested, see `sources.json`).
+Record files under `records/` today, one file per text version:
 
-The tables below were written by hand and their counts are as of the build date in the heading. [`COVERAGE.md`](COVERAGE.md) is the generated map: one row per place in the register, one column per law family, with the storage form, last checked date and staleness of each cell, plus a per-instrument table for the four pilot places. It is regenerated with `python3 tools/coverage.py` and carries the date of its own run, so where the two differ, `COVERAGE.md` is the newer count.
+- EU: 33
+- GB: 10
+- US: 33
+- IN: 0 (listed with official URLs, no text stored)
 
-### European Union (EU)
-
-| Instrument | Held as |
-|---|---|
-| Directive (EU) 2022/2464 as regards corporate sustainability reporting (CSRD) | stored, 3 versions |
-| Commission Delegated Regulation (EU) 2023/2772 supplementing Directive 2013/34/EU as regards sustainability reporting standards (ESRS) | stored, 1 version |
-| Regulation (EU) 2020/852 on the establishment of a framework to facilitate sustainable investment (Taxonomy Regulation) | stored, 1 version |
-| Regulation (EU) 2019/2088 on sustainability-related disclosures in the financial services sector (SFDR) | stored, 4 versions |
-| Directive (EU) 2024/1760 on corporate sustainability due diligence (CSDDD) | stored, 3 versions |
-| Directive (EU) 2025/794 amending Directives (EU) 2022/2464 and (EU) 2024/1760 as regards the dates from which Member States are to apply certain corporate sustainability reporting and due diligence requirements | stored, 1 version |
-| Directive (EU) 2026/470 amending Directives 2006/43/EC, 2013/34/EU, (EU) 2022/2464 and (EU) 2024/1760 as regards certain corporate sustainability reporting requirements and certain corporate sustainability due diligence requirements | stored, 1 version |
-| Commission Delegated Regulation (EU) 2025/1416 amending Delegated Regulation (EU) 2023/2772 as regards the postponement of the date of application of the disclosure requirements for certain undertakings | stored, 1 version |
-| Commission Delegated Regulation (EU) 2026/1563 amending Delegated Regulation (EU) 2023/2772 as regards the simplification of certain sustainability reporting standards | stored, 1 version |
-| Commission Delegated Regulation (EU) 2021/2139 establishing technical screening criteria for climate change mitigation and adaptation under the Taxonomy Regulation (Climate Delegated Act) | stored, 6 versions |
-| Commission Delegated Regulation (EU) 2021/2178 specifying the content and presentation of Taxonomy disclosures by undertakings subject to Articles 19a or 29a of Directive 2013/34/EU (Disclosures Delegated Act) | stored, 4 versions |
-| Commission Delegated Regulation (EU) 2022/1214 amending Delegated Regulations (EU) 2021/2139 and (EU) 2021/2178 as regards economic activities in certain energy sectors (Complementary Climate Delegated Act) | stored, 1 version |
-| Commission Delegated Regulation (EU) 2023/2486 establishing technical screening criteria for water, circular economy, pollution prevention and biodiversity under the Taxonomy Regulation (Environmental Delegated Act) | stored, 2 versions |
-| Commission Delegated Regulation (EU) 2023/2485 amending Delegated Regulation (EU) 2021/2139 with additional technical screening criteria for certain economic activities | stored, 1 version |
-| Commission Delegated Regulation (EU) 2026/73 amending Delegated Regulations (EU) 2021/2178, 2021/2139 and 2023/2486 as regards simplification of Taxonomy disclosures and of certain technical screening criteria | stored, 1 version |
-| Commission Delegated Regulation (EU) 2022/1288 supplementing Regulation (EU) 2019/2088 with regulatory technical standards on sustainability-related disclosures (SFDR RTS) | stored, 2 versions |
-
-### United Kingdom (GB)
-
-| Instrument | Held as |
-|---|---|
-| Companies Act 2006, section 414CB (non-financial and sustainability information statement) | stored, 2 versions |
-| Companies Act 2006, Part 15 Chapter 4A, strategic report (sections 414A to 414D) | stored, 7 versions |
-| The Companies (Strategic Report) (Climate-related Financial Disclosure) Regulations 2022 | stored, 1 version |
-| FCA ESG sourcebook: Sustainability Disclosure Requirements, investment labels and anti-greenwashing rule (PS23/16) | link only |
-| UK Sustainability Reporting Standards: UK SRS S1 General Requirements and UK SRS S2 Climate-related Disclosures | link only |
-
-### India (IN)
-
-| Instrument | Held as |
-|---|---|
-| Companies Act, 2013, section 135 (corporate social responsibility) | link only |
-| SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015, regulation 34(2)(f) (business responsibility and sustainability report) | link only |
-| SEBI circular: Business responsibility and sustainability reporting by listed entities (SEBI/HO/CFD/CMD-2/P/CIR/2021/562) | link only |
-| SEBI circular: BRSR Core, framework for assurance and ESG disclosures for value chain (SEBI/HO/CFD/CFD-SEC-2/P/CIR/2023/122) | link only |
-| SEBI circular: Measures to facilitate ease of doing business with respect to framework for assurance or assessment, ESG disclosures for value chain, and voluntary disclosure on green credits (SEBI/HO/CFD/CFD-PoD-1/P/CIR/2025/42) | link only |
-
-### United States (US)
-
-| Instrument | Held as |
-|---|---|
-| The Enhancement and Standardization of Climate-Related Disclosures for Investors (SEC Release 33-11275) | stored, 1 version |
-| Mandatory Greenhouse Gas Reporting (EPA, 40 CFR Part 98) | stored, 27 versions |
-| California Climate Corporate Data Accountability Act (SB 253), Health and Safety Code 38532 | stored, 2 versions |
-| California Climate-Related Financial Risk Act (SB 261), Health and Safety Code 38533 | stored, 2 versions |
-| California SB 219 (amends Health and Safety Code 38532 and 38533) | stored, 1 version |
+[`COVERAGE.md`](COVERAGE.md) is the authoritative map. It is regenerated by `python3 tools/coverage.py`. The other 250 places in `register/register.csv` are unverified research rows, not coverage.
 
 ## Look up the law in force on a date
 
@@ -87,14 +41,25 @@ Python 3.11 or later, standard library plus git. pytest is the only extra.
 
 ## Before going public
 
-The repository is private and stays private until Varun decides otherwise. Before that decision, run all three and read the output:
+The repository is private and stays private until Varun decides otherwise. Run these in order and compare each last line with the expected one:
 
-```
-python3 tools/check_corpus.py
-python3 tools/publish_gate.py
-python3 -m pytest tests -q
-```
+1. `python3 tools/check_corpus.py` ends with `76 records checked`.
+2. `python3 tools/publish_gate.py` exits 0.
+3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
+4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
+5. `python3 tools/watch.py --dry-run` exits 0 or 1, never 2.
+6. Varun says make it public.
 
-`check_corpus.py` refuses any record whose source row is not `pass`. `publish_gate.py` prints every source row and scope entry and exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records. Today every source row is `pass` or `permission requested`, and every instrument with a `permission requested` row is link only.
+`check_corpus.py` refuses any record whose source row is not `pass`. `publish_gate.py` prints every source row and scope entry and exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records.
 
-Size as of 2026-11-01: `records/` is about 72 MB.
+Size as of 2026-11-02: `du -sh records .git` gives 72M for `records` and 2.9M for `.git`. Decision: law text stays in `main`. `.gitattributes` sets `records/**/*.json -diff` so record files do not render as diffs. Nothing moves to LFS.
+
+## Licence
+
+Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). Each law record carries its own source licence in the `Licence` trailer of its commit on the `history` branch and in `sources/licence-table.csv`. Nothing is stored under a row whose verdict is not `pass`.
+
+## Cite
+
+global-esg-law, https://github.com/varunmoka7/global-esg-law, version `051f0e9ea6cc5aa6e4586d8a9c7312aac5bc2260` (`history` branch), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
+
+The official source in the `Source-url` trailer is the authority and this repository is a copy.
