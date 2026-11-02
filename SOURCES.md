@@ -3516,6 +3516,36 @@ Link-only instruments:
 
 Stored by GEL-08-02: `ng-nesrea-act-2007` (adopted 2007-07-30, en).
 
+## Ghana
+
+Run on 2026-11-02 (GEL-09-09). One row passes: `GH-PARLIAMENT-REPOSITORY-ADOPTED` (statute: Copyright Act, 2005 (Act 690) s. 8(1)(a), "an enactment"; the repository and parliament.gh terms themselves reserve rights and allow non-commercial copying only). `GH-BOG-ADOPTED` and `GH-ICAG-ADOPTED` are permission requested. `www.parliament.gh/epanel/docs/` serves only 41 old Acts (Banks Act 2016, Companies Code and similar) and none of the instruments in scope, so it has no row. Ghana's legislation is in English, so no second official language exists and no translation row was added.
+
+Row `GH-PARLIAMENT-REPOSITORY-ADOPTED`, Protection Against Unfair Competition Act, 2000 (Act 589). The bitstream uuid is read from the item page, or from the repository's REST search (`curl -sS 'https://repository.parliament.gh/server/api/discover/search/objects?size=8&query=Unfair+Competition'` returned `200 15525 application/hal+json` for the query `unfair`). The item HTML pages (`https://repository.parliament.gh/items/<uuid>`) answer curl from the cloud address with `403 44 text/plain`, body "You got banned permanently from this server"; the same pages open in headless Chromium (Playwright `goto(..., waitUntil: "networkidle")`, status 200, text/html). The PDF itself needs no browser:
+
+```
+curl -sS -L -o act589.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://repository.parliament.gh/bitstreams/9366072e-0b2a-4a75-a3ea-2747973f4a87/download
+```
+
+Returned `200 221672 application/pdf;charset=UTF-8` (the first hop is `302` to `/server/api/core/bitstreams/<uuid>/content`). `fetched_sha256` is the hash of the PDF as received (`7d8b7fe9541a45ed08344c0a90dffb6c6f81757fdde2ac08bc358071b3417d4b`); three fetches (curl, two Playwright `APIRequestContext` runs) gave the same bytes. Text: `pdftotext -layout act589.pdf -`, runs of spaces collapsed to one, blank lines and bare page-number lines dropped; the one non-ASCII character is the em dash in the section headings, no mojibake. The item holds a second file (`ACT 589 Rev. Ed.pdf`, 138674 bytes) that is a scan without text layer; not stored. No records are browser-fetched.
+
+Row `GH-PARLIAMENT-REPOSITORY-ADOPTED`, Environmental Protection Act, 2025 (Act 1124), same recipe with bitstream `1e06a2ff-8e7a-494e-a4d9-795f9c89002e` (browser-opened item page `https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896`): `200 6441648 application/pdf;charset=UTF-8`. `pdfinfo` reports 182 pages, Creator "Hewlett-Packard MFP", encrypted with copy denied; `pdftotext` returns nothing and `pdfimages -list` shows one 200 ppi JPEG scan per page. The session has no OCR (`tesseract` absent), so no text is stored.
+
+### Languages
+
+English is the language of legislation; the repository, the Bank of Ghana and ICAG serve English only. Looked for a government translation nowhere further, because none is needed.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| gh-environmental-protection-act-2025 (F2) | https://repository.parliament.gh/items/18878a2b-4e4a-4e36-ba0b-a576b028d896 | Row passes, but the PDF is an image-only, copy-protected scan and no OCR is available in this session. Commencement date is not stated on the pages read, so scope `in_force` is null. |
+| gh-bog-climate-risk-directive-2024 (F1) | https://www.bog.gov.gh/wp-content/uploads/2024/11/BOG-Climate-Related-Financial-Risks-Directive.pdf | Row `GH-BOG-ADOPTED` permission requested (`https://www.bog.gov.gh/disclaimer/` and `/legal/` grant no reuse). PDF `curl -sS -A 'Mozilla/5.0' -o bog.pdf -w '%{http_code} %{size_download} %{content_type}\n' <url>` returned `200 671289 application/pdf`. |
+| gh-icag-ifrs-sustainability-roadmap (F1) | https://icagh.org/wp-content/uploads/2024/12/IFRS-SUSTAINABILITY-DISCLOSURE-ADOPTION-ROADMAP-FOR-GHANA.pdf | Row `GH-ICAG-ADOPTED` permission requested (site footer: all rights reserved). PDF returned `200 315458 application/pdf`. |
+
+Stored: `gh-unfair-competition-act-2000` (adopted, in_force 2000-12-22, en).
+
+Blocked from the cloud address: `https://repository.parliament.gh/items/<uuid>` and `https://repository.parliament.gh/` (curl: 403 "You got banned permanently from this server"; opens in a browser); The bitstream and REST API paths answer. `https://www.epa.gov.gh/` (curl error 60, TLS certificate expired; not retried with verification off), so the EPA laws page and the 2025 regulations were not read. `https://www.icagh.com/` and `https://www.sec.gov.gh/` reset the connection (curl 35; `https://sec.gov.gh/` answered 200, 126545 bytes, text/html, but no SEC directive was found); `https://www.fcghana.org/` 403; `https://ghalii.org/akn/gh` 403; `https://www.ghanapublishingcompany.com/` proxy 502 (no gazette read). GhaLII and LawsGhana get no row.
+
 ## Peru
 
 Rows `PE-ELPERUANO-ADOPTED` (`pass`, statute: Decreto Legislativo 822 art. 9 b), `PE-GOBPE-TRANSLATION` (`permission requested`) and `PE-SPIJ-CONSOLIDATED` (`permission requested`, page could not be opened). Run on 2026-11-02. Brief candidates not given a row: smv.gob.pe redirects to gob.pe/institucion/smv and the SMV resolution is read from El Peruano; the Bolsa de Valores de Lima site (https://www.bvl.com.pe) returned a 9 KB JavaScript shell with no terms page, and no BVL instrument is in scope.
