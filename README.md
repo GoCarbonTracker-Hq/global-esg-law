@@ -52,7 +52,7 @@ The repository is private and stays private until Varun decides otherwise. Run t
 
 `check_corpus.py` refuses any record whose source row is not `pass`. `publish_gate.py` prints every source row and scope entry and exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records.
 
-Size as of 2026-11-02: `du -sh records .git` gives 72M for `records` and 2.9M for `.git`. Decision: law text stays in `main`. `.gitattributes` sets `records/**/*.json -diff` so record files do not render as diffs. Nothing moves to LFS.
+Size as of 2026-11-02: `du -sh records .git` gives 72M for `records` and 23M for `.git` on a full clone with the `history` branch (2.9M on the cloud session's shallow clone). Decision: law text stays in `main`. `.gitattributes` sets `records/**/*.json -diff` so record files do not render as diffs. Nothing moves to LFS.
 
 ## Licence
 
