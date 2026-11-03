@@ -6,29 +6,29 @@
   "tracker_pointer": 90
  },
  "measured": true,
- "measured_on": "2026-11-02",
+ "measured_on": "2026-11-03",
  "paid_tools": [],
  "per_tier": {
   "gazette_feed": {
    "interval_days": 7,
    "watchers": 35,
-   "seconds_per_run": 93.07,
-   "bytes_per_run": 2755,
-   "failures_per_run": 1
+   "seconds_per_run": 62.59,
+   "bytes_per_run": 776735,
+   "failures_per_run": 0
   },
   "consolidation_site": {
    "interval_days": 14,
    "watchers": 877,
-   "seconds_per_run": 89.31,
-   "bytes_per_run": 1107688,
-   "failures_per_run": 18
+   "seconds_per_run": 1148.95,
+   "bytes_per_run": 127893700,
+   "failures_per_run": 134
   },
   "regulator_page": {
    "interval_days": 30,
    "watchers": 254,
-   "seconds_per_run": 226.42,
-   "bytes_per_run": 5354132,
-   "failures_per_run": 16
+   "seconds_per_run": 613.37,
+   "bytes_per_run": 33871133,
+   "failures_per_run": 46
   },
   "tracker_pointer": {
    "interval_days": 90,
@@ -63,6 +63,14 @@
    "seconds": 408.8,
    "bytes": 6464575,
    "failures": 35
+  },
+  {
+   "on": "2026-11-03",
+   "source": "python3 tools/watch.py, cloud session, GEL-04-11 (1166 watchers)",
+   "watchers": 1166,
+   "seconds": 1824.9,
+   "bytes": 162541568,
+   "failures": 180
   }
  ],
  "proposed_ceiling": {
