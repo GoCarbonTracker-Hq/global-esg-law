@@ -5815,6 +5815,98 @@ Link-only instruments:
 
 Blocked or unusable from the cloud address: `https://www.environnement.gov.mr` (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, 000; plain `http://www.environnement.gov.mr/fr/` answered `200 74488 text/html` and its `reglementation/lois` page lists PDFs of the laws, not used because the ministry has no licence row and the gazette is preferred); `https://www.bcm.mr/` (`200 2568 text/html`, a JavaScript shell; its back office `https://bo.bcm.mr/` answered `500 38353 text/html` to curl, so no instruction on climate or sustainability of banks could be confirmed or ruled out). No browser recipe was needed or used: no Mauritania record was fetched in a browser.
 
+### OCR pass 2026-11-03
+
+Run on 2026-11-03 (GEL-04-12) after Varun allowed OCR at 08:20Z. The row `MR-MSGG-ADOPTED` is `pass` and was not touched. Only the scope entries of `register/MR/scope.json` and the records changed; no instrument and no licence row were added.
+
+Install (without `apt-get update` first, apt answered `E: Unable to locate package tesseract-ocr`): `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-ara tesseract-ocr-fra`, which gave `tesseract 5.3.4` with `tesseract --list-langs` = `ara eng fra osd` (packs `tesseract-ocr-ara 1:4.1.0-2`, `tesseract-ocr-fra 1:4.1.0-2`). Python used: Pillow and numpy.
+
+Download (the recipe above, one curl per issue; every file was fetched twice and the second sha256 equalled the first; the French 2025 issue also equals the hash recorded above):
+
+```
+curl -sS -A 'Mozilla/5.0' -o <name>.pdf -w '%{http_code} %{size_download} %{content_type}\n' <url>
+```
+
+| File | URL path | Bytes | sha256 |
+|---|---|---|---|
+| mauritanie-jo-2025-1585-ar.pdf | JO-AR/2025 | 1612624 | `6d08e6d40255f46db81ed6518890ff17d660ae038b842cd42d6e1cd8877772f9` |
+| mauritanie-jo-2020-1465-ar.pdf | JO-AR/2020 | 1244326 | `8faf080399374a503a130861ac250947c102439a5d4984df5cfa9bab74c13939` |
+| mauritanie-jo-2024-1559-ar.pdf | JO-AR/2024 | 1388010 | `9765dae518b6d69a52d3abd69bfb5c235fc923df357aad151633030534a0ebae` |
+| mauritanie-jo-2000-985.pdf | JO/2000 | 481027 | `456f25e8056161eb6b0f62aec5b95e726f66eafa3fdf5c7efb15ed06dd6df113` |
+| mauritanie-jo-2000-985-ar.pdf | JO-AR/2000 | 1021438 | `1be666e55ba65c976e6e7597c96e8587a1b117d24a94f1bcc93a81d902043dd5` (not stored, see below) |
+| mauritanie-jo-2005-1095.pdf | JO/2005 | 389790 | `a6ad10fb7e896d65d0c6c04a021f02a8b1e2de6f355a8834f5820a5a2a049fde` |
+| mauritanie-jo-2005-1095-ar.pdf | JO-AR/2005 | 3788965 | `e6afe2b85d300b6328ce88b13353491c56eec122e871ffc85e29923f2cf3430e` |
+| mauritanie-jo-2007-1145.pdf | JO/2007 | 831929 | `bf08cca10ceb94fb03ee27ffda0bb1ca8e64ec63c8c419e42dce9b51a807f36e` |
+| mauritanie-jo-2007-1145-ar.pdf | JO-AR/2007 | 16141751 | `27276ca1e361848090301214d2002f2ac681dce6b56ab86d38d1d7f5ac1c2865` |
+| mauritanie-jo-2018-1410.pdf | JO/2018 | 1266638 | `0d6522c4b9c0b4ddd338a894524201107cfc440e13855e6f3f42c5f47369f9fa` |
+| mauritanie-jo-2018-1410-ar.pdf | JO-AR/2018 | 1457603 | `6c2618230c7fd3fe8a9536035feb24cadee3de379693b5732568a1e57de77a2c` |
+
+Every record's `fetched_sha256` is the hash of its PDF as returned, and `extraction` is `ocr`. Render and read:
+
+```
+pdftoppm -r 200 -png <name>.pdf <dir>/p
+OMP_THREAD_LIMIT=1 python3 ocr2.py <dir>/p-NN.png <ara|fra> <outprefix>
+```
+
+One page is read with its gutter given by hand, as the optional fourth argument (`0.51`, Arabic 2007 page 36): its full-width annex table spoils the ink profile and the detected gutter (0.43) clipped words. `OMP_THREAD_LIMIT=1` matters: with four parallel tesseract jobs and its default threads the machine ran at load 16 and made almost no progress. The text layer of the PDFs is ignored. `ocr2.py` crops the top 5.5 per cent of the page (the running header), finds the gutter between the two columns from the ink profile of each page (the page is not always cut at its middle: the 2005 scans have it near 0.57 of the width), reads the left and the right crop with `tesseract <crop> <out> -l <pack>` (default page segmentation), and turns a landscape scan upright by the angle `tesseract --psm 0 -l osd` reports (Arabic 2000 page 11 and 2005 pages 4, 7, 9). Its full source:
+
+```python
+#!/usr/bin/env python3
+"""ocr2.py png lang outprefix [split_fraction] : drop top 5.5% (running header), split at detected gutter, tesseract each half."""
+import sys, subprocess, os, re
+from PIL import Image
+import numpy as np
+png, lang, out = sys.argv[1:4]
+forced = float(sys.argv[4]) if len(sys.argv) > 4 else None   # hand-set gutter for pages where a full-width table spoils the ink profile
+im = Image.open(png).convert("L"); w, h = im.size
+if w > h:   # landscape scan of a portrait page: let tesseract's orientation detection say how to turn it
+    r = subprocess.run(["tesseract", png, "-", "--psm", "0", "-l", "osd"], capture_output=True, text=True)
+    m = re.search(r"Rotate: (\d+)", r.stdout + r.stderr)
+    rot = int(m.group(1)) if m else 90
+    print("rotate", rot, os.path.basename(out))
+    if rot: im = im.rotate(-rot, expand=True)
+    w, h = im.size
+body = np.array(im.crop((0, int(h*.10), w, int(h*.90)))) < 128
+ink = body.sum(axis=0).astype(float)
+cap = body.shape[0]*0.5
+ok = (ink > 0) & (ink < cap)          # inked column, but not a full-height rule
+lo, hi = int(w*.35), int(w*.65)
+dens = np.convolve(ok.astype(float), np.ones(25)/25, mode="same")
+seg = dens[lo:hi]; m = seg.min()
+xs = np.where(seg <= m + 1e-9)[0]
+split = lo + int(np.median(xs)); bs = len(xs)
+if forced: split = int(w*forced)
+top = int(h*.055)
+for name, box in (("L", (0, top, split, h)), ("R", (split, top, w, h))):
+    p = f"{out}.{name}.png"; im.crop(box).save(p)
+    subprocess.run(["tesseract", p, f"{out}.{name}", "-l", lang], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    os.remove(p)
+print(os.path.basename(out), "split=%.3f gutter_px=%d" % (split/w, bs))
+```
+
+Reading order: left column then right for French, right then left for Arabic. A record is the column files joined in that order, from the title line of the law to its last signature line; the only edits are whole lines dropped: lines of neighbouring items on the first and last page, and lines that are only a page number. The cut markers (PDF pages of the issue; first line; last line):
+
+| Record | PDF pages | First line | Last line |
+|---|---|---|---|
+| mr-loi-2025-019 ar | 3 to 9 | `قانون رقم 2025-019 يتعلق بالتقييم ...` (left column of page 3) | `مسعودة بحام محمد لغظف` (right column of page 9) |
+| mr-loi-2020-007 ar | 4 to 11 | `قانون رقم 007-2020 يتعلق بحماية المستهلك.` | `سيد أحمد ولد محمد` |
+| mr-decret-2024-027 ar | 25 to 26 | `مرسوم رقم 027-2024 صادر بتاريخ 20 فبراير` | `لمرابط ولد بناهي` |
+| mr-loi-2000-045 fr | 6 to 20 | `Loi N° 2000 - 045 pu 26 JUILLET 2000` | `CHFIKIFEL AVEA OUED MOHAMED KHOUNA` |
+| mr-decret-2004-094 fr | 4 to 9 | `Décret n° 2004 - 094 du 24 novembre` | `Officiel.` (end of Art. 36) |
+| mr-decret-2004-094 ar | 4 to 9 | `مرسوم رقم 2004 - 094 صادر بتاريخ 24` | Art. 36 line |
+| mr-decret-2007-105 fr | 37 to 43 | `Décret n° 2007 - 105 du 13 Avril 2007` | `Officiel.` (end of Art. 3); Annexes I and II (tables) not taken |
+| mr-decret-2007-105 ar | 31 to 36 | `مرسوم رقم 2007-105 يتضمن تعديل وإكمال بعض` | `الاستعجال و في الجريدة الرسمية.` (end of Art. 3); annexes not taken |
+| mr-loi-2018-017 fr | 2 to 29 | `Loi n°2018-017 relative à la publicité` | `AWA CHEIKH SIDIYA TANDIA` |
+| mr-loi-2018-017 ar | 3 to 24 | `قانون رقم 017-2018 يتعلق بالإشهار` | `آوا الشيخ سيديا تانديا` |
+
+Record dates follow the Mauritania convention above (the gazette date, because none of these texts is read to state an entry into force except Loi 2020-007): 2000-10-30 (JO 985), 2005-05-30 (JO 1095), 2007-06-15 (JO 1145), 2018-04-15 (JO 1410); the Arabic records carry the date of their French sibling.
+
+Resolution test: for one French page (JO 2000-985 page 8) and one Arabic page (JO 2005-1095 page 5) the mean word confidence of tesseract's `tsv` output was 91.5 at 200 dpi against 89.4 at 300 dpi (French) and 88.3 against 88.9 (Arabic), and on Arabic 2025 page 4 the word 'البيني' (a misread of 'البيئي') came out 5 times at 200 dpi and 2 times at 300 dpi, too small a change to justify the second pass, so every page was read at 200 dpi and no text needed the second attempt. No text was empty or mostly garbage.
+
+Left link only: the Arabic edition of `mr-loi-2000-045`. The Arabic PDF the portal serves for JO 985 has the gazette pages 577 to 581, 583 to 585, 587 and 588: pages 582 and 586 are not in the file (the footers were read from the page images), so Arts. 39 to 48 and 79 to 91 (by the OCR'd numbers) are absent from the Arabic edition. Its pages 2, 3 and 16 are rotated scans of other items. The French issue is complete. The Arabic edition of the other six instruments is stored.
+
+Known flaws of the OCR text that stay in the records: the Arabic reads 'البيئي' as 'البيني' in many places; the 2000 and 2005 French scans are skewed and spotted, so some words are misread; the 2007 French scan is clipped at the page edges; article numbers are sometimes misread (for example the French 2018 text has two lines 'Article 131' where the sequence calls for 131 and 132). The printed heading of Décret n° 2004-094 reads 'du 24 novembre 2004' in both editions; the scope entry keeps 4 novembre 2004. No scripts were added to the repository: the commands above are the whole recipe.
+
 ## Zimbabwe
 
 Run on 2026-11-03 (GEL-13-04). Two rows pass, both on the statute: `ZW-EMA-CONSOLIDATED` and `ZW-SECZ-ADOPTED` (Copyright and Neighbouring Rights Act [Chapter 26:05] s.10(6)(a), "official texts of enactments" are not eligible for copyright; read on WIPO Lex https://www.wipo.int/wipolex/en/text/214697 because ZimLII and Parliament answered the cloud address with a Cloudflare challenge). Three rows are `permission requested`: `ZW-ZSE-RULES`, `ZW-VFEX-RULES` (companies, all rights reserved, no licence) and `ZW-PAAB-STATEMENT` (site unreachable). No English translation source exists: the Acts are published in English only.
