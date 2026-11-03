@@ -9832,5 +9832,101 @@
   "params": {
    "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406)"
   }
+ },
+ {
+  "id": "zm-gecc-act-2024-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-gecc-act-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Acts%20No.%2018%20for%202024%2C%20The%20Green%20Economy%20and%20Climate%20Change%2C%20pdf.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Acts%20No.%2018%20for%202024%2C%20The%20Green%20Economy%20and%20Climate%20Change%2C%20pdf.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-gecc-carbon-market-regs-2026-official-page",
+  "source_id": "ZM-MGEE-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-gecc-carbon-market-regs-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mgee.gov.zm/wp-content/uploads/2026/02/S.I-No.-5-of-2026-The-Green-Economy-and-Climate-Change-Carbon-market.pdf",
+  "params": {
+   "second_route": "https://www.mgee.gov.zm/wp-content/uploads/2026/02/S.I-No.-5-of-2026-The-Green-Economy-and-Climate-Change-Carbon-market.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-gecc-amendment-act-2026-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-gecc-amendment-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2047%20of%202026%2C%20The%20Green%20Economy%20and%20Climate%20Change%20Act%20%281%29.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2047%20of%202026%2C%20The%20Green%20Economy%20and%20Climate%20Change%20Act%20%281%29.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-ema-2011-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-ema-2011",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Environmetal%20Mangement%20Act%2012%20of%202011.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Environmetal%20Mangement%20Act%2012%20of%202011.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-ema-amendment-act-2023-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-ema-amendment-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/ACT%20No.%208%20OF%202023%2C%20The%20Environmental%20Management%20IAmendment%29.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/ACT%20No.%208%20OF%202023%2C%20The%20Environmental%20Management%20IAmendment%29.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-ema-amendment-act-2026-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-ema-amendment-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2027%20of%202026.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2027%20of%202026.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-ccpa-2010-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-ccpa-2010",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/The%20Competition%20and%20Consumer%20Protection%202010.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/The%20Competition%20and%20Consumer%20Protection%202010.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
+ },
+ {
+  "id": "zm-ccpa-amendment-act-2023-official-page",
+  "source_id": "ZM-NAZ-ADOPTED",
+  "iso2": "ZM",
+  "instrument": "zm-ccpa-amendment-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2021%20of%202023%2C%20The%20Competition%20and%20Consumer%20Protection%20%28Amendment%29.pdf",
+  "params": {
+   "second_route": "https://www.parliament.gov.zm/sites/default/files/documents/acts/Act%20No.%2021%20of%202023%2C%20The%20Competition%20and%20Consumer%20Protection%20%28Amendment%29.pdf (browser; the host serves an incomplete TLS chain, so clients without the intermediate certificate fail)"
+  }
  }
 ]
