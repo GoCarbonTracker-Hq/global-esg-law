@@ -7661,6 +7661,149 @@
   }
  },
  {
+  "id": "al-accounting-law-25-2018-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-accounting-law-25-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-law-87-2026-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-law-87-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-climate-law-155-2020-mjedisi-page",
+  "source_id": "AL-MJEDISI-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-climate-law-155-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mjedisi.gov.al/ndryshimet-klimatike/"
+ },
+ {
+  "id": "al-environmental-protection-law-10431-2011-akm-page",
+  "source_id": "AL-QBZ-CONSOLIDATED",
+  "iso2": "AL",
+  "instrument": "al-environmental-protection-law-10431-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://akm.gov.al/",
+  "params": {
+   "second_route": "https://akm.gov.al/ (browser; the agency site answered some script requests with an empty reply on 2026-11-03; qbz.gov.al, where the consolidated text is expected, is blocked from the cloud address: https://qbz.gov.al/ in a browser)"
+  }
+ },
+ {
+  "id": "ba-fbih-law-banks-2025-amend-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-law-banks-2025-amend",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2025/B%20-%20Pr%20Zakon%20o%20bankama.pdf"
+ },
+ {
+  "id": "ba-fbih-accounting-auditing-law-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-accounting-auditing-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2021/Zakon%20o%20racunovodstvu%20i%20reviziji%20_bos.pdf"
+ },
+ {
+  "id": "ba-fbih-environmental-protection-law-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-environmental-protection-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2020/Zakon%20o%20zastiti%20okolisa%20%20bosanski%20jezik.pdf"
+ },
+ {
+  "id": "ba-rs-accounting-auditing-law-nsrs-page",
+  "source_id": "BA-NSRS-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-rs-accounting-auditing-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-racunovodstvu-i-reviziji-republike-srpske-2"
+ },
+ {
+  "id": "ba-rs-environmental-protection-law-nsrs-page",
+  "source_id": "BA-NSRS-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-rs-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-zastiti-zivotne-sredine"
+ },
+ {
+  "id": "ba-consumer-protection-law-sluzbenilist-search",
+  "source_id": "BA-SLUZBENILIST-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.ba/search/searchresult?naziv=Zakon+o+za%C5%A1titi+potro%C5%A1a%C4%8Da"
+ },
+ {
+  "id": "sm-codice-ambientale-testi-coordinati-page",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-codice-ambientale",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/testi-coordinati/docCat.17003115.1.150.20.html",
+  "params": {}
+ },
+ {
+  "id": "sm-dd-160-2024-consumo-document",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-dd-160-2024-consumo",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17148431.html",
+  "params": {}
+ },
+ {
+  "id": "sm-l-101-2025-eudr-document",
+  "source_id": "SM-CGG-ADOPTED",
+  "iso2": "SM",
+  "instrument": "sm-l-101-2025-eudr",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17153669.html",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-05-regolamenti-page",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-05",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-02-regulations-page-en",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-02",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations",
+  "params": {}
+ },
+ {
   "id": "mc-loi-1456-code-environnement-legimonaco-versions",
   "source_id": "MC-LEGIMONACO-CONSOLIDATED",
   "iso2": "MC",
