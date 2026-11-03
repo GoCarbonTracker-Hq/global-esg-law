@@ -6011,3 +6011,35 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Antigua and Barbuda
+
+Run on 2026-11-03 (GEL-15-01). One row passes: `AG-LAWSGOV-ADOPTED` (statute: Copyright Act 2003 s 6(9)(b); laws.gov.ag publishes no terms). `AG-ECCB-ADOPTED` is `permission requested` (ECCB Disclaimer Policy: personal, noncommercial use only, no derivative works). Text extraction: `pdftotext -layout file.pdf -` (poppler), each line stripped and runs of spaces or tabs collapsed to one space, form feeds turned into line breaks, three or more line breaks reduced to two. The 2019 and 2025 gazette PDFs have a real text layer (TrueType fonts, no mojibake found: no U+FFFD, no `ã`/`â€` sequences); no OCR was run and no `extraction` field is used. Page headers and footers stay in the text. English is the only language of legislation and no government translation exists, so there is no translation row.
+
+Row `AG-LAWSGOV-ADOPTED`, Environmental Protection and Management Act, 2019 (No. 10 of 2019):
+
+```
+curl -sS -L -o epma2019.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laws.gov.ag/wp-content/uploads/2025/03/No.-10-of-2019-Environmental-Protection-and-Management-2019.pdf'
+```
+
+Returned `200 1464862 application/pdf`. Consumer Protection Act, 2025: `curl -sS -L -o cpa2025.pdf ... 'https://laws.gov.ag/wp-content/uploads/2025/11/No.-7-of-2025-Consumer-Protection-Act-2025.pdf'` returned `200 1270809 application/pdf`. A second fetch of each gave the same size and the same sha256, so `fetched_sha256` reproduces. Plain `curl` with no browser headers works on laws.gov.ag; no WAF challenge was seen.
+
+How to find a file: the lists are `https://laws.gov.ag/laws/alphabetical/?letter=<A-Z>` (Acts), `/annual/?variable=<year>` (Acts by year) and `/statutory/?variable=<year>` (statutory instruments and commencement notices); each row is `<a href='.../wp-content/uploads/<year>/<month>/<file>.pdf'>`. The file URL carries the upload month, not the Gazette date, so it must be read from the list. Commencement notices are in the statutory list of the year they were made, titled "Notice by the Minister Under Section 1 of the ... Act" (S.I. 2019 No. 34 for the EPMA 2019: in force 2019-04-30; S.I. 2025 No. 36 for the Consumer Protection Act: in force 2025-10-30). The site serves one PDF per Act as published, with amending Acts as separate PDFs; no point-in-time consolidation is exposed, and legislation of the current year is not online (sold at the Government Printery), so a 2026 Act will not be found.
+
+### Languages
+
+English only. laws.gov.ag serves no other language and no translation. No `AG-` translation row exists. The Copyright Act 2003 (statute basis of the pass) was read from `https://laws.gov.ag/wp-content/uploads/2018/08/a2003-22.pdf` (`200 824939 application/pdf`, 110 pages, scanned pages with an OCR text layer of poor quality, used only to read s 6(9)(b), not stored). Its s 1(2) says the Act comes into force on a day appointed by notice, and no commencement notice was found on laws.gov.ag (statutory lists 2003 to 2006); the Act's heading carries "[ 31st December, 2003 ]". Varun to decide whether the pass stands on that.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `ag-eccb-climate-risk-standard` (ECCB Prudential Standard on Climate-Related and Environmental Risks, in force 2024-03-01) | https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf | Row `AG-ECCB-ADOPTED` is permission requested. The PDF was opened (`200 294880 application/octet-stream`, with a Chrome-style User-Agent) only to read the commencement sentence. |
+| Finance Administration (Climate Resilience and Development Fund) Regulations 2023 (F7) | https://laws.gov.ag/wp-content/uploads/2024/02/No.-45-of-2023-Finance-Administration-Climate-Resilence-and-Development-Fund-Regulation.pdf | F7: register row only, no scope entry (a public fund, no duty on companies). |
+| Renewable Energy Act, 2015 (F7) | https://laws.gov.ag/wp-content/uploads/2019/02/a2015-6.pdf | F7: register row only. |
+
+The ECCB standard is regional: the same instrument applies in AI, DM, GD, KN, LC, MS and VC; those places should list it with the same URL and row.
+
+Blocked from the cloud address: `https://www.eccb-centralbank.org/` answers plain `curl` with `403 118 text/html`, and `tools/watch.py --dry-run --source AG-ECCB-ADOPTED` therefore reports `HTTP 403` for both ECCB watchers. The same URLs answer `200` when the request carries `-A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'`. Playwright chromium got 403 too. `https://www.ecsrc.com` (`200 60104`) and `https://www.ecseonline.com` (`200 101003`) opened with that User-Agent; no climate instrument of theirs was looked for. https://environment.gov.ag opened (`200 214230`) but its legislation was not used because laws.gov.ag has the text.
+
+Stored by GEL-15-01: `ag-epma-2019` (adopted, 2019-04-30), `ag-consumer-protection-act-2025` (adopted, 2025-10-30). No carbon pricing instrument was found: the Environmental Protection Levy Act 2002 and its 2023 amendment are import levies and were not opened for content.

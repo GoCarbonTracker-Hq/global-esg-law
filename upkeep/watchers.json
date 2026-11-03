@@ -10073,5 +10073,67 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "ag-epma-2019-laws-gov-ag-annual",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-epma-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.ag/wp-content/uploads/2025/03/No.-10-of-2019-Environmental-Protection-and-Management-2019.pdf",
+  "params": {
+   "second_route": "https://laws.gov.ag/annual/?variable=2019 (browser; the Acts of 2019 list; amending Acts appear in the list of their own year)"
+  }
+ },
+ {
+  "id": "ag-consumer-protection-act-2025-laws-gov-ag-annual",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-consumer-protection-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.ag/wp-content/uploads/2025/11/No.-7-of-2025-Consumer-Protection-Act-2025.pdf",
+  "params": {
+   "second_route": "https://laws.gov.ag/annual/?variable=2025 (browser; the Acts of 2025 list; amending Acts appear in the list of their own year)"
+  }
+ },
+ {
+  "id": "ag-eccb-climate-risk-standard-enforced-page",
+  "source_id": "AG-ECCB-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200; the page lists the enforced prudential standards)"
+  }
+ },
+ {
+  "id": "terms-ag-lawsgov-adopted",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://laws.gov.ag/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://laws.gov.ag/ (browser; the home page carries the footer and is the only place a terms text would appear; the page also lists Latest Notices, so the hash can drift)"
+  }
+ },
+ {
+  "id": "terms-ag-eccb-adopted",
+  "source_id": "AG-ECCB-ADOPTED",
+  "iso2": "AG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/disclaimer-policy",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/disclaimer-policy (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200)"
+  }
  }
 ]
