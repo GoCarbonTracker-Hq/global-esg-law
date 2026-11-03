@@ -7659,5 +7659,145 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "qa-environment-law-30-2002-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-law-30-2002",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/164f4a20-8bce-4c6a-87f4-9cda0cc42b5b",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/decree-law/2002/30/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-4-2005-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-4-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/491c69d3-7cc2-4452-b5c0-eae585eaf27a",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/supreme-council-chairman-decision/2005/4/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-amendment-8-2022-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-amendment-8-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/1e8d638b-0b21-4b28-a127-34e4d4561c70",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2022/8/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-amendment-31-2023-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-amendment-31-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/78715886-cf83-441e-a365-38f1c1a449ae",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2023/31/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-air-quality-decision-310-2020-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-air-quality-decision-310-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/3ba34464-ba37-49de-8aaa-efb281ff6c66",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2020/310/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-hcfc-import-quotas-decision-20-2022-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-hcfc-import-quotas-decision-20-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/52f2053b-8a39-4563-bf98-0fb2ccfa5193",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2022/20/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-consumer-protection-law-8-2008-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-consumer-protection-law-8-2008",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/56df0fd6-8ab5-48d6-bc02-2f0a22924008",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/law/2008/8/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-consumer-protection-exec-regulation-68-2012-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-consumer-protection-exec-regulation-68-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/7c00038f-17bd-436b-95a7-076a6e7be9d2",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2012/68/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-qcb-sustainability-reporting-framework-qcb-pdf-hash",
+  "source_id": "QA-QCB-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qcb-sustainability-reporting-framework",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qcb.gov.qa/Documents/GreenFinance/Sustainability%20Reporting%20Framework.pdf",
+  "params": {
+   "second_route": "https://www.qcb.gov.qa/Documents/GreenFinance/Sustainability%20Reporting%20Framework.pdf (browser from the laptop; qcb.gov.qa fails TLS verification for curl and gave HTTP 502 to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "qa-qfma-sustainability-reporting-guidance-qfma-pdf-hash",
+  "source_id": "QA-QFMA-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qfma-sustainability-reporting-guidance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qfma.org.qa/Arabic/Legislation/GuidesAndTemplates/Documents/2%20QFMA%20Sustainability%20Guide%20EN%2023%20November%202025.pdf",
+  "params": {
+   "second_route": "https://www.qfma.org.qa/English/Legislation/GuidesAndTemplates/Pages/default.aspx (browser; the guidance list page; the PDF answered curl with 200, 2129752 bytes, on 2026-11-03)"
+  }
+ },
+ {
+  "id": "qa-qse-esg-reporting-guidance-qse-page-hash",
+  "source_id": "QA-QSE-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qse-esg-reporting-guidance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qe.com.qa/sustainability-and-esg",
+  "params": {
+   "second_route": "https://www.qe.com.qa/sustainability-and-esg (browser; qe.com.qa gives curl with a Mozilla/5.0 user agent an empty reply and default headless Chromium HTTP 502 on 2026-11-03, while the watcher user agent gets 200)"
+  }
  }
 ]
