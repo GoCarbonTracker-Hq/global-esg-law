@@ -6011,3 +6011,43 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Grenada
+
+Run on 2026-11-03 (GEL-15-05). One row passes: `GD-PARLIAMENT-ADOPTED` (statute: Copyright Act 2011, Act No. 21 of 2011, s. 7(1)(b), which withholds protection from "any official text of a legislative, administrative or legal nature"; the Parliament site has no terms page of its own). Two rows are `permission requested` and store nothing: `GD-LAWSGOVGD-ADOPTED` (laws.gov.gd cannot be opened from the cloud address) and `GD-ECCB-ADOPTED` (eccb-centralbank.org answers 403). English is the official language of legislation in Grenada and no government translation exists, so there is no `### Languages` source row; the subsection is below.
+
+Text extraction: `pdftotext -layout file.pdf -`, then runs of spaces and tabs collapsed to one space, each line stripped, blank lines dropped (the `## Brazil` recipe). The output was checked for mojibake: the only non-ASCII characters are punctuation (dashes, curly quotes, the É of the Governor-General's name) and two soft hyphens in S.R.O. 30 of 2019. The line breaks are the PDF's line wraps and the margin notes of the printed page (the right-hand "Short title." style side headings) are interleaved with the text by `-layout`. No PDF needed OCR; no record carries `extraction`.
+
+Row `GD-PARLIAMENT-ADOPTED`, Consumer Protection Act, 2018 (Act No. 2 of 2018) as passed:
+
+```
+curl -sS -L -o cpa2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-2-of-2018-Consumer-Protection-Act.pdf
+```
+
+Returned `200 930897 application/pdf`; `sha256sum` of the file equals `fetched_sha256` in the record (the file is static, so a second fetch reproduces it). A plain `curl` with no cookie and no special headers works. The file URL is read from the instrument page `https://grenadaparliament.gd/ova_doc/<slug>/` (for example `https://grenadaparliament.gd/ova_doc/acts-2018/`, `200 241439 text/html; charset=UTF-8`), which is linked from `https://grenadaparliament.gd/cat_doc/laws-of-grenada/` (Acts by year `acts-2011` to `acts-2021`, the revised-edition volumes `volume-a` to `volume-y`, 2 pages) and from `https://grenadaparliament.gd/cat_doc/sros/` (S.R.O.s). The category pages for 2022 to 2026 (`https://grenadaparliament.gd/cat_doc/2022/` to `2026/`) were not searched for Acts; the Acts index in this run is `laws-of-grenada` and `sros`. `wp-json/wp/v2/media` does not list these files (search returns `[]`), so the pages above are the only index. The Copyright Act itself: `curl -sS -L -o copyright.pdf ... https://grenadaparliament.gd/wp-content/uploads/2021/07/Act-No.-21-of-2011-Copyright-Act.pdf` returned `200 180211 application/pdf`.
+
+The site serves each Act or S.R.O. once, as passed or gazetted. The revised-edition `Cap<n>` PDFs are consolidations as at the revision, but the 2016 Physical Planning Act and the 2018 Acts are too recent to be in them (Cap. 241A is the repealed 2002 Act). So each instrument has one record, and an amendment is its own record (`gd-ppdca-amendment-2017`, `gd-consumer-protection-amendment-2020`). The record `in_force` is the commencement date: from the commencement notice or order where one exists (S.R.O. 39 of 2016, S.R.O. 44 of 2020); from the bracketed date line under the long title where the Act has no commencement clause (the principal 2016 Act prints "[ By Notice ]" in the same place); from the gazette date for an Order with no commencement clause.
+
+Stored (fetched 2026-11-03), all `GD-PARLIAMENT-ADOPTED`, `adopted`, `en`:
+
+| Instrument | Record `in_force` | Bytes |
+|---|---|---|
+| `gd-ppdca-2016` | 2016-08-01 | 643930 |
+| `gd-ppdca-amendment-2017` | 2017-10-06 | 377393 |
+| `gd-consumer-protection-act-2018` | 2020-07-01 | 930897 |
+| `gd-consumer-protection-amendment-2020` | 2020-09-04 | 381442 |
+| `gd-nbwc-act-2018` | 2018-08-10 | 373350 |
+| `gd-nbwc-eps-order-2018` | 2018-09-14 | 218336 |
+| `gd-nbwc-plastic-bags-order-2018` | 2018-09-14 | 215312 |
+| `gd-nbwc-plastic-food-products-order-2019` | 2019-11-08 | 248228 |
+
+### Languages
+
+None. English is the only language the publisher serves and the official language of legislation; no government translation exists, and none is looked for. Nothing is stored under a translation row.
+
+### Link only
+
+- `gd-eccb-climate-risk-standard` (row `GD-ECCB-ADOPTED`, permission requested). Blocked from the cloud address: https://www.eccb-centralbank.org/enforced answers `403 118` to `curl -sS -o /dev/null -w '%{http_code} %{size_download}\n' https://www.eccb-centralbank.org/enforced` and to headless Chromium (Playwright, same 403). No ECCB PDF address was found, so the register row's `official_source_url` (the Enforced page) is unchanged. The standard is regional: the same instrument applies to every institution licensed under the Banking Act, 2015 in the ECCU and sits in the scope of AG, DM, KN, LC, VC and the territories AI and MS.
+- Row `GD-LAWSGOVGD-ADOPTED` (permission requested; no scope instrument uses it). Blocked from the cloud address: `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.gd/` returned `500 0 text/html; charset=UTF-8`; `https://laws.gov.gd/index.php` returned `409 83 text/html; charset=iso-8859-1` with a script that sets the cookie `humans_21909=1` and reloads; repeating the requests with `-b 'humans_21909=1'` gave `500 0` again, and headless Chromium (Playwright `page.goto`, 5 s wait, second load after the cookie) got HTTP 500 and an empty page for `/` and for `/index.php/acts/1353-2018` (the Consumer Protection Act 2018 listing a search engine returned). The orchestrator can try the same URLs from the laptop. The Acts are served from the Parliament site instead.
+
+Not reached or not in scope, with the reason: https://www.garfin.gd fails TLS verification from the cloud (`curl: (60) SSL certificate problem: certificate has expired`; the certificate check was not disabled) and headless Chromium got `502 upstream request failed`, so whether GARFIN has a climate-risk rule is unknown (blocked from the cloud address). https://www.ecsrc.com and https://www.ecseonline.com answered `200` to `curl`; they were not searched for climate or ESG rules, so none is recorded. `https://climateresilience.gov.gd` opened (`200`): its policies and legislation page lists only the Abatement of Litter Act and policies and plans; the Water Resources Management and Regulation Act No. 1 of 2025 (`https://climateresilience.gov.gd/docs/water-resource-management-and-regulation-act/`) is enacted and was not taken into scope in this run; the draft National Climate Change Policy and the draft Consumer Protection (Water Efficiency) Regulations 2025 are F7 register rows only.
