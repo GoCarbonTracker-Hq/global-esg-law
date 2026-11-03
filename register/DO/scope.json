@@ -83,8 +83,8 @@
     "duty_on": "private_sector",
     "source_row": "DO-CJPE-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Not stored: the CJPE PDF is a scan whose OCR text layer misreads characters (for example 10s for los, 1a for la, Dorninicana, CLIMATIC0; 338 digit-mixed tokens among about 9189 words in a check run on 2026-11-03), so pdftotext output is not the law text. No OCR step is allowed yet; Varun decides. Tax incentives for renewable energy and a biofuel blending regime; amended by Ley 115-15 (do-ley-115-15, stored) and modified by regulations 202-08, 608-21 and 65-23 (not in scope). English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
-    "status": "link only"
+    "notes": "Stored as text from OCR (GEL-04-12, 2026-11-03): the text is uncorrected OCR output of a scanned official PDF, Gaceta Oficial 10416 pp. 113-138, the whole PDF (26 pages), tesseract 5.3.4 with language pack spa (tesseract-ocr-spa 1:4.1.0-2), 200 dpi, one page image per page, pages joined in order; the CJPE text layer misreads characters and was ignored. Misread characters stay as read. Tax incentives for renewable energy and a biofuel blending regime; amended by Ley 115-15 (do-ley-115-15, stored) and modified by regulations 202-08, 608-21 and 65-23 (not in scope). English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
+    "status": "stored"
   },
   {
     "id": "do-ley-115-15",
@@ -112,8 +112,8 @@
     "duty_on": "private_sector",
     "source_row": "DO-CJPE-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Not stored: the CJPE PDF is a scan whose OCR text layer misreads characters (for example 10s for los, 1a for la, Dorninicana, CLIMATIC0; 724 digit-mixed tokens among about 24602 words in a check run on 2026-11-03), so pdftotext output is not the law text. No OCR step is allowed yet; Varun decides. Environmental framework act (the PDF header reads \"que crea la Secretaría de Estado de Medio Ambiente y Recursos Naturales\"). Environmental-impact and permit duties for private projects are in the Act; not summarised. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
-    "status": "link only"
+    "notes": "Stored as text from OCR (GEL-04-12, 2026-11-03): the text is uncorrected OCR output of a scanned official PDF, Gaceta Oficial 10056, the whole PDF (69 pages), tesseract 5.3.4 with language pack spa (tesseract-ocr-spa 1:4.1.0-2), 200 dpi, one page image per page, pages joined in order; the CJPE text layer misreads characters and was ignored. Misread characters stay as read. The record has in_force null and is dated 2000-08-18 (promulgation date from the CJPE index) for its file name only. Environmental framework act (the PDF header reads \"que crea la Secretaría de Estado de Medio Ambiente y Recursos Naturales\"). Environmental-impact and permit duties for private projects are in the Act; not summarised. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
+    "status": "stored"
   },
   {
     "id": "do-decreto-601-08",
@@ -126,8 +126,8 @@
     "duty_on": "government",
     "source_row": "DO-CJPE-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Not stored: the CJPE PDF is a scan whose OCR text layer misreads characters (for example 10s for los, 1a for la, Dorninicana, CLIMATIC0; 65 digit-mixed tokens among about 2829 words in a check run on 2026-11-03), so pdftotext output is not the law text. No OCR step is allowed yet; Varun decides. Creates the council that coordinates climate policy and the Clean Development Mechanism; art. 1 as replaced by do-decreto-348-21 (stored). This decree is the nearest thing to a climate framework: no climate framework act was found (see register notes). English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
-    "status": "link only"
+    "notes": "Stored as text from OCR (GEL-04-12, 2026-11-03): the text is uncorrected OCR output of a scanned official PDF, Gaceta Oficial 10488 pp. 42-49, the whole PDF (8 pages), tesseract 5.3.4 with language pack spa (tesseract-ocr-spa 1:4.1.0-2), 200 dpi, one page image per page, pages joined in order; the CJPE text layer misreads characters and was ignored. Misread characters stay as read. Creates the council that coordinates climate policy and the Clean Development Mechanism; art. 1 as replaced by do-decreto-348-21 (stored). This decree is the nearest thing to a climate framework: no climate framework act was found (see register notes). English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
+    "status": "stored"
   },
   {
     "id": "do-ley-358-05",
@@ -140,7 +140,7 @@
     "duty_on": "private_sector",
     "source_row": "DO-CJPE-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Not stored: the CJPE PDF is a scan whose OCR text layer misreads characters (for example 10s for los, 1a for la, Dorninicana, CLIMATIC0; 591 digit-mixed tokens among about 17255 words in a check run on 2026-11-03), so pdftotext output is not the law text. No OCR step is allowed yet; Varun decides. Consumer protection umbrella for environmental claims: art. 48 makes suppliers responsible for the truthfulness of the advertising of their products or services, and art. 88 deals with advertising and sales promotion; the Act has no environmental-claims provision. Regulation Decreto 236-08 is not in scope. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
-    "status": "link only"
+    "notes": "Stored as text from OCR (GEL-04-12, 2026-11-03): the text is uncorrected OCR output of a scanned official PDF, Gaceta Oficial 10337, the whole PDF (54 pages), tesseract 5.3.4 with language pack spa (tesseract-ocr-spa 1:4.1.0-2), 200 dpi, one page image per page, pages joined in order; the CJPE text layer misreads characters and was ignored. Misread characters stay as read. The record has in_force null and is dated 2005-09-09 (promulgation date from the CJPE index) for its file name only. Consumer protection umbrella for environmental claims: art. 48 makes suppliers responsible for the truthfulness of the advertising of their products or services, and art. 88 deals with advertising and sales promotion; the Act has no environmental-claims provision. Regulation Decreto 236-08 is not in scope. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
+    "status": "stored"
   }
 ]
