@@ -1,0 +1,59 @@
+[
+  {
+    "id": "al-accounting-law-25-2018",
+    "title": "Law No. 25/2018 on Accounting and Financial Statements (as adopted)",
+    "official_url": "https://kkk.gov.al/ligji-per-kontabilitetin/",
+    "citation": "Law No. 25/2018 of 10 May 2018 \"Për kontabilitetin dhe pasqyrat financiare\"",
+    "in_force": "2019-01-01",
+    "evidence": "Final article of the KKK PDF of the law: \"Ky ligj hyn në fuqi në datën 1 janar 2019.\" Opened https://kkk.gov.al/wp-content/uploads/2025/02/ligj-nr.-25-dt.-10.5.2018.pdf on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AL-KKK-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "One record: the 2018 text as KKK publishes it (Albanian, the only official language; the KKK page also links the 2004, 2006 and 2009 repealed laws, not in scope). Amended by al-law-87-2026, which adds sustainability reporting from reporting periods from 2028; the consolidated KKK PDF \"i përditësuar\" (https://kkk.gov.al/wp-content/uploads/2026/11/Ligji-25-2018-i-ndryshuar-me-ligjin-87-date-23.07.2026-new.pdf) names no in-force date for the amended version, so no consolidated record is stored. English: looked for on kkk.gov.al (no English section), qbz.gov.al (blocked) and mjedisi.gov.al; no government English found.",
+    "status": "stored"
+  },
+  {
+    "id": "al-law-87-2026",
+    "title": "Law No. 87/2026 amending Law No. 25/2018 on Accounting and Financial Statements (sustainability reporting from reporting periods from 2028)",
+    "official_url": "https://kkk.gov.al/wp-content/uploads/2026/08/Ligji-nr.-87-dt.-23.7.-2026.pdf",
+    "citation": "Law No. 87/2026 \"Për disa ndryshime dhe shtesa në ligjin nr. 25/2018\"",
+    "in_force": null,
+    "evidence": "Final article of the KKK PDF: \"Ky ligj hyn në fuqi 15 ditë pas botimit në Fletoren Zyrtare.\" No page reached states the Fletorja Zyrtare publication date (qbz.gov.al blocked). The KKK page and file name date the act 23.7.2026; the KKK consolidation says \"datë 16.7.2026\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "AL-KKK-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: a record needs a dated in-force date and none is stated. The existing register row kept the KKK URL; the QBZ page was not replaced in because qbz.gov.al could not be opened. Text is available at the KKK URL (PDF, 409788 bytes, Albanian). Store it once the Fletorja Zyrtare date is read from QBZ from the laptop (15 days after publication). English: none found on kkk.gov.al.",
+    "status": "link only",
+    "amends": "al-accounting-law-25-2018"
+  },
+  {
+    "id": "al-climate-law-155-2020",
+    "title": "Law No. 155/2020 on Climate Change (framework act; Art. 1 to 3 and the monitoring, reporting and verification provisions on greenhouse gases are F3 content)",
+    "official_url": "https://mjedisi.gov.al/ndryshimet-klimatike/",
+    "citation": "Law No. 155/2020 of 17 December 2020 \"Për ndryshimet klimatike\"",
+    "in_force": null,
+    "evidence": "Art. 40 of the Ministry PDF (https://mjedisi.gov.al/wp-content/uploads/2023/07/Ligji-nr.-155-dt.-17.12.2020_PER-NDRYSHIMET-KLIMATIKE.pdf): \"Ky ligj hyn në fuqi 6 muaj pas botimit në Fletoren Zyrtare.\" Adopted \"Miratuar në datën 17.12.2020\". Publication date not stated on any page reached.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AL-MJEDISI-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: no official page reached states the Fletorja Zyrtare date, so there is no in_force date for a record. Row AL-MJEDISI-ADOPTED passes, so the text can be stored once the date is read from QBZ (laptop). The Ministry PDF carries no amendment note. English: Ministry English page https://mjedisi.gov.al/en/ndryshimet-klimatike/ looked at as the link target; no English text found. No carbon pricing (ETS) instrument is enacted: none is listed on the ministry pages reached.",
+    "status": "link only"
+  },
+  {
+    "id": "al-environmental-protection-law-10431-2011",
+    "title": "Law No. 10431/2011 on Environmental Protection",
+    "official_url": "https://akm.gov.al/",
+    "citation": "Law No. 10431 of 9 June 2011 \"Për mbrojtjen e mjedisit\", as amended",
+    "in_force": null,
+    "evidence": "National Environment Agency home page (https://akm.gov.al/, opened 2026-11-03): \"Bazuar në ligjin Nr.10431, datë 9.6.2011 “Për Mbrojtjen e Mjedisit” i ndryshuar\" and \"(AKM) u krijua ... në mbështetje, të ligjit Nr.10431\". No in-force date on any page reached.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AL-QBZ-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Link only: the text was found on no reachable official site (qbz.gov.al blocked from the cloud address; mjedisi.gov.al media search for 10431 returned nothing; akm.gov.al answered some requests with an empty reply). The scope URL is the agency page that names the law; replace with the QBZ page from the laptop. English: not looked for beyond the sites named.",
+    "status": "link only"
+  }
+]
