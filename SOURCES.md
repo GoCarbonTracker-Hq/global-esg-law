@@ -6062,3 +6062,40 @@ Arabic is the authentic language and the French edition is an official translati
 ### Blocked from the cloud address
 
 - `https://www.me.gov.dz`, `https://me.gov.dz`, `https://www.mem.gov.dz`: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer. The current ministry host was not confirmed. No law text is taken from a ministry site.
+
+## Sierra Leone
+
+Run on 2026-11-03 (GEL-15-10). One row passes: `SL-EPA-ADOPTED` (statute: Copyright Act 2011 (No. 8 of 2011) s.7(b), no protection for "any official text of a legislative, administrative or legal nature or any of its official translations"; the Act was read in the scanned WIPO Lex copy with tesseract OCR, nothing from it is stored). `SL-SIERRALII-ADOPTED` and `SL-PARLIAMENT-ADOPTED` are permission requested. Sierra Leone has one official legislative language, English, so no `### Languages` source is needed beyond the note below. No browser recipe was needed for the pass row.
+
+Row `SL-EPA-ADOPTED`, Statutory Instrument 4 of 2025 (Protection of the Ozone Layer and Substances Covered in the Montreal Protocol Regulations, 2025), Gazette supplement of 3 April 2025:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ods2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.sl/wp-content/uploads/2025/11/ODS-REGULATION-2025.pdf
+```
+
+Returned `200 320384 application/pdf` (sha256 `c8b5b84081a6474550170f60c25371d197a3d354c092bd79de0ee3797978f6ce`, identical on a second fetch and on `https://epa.gov.sl/download/3901/`). The PDF is six landscape sheets, each carrying two printed pages, and the sheet order is not the page order. Text extraction, with poppler `pdftotext -layout` run on each half-sheet and runs of spaces collapsed (the page-order list was read from the printed page numbers: cover, ii, 1 to 9, then 10):
+
+```
+for ph in "1 0" "1 396" "2 396" "3 0" "3 396" "4 0" "4 396" "5 0" "5 396" "6 0" "6 396" "2 0"; do set -- $ph; pdftotext -f $1 -l $1 -x $2 -y 0 -W 396 -H 612 -layout ods2025.pdf - | sed -E 's/ +/ /g;s/^ //;/^$/d'; done
+```
+
+Output 16979 bytes; the only non-ASCII character is an en dash, no mojibake. The marginal side notes of the print sit between the lines of the sections they belong to, because the text layer cannot separate them; nothing was reworded. The regulations carry no commencement clause ("MADE this day of February, 2025"), so the record is dated 2025-04-03, the gazette publication date. EPA lists the instrument on https://epa.gov.sl/laws-regulations/ (HTTP 200, 82408 bytes, text/html).
+
+### Languages
+
+English is the only official legislative language. No government translation was looked for beyond the EPA, SierraLII and Bank of Sierra Leone sites; none was seen. No translation row was added.
+
+Not stored, both read only: SierraLII (https://sierralii.gov.sl, row `SL-SIERRALII-ADOPTED`). Plain curl works: `curl -sS -L -A 'Mozilla/5.0' -o epa_act.html -w '%{http_code} %{size_download} %{content_type}\n' https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15` returned `200 495261 text/html; charset=utf-8` (sha256 of the HTML `92af77c0e0dbe55f3e7327182f4a8bb9078c9990de59098cfb0318da953e40de`, reproduced on a second fetch); the Consumer Protection Act Gazette PDF at `https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03/source.pdf` returned `200 352255 application/pdf`. The site terms (https://sierralii.gov.sl/terms-of-use/, notice of 8 October 2025) give CC BY-NC 4.0, prohibit scraping and bulk downloading, and robots.txt carries `Content-Signal: ai-train=no, search=yes, ai-input=no`. The about page describes a non-profit company limited by guarantee, with no state body named as publisher. Not Judiciary-run on the evidence read: the Judiciary and Parliament sit on its board, nothing more.
+
+Blocked from the cloud address: `https://www.parliament.gov.sl` (curl exit 60, self-signed certificate; `https://parliament.gov.sl` the same; `http://www.parliament.gov.sl` HTTP 404; headless Chromium via Playwright HTTP 502 from the agent proxy). TLS verification was not disabled. The orchestrator can read it from the laptop. `https://bsl.gov.sl` and `https://epa.gov.sl` opened with plain curl (200).
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Environmental Protection Agency Act, 2022 (Act 15 of 2022) | https://sierralii.gov.sl/akn/sl/act/2022/15/eng%402022-09-15 | Row `SL-SIERRALII-ADOPTED` is permission requested (CC BY-NC 4.0, bulk copying prohibited). The EPA site carries only a 31-page abridged summary (https://epa.gov.sl/download/3886/), which is not law text. |
+| Consumer Protection Act, 2020 (Act 7 of 2020) | https://sierralii.gov.sl/akn/sl/act/2020/7/eng%402020-09-03 | Same row, same reason; the Gazette PDF served by SierraLII is the only copy found. |
+| Carbon market framework; climate framework act | none | No enacted instrument found on EPA, SierraLII or Bank of Sierra Leone pages; register rows with F7 only. |
+| Bank of Sierra Leone climate or sustainability guideline | none | `https://bsl.gov.sl/Legislation.html` and the supervision and publications pages list no climate or sustainability guideline; nothing added. |
+
+Stored by GEL-15-10: `sl-ods-regulations-2025` (adopted 2025-04-03, English).
