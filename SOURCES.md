@@ -6959,3 +6959,53 @@ None. English is the only language the publisher serves and the official languag
 - Row `GD-LAWSGOVGD-ADOPTED` (permission requested; no scope instrument uses it). Blocked from the cloud address: `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.gd/` returned `500 0 text/html; charset=UTF-8`; `https://laws.gov.gd/index.php` returned `409 83 text/html; charset=iso-8859-1` with a script that sets the cookie `humans_21909=1` and reloads; repeating the requests with `-b 'humans_21909=1'` gave `500 0` again, and headless Chromium (Playwright `page.goto`, 5 s wait, second load after the cookie) got HTTP 500 and an empty page for `/` and for `/index.php/acts/1353-2018` (the Consumer Protection Act 2018 listing a search engine returned). The orchestrator can try the same URLs from the laptop. The Acts are served from the Parliament site instead.
 
 Not reached or not in scope, with the reason: https://www.garfin.gd fails TLS verification from the cloud (`curl: (60) SSL certificate problem: certificate has expired`; the certificate check was not disabled) and headless Chromium got `502 upstream request failed`, so whether GARFIN has a climate-risk rule is unknown (blocked from the cloud address). https://www.ecsrc.com and https://www.ecseonline.com answered `200` to `curl`; they were not searched for climate or ESG rules, so none is recorded. `https://climateresilience.gov.gd` opened (`200`): its policies and legislation page lists only the Abatement of Litter Act and policies and plans; the Water Resources Management and Regulation Act No. 1 of 2025 (`https://climateresilience.gov.gd/docs/water-resource-management-and-regulation-act/`) is enacted and was not taken into scope in this run; the draft National Climate Change Policy and the draft Consumer Protection (Water Efficiency) Regulations 2025 are F7 register rows only.
+
+## Dominica
+
+Run on 2026-11-03 (GEL-15-04). One row passes: `DM-GOV-ADOPTED` (Laws of Dominica portal, https://dominica.gov.dm/laws-of-dominica), on a statute: Copyright Act 2003 (Act 5 of 2003) section 21, "no copyright shall subsist in any official text of a legislative, administrative or legal nature, or any translation thereof", in force 2003-11-15 by SRO 47 of 2003. The portal's own terms are narrower (personal, non-commercial, unaltered use only), so the pass rests on the statute alone; the portal disclaimer calls the web versions unofficial, and whether that keeps a portal PDF outside "official text" is for Varun to confirm (see the row notes). Two rows are `permission requested`: `DM-PRINTERY-ADOPTED` (Government Printery, same terms as the portal, paid documents, nothing stored) and `DM-ECCB-ADOPTED` (ECCB site, HTTP 403 from the cloud address). The brief expected the portal to hold only the Revised Laws 1990 and Acts 1991 to 2009; it also serves Acts and SROs up to 2025, including the Climate Resilience Act 2018, so that Act is stored, not link only.
+
+The text of each stored instrument is one PDF. Text extraction: poppler `pdftotext -layout file.pdf -`, then each line stripped, runs of spaces or tabs collapsed to one space, form feeds turned into line breaks and blank lines dropped. The output was checked for mojibake: the only non-ASCII characters are typographic quotes, dashes and apostrophes. The PDFs carry the page header of the printed volume (for example `2018 CLIMATE RESILIENCE ACT 16 267`) and side headings of the sections, which `-layout` puts on the same line as the section text; nothing was removed.
+
+Row `DM-GOV-ADOPTED`, finding the file: the Laws page is a form that POSTs `searchname` (a word of the title) and `s=title` (or `s=year`) to the same address and answers with `<li><a href='...pdf'>Title, Act n of year</a></li>` links:
+
+```
+curl -sS -L -o s.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://dominica.gov.dm/laws-of-dominica?page=1' --data-urlencode 'searchname=climate' -d 's=title&searchbtn=Search'
+```
+
+Returned `200 28540 text/html; charset=utf-8` (three links: the Act, SRO 3 of 2019, SRO 44 of 2021). A plain GET with `keyword=` returns the empty form, not results.
+
+Row `DM-GOV-ADOPTED`, Climate Resilience Act 2018 (Act 16 of 2018), the exact request behind `records/DM/dm-climate-resilience-act-2018/2019-01-01-adopted-en.json`:
+
+```
+curl -sS -L -o act16-2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://dominica.gov.dm/laws/2018/Climate%20Resilience%20Act%202018.pdf'
+```
+
+Returned `200 54694 application/pdf`, sha256 `137e4f7fec3e3a555e3958a6c0228fb6c5ab6ba98f541ded633e551d6c978da2`, identical on a second run. The same pattern for the other stored instruments (all `200`, `application/pdf`, hash identical on a second run, text identical on a second run):
+
+- SRO 44 of 2021, `https://dominica.gov.dm/laws/2021/Climate%20Resilience%20%28Extension%20of%20duration%29%20Order%2C%202021%20sro%2044%20of%202021.pdf`: 64654 bytes, sha256 `881db3a08c3277637b997db423c7406db11c4ce28a7d20ddba39cf6ab5513a4a`.
+- Physical Planning Act 2002, `https://dominica.gov.dm/laws/2002/act5-2002.pdf`: 234180 bytes.
+- Environmental Health Services Act 1997, `https://dominica.gov.dm/laws/1997/act08-1997.pdf`: 777700 bytes, 38 pages of scanned images with no text layer (`pdftotext` gives 38 bytes), so OCR (below).
+- Copyright Act 2003 (the statute behind the row), `https://dominica.gov.dm/laws/2003/act5-2003.pdf`: 178698 bytes, sha256 `e81ed7dfc6065ebfdf53dc93d3bf49a903ec5f715d517d262519bdf5e353efad`. Commencement: `https://dominica.gov.dm/laws/2003/sro47-2003.pdf`, 4499 bytes.
+
+HEAD requests on these PDFs answer `200` with `Last-Modified` and `Content-Length`, which is what the `http_head` watchers read. Python's urllib with a browser agent and curl with the default agent were both accepted; no site in this section answered a script with a challenge except the ECCB.
+
+OCR. `records/DM/dm-environmental-health-services-act-1997/1997-10-16-adopted-en.json` is the first record here with `extraction: ocr`. Tools installed in the session: `apt-get install tesseract-ocr tesseract-ocr-eng` (tesseract 5.3.4) and `pip install ocrmypdf`. Command: `ocrmypdf --force-ocr -l eng --sidecar out.txt act08-1997.pdf out.pdf`, the sidecar text then given the same whitespace normalisation as the other records (blank lines dropped). A second OCR run gave an identical record. The text is uncorrected: the arrangement of sections has stray marks (for example `AAPL`, `oe`, `lL.`) and one `§` in the body, and nothing was corrected, reflowed or reworded. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key (they do not reject unknown record keys); results are in the PR report. `tools/build.py` was not run.
+
+### Languages
+
+English is the only official language of Dominican legislation, and the portal and Printery serve English only, so there is no second-language record and no translation row. No government translation exists to look for (the official language is English); the Copyright Act 2003 s. 21 words "or any translation thereof" are quoted in the row for completeness.
+
+### Link only
+
+- `dm-eccb-climate-risk-standard`: row `DM-ECCB-ADOPTED` is `permission requested` (the ECCB site could not be opened, so no terms were read). `curl -sS -L -o e.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.eccb-centralbank.org/` returned `403 118 text/html` (server `awselb/2.0`). Browser recipe tried: Playwright chromium, `page.goto('https://www.eccb-centralbank.org/', {waitUntil:'networkidle'})`, returned status `403`, 117 bytes of HTML, body text `403 Forbidden`; so no browser recipe works from the cloud address. The standard (August 2023, effective 2024-03-01 by section 1.0) was read in a PDF copy on data.sbfnetwork.org, which is not an ECCB host and is not stored. The same standard sits in the other ECCU places (AG, GD, KN, LC, VC and the territories AI, MS); the Grenada register row already lists it.
+
+### Not in scope
+
+- Printery (https://printery.dominica.gov.dm): paid documents, free preview PDFs (`curl -sS -L https://printery.dominica.gov.dm/ProductDocuments/DownloadPreview/2408 -o p.pdf` returned `200 6941 application/pdf`, SRO 18 of 2023). Used only to look for a later extension of the Climate Resilience Act: list requests `https://printery.dominica.gov.dm/Search/Index?searchString=SRO&ProductTypeIdFk=&yearpicker=2023` returned `200` HTML with 19 SRO items; title search finds a publication by its number only, not by subject. No later extension found. Row `DM-PRINTERY-ADOPTED`, nothing stored.
+- Consumer protection: no Dominican consumer protection act found on the portal (title search `consumer`) or by web search, so no F6 entry. Carbon pricing: nothing found, F7 row in `register/register.csv`.
+- Other environmental instruments left out (Next): Solid Waste Management Act 2002 and 2008 with the 2021 amendment, the Forestry and Wildlife Act (Ch. 60:02) and 2021 amendment, the National Parks and Protected Areas Act (Ch. 42:02), the Environmental Health Services regulations of 2003 to 2022.
+
+### Blocked
+
+- https://www.eccb-centralbank.org/ and https://www.eccb-centralbank.org/enforced: `403` from curl and from headless Chromium (HTTP 403 Forbidden, 117 to 118 bytes, server awselb/2.0). The orchestrator can read the ECCB terms page and the standards page from the laptop.
+- Nothing else refused the cloud address: dominica.gov.dm, printery.dominica.gov.dm, www.ecsrc.com (`200 60104 text/html; charset=UTF-8`) and www.ecseonline.com (`200 101003 text/html; charset=UTF-8`) answered. The ECSRC and ECSE pages show no ESG or climate rule by title; no row for them since nothing was taken.

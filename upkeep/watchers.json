@@ -11443,5 +11443,78 @@
   "tier": "regulator_page",
   "url": "https://grenadaparliament.gd/wp-content/uploads/2021/07/Act-No.-21-of-2011-Copyright-Act.pdf",
   "change": "terms_changed"
+ },
+ {
+  "id": "dm-climate-resilience-act-2018-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-climate-resilience-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2018/Climate%20Resilience%20Act%202018.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-climate-resilience-extension-order-2021-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-climate-resilience-extension-order-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2021/Climate%20Resilience%20%28Extension%20of%20duration%29%20Order%2C%202021%20sro%2044%20of%202021.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-physical-planning-act-2002-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-physical-planning-act-2002",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2002/act5-2002.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-environmental-health-services-act-1997-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-environmental-health-services-act-1997",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/1997/act08-1997.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-eccb-climate-risk-standard-enforced-page",
+  "source_id": "DM-ECCB-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; HTTP 403 to curl and to headless Chromium from the cloud address on 2026-11-03, so the watcher will log a failure from there; open it from the laptop and look for a revised climate standard or a new effective date)"
+  }
+ },
+ {
+  "id": "terms-dm-gov-adopted",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://dominica.gov.dm/privacy-copyright-notices",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
+  }
  }
 ]
