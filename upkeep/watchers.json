@@ -9735,5 +9735,57 @@
   "url": "https://msgg.gov.mr/mentions-legales.html",
   "change": "terms_changed",
   "params": {}
+ },
+ {
+  "id": "zw-si-134-2019-secz-page",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "zw-si-134-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/",
+  "params": {}
+ },
+ {
+  "id": "zw-zse-practice-note-16-pdf",
+  "source_id": "ZW-ZSE-RULES",
+  "iso2": "ZW",
+  "instrument": "zw-zse-practice-note-16",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ds88jcmqc11je.cloudfront.net/api/docs/42/download",
+  "params": {}
+ },
+ {
+  "id": "zw-ema-pdf",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "zw-ema",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-ema-consolidated",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-secz-adopted",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
  }
 ]
