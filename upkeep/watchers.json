@@ -10764,5 +10764,25 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://www.diariooficial.gob.sv/seleccion/26733"
+ },
+ {
+  "id": "ve-organic-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-organic-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf",
+  "params": {}
+ },
+ {
+  "id": "ve-penal-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-penal-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf",
+  "params": {}
  }
 ]
