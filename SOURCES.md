@@ -7147,3 +7147,48 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
+
+## Kyrgyzstan
+
+Run on 2026-11-03 (GEL-16-09). Three rows: `KG-MINJUST-ADOPTED` and `KG-MINJUST-CONSOLIDATED` (Ministry of Justice, Centralised Data Bank of Legal Information, the CBD, https://cbd.minjust.gov.kg) pass on a statute, and `KG-KSE-ADOPTED` (Kyrgyz Stock Exchange) is `permission requested`. The CBD has no terms, licence or copyright page: it is a React application whose script (`/static/js/main.68daf282.js`) holds a user guide that describes use only. The statute is the Law on Copyright and Related Rights of 14 January 1998 No. 6, art. 8, read in the CBD copy (document 4-6, edition 17.03.2023, `https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=1240396&lang=ru`, `200 application/json`, 309682 bytes): "Не являются объектами авторского права: официальные документы (законы, постановления, решения и т.п.), а также их официальные переводы". The exception removes copyright from the official text of a law, resolution or decision. The CBD is the Ministry's database, not the gazette (Erkin-Too), so a reader could say the CBD copy is a copy of the official document; the row notes say so and Varun decides whether the rows stay at pass. `kse.kg` states "Копирование материалов – только с письменного разрешения" and the Guide is a company's document, so no statute applies. `mnr.gov.kg` ("© 2026 Все права защищены.") and `nbkr.kg` (no statement) were opened but no row was written for them, because nothing is stored from them; their instruments are register rows with `law_family` F7.
+
+### Rows `KG-MINJUST-ADOPTED` and `KG-MINJUST-CONSOLIDATED`: JSON API of the CBD
+
+The HTML pages (`https://cbd.minjust.gov.kg/<document code>/edition/<edition id>/<ru|kg>`) are an empty React shell (`200 text/html; charset=utf-8`, 2311 bytes), so the text is read from the JSON API the script uses (`https://cbd.minjust.gov.kg/api/v1`). Document code and edition ids come from `GetDocument`:
+
+```
+curl -sS -A 'Mozilla/5.0' -o doc.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230050082'
+```
+
+Returned `200 3898 application/json; charset=utf-8` (`editions` lists `id` 57539, label `07.07.2026`; `status` is "Не вступил в силу"). Text of one edition in each official language:
+
+```
+curl -sS -A 'Mozilla/5.0' -o ed_ru.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=57539&lang=ru'
+curl -sS -A 'Mozilla/5.0' -o ed_kg.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=57539&lang=kg'
+```
+
+Returned `200 180122 application/json; charset=utf-8` (sha256 `5339c6f1f06320364ce80fd7405fe34a6edcf2fc5059ed39e34a764e68c6ade0`) and `200 207821 application/json; charset=utf-8` (sha256 `9963395a60995be4cbb75868cbd21a6ee5162babb35b48c5e88274097ec617ed`). These are `fetched_sha256` of `records/KG/kg-climate-law-104/2027-01-01-adopted-ru.json` and `...-adopted-ky.json`; a second fetch on the same day returned the same bytes. The same request worked for all 8 documents (for example edition 1003903 of the Law on Environmental Protection, `200 201880 application/json`, and edition 48613 of Cabinet Resolution No. 133, `200 23785 application/json`). Search, used to find document codes, is a POST to `GetDocuments` with fields such as `number`, `dateAdoptedFrom`, `dateAdoptedTo`, `nameRus`, `searchByTextRu`, `includeInvalid`:
+
+```
+curl -sS -A 'Mozilla/5.0' -H 'Content-Type: application/json' -X POST -d '{"number":"133","dateAdoptedFrom":"2026-02-24","dateAdoptedTo":"2026-02-24","includeInvalid":true}' 'https://cbd.minjust.gov.kg/api/v1/GetDocuments?pageNumber=1&pageSize=5'
+```
+
+Returned `200 2576 application/json; charset=utf-8` (Cabinet Resolution No. 133 and its annex). Behaviour to know:
+
+- The server closes the connection without an answer to any User-Agent that is not browser-like: `curl -A 'curl/8.5.0'`, Python urllib and the watcher's `global-esg-law-watch/1` get no answer (`curl` HTTP code 000 or exit code 92, urllib `RemoteDisconnected`); `Mozilla/5.0` gets 200. `python3 tools/watch.py --dry-run --source KG-MINJUST-ADOPTED` and `--source KG-MINJUST-CONSOLIDATED` therefore print `watch_failed RemoteDisconnected` for all 8 CBD watchers on 2026-11-03; each carries a `second_route`.
+- A request now and then (one in the first 50, none in the rest) returned `403 Forbidden / Transaction ID: <uuid>` (63 bytes, `text/plain`) and succeeded on retry; the fetch script retried up to four times with a pause.
+- Every response carries `x-rate-limit-limit: 1d` and `x-rate-limit-remaining` (2000 requests per day per address, reset about 08:30 UTC); the full fetch (about 200 requests) was throttled to 0.4 s apart.
+- The `id` field inside a `GetEdition` body is unreliable (an edition without a Kyrgyz text answers `200` with `contentRu` and `contentKg` null and the id of the document's last edition); the edition is the one in the request, and the body is stored as received.
+- `fetched_sha256` is the sha256 of the JSON body as received. The text is `contentRu` (it holds the Kyrgyz text when `lang=kg`; `contentKg` is always null) run through this extraction, which is the one used for every record: drop `<head>`, `<style>`, `<script>`; each closing `</p>`, `</div>`, `</h1-6>`, `</tr>`, `</li>`, `</pre>`, `<br>` and each opening `<p>`, `<div>`, `<h1-6>`, `<tr>`, `<li>`, `<pre>` (the Word export does not close its `<p>` tags) starts a new line; table cells are joined with a space; all other tags are removed; HTML entities are decoded (the Kyrgyz text carries numeric entities such as `&#1199;`) and non-breaking spaces become spaces; runs of spaces are collapsed to one, lines are stripped, empty lines are dropped. Nothing else is changed. Editions up to about 2013 are preformatted text, so their lines break where the CBD breaks them and words are hyphenated at line ends ("государс-" / "твенных"); that is stored as served.
+- Edition labels (`nameRus`, `DD.MM.YYYY`) are the dates of the amending acts; the CBD does not state when each edition took effect, so records after the first are dated by the label. The first edition is dated by the commencement clause of the text (publication date) or, for Law No. 71 of 2007, which gives none, by the adoption date. One label is written `04,08,2018` (parsed as 2018-08-04).
+- Not a browser recipe: nothing here needed a browser, and no record is browser-fetched.
+
+### Languages
+
+Russian (`ru`, official language) and Kyrgyz (`ky`, state language) come from the same two rows with `lang=ru` and `lang=kg` above; the Kyrgyz request returned no text for 16 editions (consumer-rights law editions 10.12.1997 to 13.02.2013, advertising law editions 24.12.1998 to 31.07.2006 and 18.07.2014 to 08.04.2015; `200` with null content, retried four times), and for edition 25.07.2016 of the Law on Environmental Protection it returned the Russian text; none of these is stored as Kyrgyz. No government English translation exists on the CBD (the interface and API serve Russian and Kyrgyz; `GetEdition?...&lang=en` returns the Kyrgyz text). English was also looked for at `https://mnr.gov.kg/en` (`200`, 93633 bytes, no law text linked), `https://kenesh.kg/en` (`200`, 1561 bytes, a JavaScript shell), `https://www.nbkr.kg/index.jsp?lang=ENG` (`200`, 91758 bytes) and `https://minjust.gov.kg/en` (`403`, 5663 bytes). No translation row was written.
+
+### Link only
+
+- `kg-kse-esg-guide`: row `KG-KSE-ADOPTED` is `permission requested` ("Копирование материалов – только с письменного разрешения"). `https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf` answers `200 1143627 application/pdf` and `pdftotext` reads it, so only the licence stops storage.
+
+Instruments with a `register.csv` row and no scope entry (F7): Cabinet Resolution No. 397 of 2025-07-03 (carbon neutrality Concept), Cabinet Resolution No. 410 of 2026-06-11 (ESG Concept) and the National Bank roadmap of 2024-12-20 (`https://www.nbkr.kg/contout.jsp?item=3206&lang=RUS&material=123032`, `200 161403 text/html;charset=UTF-8`). The financial-market regulator was not reached: `https://fmrs.kg`, `https://www.fmrs.kg`, `https://fsa.kg` and `https://www.gov.kg` returned no connection (`curl` HTTP code 000) from the cloud address. `https://minjust.gov.kg` answered `403 5663 text/html` to `curl -A 'Mozilla/5.0'`; the CBD host is a different host and answers.

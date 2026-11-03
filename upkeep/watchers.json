@@ -11618,5 +11618,111 @@
   "tier": "regulator_page",
   "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
   "params": {}
+ },
+ {
+  "id": "kg-climate-law-104-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-climate-law-104",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230050082",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/230050082/edition/57539/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-ghg-emission-law-71-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-ghg-emission-law-71",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-3550",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-3550/edition/725202/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-env-protection-law-53-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-env-protection-law-53",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-205",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-205/edition/11538/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-air-protection-law-51-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-air-protection-law-51",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-203",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-203/edition/10665/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-res-133-2026-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-res-133-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=7-52416",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/7-52416/edition/48613/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-res-133-regulation-2026-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-res-133-regulation-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230042004",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/230042004/edition/48624/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-consumer-rights-law-90-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-consumer-rights-law-90",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-556",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-556/edition/44233/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-advertising-law-155-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-advertising-law-155",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-150",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-150/edition/40301/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-kse-esg-guide-kse-pdf-head",
+  "source_id": "KG-KSE-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-kse-esg-guide",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf",
+  "params": {}
  }
 ]
