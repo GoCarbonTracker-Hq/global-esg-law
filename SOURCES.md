@@ -7148,6 +7148,364 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
 
+## Nicaragua
+
+Run on 2026-11-03 (GEL-14-04). One row passes, on a statute and not on site terms: `NI-LAGACETA-ADOPTED` (La Gaceta, Diario Oficial, https://www.lagaceta.gob.ni, run by the Secretaría Jurídica de la Presidencia). The statute is Ley 312 (Derecho de Autor y Derechos Conexos), Artículo 16, read in the consolidated text La Gaceta No. 232 of 2020-12-16: "No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores." (The brief says Ley 963 art. 16; the article is in Ley 312 as consolidated under Ley 1032, which Ley 963 orders published.) The site has no terms or copyright page. No row was added for the Asamblea Nacional portal, MARENA, SIBOIF or the Bolsa de Valores de Nicaragua (reasons below).
+
+An issue page of lagaceta.gob.ni is a PDF.js viewer whose PDF sits inside the HTML as one base64 string, `const pdfData = atob('JVBERi0x...')`. The slug comes from a title search of the issue list, `https://www.lagaceta.gob.ni/ediciones?page=1&search=<words of the title>` (title only, not content; slugs differ by year: `la-gaceta-n-120-miércoles-30-junio-de-2021`, `la-gaceta-nº-217-viernes-18-de-noviembre-de-2022`, `la-gaceta-no-217-lunes-25-de-noviembre-de-2024`). Proven fetch, Decreto 15-2021 (La Gaceta No. 120 of 2021-06-30):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o g120.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/'
+python3 -c "import re,base64;t=open('g120.html',encoding='utf8').read();open('g120.pdf','wb').write(base64.b64decode(re.search(r\"atob\('([A-Za-z0-9+/=]+)'\)\",t).group(1)))"
+```
+
+Returned `200 1330946 text/html; charset=utf-8`; the PDF is 611043 bytes, sha256 `57c19b1b8298dee5f1b722c454a1a907c740520abb75c44d563b9eff214900dc`, which is `fetched_sha256`. The page carries a per-request antiforgery token (the HTML hash changed between two requests, 4665f0dc... and 7c498f3c...), so the hash is of the decoded PDF, which a second fetch reproduced for all four issues below. Other issues fetched the same way: No. 62 of 2008-04-03 (`200 692329`, PDF 132120 bytes, sha256 `0bbde994dfb8aaafd42c4e8e2afa4df2bde97ae971eac9822f7cd027c66783ec`), No. 129 of 2013-07-11 (`200 805315`, PDF 216855, `59f8c2526c52a3cacdaef2db8b6a1bed8083bb4493203fbb6014bd9319424d1c`), No. 232 of 2020-12-16 (`200 2815825`, PDF 1724677, `96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe`, the statute copy), No. 105 of 1996-06-06 (`200 5771509`, PDF 3941486).
+
+Text extraction: poppler `pdftotext`. Decreto 15-2021 (single column) with `pdftotext -layout`, runs of spaces collapsed, empty lines dropped, from `DECRETO PRESIDENCIAL No. 15-2021` to the signature line after Art. 14; the running head (`30-06-2021 LA GACETA - DIARIO OFICIAL 120`), the page numbers (5847 to 5850) and the rule lines are dropped. Ley 647 and Ley 842 are two-column pages (the gazette head at the top, the page number centred at the foot), read per page as a left half then a right half: `pdftotext -f N -l N -x 0 -y 55 -W 306 -H 715 file.pdf -` then `-x 306`, joined page by page (default reading order mixes the columns); the centred page number is split by the crop, so lines made only of digits are dropped (54 of them for Ley 842, exactly two per page); line breaks stay where the PDF has them. Ley 647: pages 2 to 7 of the issue, from `ASAMBLEA NACIONAL DE LA` to `PRESIDENTE DE LA REPUBLICA DE NICARAGUA.`; articles 1 to 27. Ley 842: pages 2 to 28, from `ASAMBLEA NACIONAL` to `Saavedra, Presidente de la República de Nicaragua.`; articles 1 to 138 checked as an unbroken sequence. No U+FFFD in any record; the PDFs of 2008, 2013 and 2021 carry real text layers (TrueType fonts), no scan.
+
+### Languages
+
+Spanish is the official language of legislation; the Caribbean coast languages have no gazette edition. Every record has `language` es and no row of its own. English was looked for, no government translation found: `https://www.lagaceta.gob.ni/` (`200 81688 text/html`, Spanish only, no English page), `https://www.siboif.gob.ni/` (`200 214940 text/html; charset=utf-8`, Spanish only), `https://www.bolsanic.com/` (`200 143989 text/html; charset=UTF-8`, Spanish only). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ni-ley-217 (Ley 217, Ley General del Medio Ambiente) | https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/ | Row passes, but the issue PDF is a 300 ppi bitonal scan with a machine OCR text layer with wrong words (`Arto. I.-`, `Marea Colectiva`); no OCR step is allowed yet, Varun decides. The consolidated text (Digesto Ley 1163, La Gaceta No. 217 of 2023-11-29) is a `descargables` file that needs a login (`Inicia sesión para poder visualizar este archivo`); no account was made. |
+
+Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 2023-09-27) and the Digesto consolidations of Ley 217 and Ley 842: same login wall on https://www.lagaceta.gob.ni/descargables (Gaceta 217 of 2023-11-29 is not in `/ediciones` either; issues 216 and 218 are). Gazettes 172 to 176 of September 2023 were read for an amending decree of 15-2021 (no hit on `15-2021`).
+
+### Blocked from the cloud address
+
+- `https://legislacion.asamblea.gob.ni/` and `/gacetas/2021/6/g120.pdf` (the Asamblea portal named in the brief): `curl: (35) Recv failure: Connection reset by peer`, the proxy logs `ws_closed_mid_exchange`; Chromium through the same proxy got `502 text/plain` (174 bytes). Three tries each. `http://legislacion.asamblea.gob.ni/` answered `404 215`.
+- `https://www.asamblea.gob.ni/` and `https://digesto.asamblea.gob.ni`: `403 text/html` (5665 and 5993 bytes) to `curl -A 'Mozilla/5.0'` and to Chromium.
+- `https://www.marena.gob.ni/` and `https://marena.gob.ni`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`; the egress gateway issues its own certificate for the host and the upstream chain is not accepted; verification was not disabled. `http://www.marena.gob.ni` answers `301`. Chromium: `502`.
+- `https://www.presidencia.gob.ni`, `https://www.mhcp.gob.ni`, `https://www.nicaragua.gob.ni`, `https://www.cc.gob.ni`, `https://cambioclimatico.gob.ni`, `https://www.inetter.gob.ni`: `CONNECT tunnel failed, response 502`. `https://www.ineter.gob.ni`: certificate error as MARENA. `https://www.poderjudicial.gob.ni`: `SSL_ERROR_SYSCALL`.
+
+### Regulator and exchange pages
+
+`https://www.siboif.gob.ni/` opened (`200 214940`; the first request in the session was reset, later ones answered). Its marco jurídico pages (bancos, valores, seguros) have a title filter, `.../intendencia-bancos/marco-juridico?combine=<word>`: `ambiental`, `social`, `sostenible`, `clim`, `verde` return 0 rows each, so no SIBOIF norm on environmental and social risk or ESG was found; the page lists Ley 1061, the 2021 reform of Ley 842. No terms page was read, so no row. `https://www.bolsanic.com/` (a company): `/condiciones-de-uso` reserves all rights ("Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de dichos contenidos sin la autorización previa y por escrito de BVN"), and `/regulaciones/` and `/reglametos-y-circulares-de-bvn/` have no ESG text; no row.
+
+### Watchers
+
+`page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
+
+## Bolivia
+
+Run on 2026-11-03 from the cloud address (GEL-14-08). Every licence row for Bolivia is `permission requested` (BO-GACETA-ADOPTED, BO-ASFI-ADOPTED, BO-APMT-ADOPTED, BO-MMAYA-ADOPTED, BO-BBV-ADOPTED), so no row passes, no text is stored and there is no `records/BO/`. The requests below are the ones that work, recorded for the watcher and for a later permission; they are not `fetched_url` of any record. Spanish is the only language any source serves; no indigenous-language or English text exists on any page opened.
+
+### Proven requests (no row passes)
+
+Gaceta Oficial, plain HTTP only. `curl https://www.gacetaoficialdebolivia.gob.bo` fails from the cloud address with `curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, and headless Chromium on the HTTPS URL answers HTTP 502 from the proxy. The HTTP site answers:
+
+- `curl -sS -A 'Mozilla/5.0' -L 'http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300'` returns 302 to `/normas/buscar/300`, then HTTP 200, 49953 bytes, `text/html`. The result lists Ley 300 of 15 October 2012 (edition 431NEC, Fecha de Publicación 2012-10-15) with the view path `/normas/verGratis_gob/141327`.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/verGratis_gob/141327'` returns HTTP 200, 228012 bytes, `text/html` (Ley 300 as HTML, footer "TEXTO DE CONSULTA"). The server is Apache/2.2.4 on PHP 5.2.3 and sets a `CAKEPHP` cookie; no challenge.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/descargarPdf/141327'` returns HTTP 200, 945 bytes, `text/html`: a PHP fatal error from DOMPDF ("Requested HTML document contains no data"). The PDF route does not work; the Word route `/normas/verGratis_gob1/{id}` was not fetched.
+- Date search for an old norm: `curl -sS -A 'Mozilla/5.0' -c cj -b cj -L -d 'data[Gobierno][id_gobierno]=&data[TipoNorma][id_tipo_norma]=1&dc1=27-04-1992&dc2=31-12-1992&q=' 'http://www.gacetaoficialdebolivia.gob.bo/normas/busquedaFecha'` returns HTTP 200, 75339 bytes, `text/html`, 331 Leyes. Paging (`/normas/busquedag1/page:N`) depends on the session cookie and returned a different result set without it.
+- Title search: `.../normas/busquedag1?q=cambio+clim` returns HTTP 200, `text/html`, 19 norms (title and summary only; it does not search the text).
+
+ASFI (`www.asfi.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' -L 'https://www.asfi.gob.bo/sites/default/files/2025-08/Bolet%C3%ADn%2020%20-%20Junio%202013.pdf'` returns HTTP 200, 126856 bytes, `application/pdf`; `pdftotext -layout` gives clean text. It carries "ASFI-170 220/2013 19 de abril de 2013.- Aprueba y pone en vigencia el Reglamento de Responsabilidad Social Empresarial para las Entidades de Intermediación Financiera". The quarterly bulletins 58 (Dec 2022), 59 to 73 (Mar 2023 to Sep 2026) were read the same way (index pages `https://www.asfi.gob.bo/node/417` to `/node/433`). They are summaries of changes to the Recopilación, not the regulation text. Bulletins 1 to 73 were searched with `grep -i 'ambiental\|sostenib\|clim[aá]tic\|verde\|taxonom\|ESG\|riesgo social'`: the only hits are the green, social and sustainable bond rules (bulletin 58, 61), the Fondo de Inversión Sostenible (bulletin 73) and the RSE reglamento; no reglamento on environmental and social risk management exists in the Recopilación as of Boletín 73.
+
+APMT (`madretierra.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' 'https://madretierra.gob.bo/wp-content/uploads/2025/09/3.-LEY-300.pdf'` returns HTTP 200, 293824 bytes, `application/pdf` (sha256 8d6a6b2bfca8455825fb195fc4f50cfae12216dc9e2f390ec65f09fcc49e5826); `pdftotext -layout` gives clean text. Same folder: `4.-DS-1696.pdf`, `5.-DS-2389.pdf`, `Ley071.pdf`, `1.-CPE.pdf`. Its terms page is `https://madretierra.gob.bo/index.php/terminos-y-condiciones/` (200, 70842 bytes).
+
+### Languages
+
+Spanish (es) only. The Gaceta, ASFI and APMT serve Spanish; Bolivia's 36 indigenous languages are official but no gazette edition or page in them was found. No government English translation was found: looked for on the Gaceta (no language switch), ASFI and APMT; no translation row exists. Records stored: 0.
+
+### Link only
+
+- bo-asfi-rse-reglamento, bo-asfi-rmv-green-bonds, bo-asfi-revision-externa, bo-asfi-fondo-inversion-sostenible: BO-ASFI-ADOPTED is `permission requested` (the footer link `/terminos-y-condiciones` answers 404 on every ASFI page, so no terms exist to quote; an ASFI resolución is a state regulation but Ley 1322 has no exclusion of official texts). The regulation text sits on `servdmzw.asfi.gob.bo` and `wiki-normativa.asfi.gob.bo`, blocked from the cloud address.
+- bo-ley-300, bo-ds-1696, bo-ds-3549, bo-ds-5264, bo-ley-835, bo-ley-453: BO-GACETA-ADOPTED is `permission requested`. Resolución Ministerial 039/11 (terms_url) requires the Gaceta's prior authorisation to publish official legal texts, charges an arancel and refuses publications that generate profit; the footer reads "Derechos Reservados ©". APMT hosts Ley 300 and DS 1696 as PDF but its terms allow personal, non-commercial use only (BO-APMT-ADOPTED).
+- bo-ley-1333, bo-ds-24176: not served by the Gaceta archive (Ley 1333 of 1992 is missing between Leyes 1332 and 1334 of April and May 1992; the number search for DS 24176 returns 0 norms). The MMAyA site (BO-MMAYA-ADOPTED) is blocked from the cloud address. The scope `official_url` is the Gaceta page of a later decree that cites each one; it is not the text.
+- BO-BBV-ADOPTED: no BBV rule is in scope; the host is blocked.
+
+### Blocked from the cloud address
+
+- `https://www.gacetaoficialdebolivia.gob.bo/` (all paths): curl 35 SSL_ERROR_SYSCALL; Chromium 502. Plain HTTP works.
+- `https://www.bbv.com.bo`: curl 35 connection reset; Chromium 502.
+- `https://www.mmaya.gob.bo`: curl 35 connection reset; Chromium 502.
+- `https://servdmzw.asfi.gob.bo/circular/Textos/Indice.pdf` (also `/circular/Textos/`, `/`): curl 35 connection reset; Chromium 502.
+- `https://wiki-normativa.asfi.gob.bo/es/normativa/RNSF`: curl 56 CONNECT tunnel failed, response 502; Chromium ERR_TUNNEL_CONNECTION_FAILED.
+- `https://chuquisaca.oep.org.bo/wp-content/uploads/2018/06/Ley_1333.pdf` and `https://web.senado.gob.bo`: curl 55 / 000 through the proxy.
+
+No browser-fetched record exists. Watchers: `python3 tools/watch.py --dry-run --source BO-GACETA-ADOPTED` ran 8 watchers, 0 failures; `--source BO-ASFI-ADOPTED` ran 4, 0 failures; the APMT, MMAYA and BBV rows have no watcher (0 run).
+
+## Liberia
+
+Run on 2026-11-03 (GEL-15-09). Two rows pass, both on the statute: `LR-EXECMANSION-ADOPTED` and `LR-EPA-ADOPTED`. The statute is the Liberia Intellectual Property Act, 2016, section 9.4 "Subject Matter Not Protected": "no protection shall extend under this Part to: ... b) any official legislative, judicial, or administrative text, including the Laws of the Government of Liberia, as well as any official translation thereof". It was read from the ARIPO copy (the WIPO Lex file link redirects to an HTML page from the cloud address):
+
+```
+curl -sS -A 'Mozilla/5.0' -o ip.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://aripo.org/storage/resources-member-state-laws/1674816283_php0A90q8.pdf
+```
+
+Returned `200 1249612 application/pdf` (sha256 `acf388a463755695b2bbe31894a76a09c270686287e8703ab620531ee083f79f`, the `terms_fingerprint` of both rows). Neither the Executive Mansion nor the EPA has a terms or copyright page; their footers say only "© 2026 All Rights Reserved" and "© 2026", so no terms-based pass exists. The Central Bank of Liberia footer says "Copyright © All Rights Reserved."; it has no instrument in scope and no row.
+
+Row `LR-EXECMANSION-ADOPTED`, Executive Order No. 155 (the file name is read from the list `https://emansion.gov.lr/publications/document-type/executive-orders`, link "EXECUTIVE ORDER 155"):
+
+```
+curl -sS -A 'Mozilla/5.0' -o eo155.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://emansion.gov.lr/sites/default/files/documents/EXECUTIVE%20ORDER%20155_0.pdf'
+```
+
+Returned `200 1486811 application/pdf`; a second fetch and a fetch without `-A` returned the same bytes (`sha256 e6359fbdf8065312d3e204d8e73d54f25ddf171ede2a59ccdb8b7dbeb2188a35`), so `fetched_sha256` reproduces. The 7-page PDF is a set of JPEG page scans (`pdfimages -list` shows one 180 ppi image per page); `pdftotext -layout eo155.pdf -` prints nothing. OCR (Varun, 2026-11-03): `tesseract` 5.3.4 with `tesseract-ocr-eng` was installed with apt, then
+
+```
+pdfimages -j eo155.pdf img/p
+for f in img/p-00*.jpg; do tesseract $f - --psm 4 -l eng; done | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+`ocrmypdf --force-ocr` over the same PDF was tried first and garbled the pages that carry the seal watermark (1487 words against 1596 for `--psm 4` on the page images, with lost lines in Sections 5 and 6), so the page-image run is the one stored. The output is stored uncorrected, with `"extraction": "ocr"` in the record; known recognition errors include the date line ("2G" for the handwritten day) and the "(ec)" for "(e)" in Section 6. The handwritten day is not legible with certainty (it reads 29th), so the record is dated 2025-10-31, the date of the Executive Mansion news page. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key. No record is browser-fetched.
+
+Row `LR-EPA-ADOPTED`, Environment Protection Agency Act (the link is read from `https://epa.gov.lr/laws-regulations/`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o epa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf
+pdftotext -layout epa.pdf - | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+Returned `200 281529 application/pdf` (46 pages, Acrobat Distiller 6.0.1 from Word, TrueType fonts without a ToUnicode map but WinAnsi encoding). A second fetch returned the same bytes (`sha256 32bdd7a5704975fbb520c7d62de097192b50f9dc1743ab12017efa3449322522`). The text has no mojibake; the only non-ASCII characters are en dashes in the Part headings and curly apostrophes. The "View or Download" link under the heading "The Environmental Protection and Management Law" (`/wp-content/uploads/2024/06/Act-Establishing-the-Liberia-EPA.pdf`) returns the identical file (`cmp` equal), so no separate text of the Law was found.
+
+Other pages opened:
+
+- `https://emansion.gov.lr/node/8948`: `200 48217 text/html`, the news page of 2025-10-31, with the sentence "The Executive Order takes immediate effect and will remain valid unless amended or replaced by future executive action or legislation."
+- `https://emansion.gov.lr/media/press-release/liberia-takes-first-step-toward-carbon-markets-president-boakai-receives`: `200`, dated September 4, 2026 (the National Carbon Policy presented to the President).
+- `https://www.mofa.gov.lr`: `200 92163 text/html`; no list of handbills, Acts or executive orders (`/publications`, `/handbills`, `/terms` answer 404; `/general/publications` holds financial statements). No row.
+- `https://www.cbl.org.lr`: `200 100731 text/html`; the site search for climate, sustainable, green and carbon and the Legal, Supervision and Risk Management pages show no climate or sustainability regulation. The Risk Management page says the Bank "is faced with Environmental, Social and Governance (ESG) risks" for its own risk programme. No row.
+- `https://epa.gov.lr/` search for carbon: news items and a terms of reference for a carbon policy consultant, no regulation.
+
+No site answered with a WAF challenge or a 403 to curl, and no browser recipe was needed. `legislature.gov.lr` and `liberialii.org` were not retried.
+
+### Languages
+
+English is the official language of Liberian legislation; every record is `en`. Looked for a second language or a translation on emansion.gov.lr, mofa.gov.lr, epa.gov.lr and cbl.org.lr: every page and document is English only. No translation row was added.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| lr-epml-2002 | https://epa.gov.lr/laws-regulations/ | Row `LR-EPA-ADOPTED` passes, but the page's link for the Law serves the same file as the EPA Act (stored as lr-epa-act-2002); no separate text found. |
+
+Stored by GEL-15-09: `lr-eo-155-carbon-markets-authority` (adopted 2025-10-31, en, OCR) and `lr-epa-act-2002` (adopted 2002-11-26, en).
+
+Not in scope.json: the Climate and Carbon Act (not enacted; no draft on any site opened), the Sovereign Carbon Initiative contribution on aviation and shipping (no instrument on any site opened), a Central Bank of Liberia climate regulation (none found), a consumer protection act (none on the four sites opened), the National Carbon Market Policy (F7, register row only).
+
+## Panama
+
+Rows `PA-SBP-ADOPTED` and `PA-GACETA-ADOPTED` (both `pass`, statute: Ley 64 de 2012 Art. 13 num. 2, "Los textos oficiales de carácter administrativo, legislativo o judicial ni las traducciones oficiales de los mismos"). Run on 2026-11-03 (GEL-14-05). Both pass on the statute alone: the Superintendencia de Bancos aviso legal reserves all reproduction rights, and no terms page of the Gaceta was opened (see Blocked). Varun to confirm both. The statute was read on the Asamblea Nacional copy of Gaceta 27139-B (`s3-legispan.asamblea.gob.pa`, which answers plain curl and gave the same sha256 twice: 847581ec4b1db45531a73c553cbdcdf83bb5259f9b874e20f86be903781268ed).
+
+Text extraction for PDFs: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed to one, lines stripped, empty lines dropped, page headers and footers kept. Checked for mojibake before storing: Ley 45 had 0 characters outside Spanish letters and punctuation; the Acuerdo is clean. Instruments whose PDF returns no text, or a garbled OCR layer, are link only.
+
+Row `PA-SBP-ADOPTED`, Acuerdo No. 011-2022:
+
+```
+curl -sS -L -o Acuerdo_11-2022.pdf -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://www.superbancos.gob.pa/documentos/leyes_y_regulaciones/acuerdos/2022/Acuerdo_11-2022.pdf
+```
+
+Returned `200 176171 application/pdf`; sha256 7fc415fa28b8a16d685029ff9fcb337174b996f081c35d5528f53f6f8ef7cdbf, reproduced by a second fetch. Three pages with a clean text layer. Path pattern: `/documentos/leyes_y_regulaciones/acuerdos/<year>/Acuerdo_<n>-<year>.pdf` (the one tried).
+
+Row `PA-GACETA-ADOPTED`: curl is blocked. The Gaceta Oficial (`www.gacetaoficial.gob.pa`) sits behind an Imperva Incapsula filter.
+
+```
+curl -sS -L -o g.pdf -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf
+```
+
+Returned `200 212 text/html` (a stub that loads `/_Incapsula_Resource`; the home page and a `/pdfTemp/` path gave the same `200 212 text/html`). Headless Chromium (Playwright as pre-installed) passes it: open the home page, wait 8 to 10 s, then fetch the PDF with the browser context's request object (`fetch_gaceta.js`):
+
+```
+const {chromium}=require('playwright');const fs=require('fs');(async()=>{const b=await chromium.launch();const c=await b.newContext({userAgent:'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',locale:'es-PA'});const p=await c.newPage();await p.goto('https://www.gacetaoficial.gob.pa/',{timeout:60000}).catch(e=>null);await p.waitForTimeout(8000);const a=process.argv.slice(2);for(let i=0;i<a.length;i+=2){const r=await c.request.get(a[i],{timeout:180000});const bd=await r.body();fs.writeFileSync(a[i+1],bd);console.log(a[i+1],r.status(),bd.length,r.headers()['content-type']);await p.waitForTimeout(2000)}await b.close()})()
+```
+
+```
+node fetch_gaceta.js https://www.gacetaoficial.gob.pa/pdfTemp/25914/GacetaNo_25914_20071107.pdf g25914.pdf
+```
+
+Returned `200 203564 application/pdf` (Ley 45, Gaceta 25914, 50 pages, clean text layer); `fetched_sha256` 101bc10216289d1604260848a821cefa4e0dcfce1dc64ab5590066cb45966173 is the hash of the PDF as received. A second fetch could not be run: after about six browser requests the filter blocked the cloud address and every later request (home page included) returned "Ups!! algo parece estar mal" or "Error! Esta página no puede ser mostrada. El número del incidentes es: ...". A PDF is static, so the hash is expected to reproduce, but this was not tested. The same session fetched Gaceta 30480 (`200 7553470 application/pdf`, 54 pages), 29430-C (`200 31990664`, 171 pages) and 28131-A (`200 8860874`, 35 pages). Path patterns: `/pdfTemp/<issue>/GacetaNo_<issue>_<YYYYMMDD>.pdf` (2007 to 2021; the suffix letter is lower case in the file name: `/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf`) and `/storage/gacetas/<YYYY>/<MM>/<issue>/GacetaNo_<issue>_<YYYYMMDD>.pdf` (2026). The browser-fetched record, `pa-ley-45-2007`, stays subject to Varun's open decision on the browser recipe (GEL-03 retro C4).
+
+Legispan (Asamblea Nacional, `https://legispan.asamblea.gob.pa`) is an Angular app over a JSON API that answers plain curl: `curl -sS 'https://legispan.asamblea.gob.pa/api/search/norm?page=1&limit=10&q=<words>&sortKey=publishedAt&sortOrder=desc'` returned `200 application/json` with `data[].original` holding `type.type`, `number`, `year`, `authority`, `promulgation.number` and `publishedAt` (the Gaceta), `title`, `lawUrl` (a PDF under `s3-legispan.asamblea.gob.pa/legispan/NORMAS/...`) and `content` (the PDF's text layer). The search is fuzzy (`q` words are OR-ed; `number` and `year` as parameters return 422), so filter the results client-side. Legispan serves the same Gaceta PDFs (Gaceta 29430-C: byte-identical, 31990664 bytes) and its `content` for the 2020 and 2021 decrees is only the issue index, so it adds no text. No row was added for it.
+
+### Languages
+
+Spanish is the only official language of Panamanian legislation and the only language stored. No government English translation was found for any instrument: the Gaceta and Legispan publish Spanish only; the Superintendencia de Bancos pages opened publish Spanish only; MiAmbiente could not be opened (connection reset). No translation row.
+
+### Stored (fetched 2026-11-03)
+
+| Instrument | Row | Records |
+|---|---|---|
+| `pa-sbp-acuerdo-011-2022` | PA-SBP-ADOPTED | 2022-11-01 es |
+| `pa-ley-45-2007` | PA-GACETA-ADOPTED | 2007-11-07 es (law only, cut from the Gaceta issue) |
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `pa-jtc-res-012-2025` | https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf | Gaceta 30480 pp. 6-8 are scanned images (`pdftotext` returns headers and footers only; `pdfimages -list` shows full-page JPEGs). No OCR step. |
+| `pa-ley-41-1998` | https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf | Text layer is garbled OCR ("T itul o Prelimin J:lr", "Le)'" for "Ley"). |
+| `pa-de-100-2020` | https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf | Scanned images, pp. 11-42 of Gaceta 29138-C. |
+| `pa-de-142-2021` | https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf | Scanned images, pp. 2-10 of Gaceta 29430-C. |
+
+Not used: the Superintendencia del Mercado de Valores (`https://supervalores.gob.pa/`, 200 after a redirect from `www`) lists no acuerdo on sustainability disclosure on its acuerdos and proyectos pages as read from static HTML (the only sustainability item is a guide on thematic bonds under the national sustainable-finance taxonomy, https://supervalores.gob.pa/files/emisores/Guia-TFS-PAN-emisores.pdf, which is guidance, not law); Latinex (`https://www.latinexbolsa.com`, 200 after a redirect) is a company and no instrument of it is in scope, so no row. The 2026 MiAmbiente draft decree on the Sistema Nacional del Mercado de Carbono (which would repeal DE 142) is a draft until the Gaceta shows it; it has no entry.
+
+Blocked from the cloud address: https://www.gacetaoficial.gob.pa/ (Incapsula stub for curl; headless Chromium blocked after about six requests); https://miambiente.gob.pa/ and https://www.miambiente.gob.pa/ (curl: `Recv failure: Connection reset by peer`; Chromium: "upstream request failed"); https://www.asamblea.gob.pa/ (reset; its Legispan hosts work); https://www.jtc.gob.pa, https://www.acodeco.gob.pa, https://www.aig.gob.pa (reset); https://www.anati.gob.pa (520).
+
+## Haiti
+
+GEL-15-08, run 2026-11-03. Two rows pass, both on the statute: `HT-MDE-ADOPTED` (Ministère de l'Environnement, mde.gouv.ht) and `HT-BRH-ADOPTED` (Banque de la République d'Haïti, www.brh.ht). The statute is Art. 5 of the Décret du 12 octobre 2005 sur le droit d'auteur (Le Moniteur No. 23, 2006-03-09): "La protection prévue par le présent Décret ne s'étend pas: 1.- aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles". It was read in the scanned Moniteur issue that WIPO Lex serves (not a Haitian state host):
+
+The page `https://wipolex.wipo.int/en/legislation/details/5091` (`200`) links the PDF with a signed query string; fetching that link with `curl -sS -L -o ht008fr.pdf -w '%{http_code} %{size_download} %{content_type}\n' '<signed link>'` returned `200 1092790 application/pdf` (the bare URL `https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/ht/ht008fr.pdf` without the signed query string returns `200 37734 text/html`, an error page). `pdftotext -layout` gave the OCR layer of the scan; Article 5 was legible. The MdE site has no terms page (`/index.php/fr/mentions-legales` and `/conditions-d-utilisation` answer 404), only the footer "© 2018, Tous droits réservés". The BRH legal notice allows personal printing only and forbids copying the site; that is why `HT-BRH-ADOPTED` rests on the statute and is open to Varun's objection (same case as the Brazil CVM and BCB rows). No translation row was added.
+
+Le Moniteur itself is not served online by any state host that answered. `https://lemoniteur.ht`, `https://www.lemoniteur.ht`, `https://www.pressesnationalesdhaiti.ht` (the site the January 2021 Moniteur issue names) and `https://moniteur.gouv.ht` answered `curl: (56) CONNECT tunnel failed, response 502`. The Primature (`https://www.primature.gouv.ht/`, `200 160461 text/html; charset=UTF-8`) has a "Textes de loi" menu entry whose link is `#`. The Ministère de la Justice (`https://www.mjsp.gouv.ht/`, `200 85545`) lists organisation decrees and a PDF on the courts, no environmental or climate law. `https://mef.gouv.ht/cadre-reglementaire/lois` (`200`) lists law and decree PDFs without titles; none was opened. No browser recipe was needed.
+
+### Row `HT-MDE-ADOPTED`
+
+Décret organisant le Ministère de l'Environnement (signed 2020-08-05):
+
+```
+curl -sS -L -o mde-decret-2020.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf'
+```
+
+Returned `200 789273 application/pdf`, sha256 `4ae9be42fee361f44c3e8929b52803c94fe7b5a87cc407669fdf2b65b8a00c14`; a second fetch returned the same bytes and hash. The list page `https://mde.gouv.ht/index.php/fr/nos-publications/documents-officiels` links the file as `?download=24:loi-organique-ministere-environnement` (`/ht/` serves the same list, same files). The PDF has a text layer: `pdftotext -layout file.pdf -`, each line's runs of spaces collapsed to one, blank lines dropped; 91 articles, no replacement characters, only French letters and punctuation in the non-ASCII set. The list page is not hashed by the watcher because every response carries a fresh session token.
+
+The 2005 environment decree is not on the site (not in the list the site shows in /fr/ or /ht/); this decree cites it in its visas, which is the official page used for `ht-environment-decree-2005`.
+
+### Row `HT-BRH-ADOPTED`
+
+Circulaire BRH/IF/2026/131 of 2026-02-06:
+
+```
+curl -sS -L -o circ131.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf'
+```
+
+Returned `200 15948360 application/pdf`, sha256 `6e85899a32701275fb8771c154a4aaeb4965a3ee1fe212476690283c643fc510`; a second fetch returned the same hash. The list of circulars is `https://www.brh.ht/notes-de-presse/?act=circulaires` (`200`, the HTML differs on every request). `pdftotext -layout` returns 52 bytes (no text layer, 52 page images), so the text is OCR:
+
+```
+pdftoppm -r 200 -gray -png circ131.pdf pg
+tesseract pg-01.png pg-01 -l fra --psm 3    # one run per page, 52 pages (tesseract 5.3.4, language pack tesseract-ocr-fra installed with apt in the session)
+```
+
+The page texts are joined in page order, each line's runs of spaces collapsed, blank lines dropped; nothing corrected or reflowed. The record carries `extraction: "ocr"` and the `fetched_url` and `fetched_sha256` of the original PDF. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key (they read only the keys they name). OCR is not byte-reproducible across tesseract versions; the PDF hash is.
+
+### Languages
+
+Haiti's official languages are French and Haitian Creole; laws are published in French in Le Moniteur. Both stored records are French. A Creole text was looked for on mde.gouv.ht (the `/ht/nos-publications/documents-officiels` list holds the same French files, `200 51987 text/html; charset=utf-8`) and on www.brh.ht (no language switch; `/ht/` answers 404): none. No government English translation exists on either site; the MdE list holds one English document (a gender analysis for the adaptation plan), not a law. No translation row was added; no law-firm, NGO or news translation is stored.
+
+### Link only
+
+- `ht-environment-decree-2005` (Décret du 12 octobre 2005, F2): row `HT-MDE-ADOPTED` passes, but no state host serves the text (see above); the Le Moniteur hosts did not answer from the cloud address; the private copy at `redop.charesso.org` (`200 27549 text/html`) is not stored.
+
+### Not in scope
+
+- Climate framework act and carbon pricing: none found on an official page. The Politique Nationale de Lutte contre les Changements Climatiques 2019 (`?download=5:pncc`, `200 52855690 application/pdf`) and the NDC update (`?download=31:...`, `200 2649120 application/pdf`) are F7 rows in `register.csv`.
+- BRH circular on climate risk or sustainability: none in the circulars list (`?act=circulaires`). Haiti has no stock exchange.
+- General consumer protection act: none found; Circulaire 131 is the financial-sector instrument.
+
+## Tunisia
+
+Rows `TN-IORT-ADOPTED` and `TN-IORT-TRANSLATION` are `pass` on the statute basis; `TN-LEGISLATION-CONSOLIDATED`, `TN-CMF-ADOPTED`, `TN-BVMT-ADOPTED` and `TN-MEDD-ADOPTED` are `permission requested`. Run on 2026-11-03 (GEL-12-02, restart).
+
+### Statute test
+
+Loi n° 94-36 du 24 février 1994 relative à la propriété littéraire et artistique. The brief names art. 1 of Loi n° 2009-33 as the rewrite that kept the exclusion; on the IORT page of Loi n° 2009-33 (2026-11-03) it is Art. 2 that does it: Art. 1 of the 2009 law replaces the eleventh and fourteenth tirets of Art. 1 of the 1994 law (and other articles), and Art. 2 adds "une dernière paragraphe" to Art. 1. The first session read only the 1994 gazette scan, which has no such paragraph, and wrongly concluded there is no exclusion. Quoted from the IORT French page of Loi 2009-33: "La protection au titre du droit d’auteur s’étend aux expressions et ne couvre pas : - les idées, procédures, méthodes de fonctionnement ou concepts mathématiques, en tant que tels. - les textes officiels d’ordre législatif, administratif ou judiciaire et leurs traductions officielles." The Arabic page reads "تشمل الحماية الممنوحة بموجب حق المؤلف أوجه التعبير ولا تشمل : ... ـ النصوص الرسمية ذات الصبغة التشريعية أو الإدارية أو القضائية وترجمتها الرسمية،" (it adds a third tiret on daily news that the French page does not carry). The IORT footer "جميع الحقوق محفوظة" does not override this for the text of the law. Not checked: a later amendment of Art. 1 (legislation.tn is blocked from the cloud address). So the Arabic texts pass as official texts and the IORT French edition as an official translation; whether an IORT French edition is an "official translation" in the statute's sense is the reading Varun decides.
+
+### Browser recipe (IORT, the gazette publisher)
+
+`curl` over https is reset, and over http returns only a redirect stub:
+
+```
+$ curl -sS -A 'Mozilla/5.0' https://www.iort.gov.tn/
+curl: (35) Recv failure: Connection reset by peer
+$ curl -sS -A 'Mozilla/5.0' -w '%{http_code} %{size_download} %{content_type}\n' http://www.iort.gov.tn/
+<meta http-equiv="Refresh" content="0; url=http://www.iort.gov.tn/WD120AWP/WD120Awp.exe/CONNECT/SITEIORT">  200 159 text/html
+```
+
+The target is a WebDev session site (the session id `CTX_...` and a request counter `SYNC_...` sit in the URL), so no URL reaches a text twice. Playwright (headless Chromium, default launch, user agent `Mozilla/5.0`) works over http. Steps: open `http://www.iort.gov.tn/`, wait 2.5 s, click the text "الرائد الرسمي الأخير", wait, click "البحث عن النص", wait; select the year in `#A8` by label, type the number in `#A6`, select the category in `#A9` by label (قانون, مرسوم, أمر, قرار, رإي); run `_JSL(_PAGE_,'A40','_self','','')` (search button, no id) and wait 4 s; then set `_PAGE_.A4.value=1` (first result row) and run `_JSL` with `A17` and target `_blank` (Arabic full text, opens a page), `A16` and `_blank` (French edition, opens a page), or `A7` and `_self` (PDF download). The text is read from the element `#tzA21` as `innerText` (paragraphs and headings as line breaks, tags stripped, nothing reworded); `fetched_sha256` of an HTML record is the sha256 of `page.content()` of that page, the HTML as received after the site's scripts ran.
+
+Run on 2026-11-03 for Loi n° 2018-35 (year 2018, number 35, category قانون): Arabic page `200 text/html; charset=utf-8`, 25229 bytes, 2618 characters of text; French page 30975 bytes, 4231 characters; PDF `Loi2018_35Arabe.pdf` `200 application/pdf` 284054 bytes (a gazette page excerpt, not used). A second fetch returned the same text but a different HTML hash (the page carries a per-session token), so `fetched_sha256` of the HTML records is not reproducible; the text is. The PDFs reproduced byte for byte: `JournalArabe0521988.pdf` and `JournalArabe0831992.pdf` gave the same sha256 on two fetches. Browser-fetched records (list for GEL-03 retro C4): all six Tunisia records.
+
+The first session reported a cut-off of IORT HTML pages at about 12,000 characters; it did not reproduce. Loi 2009-33 (Arabic 35046 characters, French 50341) and Loi 2015-36 (Arabic 50209, French 73640) came back complete, each ending with the signature of the President.
+
+### Stored
+
+| Instrument | Language | Row | Record date | Source |
+|---|---|---|---|---|
+| `tn-loi-2018-35` | ar, fr | adopted, translation | 2018-06-19 (JORT n° 49, no commencement clause) | IORT HTML |
+| `tn-loi-2015-36` | ar, fr | adopted, translation | 2015-09-29 (JORT n° 77-78, no commencement clause) | IORT HTML |
+| `tn-loi-1988-91` | ar | adopted | 1988-08-02 (JORT n° 52, no commencement clause) | OCR of the gazette PDF |
+| `tn-loi-1992-117` | ar | adopted | 1993-06-01 (Art. 50) | OCR of the gazette PDF |
+
+### OCR
+
+The 1988 and 1992 laws are served only as image PDFs of the whole gazette issue (`pdftotext -layout` returns no text: 32 and 16 bytes). The files were downloaded with the recipe above, `apt-get install tesseract-ocr tesseract-ocr-ara tesseract-ocr-fra` (tesseract 5.3.4), `pdftoppm -r 200 -gray file.pdf p`, then `tesseract <crop> <out> -l ara --psm 6` on each column crop (`OMP_THREAD_LIMIT=1`). The pages hold two columns and several laws, so each page was cropped into its right and left column (x split at 816 px of 1640), reading order right column then left column, and only the crops that hold the law were kept: 1988 gazette p. 1087 left column from the title down (PDF page 5) and p. 1088 (PDF page 6) to the signature; 1992 gazette pp. 1583 to 1586 (PDF pages 3 to 6), p. 1586 left column down to the signature (the next law starts below). Crop edges came from tesseract word positions of the page footer and the title. The OCR output is stored as is: nothing corrected, reflowed or reworded by hand, recognition errors included (for example "ياسم" for "باسم", "القصل" for "الفصل"); `fetched_url` and `fetched_sha256` are those of the original PDF, and the record has `"extraction": "ocr"`. The checks run on the branch are in the PR.
+
+### Languages
+
+Arabic is the authentic language and is stored under `TN-IORT-ADOPTED`. French is the IORT French edition ("deux langues" link of the text search, action `A16` above), stored under `TN-IORT-TRANSLATION` as the brief says; it exists for recent texts only: the French link of the 1988 and 1992 laws returns the Arabic page, so no French record exists for them. No government English text was found: IORT's "English" link is a site language switch, and legislation.tn, the other place one would look, is blocked from the cloud address.
+
+### Link-only and not stored
+
+- `TN-LEGISLATION-CONSOLIDATED` (legislation.tn): `curl: (35) Recv failure: Connection reset by peer` over https (HTTP 503 over http), HTTP 502 from headless Chromium; blocked from the cloud address, so no terms read and no consolidation stored. The orchestrator can read https://legislation.tn/ from the laptop.
+- `TN-CMF-ADOPTED` (cmf.tn answers curl `200`, 65962 bytes): footer "Copyright © 2026 Conseil du Marché Financier", no reuse grant, permission requested. No CMF instrument is in scope; a CMF règlement is approved by arrêté and published in the JORT, which is the route IORT would serve.
+- `TN-BVMT-ADOPTED` (tunis-stockexchange.com answers curl `200`, 181135 bytes; bvmt.com.tn redirects there): footer "2026 © La Bourse de Tunis", permission requested; the Guide de reporting ESG 2021 was not found on the site; no instrument in scope.
+- `TN-MEDD-ADOPTED` (environnement.gov.tn answers curl `200`, 218946 bytes): footer "Tous droits réservés 2022", permission requested; the Guide méthodologique et de reporting RSE PDF (`https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`, 200, 7321207 bytes, `application/pdf`) is voluntary guidance, not an enacted instrument, so it has no scope entry and nothing is stored.
+- Not in scope.json: Décret gouvernemental n° 2018-263 du 12 mars 2018 (governance of the Paris Agreement work, family F7, register row only). No binding GHG reporting or carbon pricing instrument was found on IORT; legislation.tn could not be opened to confirm. No application decree of Loi 2018-35 was located (the IORT advanced search could not be driven), so none is in scope.
+
+## North Korea
+
+GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
+
+Requests made (curl, then headless Chromium with Playwright `page.goto(url, {timeout: 30000})`; Chromium got the same proxy answer):
+
+```
+curl -sS -m 25 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' http://www.naenara.com.kp
+```
+
+Returned `503 114 text/plain`; the body is "upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout" (sha256 of body plus status line `719f467bca080bedf90ff26e725031a62a758a4841e577fb6992f0647bced3e9`, the same on four runs). `http://www.kcna.kp` returned the same `503 114 text/plain`; `http://www.kcna.kp/en` and `http://www.ryongnamsan.edu.kp` returned `503 48`; `http://www.rodong.rep.kp` returned `503 114`; `https://www.naenara.com.kp`, `https://naenara.com.kp` and `https://www.kcna.kp` returned no answer (curl exit, code 000). Chromium: naenara 503 (265 bytes), kcna 503 (199 bytes).
+
+South Korean copies, read for titles only and nothing stored:
+
+- `https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95`: `403 203 text/plain; charset=utf-8`, "Automated collection is not permitted. Terms: https://www.nk-law.kr/terms#copyright". Not retried with a browser, because the terms forbid automated collection. The title and the 2021-04-30 version date come from the existing register row.
+- `https://www.unilaw.go.kr` (Ministry of Unification): connection reset by peer (curl exit 35) on three tries.
+
+Web search (titles and decree numbers only, no text taken): climate-laws.org and the LSE Grantham Institute copy of the Air Pollution Control Act (adopted 2012-07-11, Decree No. 2520, amended by Decree No. 3292 of 2013-07-24); lawandnorthkorea.com on the Copyright Law (2012 text keeps an exclusion for state administration documents "as long as they have no commercial purpose"; article number not confirmed, no state copy found).
+
+### Languages
+
+Korean is the only official language. No government English translation was found; the state hosts did not answer, so none was looked for there beyond that. No translation row was made.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `kp-environmental-protection-law` | Row `KP-NAENARA-ADOPTED`, permission requested: the portal could not be opened and no state host serves law text. |
+| `kp-air-pollution-control-act` | Same row and reason. |
+
+Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
+
+## Syria
+
+Run 2026-11-03 from the cloud address. One `pass` row: SY-MOLAE-ADOPTED (Ministry of Local Administration and Environment), verdict `pass` on the statute (Legislative Decree 62 of 2013, Art. 4(a)(3), no copyright in laws and official documents), not on site terms: molae.gov.sy has no terms page and its footer says all rights reserved 2025.
+
+### SY-MOLAE-ADOPTED
+
+```
+curl -sS -o l12.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://molae.gov.sy/wp-content/uploads/2025/11/قانون-12-بشأن-حماية-البيئة.pdf"
+200 227143 application/pdf
+```
+
+Instrument `sy-environment-protection-law-12-2012`. The URL is linked from https://molae.gov.sy/law (HTTP 200, 58628 bytes, text/html). A second fetch gave the same bytes: sha256 `09cb4340e41a96076e86f6e54b8015ceb34e740be1de06a34ff834b117b291fa`, which is `fetched_sha256` (hash of the PDF as received). The file name carries an upload month (`2025/11`), so the URL is found from the law page, not guessed.
+
+Text extraction: `pdftotext -layout l12.pdf -` returns text in which every lam-alef ligature has its letters in reverse order (`اآلتية` for `الآتية`, `ميالدي` for `ميلادي`), so it is not stored. OCR was used instead: `pdftoppm -r 300 -png l12.pdf pg` then `tesseract pg-NN.png pg-NN -l ara` for the 11 pages (tesseract 5.3.4, `ara` language pack, installed with apt in the session). Blank lines were dropped and runs of spaces collapsed; nothing else was changed. The record carries `"extraction": "ocr"`. The OCR reads letters well and Arabic-Indic digits badly (the issue date `29-3-2012` comes out as `7٠١1١7-5-759`), so the digits in the stored text are unreliable; the issue date in scope.json was read from the pdftotext output, whose digits are correct.
+
+### Languages
+
+Arabic only (`ar`), the language the Ministry serves. No row for English: molae.gov.sy has an English switch (https://molae.gov.sy/ with `pll_language`) but the law page serves only the Arabic PDF; no Syrian state host publishes a government English translation of the law.
+
+### Link only, no statute stored
+
+- `Law No. 50 of 2002` (register row only, repealed by Art. 24 of Law 12 of 2012): no state host serves the text.
+- `Legislative Decree No. 8 of 2021` (consumer protection, register row only): no state host serving it was reached (mintrade.gov.sy answers `CONNECT tunnel failed, response 502`).
+- Climate framework act, carbon market instrument, financial-market sustainability rule: none found. Searched: the law, regulation, circular and board-decision lists of dse.sy and scfms.sy, the legislation lists of cb.gov.sy (laws and decrees, decisions, circulars), the law and circular lists of molae.gov.sy, and the web. Keywords tried: استدامة، مناخ، بيئة، المسؤولية الاجتماعية. Only a list-page keyword scan was done for dse.sy, scfms.sy and cb.gov.sy, not a read of each linked PDF.
+- moj.gov.sy answers (WordPress news and circulars site; its only terms-like page is a privacy policy, no reuse terms); it serves no law texts that were found, so no row.
+- The People's Assembly, the Prime Ministry gazette and SANA were not reachable (see the Blocked list in the PR).
+
 ## Maldives
 
 Rows `MV-MVLAW-ADOPTED`, `MV-MVLAW-CONSOLIDATED`, `MV-AGO-TRANSLATION` and `MV-GAZETTE-ADOPTED` (`pass`, statute: Copyright and Related Rights Act 23/2010 s. 6(b), opened on mvlaw.gov.mv) and `MV-CMDA-ADOPTED` (`permission requested`). Run on 2026-11-03. None of the sites has a terms page: mvlaw.gov.mv, old.mvlaw.gov.mv, gazette.gov.mv and cmda.gov.mv carry only a copyright footer, so the first four rows rest on the statute alone. The statute reads "translations of such documents" without naming a translator; the translation row says so and Varun may overrule it. Stock exchange (stockexchange.mv, HTTP 200, footer "© 2026 Maldives Stock Exchange", no terms page) and the Maldives Monetary Authority (mma.gov.mv, an Angular shell; the rendered laws page lists no sustainability or climate item) serve no instrument in scope, so they get no row.
