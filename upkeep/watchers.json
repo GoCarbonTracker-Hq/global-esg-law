@@ -10207,6 +10207,87 @@
   }
  },
  {
+  "id": "ga-ordonnance-019-2021-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-ordonnance-019-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/17690-019-2021/"
+ },
+ {
+  "id": "ga-loi-018-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-018-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19432-018-2022-/"
+ },
+ {
+  "id": "ga-decret-00291-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-00291-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19372-00291-pr-mefmepcpat-mer-/"
+ },
+ {
+  "id": "ga-decret-0054-2025-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-0054-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/21565-0054-pr-mecchf-/"
+ },
+ {
+  "id": "ga-loi-041-2025-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-041-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/22265-041-2025-/"
+ },
+ {
+  "id": "ga-loi-002-2026-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-002-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/22595-002-2026/"
+ },
+ {
+  "id": "ga-loi-007-2014-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-007-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/6186-007-2014/"
+ },
+ {
+  "id": "ga-decret-0020-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-0020-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19525-0020-pr-mefmepcpat-/"
+ },
+ {
+  "id": "ga-loi-14-98-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-14-98",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/10003-14-98/"
+ },
+ {
   "id": "ag-epma-2019-laws-gov-ag-annual",
   "source_id": "AG-LAWSGOV-ADOPTED",
   "iso2": "AG",
