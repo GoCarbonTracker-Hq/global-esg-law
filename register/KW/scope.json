@@ -1,0 +1,59 @@
+[
+  {
+    "id": "kw-cma-circular-4-2025",
+    "title": "Circular No. (04) of 2025 to all companies listed in the Premier Market on sustainability reporting",
+    "official_url": "https://www.cma.gov.kw/ar/web/cma/cma-board-releases/resolutions-and-regulations/-/cmaboardreleases/detail/1627102",
+    "citation": "CMA Circular No. (04) of 2025, issued 2025-02-12 under Art. 1-17-4 of Book 12 (Listing Rules) of the Executive Regulations of Law No. 7 of 2010",
+    "in_force": "2025-02-12",
+    "evidence": "The circular has no commencement clause, so its issue date is used. It ends \"صدر بتاريخ: 12/02/2025\" and says \"الإفصاح عن تقرير الاستدامة سيكون إلزامياً على هذه الشركات اعتباراً من عام 2026\" (sustainability report disclosure will be mandatory for these companies from 2026; reports for 2025 are due by the end of June 2026). Opened https://www.cma.gov.kw/ar/web/cma/cma-board-releases/resolutions-and-regulations/-/cmaboardreleases/detail/1627102 and the attached scan https://www.cma.gov.kw/documents/55799/1627092/%D8%AA%D8%B9%D9%85%D9%8A%D9%85%20%D8%B1%D9%82%D9%85%20(04)%20%D9%84%D8%B3%D9%86%D8%A9%202025.pdf/0ca59dc0-b168-451a-4744-7b2d911e4ccf on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "KW-CMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Premier Market is the Arabic \"السوق الأول\" (first market). The circular cites Art. 1-17-4 of Book 12 of the Executive Regulations of Law 7 of 2010 and tells Boursa Kuwait to amend its rules; the Boursa guide is voluntary guidance of the exchange company and has no scope entry. Record text is the Arabic page text of the CMA detail page, compared line by line with the attached scan (a one-page image PDF with no text layer); the page says the scan prevails. The CMA publishing policy reserves rights and allows personal-use copying only; the row passes on Law 75 of 2019 Art. 4 item 2 (official administrative texts), which Varun is asked to confirm. Languages: ar stored. No English stored: the CMA English page https://www.cma.gov.kw/en/web/cma/cma-board-releases/resolutions-and-regulations/-/cmaboardreleases/detail/1627102 exists, but its row KW-CMA-TRANSLATION is permission requested (page says reference purposes only, no official English scan).",
+    "status": "stored"
+  },
+  {
+    "id": "kw-epl-42-2014",
+    "title": "Environmental Protection Law No. (42) of 2014, as amended by Law No. (99) of 2015",
+    "official_url": "https://epa.gov.kw/EPALaw",
+    "citation": "Law No. 42 of 2014 on the Environment Protection (Kuwait Al-Yawm), amended in part by Law No. 99 of 2015",
+    "in_force": null,
+    "evidence": "Art. 181 (last article), EPA booklet EPALaw2015.pdf p. 163, read from the page image on 2026-11-03: \"على رئيس مجلس الوزراء والوزراء كل فيما يخصه تنفيذ هذا القانون ويعمل به بعد انقضاء ثلاثة أشهر من تاريخ نشره في الجريدة الرسمية.\" (effective three months after publication in the Official Gazette). No page the session could open states the publication date: the EPA pages and booklet give none, and Kuwait Al-Yawm needs registration. The earlier register URL (https://kdipa.gov.kw/wp-content/uploads/2021/03/422014.pdf) is a reprint whose footer reads \"www.mohamoon-kw.com\", not an official copy; its header says Kuwait Al-Yawm issue 1192, Sunday 15 Ramadan 1435 = 13 July 2014, which would give 2014-10-13. That date is not used.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KW-EPA-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Environmental framework act (181 articles); mapped to F2. Its emissions provisions are F3 content: Art. 52 requires installations not to emit or leak air pollutants above the limits set by the executive regulation and to monitor emissions continuously and report exceedances to the Authority at once (English reading of EPALAWEN.pdf; Arabic Art. 52 not read). The executive regulations are separate entries (kw-epa-outdoor-air-8-2017, kw-epa-gas-flaring-5-2020). The register URL was replaced by the EPA page; the title is unchanged. Link only: the EPA Arabic booklet https://epa.gov.kw/Portals/0/PDF/EPALaw2015.pdf (HTTP 200, 16611109 bytes, 164 pages) is image-only, so no text can be extracted; OCR was not stored. English: EPA serves https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf (OCR-style text layer, states Law 99 of 2015 is included); row KW-EPA-TRANSLATION is permission requested and the Arabic is not stored, so no English record. The gazette (Kuwait Al-Yawm issue 1192) is behind registration and the Fatwa and Legislation Department host did not answer from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "kw-epa-outdoor-air-8-2017",
+    "title": "Environment Public Authority Decision No. (8) of 2017 issuing the Executive Regulation on outdoor air protection from pollution (executive rules for Part Three of Environmental Protection Law No. 42 of 2014)",
+    "official_url": "https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf",
+    "citation": "EPA Decision No. (8) of 2017, Kuwait Al-Yawm issue 1345 of 2017-06-18; amended by Decision No. (5) of 2020 (issue 1490, 2020-07-05) and Decision No. (4) of 2022 (issue 1574, 2022-02-20)",
+    "in_force": "2017-06-18",
+    "evidence": "Art. 2 of the decision: \"يُنشر هذا القرار واللائحة المرافقة له بالجريدة الرسمية (الكويت اليوم)، ويُعمل به من تاريخ نشره.\" (effective from the date of publication). The cover page of the EPA PDF states \"المنشور في جريدة الكويت اليوم العدد 1345 الاحد 23 رمضان 1438هـ - 2017/6/18م\". Opened https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf on 2026-11-03 (page images).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "KW-EPA-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Executive rules for Part Three of Law 42 of 2014 on outdoor air pollution (Arts. 48, 51, 52, 54, 55 and 57 to 64, per the regulation's own title page), including the emission limits Art. 52 refers to. The EPA PDF is a consolidated compilation (HTTP 200, 6823933 bytes, 30 pages) whose cover lists the original decision, Decision 5 of 2020 and Decision 4 of 2022; the commencement of Decision 4 of 2022 was not read. Link only: the PDF text layer is legacy-encoded Arabic (glyph codes, not letters), so no usable text; OCR was not stored. No English found on epa.gov.kw (the English law page offers only EPALAWEN.pdf, which is the Law). The in force date is the first one; the compilation's later states are not stored.",
+    "status": "link only"
+  },
+  {
+    "id": "kw-epa-gas-flaring-5-2020",
+    "title": "Environment Public Authority Decision No. (5) of 2020 issuing the gas flaring regulation (Art. 52 of the Environmental Protection Law), supplementing the outdoor air protection regulation of Decision No. (8) of 2017",
+    "official_url": "https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf",
+    "citation": "EPA Decision No. (5) of 2020, Kuwait Al-Yawm issue 1490 of 2020-07-05 (issued 2020-06-30)",
+    "in_force": "2022-01-01",
+    "evidence": "Art. 3 of the decision, page 49 of Kuwait Al-Yawm issue 1490 as scanned in the EPA PDF: \"على جميع الجهات والإدارات – كل فيما يخصه – تنفيذ هذا القرار ويعمل به اعتباراً من 2022/1/1 وينشر في الجريدة الرسمية.\" Opened https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf on 2026-11-03 (page image).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "KW-EPA-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "amends": "kw-epa-outdoor-air-8-2017",
+    "notes": "Gas flaring regulation under Art. 52 of Law 42 of 2014, part of the outdoor air regulation (Art. 2 of the decision). Art. 3 of the regulation caps flared gas at 5% of daily production from 1 January 2022 (as read on the page image; stated for orientation only). Link only: the PDF (HTTP 200, 3723073 bytes, 6 pages) is a gazette scan with a garbage text layer; OCR was not stored. No English found on epa.gov.kw.",
+    "status": "link only"
+  }
+]
