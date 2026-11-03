@@ -11516,5 +11516,65 @@
   "params": {
    "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
   }
+ },
+ {
+  "id": "fj-climate-change-act-2021-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF.CAP106B.CCAFJ21.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/3290 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-environment-management-act-2005-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-environment-management-act-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EMAFJ05.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2576 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-ema-amendment-act-2025-laws-published",
+  "source_id": "FJ-LAWS-ADOPTED",
+  "iso2": "FJ",
+  "instrument": "fj-ema-amendment-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/show_pdf_lawsaspublished/1841",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/law-as-published (browser; Laws as Published list)"
+  }
+ },
+ {
+  "id": "fj-ema-eia-regulations-2007-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-ema-eia-regulations-2007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EPRFJ07.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2576 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-fccc-act-2010-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-fccc-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF.CAP235F.CCAFJ10.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2733 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
  }
 ]
