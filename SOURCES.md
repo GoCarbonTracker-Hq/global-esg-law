@@ -4333,6 +4333,64 @@ Albanian is the only official language. English: `kkk.gov.al` has no English sec
 - Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
 - Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
 
+## Bosnia and Herzegovina
+
+Run 2026-11-03 by GEL-11-01 from the cloud address. Four licence rows: `BA-PARLAMENTFBIH-ADOPTED` and `BA-NSRS-ADOPTED` pass on the statute (Law on Copyright and Related Rights, Sl. glasnik BiH 63/10, art. 8(1)(b), quoted in both rows from the free gazette page https://sluzbenilist.ba/page/akt/U4XQiuAywzo=); `BA-SLUZBENILIST-ADOPTED` and `BA-SLGLASNIK-ADOPTED` are `permission requested` because the gazette act texts and PDFs need a subscription login. Art. 8(2) protects translations of official texts unless published as official texts; no government English translation was found, so there is no translation row. All fetches below are plain `curl` without a browser; no browser-fetched record exists.
+
+### BA-PARLAMENTFBIH-ADOPTED
+
+Proven request, run 2026-11-03, instrument `ba-fbih-law-banks-2025-amend`:
+
+```
+curl -sS -L -o banks.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2025/B%20-%20Pr%20Zakon%20o%20bankama.pdf"
+200 404051 application/pdf
+```
+
+The same pattern served `Usvojeni%20materijali_2021/Zakon%20o%20racunovodstvu%20i%20reviziji%20_bos.pdf` (200, 620656, application/pdf) and `Usvojeni%20materijali_2020/Zakon%20o%20zastiti%20okolisa%20%20bosanski%20jezik.pdf` (200, 544065, application/pdf). A second fetch gave the same bytes (sha256 equal). File URLs are found on the Parliament's law pages (for example https://parlamentfbih.gov.ba/v2/bs/propis.php?id=232). The files are the Parliament copy of the adopted act (the 2025 Banks file is named "Pr Zakon", but its text is the signed amending law with the presiding officers' names, not a draft). Gazette numbers and dates are not in the files: they were read from the free issue pages of sluzbenilist.ba (below). Text: `pdftotext -layout banks.pdf -` (poppler), each line stripped, runs of spaces collapsed, form feeds as line breaks, blank lines dropped; output checked for mojibake (no private-use or replacement characters; Bosnian diacritics intact). Page numbers stay in the text.
+
+### BA-NSRS-ADOPTED
+
+Proven request, run 2026-11-03, instrument `ba-rs-accounting-auditing-law`:
+
+```
+curl -sS -L -o acc.zip -w "%{http_code} %{size_download} %{content_type}\n" "https://www.narodnaskupstinars.net/sites/default/files/upload/dokumenti/akti/usvojeni_zakoni/la/Zak%20o%20rac%20%20i%20reviziji.zip"
+200 276234 application/zip
+```
+
+The zip holds one `.docx`. Text: Python `zipfile`, `word/document.xml`, the `w:t` runs of each paragraph joined, runs of spaces collapsed, empty paragraphs dropped (no external tool). The zip link is on the law page https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-racunovodstvu-i-reviziji-republike-srpske-2. Each page has a Latin (`/la/`) and a Cyrillic (`/ci/`) version; the Latin one is stored as `sr`, so the Cyrillic script is not stored.
+
+### Gazette pages (free parts, used for gazette numbers and dates)
+
+```
+curl -sS "https://www.sluzbenilist.ba/Docs/Izdanja?godina=2025&nivoIzdavanja_FK=2"
+```
+
+answers a list of issue links for Službene novine FBiH 2025 (`nivoIzdavanja_FK=2` is Službene novine FBiH; 100 issue buttons for 2025 as served). Issue pages (`/page/i/<id>`) are open and give number, date and act titles: 22/25 is [26.3.2025.] and lists the Law on Amendments to the Law on Banks; 15/21 is [24.2.2021.] and lists the Law on Accounting and Auditing and the Law on Environmental Protection. The PDF request fails:
+
+```
+curl -sS -L -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://www.sluzbenilist.ba/page/PdfDownload?BrojIzdanja=22&NivoIzdavanja_FK=2&GodinaIzdanja=2025"
+200 19972 text/html; charset=utf-8
+```
+
+The body is the page saying "Nemate prava na odabrani pdf fajl! Logirajte se pa ponovo odaberite željeni fajl!". Free issues: not determined for the whole archive; only the issue lists were open in every year read (2021, 2025). The Republika Srpska gazette behaves the same: `curl -sS -L -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://online.slglasnik.org/sr/propisi/102-2026/pdf/sr"` gives `200 16321 text/html; charset=UTF-8` (the login page), for `/sr`, `/hr` and `/bs`.
+
+### Languages
+
+Bosnian (bs): the three Federation acts. Serbian (sr, Latin script): the Republika Srpska accounting law. The gazettes publish every act in Bosnian, Croatian and Serbian (language switch https://www.sluzbenilist.ba/Shared/ChangeUserLanguage/BA-HR, `/BA-SR`; tabs on https://online.slglasnik.org/sr/pregled), but the language versions are behind the login, and neither state host serves more than one language per act, so Croatian versions are not stored and the Serbian version of the Federation acts and the Bosnian version of the Republika Srpska law are not stored. English: no government translation was found on parlamentfbih.gov.ba, narodnaskupstinars.net or the sluzbenilist.ba search; no translation row.
+
+### Link only
+
+- `ba-rs-environmental-protection-law`: the National Assembly page attaches `Zakon_o_zastiti_zivotne_sredine_2.zip` (200, 158454 bytes, application/zip) holding a legacy `.doc`; no reader in the repo, and no publication date on an official page. Row `BA-NSRS-ADOPTED` passes.
+- `ba-consumer-protection-law`: row `BA-SLUZBENILIST-ADOPTED` is permission requested (act link opens a login dialog); no free state-host copy found.
+- Not an instrument in scope: the ABRS climate risk guidelines (https://abrs.ba/wp-content/uploads/2023/12/SmjerniceUpravljanjeKlimatskimRizicima.pdf, 200 application/pdf, 356071 bytes) are F7 in `register.csv`, supervisory expectation; no licence row was written.
+
+### Blocked and not reached
+
+- https://www.fba.ba and https://fba.ba: blocked from the cloud address, `curl: (60) SSL certificate problem: unable to get local issuer certificate`. Not retried with certificate checks off. The Banking Agency of the Federation (climate and environmental risk guidelines, Sl. novine FBiH 57/2023 per an earlier note) is therefore not read.
+- https://www.komvp.gov.ba, https://www.secrs.gov.ba, https://www.sase.ba (200, 223 bytes), https://www.blberza.com (302 to /Pages/Default.aspx, 200): answered, but the home pages were not read for ESG disclosure rules and no terms were assessed. No licence row for them.
+- https://www.slglasnik.org/cyr/stranice/pretplata answered 404 (guessed path).
+- https://www.vijeceministara.gov.ba answered 307 with an empty body; not followed.
+
 ## San Marino
 
 Run on 2026-11-03 (GEL-11-09). No row passes, so nothing is stored and there is no `records/SM/`. Rows added: `SM-CGG-ADOPTED`, `SM-CGG-CONSOLIDATED`, `SM-CGG-TRANSLATION` (Consiglio Grande e Generale, consigliograndeegenerale.sm), `SM-BU-ADOPTED` (Bollettino Ufficiale, bollettinoufficiale.sm) and `SM-BCSM-CONSOLIDATED` (Banca Centrale, bcsm.sm). All five are `permission requested` on the terms basis: the Consiglio and Bollettino footers carry a copyright line and no reuse licence, the BCSM legal notice says the site content is "protetti quali opera dell'ingegno", and the Bollettino says consulting the Parte Ufficiale is "libera e gratuita", which is access, not reuse. The statute route was read and not applied: Legge 25 gennaio 1991 n.8 Art.98 lett. f) makes the reproduction of acts of the State or of the Pubbliche Amministrazioni a free use, it does not remove copyright, and Art.32 (as replaced by Legge n.43/1998 art.2) keeps adaptation and translation as exclusive rights (quoted in the `statute_exception` of each row). Varun's decision is listed in the PR. gov.sm (Dipartimento Territorio e Ambiente) was not used as a source, so it has no row: the environmental law text is on the Consiglio site, and `https://www.gov.sm/pub1/GovSM/Note-legali.html` answered 404.
