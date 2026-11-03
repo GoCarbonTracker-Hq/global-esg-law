@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ad-litecc",
+    "title": "Llei 21/2018, del 13 de setembre, d'impuls de la transició energètica i del canvi climàtic (Litecc)",
+    "official_url": "https://www.bopa.ad/Legislacio/Detall?doc=CGL20180928_13_54_03",
+    "citation": "Llei 21/2018 (Litecc), BOPA no. 57, 3 October 2018",
+    "in_force": "2018-10-04",
+    "evidence": "Disposició final divuitena: \"Aquesta Llei entrarà en vigor l'endemà de ser publicada al Butlletí Oficial del Principat d'Andorra.\" The issue file (https://documents.bopa.ad/bopa-documents/030057/pdf/CGL20180928_13_54_03.pdf) is headed \"Núm. 57 3 d'octubre del 2018\" and the BOPA issue list (GetMonthButlletins, 2018-10) gives that issue 2018-10-02T22:00Z, which is 3 October in Andorra, so 4 October 2018 is computed from the clause and the issue date; no page states the date. Opened 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AD-BOPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Climate framework act: national targets, Fons verd (art. 9), national energy and climate strategy and bodies (arts. 10 to 13), electricity, buildings and mobility measures, national offset market (art. 50, implemented by ad-decret-303-2021) and infractions and sanctions (arts. 56 to 66); art. 60 makes liable the persons who commit, order, own or promote the activity or omit a duty, so the duty sits on private parties such as distributors, retailers and owners as well as the state. Record is the act as published; BOPA serves no consolidation, so later amendments (for example Llei 19/2021 disposició final segona, which changes art. 57.10) are not merged. The earlier register date of 2018-10-03 came from the UNEP LEAP version label and is replaced by the computed 2018-10-04. Language stored on 2026-11-03: ca (Catalan, the only official language). No official English translation was found: looked at govern.ad (home and a site search of its document library through a web search), consellgeneral.ad and bopa.ad (no translation function), and afa.ad; the only English government documents found were the Constitution and sovereign-bond and IMF reports, none a translation of this instrument.",
+    "status": "stored"
+  },
+  {
+    "id": "ad-llei-19-2021",
+    "title": "Llei 19/2021, del 8 de juliol, de modificació de la Llei 27/2008, del 20 de novembre, d'impostos especials",
+    "official_url": "https://www.bopa.ad/Legislacio/Detall?doc=CGL20210721_11_40_36",
+    "citation": "Llei 19/2021 modifying Llei 27/2008, BOPA no. 83, 28 July 2021",
+    "in_force": "2021-08-12",
+    "evidence": "Disposició final tercera: \"Aquesta Llei entra en vigor al cap de quinze dies de ser publicada al Butlletí Oficial del Principat d'Andorra.\" The issue file (https://documents.bopa.ad/bopa-documents/033083/pdf/CGL20210721_11_40_36.pdf) is headed \"Núm. 83 28 de juliol del 2021\"; 28 July plus 15 days gives 12 August 2021, computed, not stated. Opened 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AD-BOPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adds the CO2 branch to the special hydrocarbons tax: EUR 30 per tonne CO2e as the general rate, phased in from 2022 for the main heating-fuel agents (exposició de motius); the rate tables are in the record text. Record is the amending act as published; Llei 27/2008 itself is not in scope and BOPA serves no consolidated text, so later rate changes (a text search of the 131 laws of 2021 to 2026 for CO2 found one mention, in the 2025 budget law, which was not read) are not merged. Language stored on 2026-11-03: ca (Catalan, the only official language). No official English translation was found: looked at govern.ad (home and a site search of its document library through a web search), consellgeneral.ad and bopa.ad (no translation function), and afa.ad; the only English government documents found were the Constitution and sovereign-bond and IMF reports, none a translation of this instrument.",
+    "status": "stored"
+  },
+  {
+    "id": "ad-decret-303-2021",
+    "title": "Decret 303/2021, del 22 de setembre del 2021, d'aprovació del Reglament del mercat nacional de compensació d'emissions de gasos amb efecte d'hivernacle",
+    "official_url": "https://www.bopa.ad/Legislacio/Detall?doc=GR20210923_14_22_45",
+    "citation": "Decret 303/2021, BOPA no. 101, 29 September 2021",
+    "in_force": "2021-09-30",
+    "evidence": "Article únic: \"S'aprova el Reglament del mercat nacional de compensació d'emissions de gasos amb efecte d'hivernacle, que entra en vigor l'endemà de ser publicat al Butlletí Oficial del Principat d'Andorra.\" The issue file (https://documents.bopa.ad/bopa-documents/033101/pdf/GR20210923_14_22_45.pdf) is headed \"Núm. 101 29 de setembre del 2021\"; 30 September 2021 is computed, not stated. Opened 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AD-BOPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regulation under art. 50 of ad-litecc: voluntary national market for greenhouse-gas offsets (carbon credits of one tonne CO2e), rules for projects, registry and transparency. Participation is voluntary (Litecc art. 51), so the duty falls on those who choose to offset or issue credits. No amendment was found in BOPA searches on 2026-11-03. Language stored on 2026-11-03: ca (Catalan, the only official language). No official English translation was found: looked at govern.ad (home and a site search of its document library through a web search), consellgeneral.ad and bopa.ad (no translation function), and afa.ad; the only English government documents found were the Constitution and sovereign-bond and IMF reports, none a translation of this instrument.",
+    "status": "stored"
+  },
+  {
+    "id": "ad-llei-13-2013",
+    "title": "Llei 13/2013, del 13 de juny, de competència efectiva i protecció del consumidor",
+    "official_url": "https://www.bopa.ad/Legislacio/Detall?doc=7FB8E",
+    "citation": "Llei 13/2013, BOPA no. 32, 10 July 2013",
+    "in_force": "2013-08-10",
+    "evidence": "Disposició final segona: \"Aquesta Llei entra en vigor al cap d'un mes de ser publicada al Butlletí Oficial del Principat d'Andorra.\" The printed page header of the issue file (https://documents.bopa.ad/bopa-documents/025032/pdf/7FB8E.pdf) reads \"Núm. 32 - Any 25 - 10.7.2013\"; 10 July plus one month gives 10 August 2013, computed, not stated. Opened 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "AD-BOPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading environmental claims: art. 26 (Publicitat, informació i oferta) requires advertising, information and offers to be truthful and objective and not to induce error or confusion; the Act has no environmental-claims provision of its own, and the register row says nothing about green claims specifically. Infractions and sanctions are in arts. 43 to 49. Record is the act as published; later amendments are not merged and a repeal was not looked for beyond a BOPA search of laws on 2026-11-03 that found no later consumer-protection law. BOPA no. 32 of 2013 predates 2015, so the digital text is a reproduction; the paper edition is the official one (BOPA terms). Language stored on 2026-11-03: ca (Catalan, the only official language). No official English translation was found: looked at govern.ad (home and a site search of its document library through a web search), consellgeneral.ad and bopa.ad (no translation function), and afa.ad; the only English government documents found were the Constitution and sovereign-bond and IMF reports, none a translation of this instrument.",
+    "status": "stored"
+  }
+]
