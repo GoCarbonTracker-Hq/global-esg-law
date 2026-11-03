@@ -9486,5 +9486,86 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/6052633"
+ },
+ {
+  "id": "mr-loi-2025-019-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2025-019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=%C3%A9valuation+environnementale&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2000-045-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2000-045",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=code+de+l%27environnement&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2004-094-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2004-094",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2004&field_numeroNN=94&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2007-105-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2007-105",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2007&field_numeroNN=105&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2020-007-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2020-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=protection+du+consommateur&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2024-027-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2024-027",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2024&field_numeroNN=27&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2018-017-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2018-017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=relative+%C3%A0+la+publicit%C3%A9&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "terms-mr-msgg-adopted",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://msgg.gov.mr/mentions-legales.html",
+  "change": "terms_changed",
+  "params": {}
  }
 ]
