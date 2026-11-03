@@ -7659,5 +7659,113 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "md-law-74-2024-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-law-74-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=4LpPuYmqp425Nk8J5DDO.pdf&format=pdf&subfolder=May2024/&page=6",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=ac%C8%9Biunile%20climatice (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-law-243-2025-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-law-243-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=HFDX0ePcVurbQOeHq63N.pdf&format=pdf&subfolder=August2025/&page=24",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=nr.%20243%20din%2010%20iulie%202025 (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-hg-575-2024-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-hg-575-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=ONvAKzbI5cgEf1TLaA94.pdf&format=pdf&subfolder=November2024/&page=6",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=emisiilor%20de%20gaze%20cu%20efect%20de%20ser%C4%83%20provenite%20de%20la%20instala%C8%9Biile%20sta%C8%9Bionare (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-hg-544-2024-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-hg-544-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=r81AGTAREvuthzkNmgGQ.pdf&format=pdf&subfolder=September2024/&page=42",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=emisiilor%20de%20gaze%20cu%20efect%20de%20ser%C4%83%20generate%20de%20transportul%20maritim (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-hg-257-2026-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-hg-257-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=KrMwKWDZCoLljyAecMGc.pdf&format=pdf&subfolder=May2026/&page=18",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=verificatorilor%20emisiilor%20de%20gaze%20cu%20efect%20de%20ser%C4%83 (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-hg-1277-2018-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-hg-1277-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=monitor_2099_ro_time_2019_02_07_18_20_33_.pdf&format=pdf&subfolder=January2020/&page=50",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=Sistemului%20na%C8%9Bional%20de%20monitorizare%20%C8%99i%20raportare%20a%20emisiilor%20de%20gaze%20cu%20efect%20de%20ser%C4%83 (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-law-287-2017-gazette-page",
+  "source_id": "MD-MONITORUL-ADOPTED",
+  "iso2": "MD",
+  "instrument": "md-law-287-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=monitor_2016_ro_time_2018_01_04_11_21_45_.pdf&format=pdf&subfolder=January2020/&page=47",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=Legea%20contabilit%C4%83%C8%9Bii%20%C8%99i%20raport%C4%83rii%20financiare (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-law-105-2003-gazette-page",
+  "source_id": "MD-MONITORUL-CONSOLIDATED",
+  "iso2": "MD",
+  "instrument": "md-law-105-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://monitorul.gov.md/flow/services/view.php?doc=KxunN7FzLgl3qoDQcIQO.pdf&format=pdf&subfolder=June2020/&page=10",
+  "params": {
+   "second_route": "https://monitorul.gov.md/ro/search?keywords=privind%20protec%C8%9Bia%20consumatorilor (browser or curl; the Monitorul Oficial search lists later issues that name the act, which this hash of the first printed page cannot show)"
+  }
+ },
+ {
+  "id": "md-law-1515-1993-legis-home",
+  "source_id": "MD-LEGIS-CONSOLIDATED",
+  "iso2": "MD",
+  "instrument": "md-law-1515-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legis.md/",
+  "params": {
+   "second_route": "https://www.legis.md/ (browser; legis.md answers scripts with a Cloudflare challenge, HTTP 403; look up Law 1515-XII/1993 there, and in the Monitorul Oficial search at https://monitorul.gov.md/ro/search?keywords=Legii%20nr.%201515-XII%20din%2016%20iunie%201993)"
+  }
  }
 ]
