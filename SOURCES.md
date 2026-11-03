@@ -4295,6 +4295,44 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
 
+## Albania
+
+Run on 2026-11-03 (GEL-11-03). Two rows pass on the statute basis, `AL-KKK-ADOPTED` and `AL-MJEDISI-ADOPTED` (Copyright Law No. 35/2016 Art. 12 para. 1 let. b, quoted in the rows; neither site has a terms page, only a footer copyright line, see the row notes). Two rows are `permission requested`: `AL-QBZ-ADOPTED` and `AL-QBZ-CONSOLIDATED`, because qbz.gov.al refused the cloud address. Language: Albanian only; no government English text was found (no row with form `translation`). One record is stored.
+
+Row `AL-KKK-ADOPTED`, Law No. 25/2018 as published (the link is read from `https://kkk.gov.al/ligji-per-kontabilitetin/`):
+
+```
+curl -sS -L -o ligj25.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kkk.gov.al/wp-content/uploads/2025/02/ligj-nr.-25-dt.-10.5.2018.pdf
+```
+
+Returned `200 162521 application/pdf`; sha256 `591de74d0022f24f238cd00004a635d6908f9da748b4ef416fcfaab5383b7707`, the same on three fetches. Text extraction: poppler `pdftotext -layout ligj25.pdf -`, form feeds turned into line breaks, each line stripped and runs of spaces or tabs collapsed, three or more line breaks reduced to two; no mojibake (non-ASCII characters seen: ë ç Ë Ç and punctuation). Page numbers and footnote text stay in the text as the PDF has them. The same site serves Law No. 87/2026 (`.../2026/08/Ligji-nr.-87-dt.-23.7.-2026.pdf`, `200 409788 application/pdf`) and a KKK consolidation (`.../2026/11/Ligji-25-2018-i-ndryshuar-me-ligjin-87-date-23.07.2026-new.pdf`, `200 308676 application/pdf`); neither is stored because no page states the Fletorja Zyrtare date, so there is no in-force date.
+
+Row `AL-MJEDISI-ADOPTED`, Law No. 155/2020 (link read from `https://mjedisi.gov.al/ndryshimet-klimatike/`; the page links the same file on the bare IP `20.52.97.34`):
+
+```
+curl -sS -L -o l155.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mjedisi.gov.al/wp-content/uploads/2023/07/Ligji-nr.-155-dt.-17.12.2020_PER-NDRYSHIMET-KLIMATIKE.pdf
+```
+
+Returned `200 144673 application/pdf`. Proven, but not stored (see below).
+
+### Languages
+
+Albanian is the only official language. English: `kkk.gov.al` has no English section for the legal acts, `mjedisi.gov.al/en/` pages link the Albanian PDF, and `qbz.gov.al` (where translations are expected) is blocked. No translation row, no English record. Law No. 35/2016 Art. 9 para. 5 protects translations of official texts unless made to inform the public officially, so a statute pass for an English text would need the publisher named and read first.
+
+### Link only
+
+- `al-law-87-2026`: row passes; no page reached states the Fletorja Zyrtare publication date (the act enters into force 15 days after it), so no dated record. Text fetch works (KKK URL above).
+- `al-climate-law-155-2020`: row passes; entry into force is 6 months after publication, date not stated on any page reached. Fetch works (above).
+- `al-environmental-protection-law-10431-2011`: no official text reachable (QBZ blocked; not on mjedisi.gov.al media search, `akm.gov.al` names the law only). Row `AL-QBZ-CONSOLIDATED` is `permission requested`.
+
+### Blocked from the cloud address
+
+- `https://qbz.gov.al` and `https://www.qbz.gov.al/`, `/akte`, `/eli/en`: `curl: (52) Empty reply from server` after the TLS handshake; headless Chromium (Playwright) `HTTP 502`, 174-byte body; `http://qbz.gov.al` answers `302` to https.
+- `https://amf.gov.al/` and `https://www.amf.gov.al/`: `403`, Cloudflare "Just a moment..." challenge (5305 bytes). AMF ESG rules not examined.
+- `https://akm.gov.al/` answered `200` (194772 bytes) at first and `curl: (52) Empty reply from server` on later requests.
+- Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
+- Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
+
 ## North Macedonia
 
 Run on 2026-11-03 (GEL-11-02). One row passes: `MK-SLVESNIK-ADOPTED` (JP Sluzben vesnik, free issue archive; statute basis, Law on Copyright and Related Rights Art. 16 item 2, quoted in the row; the publisher's terms page grants no licence and claims database rights over its paid database, so Varun to confirm). One row is `permission requested`: `MK-NBRM-TRANSLATION` (nbrm.mk is behind a Cloudflare challenge, nothing read). No browser recipe was needed for anything stored; no browser-fetched records.
