@@ -13189,5 +13189,65 @@
   "tier": "regulator_page",
   "url": "https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf",
   "params": {}
+ },
+ {
+  "id": "tj-green-taxonomy-res-170-nbt-ru-pdf",
+  "source_id": "TJ-NBT-ADOPTED",
+  "iso2": "TJ",
+  "instrument": "tj-green-taxonomy-res-170",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://nbt.tj/files/suboti-moliyavi/2026/4.%20%D0%A2%D0%90%D0%9A%D0%A1%D0%9E%D0%9D%D0%9E%D0%9C%D0%98%D0%AF%20-%D0%94%D0%98%D0%9F%2020.02.26-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9.pdf",
+  "params": {
+   "second_route": "https://nbt.tj/ru/suboti-moliyavi/stable-financing/index.php (browser; the page links the Russian and Tajik PDFs, and the Adlia record https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=173098 shows the resolution)"
+  }
+ },
+ {
+  "id": "tj-env-code-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-env-code",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=174541",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=174541 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-env-protection-2011-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-env-protection-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=167018",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=167018 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-consumer-rights-2004-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-consumer-rights-2004",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=25626",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=25626 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-advertising-2003-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-advertising-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
  }
 ]
