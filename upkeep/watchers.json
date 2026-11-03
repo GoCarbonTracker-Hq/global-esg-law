@@ -9486,5 +9486,89 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/6052633"
+ },
+ {
+  "id": "tg-climate-change-act-2025-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-climate-change-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/16214/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/loi-n-2025-006-du-14-avril-2025-portant-lutte-contre-les-changements-climatiques (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-carbon-mechanisms-decree-2023-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-carbon-mechanisms-decree-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/16061/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/decret-relatif-aux-mecanismes-de-carbone (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-carbon-sectors-order-2024-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-carbon-sectors-order-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/17310/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/arrete-definissant-les-secteurs-prioritaires-et-les-activites-eligibles-aux-mecanismes-de-carbone (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-carbon-homologation-order-2024-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-carbon-homologation-order-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/17311/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/arrete-definissant-la-procedure-dhomologation-des-projets-et-programmes-eligibles-aux-mecanismes-de-carbone (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-environment-framework-act-2008-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-environment-framework-act-2008",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/17904/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/loi-n-2008-005-du-30-mai-2008-portant-loi-cadre-sur-lenvironnement (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-environment-framework-amendment-2026-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-environment-framework-amendment-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/17726/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/loi-n-2026-007-du-24-mars-2026-modifiant-et-completant-la-loi-n-2008-005-du-30-mai-2008-portant-loi-cadre-sur-lenvironnement (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
+ },
+ {
+  "id": "tg-competition-act-1999-jo-gazette-pdf",
+  "source_id": "TG-JO-ADOPTED",
+  "iso2": "TG",
+  "instrument": "tg-competition-act-1999",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://new.jo.gouv.tg/api/journal-officiel/publications/13617/pdf/download",
+  "params": {
+   "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
+  }
  }
 ]

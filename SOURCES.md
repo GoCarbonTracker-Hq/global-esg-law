@@ -5595,3 +5595,49 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 - Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
+
+## Togo
+
+Run on 2026-11-03 (GEL-12-08). Two licence rows, both `permission requested`, so no text is stored and every instrument is link only. The proven requests below are for finding and reading the texts and the terms; they are not record recipes.
+
+Row `TG-JO-ADOPTED` (Journal Officiel de la République Togolaise, https://new.jo.gouv.tg): `permission requested` on the terms. The portal terms (section 5, all rights reserved, no licence granted; section 3, no commercial copying or modification without written permission) do not allow the tag-stripped, commercially used copy this repository stores. The copyright law (Loi n° 91-12 du 10 juin 1991, JO of 1991-08-02) was read by OCR and has no exclusion for laws or official texts (details in the row). The portal is an Angular application, so curl on a page returns an empty shell; the data comes from the JSON API behind it, which answered from the cloud address.
+
+Terms (the sections the page https://new.jo.gouv.tg/termes-conditions renders):
+
+```
+curl -sS -o t.json -w '%{http_code} %{size_download} %{content_type}\n' https://new.jo.gouv.tg/api/journal-officiel/cms/terms-conditions
+```
+
+Returned `200 9951 application/json`. Fingerprint of the row: `python3 -c "import sys,json,re,html,hashlib;d=json.load(open('t.json'))['result']['data'];t=' '.join(html.unescape(re.sub(r'<[^>]+>',' ',x['content'])) for x in d);t=re.sub(r'\s+',' ',t).strip();print(hashlib.sha256((t+'\n').encode()).hexdigest())"` gives `6e4554fdbcb662638e108f0b8ae41597d562802f359fc113f64d945d7d24beda`.
+
+Publication record (metadata, title, signature date, gazette issue, page of the first line) for Loi n° 2025-006, publication id 16214:
+
+```
+curl -sS -o p.json -w '%{http_code} %{size_download} %{content_type}\n' https://new.jo.gouv.tg/api/journal-officiel/publications/16214
+```
+
+Returned `200 2490 application/json`. Full-text title search: `curl -sS -G --data-urlencode 'search=changements climatiques' https://new.jo.gouv.tg/api/journal-officiel/publications` returned `200 5291 application/json` (2 hits). Python's own urllib user agent got HTTP 403 from the same endpoint; curl's default agent is accepted.
+
+The gazette issue that carries the instrument (the whole issue, not the single text):
+
+```
+curl -sS -L -o l.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://new.jo.gouv.tg/api/journal-officiel/publications/16214/pdf/download
+```
+
+Returned `200 317737 application/pdf`, 48 pages, sha256 `3aa5858060f9593a226f4c13ff78e3da22c348b275c7ba0bf897b8352243f5e0`. `pdftotext -layout l.pdf -` gives 196224 characters. Two-column pages interleave in `-layout` mode and several instruments share an issue, so a record would need a cut by heading; nothing is stored. Issues of 1991, 1999 and 2008 (copyright law, competition law, framework act) are scanned images with no text layer (`pdftotext` returns nothing); they were read with `pdfimages -png`, a split of each page into two columns and `tesseract -l fra --psm 4`, which is good enough to read articles but not to store. Publication ids used: 16214 (climate act), 16061 (carbon decree), 17310 and 17311 (the two 2024 orders; both download the same issue, JO 69e année n° 98 ter), 17904 (2008 framework act), 17726 (2026 amending act, JO 71e année n° 25 bis), 13617 (competition act), 22351 (copyright law).
+
+### Link only
+
+All seven scope instruments are link only because row `TG-JO-ADOPTED` is `permission requested`: `tg-climate-change-act-2025`, `tg-carbon-mechanisms-decree-2023`, `tg-carbon-sectors-order-2024`, `tg-carbon-homologation-order-2024`, `tg-environment-framework-act-2008`, `tg-environment-framework-amendment-2026`, `tg-competition-act-1999`. None of the seven pages states an in-force date (each text ends with the execution or publication formula), so `in_force` is null for all.
+
+The two AMF-UMOA circulars (Circulaire n° 001/CREPMF/2020 and Circulaire n° 001/AMF-UMOA/2024) are register rows only (F7, not in scope.json). Row `TG-BRVM-ADOPTED` (BRVM legal notice https://www.brvm.org/fr/node/405: "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site ... est interdite, sauf autorisation écrite préalable de la BRVM.") is `permission requested`. The list page `curl -sS -L -o b.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/fr/node/315` returned `200 63289 text/html; charset=utf-8` (AMF-UMOA decisions and texts, 36 links a page); the circulars' PDF addresses were not found there, so their `official_source_url` is that list page. The same two instruments belong to the other UEMOA places (BJ, BF, CI, GW, ML, NE, SN).
+
+### Languages
+
+French is the only official language of Togolese legislation and the only language the portal serves; no second official language exists, so no second-language record. English: no government translation found on new.jo.gouv.tg (French only). The Ministry site https://environnement.gouv.tg answered `200 36201 text/html; charset=utf-8` and has no terms page and no law texts on its home page; it was not searched for English texts. No row for it, since no text was taken from it.
+
+### Blocked
+
+- https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
+- https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
+- No site answered with a WAF challenge or a 403 to curl.
