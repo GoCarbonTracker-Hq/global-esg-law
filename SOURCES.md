@@ -4294,3 +4294,63 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Azerbaijan
+
+Rows `AZ-EQANUN-CONSOLIDATED` (`pass`, statute: Law No. 115-IQ on Copyright and Related Rights, Art. 7 a), `AZ-CBAR-ADOPTED`, `AZ-BFB-ADOPTED` and `AZ-ECO-ADOPTED` (all `permission requested`, nothing stored). Run on 2026-11-03.
+
+e-qanun.az (Ministry of Justice, Unified Electronic Database of Legal Acts) is a Next.js application: `curl https://e-qanun.az` returns a 2.7 KB shell. The application reads a JSON API on `https://api.e-qanun.az` (found in the site's JavaScript chunks), which curl reaches without a challenge, and the law text is a Word-exported HTML file on `https://e-qanun.az/frameworks/` and `/versions/`. No browser is needed. The site has no terms-of-use page; the row rests on the statute (see the notes of the row).
+
+The request chain for Law No. 109-IIQ on Atmospheric Air Protection (e-qanun.az id 3515), in order:
+
+```
+curl -sS -G -H 'Accept-Language: AZ' -o search.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://api.e-qanun.az/getDetailSearch' -d start=0 -d length=50 -d orderColumn=8 -d orderDirection=desc --data-urlencode 'name=Atmosfer havasının mühafizəsi haqqında' -d title=true -d codeType=1 -d dateType=1 -d statusId=1 -d secondType=2 -d specialDate=false -d array=
+curl -sS -H 'Accept-Language: AZ' -o fw.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://api.e-qanun.az/framework/3515'
+curl -sS -o gv.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://api.e-qanun.az/getVersions?id=3515'
+curl -sS -o f_noref.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-qanun.az/frameworks/3/f_3515.html'
+curl -sS -e 'https://e-qanun.az/framework/3515' -o f_3515.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-qanun.az/frameworks/3/f_3515.html'
+curl -sS -e 'https://e-qanun.az/framework/3515' -o v_3515_2.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://e-qanun.az/versions/3/v_3515_2.html'
+```
+
+Returned `200 20628 application/json` (19 hits, the act is the one with `citation` `109-IIQ`; the `array=` parameter must be present, without it the call answers `500`), `200 737 application/json` (the requisite: title, `acceptDate` 27.03.2001, empty `effectDate`, `htmlUrl`), `200 618 application/json` (two entries: `3/v_3515_2.html` dated 08.07.2022 and `3/f_3515.html` dated 27.03.2001), `403 169 text/html` (the HTML file without a `Referer` header), `200 193954 text/html` and `200 193628 text/html`. `fetched_sha256` is the sha256 of the HTML as received; a second fetch of `f_3515.html` gave `4294f9320f6a982219201474e818d1bd60ed2aff7eff8562b979439c618b14a5` both times and `v_3515_2.html` gave `9844d1042deaa25dcb3e54a0353403b9e67100d69bd26bd0a229a1506f4bb092`, the values in the records, so the hash is reproducible.
+
+How a record is made. `getDetailSearch` finds the id of the act (exact title match; `statusId=1` is in force). `getVersions?id=<id>` lists the version files and their `effectDate`. `f_<id>.html` is the current text; `v_<id>_<n>.html` are earlier versions. The `.html` files answer `403` to a request without a `Referer` header and `200` with `Referer: https://e-qanun.az/framework/<id>`. The files are Word exports whose charset differs by file: `f_3515.html` and `f_1522.html` are UTF-8, the others decode as Windows-1254 (the declared charset; Azerbaijani ə arrives as a numeric entity). The text is the file with `<head>`, comments and conditional comments dropped, white space collapsed, a line break at every `<br>` and at the end of every `p`, `div`, `h1` to `h6`, `tr`, `li` and `table`, the remaining tags stripped, entities unescaped, empty lines dropped. Two source quirks are handled: the character `¹` (Windows-1254 byte B9, where the source has the number sign) is written `№`, and a few words keep an `ñ` or `º` where the source holds a Cyrillic letter byte. Both are repairs or leftovers of the encoding, not rewording. Every stored record was checked for U+FFFD and for Windows-1252 mojibake letters: none.
+
+How a version is dated. The Versions tab lists the current file under the adoption date of the act, although the file holds the text after every amendment. A record of a `v_` file takes the tab's `effectDate` (the date of the amending act, which can be earlier than its commencement); a record of the current file takes the date of the latest amending act in its own footnotes. Three cases differ and are explained in the scope notes: `az-bank-corporate-governance-standards` first version (the requisite's effective date 2023-09-08 instead of the tab's 2023-08-28), `az-advertising-law` (`v_30348_2` and `v_30348_3` carry the same tab date; the second is dated 2026-04-01, the day the changes it integrates apply, and the current file 2026-04-15, the publication date in its footnote). The Corporate Governance Standards for Banks, Decision No. 45/3 of 2025-12-23, item 19.3.5 and Annex 1 part 5 (bank sustainability indicators) apply from 2027-01-01 by the Decision's own footnote, so the records dated 2025-12-23 and later carry that text before it applies.
+
+### Stored (fetched 2026-11-03, Azerbaijani)
+
+| Instrument | Records (az) |
+|---|---|
+| `az-air-protection-law` | 2 |
+| `az-air-emission-inventory-decision-63` | 4 |
+| `az-environmental-protection-law` | 2 |
+| `az-bank-corporate-governance-standards` | 5 |
+| `az-consumer-rights-law` | 2 |
+| `az-advertising-law` | 3 |
+| `az-ndc3-decision-335` | 1 |
+
+### Languages
+
+Azerbaijani (`az`) is the only language e-qanun.az serves; every record is `az`. English was looked for at the site's English API base, which the JavaScript names as `NEXT_PUBLIC_BASE_URL_E` and which resolves to `https://enapi.e-qanun.az`:
+
+```
+curl -sS -G -H 'Accept-Language: EN' -o en.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://enapi.e-qanun.az/getDetailSearch' -d start=0 -d length=5 -d orderColumn=8 -d orderDirection=desc -d title=true -d codeType=1 -d dateType=1 -d statusId=1 -d secondType=2 -d specialDate=false -d array=
+curl -sS -H 'Accept-Language: EN' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://enapi.e-qanun.az/framework/3515'
+```
+
+Returned `200 26 application/json` (`{"data":[],"totalCount":0}`) and `500 115 application/json`. No Russian text is served either. The Central Bank's English National Green Taxonomy PDF (https://uploads.cbar.az/assets/50f7851079d87270795022b17.pdf, `200 1603490 application/pdf`, headed as approved by Cabinet Resolution No. 126 of 2026-05-01) is the only government English text found; the taxonomy is a family F7 entry, so it is not stored. There is no translation row. The Ministry of Ecology site was opened only in Azerbaijani (https://www.eco.gov.az/az); its English pages were not checked.
+
+### Other publishers looked at (nothing stored)
+
+- `AZ-CBAR-ADOPTED` (https://www.cbar.az): `200 54247 text/html` for the Sustainable Finance Documents page (`?language=en`); footer "© 2026 All rights reserved"; no terms page. PDFs read with `pdftotext -layout` to find the disclosure rule (Sustainable Finance Report 2025, `200 1855590 application/pdf`: item 2.4, banks' sustainability indicators, Corporate Governance Standards for Banks); the rule itself is stored from e-qanun.az.
+- `AZ-BFB-ADOPTED` (https://www.bfb.az): `200 380221 text/html`; the Listing Rules (06.05.2026, `200 1903277 application/pdf`), the Rules on Disclosure of Information and the Green Bond Market Conditions hold no ESG or climate disclosure duty; footer "Bütün hüquqlar Bakı Fond Birjası tərəfindən qorunur".
+- `AZ-ECO-ADOPTED` (https://eco.gov.az): footer "Saytdakı materiallardan istifadə edərkən istinad etmək zəruridir. Bütün hüqüqlar qorunur."; the page titled İstifadə şərtləri is a personal-data notice.
+
+### Link only
+
+None of the seven instruments in `register/AZ/scope.json` is link only. Register rows without a scope entry (family F7): the National Green Taxonomy (Central Bank / Cabinet Decision No. 126 of 2026-05-01, no disclosure duty for supervised entities found), the Baku Stock Exchange Green Bond Market Conditions, the Central Bank Guidelines on Environmental Risk Management for Banks, and a "no carbon pricing instrument found" row.
+
+Blocked from the cloud address: https://eco.gov.az (bare host, `curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`; `https://www.eco.gov.az/az` and `https://eco.gov.az/az` answered `200`).
+
+Candidates dropped: Cabinet Decision No. 454 of 2022-12-28 (e-qanun.az id 53187), which amends the air-inventory rules (its changes are in `az-air-emission-inventory-decision-63`); the Corporate Governance Standards for Insurers and for Investment Companies (Decisions No. 09/2 and No. 07/1 of 2024), which were not checked for a sustainability clause; Presidential and Cabinet instruments ratifying climate treaties (no duty on companies). The Copyright Law of 1996 is Law No. 115-IQ (e-qanun.az id 4167); its Art. 7 a) reads "rəsmi sənədlər (qanunlar, məhkəmə qərarları, qanunvericilik, inzibati və məhkəmə xarakterli digər mətnlər), həmçinin onların rəsmi tərcümələri".
