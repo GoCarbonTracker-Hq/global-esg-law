@@ -8591,5 +8591,27 @@
     "trailer_source_url": "https://www.brvm.org/fr",
     "trailer_licence": "Permission requested (no terms found on brvm.org)",
     "notes": "Both known instruments open: Circulaire n° 001/CREPMF/2020 (https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf, 200, 1560342 bytes, application/pdf, text layer) and Circulaire n° 001/AMF-UMOA/2024 du 28 février 2024 (https://www.brvm.org/sites/default/files/circulaire_ndeg001-amf-umoa-2024_-_mise_en_place_dune_taxonomie_des_projets_faisant_lobjet_demissions_dobligations_vertes_sociales_et_durable.pdf, 200, 4237687 bytes, application/pdf, 39 pages scanned with no text layer; pdftotext returns nothing and no OCR is installed). No text stored. https://www.amf-umoa.org is a JavaScript shell (200, 1685 bytes)."
+  },
+  {
+    "id": "MR-MSGG-ADOPTED",
+    "jurisdiction": "MR",
+    "publisher": "Ministère chargé du Secrétariat Général du Gouvernement (Mauritania), Journal Officiel de la République Islamique de Mauritanie",
+    "source_name": "Journal Officiel de la République Islamique de Mauritanie, issues as PDF on the msgg.gov.mr portal (French issue and separate Arabic issue)",
+    "form": "adopted",
+    "fetch_url": "https://msgg.gov.mr/JO/{YYYY}/mauritanie-jo-{YYYY}-{NNNN}.pdf (French issue); https://msgg.gov.mr/JO-AR/{YYYY}/mauritanie-jo-{YYYY}-{NNNN}-ar.pdf (Arabic issue)",
+    "pinned_version": "gazette issue (year and number) in which the text was published",
+    "content_hash": "",
+    "terms_url": "https://msgg.gov.mr/mentions-legales.html",
+    "terms_quote": "Toute représentation totale ou partielle de ce site ou de son contenu (structure générale, textes, sons, logos, images animées ou non), par quelques procédés que ce soient, sans autorisation préalable et expresse du MInistère chargé du Secrétariat Général du Gouvernement est interdite et constituerait une contrefaçon sanctionnée par le code de la Propriété Intellectuelle.",
+    "terms_fingerprint": "9d90fb28d6c9c467dba158b40a1426c74c037a85476275a082b36597e6ee565a",
+    "verdict": "pass",
+    "statute_exception": "Mauritanian Loi n° 2012-038 relative à la propriété littéraire et artistique, Art. 11: \"Les lois et règlements, les décisions et les actes administratifs des organes de l’État et des collectivités locales, les décisions de justice et la traduction officielle de ces textes ne sont pas soumises à la protection des droits d’auteur prévue par la présente loi.\" Opened as PDF on 2026-11-03 (https://msgg.gov.mr/textes-officiels/lois/2012/Mauritanie-Loi-2012-38.pdf, sha256 of the file as returned: see notes)",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Journal Officiel de la République Islamique de Mauritanie (issue number and text set per instrument)",
+    "trailer_source_url": "https://msgg.gov.mr/JO/{YYYY}/mauritanie-jo-{YYYY}-{NNNN}.pdf",
+    "trailer_licence": "Not copyright-protected (Mauritania Loi n° 2012-038 Art. 11, laws and regulations); the Ministère chargé du Secrétariat Général du Gouvernement claims rights in the site itself (mentions légales)",
+    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://msgg.gov.mr/mentions-legales.html' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Decision: pass on statute, not on terms. The site notice reserves all reproduction of the site and its texts to the Ministry, so the terms alone would give permission requested. The statute removes copyright from laws, regulations and administrative acts of State bodies, and the gazette is the State's own publication of those acts, so the stored text (tag-stripped, words unchanged) rests on Art. 11. Limits: Art. 11 does not reach the gazette's cover, index, layout or announcements, none of which is stored; the notice's claim to 'textes' of the site is in tension with Art. 11, which is the point a court could read the other way, so Varun decides whether to keep the row at pass. Art. 9 of the same law (works of the State freely usable for non-profit purposes with source and integrity) is not relied on. Languages: the Arabic issue (JO-AR path) is the same publisher and the same row; the portal says the gazette is published in French from 1959 and in Arabic from June 1989 (https://msgg.gov.mr/aide.html). Official translations are named in Art. 11, but the portal publishes no English text. The 'Codes usuels' consolidations on the portal are Droit-Afrique compilations (the site credits Droit-Afrique with the design; the codes are not the State's gazette text) and are not used. sha256 of the Loi 2012-038 PDF as returned: 1e3f66313c77a841209d768875ceee9fd6d8c3fd9031badfd62254d21bfd8183 (950733 bytes). Date discrepancy: the portal titles the law 'du 7 juillet 2012' (JO 2012-1272), the dispatch brief says 17 juillet 2012; page 1 of the PDF is an image, so the date was not read from the text layer. Pages not opened: environnement.gov.mr terms (no legal-notice page found; HTTPS answers scripts with a reset, HTTP works) and bcm.mr (JavaScript shell whose back office bo.bcm.mr answered 500); neither is used as a source."
   }
 ]
