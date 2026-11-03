@@ -6762,6 +6762,24 @@ Spanish is the only language of Venezuelan gazette legislation; indigenous langu
 - https://www.asambleanacional.gob.ve/leyes/vigentes?page=2 and any `?titulo=` query: `403 239 text/html`.
 - http://www.imprentanacional.gob.ve/sus_digital.php: `404`; the host answers `200` but offers only a paid subscription catalogue.
 
+### OCR pass 2026-11-03
+
+OCR was allowed at 08:20Z on 2026-11-03 (GEL-04-12). Row `VE-ASAMBLEA-ADOPTED` is `pass` (statute, Ley sobre el Derecho de Autor art. 4), so both link-only scope instruments are stored as Spanish records from the Asamblea Nacional PDFs. Row `VE-MINEC-ADOPTED` is also `pass` but its whole-gazette files were not used. Rows `VE-TSJ-ADOPTED`, `VE-SUNAVAL-ADOPTED`, `VE-BVC-ADOPTED` (`permission requested`) and `VE-IMPRENTA-ADOPTED` (`unknown`) are unchanged and hold no scope instrument. No verdict changed. Tool: `tesseract 5.3.4` with `tesseract-ocr-spa 1:4.1.0-2`, installed with `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa` (without `apt-get update` apt answered `E: Unable to locate package tesseract-ocr`). Spanish is the only official language; no English record exists.
+
+Commands (both PDFs answered `200 application/pdf`; sizes equal the first pass, `a.pdf` 759657 and `p.pdf` 1103231 bytes; sha256 `163a90fc17c162b9cc86949fd36b9b9de7b1f962c28d2b3454380f6242dac01c` and `14cc3f46b65b9ed972298dbc5f1e44d48b66ae7698c39e6b35a2c826f263c203`):
+
+```
+curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o a.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf
+curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o p.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf
+sha256sum a.pdf p.pdf
+pdftoppm -r 200 -png a.pdf a/p      # 11 pages, 1650x2334
+pdftoppm -r 200 -png p.pdf b/p      # 9 pages, 1717x2337 / 1706x2337
+# per page: crop the running head off (top = bottom of the GACETA OFICIAL header line + 12 px), split at the blank gutter around the column rule, then
+OMP_THREAD_LIMIT=1 tesseract <crop>.png <crop> -l spa --psm 4
+```
+
+Each PDF is a gazette excerpt with the law inside it, so it is cut by page range: the Ley Orgánica del Ambiente is pages 2 to 11 of `a.pdf` (page 2 left column from 'LA ASAMBLEA NACIONAL', page 11 left column and the right column down to the rule above the Ley de Meteorología e Hidrología Nacional), the Ley Penal del Ambiente is pages 2 to 9 of `p.pdf` (page 9 right column down to the rule above the Ley de Reforma Parcial de la Ley Especial de Timbre Fiscal). Text per page is left column then right column, a form feed removed from each end and the chunks joined with one newline; nothing was corrected. Both text layers are absent (`pdftotext` 11 and 9 bytes), so the page images were read; `ocrmypdf` was not used. Crops, not the whole page, were read because the first `--psm 4` pass over whole pages (`pdftoppm` pages `-r 200`) interleaved the two columns line by line. Misreads stay (for example 'Artículo $7' for 57, 'Articulo8Q' for 80, a garbled refrendo block on page 9 of the penal PDF). No 300 dpi pass was needed.
+
 ## Guatemala
 
 Checked on 2026-11-03 from the cloud address. No instrument is stored: every row is `permission requested` and the only official texts are scans. All five Guatemala instruments of the scope are link only.
