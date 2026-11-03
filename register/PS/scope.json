@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ps-pma-circular-87-2025",
+    "title": "PMA Circular No. 87/2025: Outcomes of the First Meeting of the Sustainable Finance Working Group (تعميم رقم 2025/87: مخرجات الاجتماع الأول لفريق عمل التمويل المستدام)",
+    "official_url": "https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf",
+    "citation": "Palestine Monetary Authority Circular No. 87 of 2025, addressed to all banks operating in Palestine, dated 5 August 2025",
+    "in_force": "2025-08-05",
+    "evidence": "Header of the circular PDF (page 1 viewed as a rendered image on 2026-11-03): \"تعميم رقم (2025/87) إلى كافة المصارف العاملة في فلسطين التاريخ: الثلاثاء، 05 آب، 2025 الموضوع: مخرجات الاجتماع الأول لفريق عمل التمويل المستدام\". No commencement clause was read, so the issue date is taken as in_force.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "PS-PMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the PMA terms of use (https://www.pma.ps/terms-of-use) allow non-commercial use only and require permission for reuse (row PS-PMA-ADOPTED is permission requested). The circular PDF is a scan whose embedded fonts give garbled pdftotext output; it would need OCR if the row ever passes, and tesseract and ocrmypdf are not installed in the session. Page 1 says banks are to form an internal sustainable-finance team (point 1 of the section on internal coordination); the rest of the circular was not read. Related PMA circulars on the same page, not scoped: No. 30 of 2025 (17 April 2025, formation of the Sustainable Finance Working Group, asks banks to nominate a member) and No. 151 of 2025 (outcomes of the second meeting). Government English translation: none found on pma.ps (the English site switch was not opened). The brief's PCMA, Palestine Exchange, Environmental Law No. 7 of 1999, Consumer Protection Law No. 21 of 2005 and climate or carbon market candidates are not in scope here: see the register row notes and the PR report.",
+    "status": "link only",
+    "status_note": "Row PS-PMA-ADOPTED is permission requested; no text stored."
+  }
+]

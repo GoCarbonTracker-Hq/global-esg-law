@@ -1,0 +1,32 @@
+[
+  {
+    "id": "kp-environmental-protection-law",
+    "title": "Environmental Protection Law of the DPRK (환경보호법)",
+    "official_url": "http://www.naenara.com.kp",
+    "citation": "Environmental Protection Law (1986), amended to 2021-04-30 per the nk-law.kr copy",
+    "in_force": null,
+    "evidence": "No official page states the in-force date. http://www.naenara.com.kp and http://www.kcna.kp answered HTTP 503 (114 bytes, text/plain, proxy upstream timeout) to curl and to headless Chromium on 2026-11-03. The title and 2021-04-30 version date were read from the register row, which cites the South Korean private copy https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95 (not opened here: 403 to scripts).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KP-NAENARA-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Link only: row KP-NAENARA-ADOPTED is permission requested (the portal could not be opened) and no DPRK state host serves law text. Row KP-KCNA-ADOPTED is likewise permission requested. Environmental framework act, mapped from F7 to F2 in the register. Korean is the only official language; no government English translation exists (looked for on the state hosts, which did not answer). The Ministry of Unification collection and nk-law.kr are foreign state or private copies, not the publisher; nothing is stored from them.",
+    "status": "link only",
+    "status_note": "Row KP-NAENARA-ADOPTED is permission requested; no text stored."
+  },
+  {
+    "id": "kp-air-pollution-control-act",
+    "title": "Air Pollution Control Act of the DPRK (대기오염방지법)",
+    "official_url": "http://www.naenara.com.kp",
+    "citation": "Presidium Decree No. 2520 of 2012, amended by Decree No. 3292 of 2013-07-24 (per secondary copies)",
+    "in_force": null,
+    "evidence": "No official page states the in-force date. State hosts answered HTTP 503 on 2026-11-03 (see kp-environmental-protection-law). Title, decree numbers and the climate and fossil-fuel sentence come from climate-laws.org and a Korean text copy hosted by the LSE Grantham Institute; neither is the publisher.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KP-NAENARA-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Link only: row KP-NAENARA-ADOPTED is permission requested and no state host serves the text. The Act is reported to say the State encourages gradual reduction of fossil-fuel use because of air pollution and climate change. Decree No. 3292 is also cited for another law by one source, so the amendment citation is unverified. No climate framework act was found (not asserted). No government English translation found. Korean is the only official language.",
+    "status": "link only",
+    "status_note": "Row KP-NAENARA-ADOPTED is permission requested; no text stored."
+  }
+]
