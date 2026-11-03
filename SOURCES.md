@@ -7447,6 +7447,94 @@ Arabic is the authentic language and is stored under `TN-IORT-ADOPTED`. French i
 - `TN-MEDD-ADOPTED` (environnement.gov.tn answers curl `200`, 218946 bytes): footer "Tous droits réservés 2022", permission requested; the Guide méthodologique et de reporting RSE PDF (`https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`, 200, 7321207 bytes, `application/pdf`) is voluntary guidance, not an enacted instrument, so it has no scope entry and nothing is stored.
 - Not in scope.json: Décret gouvernemental n° 2018-263 du 12 mars 2018 (governance of the Paris Agreement work, family F7, register row only). No binding GHG reporting or carbon pricing instrument was found on IORT; legislation.tn could not be opened to confirm. No application decree of Loi 2018-35 was located (the IORT advanced search could not be driven), so none is in scope.
 
+## North Korea
+
+GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
+
+Requests made (curl, then headless Chromium with Playwright `page.goto(url, {timeout: 30000})`; Chromium got the same proxy answer):
+
+```
+curl -sS -m 25 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' http://www.naenara.com.kp
+```
+
+Returned `503 114 text/plain`; the body is "upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout" (sha256 of body plus status line `719f467bca080bedf90ff26e725031a62a758a4841e577fb6992f0647bced3e9`, the same on four runs). `http://www.kcna.kp` returned the same `503 114 text/plain`; `http://www.kcna.kp/en` and `http://www.ryongnamsan.edu.kp` returned `503 48`; `http://www.rodong.rep.kp` returned `503 114`; `https://www.naenara.com.kp`, `https://naenara.com.kp` and `https://www.kcna.kp` returned no answer (curl exit, code 000). Chromium: naenara 503 (265 bytes), kcna 503 (199 bytes).
+
+South Korean copies, read for titles only and nothing stored:
+
+- `https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95`: `403 203 text/plain; charset=utf-8`, "Automated collection is not permitted. Terms: https://www.nk-law.kr/terms#copyright". Not retried with a browser, because the terms forbid automated collection. The title and the 2021-04-30 version date come from the existing register row.
+- `https://www.unilaw.go.kr` (Ministry of Unification): connection reset by peer (curl exit 35) on three tries.
+
+Web search (titles and decree numbers only, no text taken): climate-laws.org and the LSE Grantham Institute copy of the Air Pollution Control Act (adopted 2012-07-11, Decree No. 2520, amended by Decree No. 3292 of 2013-07-24); lawandnorthkorea.com on the Copyright Law (2012 text keeps an exclusion for state administration documents "as long as they have no commercial purpose"; article number not confirmed, no state copy found).
+
+### Languages
+
+Korean is the only official language. No government English translation was found; the state hosts did not answer, so none was looked for there beyond that. No translation row was made.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `kp-environmental-protection-law` | Row `KP-NAENARA-ADOPTED`, permission requested: the portal could not be opened and no state host serves law text. |
+| `kp-air-pollution-control-act` | Same row and reason. |
+
+Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
+
+## Syria
+
+Run 2026-11-03 from the cloud address. One `pass` row: SY-MOLAE-ADOPTED (Ministry of Local Administration and Environment), verdict `pass` on the statute (Legislative Decree 62 of 2013, Art. 4(a)(3), no copyright in laws and official documents), not on site terms: molae.gov.sy has no terms page and its footer says all rights reserved 2025.
+
+### SY-MOLAE-ADOPTED
+
+```
+curl -sS -o l12.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://molae.gov.sy/wp-content/uploads/2025/11/قانون-12-بشأن-حماية-البيئة.pdf"
+200 227143 application/pdf
+```
+
+Instrument `sy-environment-protection-law-12-2012`. The URL is linked from https://molae.gov.sy/law (HTTP 200, 58628 bytes, text/html). A second fetch gave the same bytes: sha256 `09cb4340e41a96076e86f6e54b8015ceb34e740be1de06a34ff834b117b291fa`, which is `fetched_sha256` (hash of the PDF as received). The file name carries an upload month (`2025/11`), so the URL is found from the law page, not guessed.
+
+Text extraction: `pdftotext -layout l12.pdf -` returns text in which every lam-alef ligature has its letters in reverse order (`اآلتية` for `الآتية`, `ميالدي` for `ميلادي`), so it is not stored. OCR was used instead: `pdftoppm -r 300 -png l12.pdf pg` then `tesseract pg-NN.png pg-NN -l ara` for the 11 pages (tesseract 5.3.4, `ara` language pack, installed with apt in the session). Blank lines were dropped and runs of spaces collapsed; nothing else was changed. The record carries `"extraction": "ocr"`. The OCR reads letters well and Arabic-Indic digits badly (the issue date `29-3-2012` comes out as `7٠١1١7-5-759`), so the digits in the stored text are unreliable; the issue date in scope.json was read from the pdftotext output, whose digits are correct.
+
+### Languages
+
+Arabic only (`ar`), the language the Ministry serves. No row for English: molae.gov.sy has an English switch (https://molae.gov.sy/ with `pll_language`) but the law page serves only the Arabic PDF; no Syrian state host publishes a government English translation of the law.
+
+### Link only, no statute stored
+
+- `Law No. 50 of 2002` (register row only, repealed by Art. 24 of Law 12 of 2012): no state host serves the text.
+- `Legislative Decree No. 8 of 2021` (consumer protection, register row only): no state host serving it was reached (mintrade.gov.sy answers `CONNECT tunnel failed, response 502`).
+- Climate framework act, carbon market instrument, financial-market sustainability rule: none found. Searched: the law, regulation, circular and board-decision lists of dse.sy and scfms.sy, the legislation lists of cb.gov.sy (laws and decrees, decisions, circulars), the law and circular lists of molae.gov.sy, and the web. Keywords tried: استدامة، مناخ، بيئة، المسؤولية الاجتماعية. Only a list-page keyword scan was done for dse.sy, scfms.sy and cb.gov.sy, not a read of each linked PDF.
+- moj.gov.sy answers (WordPress news and circulars site; its only terms-like page is a privacy policy, no reuse terms); it serves no law texts that were found, so no row.
+- The People's Assembly, the Prime Ministry gazette and SANA were not reachable (see the Blocked list in the PR).
+
+## Myanmar
+
+Run on 2026-11-03 from the cloud address. No Myanmar state host answered, so no row passes, no text is stored, and every instrument is link only. Rows `MM-MLIS-ADOPTED`, `MM-DICA-TRANSLATION` and `MM-MONREC-ADOPTED` are `permission requested` (terms pages not opened, fingerprint not computed).
+
+No fetch request is proven for any row. Requests tried and answers:
+
+- `curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.mlis.gov.mm` gave `curl: (35) Recv failure: Connection reset by peer`. Same for `https://mlis.gov.mm`, `https://www.dica.gov.mm`, `https://dica.gov.mm`, `https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf`, `https://www.monrec.gov.mm`, `https://monrec.gov.mm`, `https://www.secm.gov.mm`, `https://secm.gov.mm`, `https://www.ecd.gov.mm`. The proxy status logged `tunnel closed (code 1006) after 3s to 12s` for each.
+- `https://www.moecc.gov.mm`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `http://www.mlis.gov.mm`: `503 114 text/plain`, body `upstream connect error or disconnect/reset before headers`.
+- Browser recipe: Playwright chromium `page.goto(url)` on mlis, dica, monrec and secm (www hosts) returned `502`, a 174-byte proxy page. The WebFetch route answered `503` for the same five URLs.
+
+### Languages
+
+Not reached: no Burmese or English text was served by any state host.
+
+### Hosts that answered
+
+- `https://www.cbm.gov.mm/`: `200 207316 text/html; charset=UTF-8` (Central Bank of Myanmar). The home page and its menus list laws and AML/CFT rules, the Financial Institutions Law 2016 and the Central Bank of Myanmar Law 2013; no sustainability, climate or ESG instrument was found in the menu or home page text. No row, as nothing in scope.
+- `https://ysx-mm.com`: `200 158418 text/html; charset=UTF-8`. A company, not an official law source; not used.
+- `https://myanmar.un.org/sites/default/files/2019-11/MyanmarClimateChangePolicy_2019.pdf`: `200 875189 application/pdf`. The National Climate Change Policy 2019, a UN-hosted copy; policy, F7, register row only.
+
+### Link only
+
+- `mm-investment-rules-2017`: row `MM-DICA-TRANSLATION` permission requested; DICA host reset the connection.
+- `mm-environmental-conservation-law-2012`, `mm-environmental-conservation-rules-2014`: row `MM-MONREC-ADOPTED` permission requested; MONREC host reset the connection.
+- `mm-consumer-protection-law-2019`: row `MM-MLIS-ADOPTED` permission requested; MLIS host reset the connection.
+
+Copyright Law 2019 s. 16(c) to (f) is not quoted anywhere: its text was not opened from an official page.
+
 ## Tajikistan
 
 Run on 2026-11-03 (GEL-16-10). Tajikistan has two official-language texts of its laws, Tajik (`tg`, the state language) and Russian (`ru`, the language of interethnic communication); English exists only where a translation was published. Rows: `TJ-NBT-ADOPTED` (`pass`, statute: Law on Copyright and Related Rights art. 7 item 1, quoted in the row), `TJ-ADLIA-CONSOLIDATED` (`permission requested`, terms), `TJ-MAJLISI-ADOPTED` and `TJ-TAJNATURE-ADOPTED` (`permission requested`, sites blocked from the cloud address). Only the first row has records: one instrument, `tj-green-taxonomy-res-170`, in `ru` and `tg`.

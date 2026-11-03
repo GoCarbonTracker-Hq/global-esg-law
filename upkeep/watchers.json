@@ -11998,6 +11998,88 @@
   }
  },
  {
+  "id": "kp-environmental-protection-law-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "kp-air-pollution-control-act-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-air-pollution-control-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sy-environment-protection-law-12-2012-molae-law-page",
+  "source_id": "SY-MOLAE-ADOPTED",
+  "iso2": "SY",
+  "instrument": "sy-environment-protection-law-12-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://molae.gov.sy/law",
+  "params": {}
+ },
+ {
+  "id": "mm-investment-rules-2017-dica-page",
+  "source_id": "MM-DICA-TRANSLATION",
+  "iso2": "MM",
+  "instrument": "mm-investment-rules-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf",
+  "params": {
+   "second_route": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-law-2012-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-law-2012",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-rules-2014-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-rules-2014",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-consumer-protection-law-2019-mlis-page",
+  "source_id": "MM-MLIS-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-consumer-protection-law-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mlis.gov.mm/",
+  "params": {
+   "second_route": "https://www.mlis.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
   "id": "tj-green-taxonomy-res-170-nbt-ru-pdf",
   "source_id": "TJ-NBT-ADOPTED",
   "iso2": "TJ",
