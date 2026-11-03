@@ -5596,6 +5596,286 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
 
+## Benin
+
+Run on 2026-11-03 (GEL-12-07). Row `BJ-SGG-ADOPTED` (Secretariat General du Gouvernement, sgg.gouv.bj) is `pass` on the statute basis: Loi n° 2005-30 du 05 avril 2006, Art. 9, excludes "les textes officiels de nature legislative, administrative ou judiciaire" and their official translations from copyright. The site's own terms page (`https://sgg.gouv.bj/mentions-legales/`, `curl` `200 14486 text/html; charset=UTF-8`) has no body text, so no terms were found to quote. Row `BJ-BRVM-ADOPTED` (BRVM host of AMF-UMOA circulars) is `permission requested` (BRVM terms, `https://www.brvm.org/fr/node/405`: reproduction and modification forbidden without prior written authorisation). No site was blocked from the cloud address, and no browser recipe was needed.
+
+Proven request, row `BJ-SGG-ADOPTED`, Loi n° 2018-18 (the page for each act is `/doc/<type>-<year>-<number>/`, the PDF is the same path plus `download`):
+
+```
+curl -sS -L -o loi-2018-18.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.gouv.bj/doc/loi-2018-18/download
+```
+
+Returned `200 15201418 application/pdf`, sha256 `49ed0b778968d7342a7ac14250c202a9df0f875b7e7b3d4dde984143bb3a4ef6`. The other five acts answered the same way: `decret-2022-698` `200 2289098`, `decret-2022-699` `200 760251`, `loi-98-030` `200 1462789`, `loi-2007-21` `200 629311`, `loi-2026-15` `200 11746870`, all `application/pdf`. The site lists no dates, no consolidations and no other language. Slugs follow `loi-<year>-<n>` for laws since 2000 and `loi-98-030` for 1998; `loi-1998-30` answers 404.
+
+Text extraction was tried with `pdftotext -layout file.pdf -` on every file. Result: decrees 2022-698 and 2022-699 and Loi 2026-15 are image scans with no text layer (7, 20 and 31 bytes out). Loi 2018-18, Loi 98-030 and Loi 2007-21 carry an OCR layer with heavy recognition errors (Loi 2018-18: "chongements cllmotiques", "Io loi dont Io teneur"). That is damaged text, not law text, so it was not stored. No OCR program is installed in the cloud container and the repo recipe is stdlib plus poppler, so no record was written for any Benin instrument. The commencement clauses, signatures and the abrogation in Art. 138 of Loi 2026-15 were read from page images (`pdftoppm -r 70 -png`).
+
+### Languages
+
+French is the only official language of legislation. The sgg.gouv.bj site and its documentheque are French only and list no English translation, so there is no translation row and no English record. The copyright statute basis (Loi 2005-30 Art. 9) was read in `https://sgg.gouv.bj/doc/loi-2005-30/download` (`200 1639731 application/pdf`, OCR layer; the Article 9 sentence was legible). Loi 2017-20 (code du numerique) Art. 529 and 530 amend Articles 2 and 8 of the 2005 law only.
+
+### AMF-UMOA (regional, eight UEMOA states)
+
+`www.amf-umoa.org` answered `200 1685 text/html` (a JavaScript shell, no content for curl). The BRVM site hosts the instruments as plain pages and PDFs and answered every request:
+
+```
+curl -sS -L -o taxonomie.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.brvm.org/sites/default/files/circulaire_ndeg001-amf-umoa-2024_-_mise_en_place_dune_taxonomie_des_projets_faisant_lobjet_demissions_dobligations_vertes_sociales_et_durable.pdf'
+curl -sS -L -o guide.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf
+```
+
+Returned `200 4237687 application/pdf` (39 pages, no text layer) and `200 1560342 application/pdf` (OCR layer present). Both are `permission requested` under `BJ-BRVM-ADOPTED`, so nothing is stored. Circulaire n° 001/AMF-UMOA/2024 of 2024-02-28 informs the market of the taxonomy and states no duty on issuers (pages 1 and 2 read as images), so it is F7 in `register.csv` and not in `scope.json`; the same applies to Circulaire n° 001/CREPMF/2020. The same two instruments sit in the other UEMOA places (BF CI GW ML NE SN TG).
+
+### Link only
+
+- `bj-carbon-project-registration-decree`, `bj-aepc-decree`, `bj-environment-act-2026`: row `pass`, but the PDF is a scan with no text layer; no working request yields text.
+- `bj-climate-change-act-2018`, `bj-environment-framework-act-1998`, `bj-consumer-protection-act-2007`: row `pass`, OCR layer too damaged to store.
+- `bj-environment-framework-act-1998` is abrogated by Art. 138 of Loi n° 2026-15; Loi 2026-15 states no commencement date on the pages read, so no repeal record is written.
+- `cadredevie.bj`: `curl` returned `200 3 text/html` with the body `asd`; no instruments found there. The text comes from sgg.gouv.bj.
+
+## Comoros
+
+GEL-13-09, run 2026-11-03. Rows `KM-JUSTICE-ADOPTED` (`permission requested`, terms) and `KM-BCC-ADOPTED` (`pass`, terms; no instrument in scope, so nothing is stored under it). `records/KM/` is empty. All three instruments in `register/KM/scope.json` are link only.
+
+Proven requests (plain `curl`, no challenge, from the cloud address). The terms pages that decide the verdicts:
+
+```
+curl -sS -A 'Mozilla/5.0' -o mentions-legales.html -w '%{http_code} %{size_download} %{content_type}\n' https://justice.gouv.km/mentions-legales/
+```
+
+Returned `200 45411 text/html; charset=UTF-8`. Decisive sentence: "Toute reproduction, représentation, modification, publication, transmission ou dénaturation, totale ou partielle, du site ou de son contenu, par quelque procédé que ce soit, sans autorisation préalable, est interdite." Hence `permission requested`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o bcc-mentions.html -w '%{http_code} %{size_download} %{content_type}\n' https://banque-comores.km/page/show/mentions-legales
+```
+
+Returned `200 58386 text/html; charset=UTF-8`. Decisive sentence: "les utilisateurs du site Internet de la BCC peuvent disposer librement des informations qu'ils y trouvent aux conditions suivantes" (accurate reproduction, BCC named, modifications stated; named-author documents excepted). Hence `pass`.
+
+A text fetch would work for the Ministry of Justice pages, but is not used for storage. The loi-cadre page is server-rendered HTML:
+
+```
+curl -sS -A 'Mozilla/5.0' -o loi-94-018.html -w '%{http_code} %{size_download} %{content_type}\n' https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/
+```
+
+Returned `200 86353 text/html; charset=UTF-8` (the amended text sits in `<main>`, about 36,600 characters after tags are stripped). The decree and the amending act are pages that only link a PDF: `https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/` returned `200 39487 text/html; charset=UTF-8`; `https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/` returned `200 39935 text/html; charset=UTF-8`. The list of all 332 texts is `https://justice.gouv.km/texte-sitemap1.xml` (`200 65387 text/xml;charset=UTF-8`); the WordPress REST route `https://justice.gouv.km/wp-json/wp/v2/texte/303` answers `401 140 application/json` (`rest_not_logged_in`). The BCC regulations are PDFs, for example `curl -sS -A 'Mozilla/5.0' -o r007.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://banque-comores.km/uploads/DOCUMENTS/R%C3%A8glement_007_r%C3%A9serves_obligatoires.pdf'` returned `200 1116929 application/pdf`. No PDF text was extracted (poppler `pdftotext -layout` would be the command).
+
+### Languages
+
+French is the language of every text found. justice.gouv.km has `/ar/` and `/en/` versions of its listing pages (`https://justice.gouv.km/ar/%d8%a7%d9%84%d8%aa%d8%b4%d8%b1%d9%8a%d8%b9%d8%a7%d8%aa-%d9%88%d8%a7%d9%84%d9%86%d8%b5%d9%88%d8%b5-%d8%a7%d9%84%d8%b1%d8%b3%d9%85%d9%8a%d8%a9/`, `https://justice.gouv.km/en/legislation-and-official-texts/`); the three environmental texts were found only under `/texte/` in French. Comorian has no ISO 639-1 code. No government English translation was found on justice.gouv.km or banque-comores.km, and no translation row was added.
+
+### Link only
+
+- `km-loi-94-018`, `km-loi-95-007`, `km-decret-01-052`: `KM-JUSTICE-ADOPTED` is `permission requested`.
+- Climate framework act or carbon pricing instrument: none found in the 332-text sitemap (title search for climat, carbon, energie, environnement). The renewable energy law (Loi n° 17-020/AU, promulgated by Décret n° 16-008/PR) is on the same site; it is an energy law and was not added to scope.
+- Bank sustainability instruction: none on the BCC pages `textes-reglementaires`, `lois-et-decrets` and `textes-reglementaires-de-la-bcc` (searched for climat, environnement, durable, carbone: no match). Comoros has no stock exchange.
+- Consumer protection or competition law: no title containing consommation or concurrence in the sitemap.
+- Journal Officiel de l’Union des Comores: no online edition located.
+
+Blocked from the cloud address (the egress proxy refused the connection, `curl: (56) CONNECT tunnel failed, response 502`): https://www.environnement.gouv.km/ , https://environnement.gouv.km/ , https://www.journal-officiel.km/ , https://journal-officiel.gouv.km/ , https://www.gouvernement.km/ . The orchestrator can read them from the laptop.
+
+## Mozambique
+
+Run on 2026-11-03 (GEL-13-05). One row passes: `MZ-BANCOMOC-ADOPTED`, on the statute alone (Lei n.º 9/2022 Art. 7 n.º 1 a), official texts of a legislative, administrative or judicial nature and their official translations are excluded from copyright). The site terms of bancomoc.mz allow private or internal use only and bar commercial use, so they are not a pass. One row, `MZ-IMPRENSANAC-ADOPTED`, is permission requested because the Imprensa Nacional site refused the cloud address. The brief named Lei n.º 4/2001 for the exclusion; that law was repealed by Lei n.º 9/2022 (Boletim da República I Série n.º 124, 29 June 2022, in force 90 days after publication), whose Art. 7 was read from the gazette PDF served by WIPO Lex, with the article number confirmed on a rendered image of page 1048.
+
+Row `MZ-BANCOMOC-ADOPTED`, Aviso n.º 6/GBM/2025 (the PDF is the whole Boletim da República I Série n.º 201 of 2025-10-21, 6 pages, holding Avisos 5, 6 and 7):
+
+```
+curl -sS -A 'Mozilla/5.0' -o aviso6.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf'
+```
+
+Returned `200 339544 application/pdf`; a second fetch gave the same size and the same sha256 (`cd2097653a76598b10bed3cd108db129c2c8924340a9ee340747f14637929265`), so `fetched_sha256` reproduces. Headers: `last-modified: Thu, 13 Nov 2025 09:55:44 GMT`, `etag: "1DC5483AD58D000"`. The gazette is set in two columns, and `pdftotext -layout` over a whole page and plain `pdftotext` both interleave the columns. The recipe is `pdftotext -layout -f P -l P -x X -y 58 -W 262 -H 772 aviso6.pdf -` for P = 2 to 6 and X = 30 (left column) then X = 303 (right column), which drops the page header (y below 58), then the text from the line `Aviso n.º 6/GBM/2025` up to, not including, `Aviso n.º 7/GBM/2025`, runs of spaces collapsed and blank lines dropped; hard line wraps of the PDF are kept. Mojibake check: the only non-ASCII characters in the output are Portuguese letters and quotation marks, no U+FFFD. Articles 1 to 15 and the Anexo follow in order.
+
+### Languages
+
+Portuguese is the only language: the Banco de Moçambique serves the Aviso in Portuguese, and no English translation is linked from https://www.bancomoc.mz/en/the-bank/normatives/ (it lists the same Portuguese PDFs). No translation row exists.
+
+### Link only
+
+- `mz-lei-20-97-ambiente`, `mz-lei-22-2009-consumidor`, `mz-decreto-23-2018-redd` (row `MZ-IMPRENSANAC-ADOPTED`, permission requested). Tried on 2026-11-03: `curl -sS -m 40 -A 'Mozilla/5.0' -L https://www.imprensanac.gov.mz` gave `curl: (35) Recv failure: Connection reset by peer` (the proxy status lists the tunnel closed after about 3 s); `http://www.imprensanac.gov.mz` gave `HTTP/1.1 503 Service Unavailable` with body `upstream connect error or disconnect/reset before headers`; `imprensanac.gov.mz`, `imprensanac.co.mz`, `www.imprensanac.co.mz` and `boletim.imprensanac.gov.mz` gave no response. No browser recipe was tried because the same proxy path carries it. `https://portaldogoverno.gov.mz` answered `200 72442 text/html` but serves news and institutional pages; its WordPress search for "Lei do Ambiente", "Defesa do Consumidor", "REDD" and "Boletim da República" returned only news posts, so it holds no law text for these instruments.
+- Copies of these laws exist on FAOLEX, a law-firm PDF (DLA Piper Africa) and a UNEP LEAP summary. They are third-party copies or translations and get no row.
+
+### Blocked
+
+Refused the cloud address on 2026-11-03: `https://www.imprensanac.gov.mz` (curl 35 connection reset; HTTP 503 over HTTP), `https://www.maap.gov.mz` and `https://www.mta.gov.mz` (curl 35 connection reset; no other host for the ministry was found), `https://www.mef.gov.mz` (403), `https://www.parlamento.org.mz` (no response). `https://www.bvm.co.mz` answered `curl: (60) SSL certificate problem: unable to get local issuer certificate` (the server does not send its intermediate certificate; verification was not disabled), so no page was read; no BVM ESG disclosure rule was found in search results, which describe ESG reporting on the exchange as not mandatory, and no row was added. `https://www.aripo.org/storage/resources-member-state-laws/1730134792_mz028pt.pdf` gave a TLS handshake alert to curl (used only to look for Lei n.º 9/2022; the WIPO Lex copy was read instead). Read these from the laptop.
+
+### Browser
+
+Headless Chromium (Playwright) was used only to read Lei n.º 9/2022 from WIPO Lex (curl got an HTML wrapper page for the PDF address); no record comes from it. The Aviso record comes from plain curl.
+
+## Senegal
+
+Checked on 2026-11-03 from the cloud address. No record is stored: the one row that passes (SN-SGG-ADOPTED) serves a page whose file is dead, and the other two rows are permission requested. All three scope instruments are link only.
+
+### SN-SGG-ADOPTED (Secrétariat général du Gouvernement, primature.sn): pass on Loi 2008-09 art. 9
+
+The site is the "Gouvernement du Sénégal" portal (theme `sgg`; `https://www.sec.gouv.sn` redirects to it). Proven fetch, for one instrument that is not in scope (the Code forestier, Loi n° 2018-25), to show the route works:
+
+```
+curl -sS -L -o cf.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2022-04/Loi%20n%C2%B0%202018-25%20du%2012%20novembre%202018%20portant%20Code%20forestier.pdf'
+```
+
+Returned `200 876266 application/pdf`; sha256 `26a5d1523b3f8053774d56e1bfef2e876f85c86515d4df8918c8ad991763aae3`. The PDF links come from the instrument page (`https://primature.sn/publications/lois-et-reglements/<slug>`, "Pièces jointes"). The page of the Code de l'environnement, `curl -sS -L https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement`, returns `200 68588 text/html` and links `/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf`, but that file does not exist:
+
+```
+curl -sS -L -o ce.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf'
+```
+
+Returned `404 40531 text/html; charset=UTF-8`. Headless Chromium (Playwright `request.get`, then `page.goto` with a 45 s wait for a download) gets `200 text/html 12155` titled "One moment, please..." (a JavaScript challenge page) and no download. The `www.` host gives the same 404. No hash is recorded because nothing was fetched. The statute text was read from the WIPO Lex PDF `https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/sn/sn004fr_1.pdf`: curl got an HTML page (`200 133278 text/html`), Chromium saved a 132474-byte PDF (`pdftotext -layout`), an English translation.
+
+### Languages
+
+French is the only official language of legislation; the national languages have no gazette edition. No French or English record is stored. English: no government translation was found on primature.sn, on environnement.gouv.sn (its pages redirect to `https://environnement.gouv.sn/?password-protected=login`, a password login, `200 8822 text/html`) or on jo.gouv.sn (refused). No translation row was added.
+
+### Link only
+
+- sn-loi-2023-15-code-environnement: row passes, file 404 (above). Other copies tried: vie-publique.sn (`200 text/html`, a civic information site, not the state publisher, so no row) and `https://ditp.sec.gouv.sn/download/file/fid/49` (`CONNECT tunnel failed, response 502`).
+- sn-decret-2025-227 and sn-loi-2021-25-consommateur: row SN-JO-ADOPTED is permission requested; primature.sn has no copy (its list stops in 2024).
+- AMF-UMOA and CREPMF circulars (register rows only, F7, SN-BRVM-ADOPTED permission requested; same instruments sit in BJ BF CI GW ML NE TG): `curl -sS -L -o g.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf` returned `200 1560342 application/pdf` (text layer, `pdftotext -layout`); the 2024 taxonomy circular PDF returned `200 4237687 application/pdf` with 39 scanned pages and no text layer. `https://www.amf-umoa.org/` returned `200 1685 text/html` (JavaScript shell).
+
+### Blocked from the cloud address
+
+- https://www.jo.gouv.sn: curl `curl: (35) Recv failure: Connection reset by peer`; headless Chromium `HTTP 502`, 174 bytes; `jo.gouv.sn` (no www): `curl: (6) Could not resolve host` and `CONNECT tunnel failed, response 502`.
+- https://www.environnement.gouv.sn: `302` to a password login page.
+- https://www.assemblee-nationale.sn, https://www.finances.gouv.sn, https://www.ansd.sn: no connection (`000`). https://www.commerce.gouv.sn: `503`.
+
+## Mauritania
+
+Run on 2026-11-03 (GEL-12-03). One row passes: `MR-MSGG-ADOPTED` (Journal Officiel de la République Islamique de Mauritanie, served by the Ministère chargé du Secrétariat Général du Gouvernement at msgg.gov.mr). It passes on a statute, not on the site terms: the `mentions-legales` page reserves all reproduction of the site and its texts to the Ministry, while Loi n° 2012-038 relative à la propriété littéraire et artistique, Art. 11, says laws, regulations and administrative acts of State bodies "et la traduction officielle de ces textes ne sont pas soumises à la protection des droits d'auteur". Varun decides whether to keep the row at pass (row notes give the tension). The row covers the French issue and the separate Arabic issue; there is no consolidated or English source: the portal's "Codes usuels" are Droit-Afrique compilations and are not used. No row for the Ministry of the Environment (`environnement.gov.mr`) or the central bank (`bcm.mr`): no text was taken from either.
+
+Row `MR-MSGG-ADOPTED`, French gazette issue n° 1585 of 15 July 2025 (holds Loi n° 2025-019 on page 619 of the gazette; no cookie, header or token is needed, a `User-Agent` is sent out of habit):
+
+```
+curl -sS -A 'Mozilla/5.0' -o mauritanie-jo-2025-1585.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/JO/2025/mauritanie-jo-2025-1585.pdf
+```
+
+Returned `200 1458371 application/pdf`; sha256 `83a7a04ab0e13c721deb19ceac91f644836396f9fcba793e5b4cb760521ba3d6`, and a second fetch gave the same hash (same for the other two issues below). `fetched_sha256` of each record is the hash of the PDF as returned. Other issues stored: `https://msgg.gov.mr/JO/2020/mauritanie-jo-2020-1465.pdf` returned `200 1037570 application/pdf` (sha256 `0bcf66e19b2e5d2869c73d0bd06c0d197211a3b6d33817b7cabea7d0995b1c2a`), and `https://msgg.gov.mr/JO/2024/mauritanie-jo-2024-1559.pdf` returned `200 1507232 application/pdf` (sha256 `6e554533875272582e664c10a233544af8fb10ada0f4198cf588fdabf4013714`). Issue numbers and dates come from the gazette list `https://msgg.gov.mr/fr/droit-mauritanien/le-journal-officiel.html?page=N&row=1648` (20 issues a page); the text search `https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=<words>&action=Rechercher` (or `field_numeroAAAA=<year>&field_numeroNN=<n>`) returns, for each text, its title, the issue it was published in and any "Modifié par" or repeal annotation. Both pages answered `200` to plain curl on 2026-11-03.
+
+Text extraction (poppler, no OCR): the gazette is two columns, and both `pdftotext -layout` (columns interleaved on one line) and plain `pdftotext` (articles out of order at page breaks, for example Article 6 before Article 5 in Loi 2025-019) failed the check that article numbers run in sequence. What worked: for each page `N`, `pdftotext -f N -l N -x 0 -y 0 -W 298 -H 842 file.pdf -` (left column) followed by the same with `-x 298` (right column), pages concatenated in order, then the text cut from the title line of the instrument to the line before the next item, running headers ("Journal Officiel de la République Islamique de Mauritanie <date> …<issue>", including their cut-off fragments) and lines that are only a page number dropped, runs of spaces collapsed, hard line wraps kept (justified text puts some words on their own line). Article numbers run in order in all three stored texts and no mojibake was found in the French text.
+
+Arabic issue (same row, same publisher): `curl -sS -A 'Mozilla/5.0' -o mauritanie-jo-2025-1585-ar.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/JO-AR/2025/mauritanie-jo-2025-1585-ar.pdf` returned `200 1612624 application/pdf`; the same path pattern worked for 2020-1465 and 2024-1559 (`200 1244326` and `200 1388010`). Not stored: `pdftotext` (plain, `-layout`, `-raw`) returns words in visual order and wrong digits (the index line for Loi n° 2025-019 reads `قانون رقم 350-0301`), so the text cannot be stored without reading it back wrongly. Each stored instrument says so in its `notes`. A source with a clean Arabic text layer, or OCR with a human check, is needed.
+
+### Languages
+
+Arabic: see above, issue served, text not stored. French: stored for `mr-loi-2025-019` (record date 2025-07-15, the gazette date, because the law has no commencement clause), `mr-loi-2020-007` (2021-01-15, six months after the 2020-07-15 gazette, Art. 91) and `mr-decret-2024-027` (2024-06-15, gazette date, no commencement date stated). English: none. Looked for on `msgg.gov.mr` (the portal has a `/fr/` and an `/ar/` side only; `https://msgg.gov.mr/en/` answered 404 and `/en/index.html` redirected to the French home page) and on `http://www.environnement.gov.mr/fr/index.php/reglementation/lois` (French documents only). No translation row is needed.
+
+Statute read for the row: `curl -sS -A 'Mozilla/5.0' -o loi2012-38.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/textes-officiels/lois/2012/Mauritanie-Loi-2012-38.pdf` returned `200 950733 application/pdf` (found through the portal search for "propriété littéraire", which titles the law "du 7 juillet 2012", published in JO 2012-1272; the dispatch brief says 17 juillet 2012, and page 1 of the PDF is an image, so the date was not read from the text). Terms page: `curl -sS -L -A 'Mozilla/5.0' https://msgg.gov.mr/mentions-legales.html` returned `200 18884 text/html`.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| mr-loi-2000-045 (Code de l'environnement) | https://msgg.gov.mr/JO/2000/mauritanie-jo-2000-985.pdf | Row passes, but the issue is a scanned image: `200 481027 application/pdf`, `pdftotext` returns 24 characters; no OCR recipe. Repealed 'notamment' by Art. 44 of Loi 2025-019. |
+| mr-decret-2004-094 (étude d'impact) | https://msgg.gov.mr/JO/2005/mauritanie-jo-2005-1095.pdf | Scanned image: `200 389790 application/pdf`, 20 characters. Still in force under Art. 44 of Loi 2025-019. |
+| mr-decret-2007-105 (amends the above) | https://msgg.gov.mr/JO/2007/mauritanie-jo-2007-1145.pdf | Scanned image: `200 831929 application/pdf`, 52 characters. |
+| mr-loi-2018-017 (publicité) | https://msgg.gov.mr/JO/2018/mauritanie-jo-2018-1410.pdf | `200 1266638 application/pdf`, text layer present, but the 40-page issue extracts with repeated and out-of-order article numbers (66, 66, 66, 64 …) in plain mode and in two-column crops; no faithful cut found. |
+| F7 rows (Loi 2018-002 air, Loi 2023-031 waste, Loi 2024-037 hydrogène vert, Loi 2017-002 Paris Agreement) | gazette URLs in `register.csv` | F7: register row only, no scope entry. |
+
+Blocked or unusable from the cloud address: `https://www.environnement.gov.mr` (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, 000; plain `http://www.environnement.gov.mr/fr/` answered `200 74488 text/html` and its `reglementation/lois` page lists PDFs of the laws, not used because the ministry has no licence row and the gazette is preferred); `https://www.bcm.mr/` (`200 2568 text/html`, a JavaScript shell; its back office `https://bo.bcm.mr/` answered `500 38353 text/html` to curl, so no instruction on climate or sustainability of banks could be confirmed or ruled out). No browser recipe was needed or used: no Mauritania record was fetched in a browser.
+
+## Zimbabwe
+
+Run on 2026-11-03 (GEL-13-04). Two rows pass, both on the statute: `ZW-EMA-CONSOLIDATED` and `ZW-SECZ-ADOPTED` (Copyright and Neighbouring Rights Act [Chapter 26:05] s.10(6)(a), "official texts of enactments" are not eligible for copyright; read on WIPO Lex https://www.wipo.int/wipolex/en/text/214697 because ZimLII and Parliament answered the cloud address with a Cloudflare challenge). Three rows are `permission requested`: `ZW-ZSE-RULES`, `ZW-VFEX-RULES` (companies, all rights reserved, no licence) and `ZW-PAAB-STATEMENT` (site unreachable). No English translation source exists: the Acts are published in English only.
+
+Text extraction: `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, blank lines dropped (so line breaks are the PDF's line wraps); no replacement characters in the output. Only one record is stored.
+
+Row `ZW-EMA-CONSOLIDATED`, Environmental Management Act [Chapter 20:27] (Law Development Commission revised edition on the Environmental Management Agency site, 45 pages):
+
+```
+curl -sS -o EMA-ACT.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf
+```
+
+Returned `200 1595258 application/pdf`, with and without a browser User-Agent. A second fetch gave the same sha256 (`c4dd5a07...3da39`), so `fetched_sha256` reproduces. The file is a single revised edition (Acts 13/2002, 5/2004, 6/2005); no other dated version is served.
+
+Row `ZW-SECZ-ADOPTED`, SI 134 of 2019 (Securities and Exchange Commission of Zimbabwe; the bare host `seczim.co.zw` works, `www.seczim.co.zw` answers 406 from Mod_Security):
+
+```
+curl -sS -o si134.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://seczim.co.zw/wp-content/uploads/2020/12/SI-2019-134-Zimbabwe-Stock-Exchange-Listings-Requirements-2019_0.pdf
+```
+
+Returned `200 1715893 application/pdf` (214 pages, Part XXI sections 399 to 404 read as text). The download page `https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/` returned `200 747792 text/html; charset=UTF-8`; the instrument list is `https://seczim.co.zw/download-category/statutory-instruments/`. The file has no date, so nothing is stored.
+
+Row `ZW-ZSE-RULES` (not stored, opened only to read content and date): the ZSE site is a script-rendered Next.js app whose lists come from `curl -sS 'https://ds88jcmqc11je.cloudfront.net/api/docs?exchange=ZSE&category=practice%20and%20procedures'` (JSON, 21 documents); Practice Note 16 is `curl -sS -o pn16.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ds88jcmqc11je.cloudfront.net/api/docs/42/download`, returned `200 93565 application/pdf`.
+
+### Languages
+
+English only. Sixteen languages are official in Zimbabwe but legislation is published in English; no other-language edition and no government translation was found on `ema.co.zw`, `seczim.co.zw`, `zse.co.zw`, `vfex.exchange` or `mecw.gov.zw`. No translation row was added.
+
+### Link-only instruments
+
+| Instrument | Why link only |
+|---|---|
+| zw-si-134-2019 | Row `ZW-SECZ-ADOPTED` passes and the text was fetched, but no official page states a commencement or gazette date, so no dated record can be written. A date from the Government Gazette would unlock it. |
+| zw-zse-practice-note-16 | Row `ZW-ZSE-RULES` is permission requested (ZSE Limited, all rights reserved). |
+
+### Not in scope, with what was tried
+
+- Carbon Trading (General) Regulations, 2025 (SI 48 of 2025) and SI 150 of 2023: no official page found. `zicma.gov.zw`, `www.zicma.gov.zw` and `zimcarbonregistry.gov.zw` do not connect; `www.mecw.gov.zw` (HTTP 200) lists no carbon regulation; the UNFCCC report that links the ZiCMA copy returned an empty PDF. Not in `scope.json` or `register.csv`.
+- Consumer Protection Act [Chapter 14:44]: only ZimLII and Laws.Africa copies were found (private hosts, no row). Not in scope.
+- Climate Change Management Bill [H. B. 5A, 2025]: read the third time in the Senate on 2026-08-05 (https://e-portal.parlzim.gov.zw/files/HAN-1785946724561.pdf, `200 628926 application/pdf`); no assent found. Register row, family F7.
+- Joint Regulatory Statement (PAAB, ZSE, VFEX, 2025-02-12): not on the ZSE or VFEX document lists; PAAB unreachable. Register row only.
+- Government Gazette: Printflow (`https://printflow.co.zw/`, HTTP 200) sells Acts as products (paid); no free official gazette edition found, nothing stored. Veritas (`https://www.veritaszim.net/`, 200) and ZimLII are private hosts.
+
+### Blocked from the cloud address
+
+| URL | Answer |
+|---|---|
+| https://www.parlzim.gov.zw/ and paths | HTTP 403, Cloudflare "Just a moment" challenge, for curl and for headless Chromium (waited 6 s). `e-portal.parlzim.gov.zw/files/<id>.pdf` links work; the e-portal root answers 403. |
+| https://zimlii.org/akn/zw/act/2007/13 | HTTP 403, same challenge, curl and Chromium. |
+| https://www.paab.co.zw/ | CONNECT answered 502 by the agent proxy (curl exit 56; Chromium ERR_TUNNEL_CONNECTION_FAILED). |
+| https://www.environment.gov.zw/ | CONNECT answered 502. The live Ministry host is https://www.mecw.gov.zw/; its file downloads (`?wpdmpro=...&wpdmdl=...`) need a per-request token and return an HTML form to curl. |
+| https://www.seczim.co.zw/ | 406 Mod_Security (use `seczim.co.zw`). |
+
+## Ethiopia
+
+Run on 2026-11-03 from the cloud address. No row for Ethiopia passes, so nothing is stored and no fetch recipe for a record is proven. Every Ethiopian publisher source is `permission requested` (rows ET-NBE-ADOPTED, ET-ECMA-ADOPTED, ET-ESX-ADOPTED, ET-HOPR-ADOPTED, ET-EPA-ADOPTED): the sites carry a copyright footer and no reuse licence, and the wording of Proclamation No. 410/2004 art. 5(b) (as amended by No. 872/2014) could not be read in the gazette text, so no statute exception is claimed. The requests below were run to read the instruments for the scope entries, and a second run on the same day returned identical bytes (same sha256) for each file.
+
+### Requests that work (read only, not a recipe for records)
+
+National Bank of Ethiopia, Bank Corporate Governance Directive No. SBB/91/2024 (PDF with a clean text layer):
+
+```
+curl -sL -A 'Mozilla/5.0' -o sbb91.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf'
+200 4611812 application/pdf
+```
+
+Environmental Protection Authority (EPA), gazette PDFs. The host answers a `Mozilla/5.0` User-Agent with HTTP 406 (779 bytes, `text/html`) and a request with no User-Agent with a proxy tunnel failure; a plain `curl/8.5.0` User-Agent gets the file:
+
+```
+curl -sL -A 'curl/8.5.0' -o p1371.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/PDF/Proc%20No.1371-2025-Environmental%20and%20Social%20Impact%20Assessment.pdf'
+200 314642 application/pdf        (Proclamation No. 1371/2025; 17 pages, image only, no text layer; read as page images)
+curl -sL -A 'curl/8.5.0' -o p300.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/Proclamation/Proc%20No.%20300-2002%20Environmental%20Pollution%20Control.pdf'
+200 836157 application/pdf        (Proclamation No. 300/2002)
+curl -sL -A 'curl/8.5.0' -o p1401.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/PDF/proclamation-for-ecosytem-service-paymeny-1401.pdf'
+200 1151044 application/pdf       (Proclamation No. 1401/2026)
+curl -sL -A 'curl/8.5.0' -o proclamations.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/downloads/proclamations.html'
+200 25737 text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/downloads/proclamations.html'
+406 779 text/html
+```
+
+PDF text: `pdftotext -layout file.pdf -` (poppler). The NBE PDF extracts clean. The EPA PDF for 300/2002 and the Amharic column of 1401/2026 extract as mojibake (legacy font encodings; 26,128 non-ASCII characters in the 1401 output, none of them readable Ethiopic), and the 1371/2025 PDF has no text layer and no OCR tool was available. Had any row passed, these files could not be stored as they are.
+
+### Languages
+
+The Federal Negarit Gazeta prints Amharic and English side by side and the Amharic prevails on conflict. The gazette PDFs on epa.gov.et carry both columns, so both languages would be stored under the one EPA row if it passed. No separate English translation source was found, so no translation row exists. The NBE directive PDF is English only.
+
+### Link-only instruments
+
+- et-nbe-bank-cg-directive-sbb-91-2024: row ET-NBE-ADOPTED is permission requested (footer "Copyright © 2025 NBE").
+- et-esia-proclamation-1371-2025, et-pollution-control-proclamation-300-2002, et-ecosystem-services-payment-proclamation-1401-2026: row ET-EPA-ADOPTED is permission requested (footer "Copyright © 2025 EPA, Ethiopia. All rights reserved."). The scope entries cover 1371/2025, which repeals 299/2002 (art. 24(1)); 299/2002 has no entry.
+- ECMA Sustainable Securities Framework: F7, no scope entry. ECMA's Laws & Regulation list has no framework document; only a news page exists. ESX (esx.et) rulebook PDFs are on a company site (row ET-ESX-ADOPTED, permission requested) and no ESX sustainable-securities guideline was found there.
+- House of Peoples' Representatives (hopr.gov.et): no law or gazette section and no terms page (row ET-HOPR-ADOPTED, permission requested).
+- Trade Competition and Consumer Protection Proclamation No. 813/2013 (F6): not entered. The Trade Competition and Consumer Protection Authority and Ministry of Trade hosts refused the cloud address, and no official page for the text was opened.
+
+### Blocked from the cloud address
+
+- https://www.moj.gov.et, https://moj.gov.et, https://www.mojsr.gov.et: no connection (curl exit code 000).
+- https://www.epa.gov.et with a `Mozilla/5.0` User-Agent: HTTP 406; with no User-Agent: proxy tunnel failure (works with `curl/8.5.0`, see above). https://epa.gov.et (no `www`): proxy tunnel failure, HTTP 502.
+- https://tccpa.gov.et, https://www.tccpa.gov.et, https://www.moti.gov.et, https://www.motri.gov.et: `connect_rejected` by the egress proxy.
+- https://www.mint.gov.et, https://www.mofed.gov.et, https://www.mowe.gov.et, https://eiabc.gov.et, https://www.eipo.gov.et: no connection (000).
+- https://fsc.gov.et answered 404 and https://www.fsc.gov.et answered 500.
+- https://www.fao.org/faolex/country-profiles/en/?iso3=ETH: 403 to scripts (FAOLEX is not an Ethiopian publisher and has no row).
+- https://wipolex-res.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf and https://www.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf: HTTP 200 with an HTML page, not the PDF, so Proclamation No. 410/2004 art. 5(b) could not be read.
+
 ## Tanzania
 
 Run on 2026-11-03 (GEL-13-02). Rows `TZ-OAG-CONSOLIDATED`, `TZ-OAG-ADOPTED`, `TZ-OAG-TRANSLATION` (Office of the Attorney General, OAG-MIS) and `TZ-CMSA-ADOPTED` (Capital Markets and Securities Authority) pass on the statute basis: Copyright and Neighbouring Rights Act (Cap. 218 R.E. 2023) s. 7(a), "protection shall not extend to- (a) laws and decisions of courts and administrative bodies as well as to official translations thereof". Rows `TZ-BOT-ADOPTED` and `TZ-TANZLII-CONSOLIDATED` are `permission requested`. Two conflicts are left to Varun in the PR: the Revised Edition PDFs carry a watermark "All rights reserved. No part of this book may be reproduced or distributed without permission of OAG", and the CMSA site says "All rights reserved"; the rows pass because the statute removes protection from laws. The host in the brief, `oagmis.agctz.go.tz`, is blocked from the cloud address; the same catalogue is served at `oagmis.oag.go.tz`, which answers. Tanzania mainland only; Zanzibar is not in scope.
