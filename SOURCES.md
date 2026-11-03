@@ -7414,6 +7414,49 @@ Not used: the Superintendencia del Mercado de Valores (`https://supervalores.gob
 
 Blocked from the cloud address: https://www.gacetaoficial.gob.pa/ (Incapsula stub for curl; headless Chromium blocked after about six requests); https://miambiente.gob.pa/ and https://www.miambiente.gob.pa/ (curl: `Recv failure: Connection reset by peer`; Chromium: "upstream request failed"); https://www.asamblea.gob.pa/ (reset; its Legispan hosts work); https://www.jtc.gob.pa, https://www.acodeco.gob.pa, https://www.aig.gob.pa (reset); https://www.anati.gob.pa (520).
 
+### OCR pass 2026-11-03
+
+Varun allowed OCR at 08:20Z on 2026-11-03 (GEL-04-12). Row `PA-GACETA-ADOPTED` is `pass` (statute, Ley 64 de 2012 Art. 13 num. 2), so the four scanned Gaceta instruments are stored; no verdict, row or URL changed. `PA-SBP-ADOPTED` is also `pass` and its only instrument was already stored. Spanish is the only official language; no other language record exists. Records carry `extraction: ocr`, `fetched_url` and `fetched_sha256` of the whole Gaceta PDF as received.
+
+Tools: `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa` gave tesseract 5.3.4 (leptonica-1.82.0) with `spa.traineddata` from tesseract-ocr-spa 1:4.1.0-2; poppler `pdftoppm`.
+
+Download: the browser recipe above (`fetch_gaceta.js`), all four PDFs in one browser session (the filter blocks the address after about six requests):
+
+```
+node fetch_gaceta.js https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf g30480.pdf https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf g28131a.pdf https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf g29138c.pdf https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf g29430c.pdf
+```
+
+Returned `200` and 7553470, 8860874, 1712388, 31990664 bytes (`application/pdf`). A second run of the same command reproduced all four hashes:
+
+| PDF | Pages | sha256 |
+|---|---|---|
+| `g30480.pdf` (Gaceta 30480) | 54 | e531092fb06664bc30561fd2f23fb8d317aa3872f79b9c2bcd865ae3c4b44853 |
+| `g28131a.pdf` (Gaceta 28131-A) | 35 | 9d68290a70bb0d5d43e14be0ccc7bae00aa6ff8dfaaf3b0c99c0dd2b12d536fd |
+| `g29138c.pdf` (Gaceta 29138-C) | 44 | 76067364843d2aa04334be45819deb4303c9053c5397a60ffd0a0cea596a0d1b |
+| `g29430c.pdf` (Gaceta 29430-C) | 171 | 7d76da37e67db28c4ee5b16c3c7e602bfb64dda507a102a2073ec7a5bb21995c |
+
+OCR, per page (the Gaceta pages are single column, so no crop; the PDF page number equals the Gaceta page number). `OMP_THREAD_LIMIT=1` is needed: with tesseract's default threads on 4 cores a page took minutes.
+
+```
+export OMP_THREAD_LIMIT=1
+page() { p=$(printf %03d $2); pdftoppm -r 200 -f $2 -l $2 -gray -png -singlefile $1 img$p && tesseract img$p.png p$p -l spa && rm img$p.png; }
+for p in 6 7 8; do page g30480.pdf $p; done
+for p in $(seq 2 35); do page g28131a.pdf $p; done
+for p in $(seq 14 42); do page g29138c.pdf $p; done
+for p in $(seq 2 10); do page g29430c.pdf $p; done
+```
+
+All four read well at 200 dpi, so 300 dpi was not needed. Each record's `text` is its pages' `p<NNN>.txt` files in order, each stripped of its trailing newlines and form feed and joined with one newline; nothing else was touched (Gaceta page headers and footers, stamps read as noise and misread characters stay).
+
+| Instrument | Pages cut | Characters of text |
+|---|---|---|
+| `pa-jtc-res-012-2025` | Gaceta 30480 pp. 6-8 | 9339 |
+| `pa-ley-41-1998` | Gaceta 28131-A pp. 2-35 (p. 1 is the cover and index) | 86928 |
+| `pa-de-100-2020` | Gaceta 29138-C pp. 14-42 (the scope citation says pp. 11-42; pp. 11-13 hold Resolución de Gabinete 70 and its signatures) | 68470 |
+| `pa-de-142-2021` | Gaceta 29430-C pp. 2-10 | 27487 |
+
+For `pa-ley-41-1998` the record's `in_force` is the Gaceta date 2016-10-04 (the Texto Único has no commencement date of its own, same convention as `pe-cnc-res-001-2026-ef30`), while the scope entry's `in_force` stays null.
+
 ## Haiti
 
 GEL-15-08, run 2026-11-03. Two rows pass, both on the statute: `HT-MDE-ADOPTED` (Ministère de l'Environnement, mde.gouv.ht) and `HT-BRH-ADOPTED` (Banque de la République d'Haïti, www.brh.ht). The statute is Art. 5 of the Décret du 12 octobre 2005 sur le droit d'auteur (Le Moniteur No. 23, 2006-03-09): "La protection prévue par le présent Décret ne s'étend pas: 1.- aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles". It was read in the scanned Moniteur issue that WIPO Lex serves (not a Haitian state host):
