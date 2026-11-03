@@ -5914,3 +5914,54 @@ All eight scope instruments (`zm-gecc-act-2024`, `zm-gecc-carbon-market-regs-202
 - Lusaka Securities Exchange (https://luse.co.zm): blocked from the cloud address (`403`, Cloudflare "Just a moment", still a challenge after 6 s in headless Chromium). Listings Requirements not read; no instrument and no row.
 - ZEMA (https://www.zema.org.zm): opens (200); its statutory-instrument archive holds environmental impact statements, not the instruments in scope; footer "All rights reserved". No row.
 - Ministry of Justice (https://www.moj.gov.zm): opens (200); no per-instrument gazette text. No row.
+
+## Seychelles
+
+GEL-13-08, run on 2026-11-03. No licence row passes, so no text is stored and no fetch recipe is proven for a `pass` row. Rows added: `SC-CBS-ADOPTED`, `SC-AGO-CONSOLIDATED` and `SC-GAZETTE-ADOPTED`, all `permission requested` on the terms. The Copyright Act, 2014 (Supplement to the Official Gazette of 21 April 2014, read as the publication PDF https://commons.laws.africa/akn/sc/act/2014/5/media/publication/sc-act-2014-5-publication-document.pdf with `pdftotext`) has no statute exception: section 6 withholds protection only from ideas and mere data, news items and political or court speeches, not from laws or official texts. So the Swiss route (URG Art. 5) has no Seychelles counterpart. The three requests below were run to show what each site answers; they are not recipes for stored records.
+
+Row `SC-CBS-ADOPTED` (Central Bank of Seychelles, terms page https://www.cbs.sc/Disclaimer.html: short extracts with permission only, other rights reserved). The PDFs have a text layer; `pdftotext -layout` returns clean English. A Chrome-style User-Agent is used on every request below because the Seychelles sites differ in what they accept.
+
+```
+curl -sS -o cbs_disclosure.pdf -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' -w '%{http_code} %{size_download} %{content_type}\n' https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Climate-related_Financial_Risks_Disclosure.pdf
+```
+
+Returned `200 1463842 application/pdf` (companion guideline `Guidelines_iro_Effective_Risk_Management_of_Climate-related_Financial_Risks.pdf`: `200 1503540 application/pdf`). The PDF names no publication date in its text but its cover table says `Effective Date 10/12/2025 | 21:25 MUT`; the server's `Last-Modified` is 17 Dec 2025. The second guideline is not linked from any CBS page opened (https://www.cbs.sc/Legislations.html lists only the Central Bank Act and the Financial Leasing Act); its URL was found by following the name of the first guideline's file.
+
+Row `SC-GAZETTE-ADOPTED` (https://www.gazette.sc, the Official Gazette; Acts, Bills and SIs from 2020 only). Lists of a year: `/v/act/<year>`, `/v/bill/<year>`, `/v/si/<year>`, with `?page=<n>` for more. Plain `curl` with its own User-Agent gets 403 and `Mozilla/5.0` alone gets 406 (mod_security); the User-Agents below get 200.
+
+```
+curl -sS -o a18.pdf -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gazette.sc/sites/default/files/2024-12/Act%2018%20-%202024%20-%20Securities%20%28Amendment%29%20Act%202024.pdf'
+```
+
+Returned `200 603436 application/pdf` (Act 18 of 2024, Securities (Amendment) Act 2024, sha256 28fe3270...c14c78e). The list page `https://www.gazette.sc/v/act/2024` returned `200 36025 text/html; charset=UTF-8`; the same URL with `-A 'Mozilla/5.0'` returned `406 226 text/html; charset=iso-8859-1` and with the default curl User-Agent `403 17108 text/html`. The watcher's own User-Agent (`global-esg-law-watch/1`) gets 200, so `tools/watch.py` works. By title, no Act of 2020 to 2026 on the Gazette is a climate, carbon or environmental framework act (every Act number from 1 to the highest of each year was listed; 231 distinct file names in the Acts lists read).
+
+Row `SC-AGO-CONSOLIDATED` (Attorney General's Office, https://attorneygeneraloffice.gov.sc, host found by web search; the brief's https://www.ag.gov.sc is refused, see Blocked). The Laws of Seychelles page lists the 2010 Edition Caps and links each to a Google Drive PDF:
+
+```
+curl -sS -o laws.html -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' -w '%{http_code} %{size_download} %{content_type}\n' https://attorneygeneraloffice.gov.sc/index.php/resources/online-publications/laws-of-seychelles
+curl -sS -L -o cap71.pdf -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' -w '%{http_code} %{size_download} %{content_type}\n' 'https://drive.google.com/uc?export=download&id=0B6eGHNJ2dbIdS3QtRWlZN184WkE'
+```
+
+Returned `200 338489 text/html; charset=utf-8` and `200 30605658 application/octet-stream` (Cap 71, Environment Protection Act: PDF, 95 pages, page images only; `pdftotext` returns no text, `pdftoppm -r 100` then reading the page images gave the commencement footnote). Cap 257, Consumer Protection Act (`id=0B6eGHNJ2dbIdRl8teWxhN2R5bjQ`): `200 23772335`, 122 pages, page images. There is no OCR in this environment, so these would need OCR even if a row passed.
+
+### Languages
+
+Every law here is English. Seychelles has three official languages (English, French, Seychellois Creole); no French or Creole text of any of the four instruments was found on cbs.sc, gazette.sc or attorneygeneraloffice.gov.sc. Creole has no ISO 639-1 code, so a Creole text would be link only. No government English translation exists to look for, because the originals are English. No translation row was added.
+
+### Link only
+
+| Instrument | Reason |
+|---|---|
+| `sc-cbs-climate-disclosure-guidelines` | Row `SC-CBS-ADOPTED` is permission requested (Disclaimer: short extracts with permission, rights reserved; no statute exception). |
+| `sc-cbs-climate-risk-management-guidelines` | Same row. |
+| `sc-environment-protection-act` | Row `SC-AGO-CONSOLIDATED` is permission requested (footer "Copyright © 2011 Attorney General Office"); the PDF is page images; the 2010 Edition text predates later amendments. |
+| `sc-consumer-protection-act` | Same row and same reasons. |
+
+Other publishers looked at, no row because nothing in scope is served from them: the Financial Services Authority (https://fsaseychelles.sc: Terms & Conditions and Disclaimer pages grant no reuse licence; the Guidelines, Circulars, Legislations and Codes pages mention no ESG, sustainability or climate rule on 2026-11-03; MERJ Exchange (https://www.merj.exchange, answered 200) is a company and was not read for terms); SeyLII (https://www.seylii.org, a private host, refused the cloud address); the Ministry of Environment, Climate, Energy and Natural Resources (https://macce.gov.sc, refused the cloud address).
+
+### Blocked
+
+- https://www.seylii.org/ and /about, /akn/sc/act/2020/23: `403 239 text/html; charset=iso-8859-1` to curl; headless Chromium (Playwright, `networkidle`) got `403 Forbidden` too. https://old.seylii.org: CONNECT refused by the proxy (502). Read from the laptop: the about page (publisher), terms.
+- https://www.ag.gov.sc, https://ag.gov.sc, https://attorneygeneral.gov.sc: CONNECT refused by the proxy (HTTP 502), no host answered. The live Attorney General host is https://attorneygeneraloffice.gov.sc.
+- https://macce.gov.sc and https://www.macce.gov.sc (also www.moecc.gov.sc, www.env.gov.sc, www.energy.gov.sc, www.moe.gov.sc): CONNECT refused by the proxy (502). Read from the laptop: https://macce.gov.sc/about-macce/ministry-overview/ and any Climate Change or Energy page.
+- https://www.gazette.sc with a short or default User-Agent: 406 or 403 (see above); a Chrome User-Agent works, so not blocked.
