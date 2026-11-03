@@ -9546,5 +9546,32 @@
   "tier": "consolidation_site",
   "url": "https://sgg.gouv.bj/doc/loi-2007-21/download",
   "params": {}
+ },
+ {
+  "id": "km-loi-94-018-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-94-018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-loi-95-007-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-95-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-decret-01-052-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-decret-01-052",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
  }
 ]
