@@ -1,0 +1,46 @@
+[
+  {
+    "id": "sn-loi-2023-15-code-environnement",
+    "title": "Loi n° 2023-15 du 2 août 2023 portant Code de l'environnement",
+    "official_url": "https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement",
+    "citation": "Loi n° 2023-15 du 2 août 2023 portant Code de l'environnement (JO n° 7660 of 2023-09-16, per secondary copy)",
+    "in_force": null,
+    "evidence": "The Gouvernement du Sénégal page lists \"Loi n°2023-15 du 02 août 2023 portant Code de l'Environnement\" and states no in-force date; the PDF it links answers 404 on 2026-11-03, so no official page read states one. Opened https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SN-SGG-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Framework environmental act (environmental assessment, pollution and classified-installation rules); the register row carried F7 and is mapped to F2. Row SN-SGG-ADOPTED is pass (Loi 2008-09 art. 9), but the file the page links, https://primature.sn/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf, answers 404 text/html (40531 bytes) to curl and a 'One moment, please...' page to headless Chromium, so no text is stored. Other copies: vie-publique.sn (civic information site, not the state publisher) and a ditp.sec.gouv.sn download (proxy 502 from the cloud address); jo.gouv.sn refused the cloud address. French only: the national languages have no gazette edition. English: no government translation found on primature.sn, the Ministry site (environnement.gouv.sn answers with a password-protected login page) or jo.gouv.sn.",
+    "status": "link only"
+  },
+  {
+    "id": "sn-decret-2025-227",
+    "title": "Décret n° 2025-227 du 31 janvier 2025 portant application de certaines dispositions de la loi n° 2023-15 du 2 août 2023 portant Code de l'environnement",
+    "official_url": "https://www.jo.gouv.sn",
+    "citation": "Décret n° 2025-227, JO n° 7805 of 2025-02-05",
+    "in_force": null,
+    "evidence": "No official page was opened: jo.gouv.sn refused the cloud address on 2026-11-03. Secondary copies (LEAP, FAOLEX) date the decree 31 January 2025 and give JO n° 7805 of 2025-02-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SN-JO-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Implements Law 2023-15 (sn-loi-2023-15-code-environnement; the decree's entry carries amends). Row SN-JO-ADOPTED is permission requested (site not opened), so it is not stored; official_url is the gazette site root because no issue URL could be read. primature.sn has no copy (search for 2025-227: no hit; its list stops in 2024). The Article 6 carbon-market decree is not published. No government English found.",
+    "status": "link only",
+    "status_note": "Date and text taken from secondary copies only; confirm on jo.gouv.sn from the laptop.",
+    "amends": "sn-loi-2023-15-code-environnement"
+  },
+  {
+    "id": "sn-loi-2021-25-consommateur",
+    "title": "Loi n° 2021-25 du 12 avril 2021 sur les prix et la protection du consommateur",
+    "official_url": "https://www.jo.gouv.sn",
+    "citation": "Loi n° 2021-25 du 12 avril 2021, JO n° 7438 of 2021-07-10 (per secondary copy)",
+    "in_force": null,
+    "evidence": "No official page was opened: jo.gouv.sn refused the cloud address on 2026-11-03. The JO issue date comes from a vie-publique.sn listing and the existence of the law from a LEAP record.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SN-JO-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Umbrella consumer law named in the brief as the base for environmental claims; whether it has an article on environmental claims was not read. Row SN-JO-ADOPTED is permission requested, so no text is stored. No government English found.",
+    "status": "link only"
+  }
+]
