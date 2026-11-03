@@ -6011,3 +6011,45 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Nicaragua
+
+Run on 2026-11-03 (GEL-14-04). One row passes, on a statute and not on site terms: `NI-LAGACETA-ADOPTED` (La Gaceta, Diario Oficial, https://www.lagaceta.gob.ni, run by the Secretaría Jurídica de la Presidencia). The statute is Ley 312 (Derecho de Autor y Derechos Conexos), Artículo 16, read in the consolidated text La Gaceta No. 232 of 2020-12-16: "No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores." (The brief says Ley 963 art. 16; the article is in Ley 312 as consolidated under Ley 1032, which Ley 963 orders published.) The site has no terms or copyright page. No row was added for the Asamblea Nacional portal, MARENA, SIBOIF or the Bolsa de Valores de Nicaragua (reasons below).
+
+An issue page of lagaceta.gob.ni is a PDF.js viewer whose PDF sits inside the HTML as one base64 string, `const pdfData = atob('JVBERi0x...')`. The slug comes from a title search of the issue list, `https://www.lagaceta.gob.ni/ediciones?page=1&search=<words of the title>` (title only, not content; slugs differ by year: `la-gaceta-n-120-miércoles-30-junio-de-2021`, `la-gaceta-nº-217-viernes-18-de-noviembre-de-2022`, `la-gaceta-no-217-lunes-25-de-noviembre-de-2024`). Proven fetch, Decreto 15-2021 (La Gaceta No. 120 of 2021-06-30):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o g120.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/'
+python3 -c "import re,base64;t=open('g120.html',encoding='utf8').read();open('g120.pdf','wb').write(base64.b64decode(re.search(r\"atob\('([A-Za-z0-9+/=]+)'\)\",t).group(1)))"
+```
+
+Returned `200 1330946 text/html; charset=utf-8`; the PDF is 611043 bytes, sha256 `57c19b1b8298dee5f1b722c454a1a907c740520abb75c44d563b9eff214900dc`, which is `fetched_sha256`. The page carries a per-request antiforgery token (the HTML hash changed between two requests, 4665f0dc... and 7c498f3c...), so the hash is of the decoded PDF, which a second fetch reproduced for all four issues below. Other issues fetched the same way: No. 62 of 2008-04-03 (`200 692329`, PDF 132120 bytes, sha256 `0bbde994dfb8aaafd42c4e8e2afa4df2bde97ae971eac9822f7cd027c66783ec`), No. 129 of 2013-07-11 (`200 805315`, PDF 216855, `59f8c2526c52a3cacdaef2db8b6a1bed8083bb4493203fbb6014bd9319424d1c`), No. 232 of 2020-12-16 (`200 2815825`, PDF 1724677, `96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe`, the statute copy), No. 105 of 1996-06-06 (`200 5771509`, PDF 3941486).
+
+Text extraction: poppler `pdftotext`. Decreto 15-2021 (single column) with `pdftotext -layout`, runs of spaces collapsed, empty lines dropped, from `DECRETO PRESIDENCIAL No. 15-2021` to the signature line after Art. 14; the running head (`30-06-2021 LA GACETA - DIARIO OFICIAL 120`), the page numbers (5847 to 5850) and the rule lines are dropped. Ley 647 and Ley 842 are two-column pages (the gazette head at the top, the page number centred at the foot), read per page as a left half then a right half: `pdftotext -f N -l N -x 0 -y 55 -W 306 -H 715 file.pdf -` then `-x 306`, joined page by page (default reading order mixes the columns); the centred page number is split by the crop, so lines made only of digits are dropped (54 of them for Ley 842, exactly two per page); line breaks stay where the PDF has them. Ley 647: pages 2 to 7 of the issue, from `ASAMBLEA NACIONAL DE LA` to `PRESIDENTE DE LA REPUBLICA DE NICARAGUA.`; articles 1 to 27. Ley 842: pages 2 to 28, from `ASAMBLEA NACIONAL` to `Saavedra, Presidente de la República de Nicaragua.`; articles 1 to 138 checked as an unbroken sequence. No U+FFFD in any record; the PDFs of 2008, 2013 and 2021 carry real text layers (TrueType fonts), no scan.
+
+### Languages
+
+Spanish is the official language of legislation; the Caribbean coast languages have no gazette edition. Every record has `language` es and no row of its own. English was looked for, no government translation found: `https://www.lagaceta.gob.ni/` (`200 81688 text/html`, Spanish only, no English page), `https://www.siboif.gob.ni/` (`200 214940 text/html; charset=utf-8`, Spanish only), `https://www.bolsanic.com/` (`200 143989 text/html; charset=UTF-8`, Spanish only). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ni-ley-217 (Ley 217, Ley General del Medio Ambiente) | https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/ | Row passes, but the issue PDF is a 300 ppi bitonal scan with a machine OCR text layer with wrong words (`Arto. I.-`, `Marea Colectiva`); no OCR step is allowed yet, Varun decides. The consolidated text (Digesto Ley 1163, La Gaceta No. 217 of 2023-11-29) is a `descargables` file that needs a login (`Inicia sesión para poder visualizar este archivo`); no account was made. |
+
+Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 2023-09-27) and the Digesto consolidations of Ley 217 and Ley 842: same login wall on https://www.lagaceta.gob.ni/descargables (Gaceta 217 of 2023-11-29 is not in `/ediciones` either; issues 216 and 218 are). Gazettes 172 to 176 of September 2023 were read for an amending decree of 15-2021 (no hit on `15-2021`).
+
+### Blocked from the cloud address
+
+- `https://legislacion.asamblea.gob.ni/` and `/gacetas/2021/6/g120.pdf` (the Asamblea portal named in the brief): `curl: (35) Recv failure: Connection reset by peer`, the proxy logs `ws_closed_mid_exchange`; Chromium through the same proxy got `502 text/plain` (174 bytes). Three tries each. `http://legislacion.asamblea.gob.ni/` answered `404 215`.
+- `https://www.asamblea.gob.ni/` and `https://digesto.asamblea.gob.ni`: `403 text/html` (5665 and 5993 bytes) to `curl -A 'Mozilla/5.0'` and to Chromium.
+- `https://www.marena.gob.ni/` and `https://marena.gob.ni`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`; the egress gateway issues its own certificate for the host and the upstream chain is not accepted; verification was not disabled. `http://www.marena.gob.ni` answers `301`. Chromium: `502`.
+- `https://www.presidencia.gob.ni`, `https://www.mhcp.gob.ni`, `https://www.nicaragua.gob.ni`, `https://www.cc.gob.ni`, `https://cambioclimatico.gob.ni`, `https://www.inetter.gob.ni`: `CONNECT tunnel failed, response 502`. `https://www.ineter.gob.ni`: certificate error as MARENA. `https://www.poderjudicial.gob.ni`: `SSL_ERROR_SYSCALL`.
+
+### Regulator and exchange pages
+
+`https://www.siboif.gob.ni/` opened (`200 214940`; the first request in the session was reset, later ones answered). Its marco jurídico pages (bancos, valores, seguros) have a title filter, `.../intendencia-bancos/marco-juridico?combine=<word>`: `ambiental`, `social`, `sostenible`, `clim`, `verde` return 0 rows each, so no SIBOIF norm on environmental and social risk or ESG was found; the page lists Ley 1061, the 2021 reform of Ley 842. No terms page was read, so no row. `https://www.bolsanic.com/` (a company): `/condiciones-de-uso` reserves all rights ("Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de dichos contenidos sin la autorización previa y por escrito de BVN"), and `/regulaciones/` and `/reglametos-y-circulares-de-bvn/` have no ESG text; no row.
+
+### Watchers
+
+`page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
