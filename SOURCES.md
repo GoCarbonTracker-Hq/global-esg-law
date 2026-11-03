@@ -7190,6 +7190,39 @@ Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 20
 
 `page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
 
+
+### OCR pass 2026-11-03
+
+Varun allowed OCR at 08:20Z on 2026-11-03 (GEL-04-12). Scope check: of the four NI scope instruments only `ni-ley-217` was link only; its row `NI-LAGACETA-ADOPTED` has verdict `pass`. The other three (ni-decreto-15-2021, ni-ley-647, ni-ley-842) were already stored. No row was changed and no instrument added.
+
+Install (apt was available after `apt-get update`): `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa`; `tesseract --version` prints `tesseract 5.3.4` (leptonica-1.82.0), `tesseract --list-langs` lists `eng osd spa`.
+
+Fetch, same recipe as above, issue No. 105 of 1996-06-06 (`200 5771509 text/html; charset=utf-8`; PDF 3941486 bytes, 32 pages, 300 ppi bitonal scan):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o g105.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/'
+python3 -I -c "import re,base64;t=open('g105.html',encoding='utf8').read();open('g105.pdf','wb').write(base64.b64decode(re.search(r\"atob\('([A-Za-z0-9+/=]+)'\)\",t).group(1)))"
+sha256sum g105.pdf   # 6795477c5bd0e35210d2ab26ad80bdd41a396c047ae20b227ede919c3c7f8e07
+```
+
+A second fetch gave the same sha256. The size matches the 3941486 bytes noted in the GEL-14-04 run, which did not record the hash.
+
+Pages: the law is pages 1 to 18 of the issue (gazette pages 2121 to 2138). Page 1 starts the law at the heading `ASAMBLEA NACIONAL DE LA REPUBLICA DE NICARAGUA` in the lower left column and continues in the right column at `Título I`; the sumario above is not stored. Page 18 ends at the signature line `de la República de Nicaragua.-` (right column); pages 19 to 32 are trade marks and court notices. The pages are two-column; each column is cropped and read on its own, left then right, with the running head (above 75 per 100 dpi units) and the page-number foot (below 1030) cropped off. The PDF has a machine OCR text layer with wrong words, so it was ignored and the page images were read; `ocrmypdf` was not used.
+
+```
+pdftoppm -r 200 -f 1 -l 18 -png g105.pdf pg
+# per page p, with s = 200/100: PIL crop of pg-pp.png (grayscale), W = width, mid = W//2
+#   page 1:   left (0, 628*s, mid, 1030*s)  right (mid, 285*s, W, 1030*s)
+#   pages 2-17: left (0, 75*s, mid, 1030*s) right (mid, 75*s, W, 1030*s)
+#   page 18:  left (0, 75*s, mid, 1030*s)   right (mid, 75*s, W, 500*s)
+tesseract <crop>.png stdout -l spa --psm 6     # one call per crop, 36 crops
+# outputs joined in order p1L, p1R, p2L, p2R ... p18L, p18R, each stripped of trailing newlines, joined with one newline; final newline dropped
+```
+
+Result: 70635 characters, no U+FFFD. The heading pattern `Arto. N.-` matches 148 of the 156 articles in order; the other 8 headings (20, 24, 42, 43, 60, 62, 114, 119) are read with a wrong character in the word or the punctuation (for example `Arto. ¿U.-`, `Arto. 24,-`), which stays as read. The text was not corrected. No 300 dpi pass was run because the 200 dpi text is readable. Stored as `records/NI/ni-ley-217/1996-06-06-adopted-es.json` with `extraction` `ocr`, `in_force` null as in the scope entry (the date of first publication in any medium is not dated on an official page; the file name uses the gazette date).
+
+Languages: es only; no official edition in another language, no ISO 639-1 code issue (Caribbean coast languages have no gazette edition). The consolidated Digesto text (Ley 1163) stays out: login wall.
+
 ## Bolivia
 
 Run on 2026-11-03 from the cloud address (GEL-14-08). Every licence row for Bolivia is `permission requested` (BO-GACETA-ADOPTED, BO-ASFI-ADOPTED, BO-APMT-ADOPTED, BO-MMAYA-ADOPTED, BO-BBV-ADOPTED), so no row passes, no text is stored and there is no `records/BO/`. The requests below are the ones that work, recorded for the watcher and for a later permission; they are not `fetched_url` of any record. Spanish is the only language any source serves; no indigenous-language or English text exists on any page opened.
