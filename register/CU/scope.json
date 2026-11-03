@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cu-res-106-2025-carbon-market",
+    "title": "Resolución 106/2025 del CITMA, Reglamento para las actividades del mercado de carbono",
+    "official_url": "https://www.gacetaoficial.gob.cu/",
+    "citation": "Resolución 106/2025 del Ministerio de Ciencia, Tecnología y Medio Ambiente, Gaceta Oficial Ordinaria No. 77 (GOC-2025-426-O77), published about 2025-09-19",
+    "in_force": null,
+    "evidence": "No official page opened states the first in-force date. Secondary sources (climate-laws.org; Periódico Cubano) give publication on 2025-09-19 and the register row records entry into force 30 business days after publication. Official site not opened: gacetaoficial.gob.cu reset the connection from the cloud address on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "CU-GACETA-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Spanish only; Cuba has one official language of legislation. The existing register row had an empty official_source_url; the Gaceta issue page URL could not be found because the site is blocked, so it holds the site root. Looked for a government English translation on gacetaoficial.gob.cu and citma.gob.cu: neither opened, none found.",
+    "status": "link only",
+    "status_note": "Row CU-GACETA-ADOPTED is permission requested; nothing stored."
+  },
+  {
+    "id": "cu-ley-150-2022-environment",
+    "title": "Ley 150 de 2022, Ley del Sistema de los Recursos Naturales y el Medio Ambiente",
+    "official_url": "https://www.gacetaoficial.gob.cu/",
+    "citation": "Ley 150 de 2022 (approved 2022-05-14 or 16 per secondary sources), Gaceta Oficial Ordinaria No. 87 de 2023-09-13 (GOC-2023-771-O87); replaces Ley 81 de 1997",
+    "in_force": null,
+    "evidence": "No official page opened states the first in-force date. Secondary copies of the Gaceta (uclv.edu.cu, leap.unep.org) quote the commencement clause \"La presente Ley comienza a regir a los 180 días de su publicación en la Gaceta Oficial de la República de Cuba\". Official site not opened: gacetaoficial.gob.cu reset the connection from the cloud address on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "CU-GACETA-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Environmental framework act, not a climate act. Whether a Decreto reglamentario was published was not checked (site blocked). Spanish only. Looked for a government English translation on gacetaoficial.gob.cu and citma.gob.cu: neither opened, none found.",
+    "status": "link only",
+    "status_note": "Row CU-GACETA-ADOPTED is permission requested; nothing stored."
+  }
+]
