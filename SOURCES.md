@@ -7446,3 +7446,35 @@ Arabic is the authentic language and is stored under `TN-IORT-ADOPTED`. French i
 - `TN-BVMT-ADOPTED` (tunis-stockexchange.com answers curl `200`, 181135 bytes; bvmt.com.tn redirects there): footer "2026 © La Bourse de Tunis", permission requested; the Guide de reporting ESG 2021 was not found on the site; no instrument in scope.
 - `TN-MEDD-ADOPTED` (environnement.gov.tn answers curl `200`, 218946 bytes): footer "Tous droits réservés 2022", permission requested; the Guide méthodologique et de reporting RSE PDF (`https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`, 200, 7321207 bytes, `application/pdf`) is voluntary guidance, not an enacted instrument, so it has no scope entry and nothing is stored.
 - Not in scope.json: Décret gouvernemental n° 2018-263 du 12 mars 2018 (governance of the Paris Agreement work, family F7, register row only). No binding GHG reporting or carbon pricing instrument was found on IORT; legislation.tn could not be opened to confirm. No application decree of Loi 2018-35 was located (the IORT advanced search could not be driven), so none is in scope.
+
+## North Korea
+
+GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
+
+Requests made (curl, then headless Chromium with Playwright `page.goto(url, {timeout: 30000})`; Chromium got the same proxy answer):
+
+```
+curl -sS -m 25 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' http://www.naenara.com.kp
+```
+
+Returned `503 114 text/plain`; the body is "upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout" (sha256 of body plus status line `719f467bca080bedf90ff26e725031a62a758a4841e577fb6992f0647bced3e9`, the same on four runs). `http://www.kcna.kp` returned the same `503 114 text/plain`; `http://www.kcna.kp/en` and `http://www.ryongnamsan.edu.kp` returned `503 48`; `http://www.rodong.rep.kp` returned `503 114`; `https://www.naenara.com.kp`, `https://naenara.com.kp` and `https://www.kcna.kp` returned no answer (curl exit, code 000). Chromium: naenara 503 (265 bytes), kcna 503 (199 bytes).
+
+South Korean copies, read for titles only and nothing stored:
+
+- `https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95`: `403 203 text/plain; charset=utf-8`, "Automated collection is not permitted. Terms: https://www.nk-law.kr/terms#copyright". Not retried with a browser, because the terms forbid automated collection. The title and the 2021-04-30 version date come from the existing register row.
+- `https://www.unilaw.go.kr` (Ministry of Unification): connection reset by peer (curl exit 35) on three tries.
+
+Web search (titles and decree numbers only, no text taken): climate-laws.org and the LSE Grantham Institute copy of the Air Pollution Control Act (adopted 2012-07-11, Decree No. 2520, amended by Decree No. 3292 of 2013-07-24); lawandnorthkorea.com on the Copyright Law (2012 text keeps an exclusion for state administration documents "as long as they have no commercial purpose"; article number not confirmed, no state copy found).
+
+### Languages
+
+Korean is the only official language. No government English translation was found; the state hosts did not answer, so none was looked for there beyond that. No translation row was made.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `kp-environmental-protection-law` | Row `KP-NAENARA-ADOPTED`, permission requested: the portal could not be opened and no state host serves law text. |
+| `kp-air-pollution-control-act` | Same row and reason. |
+
+Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
