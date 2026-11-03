@@ -7700,6 +7700,60 @@
   }
  },
  {
+  "id": "ba-fbih-law-banks-2025-amend-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-law-banks-2025-amend",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2025/B%20-%20Pr%20Zakon%20o%20bankama.pdf"
+ },
+ {
+  "id": "ba-fbih-accounting-auditing-law-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-accounting-auditing-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2021/Zakon%20o%20racunovodstvu%20i%20reviziji%20_bos.pdf"
+ },
+ {
+  "id": "ba-fbih-environmental-protection-law-parliament-pdf",
+  "source_id": "BA-PARLAMENTFBIH-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-fbih-environmental-protection-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2020/Zakon%20o%20zastiti%20okolisa%20%20bosanski%20jezik.pdf"
+ },
+ {
+  "id": "ba-rs-accounting-auditing-law-nsrs-page",
+  "source_id": "BA-NSRS-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-rs-accounting-auditing-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-racunovodstvu-i-reviziji-republike-srpske-2"
+ },
+ {
+  "id": "ba-rs-environmental-protection-law-nsrs-page",
+  "source_id": "BA-NSRS-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-rs-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-zastiti-zivotne-sredine"
+ },
+ {
+  "id": "ba-consumer-protection-law-sluzbenilist-search",
+  "source_id": "BA-SLUZBENILIST-ADOPTED",
+  "iso2": "BA",
+  "instrument": "ba-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.ba/search/searchresult?naziv=Zakon+o+za%C5%A1titi+potro%C5%A1a%C4%8Da"
+ },
+ {
   "id": "ad-litecc-bopa-document",
   "source_id": "AD-BOPA-ADOPTED",
   "iso2": "AD",
