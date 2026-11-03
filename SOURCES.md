@@ -5595,3 +5595,42 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 - Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
+
+## Zambia
+
+Rows `ZM-NAZ-ADOPTED` (National Assembly of Zambia) and `ZM-MGEE-ADOPTED` (Ministry of Green Economy and Environment), both `permission requested`, so no `pass` row exists and no text is stored. Run on 2026-11-03 (GEL-13-03). Terms: the National Assembly "Use Policy" (https://www.parliament.gov.zm/node/3595) says "Permission from the Clerk of the National Assembly of Zambia is required for any reproduction of, or extended quotation from, the records"; mgee.gov.zm has only the footer "©2026 MGEE. All Rights Reserved." The Copyright and Performance Rights Act, 1994 (Cap. 406) was read: s. 8(1) lists the protected categories with no exclusion for laws, and s. 12(2) treats the Government as first owner of works by public officers, so no statute exception was found.
+
+Both hosts send an incomplete TLS chain, so plain `curl` fails (exit 60) and the cloud proxy does not repair it:
+
+```
+curl -sS -A Mozilla/5.0 -o a.pdf 'https://www.parliament.gov.zm/sites/default/files/documents/acts/Acts%20No.%2018%20for%202024%2C%20The%20Green%20Economy%20and%20Climate%20Change%2C%20pdf.pdf'
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+Verification stayed on. The missing issuer certificates were fetched from the AIA URLs in the leaf certificates (`http://cacerts.rapidssl.com/RapidSSLTLSRSACAG1.crt` for parliament.gov.zm, `http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt` for mgee.gov.zm), converted to PEM and appended to `/root/.ccr/ca-bundle.crt` as a local `zm-bundle.crt`. Then:
+
+```
+curl -sS -m 180 --cacert zm-bundle.crt -A Mozilla/5.0 -o gecc.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.parliament.gov.zm/sites/default/files/documents/acts/Acts%20No.%2018%20for%202024%2C%20The%20Green%20Economy%20and%20Climate%20Change%2C%20pdf.pdf'
+```
+
+Returned `200 500739 application/pdf` (Green Economy and Climate Change Act, 2024). Row `ZM-MGEE-ADOPTED`, SI No. 5 of 2026:
+
+```
+curl -sS -m 180 --cacert zm-bundle.crt -A Mozilla/5.0 -o si5.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.mgee.gov.zm/wp-content/uploads/2026/02/S.I-No.-5-of-2026-The-Green-Economy-and-Climate-Change-Carbon-market.pdf'
+```
+
+Returned `200 2329934 application/pdf`. Text check only (nothing stored): `pdftotext -layout file.pdf -` gave clean English text for all nine PDFs read (no mojibake). The Acts list is `https://www.parliament.gov.zm/acts-of-parliament?page=0..51` (1031 entries; each links to `/node/<n>` whose page carries the PDF link). `tools/watch.py --dry-run` fails for all eight watchers with `CERTIFICATE_VERIFY_FAILED` for the same reason; the cloud watcher run will report them as `watch_failed` until the hosts fix their chains or the watcher gets the intermediate certificates.
+
+### Languages
+
+English only. No second official language and no government translation of these instruments was found (Parliament, Ministry, ZEMA archive). No translation row.
+
+### Link only
+
+All eight scope instruments (`zm-gecc-act-2024`, `zm-gecc-carbon-market-regs-2026`, `zm-gecc-amendment-act-2026`, `zm-ema-2011`, `zm-ema-amendment-act-2023`, `zm-ema-amendment-act-2026`, `zm-ccpa-2010`, `zm-ccpa-amendment-act-2023`): rows `permission requested`.
+
+- ZambiaLII (https://zambialii.org) answers curl (200). Its about page says it is hosted by the Southern African Institute for Policy and Research and takes Acts "from the website of the National Assembly", so it is a private host and gets no row. It is the only place where the commencement order SI 67 of 2025 was found, so `zm-gecc-act-2024` has `in_force` null.
+- SEC Zambia (https://www.seczambia.org.zm): curl answers `406` (Mod_Security), headless Chromium opens it. Website disclaimer grants no reuse. No corporate governance code or sustainability disclosure duty found on the site, so no instrument and no row.
+- Lusaka Securities Exchange (https://luse.co.zm): blocked from the cloud address (`403`, Cloudflare "Just a moment", still a challenge after 6 s in headless Chromium). Listings Requirements not read; no instrument and no row.
+- ZEMA (https://www.zema.org.zm): opens (200); its statutory-instrument archive holds environmental impact statements, not the instruments in scope; footer "All rights reserved". No row.
+- Ministry of Justice (https://www.moj.gov.zm): opens (200); no per-instrument gazette text. No row.
