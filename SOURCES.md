@@ -6561,3 +6561,51 @@ Spanish is the only language of Venezuelan gazette legislation; indigenous langu
 - https://www.minec.gob.ve/derechos-de-autor/: connection reset; one of two download requests also reset once.
 - https://www.asambleanacional.gob.ve/leyes/vigentes?page=2 and any `?titulo=` query: `403 239 text/html`.
 - http://www.imprentanacional.gob.ve/sus_digital.php: `404`; the host answers `200` but offers only a paid subscription catalogue.
+
+## Guatemala
+
+Checked on 2026-11-03 from the cloud address. No instrument is stored: every row is `permission requested` and the only official texts are scans. All five Guatemala instruments of the scope are link only.
+
+Rows: `GT-CONGRESO-ADOPTED`, `GT-DCA-ADOPTED`, `GT-MARN-ADOPTED`, `GT-SIB-ADOPTED`, `GT-BVN-ADOPTED`. None is `pass`, so there is no proven fetch recipe for a stored record. The requests below are what was tried.
+
+### Congreso de la República (`GT-CONGRESO-ADOPTED`)
+
+Plain `curl` meets an Incapsula challenge on pages and intermittently on PDFs:
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.congreso.gob.gt/
+200 212 text/html
+```
+
+The 212-byte body is a script tag pointing at `/_Incapsula_Resource`. Playwright chromium (`goto` with `waitUntil: 'domcontentloaded'`, then an 8 s wait) returned the home page (200 text/html, 761012 bytes). The decree listing `https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos` gave the challenge to a fresh session and answered (200 text/html, 20736549 bytes, 4538 decree cards) only after the home page and `/consulta_legislativa` were opened in the same browser context. The page carries a per-request session, so a second fetch will not reproduce the hash; no `fetched_sha256` was recorded because nothing is stored.
+
+PDFs, fetched with curl (retried until the challenge cleared):
+
+```
+curl -sS -A 'Mozilla/5.0' -o d7.pdf -w '%{http_code} %{content_type} %{size_download}\n' https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf
+200 application/pdf 1162782
+```
+
+`pdftotext -layout d7.pdf -` returns 66962 bytes, but the file is a whole Diario de Centro América page set (4 October 2013) scanned and OCR'd: Decreto 7-2013 shares each page with Ministerio de Gobernación acuerdos in interleaved columns and the text is full of OCR errors ("Rep(¡blica", "ocho dias", "Articulo"). That is garbled, so no record. `gtdcx00681986.pdf` (Decreto 68-86, 200 application/pdf 755984), `gtdcx06-2003.pdf` (Decreto 6-2003, 200 application/pdf 1409737) and `gtdcx33-98.pdf` (Decreto 33-98, 200 application/pdf 1591994) are image scans: pdftotext output is 3, 8 and 9 bytes. No OCR step is allowed yet.
+
+Terms: the only sentence is the footer "© 2026 Todos los derechos reservados Congreso de la República de Guatemala." Acuerdo 12-2018, linked as the site's disclaimer, is an internal access-to-information rule. Decreto 33-98 art. 68 was not applied as a statute basis (see the row).
+
+### Languages
+
+Spanish is the only official language of legislation. No English translation was found on the Congreso, MARN or DCA sites.
+
+### Other publishers
+
+- `https://dca.gob.gt/`: curl `200 1132896 text/html; charset=UTF-8`. A news site; the current issue is an Issuu link, no archive of back issues. `https://dca.gob.gt/m1download/1120046/` answers `403 text/html 5404` with `cf-mitigated: challenge`. `https://www.tipografianacional.gob.gt` answered `CONNECT tunnel failed, response 502`.
+- `https://marn.gob.gt/`: curl `200 text/html; charset=UTF-8 275439`; hosts no law text; `/wpfd_file/ley-marco-de-cambio-climatico-decreto-7-2013/` answers 404.
+- `https://www.sib.gob.gt/`: blocked from the cloud address, `403 text/html 16828`.
+- `https://www.bvnsa.com.gt/`: curl exit 60 (certificate chain not verifiable); not retried with verification off for any text.
+- `https://www.maga.gob.gt/` and `https://www.cc.gob.gt/`: `403` to curl.
+
+### Link-only instruments
+
+- `gt-ley-marco-cambio-climatico`: row permission requested; the official PDF is a garbled gazette scan.
+- `gt-ley-proteccion-mejoramiento-medio-ambiente`: row permission requested; PDF is an image scan.
+- `gt-ley-proteccion-consumidor-usuario`: row permission requested; PDF is an image scan.
+
+Not in scope, with the reason: Acuerdo Gubernativo 109-2022 and 135-2026 (Fondo Nacional de Cambio Climático) could not be confirmed on any official page opened (the gazette is not reachable, and MARN's news item of 2025-12-11 says the regulation was still awaiting approval); no carbon-market regulation, and no SIB or BVN disclosure rule, could be confirmed.
