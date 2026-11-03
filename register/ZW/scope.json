@@ -1,0 +1,45 @@
+[
+  {
+    "id": "zw-si-134-2019",
+    "title": "Securities and Exchange (Zimbabwe Stock Exchange Listings Requirements) Rules, 2019 (SI 134 of 2019), Part XXI sections 399 to 404: sustainability information and disclosure",
+    "official_url": "https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/",
+    "citation": "S.I. 134 of 2019, made by the Securities and Exchange Commission of Zimbabwe under section 65(3) of the Securities and Exchange Act [Chapter 24:25]",
+    "in_force": null,
+    "evidence": "No official page states a date. The 214-page SECZ file (https://seczim.co.zw/wp-content/uploads/2020/12/SI-2019-134-Zimbabwe-Stock-Exchange-Listings-Requirements-2019_0.pdf, opened 2026-11-03) has no commencement clause, gazette date or date of making, and the SECZ download page states none. Part XXI is headed 'Sustainability Information and Disclosure'; s.399: \"The issuer shall be required to disclose in the chairman's statement the relevance of sustainability to the organisation and the organisation's strategy for addressing sustainability issues.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "ZW-SECZ-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only because no official page gives a date, so no record file name can be written (SI 134 of 2019 reached the SECZ and ZSE sites without a gazette date; the PDF metadata shows June 2019, which is not a statement on a page). Sections 399 to 404 are the sustainability duties (board responsibility, reporting, GRI-based standards, sector reporting, disclosure, assurance not mandatory); the brief's 's.4' is the Listings Committee and 's.399' is the sustainability provision. SI 28 of 2022 (listing fees, https://seczim.co.zw/wp-content/uploads/Posts/S.I.-28-of-2022-Securities-and-Exchange-Zimbabwe-Stock-Exchange-Listings-nom.pdf) amends Part XVIII and the Twenty-Third Schedule only and is not in scope. Implemented through ZSE Practice Note 16 (zw-zse-practice-note-16). English is the only language the Acts and instruments are published in. English was looked for on seczim.co.zw and zse.co.zw; no government translation exists because the original is English.",
+    "status": "link only"
+  },
+  {
+    "id": "zw-zse-practice-note-16",
+    "title": "ZSE Practice Note 16: Sustainability Information and Disclosure (issued under section 3(1)(h) of SI 134 of 2019)",
+    "official_url": "https://ds88jcmqc11je.cloudfront.net/api/docs/42/download",
+    "citation": "Zimbabwe Stock Exchange Limited Practice Note 16, issued pursuant to section 3(1)(h) of SI 134 of 2019",
+    "in_force": "2024-01-01",
+    "evidence": "Practice Note 16 s.3: \"the ZSE now requires all issuers to adopt sustainability reporting. This requirement is effective from the financial period commencing 1 January 2024 going forward.\" Opened https://ds88jcmqc11je.cloudfront.net/api/docs/42/download (the file the ZSE site lists under practice and procedures) on 2026-11-03; the note's own issue date is not stated.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "ZW-ZSE-RULES",
+    "verification": "official_text_seen",
+    "notes": "Link only: row ZW-ZSE-RULES is permission requested (ZSE is a company, site says all rights reserved). The date is the date the duty applies from, not the date the note was issued. Section 4 sets core disclosure metrics (economic, environmental, social) that cite GRI and IFRS Sustainability Standards by name; those standards are not stored. The brief's 'VFEX Practice Note 2' is not the sustainability note: the ZSE and VFEX Joint Practice Note 2 (effective 2026-04-02) concerns migration of dually listed companies and is not in scope. English only.",
+    "status": "link only",
+    "status_note": "The 2025-02-12 Joint Regulatory Statement of PAAB, ZSE and VFEX names this note and SI 134 of 2019 as its basis; the statement itself was not found on an official page (see register.csv)."
+  },
+  {
+    "id": "zw-ema",
+    "title": "Environmental Management Act [Chapter 20:27]",
+    "official_url": "https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf",
+    "citation": "Environmental Management Act [Chapter 20:27], Act 13/2002, as amended by Act 5/2004 (s.23) and Act 6/2005 (s.28)",
+    "in_force": "2003-03-17",
+    "evidence": "Commencement note under the long title: \"[Date of commencement : 7th April, 2006 – section 144 and paragraph 1 of Part II of the Sixth Schedule, remainder of Act, 17th March, 2003]\". Opened https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "ZW-EMA-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "One record only, dated 2006-04-07: the revised edition on ema.co.zw reflects Acts 13/2002, 5/2004 and 6/2005, and 2006-04-07 is the latest commencement date its note gives, so the text as a whole applied from that day. The 2003-03-17 text and any amendment after 2005 are not served by an official page found, so nothing is stored for those dates (a lookup for 2003-03-17 to 2006-04-06 returns nothing). Whether later amendments exist was not established; the Ministry of Environment, Climate and Wildlife lists the Act as administered by it (https://www.mecw.gov.zw/?service=acts-administered-by-the-ministry) and its own download needs a per-request token. English only (no other official language edition found; the Acts are published in English).",
+    "status": "stored"
+  }
+]
