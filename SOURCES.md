@@ -6923,6 +6923,47 @@ Blocked from the cloud address: `https://simv.gob.do/` and `https://bvrd.com.do/
 
 Stored by GEL-14-06: `do-decreto-541-20` (2020-10-09), `do-decreto-348-21` (2021-05-31), `do-ley-225-20` (2020-10-02), `do-ley-98-25` (2025-12-16), `do-ley-36-26` (2026-07-11), `do-ley-115-15` (2015-06-08), all `adopted`, `es`. The watchers are `page_hash` on the PDF URL (a HEAD request returns neither Last-Modified nor Content-Length); `tools/watch.py --dry-run --source DO-CJPE-ADOPTED` ran 10 watchers, 0 failures.
 
+### OCR pass 2026-11-03
+
+Varun allowed OCR at 08:20Z on 2026-11-03 (GEL-04-12). The only DO licence row, `DO-CJPE-ADOPTED`, is `pass`, so the four scanned instruments left link only by GEL-14-06 are stored: `do-ley-64-00`, `do-decreto-601-08`, `do-ley-358-05`, `do-ley-57-07`. No verdict, row, URL or watcher changed; no instrument was added. Spanish is the only official language. Records carry `extraction: ocr`, `fetched_url` and `fetched_sha256` of the PDF as received. The CJPE text layer was ignored.
+
+Tools: `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa` gave tesseract 5.3.4 with `spa.traineddata` (tesseract-ocr-spa 1:4.1.0-2); poppler `pdftoppm`.
+
+Download, each id fetched twice, 3 s apart (the first call needs no Referer; every call returned `200 application/pdf`):
+
+```
+curl -s -A 'Mozilla/5.0' -o r1-<DocId>.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://consultoria.gov.do/api/document/<DocId>
+```
+
+| DocId | Instrument | Bytes | Pages | sha256 (both fetches) |
+|---|---|---|---|---|
+| 3334621 | Ley 64-00 | 2934096 | 69 | 480c742a369bf16a35212386e2c6754e2178785f1da51c9f5ae83b025b086a50 |
+| 3354746 | Decreto 601-08 | 345040 | 8 | 19cf94ac248a8eca1bc218141908a6927c9ebe93ae9a0896410b852ff46e88a0 |
+| 3339542 | Ley 358-05 | 3374744 | 54 | e28ed37f73d2e4ee31e9c03e05490c3b5e9e5b1ad6d3b9ee56b541f0147ff09a |
+| 3347058 | Ley 57-07 | 1541062 | 26 | c0ec9fc3289baefd39fea7c3b36761cb584f5bc33b5e0bae650452e3a68353ea |
+
+OCR per page (single-column pages, no crop; `OMP_THREAD_LIMIT=1`):
+
+```
+export OMP_THREAD_LIMIT=1
+page() { p=$(printf %03d $3); pdftoppm -r 200 -f $3 -l $3 -gray -png -singlefile $1 img$2_$p && tesseract img$2_$p.png p$2_$p -l spa && rm img$2_$p.png; }
+for p in $(seq 1 69); do page r1-3334621.pdf 3334621 $p; done
+for p in $(seq 1 8);  do page r1-3354746.pdf 3354746 $p; done
+for p in $(seq 1 54); do page r1-3339542.pdf 3339542 $p; done
+for p in $(seq 1 26); do page r1-3347058.pdf 3347058 $p; done
+```
+
+All four read well at 200 dpi (digit-mixed tokens among words: 3 of 24582, 2 of 2818, 5 of 17218, 4 of 9193), so 300 dpi was not needed. Each record's `text` is the pages' `.txt` files in order, each stripped of trailing newlines and form feed, joined with one newline; nothing else was touched (printed page numbers, stray marks and misread characters stay). Each PDF holds only its own instrument, so no page was cut; the whole PDF is the record.
+
+| Instrument | Pages | Characters | Record file |
+|---|---|---|---|
+| `do-ley-64-00` | PDF 1-69 (last printed number 71) | 162141 | `2000-08-18-adopted-es.json`, `in_force` null |
+| `do-decreto-601-08` | PDF 1-8, Gaceta 10488 pp. 42-49 | 18363 | `2008-09-20-adopted-es.json` |
+| `do-ley-358-05` | PDF 1-54 (last printed number 56) | 113610 | `2005-09-09-adopted-es.json`, `in_force` null |
+| `do-ley-57-07` | PDF 1-26, Gaceta 10416 pp. 113-138 | 61092 | `2007-05-07-adopted-es.json` |
+
+For the two scope entries whose `in_force` is null the record keeps null and its file name carries the promulgation date from the CJPE index.
+
 ## Belize
 
 Rows `BZ-NATIONALASSEMBLY-ADOPTED`, `BZ-AGM-CONSOLIDATED` and `BZ-NATIONALASSEMBLY-GOV-ADOPTED`, all `permission requested`. Run on 2026-11-03. No row passes, so no text is stored and no record exists under `records/BZ/`. The fetches below were proven to read the official PDFs for the scope entries and the Copyright Act; they are not record recipes.
