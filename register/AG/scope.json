@@ -1,0 +1,44 @@
+[
+ {
+  "id": "ag-epma-2019",
+  "title": "Environmental Protection and Management Act, 2019 (No. 10 of 2019)",
+  "official_url": "https://laws.gov.ag/wp-content/uploads/2025/03/No.-10-of-2019-Environmental-Protection-and-Management-2019.pdf",
+  "citation": "Environmental Protection and Management Act, 2019 (No. 10 of 2019), Official Gazette Vol. XXXIX No. 37, 6 June 2019",
+  "in_force": "2019-04-30",
+  "evidence": "Notice by the Minister under section 1, S.I. 2019 No. 34 (Official Gazette Vol. XXXIX No. 40, 20 June 2019, https://laws.gov.ag/wp-content/uploads/2020/01/No.-34-of-2019-Notice-by-the-Minister-Under-Section-1-of-the-Environmental-Protection-and-Management-Act-2019.pdf, opened 2026-11-03): \"hereby appoint the 30th day of April, 2019 as the date on which the Environmental Protection and Management Act, 2019 comes into force. Made the 7th day of June, 2019.\"",
+  "law_family": "F2",
+  "duty_on": "private_sector",
+  "source_row": "AG-LAWSGOV-ADOPTED",
+  "verification": "official_text_seen",
+  "notes": "Environmental framework act; repeals the Environmental Protection and Management Act 2015 (s 123(1)). Climate change content (F2): s 18(2)(a) requires the National Environmental Policy Framework to include an assessment of climate change vulnerabilities and risks, and the Act provides for carbon sinks and a climate-related fund purpose. No greenhouse gas reporting or inventory duty on companies was found in the text (greenhouse gases appear in the definitions and a schedule list; s 28 permit applications ask for the type, volume and rate of release of a pollutant); no F3 content. The date is the one the notice appoints; the notice was made after that date. One record: the Act as published in the Official Gazette; the site serves no later version and no amending Act was found. English is the only language of legislation; no government translation exists. The Act commences on notice (s 1(2)); the notice covers the whole Act.",
+  "status": "stored"
+ },
+ {
+  "id": "ag-consumer-protection-act-2025",
+  "title": "Consumer Protection Act, 2025 (No. 7 of 2025)",
+  "official_url": "https://laws.gov.ag/wp-content/uploads/2025/11/No.-7-of-2025-Consumer-Protection-Act-2025.pdf",
+  "citation": "Consumer Protection Act, 2025 (No. 7 of 2025), Official Gazette Vol. XLV No. 15, 10 March 2025",
+  "in_force": "2025-10-30",
+  "evidence": "Notice by the Minister under section 1, S.I. 2025 No. 36 (Official Gazette Vol. XLV No. 58, 30 October 2025, https://laws.gov.ag/wp-content/uploads/2026/02/No.-36-of-2025-Notice-by-the-Minister-Under-Section-1-of-the-Consumer-Protection-Act-2025.pdf, opened 2026-11-03): \"hereby appoint the 30th day of October, 2025 as the date on which the Consumer Protection Act, 2025 comes into force.\"",
+  "law_family": "F6",
+  "duty_on": "private_sector",
+  "source_row": "AG-LAWSGOV-ADOPTED",
+  "verification": "official_text_seen",
+  "notes": "Umbrella consumer statute. No provision on environmental or green claims by name. Relevant to environmental claims through s 76 (false, misleading or deceptive representations in trade, including about the nature, manufacturing process and characteristics of goods or services) and s 58 (disclosure of environmental facts affecting goods, which covers genetically modified ingredients, energy use and radiation, not climate claims). The Act is dated 7 March 2025 in the brief; the Gazette print is dated 10 March 2025. Section 145(1): \"The Consumer Protection and Safety Act, Cap. 97 is repealed.\" One record: the Act as published; no amendment found. English is the only language of legislation; no government translation exists.",
+  "status": "stored"
+ },
+ {
+  "id": "ag-eccb-climate-risk-standard",
+  "title": "ECCB Prudential Standard on Climate-Related and Environmental Risks for Institutions Licensed Under the Banking Act, 2015",
+  "official_url": "https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf",
+  "citation": "Eastern Caribbean Central Bank, Prudential Standard on Climate-Related and Environmental Risks (August 2023), issued under s 184 of the Banking (Amendment) Act, 2015",
+  "in_force": "2024-03-01",
+  "evidence": "Section 1.0 Commencement: \"This Prudential Standard shall come into effect on the 1st day of March, 2024.\" Opened 2026-11-03 at the official_url (listed on https://www.eccb-centralbank.org/enforced).",
+  "law_family": "F1",
+  "duty_on": "financial_institutions",
+  "source_row": "AG-ECCB-ADOPTED",
+  "verification": "official_text_seen",
+  "notes": "Regional standard of the ECCB. The same instrument applies in the other ECCU members (AI, DM, GD, KN, LC, MS, VC). Covers the role of the board and senior management, risk management, stress testing, disclosure requirements (5.5) and reporting requirements (5.6). Row AG-ECCB-ADOPTED is permission requested (ECCB Disclaimer Policy: personal, noncommercial use only, no derivative works), so the text is not stored. Eastern Caribbean Securities Regulatory Commission and Eastern Caribbean Securities Exchange sites were not searched for climate instruments in this session.",
+  "status": "link only"
+ }
+]
