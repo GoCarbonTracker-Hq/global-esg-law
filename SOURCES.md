@@ -5378,3 +5378,87 @@ Stored (English translation record each): lk-national-environmental-amendment-20
 ### No ETS, no climate law
 
 The Acts, Bills and Gazette Extraordinary lists were searched for "Climate": no Climate Change Act or Bill (two 2021 Presidential Secretariat task-force Gazettes only). No emissions trading system was found. The carbon tax was found: Finance Act, No. 35 of 2018 Part XI (levied from 2019-01-01 on motor vehicles), limited to 2019-01-01 to 2019-11-30 by Finance Act, No. 21 of 2019 s. 3. The brief named Finance Act No. 11 of 2019 and a 2020 repeal; neither was found on the official pages read.
+
+## Moldova
+
+Run on 2026-11-03 (GEL-11-05). Rows `MD-MONITORUL-ADOPTED` (acts as first published), `MD-MONITORUL-CONSOLIDATED` (a republished text) and `MD-MONITORUL-TRANSLATION` (the Russian edition) are `pass` on the statute basis: Law No. 230/2022 on Copyright and Related Rights, Art. 8 lit. b, withholds copyright from "actele normative, actele cu caracter administrativ, politic sau judiciar și nici traducerile oficiale ale acestora" (read in Monitorul Oficial 278-282 of 9 September 2022, page 9; the text now in force on legis.md was not reachable). The Monitorul's own footer reserves all rights ("© 2026 Monitorul Oficial. Toate drepturile rezervate."); the rows say so and rest on the statute only. Row `MD-LEGIS-CONSOLIDATED` is `permission requested`: legis.md could not be opened. Nothing is stored under it.
+
+legis.md, the State Register of Legal Acts, is the register's existing source for Law 74/2024 and is behind a Cloudflare challenge. The failing request and the browser attempt:
+
+```
+curl -sS -o lg.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.legis.md/cautare/downloadpdf/150323
+```
+
+Returned `403 5427 text/html; charset=UTF-8` (the "Just a moment..." page; `https://www.legis.md/` returned `403 5307`). Headless Chromium (Playwright, `chromium.launch({args:['--no-sandbox']})`, a desktop Chrome user agent, `locale: 'ro-RO'`, `page.goto(url, {waitUntil: 'domcontentloaded'})` then a wait of 20 s on the home page and 45 s on `https://www.legis.md/cautare/getResults?doc_id=150323&lang=ro`) stayed on the challenge both times: status 403, title "Doar un moment...", about 45 kB of HTML, no law text. legis.md is recorded as blocked from the cloud address; the orchestrator can read it from the laptop. No stored record comes from a browser.
+
+The Monitorul Oficial (`monitorul.gov.md`, Moldpres) answers curl without a challenge. Its issue page is a page-image viewer (FlowPaper), but the viewer's own page service returns each printed page as a PDF with a text layer. Two requests per page range:
+
+Step 1, read the document name, page count and month folder of an issue from the viewer page (`ro` for the Romanian edition, `ru` for the Russian one; the issue id is in the search results at `https://monitorul.gov.md/ro/search?keywords=...`, which matches words in the issue's table of contents). Run for Monitorul Oficial 209-212 of 16 May 2024 (Law 74/2024), id 2901:
+
+```
+curl -sS -o v2901.html -w '%{http_code} %{size_download} %{content_type}\n' https://monitorul.gov.md/ro/monitorul/view/pdf/2901
+```
+
+Returned `200 4327 text/html; charset=UTF-8`; the page holds `startDocument = '4LpPuYmqp425Nk8J5DDO.pdf'`, `numPages = 96` and `subfolder=May2024`. (The Part I viewer, `.../part/1`, offered one page only for issues 2550 and 3145; use the whole-issue viewer.) The Russian viewer, `https://monitorul.gov.md/ru/monitorul/view/pdf/2901`, returned `200 4327 text/html; charset=UTF-8` with its own document name (`7eyHWoN4w9kHBAnKxnas.pdf`).
+
+Step 2, row `MD-MONITORUL-ADOPTED`, one printed page (page 6 opens Law 74/2024):
+
+```
+curl -sS -o law74_p6.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://monitorul.gov.md/flow/services/view.php?doc=4LpPuYmqp425Nk8J5DDO.pdf&format=pdf&subfolder=May2024/&page=6'
+```
+
+Returned `200 151189 application/pdf`, sha256 `a985a678934e5bff0672956efc1625d133ffcc4dc070efa8eee34faed8eaa07f`; a second request returned the same bytes (the page is reproducible, with and without a `User-Agent`). Other `format=` values return nothing useful (`jpg` and `png` are page images, `json`, `txt`, `svg` and `html` are empty).
+
+Row `MD-MONITORUL-CONSOLIDATED`, the 2011 republication of Law 105-XV/2003 (Monitorul Oficial 176-181 of 21 October 2011, id 1734, page 10): viewer `curl -sS -o v1734.html https://monitorul.gov.md/ro/monitorul/view/pdf/1734` returned `200 4329 text/html; charset=UTF-8` (`numPages = 178`, `subfolder=June2020`); then
+
+```
+curl -sS -o l105_p10.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://monitorul.gov.md/flow/services/view.php?doc=KxunN7FzLgl3qoDQcIQO.pdf&format=pdf&subfolder=June2020/&page=10'
+```
+
+Returned `200 192062 application/pdf`, sha256 `352c3a561d0ca16575584227d9de4e44fa419b91624d1a58753958cdd93952db`.
+
+Text extraction: `pdftotext` (poppler 24.02.0) on each page file with its default reading order (not `-layout`, which interleaves the two columns), the pages of one act in order. Then: running headers and footers dropped (the line "Nr. 209-212 (9147-9150)", the "PARTEA I" line, the issue date line, "monitorul.gov.md" or "www.monitorul.md", the printed page number, and the "UE" margin mark that flags a transposition), runs of spaces collapsed, blank lines dropped, the act cut from its heading ("LEGE", "HOTĂRÂRE", "ЗАКОН", "ПОСТАНОВЛЕНИЕ") to its closing line ("Nr. 74. Chișinău, 11 aprilie 2024.") or to the point named in the record message. Nothing reworded; the old cedilla spelling (ş, ţ) of the 2011 gazette and the Latin "o" in one Russian title are as printed. Known artefacts: signature blocks and co-signatory lists sit in the middle of the text where the page layout put them, and words broken across lines keep their hyphen. `fetched_url` is the first page request of the act; `fetched_sha256` is the sha256 of the page PDFs of the act concatenated in page order, as returned.
+
+Garbled PDFs. Some pages come out of `pdftotext` as shifted capitals (a Romanian word such as "indicată" appears as "LQGLFDWă") or, for Russian, as Latin-extended glyphs ("ɋɛɨɪ") and control characters: the PDF uses a font without a text layer. Checked by a line test (IPA and Latin-extended glyphs in a Cyrillic or Romanian line, control characters, or capital runs inside lower-case words) on every act before storing. A record is stored only if no line fails, and an annex that fails is left out, with the message of the record saying so. Failing: both languages of `md-hg-575-2024` and `md-hg-544-2024` on every page of the Regulation (not stored), Annex 1 of Law 74/2024 in both languages (annexes left out), the Russian text of Law 243/2025 on pages 28 to 30 (not stored), Annex 2 of Decision 257/2026 in both languages, the tables after the Regulation in Decision 1277/2018. No OCR tool (`tesseract`) is installed here; decoding the shifted glyphs would lose the spaces and is not done.
+
+Stored (fetched 2026-11-03; `in_force` is the date the text took effect):
+
+| Instrument | Row | Records (`in_force`, language) | What is in the text |
+|---|---|---|---|
+| `md-law-74-2024` | adopted; translation | 2025-11-16 ro; 2025-11-16 ru | Articles 1 to 61; annexes left out |
+| `md-law-243-2025` | adopted | 2025-09-22 ro | whole Law (Arts. I to VII) |
+| `md-hg-257-2026` | adopted; translation | 2026-05-28 ro; 2026-05-28 ru | Decision and Annex 1 (the Regulation); Annex 2 left out |
+| `md-hg-1277-2018` | adopted; translation | 2019-02-08 ro; 2019-02-08 ru | Decision and the Regulation; tables left out |
+| `md-law-287-2017` | adopted; translation | 2019-01-01 ro; 2019-01-01 ru | whole Law (Art. 23 holds the non-financial statement) |
+| `md-law-105-2003` | consolidated; translation | 2011-10-21 ro; 2011-10-21 ru | the 2011 republication |
+
+The Monitorul prints each act once, as adopted; it serves no point-in-time consolidations, so there is one version per act and no later amendment is worked into any record. Amendments are separate acts in later issues (for example Law 243/2025 Art. VI amends Law 74/2024, and `md-law-243-2025` carries `amends: md-law-74-2024`).
+
+### Languages
+
+Romanian is the state language; the Romanian text is the record of each act (kind `adopted`, or `consolidated` for the 2011 republication). Russian is not an official language of the State. Law 100/2017 on Normative Acts (Monitorul Oficial 7-17 of 12 January 2018, Art. 54 para. (3)) makes the Romanian text prevail over any translation, and Art. 56 para. (7) has every normative act translated into Russian when it is published in the Monitorul Oficial. The Russian edition is therefore stored as a translation under its own row `MD-MONITORUL-TRANSLATION` (kind `translation`, same `in_force` as the Romanian record it translates), judged on Law 230/2022 Art. 8 lit. b ("traducerile oficiale ale acestora"). The brief expected Russian under the same row as an official version; the statute read does not make it one, and the PR lists this as a decision for Varun.
+
+Russian request, Law 74/2024 page 6, row `MD-MONITORUL-TRANSLATION`:
+
+```
+curl -sS -o law74_p6_ru.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://monitorul.gov.md/flow/services/view.php?doc=7eyHWoN4w9kHBAnKxnas.pdf&format=pdf&subfolder=May2024/&page=6'
+```
+
+Returned `200 139370 application/pdf`, sha256 `428c1b1940908b61520957a21f75cf4f0cc0961143c872cda4cd8980cde23ed8`. The Russian edition is a separate document of the same issue with its own page numbering; the act is found by its heading ("ЗАКОН", "ПОСТАНОВЛЕНИЕ") and cut the same way.
+
+English: no government translation was found for any instrument. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), on legis.md (blocked), and on mediu.gov.md and moldse.md (connection reset). No row for an English source.
+
+### Link only
+
+- `md-hg-575-2024`, `md-hg-544-2024`: row `MD-MONITORUL-ADOPTED` is `pass`, but the Regulation pages of Monitorul Oficial 467-469 (id 2984, pages 6 to 71) and 380-382 (id 2954, pages 42 to 67) are garbled in Romanian and in Russian (see above). Retry with an OCR step or from the laptop.
+- `md-law-1515-1993`: row `MD-LEGIS-CONSOLIDATED` is `permission requested` (legis.md blocked); the 1993 Law was not found in the Monitorul Oficial viewer, whose search returns issues from 2000 on.
+- Not in scope and not stored: the Government decisions amending Decision 1277/2018 (Monitorul Oficial 309-312 of 17 December 2021 and 89-92 of 5 March 2024); Decision 10/2024 on the energy governance and climate actions mechanism and Decision 425/2024 on the National Commission on Climate Change (institutional, no disclosure duty); the carbon pricing mechanism of Law 74/2024 Art. 56 (set "prin lege", none found: register row F7 only). No National Commission for Financial Markets, National Bank of Moldova or Moldova Stock Exchange instrument in families F1 to F6 was identified: bnm.md answered (`200 396354 text/html; charset=utf-8`, no sustainability or climate regulation on its legislation pages; its terms page covers statistics), and cnpf.md and moldse.md did not answer, so there is no row for them.
+
+### Blocked from the cloud address
+
+- https://www.legis.md/ and https://www.legis.md/cautare/downloadpdf/150323: `403` Cloudflare challenge ("Just a moment...") to curl and to headless Chromium.
+- https://www.parlament.md/: `403 5353 text/html; charset=UTF-8` (same challenge).
+- https://www.cnpf.md/: `curl: (60) SSL certificate problem: unable to get local issuer certificate` (the certificate chain does not verify; verification was not switched off); headless Chromium got `502`.
+- https://moldse.md/, https://mediu.gov.md/, https://www.justice.gov.md/: `curl: (35) Recv failure: Connection reset by peer`.
+- https://lex.justice.md/, https://www.anre.md/, https://www.cc.gov.md/, https://www.ceccomoldova.md/: no answer (`000`, no HTTP status).
+- Answered: monitorul.gov.md, www.bnm.md, www.agepi.gov.md (`200 58280`), www.ansa.gov.md (`200 67648`), gov.md (`301`).
