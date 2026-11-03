@@ -8987,5 +8987,27 @@
     "trailer_source_url": "https://www.brvm.org/fr/node/315",
     "trailer_licence": "Permission requested (BRVM terms)",
     "notes": "fingerprint: curl -sSL https://www.brvm.org/fr/node/405, scripts and styles removed, tags replaced by spaces, entities decoded, whitespace collapsed, cut from 'Conditions générales d’utilisation du site internet' to the end of the page, sha256 of the result plus a newline. The page includes live market tickers before the cut and site navigation after the legal text, so the hash can drift. The same row serves the AMF-UMOA instruments in the other UEMOA places. The AMF-UMOA own site https://www.amf-umoa.org is a JavaScript application (curl returns a 1685-byte shell) and its terms were not read. Permission request not sent."
+  },
+  {
+    "id": "CU-GACETA-ADOPTED",
+    "jurisdiction": "Cuba",
+    "publisher": "Ministerio de Justicia (Gaceta Oficial de la República de Cuba)",
+    "source_name": "Gaceta Oficial de la República de Cuba (gacetaoficial.gob.cu), issues as PDF",
+    "form": "adopted",
+    "fetch_url": "https://www.gacetaoficial.gob.cu/",
+    "pinned_version": "not pinned: page not opened, no fetch",
+    "content_hash": "",
+    "terms_url": "https://www.gacetaoficial.gob.cu/",
+    "terms_quote": "Not read: https://www.gacetaoficial.gob.cu/ and its other paths gave no answer from the cloud address on 2026-11-03 (curl: connection reset by peer, TLS handshake never completed; http:// answered 503 from the proxy; headless Chromium: 502).",
+    "terms_fingerprint": "not computed: terms page not opened",
+    "verdict": "permission requested",
+    "statute_exception": "none found (Ley 154 de 2022, art. 9, exclusions from copyright: not opened, so not applied)",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Gaceta Oficial de la República de Cuba issue (number and date set per instrument)",
+    "trailer_source_url": "https://www.gacetaoficial.gob.cu/",
+    "trailer_licence": "none: terms page not opened",
+    "notes": "Blocked from the cloud address: gacetaoficial.gob.cu, citma.gob.cu, bc.gob.cu, mincin.gob.cu, mep.gob.cu, parlamentocubano.gob.cu, minjus.gob.cu, cubadebate.cu all reset the TLS connection (DNS resolved: 190.92.115.173, 169.158.144.68, 190.6.81.134). No CITMA or Banco Central de Cuba row: neither site could be opened, and no instrument in scope depends on them. The orchestrator can read the Gaceta terms from the laptop; if the Gaceta text is free of copyright (Ley 154 de 2022 art. 9) the row can become a statute-based pass."
   }
 ]
