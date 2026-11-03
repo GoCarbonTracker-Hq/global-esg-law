@@ -11950,6 +11950,88 @@
   "params": {}
  },
  {
+  "id": "tn-loi-2018-35-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2018-35",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1988-91-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1988-91",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1992-117-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1992-117",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-2015-36-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2015-36",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "kp-environmental-protection-law-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "kp-air-pollution-control-act-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-air-pollution-control-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sy-environment-protection-law-12-2012-molae-law-page",
+  "source_id": "SY-MOLAE-ADOPTED",
+  "iso2": "SY",
+  "instrument": "sy-environment-protection-law-12-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://molae.gov.sy/law",
+  "params": {}
+ },
+ {
   "id": "kh-serc-prakas-034-serc-prakas-board",
   "source_id": "KH-SERC-ADOPTED",
   "iso2": "KH",
