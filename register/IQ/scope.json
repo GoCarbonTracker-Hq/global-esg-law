@@ -1,0 +1,89 @@
+[
+  {
+    "id": "iq-isc-esg-guide",
+    "title": "ESG Standards Guide for companies listed on the Iraq Stock Exchange (Iraqi Securities Commission)",
+    "official_url": "https://uploads.isc.gov.iq/upload/2025/04/15//67fe1fab4a108.pdf",
+    "citation": "ISC Environmental, Social and Governance Standards Guide for Companies, 1st edition, April 2025 (2nd edition, May 2026)",
+    "in_force": "2025-04-15",
+    "evidence": "1st edition, front matter: \"يسري هذا الدليل اعتبارا من 15/4/2025\" (this guide applies from 15/4/2025) and \"هذا الدليل إلزامي\" (this guide is mandatory). ISC press release of 2025-04-15 (https://isc.gov.iq/en/news/2454): \"This is the first comprehensive and mandatory guide issued by Iraqi Securities Commission\". Opened https://uploads.isc.gov.iq/upload/2025/04/15//67fe1fab4a108.pdf with curl on 2026-11-03 (pdftotext).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "IQ-ISC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The register row pointed at the press release (https://isc.gov.iq/en/news/2454); official_url is now the guide's own PDF, and the press release is the page that links it. A 2nd edition exists, not mentioned in the brief: https://uploads.isc.gov.iq/upload/2026/06/17//6a32dc6fcd9df.pdf, listed on https://isc.gov.iq/pages/43 (Related Laws) as the ESG guide, marked 'Second edition' with the line \"يسري هذا الدليل اعتبارا من 2026/5/13\" (applies from 2026-05-13) and blue text for the changes. Both editions are dated versions of the same instrument. Both are Arabic; the PDFs extract with pdftotext without mojibake. Link only: the ISC row is permission requested (all rights reserved, no licence), so no record is stored. The ISC press release says implementing instructions will follow; none was found on https://isc.gov.iq/pages/44 or /pages/45 on 2026-11-03. Banks listed on the ISX follow the CBI code (iq-cbi-esg-code). Looked for Kurdish and English text: none on isc.gov.iq (the site has an English interface, but the guide PDFs are Arabic only).",
+    "status": "link only"
+  },
+  {
+    "id": "iq-cbi-esg-code",
+    "title": "Environmental, Social and Governance (ESG) Code for Banks (Central Bank of Iraq)",
+    "official_url": "https://cbi.iq/static/uploads/up/file-175396251558377.pdf",
+    "citation": "CBI ESG Code for Banks, 2024, revised July 2025",
+    "in_force": null,
+    "evidence": "Art. 1(1) of the Arabic text: \"يطبق هذا الدليل بشكل إلزامي ويسري على جميع المصارف العاملة في العراق اعتبارا من تاريخ صدوره\" (this guide applies on a mandatory basis to all banks operating in Iraq from the date of its issue). English Code, preamble: \"the CBI has developed this mandatory Environmental, Social and Governance (ESG) Code for Banks\"; \"This Code has been developed in June 2024.\" No calendar date of issue is printed in either language. Opened https://cbi.iq/static/uploads/up/file-175396251558377.pdf and https://cbi.iq/static/uploads/up/file-172674120621200.pdf with curl on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "IQ-CBI-ADOPTED",
+      "IQ-CBI-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "in_force is null: the text applies 'from the date of issue' and prints no date. The brief gives September 2024; that is only the PDF creation date (2024-09-15) of the English and Arabic 2024 files, not a date the text states. Three CBI PDFs: Arabic 2024 (https://cbi.iq/static/uploads/up/file-172708212771770.pdf), Arabic 2025 revision, 'reviewed and updated in July 2025' (official_url, listed on https://cbi.iq/page/99), and the English Code (https://cbi.iq/static/uploads/up/file-172674120621200.pdf, not linked on that page). Link only: the CBI rows are permission requested (no terms found), so no record is stored. Kurdish: none found on cbi.iq. Applies to banks under CBI supervision; domestic systemically important banks get further requirements to be issued (English preamble); none found.",
+    "status": "link only"
+  },
+  {
+    "id": "iq-env-protection-law-27-2009",
+    "title": "Law No. 27 of 2009 on the Protection and Improvement of the Environment",
+    "official_url": "https://moen.gov.iq/files/TableFiles/4142.pdf",
+    "citation": "Law No. 27 of 2009, Official Gazette (Al-Waqa'i' Al-Iraqiya) No. 4142 of 25 January 2010",
+    "in_force": null,
+    "evidence": "Final provisions: \"يُنفذ هذا القانون بعد مضي ... ستين يوماً من تاريخ نشره في الجريدة الرسمية\" (this law is in force after sixty days from its publication in the Official Gazette). MOEN legislation list (https://moen.gov.iq/ar/legislation, row 1): Law 27 of 2009, Gazette 4142, published 25/1/2010. Gazette cover of issue 4142 read by OCR on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "IQ-MOEN-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "in_force is null: no official page states the date; 60 days after the publication date of 2010-01-25 falls on 2010-03-26 or 2010-03-27 depending on how 'after the lapse of sixty days' is counted. The PDF is the whole Gazette issue 4142 (80 pages; it also holds the Forests and Groves Law 30/2009 and other laws); the law starts on page 2. Its Arabic text has a legacy font encoding: pdftotext returns mojibake, so the text was read through OCR (tesseract 5.3.4, language ara, 150 dpi) for evidence only; nothing is stored. Link only: the MOEN row is permission requested (all rights reserved). Looked for Kurdish text: https://moen.gov.iq/kr/legislation lists the same table in Arabic only, and no Kurdish law text was found on a state host that answered. Looked for government English: none (the table marks only hazardous waste instructions 2/2015 and animal health law 32/2013 as Arabic and English). The Iraqi Legal Database (iraqld.hjc.iq, 403), the Official Gazette site (www.moj.gov.iq, connection reset) and parliament.iq (403) could not be opened, so no second host was checked.",
+    "status": "link only"
+  },
+  {
+    "id": "iq-emission-limits-instructions-3-2012",
+    "title": "National Emission Limits for Activities and Works Instructions No. 3 of 2012 (Ministry of Environment)",
+    "official_url": "https://moen.gov.iq/files/TableFiles/4242.pdf",
+    "citation": "Instructions No. 3 of 2012 (تعليمات محددات الانبعاث الوطنية للأنشطة والأعمال), Official Gazette No. 4242; first amendment in Gazette No. 4434 of 13 February 2017",
+    "in_force": null,
+    "evidence": "Final article: \"تنفذ هذه التعليمات من تاريخ نشرها في الجريدة الرسمية\" (these instructions take effect from their publication in the Official Gazette). The publication date is not read: the OCR of the cover of issue 4242 is unreliable on the date. MOEN legislation list (https://moen.gov.iq/ar/legislation, row 20) shows 4434 and 13/2/2017 for the amendment and links 4242.pdf and 4434.pdf. Opened with curl on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "IQ-MOEN-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Implements Law No. 27 of 2009 (iq-env-protection-law-27-2009). Air pollutant emission limits per activity (the limits tables list carbon monoxide and carbon dioxide among others); not a greenhouse gas duty or a carbon price, so F2 and not F3. in_force is null because the publication date of Gazette 4242 is not legible. 4242.pdf is 23 pages of the whole issue, with mojibake from pdftotext (OCR read for evidence only). 4434.pdf is a 2-page image of the cover of the amending issue and has no text layer. The first amendment ('التعديل الأول لتعليمات محددات الانبعاث الوطنية للأنشطة والأعمال') was announced on the cover of issue 4434; its text was not read. Link only: the MOEN row is permission requested. Looked for Kurdish text: https://moen.gov.iq/kr/legislation lists the same table in Arabic only, and no Kurdish law text was found on a state host that answered. Looked for government English: none (the table marks only hazardous waste instructions 2/2015 and animal health law 32/2013 as Arabic and English). The Iraqi Legal Database (iraqld.hjc.iq, 403), the Official Gazette site (www.moj.gov.iq, connection reset) and parliament.iq (403) could not be opened, so no second host was checked.",
+    "status": "link only"
+  },
+  {
+    "id": "iq-environmental-approval-instructions-3-2011",
+    "title": "Instructions No. 3 of 2011 on the environmental constraints for establishing projects and monitoring the safety of their implementation (Ministry of Environment)",
+    "official_url": "https://moen.gov.iq/ar/legislation",
+    "citation": "Instructions No. 3 of 2011 (تعليمات المحددات لانشاء المشاريع ومراقبة سلامة تنفيذها), Official Gazette No. 4225 of 9 January 2012",
+    "in_force": null,
+    "evidence": "Listed on https://moen.gov.iq/ar/legislation (row 19) as number 3, year 2011, Gazette 4225, published 9/1/2012. The file link in that row returns an HTML page, not the instrument, so no official page states the in-force date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "IQ-MOEN-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "The linked file https://moen.gov.iq/public/media/TableFiles/%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D8%A7%D8%AA_%D8%A7%D9%84%D9%85%D8%AD%D8%AF%D8%AF%D8%A7%D8%AA_%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D9%8A%D8%A9_%D9%88%D8%B3%D9%84%D8%A7%D9%85%D8%A9_%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%87%D8%A7.pdf answered HTTP 200 text/html, 22481 bytes (the site's HTML shell), so the text was never seen; the subject (environmental approval conditions for projects) is taken from the listing title. Implements Law No. 27 of 2009. Link only: no working file request, and the MOEN row is permission requested. Looked for Kurdish text: https://moen.gov.iq/kr/legislation lists the same table in Arabic only, and no Kurdish law text was found on a state host that answered. Looked for government English: none (the table marks only hazardous waste instructions 2/2015 and animal health law 32/2013 as Arabic and English). The Iraqi Legal Database (iraqld.hjc.iq, 403), the Official Gazette site (www.moj.gov.iq, connection reset) and parliament.iq (403) could not be opened, so no second host was checked.",
+    "status": "link only"
+  },
+  {
+    "id": "iq-carbon-economics-company-statement-2025",
+    "title": "Amended founding statement of the General Company for Carbon Economics, a company of the Ministry of Environment (Gazette notice, 2025)",
+    "official_url": "https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf",
+    "citation": "Notice of amendment of the founding statement of the General Company for Carbon Economics, Official Gazette No. 4854 of 29 December 2025, issued under art. 4 of the Public Companies Law No. 22 of 1997",
+    "in_force": null,
+    "evidence": "Gazette 4854 cover: \"اعلان تعديل بيان تأسيس \\\"الشركة العامة لأقتصاديات الكاربون احدى تشكيلات وزارة البيئة\\\" مع البيان التأسيسي المعدل\"; the notice cites the General Secretariat of the Council of Ministers letter of 2025-10-14 and states no commencement date. MOEN legislation list (https://moen.gov.iq/ar/legislation, row 46): Gazette 4854, 29/12/2025. Opened https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf with curl on 2026-11-03 (6 pages, text layer readable).",
+    "law_family": "F3",
+    "duty_on": "state_only",
+    "source_row": "IQ-MOEN-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Only carbon-market instrument found. It is a company founding statement, not a carbon-market regulation: the company's activities include developing, issuing and marketing carbon certificates on an internationally approved platform, granting licences to firms that verify and audit carbon projects, approving carbon-reduction projects ('no body may be approved except with the approval of the company'), and putting into effect Iraq's voluntary 15% emissions reduction in the NDC. The original founding statement was not found; this notice amends item 3 of the company's activities (deletes items 5 and 6 and replaces them) and the PDF carries the amended statement. The MOEN list titles the row 'بيان تأسيس ... رقم 22 لسنة 2025'; 22 is the number of the Public Companies Law of 1997 cited in the notice, not a number of 2025. in_force is null: the notice states no date; publication date 2025-12-29. No climate framework act was found (Iraq's Paris Agreement ratification Law No. 7 of 2021 was not opened on an official page; the NDC is policy). Link only: the MOEN row is permission requested. Looked for Kurdish text: https://moen.gov.iq/kr/legislation lists the same table in Arabic only, and no Kurdish law text was found on a state host that answered. Looked for government English: none (the table marks only hazardous waste instructions 2/2015 and animal health law 32/2013 as Arabic and English). The Iraqi Legal Database (iraqld.hjc.iq, 403), the Official Gazette site (www.moj.gov.iq, connection reset) and parliament.iq (403) could not be opened, so no second host was checked.",
+    "status": "link only"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ye-environment-protection-law-26-1995",
+    "title": "Law No. 26 of 1995 on Environment Protection (قانون رقم 26 لسنة 1995م بشأن حماية البيئة)",
+    "official_url": "https://agoye.gov.ye/page.php?lng=arabic&id=323",
+    "citation": "Law No. 26 of 1995 on Environment Protection, issued 29 October 1995 (5 Jumada II 1416), Official Gazette issue 20 of 1995",
+    "in_force": "1995-10-29",
+    "evidence": "Art. 95: \"يعمل بهذا القانون من تاريخ صدوره وينشر في الجريدة الرسمية\" (in force from the date of issue), signed \"صدر برئاسة الجمهورية – بصنعاء بتاريخ 5/جماد الثاني/1416هـ الموافق 29/اكتوبر/ 1995م\". Opened https://agoye.gov.ye/page.php?lng=arabic&pprint=323 on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "YE-AGO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The existing register row carried F7; the Law is the environmental framework act (pollution prohibition and environmental liability), so it is mapped to F2. The register row pointed at https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11458, which resets the connection from the cloud address (see SOURCES.md Yemen, Blocked), so that page was not re-read; the text stored is the one on the Public Prosecution's collection of Yemeni legislation (agoye.gov.ye), whose page is headed with the Gazette issue and shows no amendment. Whether the Law was later amended was not confirmed. The record is the whole Law as shown there, Arabic only. No government English text exists for it as far as found: looked on agoye.gov.ye (Arabic pages only), moit.gov.ye (Arabic PDFs only) and english.cby-ye.com (central bank pages only). Unofficial English copies on UN, NGO and law-firm sites were not used and nothing is stored from them.",
+    "status": "stored"
+  },
+  {
+    "id": "ye-marine-environment-protection-law-11-1993",
+    "title": "Republican Decree-Law No. 11 of 1993 on Protection of the Marine Environment from Pollution (قرار جمهوري بقانون رقم 11 لسنة 1993م بشأن حماية البيئة البحرية من التلوث)",
+    "official_url": "https://agoye.gov.ye/page.php?lng=arabic&id=322",
+    "citation": "Republican Decree-Law No. 11 of 1993 on Protection of the Marine Environment from Pollution, issued 26 April 1993 (5 Dhu al-Qi'dah 1413), Official Gazette issue 8/8 of 1993",
+    "in_force": "1993-04-26",
+    "evidence": "Art. 47: \"يعمل بهذا القانون من تاريخ صدوره وينشر في الجريدة الرسمية\" (in force from the date of issue), signed \"صدر برئاسة الجمهورية – بصنعاء بتاريخ 5/ذي القعدة/1413هـ الموافق 26/ابريل/1993م\". Opened https://agoye.gov.ye/page.php?lng=arabic&pprint=322 on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "YE-AGO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Found in the same Public Prosecution collection as the framework act; added on judgment as an environmental pollution duty (discharge from vessels, aircraft and installations, Ministry of Transport as authority), which the brief did not list. Art. 46 repeals Law No. 6 of 1980 of the former South Yemen. The page shows no amendment; later amendments were not checked. Arabic only. No government English text exists for it as far as found: looked on agoye.gov.ye (Arabic pages only), moit.gov.ye (Arabic PDFs only) and english.cby-ye.com (central bank pages only). Unofficial English copies on UN, NGO and law-firm sites were not used and nothing is stored from them.",
+    "status": "stored"
+  },
+  {
+    "id": "ye-consumer-protection-law-46-2008",
+    "title": "Law No. 46 of 2008 on Consumer Protection (قانون رقم 46 لسنة 2008م بشأن حماية المستهلك)",
+    "official_url": "https://moit.gov.ye/sites/default/files/2026-02/%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+    "citation": "Law No. 46 of 2008 on Consumer Protection, issued 7 September 2008 (7 Ramadan 1429)",
+    "in_force": "2008-10-07",
+    "evidence": "Art. 47: \"يعمل بهذا القانون بعد ثلاثين يوماً من تاريخ صدوره وينشر في الجريدة الرسمية\" (in force thirty days after the date of issue), signed \"صدر برئاسة الجمهورية ــ بصنعاء بتاريخ 7 رمضان 1429هـ الموافق 7 سبتمبر 2008م\". Seven September plus thirty days is 2008-10-07; the page states no in-force date, so this is computed. Opened the PDF listed on https://moit.gov.ye/legislations/laws on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "YE-MOIT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella consumer law: Art. 20 lists advertising an advertiser must not run (prohibited, unlicensed, harmful or unchecked goods) and Art. 21 requires an advertiser, when the authority asks, to correct a misleading or deceptive advertisement; that is the nearest hook for environmental claims, and the Law names no environmental claim as such. Implemented by ye-consumer-protection-regulation-2010. Record text is the PDF text layer through pdftotext (reading order, not -layout, which scrambles the right-to-left definitions list), Unicode NFKC to turn the PDF's presentation-form letters into ordinary Arabic letters, bidi control marks and runs of spaces removed. In that layer hamza, tanween and kasra marks sit on lines of their own, so some words are split (for example the word for 'based on' in Art. 21); digits and article numbers are intact. The PDF has no embedded page images and its text layer is readable apart from the displaced marks, so OCR was not used for this one (a trial OCR read the digits wrongly, for example the year 2008). No amendment is shown in the PDF; the MOIT page for the Law was not found, so later amendments are unconfirmed. Arabic only. No government English text exists for it as far as found: looked on agoye.gov.ye (Arabic pages only), moit.gov.ye (Arabic PDFs only) and english.cby-ye.com (central bank pages only). Unofficial English copies on UN, NGO and law-firm sites were not used and nothing is stored from them.",
+    "status": "stored"
+  },
+  {
+    "id": "ye-consumer-protection-regulation-2010",
+    "title": "Executive Regulation of Law No. 46 of 2008 on Consumer Protection, Prime Minister's decision of 2010 (القرار بشأن اللائحة التنفيذية لقانون حماية المستهلك)",
+    "official_url": "https://moit.gov.ye/node/175",
+    "citation": "Decision of the President of the Council of Ministers issuing the Executive Regulation of Law No. 46 of 2008 on Consumer Protection (decision number not read reliably, see notes), dated 2010-05-12",
+    "in_force": "2010-05-12",
+    "evidence": "https://moit.gov.ye/node/175 lists the document with date 2010-05-12, issuer \"رئاسة مجلس الوزراء\", type \"لائحة\", status \"ساري\"; the last article of the PDF reads \"يعمل بهذا القرار من تاريخ صدوره وينشر بالجريدة الرسمية\" (in force from the date of issue). The date is the page's document-date field; the signature date in the PDF was not legible in the OCR. Opened on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "YE-MOIT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Implements ye-consumer-protection-law-46-2008 (Art. 46 of the Law calls for the regulation). The decision number is not stated here: the PDF text layer and the OCR disagree and both misread digits. The text layer of this PDF is garbled (letter ya replaced by a different mark, lost ligatures, wrong digits), so the record text is uncorrected OCR output (tesseract 5.3.4, language ara, page segmentation mode 6, 300 dpi, on the PDF rendered to images with pdftoppm) of the official PDF, which has no scan layer but a text layer too garbled to use, marked extraction ocr; it was not corrected, reflowed or reworded by hand and its Arabic-Indic digits are unreliable. MOIT lists the same file twice (nodes 174 and 175, same bytes; node 174 answered 500 on 2026-11-03). Arabic only. No government English text exists for it as far as found: looked on agoye.gov.ye (Arabic pages only), moit.gov.ye (Arabic PDFs only) and english.cby-ye.com (central bank pages only). Unofficial English copies on UN, NGO and law-firm sites were not used and nothing is stored from them.",
+    "status": "stored"
+  }
+]

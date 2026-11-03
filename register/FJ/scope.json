@@ -1,0 +1,76 @@
+[
+  {
+    "id": "fj-climate-change-act-2021",
+    "title": "Climate Change Act 2021 (Act No. 43 of 2021)",
+    "official_url": "https://www.laws.gov.fj/#/acts/DisplayAct/3290",
+    "citation": "Climate Change Act 2021 (Act No. 43 of 2021), assented 23 September 2021; commencement by notice under s 1(2); LN 19 of 2025",
+    "in_force": "2025-04-04",
+    "evidence": "Legal Notice No. 19 of 2025 (Commencement Notice): \"I hereby appoint 4 April 2025 as the commencement date for Parts 1, 2, 3, 4, 6, 7, 8, 9, 12, 13, 14, 16 and 17 of the Climate Change Act 2021.\" Opened 2026-11-03 at https://www.laws.gov.fj/api/show_pdf_lawsaspublished/1754. The consolidation's Table of Amendments says the same: \"commenced on 4 April 2025 (Pts 1-4, 6-9, 12-14, 16-17)\" (https://www.laws.gov.fj/api/retrieve_html/LOF.CAP106B.CCAFJ21.BODY).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FJ-LAWS-ADOPTED",
+      "FJ-LAWS-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Mapped to F2 (framework act); the existing register row carried F3. F3 content: s 31 (mandatory, biennial reporting by fuel importers on fuel sold, to the permanent secretary for transport) and s 32 (facility-level emissions reporting above a prescribed quantity, which the text makes voluntary: \"may keep and biennially provide\"), both in Part 7, in force. The brief expected a mandatory facility duty; the text does not say so. Not commenced per the Table of Amendments (consolidation last updated 04 August 2026): Parts 5, 10 (carbon sequestration property rights and emissions reduction projects, ss 45-64), 11 and 15 (private sector, ss 92-100, which includes s 96, disclosure of climate financial risks by companies and managed investment schemes, and s 94, directors' duty to consider climate risks). Only the 2025-04-04 notice was found; no later commencement notice is in the Laws as Published list. Carbon market regulations: none gazetted (see register.csv, F7 row). The adopted record is the Act as published (PDF, pdftotext -layout); the consolidated record is the laws.gov.fj section-by-section text; both are dated 2025-04-04, the first date any part was in force, because the site serves one consolidation only. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
+    "status": "stored"
+  },
+  {
+    "id": "fj-environment-management-act-2005",
+    "title": "Environment Management Act 2005 (No. 1 of 2005)",
+    "official_url": "https://www.laws.gov.fj/#/acts/DisplayAct/2576",
+    "citation": "Environment Management Act 2005 (No. 1 of 2005); commenced 1 January 2008",
+    "in_force": "2008-01-01",
+    "evidence": "Table of Amendments on the consolidated text: \"Environment Management Act 2005 (No 1 of 2005) commenced on 1 January 2008, as amended by:\". Opened 2026-11-03 at https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EMAFJ05.BODY.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "FJ-LAWS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the consolidation the site serves (page 'Last Updated: 01 January 2021'), dated 2021-01-01, the commencement date of the last amendment in its Table of Amendments (Environment Management (Amendment) Act 2020). It does not include the Environment Management (Amendment) Act 2025, which is in force from 2025-12-12 and stored as fj-ema-amendment-act-2025. Earlier versions and the Act as originally published are not served (the Laws as Published list starts in 2014). Footnote markers appear in the served text without footnote bodies. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
+    "status": "stored"
+  },
+  {
+    "id": "fj-ema-amendment-act-2025",
+    "title": "Environment Management (Amendment) Act 2025 (Act No. 27 of 2025)",
+    "official_url": "https://www.laws.gov.fj/#/law-as-published",
+    "citation": "Environment Management (Amendment) Act 2025 (Act No. 27 of 2025), assented 3 December 2025",
+    "in_force": "2025-12-12",
+    "evidence": "s 1(2): \"This Act comes into force on 12 December 2025.\" Opened 2026-11-03 at https://www.laws.gov.fj/api/show_pdf_lawsaspublished/1841.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "FJ-LAWS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Amends the Environment Management Act 2005 (definitions, EIA screening and approval provisions). Stored as the Act as published because the laws.gov.fj consolidation of the Environment Management Act 2005 does not yet include it. Not in the brief's candidate list; added because it changes the text in force. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
+    "amends": "fj-environment-management-act-2005",
+    "status": "stored"
+  },
+  {
+    "id": "fj-ema-eia-regulations-2007",
+    "title": "Environment Management (EIA Process) Regulations 2007 (LN 3 of 2008)",
+    "official_url": "https://www.laws.gov.fj/#/acts/DisplayAct/2576",
+    "citation": "Environment Management (EIA Process) Regulations 2007 (LN 3 of 2008); commenced 1 January 2008",
+    "in_force": "2008-01-01",
+    "evidence": "Table of Amendments on the consolidated text: \"Environment Management (EIA Process) Regulations 2007 (LN 3 of 2008) commenced on 1 January 2008, as amended by:\"; reg 1(2): \"These Regulations come into force on the date on which the Act comes into force.\" Opened 2026-11-03 at https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EPRFJ07.BODY.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "FJ-LAWS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implements Part 4 of the Environment Management Act 2005 (fj-environment-management-act-2005). Record text is the consolidation the site serves (page 'Last Updated: 01 December 2016'), dated 2016-12-01, the commencement date of the last amendment in its Table of Amendments (LN 99 of 2016). The Regulations have not been re-issued after the 2025 Act; whether the 2025 amendments need conforming regulations is not stated on any page opened. Other regulations under the Act (waste disposal and recycling, fees, tribunal rules, polystyrene exemptions) are not in scope. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
+    "status": "stored"
+  },
+  {
+    "id": "fj-fccc-act-2010",
+    "title": "Fijian Competition and Consumer Commission Act 2010 (Decree No. 49 of 2010)",
+    "official_url": "https://www.laws.gov.fj/#/acts/DisplayAct/2733",
+    "citation": "Fijian Competition and Consumer Commission Act 2010 (No. 49 of 2010, promulgated as Decree 49 of 2010); commenced 1 July 2010",
+    "in_force": "2010-07-01",
+    "evidence": "Table of Amendments on the consolidated text: \"Fijian Competition and Consumer Commission Act 2010 (No 49 of 2010) ... commenced on 1 July 2010, as amended by:\". Opened 2026-11-03 at https://www.laws.gov.fj/api/retrieve_html/LOF.CAP235F.CCAFJ10.BODY.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "FJ-LAWS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella for environmental claims only by general words: s 75 (misleading or deceptive conduct in trade or commerce), s 77 (false or misleading representation about goods or services) and s 78 (false or misleading advertisement, an offence). The Act text mentions environment, climate, green or carbon once in 357,000 characters and has no provision on environmental or green claims. Record text is the consolidation the site serves (page 'Last Updated: 12 August 2026'), dated 2022-06-24, the latest commencement date in its Table of Amendments. Earlier versions and the Decree as promulgated are not served. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
+    "status": "stored"
+  }
+]
