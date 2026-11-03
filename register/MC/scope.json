@@ -1,0 +1,118 @@
+[
+  {
+    "id": "mc-loi-1456-code-environnement",
+    "title": "Loi n° 1.456 du 12 décembre 2017 portant Code de l'environnement (Code de l'environnement)",
+    "official_url": "https://legimonaco.mc/code/code-environnement",
+    "citation": "Loi n° 1.456 du 12 décembre 2017, Journal de Monaco n° 8.361 du 22 décembre 2017; Code de l'environnement, Titre II du Livre II (articles L. 220-1 to L. 220-3: inventory and bilan of greenhouse gas emissions)",
+    "in_force": "2017-12-23",
+    "evidence": "Legimonaco, first version of the Code (https://legimonaco.mc/code/code-environnement@2017.12.23/), read on 2026-11-03: \"Dernière modification 23 décembre 2017 Version en vigueur au 23 décembre 2017\"; the Loi page (https://legimonaco.mc/tnc/loi/2017/12-12-1.456/) reads \"Publication Journal de Monaco du 22 décembre 2017\".",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "MC-LEGIMONACO-CONSOLIDATED",
+      "MC-JDM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The existing register row said F7; the Code is the framework act for climate and environment, so it is mapped to F2. Article L. 220-2 says public authorities and economic actors established in the Principality draw up their greenhouse gas bilan and that a Sovereign Ordinance names the persons covered and the conditions of drawing up and publication; no such Ordinance was found (Legimonaco title and full-text searches for the bilan, 'assujettis' and 'bilans des émissions' return only the Code and the 2017 bill), so the company duty is a framework duty without implementing text and no company coverage is claimed. The state targets are in article O. 210-1 (see mc-os-8449-ghg-2030, mc-os-11515-ghg-2035). Records: the adopted Loi with the legislative part of the Code as published (Journal de Monaco n° 8.361, kind adopted, 2017-12-23) and the 14 dated consolidations of the Code that Legimonaco serves, 2017-12-23 to 2026-05-30 (kind consolidated). The consolidated Code text includes the Ordonnance parts (O. articles) and the Arrêté parts (A. articles) added from 2021; editorial notes are not stored. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored"
+  },
+  {
+    "id": "mc-os-8449-ghg-2030",
+    "title": "Ordonnance Souveraine n° 8.449 du 24 décembre 2020 fixant les objectifs de réduction de gaz à effet de serre pour la Principauté à horizon 2030",
+    "official_url": "https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449/",
+    "citation": "Ordonnance Souveraine n° 8.449 du 24 décembre 2020, Journal de Monaco n° 8.519 du 1er janvier 2021; inserts article O. 210-1 into the Code de l'environnement",
+    "in_force": "2021-01-02",
+    "evidence": "Legimonaco (https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449@2021.01.02/), read on 2026-11-03: \"Publication Journal de Monaco du 1er janvier 2021\" and \"Version en vigueur au 2 janvier 2021\".",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "MC-LEGIMONACO-CONSOLIDATED",
+      "MC-JDM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "State target of a 55 % cut in direct greenhouse gas emissions by 2030 against 1990 and carbon neutrality in 2050, inserted as article O. 210-1 of the Code. Article O. 210-1 was replaced by Ordonnance Souveraine n° 11.515 of 13 October 2025 (mc-os-11515-ghg-2035); this Ordonnance has one version on Legimonaco and is not marked repealed. Records: adopted (Journal de Monaco n° 8.519) and the single Legimonaco version (kind consolidated), both 2021-01-02. Legimonaco shows the inserted article only as a link to the Code ('Voir l'article O. 210-1'); the operative sentence is in the adopted record. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored",
+    "amends": "mc-loi-1456-code-environnement"
+  },
+  {
+    "id": "mc-os-11515-ghg-2035",
+    "title": "Ordonnance Souveraine n° 11.515 du 13 octobre 2025 fixant les objectifs de réduction de gaz à effet de serre à horizon 2035",
+    "official_url": "https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/",
+    "citation": "Ordonnance Souveraine n° 11.515 du 13 octobre 2025, Journal de Monaco n° 8.769 du 17 octobre 2025; replaces article O. 210-1 of the Code de l'environnement",
+    "in_force": "2025-10-18",
+    "evidence": "Legimonaco (https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515@2025.10.18/), read on 2026-11-03: \"Publication Journal de Monaco du 17 octobre 2025\" and \"Version en vigueur au 18 octobre 2025\".",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "MC-LEGIMONACO-CONSOLIDATED",
+      "MC-JDM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces article O. 210-1: the State commits to cut direct greenhouse gas emissions on its territory by 55 % in 2030 and 67.6 % in 2035 against 1990 and to reach carbon neutrality in 2050. Records: adopted (Journal de Monaco n° 8.769) and the single Legimonaco version (kind consolidated), both 2025-10-18. The Legimonaco rendering has a link in place of the new article text; the adopted record has the operative sentence. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored",
+    "amends": "mc-os-8449-ghg-2030"
+  },
+  {
+    "id": "mc-am-2020-916-ghg-inventories",
+    "title": "Arrêté Ministériel n° 2020-916 du 24 décembre 2020 relatif à l'établissement des inventaires nationaux de gaz à effet de serre et de polluants atmosphériques",
+    "official_url": "https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916/",
+    "citation": "Arrêté Ministériel n° 2020-916 du 24 décembre 2020, Journal de Monaco n° 8.519 du 1er janvier 2021; implements article L. 220-1 of the Code de l'environnement",
+    "in_force": "2021-01-02",
+    "evidence": "Legimonaco (https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916@2021.01.02/), read on 2026-11-03: \"Publication Journal de Monaco du 1er janvier 2021\" and \"Version en vigueur au 2 janvier 2021\".",
+    "law_family": "F3",
+    "duty_on": "state_only",
+    "source_row": [
+      "MC-LEGIMONACO-CONSOLIDATED",
+      "MC-JDM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Names the Direction de l'Environnement as the authority that sets up and runs the national inventories of greenhouse gases and air pollutants and the territorial energy balance. It binds the administration; it does not set a duty on companies. Records: adopted (Journal de Monaco n° 8.519) and the single Legimonaco version (kind consolidated), both 2021-01-02. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored"
+  },
+  {
+    "id": "mc-os-1284-2007-financial-activities",
+    "title": "Ordonnance Souveraine n° 1.284 du 10 septembre 2007 portant application de la loi n° 1.338 du 7 septembre 2007 sur les activités financières (articles 9-3 to 9-6: certification « bancaire, financière et ESG »)",
+    "official_url": "https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284/",
+    "citation": "Ordonnance Souveraine n° 1.284 du 10 septembre 2007, Journal de Monaco du 14 septembre 2007, as amended by Ordonnance Souveraine n° 9.737 du 2 février 2023",
+    "in_force": "2007-09-15",
+    "evidence": "Legimonaco first version (https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284@2007.09.15/, listed by ?versions), read on 2026-11-03; the page of the 2023-02-11 version reads \"Publication Journal de Monaco du 14 septembre 2007\" and \"Version en vigueur au 11 février 2023\".",
+    "law_family": "F4",
+    "duty_on": "financial_institutions",
+    "source_row": "MC-LEGIMONACO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Persons placed under an authorised company or establishment who manage, sell, analyse or trade financial instruments, and their direct managers, must hold a professional certification now named « bancaire, financière et environnementale, sociétale et gouvernance », in short « bancaire, financière et ESG ». It is a staff-competence rule with an ESG module, not a disclosure rule. The word ESG enters the Ordonnance with Ordonnance Souveraine n° 9.737 (in force 2023-02-11); the five earlier Legimonaco versions (2007-09-15 to 2022-08-01) do not contain it and are not stored. One record: the whole Ordonnance as consolidated on 2023-02-11, still the current version. The CCAF site (https://ccaf.mc) describes the same certification and was read for that; it states no sustainability disclosure rule for supervised entities. The adopted 2007 text is not stored (the gazette page of 2007 was not opened). No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored"
+  },
+  {
+    "id": "mc-os-9737-esg-certification",
+    "title": "Ordonnance Souveraine n° 9.737 du 2 février 2023 modifiant l'Ordonnance Souveraine n° 1.284 du 10 septembre 2007 portant application de la loi n° 1.338 du 7 septembre 2007 sur les activités financières",
+    "official_url": "https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737/",
+    "citation": "Ordonnance Souveraine n° 9.737 du 2 février 2023, Journal de Monaco n° 8.629 du 10 février 2023",
+    "in_force": "2023-02-11",
+    "evidence": "Legimonaco (https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737@2023.02.11/), read on 2026-11-03: \"Publication Journal de Monaco du 10 février 2023\" and \"Version en vigueur au 11 février 2023\".",
+    "law_family": "F4",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "MC-LEGIMONACO-CONSOLIDATED",
+      "MC-JDM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Rewrites articles 7, 9-1 to 9-6 of Ordonnance n° 1.284 (certification « bancaire, financière et ESG » and « contrôle interne des activités financières ») and sets transitional rules; article 4 IV gives persons already in post six months to register for the « bancaire, financière et ESG » session run by the AMAF. Records: adopted (Journal de Monaco n° 8.629, full amending text) and the Legimonaco version (kind consolidated, where the amended articles appear only as links to Ordonnance n° 1.284), both 2023-02-11. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored",
+    "amends": "mc-os-1284-2007-financial-activities"
+  },
+  {
+    "id": "mc-code-penal-art-362",
+    "title": "Code pénal, article 362 (tromperie du contractant sur la nature, les qualités substantielles, l'origine ou la quantité des marchandises)",
+    "official_url": "https://legimonaco.mc/code/code-penal",
+    "citation": "Code pénal (Monaco), article 362",
+    "in_force": null,
+    "evidence": "No official page states when article 362 first applied: the oldest version Legimonaco serves is 2003-11-29 (\"Version en vigueur au 29 novembre 2003\"), which is the earliest the site holds, not the date of enactment.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MC-LEGIMONACO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Only general deception offence found that could reach a misleading environmental claim about goods: whoever deceives or tries to deceive the contractor on the nature, substantial qualities or composition of goods is punished with three months to a year in prison and a fine. It names goods (marchandises) and the contractor; no provision on environmental claims, advertising or services was found. Searched Legimonaco by title and full text for Code de la consommation, publicité trompeuse, pratiques commerciales trompeuses, allégations environnementales, écoblanchiment: no enacted text (the full-text hits for Code de la consommation are court decisions). Loi n° 1.383 du 2 août 2011 (Principauté numérique) article 12 only requires online advertising to be identifiable as such, so it is not mapped. The Ordonnance Souveraine of 27 June 1907 on frauds in the sale of goods was seen as a title and not opened. Record text is article 362 alone, cut at the next article heading of the 38 consolidations of the Code pénal (2003-11-29 to 2025-11-22); the text is identical in all 38, so there is one record (2003-11-29). No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
+    "status": "stored"
+  }
+]
