@@ -4511,6 +4511,47 @@ Macedonian is the language of legislation; the Gazette prints the Albanian versi
 - `https://moepp.gov.mk`, `https://www.moepp.gov.mk`, `https://arhiva.moepp.gov.mk`, `https://www.sec.gov.mk`, `https://economy.gov.mk`: tunnel closed by the egress proxy (curl exit 000, `ws_closed_mid_exchange`). `https://www.pravo.org.mk`: gateway answered 502 to CONNECT.
 - `https://www.slvesnik.com.mk` through Chromium: `502 upstream request failed`; curl works with the intermediate certificate (above).
 
+## Lebanon
+
+Checked on 2026-11-03 from the cloud address. No Lebanese publisher row is `pass`, so no record is stored and every scope instrument in `register/LB/scope.json` is `link only`. The requests below were run to read the terms and to find out whether a usable text exists; none of them is a recipe for storage.
+
+Rows added: `LB-LEGALLAW-CONSOLIDATED` (Lebanese University legal database), `LB-JO-ADOPTED` (Official Gazette, jo.pcm.gov.lb), `LB-LP-ADOPTED` (Parliament), `LB-MOE-ADOPTED` (Ministry of Environment), all `permission requested`. Law No. 75 of 1999 Art. 4 removes laws, decrees and decisions of state bodies and their official translations from copyright (quoted in the statute column of the legal database row), but each site claims rights or restricts use, the database is not the authentic text, and the Gazette and ministry texts could not be read, so no row rests on it. Whether to rely on Art. 4 is open (see the PR).
+
+### Requests run (not stored)
+
+Legal database, text of one named instrument (Law No. 78 of 2018, lawId 275522), HTML print view that returns the full text with the Gazette header:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o f.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar'
+200 122226 text/html; charset=utf-8
+```
+
+The page `https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar` answers `200 65631 text/html; charset=utf-8` and carries the Gazette issue, date and pages. The search form (`LegisltaionSearch.aspx`) is an ASP.NET postback: POST the hidden fields with `ctl00$MainContent$txtLawNumber`, `ctl00$MainContent$ddlLawYear`, `ddlStatus=100`, `drp_clasification=0`, `drpOption=100`, `payment=rdand` and `__EVENTTARGET=ctl00$MainContent$btnSearch`, with an explicit Content-Length (curl -X POST was answered 411 through the proxy; python urllib worked). The print-view body reproduced byte for byte on a second request (sha256 `68d57590...` for lawId 244662), which is why the watchers use `page_hash` on it. Terms page: `https://legallaw.ul.edu.lb/CustomPage.aspx?id=3&language=ar`, `200 40883 text/html; charset=utf-8`.
+
+Official Gazette: `curl -sS -L -A 'Mozilla/5.0' 'https://jo.pcm.gov.lb/page/22/'` returns `200 12185 text/html; charset=UTF-8` and says the electronic Gazette is a prepaid-card subscription with a login; the terms page `/page/25/` has no terms text. `https://www.pcm.gov.lb/` fails the TLS handshake (curl exit 35 / no answer).
+
+Parliament: `https://www.lp.gov.lb/ViewLawYears.aspx` `200 183830 text/html; charset=utf-8` (list of laws passed; footer "All rights reserved"). No law text fetched.
+
+Ministry of Environment: `https://www.moe.gov.lb/الوزارة/القوانين-والانظمة/القوانين.aspx` `200 76945 text/html; charset=utf-8`; the PDF of Law 78 at `https://www.moe.gov.lb/getattachment/dc69b6e9-50dd-417c-95b7-aa1308cd4027/قانون-رقم-78-قانون-حماية-نوعية-الهواء.aspx` `200 2684848 application/pdf`. Command used on the PDF: `pdftotext -layout file.pdf - | tr -s ' '`. Output is mojibake (a scan with a broken text layer, for example the first line `'I'.' A/ i/ ' '\ _ ~ A J~l _~_)I`), so it would not be stored even under a pass row.
+
+Capital Markets Authority: `https://www.cma.gov.lb/terms-of-use/` `200 35804 text/html; charset=UTF-8`: content is "for personal, educational or informational purposes only. Commercial use for financial gain of such content is not permitted without the express prior written permission of CMA" (not a pass; no row, because no CMA instrument is in scope). The laws page (`/laws-and-regulations/?impl=1`, 200, 170933 bytes) has no match for ESG, sustainability, climate, environment or governance-of-sustainability terms in Arabic or English.
+
+### Languages
+
+Arabic only. The legal database returns the same Arabic page for `language=fr` and `language=en`; the Gazette site is Arabic; the Ministry of Environment English interface (`?lang=en-us`) lists no English law texts. No government English or French translation was found, and no translation row exists. Law No. 75 of 1999 Art. 4 names "ترجماتها الرسمية" (official translations), but no official translation of any scope instrument was found. Translations by law firms, NGOs or news sites are never stored.
+
+### Link only (all seven scope instruments)
+
+All: row `LB-LEGALLAW-CONSOLIDATED` is `permission requested` (personal non-commercial use only), and the official-publisher alternatives do not give a usable text. Instruments: lb-law-444-2002, lb-law-78-2018, lb-decision-99-2013, lb-law-659-2005, lb-law-115-2019, lb-decree-8471-2012, lb-decree-14459-2024.
+
+### Blocked from the cloud address
+
+- https://www.bdl.gov.lb/ : HTTP 403, 5330 bytes, a Cloudflare "Just a moment..." challenge; headless Chromium (Playwright, networkidle) timed out after 45 s. No Banque du Liban circular could be read, so whether a sustainability circular exists is not established.
+- https://www.bse.com.lb/ : TLS handshake fails with curl (`SSL_ERROR_SYSCALL`); Chromium gets `502 upstream request failed`.
+- https://www.pcm.gov.lb/ : TLS handshake fails.
+
+No exchange or securities-regulator ESG disclosure rule was found: a web search for CMA, Beirut Stock Exchange and Banque du Liban sustainability disclosure rules returned commentary saying Lebanon has no enforced ESG disclosure requirement, and the CMA laws page shows none. No F7 register row is added.
+
 ## Bahrain
 
 GEL-10-04, run 2026-11-03. One row passes, `BH-LLOC-ADOPTED` (Legislation and Legal Opinion Commission, statute basis: Law No. (22) of 2006 Art. (4)(b) removes legislation and official documents from copyright; the LLOC site terms claim copyright, so the pass rests on the statute alone). Three rows are `permission requested`: `BH-LLOC-TRANSLATION` (LLOC English versions, guidance translations), `BH-CBB-ADOPTED` (Central Bank of Bahrain Rulebook), `BH-BHB-ADOPTED` (Bahrain Bourse). Stored: seven instruments in Arabic, as published, one record each. No browser was needed for any stored record.
