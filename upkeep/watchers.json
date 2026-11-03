@@ -7659,5 +7659,89 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "lb-law-444-2002-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-444-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=244662&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=244662&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-78-2018-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-78-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decision-99-2013-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decision-99-2013",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=235027&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=235027&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-659-2005-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-659-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=245560&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=245560&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-115-2019-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-115-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=280624&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=280624&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-8471-2012-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-8471-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=232573&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=232573&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-14459-2024-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-14459-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=331656&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=331656&language=ar (browser; the database page with the Gazette issue and date)"
+  }
  }
 ]
