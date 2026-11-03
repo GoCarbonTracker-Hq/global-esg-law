@@ -10073,5 +10073,75 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "pa-jtc-res-012-2025-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-jtc-res-012-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-sbp-acuerdo-011-2022-sbp-pdf",
+  "source_id": "PA-SBP-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-sbp-acuerdo-011-2022",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.pa/documentos/leyes_y_regulaciones/acuerdos/2022/Acuerdo_11-2022.pdf",
+  "params": {}
+ },
+ {
+  "id": "pa-ley-41-1998-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-41-1998",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-100-2020-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-100-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-142-2021-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-142-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-ley-45-2007-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-45-2007",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/25914/GacetaNo_25914_20071107.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
  }
 ]
