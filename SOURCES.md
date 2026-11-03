@@ -4445,6 +4445,223 @@ All five scope instruments are link only; none has a record, none has `pass` row
 - No carbon pricing instrument was found. Title searches in the Consiglio archive for emissioni and cambiamento climatico returned only postal, debt-issue and name-change acts, and carbon returned nothing; full-text searches for gas serra and quote di emissione returned hundreds of unrelated documents and were not read through. There is no F3 or F7 entry, because there is no instrument to describe.
 - Not in scope: energy-efficiency acts (Legge 7 maggio 2008 n.72, DD 24 maggio 2017 n.51 and the energy collection `docCat.17005070`), which the dispatch did not list and which fit none of F1 to F6 on a plain reading.
 
+## North Macedonia
+
+Run on 2026-11-03 (GEL-11-02). One row passes: `MK-SLVESNIK-ADOPTED` (JP Sluzben vesnik, free issue archive; statute basis, Law on Copyright and Related Rights Art. 16 item 2, quoted in the row; the publisher's terms page grants no licence and claims database rights over its paid database, so Varun to confirm). One row is `permission requested`: `MK-NBRM-TRANSLATION` (nbrm.mk is behind a Cloudflare challenge, nothing read). No browser recipe was needed for anything stored; no browser-fetched records.
+
+Three instruments are stored, each in Macedonian (`mk`) and Albanian (`sq`), kind `adopted`, six records. Both languages are official texts printed in the same Gazette issue, so they share the one row. No English record exists.
+
+### Cloud address and the certificate
+
+`https://www.slvesnik.com.mk/` redirects to `https://slvesnik.com.mk/`. The host does not send its Sectigo intermediate certificate, so curl, Python and the watcher fail verification (`curl: (60) SSL certificate problem: unable to get local issuer certificate`; Python `CERTIFICATE_VERIFY_FAILED`). Verification stays on. The intermediate is named in the leaf's authority information access field, so fetch it and add it to a private bundle:
+
+```
+curl -sS -o int.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt
+openssl x509 -inform DER -in int.crt -out int.pem
+cat /root/.ccr/ca-bundle.crt int.pem > bundle.pem
+```
+
+(`int.crt` returned `200 1616`.) Every request below uses `--cacert bundle.pem`. Headless Chromium through the cloud proxy answers `502 upstream request failed` for this host, so the archive is read with curl only.
+
+### Row MK-SLVESNIK-ADOPTED
+
+The free archive is a script-driven page (`/besplaten-pristap-do-izdanija.nspx`); the script posts JSON to two endpoints, found in `/Scripts/FreeIssue/FreeIssue/freeIssue.js`. Requests proven on 2026-11-03:
+
+```
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{}' https://slvesnik.com.mk/FreeIssue/GetIssueYears
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{"year":2023}' https://slvesnik.com.mk/FreeIssue/GetIssuesByYear
+```
+
+The first returned `[{"Year":"2025"},...,{"Year":"1944"}]` (82 years); the second 12 months with 287 issues, each `{IssueNumber, FileName, Title}` (`IssueDate` is empty, so the issue date is read from the PDF header). The PDF of Gazette issue 36 of 2023 (Decision on disclosure by banks):
+
+```
+curl -sS --cacert bundle.pem -o 2023-36.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf
+```
+
+Returned `200 3614653 application/pdf`; sha256 `c689ca8cbe3d773ee0c8f87770c7a46726a1dece1afe97c528805057c4cdd730`, reproduced by a second fetch. The other two issues the same way: 53/2005 (`ACF1AC118E6F81438BE8DD53D5A613F0`, `200 3109468 application/pdf`, sha256 `ebd048d9dee1b967ef3b2b608e5ec367f835a14fa34db3f95f65042a5fb2d046`) and 236/2022 (`c4ef6c06718f4fe18ff615a5877f73f4`, `200 2518059 application/pdf`, sha256 `223262e119704e03d84272655f994d8422cb861979738e810534743c24cbf4ef`). `fetched_sha256` is the hash of the whole-issue PDF; the record text is one instrument cut out of it.
+
+Which issues are free: `GetIssueYears` lists 1944 to 2025; `GetIssuesByYear` with 2026 lists 257 issues, but only issues 1 to 23 of 2026 (to 2026-02-05) return a PDF (200), issues 24 to 257 return 404. The terms page says the public page serves regulations up to the previous year and the database and current-year issues are paid.
+
+Text extraction: `pdftotext file.pdf out.txt` (reading-order mode, not `-layout`: the Gazette is set in two columns and `-layout` interleaves them line by line, which was tried first and rejected). Then, per instrument, the line range of the Macedonian text and of the Albanian text is cut by its first and last line (the act's title or enacting formula to its last article or signature), form feeds removed, blank lines dropped, and page furniture lines dropped (`Стр. N - Бр. N`, `Бр. N - Стр. N`, a bare issue date line such as `17 февруари 2023`, the bare running head `СЛУЖБЕН ВЕСНИК НА РЕПУБЛИКА МАКЕДОНИЈА`). Nothing reworded. Reading order follows the PDF text layer, which is not always the printed order: in the 2005 and 2022 issues the Albanian text is partly shuffled near its end, and the Art. 3 heading of the 2005 Law sits after part of its list. Checked before storing: no U+FFFD in any record, Cyrillic is 99.8 to 99.9 percent of the letters in the `mk` records and 0.0 to 0.1 percent in the `sq` records (the Albanian text keeps a Cyrillic signature line).
+
+| Instrument | `in_force` | Gazette issue | `mk` / `sq` line ranges in the pdftotext output |
+|---|---|---|---|
+| `mk-nbrm-bank-disclosure-decision` | 2023-02-25 | 36/2023 | 1305-1962 / 1964-2850 |
+| `mk-law-environment` | 2005-07-13 | 53/2005 | 78-5937 / 5939-11762 |
+| `mk-law-consumer-protection` | 2022-11-15 | 236/2022 | 240-5417 / 5423-12626 |
+
+`in_force` is the entry into force computed from the clause "the eighth day from the day of publication" and the issue date (the Gazette states the rule, not the date). The Law on Environment applies from 2005-09-01 and the Decision on bank disclosure from 2025-01-01 (point 28 from 2026-01-01).
+
+Statute text read from the archive itself: Law on Copyright and Related Rights, Gazette issue 115 of 2010 (`https://slvesnik.com.mk/Issues/F469FDB63C32AB429150D203B1E3C9C7.pdf`, `200 2097618 application/pdf`), Art. 16 item 2: "службените текстови од политичка, законодавна, административна и судска природа и нивните службени преводи".
+
+### Languages
+
+Macedonian is the language of legislation; the Gazette prints the Albanian version of each act in the same issue (Law on the Use of Languages), so no second request is needed and the one row serves both. Verified for the three stored acts. English: the National Bank's English PDF named in the register and `nbrm.mk` return a Cloudflare challenge (below), so the translation row is `permission requested` and nothing is stored. No government English text was found elsewhere (slvesnik.com.mk, sobranie.mk searched; moepp.gov.mk unreachable). The Gazette sells a Macedonian-English Constitution (price list on `/izdanija.nspx`), not the acts in scope.
+
+### Link only and not in scope
+
+- Law on Climate Action: not enacted on the day, so no scope entry; the register row stays proposed with family F7. Ministry of European Affairs page dated 2026-02-13 (`https://mep.gov.mk/en-GB/transparentnost/novosti/ministerot-sali-na-ministerski-sostanok-na-ek-za-sproveduvanje-na-cbam`, `200`): "in January 2026, the Government adopted the draft Law on Climate Action". Gazette issues 1 to 23 of 2026 (grep for климатск and стаклен in the first two pages of each) hold no such law; later 2026 issues are not served.
+- Law on Trade Companies: no article on non-financial statements was found. A web search pointed to the accounting law (Directive 2013/34/EU) as the home of that duty, not to the Law on Trade Companies. Dropped, no row.
+- Law on Environment implementing rules (GHG monitoring and reporting), Law on Accounting, Securities Law, Law on Energy: not searched in the Gazette within the time box; listed under Next.
+- Securities and Exchange Commission and Macedonian Stock Exchange: `https://sec.gov.mk` `200 41834 text/html`, `https://www.mse.mk` `200 152409 text/html`; no instrument in scope depends on them, so no row was written.
+
+### Blocked from the cloud address
+
+- `https://www.nbrm.mk/` and `https://www.nbrm.mk/content/Regulativa/Decision%20on%20disclosure%20by%20banks.pdf`: HTTP 403, 5327 and 5598 bytes, text/html, `cf-mitigated: challenge`; headless Chromium waited 24 s and stayed on "Performing security verification".
+- `https://moepp.gov.mk`, `https://www.moepp.gov.mk`, `https://arhiva.moepp.gov.mk`, `https://www.sec.gov.mk`, `https://economy.gov.mk`: tunnel closed by the egress proxy (curl exit 000, `ws_closed_mid_exchange`). `https://www.pravo.org.mk`: gateway answered 502 to CONNECT.
+- `https://www.slvesnik.com.mk` through Chromium: `502 upstream request failed`; curl works with the intermediate certificate (above).
+
+## Lebanon
+
+Checked on 2026-11-03 from the cloud address. No Lebanese publisher row is `pass`, so no record is stored and every scope instrument in `register/LB/scope.json` is `link only`. The requests below were run to read the terms and to find out whether a usable text exists; none of them is a recipe for storage.
+
+Rows added: `LB-LEGALLAW-CONSOLIDATED` (Lebanese University legal database), `LB-JO-ADOPTED` (Official Gazette, jo.pcm.gov.lb), `LB-LP-ADOPTED` (Parliament), `LB-MOE-ADOPTED` (Ministry of Environment), all `permission requested`. Law No. 75 of 1999 Art. 4 removes laws, decrees and decisions of state bodies and their official translations from copyright (quoted in the statute column of the legal database row), but each site claims rights or restricts use, the database is not the authentic text, and the Gazette and ministry texts could not be read, so no row rests on it. Whether to rely on Art. 4 is open (see the PR).
+
+### Requests run (not stored)
+
+Legal database, text of one named instrument (Law No. 78 of 2018, lawId 275522), HTML print view that returns the full text with the Gazette header:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o f.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar'
+200 122226 text/html; charset=utf-8
+```
+
+The page `https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar` answers `200 65631 text/html; charset=utf-8` and carries the Gazette issue, date and pages. The search form (`LegisltaionSearch.aspx`) is an ASP.NET postback: POST the hidden fields with `ctl00$MainContent$txtLawNumber`, `ctl00$MainContent$ddlLawYear`, `ddlStatus=100`, `drp_clasification=0`, `drpOption=100`, `payment=rdand` and `__EVENTTARGET=ctl00$MainContent$btnSearch`, with an explicit Content-Length (curl -X POST was answered 411 through the proxy; python urllib worked). The print-view body reproduced byte for byte on a second request (sha256 `68d57590...` for lawId 244662), which is why the watchers use `page_hash` on it. Terms page: `https://legallaw.ul.edu.lb/CustomPage.aspx?id=3&language=ar`, `200 40883 text/html; charset=utf-8`.
+
+Official Gazette: `curl -sS -L -A 'Mozilla/5.0' 'https://jo.pcm.gov.lb/page/22/'` returns `200 12185 text/html; charset=UTF-8` and says the electronic Gazette is a prepaid-card subscription with a login; the terms page `/page/25/` has no terms text. `https://www.pcm.gov.lb/` fails the TLS handshake (curl exit 35 / no answer).
+
+Parliament: `https://www.lp.gov.lb/ViewLawYears.aspx` `200 183830 text/html; charset=utf-8` (list of laws passed; footer "All rights reserved"). No law text fetched.
+
+Ministry of Environment: `https://www.moe.gov.lb/الوزارة/القوانين-والانظمة/القوانين.aspx` `200 76945 text/html; charset=utf-8`; the PDF of Law 78 at `https://www.moe.gov.lb/getattachment/dc69b6e9-50dd-417c-95b7-aa1308cd4027/قانون-رقم-78-قانون-حماية-نوعية-الهواء.aspx` `200 2684848 application/pdf`. Command used on the PDF: `pdftotext -layout file.pdf - | tr -s ' '`. Output is mojibake (a scan with a broken text layer, for example the first line `'I'.' A/ i/ ' '\ _ ~ A J~l _~_)I`), so it would not be stored even under a pass row.
+
+Capital Markets Authority: `https://www.cma.gov.lb/terms-of-use/` `200 35804 text/html; charset=UTF-8`: content is "for personal, educational or informational purposes only. Commercial use for financial gain of such content is not permitted without the express prior written permission of CMA" (not a pass; no row, because no CMA instrument is in scope). The laws page (`/laws-and-regulations/?impl=1`, 200, 170933 bytes) has no match for ESG, sustainability, climate, environment or governance-of-sustainability terms in Arabic or English.
+
+### Languages
+
+Arabic only. The legal database returns the same Arabic page for `language=fr` and `language=en`; the Gazette site is Arabic; the Ministry of Environment English interface (`?lang=en-us`) lists no English law texts. No government English or French translation was found, and no translation row exists. Law No. 75 of 1999 Art. 4 names "ترجماتها الرسمية" (official translations), but no official translation of any scope instrument was found. Translations by law firms, NGOs or news sites are never stored.
+
+### Link only (all seven scope instruments)
+
+All: row `LB-LEGALLAW-CONSOLIDATED` is `permission requested` (personal non-commercial use only), and the official-publisher alternatives do not give a usable text. Instruments: lb-law-444-2002, lb-law-78-2018, lb-decision-99-2013, lb-law-659-2005, lb-law-115-2019, lb-decree-8471-2012, lb-decree-14459-2024.
+
+### Blocked from the cloud address
+
+- https://www.bdl.gov.lb/ : HTTP 403, 5330 bytes, a Cloudflare "Just a moment..." challenge; headless Chromium (Playwright, networkidle) timed out after 45 s. No Banque du Liban circular could be read, so whether a sustainability circular exists is not established.
+- https://www.bse.com.lb/ : TLS handshake fails with curl (`SSL_ERROR_SYSCALL`); Chromium gets `502 upstream request failed`.
+- https://www.pcm.gov.lb/ : TLS handshake fails.
+
+No exchange or securities-regulator ESG disclosure rule was found: a web search for CMA, Beirut Stock Exchange and Banque du Liban sustainability disclosure rules returned commentary saying Lebanon has no enforced ESG disclosure requirement, and the CMA laws page shows none. No F7 register row is added.
+
+## Andorra
+
+Run on 2026-11-03 (GEL-11-07). One row, `AD-BOPA-ADOPTED` (Butlletí Oficial del Principat d'Andorra, `pass`, basis terms: the BOPA legal notice permits copying, adaptation and transformation in any form and format; Llei sobre drets d'autor i drets veïns art. 4 para. 2 is quoted in the row as support). No consolidation row and no translation row: BOPA serves each act as published and nothing else, and no official English was found. Catalan is the only official language.
+
+www.bopa.ad is a React application, so `curl https://www.bopa.ad/Legislacio/Detall?doc=...` returns a 995-byte shell. The text comes from two plain requests that work with `curl` from the cloud address. First the search API the site itself calls. Its function keys are in the site's own JavaScript (`https://www.bopa.ad/static/js/main.*.js`, the strings after `GetPaginatedDocuments2Indexes?code=` and `GetMonthButlletins?code=`); they are written here as `$KEY_SEARCH` and `$KEY_MONTH` because GitHub push protection blocks the literal key. Read them with `curl -s https://www.bopa.ad/static/js/main.*.js | grep -o 'GetPaginatedDocuments2Indexes?code=[^"]*'`, which gives `nomDocument`, issue number and year:
+
+```
+curl -sS -X POST -H 'Content-Type: application/json' -d '{"textSearch":"Llei 21/2018","temaFilter":[],"dateFilter":[],"organismeFilter":[],"butlletiFilter":"57","anyFilter":["2018-01-01"],"size":5,"skip":0,"orderBy":"DataPublicacioButlleti desc","searchMode":1}' -o s.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://bopaazurefunctions.azurewebsites.net/api/GetPaginatedDocuments2Indexes?code=$KEY_SEARCH'
+```
+
+Returned `200 17574 application/json; charset=utf-8`; the first document is `CGL20180928_13_54_03` (Llei 21/2018, `fileType` html). Issue lists: `GET /api/GetMonthButlletins?code=$KEY_MONTH&date=YYYY-MM-01`. `organismeFilter` takes objects (`{"filterType":"eq","filterValue":"<guid>"}`), not strings; the Lleis guid is `47bded20-8156-4a8d-8df5-99871b0d343f`. Then the file, at `https://documents.bopa.ad/bopa-documents/<YYY><NNN>/html/<nomDocument>.html` with YYY the issue year minus 1988 and NNN the issue number, both three digits (the `1_`, `4_` prefixed files in search results are fragments, not the whole act):
+
+```
+curl -sS -o l.html -w '%{http_code} %{size_download} %{content_type}\n' https://documents.bopa.ad/bopa-documents/030057/html/CGL20180928_13_54_03.html
+```
+
+Returned `200 299556 text/html`, Llei 21/2018 as published in BOPA no. 57. The same folder with `/pdf/CGL20180928_13_54_03.pdf` returned `200 399360 application/pdf`. `fetched_sha256` is the sha256 of the HTML bytes as received (`52f424c8...a7948` for this file); every file stored was fetched twice and the hash reproduced. Older files are UTF-16 with a byte order mark, newer ones may be UTF-8. Text extraction (`text`): head removed; the hidden duplicate title paragraph (`class="invisible"`) removed; `<br>` and the ends of `p`, `div`, headings and table rows as line breaks; remaining tags stripped; entities unescaped; runs of spaces collapsed; blank lines dropped; nothing reworded. Checked: no U+FFFD in any record.
+
+The terms page https://www.bopa.ad/AvisLegal is also rendered by JavaScript; the fingerprint comes from Playwright chromium (`goto` with `waitUntil: 'networkidle'`, 2 s wait, `document.body.innerText`, whitespace collapsed, sha256), `c46b4f7a...485b3` on two runs.
+
+Dates: the issue date printed on the issue file (PDF header) is one day after the `dataPublicacioButlleti` of the search result (the API stores UTC; 2018-10-02T22:00Z is 3 October in Andorra). `in_force` is computed from the commencement clause and the printed issue date; no page states it.
+
+### Stored (fetched 2026-11-03), all kind `adopted`, language `ca`
+
+| Instrument | `in_force` | BOPA file |
+|---|---|---|
+| `ad-litecc` | 2018-10-04 | `030057/html/CGL20180928_13_54_03.html` (BOPA 57, 3 Oct 2018) |
+| `ad-llei-19-2021` | 2021-08-12 | `033083/html/CGL20210721_11_40_36.html` (BOPA 83, 28 Jul 2021) |
+| `ad-decret-303-2021` | 2021-09-30 | `033101/html/GR20210923_14_22_45.html` (BOPA 101, 29 Sep 2021) |
+| `ad-llei-13-2013` | 2013-08-10 | `025032/html/7FB8E.html` (BOPA 32, 10 Jul 2013; pre-2015 issue, the digital text is a reproduction, the paper edition is official) |
+
+No browser was needed for any stored record, so none is subject to the New Zealand recipe decision. Later amendments are separate acts and BOPA serves no consolidation, so none is merged.
+
+### Languages
+
+Catalan only. No official translation of any of the four instruments was found. Looked at on 2026-11-03: bopa.ad (no translation function, the site is Catalan), govern.ad (home page 200, a web search limited to govern.ad, consellgeneral.ad, bopa.ad and afa.ad for an English Law 21/2018 returned only the Constitution, bond frameworks and IMF reports), afa.ad (Catalan and English press pages, no law translation). No translation row was added and no `translation` record was made.
+
+### Link only
+
+None of the four. Looked at and left out of scope: the Andorran Financial Authority (https://www.afa.ad) lists regulation by supervised sector and has a "Finances sostenibles" page (https://www.afa.ad/ca/consumidors/educacio-financera/finances-sostenibles) that is investor education, with no sustainability disclosure rule; a text search of the 2021 to 2026 laws for sustainability reporting found none (the audit law, Llei 30/2025, has no sustainability reporting provision), so there is no F1 instrument. Llei 25/2022 (circular economy) and Llei 4/2023 (environmental assessment) are not F1 to F6 duties and were not added.
+
+### Blocked from the cloud address
+
+- `https://portaljuridicandorra.ad` (BOPA's consolidated legal portal, linked from bopa.ad): `curl: (35) Recv failure: Connection reset by peer` on repeated requests. The orchestrator can try it from the laptop; it may offer consolidated texts, which would need their own terms check.
+- `https://www.energia.ad`: `curl: (60) SSL certificate problem: self-signed certificate`; `https://www.mediambient.ad` answers 301 only. Not used.
+
+## Montenegro
+
+Rows `ME-SLUZBENILIST-ADOPTED` (`pass`, statute: Law on Copyright and Related Rights Art. 8 item 2), `ME-SLUZBENILIST-CONSOLIDATED` (REGIS, `permission requested`: terms forbid copying and commercial use), `ME-SLUZBENILIST-TRANSLATION` (`permission requested`: no translation text could be opened) and `ME-GOVME-ADOPTED` (`permission requested`: blocked from the cloud address). Run on 2026-11-03 (GEL-11-04). No record is stored for Montenegro, see "Held" below; all 22 scope instruments are `link only`.
+
+The www.sluzbenilist.me act page shows the act as page images only (`<img alt="PDF Page">`, one data URI per `?page=N`), so the HTML has no text. The same act is served as a PDF with a text layer at `/propisi/<id>/download`. Search, to find the id: `https://www.sluzbenilist.me/propisi?type=0&q=<words>` (the page lists `/propisi/<id>` links; `200 80694 text/html; charset=utf-8` for `q=klimatskim+promjenama`).
+
+Request, row `ME-SLUZBENILIST-ADOPTED`, Law on Climate Change (Official Gazette 149/2025, id 389045):
+
+```
+curl -sS -L -o zkp_149_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/propisi/389045/download
+```
+
+Returned `200 792849 application/pdf` (58 pages, sha256 `03033d82f8abfc48a04a16e70b66fa311596d98b17b79fdbbfca4b1c0a9834dd`); a second request returned the same bytes, so `fetched_sha256` would reproduce. The act page `curl -sS -L -o p.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/propisi/389045` returned `200 309128 text/html; charset=utf-8`; its HTML differs on every request in the `csrf-token` meta tag, so the act page cannot be hashed. No challenge, 403 or WAF answer from sluzbenilist.me. The file starts with the President's decree of proclamation, then the act.
+
+Text extraction (tested, not stored): `pdftotext -layout zkp_149_2025.pdf - | sed 's/  */ /g'`. The text of all 22 scope PDFs was checked for replacement characters and dropped letters: none in the 21 climate, accounting, environment and consumer acts; the Central Bank decision (94/2025, id 384500) drops letters in the annexes ("pra enja" for "praćenja", "port olije"), so it would need another text source before storing.
+
+Gazette page fields read for the scope: title, issue (`Izdanje`), `Objavljeno`, `Datum stupanja na snagu` (printed for all but 149/2025 and 88/2026), `Status` (Važeći or Nevažeći).
+
+### Languages
+
+Montenegrin is the only language the Gazette serves for an act; its Cyrillic toggle (`/cyr/propisi/<id>`) is a script switch of the interface. Serbian, Bosnian, Croatian and Albanian texts: the Gazette serves none. English: the Gazette register of translations, `curl -sS -L -o prevodi.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/prevodi`, returned `200 231669 text/html; charset=utf-8` and lists 161 titles (for example LAW ON ENVIRONMENT, ENERGY LAW), none of the climate acts; every detail page and `/prevodi/<id>/download` answered `404 6603 text/html` (tried 356382, 356383, 356388, 356407), hence row `ME-SLUZBENILIST-TRANSLATION` is `permission requested`. The Government's English translation named in the old register row sits on gov.me or wapi.gov.me, both blocked (see Blocked).
+
+### Held (decision for Varun)
+
+The brief asks for Montenegrin records with language `cnr`. Montenegrin has no ISO 639-1 code, `records/README.md` requires ISO 639-1 and `tools/check_corpus.py` refuses any `language` that is not two lowercase letters. Storing the texts as `sr`, `hr` or `bs` would write a wrong `Language` trailer into dated git history, so nothing is stored. The recipe above is proven; once a code is chosen (or the check accepts `cnr`), each instrument below is one `/download` fetch each, `kind` adopted, `in_force` as in its scope entry.
+
+| Instrument | Gazette issue | `in_force` |
+|---|---|---|
+| `me-climate-change-law` | 149/2025 | 2025-12-25 |
+| `me-climate-change-law-amend-2026` | 70/2026 | 2026-05-28 |
+| `me-ets-permit-activities-decree` | 116/2026 | 2026-08-13 |
+| `me-ghg-permit-form-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-monitoring-plan-rulebook` | 111/2026 | 2026-08-07 |
+| `me-ghg-reporting-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-reporting-rulebook-amend-2026` | 108/2026 | 2026-08-01 |
+| `me-ghg-verification-rulebook` | 111/2026 | 2026-08-07 |
+| `me-ghg-verifier-requirements-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-data-management-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-data-management-rulebook-amend-2026` | 108/2026 | 2026-08-01 |
+| `me-ghg-ships-monitoring-rulebook` | 92/2026 | 2026-07-08 |
+| `me-ghg-ships-verification-rulebook` | 91/2026 | 2026-07-07 |
+| `me-ghg-inventory-decree` | 115/2026 | 2026-08-12 |
+| `me-ghg-policies-measures-decree` | 115/2026 | 2026-08-12 |
+| `me-ghg-inventory-data-rulebook` | 91/2026 | 2026-07-07 |
+| `me-lulucf-emissions-rulebook` | 88/2026 | 2026-07-03 |
+| `me-policies-measures-report-rulebook` | 97/2026 | 2026-07-16 |
+| `me-accounting-law` | 84/2025 | 2025-08-08 |
+| `me-environment-law` | 52/2016 | 2016-08-17 |
+| `me-consumer-protection-law` | 12/2026 | 2026-02-14 |
+| `me-cbcg-esg-risk-decision` | 94/2025 | 2025-08-20 |
+
+### Link only
+
+All 22 scope instruments, for the reason above. Row-level: `ME-SLUZBENILIST-CONSOLIDATED` (REGIS, https://regis.sluzbenilist.me/uslovi item 1.1 and 2.1), `ME-SLUZBENILIST-TRANSLATION` and `ME-GOVME-ADOPTED` are not `pass`, so no scope entry lists them in `source_row`.
+
+### Not in scope
+
+Law on Protection against Negative Impacts of Climate Change 73/19 (repealed by 149/2025 Art. 103, no longer in force). Gazette acts with Status Nevažeći superseded by a later act of the same subject: 21/2026 monitoring-plan rulebook (390867) and its 37/2026 supplement (391922), 21/2026 verification rulebook (390871), 28/2026 ship monitoring and ship reporting rulebooks (391051, 391073). Law on Accounting 145/21 (Nevažeći, replaced by 84/2025). Capital Market Authority (scmn.me, `200 173602 text/html; charset=utf-8`, redirects to /me/) and Montenegro Stock Exchange (mnse.me, `200 4483 text/html`): web searches and the home pages found no ESG disclosure rule, so no row and no scope entry; the Law on Amendments to the Law on Capital Market 69/2025 was not read for ESG content. Central Bank (cbcg.me, `200 125831 text/html; charset=UTF-8`): its ESG risk decision is published in the Gazette and is covered by `me-cbcg-esg-risk-decision`; the cbcg.me terms were not read. No F7 instrument was registered.
+
+### Blocked
+
+- https://www.gov.me : `curl: (35) Recv failure: Connection reset by peer`; headless Chromium: `502 upstream request failed`.
+- https://wapi.gov.me/download/d8a08068-3f2b-488a-833a-321d3481abd9?version=1.0 : same (reset by curl, 502 in Chromium). The orchestrator can read both from the laptop.
+
 ## Belarus
 
 Run on 2026-11-03 (GEL-11-06). One row, `BY-PRAVO-ADOPTED` (National Legal Internet Portal, pravo.by): `pass`, basis statute (Law No. 262-Z of 17 May 2011 on Copyright and Related Rights, Art. 7 para. 1: official documents, "а также их официальные переводы", are not objects of copyright; the brief named Art. 8, which in the published text is "Возникновение авторского права"). pravo.by has no terms-of-use page; its footer only asks for an active hyperlink, so the row rests on the statute. The portal serves each act once, as published, in Russian; the amended text exists only on the paid ЭТАЛОН-ONLINE, so the records are adopted texts and no consolidation is stored. No browser was needed: curl with a `Mozilla/5.0` User-Agent reaches every pravo.by page used.

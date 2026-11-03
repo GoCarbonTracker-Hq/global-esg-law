@@ -7804,6 +7804,439 @@
   "params": {}
  },
  {
+  "id": "mk-nbrm-bank-disclosure-decision-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-nbrm-bank-disclosure-decision",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "mk-law-environment-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-law-environment",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/ACF1AC118E6F81438BE8DD53D5A613F0.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "mk-law-consumer-protection-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-law-consumer-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/c4ef6c06718f4fe18ff615a5877f73f4.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "terms-mk-slvesnik-adopted",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://slvesnik.com.mk/uslovi-za-koristenje.nspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/uslovi-za-koristenje.nspx (browser; the terms text is a CMS block rendered by script). The host omits its Sectigo intermediate certificate"
+  }
+ },
+ {
+  "id": "lb-law-444-2002-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-444-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=244662&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=244662&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-78-2018-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-78-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decision-99-2013-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decision-99-2013",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=235027&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=235027&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-659-2005-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-659-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=245560&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=245560&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-115-2019-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-115-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=280624&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=280624&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-8471-2012-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-8471-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=232573&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=232573&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-14459-2024-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-14459-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=331656&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=331656&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "ad-litecc-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-litecc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/030057/html/CGL20180928_13_54_03.html"
+ },
+ {
+  "id": "ad-llei-19-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-19-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033083/html/CGL20210721_11_40_36.html"
+ },
+ {
+  "id": "ad-decret-303-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-decret-303-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033101/html/GR20210923_14_22_45.html"
+ },
+ {
+  "id": "ad-llei-13-2013-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-13-2013",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/025032/html/7FB8E.html"
+ },
+ {
+  "id": "me-climate-change-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-climate-change-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/389045/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/389045 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-climate-change-law-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-climate-change-law-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/394393/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/394393 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ets-permit-activities-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ets-permit-activities-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396827/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396827 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-permit-form-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-permit-form-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/391288/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/391288 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-monitoring-plan-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-monitoring-plan-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396635/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396635 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-reporting-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-reporting-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390870/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390870 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-reporting-rulebook-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-reporting-rulebook-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396417/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396417 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-verification-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-verification-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396634/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396634 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-verifier-requirements-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-verifier-requirements-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390868/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390868 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-data-management-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-data-management-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390872/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390872 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-data-management-rulebook-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-data-management-rulebook-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396416/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396416 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-ships-monitoring-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-ships-monitoring-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395550/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395550 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-ships-verification-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-ships-verification-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395512/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395512 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-inventory-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-inventory-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396752/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396752 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-policies-measures-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-policies-measures-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396753/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396753 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-inventory-data-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-inventory-data-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395511/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395511 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-lulucf-emissions-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-lulucf-emissions-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395423/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395423 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-policies-measures-report-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-policies-measures-report-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395833/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395833 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-accounting-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-accounting-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/384020/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/384020 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-environment-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-environment-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/336900/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/336900 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-consumer-protection-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390427/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390427 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-cbcg-esg-risk-decision-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-cbcg-esg-risk-decision",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/384500/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/384500 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
   "id": "by-res-137-2021-card",
   "source_id": "BY-PRAVO-ADOPTED",
   "iso2": "BY",
