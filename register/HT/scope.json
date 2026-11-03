@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ht-environment-decree-2005",
+    "title": "Décret portant sur la gestion de l’environnement et de régulation de la conduite des citoyens et citoyennes pour un développement durable",
+    "official_url": "https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf",
+    "citation": "Décret du 12 octobre 2005 portant sur la gestion de l'environnement et de régulation de la conduite des citoyens et citoyennes pour un développement durable (Le Moniteur No. 11, 2006-01-26, per the existing register row and UNEP LEAP; no official page read states the Moniteur number)",
+    "in_force": null,
+    "evidence": "No official page read states a commencement date. The page named in official_url is the MdE decree organising the Ministry (signed 2020-08-05), which cites it in its visas: \"Vu le décret du 12 octobre 2005 portant sur la gestion de l’environnement ;\". Opened https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "HT-MDE-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "The environmental framework act, mapped to F2 (the existing register row carried F7). The URL is the official MdE page that cites the decree, not the text: neither mde.gouv.ht (Documents officiels list and site pages), primature.gouv.ht, mjsp.gouv.ht, mef.gouv.ht nor brh.ht serves it, and the Le Moniteur sites (lemoniteur.ht, pressesnationalesdhaiti.ht) did not answer from the cloud address. The earlier row pointed at redop.charesso.org, a private database; nothing is stored from it. Row HT-MDE-ADOPTED passes, so the text can be stored once an official host serves it. No Creole text and no government English were found (looked for on mde.gouv.ht, including its /ht/ pages, and in the MdE document list).",
+    "status": "link only"
+  },
+  {
+    "id": "ht-mde-organic-decree-2020",
+    "title": "Décret organisant le Ministère de l'Environnement (signed 5 August 2020)",
+    "official_url": "https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf",
+    "citation": "Décret organisant le Ministère de l'Environnement, signed at the Palais National, Port-au-Prince, 2020-08-05 (President Jovenel Moïse)",
+    "in_force": null,
+    "evidence": "Art. 91: \"Le présent décret abroge toutes lois ou dispositions de loi, tous décrets ou dispositions de décret, tous décrets-lois ou dispositions de décret-loi qui lui sont contraires et sera publié et exécuté à la diligence du Ministre de l’Environnement.\" The text ends \"Donné au Palais National, à Port-au-Prince, le 5 août 2020\". It states no commencement date and no Moniteur number. Opened https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "HT-MDE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Organic decree of the Ministry, in F2 because it carries duties and instruments of environmental law: Art. 13 (the Ministry ensures private companies meet their social and environmental responsibility), Art. 16 (environmental taxation), Art. 17 (environmental information), Art. 19 (environmental and social assessment is a legal requirement for the public and private sectors) and the National Climate Change Committee (CNCC) and measurement bodies it creates. It is an institutional decree, not a carbon-pricing or disclosure act; the brief did not list it. One record: the signature date 2020-08-05 stands in for the first in-force date, which the text does not state; the file name on the site says 16 August 2020, which may be the Moniteur date but no official page says so. The PDF has a text layer, extracted with pdftotext -layout. No Creole text and no government English were found (MdE document list in /fr/ and /ht/ checked).",
+    "status": "stored"
+  },
+  {
+    "id": "ht-brh-circ-131",
+    "title": "Circulaire BRH/IF/2026/131 aux institutions financières sur la protection des consommateurs de produits et services financiers",
+    "official_url": "https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf",
+    "citation": "BRH circular CIR. BRH/IF/2026/131 of 2026-02-06 (Port-au-Prince), repealing circular 109-1 of 2019-05-10",
+    "in_force": "2026-03-02",
+    "evidence": "Section 11: \"La présente circulaire abroge la circulaire 109-1 du 10 mai 2019 et entre en vigueur le 2 mars 2026.\" signed \"Port-au-Prince, le 6 février 2026\" (read from OCR of the page images). Opened https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "HT-BRH-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The nearest thing to a consumer-protection duty on advertising that Haiti has: Haiti has no general consumer protection act. Section 6.2.3 requires advertising to be \"véridiques, équilibrés et conformes aux conditions réelles du produit\" and the definitions list misleading practices; it is limited to financial products and says nothing about environmental claims, so it is the umbrella only for banks, microfinance institutions, cooperatives, payment providers and transfer houses. The PDF is a scan with no text layer; the record text is uncorrected OCR output of a scanned official PDF (pdftoppm -r 200 then tesseract -l fra, one run per page), with fetched_url and fetched_sha256 of the original PDF and extraction set to ocr. The OCR is not corrected, reflowed or reworded by hand. No Creole text and no government English were found on www.brh.ht (circulars list, no language switch).",
+    "status": "stored"
+  }
+]
