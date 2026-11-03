@@ -7009,3 +7009,58 @@ English is the only official language of Dominican legislation, and the portal a
 
 - https://www.eccb-centralbank.org/ and https://www.eccb-centralbank.org/enforced: `403` from curl and from headless Chromium (HTTP 403 Forbidden, 117 to 118 bytes, server awselb/2.0). The orchestrator can read the ECCB terms page and the standards page from the laptop.
 - Nothing else refused the cloud address: dominica.gov.dm, printery.dominica.gov.dm, www.ecsrc.com (`200 60104 text/html; charset=UTF-8`) and www.ecseonline.com (`200 101003 text/html; charset=UTF-8`) answered. The ECSRC and ECSE pages show no ESG or climate rule by title; no row for them since nothing was taken.
+
+## Iraq
+
+Run on 2026-11-03 (GEL-17-01). No Iraqi source passes, so no text is stored and no record exists under `records/IQ/`. Every scope instrument is `link only`. The eight rows added to `sources/licence-table.csv`, all `permission requested`: `IQ-ISC-ADOPTED` (isc.gov.iq), `IQ-CBI-ADOPTED` and `IQ-CBI-TRANSLATION` (cbi.iq), `IQ-MOEN-ADOPTED` (moen.gov.iq), and four hosts that refused the cloud address, `IQ-MOJ-GAZETTE-ADOPTED`, `IQ-HJC-LEGAL-DATABASE-CONSOLIDATED`, `IQ-COR-ADOPTED`, `IQ-ISX-ADOPTED`. The reasons, in one line each:
+
+- ISC footer: "2024 © All rights reserved to Iraqi Securities Commission". MOEN footer: "All rights reserved ©2024 Iraqi Ministry of Environment". Both claim copyright and give no licence.
+- CBI: no terms, copyright or licence sentence on any page opened (home, privacy policy, sitemap, Guides and Standards) or in the PDFs. Unknown is not pass.
+- Statute: Iraqi Copyright Law No. 3 of 1971 as amended by CPA Order 83 of 2004 has no article excluding official texts (per the brief); art. 6(3) protects collections of official documents as compilations, so the statute is silent on the texts themselves and the verdict rests on host terms. The statute text was not opened here (the two hosts that carry it are in the Blocked list), so art. 6(3) is not quoted from a page read on the day.
+
+Because no row passes, there is no proven fetch-for-storage request. The requests below are what the watchers read and what the evidence in `register/IQ/scope.json` was read from. They were run with `curl -sS -m 60 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n'`; none of the three working hosts blocked curl, so no browser recipe is needed for them.
+
+### Requests that answered
+
+```
+curl ... 'https://uploads.isc.gov.iq/upload/2025/04/15//67fe1fab4a108.pdf'   -> 200 4052416 application/pdf   (ISC guide, 1st edition, 92 pages, sha256 1f4849e1bb8634fc27cd595e3c7981d1bd1831c3a9d57af76e6542ce138a061d)
+curl ... 'https://uploads.isc.gov.iq/upload/2026/06/17//6a32dc6fcd9df.pdf'   -> 200 5581815 application/pdf   (ISC guide, 2nd edition, 90 pages, sha256 9ce2742c6e741c8c185cbe7514c281848cde8a9081049f20f735d220d2cbc569)
+curl ... 'https://isc.gov.iq/pages/43'                                       -> 200 102161 text/html;charset=utf-8   (Related Laws list that links the 2nd edition)
+curl ... 'https://cbi.iq/static/uploads/up/file-175396251558377.pdf'         -> 200 2678390 application/pdf   (CBI ESG guide, Arabic, 2025 revision)
+curl ... 'https://cbi.iq/static/uploads/up/file-172674120621200.pdf'         -> 200 4205386 application/pdf   (CBI ESG Code, English, sha256 1d3445c40fb861fa5601827eef88131c8babfc81982282a3f9f74694a6381026)
+curl ... 'https://cbi.iq/page/99'                                            -> 200 53003 text/html; charset=UTF-8   (Guides and Standards list)
+curl ... 'https://moen.gov.iq/moe-backend/api/tbm-post/ar/legislation?table_page=1' -> 200 7609 application/json; charset=utf-8   (legislation list; table_page 1 to 5 hold 46 rows)
+curl ... 'https://moen.gov.iq/files/TableFiles/4142.pdf'                     -> 200 694962 application/pdf   (Gazette 4142, Law 27 of 2009, sha256 984631763bf672c3b6a2803f7d26d37eeb460738ef419af26707821d8fd30fce)
+curl ... 'https://moen.gov.iq/files/TableFiles/4242.pdf'                     -> 200 211233 application/pdf   (Gazette 4242, emission limits instructions, sha256 f8b5ffb9ca6f696b2183007b486095411f87207c1d1500c2960e4220b1d46368)
+curl ... 'https://moen.gov.iq/files/TableFiles/4434.pdf'                     -> 200 2337154 application/pdf   (2 pages, image only)
+curl ... 'https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf' -> 200 344124 application/pdf   (Gazette 4854 extract, carbon company statement, 6 pages)
+```
+
+HEAD requests (what the `http_head` watchers read): the CBI and MOEN PDFs answer with `Last-Modified` and `Content-Length`; the ISC PDF answers with `content-length` only. `python3 tools/watch.py --dry-run --source IQ-ISC-ADOPTED`, `IQ-CBI-ADOPTED` and `IQ-MOEN-ADOPTED` each ran with 0 failures and wrote nothing; `IQ-CBI-TRANSLATION`, `IQ-MOJ-GAZETTE-ADOPTED`, `IQ-HJC-LEGAL-DATABASE-CONSOLIDATED`, `IQ-COR-ADOPTED` and `IQ-ISX-ADOPTED` have no watcher (no scope instrument names them as its watched row), so their dry runs print "0 watchers run".
+
+`https://moen.gov.iq/` is an Angular app: curl returns `200 21900 text/html; charset=UTF-8`, an empty shell with no text. The list and the footer were read from the rendered page with Playwright chromium (`goto(..., {waitUntil: 'networkidle'})`, then 2.5 s); the list is the JSON behind it, which curl fetches directly. Nothing from the rendered pages is stored, so `fetched_sha256` does not arise.
+
+### PDF text
+
+`pdftotext -layout file.pdf -` on the ISC, CBI and carbon-statement PDFs gives readable Arabic (or English) without mojibake. On the two MOEN gazette PDFs (4142, 4242) it returns mojibake (legacy font encoding, for example `@@ÖaÇ@ô‰bßflì×`), and 4434 has no text layer. Those were read with OCR for the in_force evidence only: `pdftoppm -r 150 -gray -png file.pdf p`, then `OMP_THREAD_LIMIT=1 tesseract p-NN.png out -l ara` (tesseract 5.3.4 with `tesseract-ocr-ara`, installed with apt in the session). OCR output is uncorrected and never stored; the dates and sentences quoted in `register/IQ/scope.json` say where OCR was the source. No record with `extraction: ocr` was written, so `tools/check_corpus.py` and `tools/publish_gate.py` were not tested against that field here.
+
+### Languages
+
+- Arabic (ar): all instruments. Federal laws are published in the Official Gazette in Arabic; the gazette cover and some notices also carry Kurdish headings (Gazette 4854, 4142).
+- Kurdish (ku): `https://moen.gov.iq/kr/legislation` (the Kurdish interface) lists the same table with Arabic law names and numbers; no Kurdish law text was found on a state host that answered. The Kurdish edition of the gazette and the Official Languages Law No. 7 of 2014 (PDF on moj.gov.iq) were not reachable (see Blocked).
+- English (en): the CBI ESG Code (`file-172674120621200.pdf`) is the only government English text found; its row `IQ-CBI-TRANSLATION` is `permission requested`. The MOEN table marks two instruments as Arabic and English copies (hazardous waste instructions 2/2015, animal health law 32/2013), neither in scope.
+
+### Link-only instruments
+
+- `iq-isc-esg-guide` (ISC guide, F1): row `IQ-ISC-ADOPTED` is permission requested (all rights reserved). Text extracts cleanly; the only obstacle is the licence.
+- `iq-cbi-esg-code` (CBI code, F1): rows `IQ-CBI-ADOPTED` and `IQ-CBI-TRANSLATION` are permission requested (no terms found).
+- `iq-env-protection-law-27-2009`, `iq-emission-limits-instructions-3-2012`, `iq-carbon-economics-company-statement-2025` (F2, F2, F3): row `IQ-MOEN-ADOPTED` is permission requested (all rights reserved). Two of the three would also need OCR.
+- `iq-environmental-approval-instructions-3-2011` (F2): row `IQ-MOEN-ADOPTED` is permission requested, and the file linked from the MOEN list answers `200 22481 text/html; charset=utf-8` (the site's HTML shell, not a PDF), so no working request exists.
+- Consumer Protection Law No. 1 of 2010 (F6) and the Paris Agreement ratification Law No. 7 of 2021: not in scope. No state host that answered carries them (the MOEN list, the ISC and CBI "related laws" pages do not list them), and the Iraqi Legal Database and the Official Gazette site were blocked. No register row was added for them.
+
+### Blocked
+
+- `https://www.moj.gov.iq` and `https://moj.gov.iq`: `curl -sS -A 'Mozilla/5.0' https://www.moj.gov.iq` -> `curl: (35) Recv failure: Connection reset by peer`, HTTP 000; `http://moj.gov.iq` -> `503`, 114 bytes; headless Chromium through the agent proxy -> `502`, 174 bytes (`ws_closed_mid_exchange`). The orchestrator can read the Official Gazette site and the Official Languages Law PDF from the laptop.
+- `https://iraqld.hjc.iq`: `curl -sS -A 'Mozilla/5.0' https://iraqld.hjc.iq` -> `403`, 4542 bytes, `text/html; charset=UTF-8`, Cloudflare "Attention Required!" page; headless Chromium, 45 s wait -> the same 403 page. Blocked from the cloud address.
+- `https://parliament.iq`: `curl` -> `403`, about 5.2 KB, Cloudflare managed challenge ("Just a moment...", the size varies by a few bytes because of a per-request token); headless Chromium with a Chrome 130 user agent and a 30 s wait -> `403`, title "لحظة…", challenge not solved. `ar.parliament.iq` does not resolve from here. Blocked from the cloud address.
+- `https://www.isx-iq.net` and `https://isx-iq.net`: curl -> HTTP 000 (no connection); headless Chromium -> `502`, 174 bytes. Blocked from the cloud address.
