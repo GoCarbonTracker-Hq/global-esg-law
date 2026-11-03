@@ -7148,6 +7148,88 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
 
+## Nicaragua
+
+Run on 2026-11-03 (GEL-14-04). One row passes, on a statute and not on site terms: `NI-LAGACETA-ADOPTED` (La Gaceta, Diario Oficial, https://www.lagaceta.gob.ni, run by the Secretaría Jurídica de la Presidencia). The statute is Ley 312 (Derecho de Autor y Derechos Conexos), Artículo 16, read in the consolidated text La Gaceta No. 232 of 2020-12-16: "No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores." (The brief says Ley 963 art. 16; the article is in Ley 312 as consolidated under Ley 1032, which Ley 963 orders published.) The site has no terms or copyright page. No row was added for the Asamblea Nacional portal, MARENA, SIBOIF or the Bolsa de Valores de Nicaragua (reasons below).
+
+An issue page of lagaceta.gob.ni is a PDF.js viewer whose PDF sits inside the HTML as one base64 string, `const pdfData = atob('JVBERi0x...')`. The slug comes from a title search of the issue list, `https://www.lagaceta.gob.ni/ediciones?page=1&search=<words of the title>` (title only, not content; slugs differ by year: `la-gaceta-n-120-miércoles-30-junio-de-2021`, `la-gaceta-nº-217-viernes-18-de-noviembre-de-2022`, `la-gaceta-no-217-lunes-25-de-noviembre-de-2024`). Proven fetch, Decreto 15-2021 (La Gaceta No. 120 of 2021-06-30):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o g120.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/'
+python3 -c "import re,base64;t=open('g120.html',encoding='utf8').read();open('g120.pdf','wb').write(base64.b64decode(re.search(r\"atob\('([A-Za-z0-9+/=]+)'\)\",t).group(1)))"
+```
+
+Returned `200 1330946 text/html; charset=utf-8`; the PDF is 611043 bytes, sha256 `57c19b1b8298dee5f1b722c454a1a907c740520abb75c44d563b9eff214900dc`, which is `fetched_sha256`. The page carries a per-request antiforgery token (the HTML hash changed between two requests, 4665f0dc... and 7c498f3c...), so the hash is of the decoded PDF, which a second fetch reproduced for all four issues below. Other issues fetched the same way: No. 62 of 2008-04-03 (`200 692329`, PDF 132120 bytes, sha256 `0bbde994dfb8aaafd42c4e8e2afa4df2bde97ae971eac9822f7cd027c66783ec`), No. 129 of 2013-07-11 (`200 805315`, PDF 216855, `59f8c2526c52a3cacdaef2db8b6a1bed8083bb4493203fbb6014bd9319424d1c`), No. 232 of 2020-12-16 (`200 2815825`, PDF 1724677, `96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe`, the statute copy), No. 105 of 1996-06-06 (`200 5771509`, PDF 3941486).
+
+Text extraction: poppler `pdftotext`. Decreto 15-2021 (single column) with `pdftotext -layout`, runs of spaces collapsed, empty lines dropped, from `DECRETO PRESIDENCIAL No. 15-2021` to the signature line after Art. 14; the running head (`30-06-2021 LA GACETA - DIARIO OFICIAL 120`), the page numbers (5847 to 5850) and the rule lines are dropped. Ley 647 and Ley 842 are two-column pages (the gazette head at the top, the page number centred at the foot), read per page as a left half then a right half: `pdftotext -f N -l N -x 0 -y 55 -W 306 -H 715 file.pdf -` then `-x 306`, joined page by page (default reading order mixes the columns); the centred page number is split by the crop, so lines made only of digits are dropped (54 of them for Ley 842, exactly two per page); line breaks stay where the PDF has them. Ley 647: pages 2 to 7 of the issue, from `ASAMBLEA NACIONAL DE LA` to `PRESIDENTE DE LA REPUBLICA DE NICARAGUA.`; articles 1 to 27. Ley 842: pages 2 to 28, from `ASAMBLEA NACIONAL` to `Saavedra, Presidente de la República de Nicaragua.`; articles 1 to 138 checked as an unbroken sequence. No U+FFFD in any record; the PDFs of 2008, 2013 and 2021 carry real text layers (TrueType fonts), no scan.
+
+### Languages
+
+Spanish is the official language of legislation; the Caribbean coast languages have no gazette edition. Every record has `language` es and no row of its own. English was looked for, no government translation found: `https://www.lagaceta.gob.ni/` (`200 81688 text/html`, Spanish only, no English page), `https://www.siboif.gob.ni/` (`200 214940 text/html; charset=utf-8`, Spanish only), `https://www.bolsanic.com/` (`200 143989 text/html; charset=UTF-8`, Spanish only). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ni-ley-217 (Ley 217, Ley General del Medio Ambiente) | https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/ | Row passes, but the issue PDF is a 300 ppi bitonal scan with a machine OCR text layer with wrong words (`Arto. I.-`, `Marea Colectiva`); no OCR step is allowed yet, Varun decides. The consolidated text (Digesto Ley 1163, La Gaceta No. 217 of 2023-11-29) is a `descargables` file that needs a login (`Inicia sesión para poder visualizar este archivo`); no account was made. |
+
+Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 2023-09-27) and the Digesto consolidations of Ley 217 and Ley 842: same login wall on https://www.lagaceta.gob.ni/descargables (Gaceta 217 of 2023-11-29 is not in `/ediciones` either; issues 216 and 218 are). Gazettes 172 to 176 of September 2023 were read for an amending decree of 15-2021 (no hit on `15-2021`).
+
+### Blocked from the cloud address
+
+- `https://legislacion.asamblea.gob.ni/` and `/gacetas/2021/6/g120.pdf` (the Asamblea portal named in the brief): `curl: (35) Recv failure: Connection reset by peer`, the proxy logs `ws_closed_mid_exchange`; Chromium through the same proxy got `502 text/plain` (174 bytes). Three tries each. `http://legislacion.asamblea.gob.ni/` answered `404 215`.
+- `https://www.asamblea.gob.ni/` and `https://digesto.asamblea.gob.ni`: `403 text/html` (5665 and 5993 bytes) to `curl -A 'Mozilla/5.0'` and to Chromium.
+- `https://www.marena.gob.ni/` and `https://marena.gob.ni`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`; the egress gateway issues its own certificate for the host and the upstream chain is not accepted; verification was not disabled. `http://www.marena.gob.ni` answers `301`. Chromium: `502`.
+- `https://www.presidencia.gob.ni`, `https://www.mhcp.gob.ni`, `https://www.nicaragua.gob.ni`, `https://www.cc.gob.ni`, `https://cambioclimatico.gob.ni`, `https://www.inetter.gob.ni`: `CONNECT tunnel failed, response 502`. `https://www.ineter.gob.ni`: certificate error as MARENA. `https://www.poderjudicial.gob.ni`: `SSL_ERROR_SYSCALL`.
+
+### Regulator and exchange pages
+
+`https://www.siboif.gob.ni/` opened (`200 214940`; the first request in the session was reset, later ones answered). Its marco jurídico pages (bancos, valores, seguros) have a title filter, `.../intendencia-bancos/marco-juridico?combine=<word>`: `ambiental`, `social`, `sostenible`, `clim`, `verde` return 0 rows each, so no SIBOIF norm on environmental and social risk or ESG was found; the page lists Ley 1061, the 2021 reform of Ley 842. No terms page was read, so no row. `https://www.bolsanic.com/` (a company): `/condiciones-de-uso` reserves all rights ("Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de dichos contenidos sin la autorización previa y por escrito de BVN"), and `/regulaciones/` and `/reglametos-y-circulares-de-bvn/` have no ESG text; no row.
+
+### Watchers
+
+`page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
+
+## Bolivia
+
+Run on 2026-11-03 from the cloud address (GEL-14-08). Every licence row for Bolivia is `permission requested` (BO-GACETA-ADOPTED, BO-ASFI-ADOPTED, BO-APMT-ADOPTED, BO-MMAYA-ADOPTED, BO-BBV-ADOPTED), so no row passes, no text is stored and there is no `records/BO/`. The requests below are the ones that work, recorded for the watcher and for a later permission; they are not `fetched_url` of any record. Spanish is the only language any source serves; no indigenous-language or English text exists on any page opened.
+
+### Proven requests (no row passes)
+
+Gaceta Oficial, plain HTTP only. `curl https://www.gacetaoficialdebolivia.gob.bo` fails from the cloud address with `curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, and headless Chromium on the HTTPS URL answers HTTP 502 from the proxy. The HTTP site answers:
+
+- `curl -sS -A 'Mozilla/5.0' -L 'http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300'` returns 302 to `/normas/buscar/300`, then HTTP 200, 49953 bytes, `text/html`. The result lists Ley 300 of 15 October 2012 (edition 431NEC, Fecha de Publicación 2012-10-15) with the view path `/normas/verGratis_gob/141327`.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/verGratis_gob/141327'` returns HTTP 200, 228012 bytes, `text/html` (Ley 300 as HTML, footer "TEXTO DE CONSULTA"). The server is Apache/2.2.4 on PHP 5.2.3 and sets a `CAKEPHP` cookie; no challenge.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/descargarPdf/141327'` returns HTTP 200, 945 bytes, `text/html`: a PHP fatal error from DOMPDF ("Requested HTML document contains no data"). The PDF route does not work; the Word route `/normas/verGratis_gob1/{id}` was not fetched.
+- Date search for an old norm: `curl -sS -A 'Mozilla/5.0' -c cj -b cj -L -d 'data[Gobierno][id_gobierno]=&data[TipoNorma][id_tipo_norma]=1&dc1=27-04-1992&dc2=31-12-1992&q=' 'http://www.gacetaoficialdebolivia.gob.bo/normas/busquedaFecha'` returns HTTP 200, 75339 bytes, `text/html`, 331 Leyes. Paging (`/normas/busquedag1/page:N`) depends on the session cookie and returned a different result set without it.
+- Title search: `.../normas/busquedag1?q=cambio+clim` returns HTTP 200, `text/html`, 19 norms (title and summary only; it does not search the text).
+
+ASFI (`www.asfi.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' -L 'https://www.asfi.gob.bo/sites/default/files/2025-08/Bolet%C3%ADn%2020%20-%20Junio%202013.pdf'` returns HTTP 200, 126856 bytes, `application/pdf`; `pdftotext -layout` gives clean text. It carries "ASFI-170 220/2013 19 de abril de 2013.- Aprueba y pone en vigencia el Reglamento de Responsabilidad Social Empresarial para las Entidades de Intermediación Financiera". The quarterly bulletins 58 (Dec 2022), 59 to 73 (Mar 2023 to Sep 2026) were read the same way (index pages `https://www.asfi.gob.bo/node/417` to `/node/433`). They are summaries of changes to the Recopilación, not the regulation text. Bulletins 1 to 73 were searched with `grep -i 'ambiental\|sostenib\|clim[aá]tic\|verde\|taxonom\|ESG\|riesgo social'`: the only hits are the green, social and sustainable bond rules (bulletin 58, 61), the Fondo de Inversión Sostenible (bulletin 73) and the RSE reglamento; no reglamento on environmental and social risk management exists in the Recopilación as of Boletín 73.
+
+APMT (`madretierra.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' 'https://madretierra.gob.bo/wp-content/uploads/2025/09/3.-LEY-300.pdf'` returns HTTP 200, 293824 bytes, `application/pdf` (sha256 8d6a6b2bfca8455825fb195fc4f50cfae12216dc9e2f390ec65f09fcc49e5826); `pdftotext -layout` gives clean text. Same folder: `4.-DS-1696.pdf`, `5.-DS-2389.pdf`, `Ley071.pdf`, `1.-CPE.pdf`. Its terms page is `https://madretierra.gob.bo/index.php/terminos-y-condiciones/` (200, 70842 bytes).
+
+### Languages
+
+Spanish (es) only. The Gaceta, ASFI and APMT serve Spanish; Bolivia's 36 indigenous languages are official but no gazette edition or page in them was found. No government English translation was found: looked for on the Gaceta (no language switch), ASFI and APMT; no translation row exists. Records stored: 0.
+
+### Link only
+
+- bo-asfi-rse-reglamento, bo-asfi-rmv-green-bonds, bo-asfi-revision-externa, bo-asfi-fondo-inversion-sostenible: BO-ASFI-ADOPTED is `permission requested` (the footer link `/terminos-y-condiciones` answers 404 on every ASFI page, so no terms exist to quote; an ASFI resolución is a state regulation but Ley 1322 has no exclusion of official texts). The regulation text sits on `servdmzw.asfi.gob.bo` and `wiki-normativa.asfi.gob.bo`, blocked from the cloud address.
+- bo-ley-300, bo-ds-1696, bo-ds-3549, bo-ds-5264, bo-ley-835, bo-ley-453: BO-GACETA-ADOPTED is `permission requested`. Resolución Ministerial 039/11 (terms_url) requires the Gaceta's prior authorisation to publish official legal texts, charges an arancel and refuses publications that generate profit; the footer reads "Derechos Reservados ©". APMT hosts Ley 300 and DS 1696 as PDF but its terms allow personal, non-commercial use only (BO-APMT-ADOPTED).
+- bo-ley-1333, bo-ds-24176: not served by the Gaceta archive (Ley 1333 of 1992 is missing between Leyes 1332 and 1334 of April and May 1992; the number search for DS 24176 returns 0 norms). The MMAyA site (BO-MMAYA-ADOPTED) is blocked from the cloud address. The scope `official_url` is the Gaceta page of a later decree that cites each one; it is not the text.
+- BO-BBV-ADOPTED: no BBV rule is in scope; the host is blocked.
+
+### Blocked from the cloud address
+
+- `https://www.gacetaoficialdebolivia.gob.bo/` (all paths): curl 35 SSL_ERROR_SYSCALL; Chromium 502. Plain HTTP works.
+- `https://www.bbv.com.bo`: curl 35 connection reset; Chromium 502.
+- `https://www.mmaya.gob.bo`: curl 35 connection reset; Chromium 502.
+- `https://servdmzw.asfi.gob.bo/circular/Textos/Indice.pdf` (also `/circular/Textos/`, `/`): curl 35 connection reset; Chromium 502.
+- `https://wiki-normativa.asfi.gob.bo/es/normativa/RNSF`: curl 56 CONNECT tunnel failed, response 502; Chromium ERR_TUNNEL_CONNECTION_FAILED.
+- `https://chuquisaca.oep.org.bo/wp-content/uploads/2018/06/Ley_1333.pdf` and `https://web.senado.gob.bo`: curl 55 / 000 through the proxy.
+
+No browser-fetched record exists. Watchers: `python3 tools/watch.py --dry-run --source BO-GACETA-ADOPTED` ran 8 watchers, 0 failures; `--source BO-ASFI-ADOPTED` ran 4, 0 failures; the APMT, MMAYA and BBV rows have no watcher (0 run).
+
 ## North Korea
 
 GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
