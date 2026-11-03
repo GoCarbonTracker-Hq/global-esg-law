@@ -4294,3 +4294,221 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Albania
+
+Run on 2026-11-03 (GEL-11-03). Two rows pass on the statute basis, `AL-KKK-ADOPTED` and `AL-MJEDISI-ADOPTED` (Copyright Law No. 35/2016 Art. 12 para. 1 let. b, quoted in the rows; neither site has a terms page, only a footer copyright line, see the row notes). Two rows are `permission requested`: `AL-QBZ-ADOPTED` and `AL-QBZ-CONSOLIDATED`, because qbz.gov.al refused the cloud address. Language: Albanian only; no government English text was found (no row with form `translation`). One record is stored.
+
+Row `AL-KKK-ADOPTED`, Law No. 25/2018 as published (the link is read from `https://kkk.gov.al/ligji-per-kontabilitetin/`):
+
+```
+curl -sS -L -o ligj25.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://kkk.gov.al/wp-content/uploads/2025/02/ligj-nr.-25-dt.-10.5.2018.pdf
+```
+
+Returned `200 162521 application/pdf`; sha256 `591de74d0022f24f238cd00004a635d6908f9da748b4ef416fcfaab5383b7707`, the same on three fetches. Text extraction: poppler `pdftotext -layout ligj25.pdf -`, form feeds turned into line breaks, each line stripped and runs of spaces or tabs collapsed, three or more line breaks reduced to two; no mojibake (non-ASCII characters seen: ë ç Ë Ç and punctuation). Page numbers and footnote text stay in the text as the PDF has them. The same site serves Law No. 87/2026 (`.../2026/08/Ligji-nr.-87-dt.-23.7.-2026.pdf`, `200 409788 application/pdf`) and a KKK consolidation (`.../2026/11/Ligji-25-2018-i-ndryshuar-me-ligjin-87-date-23.07.2026-new.pdf`, `200 308676 application/pdf`); neither is stored because no page states the Fletorja Zyrtare date, so there is no in-force date.
+
+Row `AL-MJEDISI-ADOPTED`, Law No. 155/2020 (link read from `https://mjedisi.gov.al/ndryshimet-klimatike/`; the page links the same file on the bare IP `20.52.97.34`):
+
+```
+curl -sS -L -o l155.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mjedisi.gov.al/wp-content/uploads/2023/07/Ligji-nr.-155-dt.-17.12.2020_PER-NDRYSHIMET-KLIMATIKE.pdf
+```
+
+Returned `200 144673 application/pdf`. Proven, but not stored (see below).
+
+### Languages
+
+Albanian is the only official language. English: `kkk.gov.al` has no English section for the legal acts, `mjedisi.gov.al/en/` pages link the Albanian PDF, and `qbz.gov.al` (where translations are expected) is blocked. No translation row, no English record. Law No. 35/2016 Art. 9 para. 5 protects translations of official texts unless made to inform the public officially, so a statute pass for an English text would need the publisher named and read first.
+
+### Link only
+
+- `al-law-87-2026`: row passes; no page reached states the Fletorja Zyrtare publication date (the act enters into force 15 days after it), so no dated record. Text fetch works (KKK URL above).
+- `al-climate-law-155-2020`: row passes; entry into force is 6 months after publication, date not stated on any page reached. Fetch works (above).
+- `al-environmental-protection-law-10431-2011`: no official text reachable (QBZ blocked; not on mjedisi.gov.al media search, `akm.gov.al` names the law only). Row `AL-QBZ-CONSOLIDATED` is `permission requested`.
+
+### Blocked from the cloud address
+
+- `https://qbz.gov.al` and `https://www.qbz.gov.al/`, `/akte`, `/eli/en`: `curl: (52) Empty reply from server` after the TLS handshake; headless Chromium (Playwright) `HTTP 502`, 174-byte body; `http://qbz.gov.al` answers `302` to https.
+- `https://amf.gov.al/` and `https://www.amf.gov.al/`: `403`, Cloudflare "Just a moment..." challenge (5305 bytes). AMF ESG rules not examined.
+- `https://akm.gov.al/` answered `200` (194772 bytes) at first and `curl: (52) Empty reply from server` on later requests.
+- Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
+- Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
+
+## Bosnia and Herzegovina
+
+Run 2026-11-03 by GEL-11-01 from the cloud address. Four licence rows: `BA-PARLAMENTFBIH-ADOPTED` and `BA-NSRS-ADOPTED` pass on the statute (Law on Copyright and Related Rights, Sl. glasnik BiH 63/10, art. 8(1)(b), quoted in both rows from the free gazette page https://sluzbenilist.ba/page/akt/U4XQiuAywzo=); `BA-SLUZBENILIST-ADOPTED` and `BA-SLGLASNIK-ADOPTED` are `permission requested` because the gazette act texts and PDFs need a subscription login. Art. 8(2) protects translations of official texts unless published as official texts; no government English translation was found, so there is no translation row. All fetches below are plain `curl` without a browser; no browser-fetched record exists.
+
+### BA-PARLAMENTFBIH-ADOPTED
+
+Proven request, run 2026-11-03, instrument `ba-fbih-law-banks-2025-amend`:
+
+```
+curl -sS -L -o banks.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://parlamentfbih.gov.ba/v2/userfiles/file/Usvojeni%20materijali_2025/B%20-%20Pr%20Zakon%20o%20bankama.pdf"
+200 404051 application/pdf
+```
+
+The same pattern served `Usvojeni%20materijali_2021/Zakon%20o%20racunovodstvu%20i%20reviziji%20_bos.pdf` (200, 620656, application/pdf) and `Usvojeni%20materijali_2020/Zakon%20o%20zastiti%20okolisa%20%20bosanski%20jezik.pdf` (200, 544065, application/pdf). A second fetch gave the same bytes (sha256 equal). File URLs are found on the Parliament's law pages (for example https://parlamentfbih.gov.ba/v2/bs/propis.php?id=232). The files are the Parliament copy of the adopted act (the 2025 Banks file is named "Pr Zakon", but its text is the signed amending law with the presiding officers' names, not a draft). Gazette numbers and dates are not in the files: they were read from the free issue pages of sluzbenilist.ba (below). Text: `pdftotext -layout banks.pdf -` (poppler), each line stripped, runs of spaces collapsed, form feeds as line breaks, blank lines dropped; output checked for mojibake (no private-use or replacement characters; Bosnian diacritics intact). Page numbers stay in the text.
+
+### BA-NSRS-ADOPTED
+
+Proven request, run 2026-11-03, instrument `ba-rs-accounting-auditing-law`:
+
+```
+curl -sS -L -o acc.zip -w "%{http_code} %{size_download} %{content_type}\n" "https://www.narodnaskupstinars.net/sites/default/files/upload/dokumenti/akti/usvojeni_zakoni/la/Zak%20o%20rac%20%20i%20reviziji.zip"
+200 276234 application/zip
+```
+
+The zip holds one `.docx`. Text: Python `zipfile`, `word/document.xml`, the `w:t` runs of each paragraph joined, runs of spaces collapsed, empty paragraphs dropped (no external tool). The zip link is on the law page https://www.narodnaskupstinars.net/la/akti/usvojeni-zakoni/zakon-o-racunovodstvu-i-reviziji-republike-srpske-2. Each page has a Latin (`/la/`) and a Cyrillic (`/ci/`) version; the Latin one is stored as `sr`, so the Cyrillic script is not stored.
+
+### Gazette pages (free parts, used for gazette numbers and dates)
+
+```
+curl -sS "https://www.sluzbenilist.ba/Docs/Izdanja?godina=2025&nivoIzdavanja_FK=2"
+```
+
+answers a list of issue links for Službene novine FBiH 2025 (`nivoIzdavanja_FK=2` is Službene novine FBiH; 100 issue buttons for 2025 as served). Issue pages (`/page/i/<id>`) are open and give number, date and act titles: 22/25 is [26.3.2025.] and lists the Law on Amendments to the Law on Banks; 15/21 is [24.2.2021.] and lists the Law on Accounting and Auditing and the Law on Environmental Protection. The PDF request fails:
+
+```
+curl -sS -L -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://www.sluzbenilist.ba/page/PdfDownload?BrojIzdanja=22&NivoIzdavanja_FK=2&GodinaIzdanja=2025"
+200 19972 text/html; charset=utf-8
+```
+
+The body is the page saying "Nemate prava na odabrani pdf fajl! Logirajte se pa ponovo odaberite željeni fajl!". Free issues: not determined for the whole archive; only the issue lists were open in every year read (2021, 2025). The Republika Srpska gazette behaves the same: `curl -sS -L -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" "https://online.slglasnik.org/sr/propisi/102-2026/pdf/sr"` gives `200 16321 text/html; charset=UTF-8` (the login page), for `/sr`, `/hr` and `/bs`.
+
+### Languages
+
+Bosnian (bs): the three Federation acts. Serbian (sr, Latin script): the Republika Srpska accounting law. The gazettes publish every act in Bosnian, Croatian and Serbian (language switch https://www.sluzbenilist.ba/Shared/ChangeUserLanguage/BA-HR, `/BA-SR`; tabs on https://online.slglasnik.org/sr/pregled), but the language versions are behind the login, and neither state host serves more than one language per act, so Croatian versions are not stored and the Serbian version of the Federation acts and the Bosnian version of the Republika Srpska law are not stored. English: no government translation was found on parlamentfbih.gov.ba, narodnaskupstinars.net or the sluzbenilist.ba search; no translation row.
+
+### Link only
+
+- `ba-rs-environmental-protection-law`: the National Assembly page attaches `Zakon_o_zastiti_zivotne_sredine_2.zip` (200, 158454 bytes, application/zip) holding a legacy `.doc`; no reader in the repo, and no publication date on an official page. Row `BA-NSRS-ADOPTED` passes.
+- `ba-consumer-protection-law`: row `BA-SLUZBENILIST-ADOPTED` is permission requested (act link opens a login dialog); no free state-host copy found.
+- Not an instrument in scope: the ABRS climate risk guidelines (https://abrs.ba/wp-content/uploads/2023/12/SmjerniceUpravljanjeKlimatskimRizicima.pdf, 200 application/pdf, 356071 bytes) are F7 in `register.csv`, supervisory expectation; no licence row was written.
+
+### Blocked and not reached
+
+- https://www.fba.ba and https://fba.ba: blocked from the cloud address, `curl: (60) SSL certificate problem: unable to get local issuer certificate`. Not retried with certificate checks off. The Banking Agency of the Federation (climate and environmental risk guidelines, Sl. novine FBiH 57/2023 per an earlier note) is therefore not read.
+- https://www.komvp.gov.ba, https://www.secrs.gov.ba, https://www.sase.ba (200, 223 bytes), https://www.blberza.com (302 to /Pages/Default.aspx, 200): answered, but the home pages were not read for ESG disclosure rules and no terms were assessed. No licence row for them.
+- https://www.slglasnik.org/cyr/stranice/pretplata answered 404 (guessed path).
+- https://www.vijeceministara.gov.ba answered 307 with an empty body; not followed.
+
+## San Marino
+
+Run on 2026-11-03 (GEL-11-09). No row passes, so nothing is stored and there is no `records/SM/`. Rows added: `SM-CGG-ADOPTED`, `SM-CGG-CONSOLIDATED`, `SM-CGG-TRANSLATION` (Consiglio Grande e Generale, consigliograndeegenerale.sm), `SM-BU-ADOPTED` (Bollettino Ufficiale, bollettinoufficiale.sm) and `SM-BCSM-CONSOLIDATED` (Banca Centrale, bcsm.sm). All five are `permission requested` on the terms basis: the Consiglio and Bollettino footers carry a copyright line and no reuse licence, the BCSM legal notice says the site content is "protetti quali opera dell'ingegno", and the Bollettino says consulting the Parte Ufficiale is "libera e gratuita", which is access, not reuse. The statute route was read and not applied: Legge 25 gennaio 1991 n.8 Art.98 lett. f) makes the reproduction of acts of the State or of the Pubbliche Amministrazioni a free use, it does not remove copyright, and Art.32 (as replaced by Legge n.43/1998 art.2) keeps adaptation and translation as exclusive rights (quoted in the `statute_exception` of each row). Varun's decision is listed in the PR. gov.sm (Dipartimento Territorio e Ambiente) was not used as a source, so it has no row: the environmental law text is on the Consiglio site, and `https://www.gov.sm/pub1/GovSM/Note-legali.html` answered 404.
+
+No `pass` row, so there is no stored-text recipe. The requests below are the ones that worked for the link-only instruments, so a row that later passes can be fetched without a new search. Every request below answered from the cloud address with a plain `curl` (default or `Mozilla/5.0` user agent, no challenge, no 403); no browser recipe is needed and no site was blocked.
+
+Consiglio archive search (GET form; `P0_numero` and `P0_anno` find a document, `P0_title` searches titles). The result page lists `documento<id>.html` links:
+
+```
+curl -sS -L -G -o search.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti.html' --data-urlencode 'P0_numero=44' --data-urlencode 'P0_anno=2012' -d 'channel=17000022&hitsPerPage=5&instance=18&node=17001320&P0_path=/home/tomcat/indicizzazione/indexleggi&P0_paginazione=50&P0_pagina=1&P0_orderBy=index_lucene,data_ordered,numero&P0_order=asc,desc,desc&P0_operatorMustBe=yes'
+```
+
+Returned `200 25502 text/html;charset=ISO-8859-1`; it lists `documento17050172` (Decreto Delegato 27 aprile 2012 n.44, TESTI COORDINATI). Row `SM-CGG-CONSOLIDATED`, the document itself (a PDF whatever the `.html` suffix says):
+
+```
+curl -sS -L -o codice.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17050172.html
+```
+
+Returned `200 11342674 application/pdf`, sha256 `e34f60a63fba4d94853d29c6989776064a48c83d1baabfff7c4db6a215639768`; a second fetch gave the same hash. Row `SM-CGG-CONSOLIDATED`, Decreto Delegato 29 ottobre 2024 n.160 (`documento17148431`): `200 352287 application/pdf`, sha256 `5e2024bfda7ba0f622355c69a258db83c80ffcc929c7b42441da512c7363b517`. Row `SM-CGG-ADOPTED`, Legge 25 luglio 2025 n.101 (`documento17153669`): `200 194653 application/pdf`, sha256 `fc408122b7399030d77153312fc0728a2ad2094a4d12d4a4a38ea132980198df`. The subject pages of the coordinated texts are `/on-line/home/testi-coordinati/docCat.<n>.1.150.20.html` (environment: `docCat.17003115`, which shows "Testo Coordinato in materia di Codice Ambientale (aggiornato al 7 agosto 2017)"); `HEAD` on a document answers `Content-Length` only, no `Last-Modified`.
+
+Text extraction, for a row that later passes: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed. Checked on the day for the Code (first 3000 characters), Reg. 2024-05 and Law 101/2025: no U+FFFD in the output, so no legacy-font mojibake in these three; the other PDFs were not checked.
+
+### Languages
+
+Italian is the only official language. `SM-CGG-TRANSLATION`: the Consiglio publishes an index of English texts (`/on-line/home/legislative-texts-in-english.html`, sections I to X, the files at `/on-line/documento<id>.html`). Among the instruments in scope only Law 101/2025 is listed (Italian section VI); its English text:
+
+```
+curl -sS -L -o l101en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/documento17153924.html
+```
+
+Returned `200 201956 application/pdf`, sha256 `b0299ece5a70e8765a2a6b5ea757c8e9ab74c603f35ef576634a24479b37dad2`. Its header reads "July 2025 Official Bulletin of the Republic of San Marino - Official Part Doc. III.10". The English index does not list the Codice Ambientale or the consumer decree (sections III, VI and VII were read). For the BCSM regulations the English Regolamenti page (`https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations`, `200 200600`) translates titles and links the same Italian PDFs, so there is no English text and no row.
+
+BCSM texts (row `SM-BCSM-CONSOLIDATED`; the file names are listed on `https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti`, `200 200103 text/html`):
+
+```
+curl -sS -L -o r2405.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-05/Reg.2024-05_Agg.03.pdf'
+curl -sS -L -o r2402.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-02/Reg.2024-02_Agg.02_2.pdf'
+```
+
+Returned `200 2196869 application/pdf` (sha256 `f42be3b20f4a2242ec4223e2cd09b799813bbf986eecbfa1e35fb60cd9ac48ca`) and `200 886550 application/pdf` (sha256 `9c7d3948ee8458c015ca03b4889dc71f32a5b2e81b246b42fc232082727b5c2b`). Each regulation has several dated texts (2024-05: from 2025-01-01, 2025-01-28, 2025-09-25, 2026-01-29; 2024-02: from 2024-07-01, 2025-01-28, 2026-01-29) under separate file names.
+
+Bollettino Ufficiale: the pages answer (`https://www.bollettinoufficiale.sm/on-line/home/parte-ufficiale/ricerca.html?ricerca=yes` returned `200 10113 text/html;charset=ISO-8859-1`), but the search form, called as a GET with year, month and keyword (`...ricerca.html` with `showfeed=yes&ricerca=yes&risultati=yes&P0_anno=2025&annosup=2025&annoinf=2025&P0_keyword=EUDR`), returned `200 8888 text/html;charset=ISO-8859-1` with no result list. No request that lists or serves an act was found, so no fetch recipe for `SM-BU-ADOPTED`. The clock in the page header (`<div class="current-date">`) changes by the minute, so a hash of a Bollettino page needs it removed.
+
+### Link only
+
+All five scope instruments are link only; none has a record, none has `pass` rows.
+
+- `sm-codice-ambientale`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-dd-160-2024-consumo`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-l-101-2025-eudr`: `SM-CGG-ADOPTED` and `SM-CGG-TRANSLATION` are `permission requested`. Italian and English requests above work.
+- `sm-bcsm-reg-2024-05`, `sm-bcsm-reg-2024-02`: `SM-BCSM-CONSOLIDATED` is `permission requested`. Requests above work.
+- No carbon pricing instrument was found. Title searches in the Consiglio archive for emissioni and cambiamento climatico returned only postal, debt-issue and name-change acts, and carbon returned nothing; full-text searches for gas serra and quote di emissione returned hundreds of unrelated documents and were not read through. There is no F3 or F7 entry, because there is no instrument to describe.
+- Not in scope: energy-efficiency acts (Legge 7 maggio 2008 n.72, DD 24 maggio 2017 n.51 and the energy collection `docCat.17005070`), which the dispatch did not list and which fit none of F1 to F6 on a plain reading.
+
+## Bahrain
+
+GEL-10-04, run 2026-11-03. One row passes, `BH-LLOC-ADOPTED` (Legislation and Legal Opinion Commission, statute basis: Law No. (22) of 2006 Art. (4)(b) removes legislation and official documents from copyright; the LLOC site terms claim copyright, so the pass rests on the statute alone). Three rows are `permission requested`: `BH-LLOC-TRANSLATION` (LLOC English versions, guidance translations), `BH-CBB-ADOPTED` (Central Bank of Bahrain Rulebook), `BH-BHB-ADOPTED` (Bahrain Bourse). Stored: seven instruments in Arabic, as published, one record each. No browser was needed for any stored record.
+
+### Row BH-LLOC-ADOPTED
+
+Step 1, find the instrument id (the site has no list URL that can be guessed; ids are a type letter, number and year, for example `K0722` = Law No. 7 of 2022, `RSCE0115` = Supreme Council for Environment decision 1 of 2015). The search page sets a session cookie and a per-session token that the search POST must send back:
+
+```
+curl -sS -A 'Mozilla/5.0' -c cj.txt -b cj.txt -o search.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/en/Legislation/Search
+TOK=$(grep -oE 'id="token" value="[^"]+"' search.html | sed 's/.*value="//;s/"$//')
+curl -sS -A 'Mozilla/5.0' -b cj.txt -H "requestverificationtoken: $TOK" -H 'x-requested-with: XMLHttpRequest' -H 'content-type: application/json; charset=UTF-8' -X POST https://www.lloc.gov.bh/en/legislation/search --data '{PostParam: {"IsSearchTitle":true,"LegNum":"","YearFrom":"","YearTo":"","OGFrom":"","OGTo":"","TypeID":"","SourceID":"","CategoryID":"","KeywordAll":"environment","KeywordAny":"","KeywordPhrase":"","KeywordNot":"","IsSearchTreaty":false,"IsSearchWomen":false,"IsSearchEnglish":false,"SortBy":"SortDate"}, PageNum: 1, PageSize: 10}' -o result.html -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 113497 text/html; charset=utf-8` for the first request and `200 31313 text/html; charset=utf-8` for the POST ("Results (13 records found)", first hit Law No. (7) of 2022 regarding Environment, Official Gazette No. 3593, 17-March-2022). The body is an HTML fragment; each hit carries `/Legislation/HTM/<id>` (Arabic text), `/PDF/<id>.pdf` (image of the Gazette page), `/FullEn/<id>.docx` (English version, when there is one) and, when the instrument has amendments, `/Legislation/Amendments/<id>`. The same POST at `/legislation/search` (no `/en`) searches the Arabic site; `KeywordAny` takes several words, `SourceID` takes a publisher code such as `RSCE` (Supreme Council for Environment). The date LLOC prints is the Official Gazette date (checked: every date used here is a Thursday, the Gazette day).
+
+Step 2, the text, row `BH-LLOC-ADOPTED`, Law No. (7) of 2022:
+
+```
+curl -sS -A 'Mozilla/5.0' -o K0722.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/Legislation/HTM/K0722
+```
+
+Returned `200 288595 text/html; charset=utf-8`, sha256 `89763eb35884c92c1ba54f08b0e1ec20476dd3685be7cbeba687d3d2a997aacd`. A second fetch gave the same bytes (checked for K0722, K5414, RSCE0115, RSCE0725, K3512, RCIN6614 and K2826: identical sha256 twice). Any `User-Agent` works (`curl/8`, `global-esg-law-watch/1` and `Mozilla/5.0` all answered 200).
+
+Text extraction (for every record below): the file is Word-exported HTML served with `charset=utf-8` while its `<meta>` says windows-1256; it is decoded as UTF-8 (no U+FFFD in any record). `<head>`, `<script>` and `<style>` removed, runs of whitespace (including the line breaks inside paragraphs) collapsed to one space, `</p>`, `</div>`, `<br>`, headings, list items and table rows turned into line breaks, other tags stripped, HTML entities decoded, no-break spaces turned into spaces, empty lines dropped. Nothing reworded. `fetched_sha256` is the hash of the file as returned.
+
+Stored (fetched 2026-11-03), all `kind` adopted, one record per instrument; the file name is `<in_force>-adopted-ar.json`:
+
+| Instrument | LLOC id | Official Gazette date | `in_force` | Language | `fetched_sha256` |
+|---|---|---|---|---|---|
+| `bh-env-law-7-2022` | `K0722` | 2022-03-17 (OG 3593) | 2022-09-18 | `ar` | 89763eb35884c92c1ba54f08b0e1ec20476dd3685be7cbeba687d3d2a997aacd |
+| `bh-ods-law-54-2014` | `K5414` | 2014-10-02 (OG 3177) | 2014-10-03 | `ar` | b0a0f64753363cf2b146e4cc84a6087e4f98f380cec8701d85d0be9286a5ed58 |
+| `bh-hcfc-quota-decision-1-2015` | `RSCE0115` | 2015-09-17 (OG 3227) | 2015-09-18 | `ar` | 85090913240407168188bd0f46641b219a82e1af4576fd7dcf8ea1c9b69cf4b2 |
+| `bh-climate-adaptation-committee-7-2025` | `RSCE0725` | 2025-12-04 (OG 3848) | 2025-12-05 | `ar` | d330ed6c14d8b60a7834ebbfa6deca8aea847672381fb7f72fa94112983d2726 |
+| `bh-consumer-protection-law-35-2012` | `K3512` | 2012-08-02 (OG 3063) | 2012-08-03 | `ar` | 47b0e6063fcf2cc238799c2b122413a49175b3ddce01aae3f9e17f4e513877ba |
+| `bh-consumer-protection-regulation-66-2014` | `RCIN6614` | 2014-07-17 (OG 3165) | 2014-07-18 | `ar` | 038df241a54ce77055f8f47c50cd7a701a600adcfbd8793e18fbb9c18a379eb5 |
+| `bh-consumer-protection-law-28-2026` | `K2826` | 2026-06-18 (OG 3889) | 2026-06-19 | `ar` | 9346be6efb65d61c77be46c557b1b22861dfe2248701c9d095aabb99edf4adb6 |
+
+`in_force` is computed: all but one of the seven instruments say they apply "from the day after publication in the Official Gazette", the Environment Law "after six months from publication". The Gazette date plus one day (plus six months and one day for the Environment Law) is the stored date; no page states the date itself. Whether "after six months" means the day after the sixth month ends is a reading, flagged in the PR.
+
+One dated version per instrument: LLOC serves the as-published text only. An amendment is a separate instrument (`Legislation/Amendments/<id>` lists them); only Law No. (35) of 2012 has one (Law No. (28) of 2026, stored as its own instrument). LLOC also serves an Arabic Word file "with amendments" (`/FullAr/<id>.docx`, for example `/FullAr/K3512.docx`, `200 34376`) that states no amendment date; it is not stored because it cannot be dated.
+
+### Languages
+
+Arabic is the authentic language of legislation and the only official language LLOC serves; each instrument has one Arabic record. English:
+
+- Row `BH-LLOC-TRANSLATION` is `permission requested`, so no English record is stored. The request tried: `curl -sS -A 'Mozilla/5.0' -o K0722.docx -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/FullEn/K0722.docx` returned `200 52750 application/vnd.openxmlformats-officedocument.wordprocessingml.document`; the text is in `word/document.xml` of the zip. The file opens with a disclaimer that the Arabic Gazette version is the official one and the English is "provided for guidance and easy reference purposes", and "Published on the website on May 2024". Law No. (22) of 2006 Art. (4)(b) excludes "official translations", but a guidance translation is not shown to be one; that reading is Varun's to make (PR report).
+- English files exist for `bh-env-law-7-2022`, `bh-ods-law-54-2014`, `bh-hcfc-quota-decision-1-2015`, `bh-consumer-protection-law-35-2012` and `bh-consumer-protection-regulation-66-2014`. None exists for `bh-climate-adaptation-committee-7-2025` (`/FullEn/RSCE0725.docx` returned `404 1245 text/html` and the English search lists it nowhere) or `bh-consumer-protection-law-28-2026`.
+- Statute text used for the pass: `curl -sS -A 'Mozilla/5.0' -o K2206.html https://www.lloc.gov.bh/Legislation/HTM/K2206` returned `200 328185 text/html; charset=utf-8`, sha256 `563e5e91f62a183888f3724a285e032da22591e47aab2f020a546bf4280f61a8` (Law No. (22) of 2006 on the Protection of Copyright and Neighbouring Rights, Art. (4)(b); not stored, it is not an ESG instrument).
+
+### Link only
+
+- `bh-bhb-listing-rules` (F1): row `BH-BHB-ADOPTED`, `permission requested` (terms page https://bahrainbourse.com/en/Bahrain%20Clear/eServices/Pages/Terms-and-Conditions.aspx: "The Bourse’s Website and all services offered through it are intellectual property of the Bourse."). The Listing Rules PDF was opened: `curl -sS -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36' -o ListingRules_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework/Documents/ListingRules_2024.pdf'` returned `200 1181911 application/pdf`; no text is stored.
+- `bh-cbb-esg-module` (F1): row `BH-CBB-ADOPTED`, `permission requested` (https://www.cbb.gov.bh/copyright/: "material should not be copied, used or re-published in whole or in part without the prior written permission of the CBB and without acknowledging the source"). The module PDF was opened: `curl -sS -L -A '<desktop Chrome user agent as above>' -o Common_Vol_ESG_January_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cbben.thomsonreuters.com/sites/default/files/net_file_store/Common_Vol_ESG_January_2024.pdf` returned `200 806740 application/pdf`; no text is stored. The pages of the Rulebook are reached from https://cbben.thomsonreuters.com/cbb-rulebook, Common Volume Part A, node 2304727.
+- Not in scope.json: `RSCE0321` (water standards), `RSCE0521` (electrical and electronic waste), `RSCE0320` (hazardous healthcare waste), `RSCE0724` (waste transport licences) and `RSEA0120` (renewable energy certificates) are F7 register rows only; a carbon pricing instrument was not found (register row F7 "none found"). Not taken: Decree No. (75) of 2016 (Paris Agreement), Decree No. (7) of 1994 (UNFCCC), Decree No. (45) of 2005 (Kyoto Protocol) are ratification decrees; Decree No. (87) of 2019 (Sustainable Energy Authority) and Decree No. (9) of 2023 (Ministry of Sustainable Development) are institutional; Legislative Decree No. (21) of 1996 on the Environment is replaced by Law No. (7) of 2022; Decision No. (91) of 2022 (Corporate Management and Governance Charter) is governance, not ESG disclosure; Decision No. (10) of 2006 on air pollutant emissions (RCPMW1006) status not checked.
+- No scope instrument is link only for want of a working request: every instrument is either stored or held back by the row verdict.
+
+### Blocked from the cloud address
+
+Answers on 2026-11-03 from the cloud address to `curl -A 'Mozilla/5.0'`:
+
+- https://cbben.thomsonreuters.com/ : `403 118` (`403 Forbidden`). With the desktop Chrome user agent above: `200`. The `upkeep` watcher user agent (`global-esg-law-watch/1`) gets `403` on the ESG module PDF, so `bh-cbb-esg-module-pdf` has `params.second_route`.
+- https://bahrainbourse.com/ : `403 4553` (Cloudflare "Sorry, you have been blocked" page). With the desktop Chrome user agent: `200`; the watcher user agent also gets `200` on the Listing Rules PDF HEAD.
+- https://www.sce.gov.bh/ : `403 118`. With the desktop Chrome user agent: `200`, but `/en` redirects to `https://www.sce.gov.bh/en/Error.aspx`. No SCE page was used (the Commission text is preferred), so there is no SCE row.
+- https://www.legalaffairs.gov.bh : `curl: (60) SSL: no alternative certificate subject name matches target host name 'www.legalaffairs.gov.bh'`.
+- https://www.lloc.gov.bh through headless Chromium (Playwright) with its default user agent: `403 Forbidden` (117 bytes); with a desktop Chrome user agent: `200`. Playwright was only used to read the search form; curl does the work.
+- https://www.cbb.gov.bh/rulebook/ : `404`; the Rulebook lives on the Thomson Reuters host.
