@@ -7937,6 +7937,1056 @@
   }
  },
  {
+  "id": "ad-litecc-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-litecc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/030057/html/CGL20180928_13_54_03.html"
+ },
+ {
+  "id": "ad-llei-19-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-19-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033083/html/CGL20210721_11_40_36.html"
+ },
+ {
+  "id": "ad-decret-303-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-decret-303-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033101/html/GR20210923_14_22_45.html"
+ },
+ {
+  "id": "ad-llei-13-2013-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-13-2013",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/025032/html/7FB8E.html"
+ },
+ {
+  "id": "me-climate-change-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-climate-change-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/389045/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/389045 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-climate-change-law-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-climate-change-law-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/394393/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/394393 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ets-permit-activities-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ets-permit-activities-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396827/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396827 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-permit-form-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-permit-form-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/391288/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/391288 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-monitoring-plan-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-monitoring-plan-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396635/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396635 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-reporting-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-reporting-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390870/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390870 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-reporting-rulebook-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-reporting-rulebook-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396417/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396417 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-verification-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-verification-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396634/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396634 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-verifier-requirements-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-verifier-requirements-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390868/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390868 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-data-management-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-data-management-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390872/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390872 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-data-management-rulebook-amend-2026-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-data-management-rulebook-amend-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396416/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396416 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-ships-monitoring-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-ships-monitoring-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395550/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395550 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-ships-verification-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-ships-verification-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395512/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395512 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-inventory-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-inventory-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396752/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396752 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-policies-measures-decree-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-policies-measures-decree",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/396753/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/396753 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-ghg-inventory-data-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-ghg-inventory-data-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395511/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395511 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-lulucf-emissions-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-lulucf-emissions-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395423/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395423 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-policies-measures-report-rulebook-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-policies-measures-report-rulebook",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/395833/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/395833 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-accounting-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-accounting-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/384020/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/384020 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-environment-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-environment-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/336900/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/336900 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-consumer-protection-law-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/390427/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/390427 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "me-cbcg-esg-risk-decision-pdf",
+  "source_id": "ME-SLUZBENILIST-ADOPTED",
+  "iso2": "ME",
+  "instrument": "me-cbcg-esg-risk-decision",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.sluzbenilist.me/propisi/384500/download",
+  "params": {
+   "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/384500 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
+  }
+ },
+ {
+  "id": "by-res-137-2021-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-res-137-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=C22100137",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22100137 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-res-130-2024-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-res-130-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=C22400130",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22400130 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-294-z-2023-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-294-z-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H12300294",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300294 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-295-z-2023-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-295-z-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H12300295",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300295 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-air-protection-2008-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-air-protection-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10800002",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10800002 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-advertising-2007-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-advertising-2007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10700225",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10700225 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-consumer-rights-2002-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-consumer-rights-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10200090",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10200090 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-env-protection-1992-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-env-protection-1992",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=V19201982",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=V19201982 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "mc-loi-1456-code-environnement-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-loi-1456-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/code/code-environnement/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/code/code-environnement/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-8449-ghg-2030-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-8449-ghg-2030",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-11515-ghg-2035-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-11515-ghg-2035",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-am-2020-916-ghg-inventories-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-am-2020-916-ghg-inventories",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-1284-2007-financial-activities-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-1284-2007-financial-activities",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-9737-esg-certification-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-9737-esg-certification",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-code-penal-art-362-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-code-penal-art-362",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/code/code-penal/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/code/code-penal/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "qa-environment-law-30-2002-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-law-30-2002",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/164f4a20-8bce-4c6a-87f4-9cda0cc42b5b",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/decree-law/2002/30/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-4-2005-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-4-2005",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/491c69d3-7cc2-4452-b5c0-eae585eaf27a",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/supreme-council-chairman-decision/2005/4/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-amendment-8-2022-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-amendment-8-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/1e8d638b-0b21-4b28-a127-34e4d4561c70",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2022/8/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-environment-exec-regulation-amendment-31-2023-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-environment-exec-regulation-amendment-31-2023",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/78715886-cf83-441e-a365-38f1c1a449ae",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2023/31/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-air-quality-decision-310-2020-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-air-quality-decision-310-2020",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/3ba34464-ba37-49de-8aaa-efb281ff6c66",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2020/310/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-hcfc-import-quotas-decision-20-2022-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-hcfc-import-quotas-decision-20-2022",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/52f2053b-8a39-4563-bf98-0fb2ccfa5193",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2022/20/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-consumer-protection-law-8-2008-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-consumer-protection-law-8-2008",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/56df0fd6-8ab5-48d6-bc02-2f0a22924008",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/law/2008/8/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-consumer-protection-exec-regulation-68-2012-almeezan-versions",
+  "source_id": "QA-ALMEEZAN-CONSOLIDATED",
+  "iso2": "QA",
+  "instrument": "qa-consumer-protection-exec-regulation-68-2012",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.moj.gov.qa/api/v1/Legislation/7c00038f-17bd-436b-95a7-076a6e7be9d2",
+  "params": {
+   "regex": "\"effectiveDate\":\"(\\d{4}-\\d{2}-\\d{2})T",
+   "second_route": "https://almeezan.qa/legislations/ministerial-decision/2012/68/general (browser; the page is a JavaScript application, headless Chromium needs a normal user agent because HeadlessChrome gets HTTP 500; the watched URL is the portal API, which answered curl with 200 and lists every article effectiveDate)"
+  }
+ },
+ {
+  "id": "qa-qcb-sustainability-reporting-framework-qcb-pdf-hash",
+  "source_id": "QA-QCB-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qcb-sustainability-reporting-framework",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qcb.gov.qa/Documents/GreenFinance/Sustainability%20Reporting%20Framework.pdf",
+  "params": {
+   "second_route": "https://www.qcb.gov.qa/Documents/GreenFinance/Sustainability%20Reporting%20Framework.pdf (browser from the laptop; qcb.gov.qa fails TLS verification for curl and gave HTTP 502 to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "qa-qfma-sustainability-reporting-guidance-qfma-pdf-hash",
+  "source_id": "QA-QFMA-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qfma-sustainability-reporting-guidance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qfma.org.qa/Arabic/Legislation/GuidesAndTemplates/Documents/2%20QFMA%20Sustainability%20Guide%20EN%2023%20November%202025.pdf",
+  "params": {
+   "second_route": "https://www.qfma.org.qa/English/Legislation/GuidesAndTemplates/Pages/default.aspx (browser; the guidance list page; the PDF answered curl with 200, 2129752 bytes, on 2026-11-03)"
+  }
+ },
+ {
+  "id": "qa-qse-esg-reporting-guidance-qse-page-hash",
+  "source_id": "QA-QSE-ADOPTED",
+  "iso2": "QA",
+  "instrument": "qa-qse-esg-reporting-guidance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.qe.com.qa/sustainability-and-esg",
+  "params": {
+   "second_route": "https://www.qe.com.qa/sustainability-and-esg (browser; qe.com.qa gives curl with a Mozilla/5.0 user agent an empty reply and default headless Chromium HTTP 502 on 2026-11-03, while the watcher user agent gets 200)"
+  }
+ },
+ {
+  "id": "am-climate-law-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-climate-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220890/print/act"
+ },
+ {
+  "id": "am-air-protection-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220906/print/act"
+ },
+ {
+  "id": "am-air-protection-amendment-2026-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-air-protection-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220873/print/act"
+ },
+ {
+  "id": "am-ghg-inventory-order-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-ghg-inventory-order",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/188713/print/act"
+ },
+ {
+  "id": "am-consumer-rights-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/226867/print/act"
+ },
+ {
+  "id": "am-consumer-rights-amendment-2026-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-consumer-rights-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/224775/print/act"
+ },
+ {
+  "id": "am-advertising-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/230017/print/act"
+ },
+ {
+  "id": "az-air-protection-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=3515",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/3515 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-air-emission-inventory-decision-63-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-air-emission-inventory-decision-63",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=1522",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/1522 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-environmental-protection-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=3852",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/3852 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-bank-corporate-governance-standards-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-bank-corporate-governance-standards",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=55125",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/55125 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-consumer-rights-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=9479",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/9479 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-advertising-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=30348",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/30348 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-ndc3-decision-335-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-ndc3-decision-335",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=60816",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/60816 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "ru-fz-296-2021-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-fz-296-2021",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D0%9E%D0%B1+%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B8+%D0%B2%D1%8B%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%B2+%D0%BF%D0%B0%D1%80%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D1%8B%D1%85+%D0%B3%D0%B0%D0%B7%D0%BE%D0%B2&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-fz-34-2022-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-fz-34-2022",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B0+%D0%BF%D0%BE+%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D1%8E+%D0%B2%D1%8B%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%B2+%D0%BF%D0%B0%D1%80%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D1%8B%D1%85+%D0%B3%D0%B0%D0%B7%D0%BE%D0%B2&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-gov-decree-707-2022-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-gov-decree-707-2022",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D0%BE%D1%82%D1%87%D0%B5%D1%82%D0%BE%D0%B2+%D0%BE+%D0%B2%D1%8B%D0%B1%D1%80%D0%BE%D1%81%D0%B0%D1%85+%D0%BF%D0%B0%D1%80%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D1%8B%D1%85+%D0%B3%D0%B0%D0%B7%D0%BE%D0%B2&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-gov-decree-790-2022-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-gov-decree-790-2022",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0+%D1%83%D0%B3%D0%BB%D0%B5%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D1%85+%D0%B5%D0%B4%D0%B8%D0%BD%D0%B8%D1%86&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-gov-decree-355-2022-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-gov-decree-355-2022",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%BC+%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%D0%BC&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-gov-decree-1580-2025-publication-api",
+  "source_id": "RU-PRAVO-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-gov-decree-1580-2025",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "http://publication.pravo.gov.ru/api/Documents?Name=%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D1%8B%D0%BC+%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%D0%BC&PageSize=30&SortedBy=4&SortDestination=1",
+  "params": {
+   "regex": "\"publishDateShort\":\"(\\d{4}-\\d{2}-\\d{2})"
+  }
+ },
+ {
+  "id": "ru-cbr-in-06-28-49-2021-pdf",
+  "source_id": "RU-CBR-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-cbr-in-06-28-49-2021",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cbr.ru/StaticHtml/File/117620/20210712_in-06-28_49.pdf",
+  "params": {
+   "second_route": "https://www.cbr.ru/StaticHtml/File/117620/20210712_in-06-28_49.pdf (browser; www.cbr.ru answers a script without a browser User-Agent with 403)"
+  }
+ },
+ {
+  "id": "ru-cbr-cgc-2014-recom-page",
+  "source_id": "RU-CBR-ADOPTED",
+  "iso2": "RU",
+  "instrument": "ru-cbr-cgc-2014",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cbr.ru/issuers_corporate/development_corp_relations/",
+  "params": {
+   "second_route": "https://www.cbr.ru/issuers_corporate/development_corp_relations/ (browser; the PDF route https://www.cbr.ru/Crosscut/LawActs/File/1249 answers curl with a DDoS-Guard 302 and needs a browser; www.cbr.ru answers a script without a browser User-Agent with 403)"
+  }
+ },
+ {
+  "id": "bh-env-law-7-2022-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-env-law-7-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K0722"
+ },
+ {
+  "id": "bh-ods-law-54-2014-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-ods-law-54-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K5414"
+ },
+ {
+  "id": "bh-hcfc-quota-decision-1-2015-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-hcfc-quota-decision-1-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RSCE0115"
+ },
+ {
+  "id": "bh-climate-adaptation-committee-7-2025-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-climate-adaptation-committee-7-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RSCE0725"
+ },
+ {
+  "id": "bh-consumer-protection-law-35-2012-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-law-35-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K3512"
+ },
+ {
+  "id": "bh-consumer-protection-regulation-66-2014-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-regulation-66-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RCIN6614"
+ },
+ {
+  "id": "bh-consumer-protection-law-28-2026-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-law-28-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K2826"
+ },
+ {
+  "id": "bh-bhb-listing-rules-pdf",
+  "source_id": "BH-BHB-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-bhb-listing-rules",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework/Documents/ListingRules_2024.pdf",
+  "params": {
+   "second_route": "https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework (browser; bahrainbourse.com answers 403 to curl -A 'Mozilla/5.0' and opens with a desktop Chrome user agent; the Listing Rules link is on that page)"
+  }
+ },
+ {
+  "id": "bh-cbb-esg-module-pdf",
+  "source_id": "BH-CBB-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-cbb-esg-module",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbben.thomsonreuters.com/sites/default/files/net_file_store/Common_Vol_ESG_January_2024.pdf",
+  "params": {
+   "second_route": "https://cbben.thomsonreuters.com/node/2304727 (browser; the Rulebook host answers 403 to scripts with a plain user agent and opens with a desktop Chrome user agent; the module page links the PDF and its version date)"
+  }
+ },
+ {
+  "id": "kw-cma-circular-4-2025-pdf-head",
+  "source_id": "KW-CMA-ADOPTED",
+  "iso2": "KW",
+  "instrument": "kw-cma-circular-4-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cma.gov.kw/documents/55799/1627092/%D8%AA%D8%B9%D9%85%D9%8A%D9%85%20%D8%B1%D9%82%D9%85%20(04)%20%D9%84%D8%B3%D9%86%D8%A9%202025.pdf/0ca59dc0-b168-451a-4744-7b2d911e4ccf",
+  "params": {}
+ },
+ {
+  "id": "kw-epl-42-2014-epa-law-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epl-42-2014",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/EPALaw2015.pdf",
+  "params": {}
+ },
+ {
+  "id": "kw-epa-outdoor-air-8-2017-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epa-outdoor-air-8-2017",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf",
+  "params": {}
+ },
+ {
+  "id": "kw-epa-gas-flaring-5-2020-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epa-gas-flaring-5-2020",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf",
+  "params": {}
+ },
+ {
+  "id": "jo-epl-2017-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-epl-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-climate-change-bylaw-2019-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-climate-change-bylaw-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=6243&LegislationType=3&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-consumer-protection-law-2017-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-consumer-protection-law-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3169&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-jsc-esg-code-pdf",
+  "source_id": "JO-JSC-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-jsc-esg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.jsc.gov.jo/Uploads/Files/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AD%D9%88%D9%83%D9%85%D8%A9/Jordan%20Securities%20Commission%20ESG%20Code.pdf",
+  "params": {
+   "second_route": "https://www.jsc.gov.jo/Search/en/ESG (browser; jsc.gov.jo answers a first request with a 302 and a cookie, and loops without a cookie jar)"
+  }
+ },
+ {
+  "id": "jo-ase-climate-disclosure-framework-pdf",
+  "source_id": "JO-ASE-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-ase-climate-disclosure",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.exchange.jo/sites/default/files/2024-12/Regulatory%20Framework%20-%20V6%20%28002%29.pdf",
+  "params": {
+   "second_route": "https://www.exchange.jo/en/Sustainability-and-Climate (browser; lists the Framework, Guidance, Policy and Report Rules PDFs)"
+  }
+ },
+ {
   "id": "om-msx-esg-guideline-pdf",
   "source_id": "OM-MSX-ADOPTED",
   "iso2": "OM",
