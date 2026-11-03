@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sy-environment-protection-law-12-2012",
+    "title": "Law No. 12 of 2012 on the Protection of the Environment (القانون رقم 12 لعام 2012)",
+    "official_url": "https://molae.gov.sy/law/%d9%82%d8%a7%d9%86%d9%88%d9%86-%d8%ad%d9%85%d8%a7%d9%8a%d8%a9-%d8%a7%d9%84%d8%a8%d9%8a%d8%a6%d8%a9-%d8%b1%d9%82%d9%85-12-%d9%84%d8%b9%d8%a7%d9%85-2012/",
+    "citation": "Law No. 12 of 2012, Damascus, 6 Jumada al-Awwal 1433 AH, corresponding to 2012-03-29",
+    "in_force": "2012-03-29",
+    "evidence": "The text closes: \"دمشق في 6-5-1433 هجري الموافق لـ 29-3-2012 ميلادي\" (Art. 26: \"ينشر هذا القانون في الجريدة الرسمية\"). The law has no commencement clause, so the date of issue is used. Opened https://molae.gov.sy/wp-content/uploads/2025/11/قانون-12-بشأن-حماية-البيئة.pdf on 2026-11-03 (date read with pdftotext, because the OCR text mangles digits).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SY-MOLAE-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Framework environment law: Art. 2 aims at basic rules for environmental safety, protection from pollution and environmental development; Art. 24 ends the effect of Legislative Decree 11 of 1991, Legislative Decree 16 of 1994, Law 50 of 2002 (as amended by Law 17 of 2004) and Law 19 of 2004. The existing register row was F7 and is mapped to F2 here: the law sets environmental assessment and standards, with no emissions-reporting or climate duty. Stored: Arabic only, one record (2012-03-29, as published on the Ministry's law page). The text is uncorrected OCR output of the Ministry's PDF (pdftotext gives lam-alef ligatures in reversed letter order, so OCR was used); the OCR misreads Arabic-Indic digits, so figures and dates in the stored text are unreliable and the PDF at fetched_url is the reference. The PDF is a Word document posted in October 2025, not the Official Gazette. No amendment is published on molae.gov.sy; a Ministry news item (molae.gov.sy, 2026) says the law is under review for updating, and no amending text was found. English: looked for on the English side of molae.gov.sy and on the other Syrian state hosts that answered (moj.gov.sy, cb.gov.sy, scfms.sy, dse.sy); no government translation found. Law 50 of 2002 is repealed by Art. 24 (register row only).",
+    "status": "stored"
+  }
+]
