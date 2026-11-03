@@ -6011,3 +6011,141 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Honduras
+
+Run on 2026-11-03 (GEL-14-02). Three rows: `HN-TSC-ADOPTED` (Tribunal Superior de Cuentas library) and `HN-JUNTEC-ADOPTED` pass on a statute, `HN-CNBS-ADOPTED` is `permission requested`. None of the three sites states reuse terms (footers: "© 2026 Tribunal Superior de Cuentas", "Copyright© Juntec :: 2021", nothing on cnbs.gob.hn). The statute is the Ley del Derecho de Autor y de los Derechos Conexos (Decreto 4-99-E), art. 54, read in the TSC copy `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Derecho%20de%20Autor%20y%20Derechos%20Conexos%20D%20%204-99%20E.pdf` (`200 223285 application/pdf`, sha256 `91c87d4d463b47e31d4637efc57e0dc6ea717af97d284991e71417fe6f7c231d` on two fetches): "las Leyes, reglamentos, acuerdos y demás disposiciones emanadas de los órganos correspondientes del Estado, podrán ser publicadas sueltas o en colección por los particulares, después que lo hayan sido en el Diario Oficial La Gaceta, respetando su texto oficial completo". It is a permission to publish and not an exclusion of official texts, so the rows rest on two conditions: prior publication in La Gaceta shown on the file itself, and the full official text kept. TSC and JUNTEC files show their La Gaceta publication; no CNBS page does, so CNBS is `permission requested`. The brief names Decreto 16-2006 as the amendment; the TSC copy's only footnote reform is Decreto 211-2006 (art. 175), and art. 54 is unamended there.
+
+### Row `HN-TSC-ADOPTED`: PDF files on tsc.gob.hn
+
+The directory page `https://www.tsc.gob.hn/web/leyes/` is refused. The failing line first:
+
+```
+curl -sS -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/
+```
+
+Returned `403 1233 text/html` (IIS "403 - Forbidden: Access is denied"; Chromium via Playwright `page.goto` also got 403). Individual PDFs answer. The file names come from the item pages of the library (`https://www.tsc.gob.hn/biblioteca/index.php/leyes/18-ley-general-del-ambiente`, `.../reglamentos/83-reglamento-general-de-la-ley-del-ambiente`, `.../leyes/1258-ley-especial-de-las-transacciones-de-carbono-forestal-para-la-justicia-climatica`, each `200 text/html; charset=utf-8`), whose `Descargar` links point to `/web/leyes/<file>`. The item pages carry a view counter, so they change on every request; the watchers read the PDF headers instead. Ley General del Ambiente (Decreto 104-93):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o lga.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Ley_general_del_ambiente.pdf
+```
+
+Returned `200 196631 application/pdf` (single column text layer, 912 lines kept); a second request returned the same bytes, sha256 `d7f90959d58eaa9a4c14cbb56f6f1f0006056312d7bdb19a04312f29ced6106c`, which is `fetched_sha256` of `records/HN/hn-lga/1993-07-20-adopted-es.json`. Text: `pdftotext -layout lga.pdf -`, runs of spaces collapsed to one, empty lines removed, nothing else (no page furniture is in this file). The file name was found as `Ley_General_del_Ambiente.pdf` as well (IIS is case-insensitive, same bytes).
+
+Gaceta files (Acuerdo Ejecutivo 016-2017, Decreto 54-2023) are single Gaceta pages in two columns with a masthead and a summary box on page 1, so `pdftotext -layout` interleaves the columns and default `pdftotext` mixes them at headings. They are read with `pdftotext -bbox-layout` (lines with coordinates): per page, lines whose left edge is left of the page middle are the left column and are read top to bottom, then the right column; lines on one row are joined; on page 1 the masthead lines and the right-column summary box (down to its line `Desprendible para su comodidad`) are dropped; running heads, page numbers (`A.`, `No. 36,370`, `La Gaceta`), the Empresa Nacional de Artes Gráficas address box and the names of its manager and supervisor are dropped. The decree text, the issuing-body line (`Poder Legislativo`) and the signatures are kept. Line breaks stay where the PDF has them, hyphenation stays. The script (stdlib plus poppler):
+
+```
+import re,subprocess,sys,html
+def lines(pdf):
+    out=subprocess.run(['pdftotext','-bbox-layout',pdf,'-'],capture_output=True,text=True).stdout
+    pages=re.split(r'<page ',out)[1:]
+    res=[]
+    for p in pages:
+        W=float(re.match(r'width="([\d.]+)"',p).group(1))
+        ls=[]
+        for m in re.finditer(r'<line xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</line>',p,re.S):
+            x0,y0,x1,y1,b=m.groups()
+            w=' '.join(html.unescape(x) for x in re.findall(r'>([^<]+)</word>',b))
+            ls.append((float(x0),float(y0),float(x1),w))
+        res.append((W,ls))
+    return res
+FURN=re.compile(r'^(Sección [AB] ?(Acuerdos y Leyes|Avisos Legales)?|REPÚB?LICA DE HONDURAS.*|No\. ?\d+,? ?\d* ?La ?Gaceta|No\. ?[\d,. ]+|La ?Gaceta|LaGaceta|A\.|B\.|\d{1,2}|A\. ?\d+|B\. ?\d+|EMPRESA NACIONAL DE ARTES GRÁFICAS|E\.N\.A\.G\.|DIARIO OFICIAL DE LA REPÚBLICA DE HONDURAS|DECANO DE LA PRENSA HONDUREÑA|PARA MEJOR SEGURIDAD DE SUS PUBLICACIONES|Colonia Mira.*|Teléfono/Fax.*|Administración: .*|Planta: .*|CENTRO CÍVICO GUBERNAMENTAL|Gerente General|Coordinador y Supervisor|Desprendible para su comodidad|\d+ +A\.|A\. +\d+)$')
+def text(pdf,page1_cut=None):
+    out=[]
+    for i,(W,ls) in enumerate(lines(pdf)):
+        mid=W/2-10
+        L=sorted([l for l in ls if l[0]<mid],key=lambda l:l[1])
+        R=sorted([l for l in ls if l[0]>=mid],key=lambda l:l[1])
+        for col in (L,R):
+            merged=[]
+            for l in sorted(col,key=lambda l:(l[1],l[0])):
+                if merged and abs(merged[-1][1]-l[1])<3 and not FURN.match(l[3].strip()) and not FURN.match(merged[-1][3].strip()):
+                    a=merged[-1]; merged[-1]=(a[0],a[1],l[2],a[3]+' '+l[3]) if a[0]<=l[0] else (l[0],l[1],a[2],l[3]+' '+a[3])
+                else: merged.append(l)
+            col=merged
+            for x0,y0,x1,w in col:
+                if i==0 and page1_cut and page1_cut(x0,y0,w): continue
+                if FURN.match(w.strip()): continue
+                out.append(w.strip())
+    return out
+if __name__=='__main__':
+    print('\n'.join(text(sys.argv[1])))
+
+# --- second file: page-1 cuts and entry point ---
+import re,sys
+sys.path.insert(0,'.')
+import gaceta
+MAST=re.compile(r'^(E ?MPRESA N ?ACIONAL.*|AÑO CX.*|(LUNES|MARTES|MIÉRCOLES|JUEVES|VIERNES|SÁBADO|DOMINGO) \d+ DE .*|NUM\. ?[\d,. ]+|NUM\. ?|SUMARIO|Sección [AB]|Decretos y Acuerdos)$')
+def run(pdf,extra_drop=()):
+    pages=gaceta.lines(pdf)
+    W,ls=pages[0]; mid=W/2-10
+    yend=max([l[1] for l in ls if l[0]>=mid and re.search(r'Desprendible|Avisos Legales|^B\. ?\d',l[3])] or [0])
+    def cut(x0,y0,w):
+        if MAST.match(w.strip()): return True
+        if x0>=mid and y0<=yend+15: return True
+        return any(re.search(p,w) for p in extra_drop)
+    return gaceta.text(pdf,cut)
+if __name__=='__main__':
+    print('\n'.join(run(sys.argv[1],sys.argv[2:])))
+```
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d54.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Decreto-54-2023.pdf
+curl -sS -L -A 'Mozilla/5.0' -o ac016.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Reforma__regl-ley_general_del_ambiente.pdf
+```
+
+Returned `200 1119508 application/pdf` (16 pages, La Gaceta No. 36,370 of 2023-10-30; sha256 `b436a2ab092f71737a94109128015e11a68ab5298c492f5b78a477f35508d9bb` on two fetches; 774 lines, 26114 characters) and `200 212740 application/pdf` (2 pages, La Gaceta No. 34,554 of 2018-01-29; sha256 `ab6b18d6edf59f0eb41524ad1bb4e34ee7334d7ec96b10bc804bc9b7d4437955` on two fetches; 91 lines, 4221 characters). Both are static uploads (the `Last-Modified` of the first is 2023-11-29, of the Ley General del Ambiente 2012-03-01).
+
+Stored (fetched 2026-11-03):
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `hn-lga` | adopted | 1993-07-20 (computed: art. 111, twenty days after the publication of 1993-06-30) |
+| `hn-lga-reglamento-art112` | adopted | 2018-01-29 |
+| `hn-carbono-forestal` | adopted | 2023-10-30 |
+
+### Row `HN-CNBS-ADOPTED`: opened, nothing stored (`permission requested`)
+
+The circulars register is an application whose lists are plain HTML fragments. Search, year list and PDF all answered `curl` from the cloud address:
+
+```
+curl -sS -A 'Mozilla/5.0' -o s.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://circulares.cnbs.gob.hn/Home/Search?text=riesgo%20ambiental'
+curl -sS -L -A 'Mozilla/5.0' -o c028.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://circulares.cnbs.gob.hn/Archivo/Viewer/109/028-2020.pdf'
+```
+
+Returned `200 6900 text/html; charset=utf-8` (three results: Circular CNBS 028/2020, 021/2023, 008/2024) and `200 503741 application/pdf` (13 pages, clean text layer; sha256 `b0bc7730e92214147ac7c2223b74fccf3c424916e2b515cdf745c065b11c21bd`). The other two files: `Viewer/2603/021-2023%20REFORMA%20ARTICULA%20NORMA%20RIESGO.pdf` `200 773763 application/pdf` (3 pages) and `Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf` `200 796556 application/pdf` (3 pages). `HEAD` on these PDFs answers 405, so the watchers hash the file instead. Year lists come from `Home/CircularesYear?year=<yyyy>` (first 20 only). Resolución GRI No. 949/13-12-2021 is not in the register (the 2021 list has no circular on it). La Gaceta publication of the three resolutions is not shown by any page opened, so the row is `permission requested`; the three texts would be storable (clean layer) if the row is flipped.
+
+### Row `HN-JUNTEC-ADOPTED`: opened, nothing stored
+
+`juntec.org.hn` answers `406 226 text/html` to `-A 'Mozilla/5.0'` on the root and on `/en/`, and `200 100047 text/html; charset=UTF-8` to curl's default User-Agent. The PDF answers both:
+
+```
+curl -sS -o j.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf'
+```
+
+Returned `200 1851050 application/pdf` (3 pages, Adobe Scan for Android; sha256 `7f40cbca94def12401cbb3f93ff89c294bc15a714a673027c0ccb90508338a64`). The text layer is OCR output (`pdftotext -layout` 12,703 characters: "Oue", "COmo", "CONSIDERAND0", "NIIF SI" for S1, two columns interleaved), so it fails the garble check and the instrument is link only.
+
+### Languages
+
+Spanish is the only official language of legislation; every record has `language` es and no row was added for a second language. English was looked for and no government translation was found, at: `https://www.tsc.gob.hn/en/` (`404 138625 text/html`), `https://www.cnbs.gob.hn/en/` (`200 161986`, redirected to a Spanish survey page), `https://juntec.org.hn/en/` (`406 226`), `https://circulares.cnbs.gob.hn/en` (`405 0`), `https://congresonacional.hn/en/` (`404 74419`) and `https://serna.gob.hn/en/` (`406 226`). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `hn-juntec-res-006-01-2025` | https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf | Row passes; the file is a scan with a garbled OCR layer (see above). |
+| `hn-ley-cambio-climatico` | https://www.tsc.gob.hn/biblioteca/index.php/leyes/595-ley-de-cambio-climatico | Row passes; `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Cambio%20Climatico.pdf` (`200 1197058 application/pdf`, 9 pages) is an image scan, `pdftotext` returns 9 characters; no OCR step. |
+| `hn-lga-reglamento` | https://www.tsc.gob.hn/biblioteca/index.php/reglamentos/83-reglamento-general-de-la-ley-del-ambiente | Row passes; `https://www.tsc.gob.hn/web/leyes/Reglamento_General_de_la_Ley_del_Ambiente.pdf` (`200 1453810 application/pdf`, 43 pages) has a legacy font encoding, `pdftotext` returns 88,680 characters of mojibake (`2 !"#$ %88`). |
+| `hn-ley-proteccion-consumidor` | https://www.tsc.gob.hn/biblioteca/index.php/leyes/68-ley-de-proteccion-al-consumidor | Row passes; `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Protecci%C3%B3n%20al%20Consumidor.pdf` (`200 16219438 application/pdf`, 22 pages) is an image scan, `pdftotext` returns 22 characters. |
+| `hn-cnbs-norma-ras`, `hn-cnbs-norma-ras-art15`, `hn-cnbs-circ-008-2024` | https://circulares.cnbs.gob.hn/ (PDF links in the scope entries) | Row `HN-CNBS-ADOPTED` is `permission requested` (La Gaceta publication not shown). |
+
+Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page scan), Decreto 80-2020 (interpretation on lead-acid batteries, sanction line blank, waste imports), Decreto 75-2024 (telecom contracts, an amendment of the consumer law), Decreto 61-2024 (Ley de Conciencia y Acción Climática Comunitaria, TSC `https://www.tsc.gob.hn/web/leyes/Decreto%2061-2024.pdf`, 5 pages, begins inside the previous decree's signature block, so the Gaceta page layout is not column-orderly) and Decreto 36-2024 (Ley para Uso Racional y Eficiente de la Energía): the last two are enacted climate and energy laws on the TSC library that were not read to the end and are on the `## Next` list of the PR.
+
+### Blocked from the cloud address
+
+- `https://www.tsc.gob.hn/web/leyes/` (the directory index): `403 1233 text/html` to curl and to Chromium (IIS "Access is denied"). Its PDFs answer.
+- `https://www.miambiente.gob.hn/`, `https://miambiente.gob.hn`, `https://enag.hn`: `CONNECT tunnel failed, response 502` (Chromium `ERR_TUNNEL_CONNECTION_FAILED`). `https://serna.gob.hn/` answers 200 `56735` to curl's default User-Agent (title "SERNA") and `406` to `Mozilla/5.0`; it links no laws.
+- `https://www.congresonacional.hn/`: curl `SSL: no alternative certificate subject name matches target host name 'www.congresonacional.hn'`; Chromium `502 text/plain`. `https://congresonacional.hn/` answers `200 111281`; its only legislative pages are the dashboard and the bill list, no decree text.
+- `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
+- `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
+- Browser recipe: none needed; no record is browser-fetched.
