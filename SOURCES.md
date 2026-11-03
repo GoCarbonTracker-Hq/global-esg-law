@@ -6636,6 +6636,27 @@ Blocked from the cloud address:
 - `https://www.sgg.gouv.ci/`, `https://sgg.gouv.ci/`: `curl: (60) SSL certificate problem: certificate has expired`; `http://www.sgg.gouv.ci/` answers `301` to the https address. Certificate verification was not disabled. The web.archive.org copy and `https://www.jo.gouv.ci/` return `CONNECT tunnel failed, response 502`.
 - `https://agp.africanlii.org/` and `https://civlii.laws.africa/...source`: proxy 502 or 404 (not official publishers; tried only to read Loi 2016-555 art. 10, which was read in the Journal officiel no 84 of 20 October 2016 hosted at `https://www.droitci.info/files/231.07.16-Loi-du-26-juillet-2016_Droit-d-auteur.pdf`).
 
+### OCR pass 2026-11-03
+
+GEL-04-12. Varun allowed OCR at 08:20Z on 2026-11-03. Three scope instruments that GEL-12-06 left link only are now stored from the scanned official PDFs: `ci-loi-2025-528` and `ci-decret-2025-345` (row `CI-PNCC-ADOPTED`, pass) and `ci-decret-2024-595` (row `CI-MINETE-ADOPTED`, pass). No row, verdict, instrument or watcher was added or changed; the `permission requested` rows (`CI-BRVM-ADOPTED`, `CI-AMF-UMOA-ADOPTED`, `CI-DGTCP-ADOPTED`, `CI-SGG-ADOPTED`) have no scope instrument and stay as they are. French only, as before. Each PDF is one law (no gazette cut), so every page is OCRed: 20, 12 and 47 pages.
+
+Install: `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-fra` (tesseract 5.3.4, tesseract-ocr-fra 4.1.0-2). `pdftotext` returned no text layer for all three. Fetch, twice, with the same sha256 both times:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o loi528.pdf https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf   # 200 7248237, sha256 1db85920f2b665d2621487e6e7180d06ff69edd16d21cd6c65da48385ce0146c
+curl -sS -L -A 'Mozilla/5.0' -o d345.pdf https://pncc.ci/assets/documentation//VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf     # 200 9043739, sha256 e053acd4f589e781c4a70b23e6771530c9dbf2fcaceffc278938130b0d466750
+curl -sS -L -A 'Mozilla/5.0' -o d595.pdf https://environnement.gouv.ci/uploads/publications/177332342290.pdf                      # 200 36000565, sha256 7426f85feecce1750aa476c4cb674ef0143ca5a10b1d3cf9f6b2465ed4f0f393
+```
+
+OCR, per file (the pages are single-column, so no crop), 200 dpi was enough and the 300 dpi attempt was not needed:
+
+```
+pdftoppm -r 200 -gray -png file.pdf out/p
+OMP_THREAD_LIMIT=1 tesseract out/p-NN.png out/p-NN -l fra     # for each page
+```
+
+The stored `text` is the page texts joined in page order with a newline, with the form feed tesseract appends to each page removed; nothing else was changed, so misreads such as "2024-5956" for "2024-595" in the title of Décret 2024-595 stay. The record date is the signature date (no commencement clause read), the same choice as the two earlier CI records; `in_force` in `scope.json` stays null. `extraction` is `ocr`.
+
 ## Tanzania
 
 Run on 2026-11-03 (GEL-13-02). Rows `TZ-OAG-CONSOLIDATED`, `TZ-OAG-ADOPTED`, `TZ-OAG-TRANSLATION` (Office of the Attorney General, OAG-MIS) and `TZ-CMSA-ADOPTED` (Capital Markets and Securities Authority) pass on the statute basis: Copyright and Neighbouring Rights Act (Cap. 218 R.E. 2023) s. 7(a), "protection shall not extend to- (a) laws and decisions of courts and administrative bodies as well as to official translations thereof". Rows `TZ-BOT-ADOPTED` and `TZ-TANZLII-CONSOLIDATED` are `permission requested`. Two conflicts are left to Varun in the PR: the Revised Edition PDFs carry a watermark "All rights reserved. No part of this book may be reproduced or distributed without permission of OAG", and the CMSA site says "All rights reserved"; the rows pass because the statute removes protection from laws. The host in the brief, `oagmis.agctz.go.tz`, is blocked from the cloud address; the same catalogue is served at `oagmis.oag.go.tz`, which answers. Tanzania mainland only; Zanzibar is not in scope.
