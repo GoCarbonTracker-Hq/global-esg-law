@@ -7659,5 +7659,86 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "lk-slfrs-s1-s2-govprint-pdf",
+  "source_id": "LK-GOVPRINT-ADOPTED",
+  "iso2": "LK",
+  "instrument": "lk-slfrs-s1-s2",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2393-31_E_1784566044.pdf"
+ },
+ {
+  "id": "lk-nea-1980-govprint-pdf",
+  "source_id": "LK-GOVPRINT-ADOPTED",
+  "iso2": "LK",
+  "instrument": "lk-national-environmental-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/47-1980_E_1784553232.pdf"
+ },
+ {
+  "id": "lk-nea-amendment-2000-govprint-pdf",
+  "source_id": "LK-GOVPRINT-ADOPTED",
+  "iso2": "LK",
+  "instrument": "lk-national-environmental-amendment-2000",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/53-2000_E_1784553252.pdf"
+ },
+ {
+  "id": "lk-nea-amendment-2026-govprint-pdf",
+  "source_id": "LK-GOVPRINT-TRANSLATION",
+  "iso2": "LK",
+  "instrument": "lk-national-environmental-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/15-2026_E_1786337298.pdf"
+ },
+ {
+  "id": "lk-finance-act-2018-govprint-pdf",
+  "source_id": "LK-GOVPRINT-TRANSLATION",
+  "iso2": "LK",
+  "instrument": "lk-finance-act-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/35-2018_E_1784553147.pdf"
+ },
+ {
+  "id": "lk-finance-act-2019-govprint-pdf",
+  "source_id": "LK-GOVPRINT-TRANSLATION",
+  "iso2": "LK",
+  "instrument": "lk-finance-act-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/21-2019_E_1784553007.pdf"
+ },
+ {
+  "id": "lk-carbon-tax-regulations-2019-govprint-pdf",
+  "source_id": "LK-GOVPRINT-ADOPTED",
+  "iso2": "LK",
+  "instrument": "lk-finance-carbon-tax-regulations-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2105-47_E_1784560951.pdf"
+ },
+ {
+  "id": "lk-caa-act-2003-govprint-pdf",
+  "source_id": "LK-GOVPRINT-TRANSLATION",
+  "iso2": "LK",
+  "instrument": "lk-caa-act-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/09-2003_E_1784552867.pdf"
+ },
+ {
+  "id": "lk-caa-amendment-2021-govprint-pdf",
+  "source_id": "LK-GOVPRINT-TRANSLATION",
+  "iso2": "LK",
+  "instrument": "lk-caa-amendment-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/20-2021_E_1784552998.pdf"
  }
 ]
