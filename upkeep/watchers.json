@@ -9787,5 +9787,50 @@
   "url": "https://www.wipo.int/wipolex/en/text/214697",
   "change": "terms_changed",
   "params": {}
+ },
+ {
+  "id": "et-nbe-bank-cg-directive-sbb-91-2024-pdf-head",
+  "source_id": "ET-NBE-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-nbe-bank-cg-directive-sbb-91-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf"
+ },
+ {
+  "id": "et-esia-proclamation-1371-2025-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-esia-proclamation-1371-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/PDF/Proc%20No.1371-2025-Environmental%20and%20Social%20Impact%20Assessment.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406 and a request with no User-Agent with a tunnel failure, so use a plain curl User-Agent or Playwright)"
+  }
+ },
+ {
+  "id": "et-pollution-control-proclamation-300-2002-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-pollution-control-proclamation-300-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/Proclamation/Proc%20No.%20300-2002%20Environmental%20Pollution%20Control.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406)"
+  }
+ },
+ {
+  "id": "et-ecosystem-services-payment-proclamation-1401-2026-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-ecosystem-services-payment-proclamation-1401-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/PDF/proclamation-for-ecosytem-service-paymeny-1401.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406)"
+  }
  }
 ]
