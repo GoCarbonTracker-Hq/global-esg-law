@@ -7287,3 +7287,61 @@ English is the official language of Liberian legislation; every record is `en`. 
 Stored by GEL-15-09: `lr-eo-155-carbon-markets-authority` (adopted 2025-10-31, en, OCR) and `lr-epa-act-2002` (adopted 2002-11-26, en).
 
 Not in scope.json: the Climate and Carbon Act (not enacted; no draft on any site opened), the Sovereign Carbon Initiative contribution on aviation and shipping (no instrument on any site opened), a Central Bank of Liberia climate regulation (none found), a consumer protection act (none on the four sites opened), the National Carbon Market Policy (F7, register row only).
+
+## Panama
+
+Rows `PA-SBP-ADOPTED` and `PA-GACETA-ADOPTED` (both `pass`, statute: Ley 64 de 2012 Art. 13 num. 2, "Los textos oficiales de carácter administrativo, legislativo o judicial ni las traducciones oficiales de los mismos"). Run on 2026-11-03 (GEL-14-05). Both pass on the statute alone: the Superintendencia de Bancos aviso legal reserves all reproduction rights, and no terms page of the Gaceta was opened (see Blocked). Varun to confirm both. The statute was read on the Asamblea Nacional copy of Gaceta 27139-B (`s3-legispan.asamblea.gob.pa`, which answers plain curl and gave the same sha256 twice: 847581ec4b1db45531a73c553cbdcdf83bb5259f9b874e20f86be903781268ed).
+
+Text extraction for PDFs: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed to one, lines stripped, empty lines dropped, page headers and footers kept. Checked for mojibake before storing: Ley 45 had 0 characters outside Spanish letters and punctuation; the Acuerdo is clean. Instruments whose PDF returns no text, or a garbled OCR layer, are link only.
+
+Row `PA-SBP-ADOPTED`, Acuerdo No. 011-2022:
+
+```
+curl -sS -L -o Acuerdo_11-2022.pdf -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://www.superbancos.gob.pa/documentos/leyes_y_regulaciones/acuerdos/2022/Acuerdo_11-2022.pdf
+```
+
+Returned `200 176171 application/pdf`; sha256 7fc415fa28b8a16d685029ff9fcb337174b996f081c35d5528f53f6f8ef7cdbf, reproduced by a second fetch. Three pages with a clean text layer. Path pattern: `/documentos/leyes_y_regulaciones/acuerdos/<year>/Acuerdo_<n>-<year>.pdf` (the one tried).
+
+Row `PA-GACETA-ADOPTED`: curl is blocked. The Gaceta Oficial (`www.gacetaoficial.gob.pa`) sits behind an Imperva Incapsula filter.
+
+```
+curl -sS -L -o g.pdf -w '%{http_code} %{size_download} %{content_type}\n' -A 'Mozilla/5.0' https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf
+```
+
+Returned `200 212 text/html` (a stub that loads `/_Incapsula_Resource`; the home page and a `/pdfTemp/` path gave the same `200 212 text/html`). Headless Chromium (Playwright as pre-installed) passes it: open the home page, wait 8 to 10 s, then fetch the PDF with the browser context's request object (`fetch_gaceta.js`):
+
+```
+const {chromium}=require('playwright');const fs=require('fs');(async()=>{const b=await chromium.launch();const c=await b.newContext({userAgent:'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',locale:'es-PA'});const p=await c.newPage();await p.goto('https://www.gacetaoficial.gob.pa/',{timeout:60000}).catch(e=>null);await p.waitForTimeout(8000);const a=process.argv.slice(2);for(let i=0;i<a.length;i+=2){const r=await c.request.get(a[i],{timeout:180000});const bd=await r.body();fs.writeFileSync(a[i+1],bd);console.log(a[i+1],r.status(),bd.length,r.headers()['content-type']);await p.waitForTimeout(2000)}await b.close()})()
+```
+
+```
+node fetch_gaceta.js https://www.gacetaoficial.gob.pa/pdfTemp/25914/GacetaNo_25914_20071107.pdf g25914.pdf
+```
+
+Returned `200 203564 application/pdf` (Ley 45, Gaceta 25914, 50 pages, clean text layer); `fetched_sha256` 101bc10216289d1604260848a821cefa4e0dcfce1dc64ab5590066cb45966173 is the hash of the PDF as received. A second fetch could not be run: after about six browser requests the filter blocked the cloud address and every later request (home page included) returned "Ups!! algo parece estar mal" or "Error! Esta página no puede ser mostrada. El número del incidentes es: ...". A PDF is static, so the hash is expected to reproduce, but this was not tested. The same session fetched Gaceta 30480 (`200 7553470 application/pdf`, 54 pages), 29430-C (`200 31990664`, 171 pages) and 28131-A (`200 8860874`, 35 pages). Path patterns: `/pdfTemp/<issue>/GacetaNo_<issue>_<YYYYMMDD>.pdf` (2007 to 2021; the suffix letter is lower case in the file name: `/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf`) and `/storage/gacetas/<YYYY>/<MM>/<issue>/GacetaNo_<issue>_<YYYYMMDD>.pdf` (2026). The browser-fetched record, `pa-ley-45-2007`, stays subject to Varun's open decision on the browser recipe (GEL-03 retro C4).
+
+Legispan (Asamblea Nacional, `https://legispan.asamblea.gob.pa`) is an Angular app over a JSON API that answers plain curl: `curl -sS 'https://legispan.asamblea.gob.pa/api/search/norm?page=1&limit=10&q=<words>&sortKey=publishedAt&sortOrder=desc'` returned `200 application/json` with `data[].original` holding `type.type`, `number`, `year`, `authority`, `promulgation.number` and `publishedAt` (the Gaceta), `title`, `lawUrl` (a PDF under `s3-legispan.asamblea.gob.pa/legispan/NORMAS/...`) and `content` (the PDF's text layer). The search is fuzzy (`q` words are OR-ed; `number` and `year` as parameters return 422), so filter the results client-side. Legispan serves the same Gaceta PDFs (Gaceta 29430-C: byte-identical, 31990664 bytes) and its `content` for the 2020 and 2021 decrees is only the issue index, so it adds no text. No row was added for it.
+
+### Languages
+
+Spanish is the only official language of Panamanian legislation and the only language stored. No government English translation was found for any instrument: the Gaceta and Legispan publish Spanish only; the Superintendencia de Bancos pages opened publish Spanish only; MiAmbiente could not be opened (connection reset). No translation row.
+
+### Stored (fetched 2026-11-03)
+
+| Instrument | Row | Records |
+|---|---|---|
+| `pa-sbp-acuerdo-011-2022` | PA-SBP-ADOPTED | 2022-11-01 es |
+| `pa-ley-45-2007` | PA-GACETA-ADOPTED | 2007-11-07 es (law only, cut from the Gaceta issue) |
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `pa-jtc-res-012-2025` | https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf | Gaceta 30480 pp. 6-8 are scanned images (`pdftotext` returns headers and footers only; `pdfimages -list` shows full-page JPEGs). No OCR step. |
+| `pa-ley-41-1998` | https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf | Text layer is garbled OCR ("T itul o Prelimin J:lr", "Le)'" for "Ley"). |
+| `pa-de-100-2020` | https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf | Scanned images, pp. 11-42 of Gaceta 29138-C. |
+| `pa-de-142-2021` | https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf | Scanned images, pp. 2-10 of Gaceta 29430-C. |
+
+Not used: the Superintendencia del Mercado de Valores (`https://supervalores.gob.pa/`, 200 after a redirect from `www`) lists no acuerdo on sustainability disclosure on its acuerdos and proyectos pages as read from static HTML (the only sustainability item is a guide on thematic bonds under the national sustainable-finance taxonomy, https://supervalores.gob.pa/files/emisores/Guia-TFS-PAN-emisores.pdf, which is guidance, not law); Latinex (`https://www.latinexbolsa.com`, 200 after a redirect) is a company and no instrument of it is in scope, so no row. The 2026 MiAmbiente draft decree on the Sistema Nacional del Mercado de Carbono (which would repeal DE 142) is a draft until the Gaceta shows it; it has no entry.
+
+Blocked from the cloud address: https://www.gacetaoficial.gob.pa/ (Incapsula stub for curl; headless Chromium blocked after about six requests); https://miambiente.gob.pa/ and https://www.miambiente.gob.pa/ (curl: `Recv failure: Connection reset by peer`; Chromium: "upstream request failed"); https://www.asamblea.gob.pa/ (reset; its Legispan hosts work); https://www.jtc.gob.pa, https://www.acodeco.gob.pa, https://www.aig.gob.pa (reset); https://www.anati.gob.pa (520).
