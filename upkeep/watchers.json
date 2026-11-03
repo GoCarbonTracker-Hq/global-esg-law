@@ -10213,7 +10213,7 @@
   "instrument": "do-decreto-541-20",
   "kind": "page_hash",
   "tier": "consolidation_site",
-  "url": "https://consultoria.gov.do/api/document/3397369",
+  "url": "https://presidencia.gob.do//sites/default/files/decree/2021-12/EXP_00114313.pdf",
   "params": {
    "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
   }
