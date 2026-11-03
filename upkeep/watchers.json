@@ -11618,5 +11618,44 @@
   "tier": "regulator_page",
   "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
   "params": {}
+ },
+ {
+  "id": "bn-ghg-directive-2023-press-release",
+  "source_id": "BN-CCS-ADOPTED",
+  "iso2": "BN",
+  "instrument": "bn-ghg-directive-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://climatechange.gov.bn/Press%20Release/Press%20Release%20-%20Launching%20of%20the%20Directive%20on%20the%20Mandatory%20Reporting%20on%20Greenhouse%20Gas.pdf",
+  "params": {
+   "second_route": "https://climatechange.gov.bn/ (browser from a laptop; the https certificate has expired and plain http answers 403 to scripts on 2026-11-03; the Directive PDF is under Shared Documents)"
+  }
+ },
+ {
+  "id": "bn-epmo-2016-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-epmo-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20272"
+ },
+ {
+  "id": "bn-cpfto-2011-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-cpfto-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20247"
+ },
+ {
+  "id": "bn-eesl-order-2021-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-eesl-order-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20278"
  }
 ]

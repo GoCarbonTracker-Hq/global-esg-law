@@ -7147,3 +7147,64 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
+
+## Brunei
+
+GEL-16-08, run 2026-11-03. Four licence rows added: `BN-AGC-ADOPTED` and `BN-AGC-CONSOLIDATED` (Attorney General's Chambers, `permission requested`), `BN-CCS-ADOPTED` (Brunei Climate Change Secretariat, `permission requested`, terms not read) and `BN-BDCB-ADOPTED` (Brunei Darussalam Central Bank, `pass` on its terms of use, no record stored under it). No Brunei record is stored: every scope instrument is link only. No translation row was added: no government English translation exists, because the Laws of Brunei are published in English.
+
+### Row BN-AGC-ADOPTED and BN-AGC-CONSOLIDATED (fetch works, terms do not pass)
+
+The Laws of Brunei are on https://www.agc.gov.bn/services_brulaw-2/ (BruLaw: A to Z lists, New Legislation). Each instrument has a WordPress page `https://www.agc.gov.bn/documents/<slug>/` with links to PDFs (the Order as gazetted, the Revised Edition chapter, amendments, subsidiary legislation). The site search is the WordPress REST API, which needs no cookie and answers scripts:
+
+```
+curl -sS -A 'Mozilla/5.0' -o doc.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.agc.gov.bn/wp-json/wp/v2/agc_document?search=environment&per_page=20'
+```
+
+Returned `200 3319 application/json; charset=UTF-8` (hits: Environmental Protection and Management Act, Safety Health and Environment National Authority Act). The document record `https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20272` returned `200 1644 application/json; charset=UTF-8`, the same bytes on two fetches (it carries `modified`, so the watchers hash it; the human page carries a visitor counter and changes on every request).
+
+Row `BN-AGC-ADOPTED`, Consumer Protection (Fair Trading) Order, 2011 (S 64/2011):
+
+```
+curl -sS -A 'Mozilla/5.0' -o S-64-2011.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.agc.gov.bn/wp-content/uploads/2026/07/S-64-2011-CONSUMER-PROTECTION-FAIR-TRADING-ORDER.-2011.pdf'
+```
+
+Returned `200 934133 application/pdf`, sha256 `65a655832c2c4243dfe1f5c62a1d7f2ad70074e6a390acba741f6fbd238c567f`. Text: `pdftotext -layout S-64-2011.pdf -` gave 43219 characters of clean English text (no mojibake). Row `BN-AGC-CONSOLIDATED`, Cap. 261 Revised Edition 2023:
+
+```
+curl -sS -A 'Mozilla/5.0' -o CAP-261.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.agc.gov.bn/wp-content/uploads/2026/07/CAP-261-2023-ED-CONSUMER-PROTECTION-FAIR-TRADING-ACT.pdf'
+```
+
+Returned `200 183137 application/pdf`, sha256 `7535fa20c98b2f0aae3efd29abe2be32dce0a89a06778bec05e093c5a7392002`, `pdftotext -layout` 43974 characters. Both fetches use no browser; no browser recipe is needed and no record is browser-fetched. Some AGC PDFs are partly scanned: in S 63/2016 (Environmental Protection and Management Order, 2016, 29 pages) pdftotext returns nothing or noise for pages 2 and 4 (page 4 carries s. 1 to 3; I read it as a rendered image), so storing it would need OCR. `tesseract` and `ocrmypdf` are not installed in the session; no OCR was run, because nothing is stored. The Emergency (Copyright) Order, 1999 (S 14/2000, https://www.agc.gov.bn/wp-content/uploads/2026/08/S-14-2000-COPYRIGHT-ORDER-1999.pdf, `200 7377859 application/pdf`, pdftotext 401479 characters) s. 168(1) vests copyright in every Act and every Art. 83(3) Order in His Majesty the Sultan and Yang Di-Pertuan for 50 years and nothing excludes official texts; the only terms text on www.agc.gov.bn is https://www.agc.gov.bn/disclaimer/, which grants no reuse right.
+
+### Languages
+
+Malay (ms): none served. The AGC document pages, their REST records and the PDF lists carry English files only (names end `-E-` or are Cap. editions in English); a guessed Malay file name (`S-63-2016-M-ENVIRONMENTAL-PROTECTION-AND-MANAGEMENT-ORDER-2016.pdf`) answered `404 text/html`; the REST search for `alam sekitar` and `perlindungan` returned `[]`. English translation: no government translation exists or is needed, English is the language of the Laws of Brunei. No translation row was added.
+
+### Row BN-CCS-ADOPTED (blocked from the cloud address)
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code}\n' https://climatechange.gov.bn/
+```
+
+Answer: `curl: (60) SSL certificate problem: certificate has expired`. TLS verification was kept on (the earlier register note read the press release with `curl -k`; that was not repeated). `http://climatechange.gov.bn/` answered `403 1233` ("403 - Forbidden: Access is denied"), and a fetch agent got `503` for the home page and the press release. No browser recipe is possible without disabling certificate checks. Blocked from the cloud address: `https://climatechange.gov.bn/` and `https://climatechange.gov.bn/Press%20Release/Press%20Release%20-%20Launching%20of%20the%20Directive%20on%20the%20Mandatory%20Reporting%20on%20Greenhouse%20Gas.pdf`; the orchestrator should read the Directive PDF under Shared Documents, the Mandate and Authority pages and the site terms from the laptop.
+
+### Row BN-BDCB-ADOPTED (pass on terms, nothing stored)
+
+Terms: `curl -sL -A 'Mozilla/5.0' https://www.bdcb.gov.bn/terms-of-use` returned `200 142962` (last updated 1 October 2020). Sustainable Finance Roadmap PDF:
+
+```
+curl -g -sS -A 'Mozilla/5.0' -o SFR.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bdcb.gov.bn/docs/financial-sector-development/sustainable-finance/[External]%20Sustainable%20Finance%20Roadmap%20(SFR).pdf'
+```
+
+Returned `200 26532762 application/pdf`, sha256 `fd54232e2439a1c04423a469b5e11de83efd85c95115bca611a15c506100fa72`; `pdftotext -layout` reads clean English ("Brunei Darussalam Sustainable Finance Roadmap 2025 - 2030"). The Roadmap is guidance (family F7, register row only), so no record is stored. The regulations list `https://www.bdcb.gov.bn/regulatory/regulations?page=N` (N 1 to 36, 353 entries) was read for a binding sustainability notice; none exists.
+
+### Link only
+
+| Instrument | Reason |
+|---|---|
+| `bn-epmo-2016` | rows `BN-AGC-ADOPTED` and `BN-AGC-CONSOLIDATED` are permission requested |
+| `bn-cpfto-2011` | same |
+| `bn-eesl-order-2021` | same |
+| `bn-ghg-directive-2023` | row `BN-CCS-ADOPTED` is permission requested (site blocked, expired certificate) |
+
+- Browser recipe: none needed; no record is browser-fetched.
