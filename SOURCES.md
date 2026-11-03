@@ -7345,3 +7345,54 @@ Spanish is the only official language of Panamanian legislation and the only lan
 Not used: the Superintendencia del Mercado de Valores (`https://supervalores.gob.pa/`, 200 after a redirect from `www`) lists no acuerdo on sustainability disclosure on its acuerdos and proyectos pages as read from static HTML (the only sustainability item is a guide on thematic bonds under the national sustainable-finance taxonomy, https://supervalores.gob.pa/files/emisores/Guia-TFS-PAN-emisores.pdf, which is guidance, not law); Latinex (`https://www.latinexbolsa.com`, 200 after a redirect) is a company and no instrument of it is in scope, so no row. The 2026 MiAmbiente draft decree on the Sistema Nacional del Mercado de Carbono (which would repeal DE 142) is a draft until the Gaceta shows it; it has no entry.
 
 Blocked from the cloud address: https://www.gacetaoficial.gob.pa/ (Incapsula stub for curl; headless Chromium blocked after about six requests); https://miambiente.gob.pa/ and https://www.miambiente.gob.pa/ (curl: `Recv failure: Connection reset by peer`; Chromium: "upstream request failed"); https://www.asamblea.gob.pa/ (reset; its Legispan hosts work); https://www.jtc.gob.pa, https://www.acodeco.gob.pa, https://www.aig.gob.pa (reset); https://www.anati.gob.pa (520).
+
+## Haiti
+
+GEL-15-08, run 2026-11-03. Two rows pass, both on the statute: `HT-MDE-ADOPTED` (Ministère de l'Environnement, mde.gouv.ht) and `HT-BRH-ADOPTED` (Banque de la République d'Haïti, www.brh.ht). The statute is Art. 5 of the Décret du 12 octobre 2005 sur le droit d'auteur (Le Moniteur No. 23, 2006-03-09): "La protection prévue par le présent Décret ne s'étend pas: 1.- aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles". It was read in the scanned Moniteur issue that WIPO Lex serves (not a Haitian state host):
+
+The page `https://wipolex.wipo.int/en/legislation/details/5091` (`200`) links the PDF with a signed query string; fetching that link with `curl -sS -L -o ht008fr.pdf -w '%{http_code} %{size_download} %{content_type}\n' '<signed link>'` returned `200 1092790 application/pdf` (the bare URL `https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/ht/ht008fr.pdf` without the signed query string returns `200 37734 text/html`, an error page). `pdftotext -layout` gave the OCR layer of the scan; Article 5 was legible. The MdE site has no terms page (`/index.php/fr/mentions-legales` and `/conditions-d-utilisation` answer 404), only the footer "© 2018, Tous droits réservés". The BRH legal notice allows personal printing only and forbids copying the site; that is why `HT-BRH-ADOPTED` rests on the statute and is open to Varun's objection (same case as the Brazil CVM and BCB rows). No translation row was added.
+
+Le Moniteur itself is not served online by any state host that answered. `https://lemoniteur.ht`, `https://www.lemoniteur.ht`, `https://www.pressesnationalesdhaiti.ht` (the site the January 2021 Moniteur issue names) and `https://moniteur.gouv.ht` answered `curl: (56) CONNECT tunnel failed, response 502`. The Primature (`https://www.primature.gouv.ht/`, `200 160461 text/html; charset=UTF-8`) has a "Textes de loi" menu entry whose link is `#`. The Ministère de la Justice (`https://www.mjsp.gouv.ht/`, `200 85545`) lists organisation decrees and a PDF on the courts, no environmental or climate law. `https://mef.gouv.ht/cadre-reglementaire/lois` (`200`) lists law and decree PDFs without titles; none was opened. No browser recipe was needed.
+
+### Row `HT-MDE-ADOPTED`
+
+Décret organisant le Ministère de l'Environnement (signed 2020-08-05):
+
+```
+curl -sS -L -o mde-decret-2020.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf'
+```
+
+Returned `200 789273 application/pdf`, sha256 `4ae9be42fee361f44c3e8929b52803c94fe7b5a87cc407669fdf2b65b8a00c14`; a second fetch returned the same bytes and hash. The list page `https://mde.gouv.ht/index.php/fr/nos-publications/documents-officiels` links the file as `?download=24:loi-organique-ministere-environnement` (`/ht/` serves the same list, same files). The PDF has a text layer: `pdftotext -layout file.pdf -`, each line's runs of spaces collapsed to one, blank lines dropped; 91 articles, no replacement characters, only French letters and punctuation in the non-ASCII set. The list page is not hashed by the watcher because every response carries a fresh session token.
+
+The 2005 environment decree is not on the site (not in the list the site shows in /fr/ or /ht/); this decree cites it in its visas, which is the official page used for `ht-environment-decree-2005`.
+
+### Row `HT-BRH-ADOPTED`
+
+Circulaire BRH/IF/2026/131 of 2026-02-06:
+
+```
+curl -sS -L -o circ131.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf'
+```
+
+Returned `200 15948360 application/pdf`, sha256 `6e85899a32701275fb8771c154a4aaeb4965a3ee1fe212476690283c643fc510`; a second fetch returned the same hash. The list of circulars is `https://www.brh.ht/notes-de-presse/?act=circulaires` (`200`, the HTML differs on every request). `pdftotext -layout` returns 52 bytes (no text layer, 52 page images), so the text is OCR:
+
+```
+pdftoppm -r 200 -gray -png circ131.pdf pg
+tesseract pg-01.png pg-01 -l fra --psm 3    # one run per page, 52 pages (tesseract 5.3.4, language pack tesseract-ocr-fra installed with apt in the session)
+```
+
+The page texts are joined in page order, each line's runs of spaces collapsed, blank lines dropped; nothing corrected or reflowed. The record carries `extraction: "ocr"` and the `fetched_url` and `fetched_sha256` of the original PDF. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key (they read only the keys they name). OCR is not byte-reproducible across tesseract versions; the PDF hash is.
+
+### Languages
+
+Haiti's official languages are French and Haitian Creole; laws are published in French in Le Moniteur. Both stored records are French. A Creole text was looked for on mde.gouv.ht (the `/ht/nos-publications/documents-officiels` list holds the same French files, `200 51987 text/html; charset=utf-8`) and on www.brh.ht (no language switch; `/ht/` answers 404): none. No government English translation exists on either site; the MdE list holds one English document (a gender analysis for the adaptation plan), not a law. No translation row was added; no law-firm, NGO or news translation is stored.
+
+### Link only
+
+- `ht-environment-decree-2005` (Décret du 12 octobre 2005, F2): row `HT-MDE-ADOPTED` passes, but no state host serves the text (see above); the Le Moniteur hosts did not answer from the cloud address; the private copy at `redop.charesso.org` (`200 27549 text/html`) is not stored.
+
+### Not in scope
+
+- Climate framework act and carbon pricing: none found on an official page. The Politique Nationale de Lutte contre les Changements Climatiques 2019 (`?download=5:pncc`, `200 52855690 application/pdf`) and the NDC update (`?download=31:...`, `200 2649120 application/pdf`) are F7 rows in `register.csv`.
+- BRH circular on climate risk or sustainability: none in the circulars list (`?act=circulaires`). Haiti has no stock exchange.
+- General consumer protection act: none found; Circulaire 131 is the financial-sector instrument.
