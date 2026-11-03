@@ -10073,5 +10073,77 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "dz-cosob-reg-25-04-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-ADOPTED",
+  "iso2": "DZ",
+  "instrument": "dz-cosob-reg-25-04",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/JO-ARABE/2026/A2026012.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-03-10-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-03-10",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2003/F2003043.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-04-09-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-04-09",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2004/F2004052.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-04-02-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-04-02",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2004/F2004041.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-09-03-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-09-03",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2009/F2009015.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-lf-1992-art117-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-lf-1992-art117",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/1991/F1991065.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
  }
 ]

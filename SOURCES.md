@@ -6011,3 +6011,54 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Algeria
+
+Rows `DZ-JORADP-ADOPTED` (Arabic edition) and `DZ-JORADP-TRANSLATION` (French edition), both `pass` on the statute basis: Ordonnance n° 03-05 of 19 July 2003, Art. 11, removes copyright protection from "les lois et règlements, les décisions et les actes administratifs des organes de l'Etat ... et la traduction officielle de ces textes". joradp.dz has no terms or legal-notice page (the pages opened are listed in the row notes), so the statute is the only basis. The site is a frame set; the PDFs of each issue answer plain scripts, no `User-Agent` needed, no challenge. Run on 2026-11-03 for JO n° 12 of 2026-02-10, which holds the Finance Ministry arrêté approving COSOB Règlement n° 25-04 and the règlement.
+
+Row `DZ-JORADP-ADOPTED`, Arabic edition:
+
+```
+curl -sS -L -o A2026012.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.joradp.dz/FTP/JO-ARABE/2026/A2026012.pdf
+```
+
+Returned `200 446339 application/pdf`; sha256 `0e5f0de9ddfbf81b6632989d953928e838d6e41e093cad9c7fb7e35c05ce6665`, the same on a second fetch. The URL pattern is `FTP/JO-ARABE/<year>/A<year><3-digit issue number>.pdf`.
+
+Row `DZ-JORADP-TRANSLATION`, French edition ("Traduction française" on the cover), same issue:
+
+```
+curl -sS -L -o F2026012.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.joradp.dz/FTP/jo-francais/2026/F2026012.pdf
+```
+
+Returned `200 298473 application/pdf`; sha256 `8ecb5ab1bc7f2dc2b2b9ea7c895a5dac30da6e5c4b9165fc636dc2954cdcc8bf`, the same on a second fetch. Pattern `FTP/jo-francais/<year>/F<year><issue>.pdf`. The other French issues fetched the same way on 2026-11-03: JO 43 of 2003 (`200 127933`), JO 41 of 2004, JO 52 of 2004, JO 15 of 2009, JO 44 of 2003 (the statute, `200 140468`), JO 65 of 1991 (`200 4620638`). `HEAD` answers with `Last-Modified` and `Content-Length`, which the watchers use. The list of issues sits in a frame (`/SCRIPTS/Jo_Con.dll/Fr`) and was not used: issue numbers were taken from the contents page of each PDF.
+
+Dates: the issue date is the `in_force` of every record, because none of the texts has an entry-into-force clause (see each scope `evidence`). No consolidated text is served: joradp.dz holds the gazette as published, so each instrument has one record per language, the text as adopted, and later amending acts are not applied.
+
+French text extraction (no stdlib PDF reader; poppler `pdftotext`): the gazette pages have two columns, and `-layout` interleaves them line by line (seen on page 31 of JO 12), so each page is cut into its left and right column and read with the default reading order, left column first, with the running header cut off (`-y 52` for 2026, `-y 70` for 2003 to 2009; column boundary `-x 297`, `-W 297` and `-x 297 -W 298`; `-x 286` for JO 15 of 2009):
+
+```
+pdftotext -f 31 -l 31 -x 0 -y 52 -W 297 -H 790 F2026012.pdf -
+pdftotext -f 31 -l 31 -x 297 -y 52 -W 298 -H 790 F2026012.pdf -
+```
+
+An instrument is the run of lines from its heading to the `————★————` line before the next one. Runs of blank lines are collapsed; nothing else is changed (the PDF's own glitches such as `n°°` and `va1eurs` stay). Checks done: every French law runs through its articles in order without a gap (Art. 1 to 114, 67, 18, 95, and 54 for the règlement). Mojibake found and handled: JO 43 of 2003 (Art. 101) and JO 15 of 2009 (the fraud inspectors' oath) carry an Arabic oath in a legacy font that extracts as noise or scrambled; those lines are replaced in the record by one bracketed line saying so. Where a banner crosses the page (page 20 of JO 15, "DECRETS") the law's tail sits in the right column above the banner; the decree started below it was cut out by hand. This recipe differs from the `-layout` one of `## Brazil` for that reason.
+
+### Languages
+
+Arabic is the authentic language and the French edition is an official translation of the Secrétariat général du Gouvernement, so there are two rows (above). Arabic text extraction is possible only for the 2026 issue:
+
+- JO of 2003, 2004 and 2009, Arabic edition: legacy fonts (`pdftotext` returns `‡¼ 1424 ÂUŽ vË_«` and similar, or reversed letters in 2009). Not stored; `Next` item: an OCR or font-mapping step.
+- JO 12 of 2026, Arabic edition: Unicode presentation forms with kashida padding and the two-column layout, which `pdftotext` (with or without `-layout`) returns in scrambled order and with spaces inside words. Recipe used: `pdftotext -f <p> -l <p> -bbox A2026012.pdf -` gives one box per glyph with its position; lines are rebuilt per column (right column first on pages 32 to 38; page 31 below the banner `-y 390` only), glyphs ordered right to left, a space only where the glyph before does not join forward and the gap exceeds 0.3 pt, kashida (U+0640) and the vowel and shaddah marks (U+064B to U+0652) dropped because their placement is not recoverable, runs of digits put back left to right, Unicode NFKC to turn presentation forms into ordinary letters, parentheses swapped. The record is checked by article numbers (Art. 2 to 54 in order) and by reading Art. 44 and 45, but not word by word: some words keep a stray space where a mark was dropped (for example `الل جنة`). The Arabic record is therefore a reading copy of the gazette, not a diplomatic transcript.
+- English: no government English exists on joradp.dz (Arabic and French only); no English record for any instrument.
+
+`fetched_sha256` is the hash of the PDF as received and a second fetch reproduced it (static files, no per-request token).
+
+### Link only
+
+- `dz-lf-1992-art117` (Loi n° 91-25, Finance Law for 1992, JO n° 65 of 1991-12-18): rows pass, but the PDF is a scan with no text layer (`pdftotext` returns nothing for all 78 French and 99 Arabic pages) and there is no OCR here. Art. 117 was not read.
+- Not listed, nothing found: a climate framework act and an ETS or carbon price per tonne (no instrument of either kind in the JO issues opened, the COSOB and SGBV sites, or search results; the 2026 NDC is a submission to the UNFCCC, not an act).
+- Rows not created: COSOB (cosob.dz, 200, no terms or legal-notice link on the home page; the règlement is stored from the gazette), SGBV (sgbv.dz, 200, company site, nothing stored), Ministry of Environment (see Blocked).
+
+### Blocked from the cloud address
+
+- `https://www.me.gov.dz`, `https://me.gov.dz`, `https://www.mem.gov.dz`: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer. The current ministry host was not confirmed. No law text is taken from a ministry site.
