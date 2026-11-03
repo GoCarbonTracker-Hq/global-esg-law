@@ -7479,6 +7479,33 @@ Korean is the only official language. No government English translation was foun
 
 Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
 
+## Syria
+
+Run 2026-11-03 from the cloud address. One `pass` row: SY-MOLAE-ADOPTED (Ministry of Local Administration and Environment), verdict `pass` on the statute (Legislative Decree 62 of 2013, Art. 4(a)(3), no copyright in laws and official documents), not on site terms: molae.gov.sy has no terms page and its footer says all rights reserved 2025.
+
+### SY-MOLAE-ADOPTED
+
+```
+curl -sS -o l12.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://molae.gov.sy/wp-content/uploads/2025/11/قانون-12-بشأن-حماية-البيئة.pdf"
+200 227143 application/pdf
+```
+
+Instrument `sy-environment-protection-law-12-2012`. The URL is linked from https://molae.gov.sy/law (HTTP 200, 58628 bytes, text/html). A second fetch gave the same bytes: sha256 `09cb4340e41a96076e86f6e54b8015ceb34e740be1de06a34ff834b117b291fa`, which is `fetched_sha256` (hash of the PDF as received). The file name carries an upload month (`2025/11`), so the URL is found from the law page, not guessed.
+
+Text extraction: `pdftotext -layout l12.pdf -` returns text in which every lam-alef ligature has its letters in reverse order (`اآلتية` for `الآتية`, `ميالدي` for `ميلادي`), so it is not stored. OCR was used instead: `pdftoppm -r 300 -png l12.pdf pg` then `tesseract pg-NN.png pg-NN -l ara` for the 11 pages (tesseract 5.3.4, `ara` language pack, installed with apt in the session). Blank lines were dropped and runs of spaces collapsed; nothing else was changed. The record carries `"extraction": "ocr"`. The OCR reads letters well and Arabic-Indic digits badly (the issue date `29-3-2012` comes out as `7٠١1١7-5-759`), so the digits in the stored text are unreliable; the issue date in scope.json was read from the pdftotext output, whose digits are correct.
+
+### Languages
+
+Arabic only (`ar`), the language the Ministry serves. No row for English: molae.gov.sy has an English switch (https://molae.gov.sy/ with `pll_language`) but the law page serves only the Arabic PDF; no Syrian state host publishes a government English translation of the law.
+
+### Link only, no statute stored
+
+- `Law No. 50 of 2002` (register row only, repealed by Art. 24 of Law 12 of 2012): no state host serves the text.
+- `Legislative Decree No. 8 of 2021` (consumer protection, register row only): no state host serving it was reached (mintrade.gov.sy answers `CONNECT tunnel failed, response 502`).
+- Climate framework act, carbon market instrument, financial-market sustainability rule: none found. Searched: the law, regulation, circular and board-decision lists of dse.sy and scfms.sy, the legislation lists of cb.gov.sy (laws and decrees, decisions, circulars), the law and circular lists of molae.gov.sy, and the web. Keywords tried: استدامة، مناخ، بيئة، المسؤولية الاجتماعية. Only a list-page keyword scan was done for dse.sy, scfms.sy and cb.gov.sy, not a read of each linked PDF.
+- moj.gov.sy answers (WordPress news and circulars site; its only terms-like page is a privacy policy, no reuse terms); it serves no law texts that were found, so no row.
+- The People's Assembly, the Prime Ministry gazette and SANA were not reachable (see the Blocked list in the PR).
+
 ## Mongolia
 
 Run on 2026-11-03 (GEL-16-04). Three rows pass, all on the statute basis (Law on Copyright of 2021-05-06, art. 7.1.1 and 7.1.4): `MN-MECC-CONSOLIDATED`, `MN-MECC-ADOPTED`, `MN-PARLIAMENT-ADOPTED`. Four rows are `permission requested`: `MN-LEGALINFO-CONSOLIDATED` (page could not be opened), `MN-FRC-ADOPTED`, `MN-MSE-ADOPTED`, `MN-BOM-ADOPTED` (no terms found, or an all rights reserved footer). Language: Mongolian only; no government English text was found for any instrument. The statute was read in a PDF copy of the 2021 Law on Copyright on the Intellectual Property Office site (`https://www.ipom.gov.mn/source/legalinfo.mn%20-%20ЗОХИОГЧИЙН%20ЭРХИЙН%20ТУХАЙ%20_Шинэчилсэн%20найруулга_.pdf`, percent-encoded in the row, sha256 `abb296b907415be0a6d32962f72420ae27c0bfebd77577edcadd61f33a04413b`) because legalinfo.mn is blocked from the cloud address.
@@ -7497,7 +7524,7 @@ Row `MN-MECC-ADOPTED`, Order A/422 (Unified Carbon Registry Procedure), listed a
 curl -sS -L -o a422.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mecc.gov.mn/storage/media/395e3efd-0f6a-492b-86b3-dd0b85dd9700.pdf
 ```
 
-Returned `200 644378 application/pdf`, reproduced on a second fetch. The file is six scanned pages with no text layer (`pdftotext -layout` returned 6 bytes), so OCR was run: poppler `pdftoppm -r 300 -png`, then `tesseract <page>.png <page> -l mon` on each page (apt `tesseract-ocr`, `tesseract-ocr-mon`, installed in the session; `ocrmypdf` is also installed), pages concatenated, each line stripped and runs of spaces collapsed, three or more line breaks reduced to two. The record carries `extraction: "ocr"` and the original PDF's `fetched_url` and `fetched_sha256`. The OCR output was not corrected: the order number and date line and the stamp came out garbled. `python3 tools/check_corpus.py` accepts the extra key (2755 records checked on the merged branch); `python3 tools/publish_gate.py` result is in the PR report.
+Returned `200 644378 application/pdf`, reproduced on a second fetch. The file is six scanned pages with no text layer (`pdftotext -layout` returned 6 bytes), so OCR was run: poppler `pdftoppm -r 300 -png`, then `tesseract <page>.png <page> -l mon` on each page (apt `tesseract-ocr`, `tesseract-ocr-mon`, installed in the session; `ocrmypdf` is also installed), pages concatenated, each line stripped and runs of spaces collapsed, three or more line breaks reduced to two. The record carries `extraction: "ocr"` and the original PDF's `fetched_url` and `fetched_sha256`. The OCR output was not corrected: the order number and date line and the stamp came out garbled. `python3 tools/check_corpus.py` accepts the extra key (2756 records checked on the merged branch); `python3 tools/publish_gate.py` result is in the PR report.
 
 Row `MN-PARLIAMENT-ADOPTED`, Law on Climate Change, law page `https://old.parliament.mn/laws/17426/`:
 

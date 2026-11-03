@@ -12022,6 +12022,16 @@
   }
  },
  {
+  "id": "sy-environment-protection-law-12-2012-molae-law-page",
+  "source_id": "SY-MOLAE-ADOPTED",
+  "iso2": "SY",
+  "instrument": "sy-environment-protection-law-12-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://molae.gov.sy/law",
+  "params": {}
+ },
+ {
   "id": "mn-corporate-governance-code-legalinfo-page",
   "source_id": "MN-LEGALINFO-CONSOLIDATED",
   "iso2": "MN",
