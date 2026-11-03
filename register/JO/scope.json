@@ -1,0 +1,72 @@
+[
+  {
+    "id": "jo-jsc-esg-code",
+    "title": "Jordan Securities Commission ESG Code (Code of Practice for listed companies)",
+    "official_url": "https://www.jsc.gov.jo/Uploads/Files/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AD%D9%88%D9%83%D9%85%D8%A9/Jordan%20Securities%20Commission%20ESG%20Code.pdf",
+    "citation": "JSC ESG Code, launched 2026-09-09 (JSC news 12717)",
+    "in_force": null,
+    "evidence": "Code introduction: \"Starting in the 2027 financial year, ASE 20 companies are required to apply this Code on an 'apply and explain' principle\"; no calendar date is given. Opened the Code PDF (HTTP 200, 2658773 bytes) and https://www.jsc.gov.jo/News/en/12717 on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "JO-JSC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: JO-JSC-ADOPTED is permission requested (site terms allow personal, non-commercial copying, no derivative works). The PDF is marked 'Official Use Only' on its cover. Mandatory first for the ASE20 companies from financial year 2027, other listed companies at a date JSC has yet to announce. Code section 8 B is a climate disclosure framework. English only; no Arabic edition was found. The register row keeps its title and now points at the Code PDF instead of the news page.",
+    "status": "link only"
+  },
+  {
+    "id": "jo-ase-climate-disclosure",
+    "title": "Amman Stock Exchange Climate-related Disclosures Regulatory Framework and Guidance, with the Climate-Related Disclosures Report Rules (Directives for Listing Securities, Art. 9/A/5)",
+    "official_url": "https://www.exchange.jo/sites/default/files/2024-12/Regulatory%20Framework%20-%20V6%20%28002%29.pdf",
+    "citation": "ASE Climate-related Disclosures Regulatory Framework (December 2024); ASE Climate-Related Disclosures Report Rules (March 2026)",
+    "in_force": "2027-01-01",
+    "evidence": "Report Rules, Third (phases of compliance): \"Voluntary phase: ... climate-related disclosures reports published during 2026, effective from 1 January 2026. Mandatory phase: This phase applies to climate-related disclosure reports published from 1 January 2027 and thereafter.\" The Rules \"regulate the provisions of Article (9/A/5) of the Directives for Listing Securities, which require listed companies to provide the climate-related disclosures report to the ASE\" (https://www.exchange.jo/sites/default/files/2026-03/Climate%20Related%20Disclosures%20Report%20Rules%20eng.pdf, opened 2026-11-03).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "JO-ASE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: JO-ASE-ADOPTED is permission requested. Binding for the ASE20 companies from reports published on or after 2027-01-01 (the register row was 'binding unknown'; the Rules settle it). Date is the start of the mandatory phase; the voluntary phase started 2026-01-01 and the Framework PDF (December 2024) gives no commencement date. The Directives for Listing Securities themselves were not opened. Companion files on https://www.exchange.jo/en/Sustainability-and-Climate: Disclosure Guidance (2025-02), Disclosure Policy (2025-02). English PDFs from the exchange itself, not a translation.",
+    "status": "link only"
+  },
+  {
+    "id": "jo-epl-2017",
+    "title": "Environmental Protection Law No. 6 of 2017 (قانون حماية البيئة رقم 6 لسنة 2017)",
+    "official_url": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false",
+    "citation": "Law No. 6 of 2017, Official Gazette No. 5455, 2017-04-16, p. 2703",
+    "in_force": "2017-04-16",
+    "evidence": "Art. 1: \"يسمى هذا القانون (قانون حماية البيئة لسنة 2017) ويعمل به من تاريخ نشره في الجريدة الرسمية.\" (in force from publication in the Official Gazette); the Bureau page gives \"المنشور على الصفحة2703 من عدد الجريدة الرسمية رقم 5455 بتاريخ 04/16/2017\". Opened 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "JO-LOB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Parent law of the Climate Change Bylaw (jo-climate-change-bylaw-2019). The Bureau lists no amendments for it, so one record. No government English found: the Bureau's English view (?lang=en) shows the same Arabic text, and a search of moenv.gov.jo for an English text of the law found none (2026-11-03).",
+    "status": "stored"
+  },
+  {
+    "id": "jo-climate-change-bylaw-2019",
+    "title": "Climate Change Bylaw No. 79 of 2019 (نظام تغير المناخ رقم 79 لسنة 2019)",
+    "official_url": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=6243&LegislationType=3&isMod=false",
+    "citation": "Bylaw No. 79 of 2019 under the Environmental Protection Law, Official Gazette No. 5573, 2019-05-16, p. 2969",
+    "in_force": "2019-05-16",
+    "evidence": "Art. 1: \"يسمى هذا النظام (نظام تغير المناخ لسنة 2019) ويعمل به من تاريخ نشره في الجريدة الرسمية.\"; the Bureau page gives \"المنشور على الصفحة2969 من عدد الجريدة الرسمية رقم 5573 بتاريخ 05/16/2019\". Opened 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "JO-LOB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Mapped to F2, not F3. Art. 7(b) obliges the bodies in Annex 3 to submit annual reports of primary sectoral greenhouse gas data for the national inventory, and Art. 7(a) obliges the Annex 1 bodies to report on climate action; Art. 2 defines both as 'الجهات ذات العلاقة' (relevant authorities) and Art. 4 and 7 name ministries and municipalities. The annexes are not in the Bureau text, so no duty on private entities could be confirmed; Art. 7(e)-(f) only task the Ministry of Finance and the Central Bank with incentives and green-finance study. The Bureau lists no amendments. No government English found: the Bureau's English view (?lang=en) shows the same Arabic text, and a search of moenv.gov.jo for an English text of the law found none (2026-11-03).",
+    "status": "stored"
+  },
+  {
+    "id": "jo-consumer-protection-law-2017",
+    "title": "Consumer Protection Law No. 7 of 2017 (قانون حماية المستهلك رقم 7 لسنة 2017)",
+    "official_url": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3169&LegislationType=2&isMod=false",
+    "citation": "Law No. 7 of 2017, Official Gazette No. 5455, 2017-04-16, p. 2725",
+    "in_force": "2017-06-15",
+    "evidence": "Art. 1: \"ويعمل به بعد ستين يوماً من تاريخ نشره في الجريدة الرسمية.\" (in force sixty days after publication); the Bureau page gives \"المنشور على الصفحة2725 من عدد الجريدة الرسمية رقم 5455 بتاريخ 04/16/2017\". 2017-04-16 plus 60 days is 2017-06-15. Opened 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "JO-LOB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The date is computed from the gazette date and the sixty-day clause, not stated on any page; 'after sixty days' could also be read as 2017-06-16. Umbrella law for misleading commercial claims; it has no environmental-claims provision of its own that was confirmed. The Bureau lists no amendments. No government English found: the Bureau's English view (?lang=en) shows the same Arabic text, and a search of moenv.gov.jo for an English text of the law found none (2026-11-03).",
+    "status": "stored"
+  }
+]
