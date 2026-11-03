@@ -1,0 +1,30 @@
+[
+  {
+    "id": "bz-climate-change-carbon-market-act-2026",
+    "title": "Climate Change and Carbon Market Initiatives Act, 2026 (Act No. 13 of 2026)",
+    "official_url": "https://doc.belizeparliament.bz/api/uploads?p=%2Fuploads%2FAct_No_13_of_2026_Climate_Change_and_Carbon_Market_Initiatives_Act_2026_f0709b709a.pdf",
+    "citation": "Act No. 13 of 2026 (National Assembly of Belize; assented 2026-06-18, gazetted 2026-06-20)",
+    "in_force": null,
+    "evidence": "Section 42(1): \"This Act shall come into force on a date appointed by the Minister by Order published in the Gazette.\" Section 42(2) allows different dates for different provisions. Opened the Act PDF at the URL above on 2026-11-03 (HTTP 200, 690889 bytes). No commencement Order was found on doc.belizeparliament.bz (the Public Records list holds Acts only) or in a web search, so no official page states a first in-force date.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "BZ-NATIONALASSEMBLY-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Climate framework act: Belize National Climate Change Council (ss. 4-7), Climate Change Department (ss. 8-9), National Transparency Unit, MRV system and national greenhouse gas inventory (ss. 10-13), National Registry System (ss. 14-15), then the carbon-market provisions treated as F3 content: approval letters for carbon projects (ss. 19-20), authorisation permits and sale, trade or transfer of carbon credits (ss. 24-26), annual report by project proponents (s. 23), offences (ss. 26-34), regulations (s. 40), transitional (s. 41). The Act is dated by the existing register row to Act No. 13 of 2026 on the Public Records list (list date 2026-06-18, the assent date). The brief gave assent 2026-06-18 and gazette 2026-06-20; the Act PDF itself was not checked for the gazette date. No regulations under s. 40 and no Order under s. 42 were found on 2026-11-03; the Ministry's release PR170-26 of 2026-06-26 (https://www.pressoffice.gov.bz/wp-content/uploads/2026/06/Jun-26-PR170-26-Belize-Carbon-Market-Policy-Stakeholder-Consultation-2026.pdf) says a Carbon Market Policy comes first, with regulations, standards and systems to follow. The row BZ-NATIONALASSEMBLY-ADOPTED is permission requested (copyright notice, no reuse grant; Copyright Act Cap. 252 s. 25 vests Government works in the State), so no text is stored. English only is published; no Belize translation exists to look for.",
+    "status": "link only"
+  },
+  {
+    "id": "bz-environmental-protection-act",
+    "title": "Environmental Protection Act (Chapter 328, Revised Edition 2020)",
+    "official_url": "https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf",
+    "citation": "Environmental Protection Act, Chapter 328 of the Substantive Laws of Belize, Revised Edition 2020 (Act No. 22 of 1992, amended by Acts 2 of 1998, 10 of 2000, 5 of 2009, 18 of 2015)",
+    "in_force": "1992-01-06",
+    "evidence": "Chapter heading of the Revised Edition 2020 (page 7 of the PDF): \"22 of 1992. [6th January, 1992]\" followed by the amending Acts 2 of 1998, 10 of 2000, 5 of 2009 and 18 of 2015. Opened https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf on 2026-11-03 (HTTP 200, 453294 bytes, sha256 7ca23cffd50a90b302c07baae8af9cc2690fa0c5941dc930401f65e44d34cf81).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "BZ-AGM-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act (pollution prohibitions Part II, s. 11A pollution reporting, dumping Part III, environmental impact assessment and Department of the Environment powers). It has no greenhouse gas reporting duty; it is mapped to F2 as the brief asked. The only revised edition on a state host is the Revised Edition 2020 (laws as at 2020-12-31); the Act as passed in 1992 was not found on an official page. The Department of the Environment (https://doe.gov.bz/resource-center/legislation/) lists regulations under the Act (pollution, effluent limitations, hazardous waste, plastics, medical waste) but no climate or emissions reporting regulation; those are not in scope. The row BZ-AGM-CONSOLIDATED is permission requested (All Rights Reserved notice; Copyright Act Cap. 252 s. 25), so no text is stored. English only.",
+    "status": "link only"
+  }
+]
