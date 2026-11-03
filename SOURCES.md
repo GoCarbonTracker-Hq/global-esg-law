@@ -4390,3 +4390,57 @@ Bosnian (bs): the three Federation acts. Serbian (sr, Latin script): the Republi
 - https://www.komvp.gov.ba, https://www.secrs.gov.ba, https://www.sase.ba (200, 223 bytes), https://www.blberza.com (302 to /Pages/Default.aspx, 200): answered, but the home pages were not read for ESG disclosure rules and no terms were assessed. No licence row for them.
 - https://www.slglasnik.org/cyr/stranice/pretplata answered 404 (guessed path).
 - https://www.vijeceministara.gov.ba answered 307 with an empty body; not followed.
+
+## San Marino
+
+Run on 2026-11-03 (GEL-11-09). No row passes, so nothing is stored and there is no `records/SM/`. Rows added: `SM-CGG-ADOPTED`, `SM-CGG-CONSOLIDATED`, `SM-CGG-TRANSLATION` (Consiglio Grande e Generale, consigliograndeegenerale.sm), `SM-BU-ADOPTED` (Bollettino Ufficiale, bollettinoufficiale.sm) and `SM-BCSM-CONSOLIDATED` (Banca Centrale, bcsm.sm). All five are `permission requested` on the terms basis: the Consiglio and Bollettino footers carry a copyright line and no reuse licence, the BCSM legal notice says the site content is "protetti quali opera dell'ingegno", and the Bollettino says consulting the Parte Ufficiale is "libera e gratuita", which is access, not reuse. The statute route was read and not applied: Legge 25 gennaio 1991 n.8 Art.98 lett. f) makes the reproduction of acts of the State or of the Pubbliche Amministrazioni a free use, it does not remove copyright, and Art.32 (as replaced by Legge n.43/1998 art.2) keeps adaptation and translation as exclusive rights (quoted in the `statute_exception` of each row). Varun's decision is listed in the PR. gov.sm (Dipartimento Territorio e Ambiente) was not used as a source, so it has no row: the environmental law text is on the Consiglio site, and `https://www.gov.sm/pub1/GovSM/Note-legali.html` answered 404.
+
+No `pass` row, so there is no stored-text recipe. The requests below are the ones that worked for the link-only instruments, so a row that later passes can be fetched without a new search. Every request below answered from the cloud address with a plain `curl` (default or `Mozilla/5.0` user agent, no challenge, no 403); no browser recipe is needed and no site was blocked.
+
+Consiglio archive search (GET form; `P0_numero` and `P0_anno` find a document, `P0_title` searches titles). The result page lists `documento<id>.html` links:
+
+```
+curl -sS -L -G -o search.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti.html' --data-urlencode 'P0_numero=44' --data-urlencode 'P0_anno=2012' -d 'channel=17000022&hitsPerPage=5&instance=18&node=17001320&P0_path=/home/tomcat/indicizzazione/indexleggi&P0_paginazione=50&P0_pagina=1&P0_orderBy=index_lucene,data_ordered,numero&P0_order=asc,desc,desc&P0_operatorMustBe=yes'
+```
+
+Returned `200 25502 text/html;charset=ISO-8859-1`; it lists `documento17050172` (Decreto Delegato 27 aprile 2012 n.44, TESTI COORDINATI). Row `SM-CGG-CONSOLIDATED`, the document itself (a PDF whatever the `.html` suffix says):
+
+```
+curl -sS -L -o codice.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17050172.html
+```
+
+Returned `200 11342674 application/pdf`, sha256 `e34f60a63fba4d94853d29c6989776064a48c83d1baabfff7c4db6a215639768`; a second fetch gave the same hash. Row `SM-CGG-CONSOLIDATED`, Decreto Delegato 29 ottobre 2024 n.160 (`documento17148431`): `200 352287 application/pdf`, sha256 `5e2024bfda7ba0f622355c69a258db83c80ffcc929c7b42441da512c7363b517`. Row `SM-CGG-ADOPTED`, Legge 25 luglio 2025 n.101 (`documento17153669`): `200 194653 application/pdf`, sha256 `fc408122b7399030d77153312fc0728a2ad2094a4d12d4a4a38ea132980198df`. The subject pages of the coordinated texts are `/on-line/home/testi-coordinati/docCat.<n>.1.150.20.html` (environment: `docCat.17003115`, which shows "Testo Coordinato in materia di Codice Ambientale (aggiornato al 7 agosto 2017)"); `HEAD` on a document answers `Content-Length` only, no `Last-Modified`.
+
+Text extraction, for a row that later passes: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed. Checked on the day for the Code (first 3000 characters), Reg. 2024-05 and Law 101/2025: no U+FFFD in the output, so no legacy-font mojibake in these three; the other PDFs were not checked.
+
+### Languages
+
+Italian is the only official language. `SM-CGG-TRANSLATION`: the Consiglio publishes an index of English texts (`/on-line/home/legislative-texts-in-english.html`, sections I to X, the files at `/on-line/documento<id>.html`). Among the instruments in scope only Law 101/2025 is listed (Italian section VI); its English text:
+
+```
+curl -sS -L -o l101en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/documento17153924.html
+```
+
+Returned `200 201956 application/pdf`, sha256 `b0299ece5a70e8765a2a6b5ea757c8e9ab74c603f35ef576634a24479b37dad2`. Its header reads "July 2025 Official Bulletin of the Republic of San Marino - Official Part Doc. III.10". The English index does not list the Codice Ambientale or the consumer decree (sections III, VI and VII were read). For the BCSM regulations the English Regolamenti page (`https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations`, `200 200600`) translates titles and links the same Italian PDFs, so there is no English text and no row.
+
+BCSM texts (row `SM-BCSM-CONSOLIDATED`; the file names are listed on `https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti`, `200 200103 text/html`):
+
+```
+curl -sS -L -o r2405.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-05/Reg.2024-05_Agg.03.pdf'
+curl -sS -L -o r2402.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-02/Reg.2024-02_Agg.02_2.pdf'
+```
+
+Returned `200 2196869 application/pdf` (sha256 `f42be3b20f4a2242ec4223e2cd09b799813bbf986eecbfa1e35fb60cd9ac48ca`) and `200 886550 application/pdf` (sha256 `9c7d3948ee8458c015ca03b4889dc71f32a5b2e81b246b42fc232082727b5c2b`). Each regulation has several dated texts (2024-05: from 2025-01-01, 2025-01-28, 2025-09-25, 2026-01-29; 2024-02: from 2024-07-01, 2025-01-28, 2026-01-29) under separate file names.
+
+Bollettino Ufficiale: the pages answer (`https://www.bollettinoufficiale.sm/on-line/home/parte-ufficiale/ricerca.html?ricerca=yes` returned `200 10113 text/html;charset=ISO-8859-1`), but the search form, called as a GET with year, month and keyword (`...ricerca.html` with `showfeed=yes&ricerca=yes&risultati=yes&P0_anno=2025&annosup=2025&annoinf=2025&P0_keyword=EUDR`), returned `200 8888 text/html;charset=ISO-8859-1` with no result list. No request that lists or serves an act was found, so no fetch recipe for `SM-BU-ADOPTED`. The clock in the page header (`<div class="current-date">`) changes by the minute, so a hash of a Bollettino page needs it removed.
+
+### Link only
+
+All five scope instruments are link only; none has a record, none has `pass` rows.
+
+- `sm-codice-ambientale`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-dd-160-2024-consumo`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-l-101-2025-eudr`: `SM-CGG-ADOPTED` and `SM-CGG-TRANSLATION` are `permission requested`. Italian and English requests above work.
+- `sm-bcsm-reg-2024-05`, `sm-bcsm-reg-2024-02`: `SM-BCSM-CONSOLIDATED` is `permission requested`. Requests above work.
+- No carbon pricing instrument was found. Title searches in the Consiglio archive for emissioni and cambiamento climatico returned only postal, debt-issue and name-change acts, and carbon returned nothing; full-text searches for gas serra and quote di emissione returned hundreds of unrelated documents and were not read through. There is no F3 or F7 entry, because there is no instrument to describe.
+- Not in scope: energy-efficiency acts (Legge 7 maggio 2008 n.72, DD 24 maggio 2017 n.51 and the energy collection `docCat.17005070`), which the dispatch did not list and which fit none of F1 to F6 on a plain reading.
