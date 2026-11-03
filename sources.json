@@ -11070,5 +11070,27 @@
     "trailer_source_url": "http://www.kcna.kp",
     "trailer_licence": "Permission requested (state site could not be opened)",
     "notes": "Terms page could not be opened: curl http://www.kcna.kp answered 503, 114 bytes (48 bytes for /en), text/plain from the cloud proxy; headless Chromium got 503, 199 bytes. Checked 2026-11-03. Fingerprint is the sha256 of the 114-byte answer body plus a newline and the status, not a terms hash. No law text is known to be served here. Unknown is not pass."
+  },
+  {
+    "id": "SY-MOLAE-ADOPTED",
+    "jurisdiction": "SY",
+    "publisher": "Ministry of Local Administration and Environment (molae.gov.sy)",
+    "source_name": "Laws and legislation page of the Ministry of Local Administration and Environment, law PDFs",
+    "form": "adopted",
+    "fetch_url": "https://molae.gov.sy/wp-content/uploads/2025/11/{file}.pdf (linked from https://molae.gov.sy/law)",
+    "pinned_version": "PDF as served; law number and year per instrument",
+    "content_hash": "",
+    "terms_url": "https://www.wipo.int/wipolex/ar/text/583896",
+    "terms_quote": "لا تشمل الحماية مايلي: ... 3/القوانين واللوائح والاحكام القضائية واحكام هيئات التحكيم والاتفاقيات الدولية والقرارات الادارية وسائر الوثائق الرسمية والترجمات الرسمية لها.",
+    "terms_fingerprint": "ab80abddb4a5107ddf03ae995b96f1e80bb7ffa136a7fac0529d54ee88c4a835",
+    "verdict": "pass",
+    "statute_exception": "Syrian Law on the Protection of Copyright and Related Rights (Legislative Decree No. 62 of 2013), Art. 4(a)(3): \"لا تشمل الحماية مايلي: ... 3/القوانين واللوائح والاحكام القضائية واحكام هيئات التحكيم والاتفاقيات الدولية والقرارات الادارية وسائر الوثائق الرسمية والترجمات الرسمية لها\" (no protection for laws, regulations, court rulings, arbitral awards, international agreements, administrative decisions and other official documents and their official translations; para. b gives protection to a collection of them only where its selection or arrangement is original). Article read on 2026-11-03 in the WIPO Lex copy of the law, https://www.wipo.int/wipolex/ar/text/583896 (WIPO Lex is not a Syrian state host; no Syrian state host serving Law 62 of 2013 was found).",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Syrian law as published on molae.gov.sy (law number and year set per instrument)",
+    "trailer_source_url": "https://molae.gov.sy/law",
+    "trailer_licence": "Not copyright-protected (SY Legislative Decree 62/2013 Art. 4(a)(3)); site footer claims \"all rights reserved 2025\"",
+    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://www.wipo.int/wipolex/ar/text/583896' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256. molae.gov.sy has no terms page (/page-about.html answers 404) and its footer reads \"© وزارة الإدارة المحلية والبيئة | الجمهورية العربية السورية جميع الحقوق محفوظة 2025\" (all rights reserved), so the verdict rests on the statute alone; the stored text is the law itself, which the statute removes from protection, and the site claim is recorded here. The PDFs are Word documents posted in October 2025, not the Official Gazette; the Gazette host did not answer (see SOURCES.md ## Syria). No Syrian state host publishes an official English translation, so there is no translation row."
   }
 ]

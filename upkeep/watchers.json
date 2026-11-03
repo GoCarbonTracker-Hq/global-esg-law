@@ -12020,5 +12020,15 @@
   "params": {
    "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
   }
+ },
+ {
+  "id": "sy-environment-protection-law-12-2012-molae-law-page",
+  "source_id": "SY-MOLAE-ADOPTED",
+  "iso2": "SY",
+  "instrument": "sy-environment-protection-law-12-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://molae.gov.sy/law",
+  "params": {}
  }
 ]
