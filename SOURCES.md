@@ -4390,3 +4390,73 @@ Bosnian (bs): the three Federation acts. Serbian (sr, Latin script): the Republi
 - https://www.komvp.gov.ba, https://www.secrs.gov.ba, https://www.sase.ba (200, 223 bytes), https://www.blberza.com (302 to /Pages/Default.aspx, 200): answered, but the home pages were not read for ESG disclosure rules and no terms were assessed. No licence row for them.
 - https://www.slglasnik.org/cyr/stranice/pretplata answered 404 (guessed path).
 - https://www.vijeceministara.gov.ba answered 307 with an empty body; not followed.
+
+## Kuwait
+
+Run on 2026-11-03 (GEL-10-02). Two rows pass, both on the statute and not on the publishers' terms: `KW-CMA-ADOPTED` (Capital Markets Authority) and `KW-EPA-CONSOLIDATED` (Environment Public Authority). The statute is Law No. 75 of 2019 on Copyright and Related Rights, Art. 4 item 2: official texts of a legislative, administrative or judicial character, and also their translations, are not protected (quoted in the row; read from the rendered page of Kuwait Al-Yawm issue 1455, because the text layer of that PDF is garbled). The CMA publishing policy says the CMA owns the copyright of its site and allows personal-use copying only, so the CMA pass runs against the site terms; Varun to confirm. Only `KW-CMA-ADOPTED` backs a record: one Arabic record, `records/KW/kw-cma-circular-4-2025/2025-02-12-adopted-ar.json`. The other five rows (`KW-CMA-TRANSLATION`, `KW-EPA-TRANSLATION`, `KW-KUWAITALYAWM-ADOPTED`, `KW-FATWA-CONSOLIDATED`, `KW-BOURSA-ADOPTED`) are `permission requested`.
+
+Row `KW-CMA-ADOPTED`, Circular No. (04) of 2025 (the number after `detail/` is read from the listing at `https://www.cma.gov.kw/ar/web/cma/cma-board-releases/resolutions-and-regulations`):
+
+```
+curl -sS -L -o cma_circular4.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cma.gov.kw/ar/web/cma/cma-board-releases/resolutions-and-regulations/-/cmaboardreleases/detail/1627102'
+```
+
+Returned `200 170126 text/html;charset=UTF-8` (170125 bytes on the other requests of the day). The attached official scan:
+
+```
+curl -sS -L -o cma_circular4.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cma.gov.kw/documents/55799/1627092/%D8%AA%D8%B9%D9%85%D9%8A%D9%85%20%D8%B1%D9%82%D9%85%20(04)%20%D9%84%D8%B3%D9%86%D8%A9%202025.pdf/0ca59dc0-b168-451a-4744-7b2d911e4ccf'
+```
+
+Returned `200 265411 application/pdf`; it is a one-page image (`pdftotext -layout` returns one byte), so the stored text is the page text. The page says its text is for reference and that the scan prevails; the page text was compared line by line with the scan on 2026-11-03 and is equal. Extraction: strip `script`, `style` and comments, turn tags into line breaks, unescape entities, collapse runs of spaces, drop blank lines, and keep the lines from the title (`تعميم رقم (04) لسنة 2025 ...`) to `صدر بتاريخ: 12/02/2025`, without the "تاريخ النشر" label and date line. `fetched_sha256` is the hash of the HTML as received. A second fetch does not reproduce it: two fetches of equal length gave different hashes, and the diff is a Liferay `authToken`, the serving node's IP (`10.16.1.127` or `.128`) and an element id. The CMA site answers plain `curl` without a challenge, so no browser recipe is used and no Kuwait record is browser-fetched.
+
+Row `KW-EPA-CONSOLIDATED` (pass, nothing stored). The EPA publishes the Environment Protection Law and its executive regulations as PDFs linked from `https://epa.gov.kw/EPALaw` (200, 27004 bytes, text/html; charset=utf-8) and `https://epa.gov.kw/ExecutiveLists` (200, 35581):
+
+```
+curl -sS -L -o EPALaw2015.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.kw/Portals/0/PDF/EPALaw2015.pdf
+```
+
+Returned `200 16611109 application/pdf` (164 pages, Law 42 of 2014 with Law 99 of 2015, sha256 `2067eb31d8f9cb2a6adccee6cff42a8dff275be8bf9c7825193bbbc4ede81142`). It is an image-only booklet: `pdftotext -layout` returns the page headers only (718 lines, 30 kB for 164 pages). `https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf` (`200 6823933 application/pdf`, 30 pages) and `https://epa.gov.kw/Portals/0/PDF/4-2020.pdf` return legacy-encoded Arabic from `pdftotext` (presentation-form glyph codes with wrong letters, mojibake); `https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf` (`200 3723073 application/pdf`, 6 pages) is a gazette scan whose text layer is Latin-letter garbage. `Doc1111111.pdf` (the judicial officers decision, not in scope) is also mojibake. Tesseract with the Arabic model (`apt-get install tesseract-ocr tesseract-ocr-ara`, `OMP_THREAD_LIMIT=1`) was used only to find the page of the commencement article; OCR text is noisy and is not stored. Dates and quoted articles in `register/KW/scope.json` were read from rendered page images (`pdftoppm -r 75 ... -png`).
+
+### Languages
+
+Arabic is the authentic language of Kuwaiti legislation and the only language the gazette and the CMA circular page serve as the official text, so no second official language exists to store. English was looked for once per publisher.
+
+Row `KW-CMA-TRANSLATION`, English page of the same circular (not stored, `permission requested`):
+
+```
+curl -sS -L -o cma_circular4_en.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cma.gov.kw/en/web/cma/cma-board-releases/resolutions-and-regulations/-/cmaboardreleases/detail/1627102'
+```
+
+Returned `200 164259 text/html;charset=UTF-8`. The page is headed "CMA LAW", gives the English title and body, and carries a disclaimer: the page is for reference purposes only and the official scanned document prevails. There is no English scan. Art. 4 item 2 names translations but no issuing body, so the exception is not applied. Terms page: `curl -sS -L -o pp_en.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.cma.gov.kw/en/web/cma/publishing-policy` returned `200 130228 text/html;charset=UTF-8`.
+
+Row `KW-EPA-TRANSLATION`, English Environment Protection Law (not stored, `permission requested`):
+
+```
+curl -sS -L -o EPALAWEN.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf
+```
+
+Returned `200 881528 application/pdf` (62 pages, text layer with run-together words, Law 42 of 2014 as amended by Law 99 of 2015). Every page footer says the Arabic text is the only text binding. No issuer or translator is named. The Arabic it translates is image-only and not stored, so no English record exists either way. No English version of the executive regulations is offered on `https://epa.gov.kw/en-US/EPALaw`.
+
+### Gazette and legislation database
+
+`KW-KUWAITALYAWM-ADOPTED`: `https://kuwaitalyawm.media.gov.kw/` sends no intermediate certificate (leaf `*.media.gov.kw` signed by GoDaddy Secure Certificate Authority G2), so `curl` fails with `SSL certificate problem: unable to get local issuer certificate`. Verification stayed on: the intermediate was fetched from `https://certs.godaddy.com/repository/gdig2.crt` (200, 1236 bytes, DER), converted with `openssl x509 -inform DER`, appended to a private copy of `/root/.ccr/ca-bundle.crt`, and used with `--cacert`. Then the home page returned `200 44087 text/html; charset=utf-8` and `/online/editions` `200 42332`. The home page lists the latest issues (1815 of 2026-11-01), but opening an issue (`/Flip/Index/5606?no=1`) answers `302` to `/online/RequestConfirmation`, the editions table is filled by script after a search, and the search form needs a login. No issue text could be fetched. A gazette PDF of 2019 served by WIPO Lex (issue 1455, `https://wipolex-res.wipo.int/edocs/lexdocs/laws/ar/kw/kw016ar.pdf`) has a garbled text layer, so gazette PDFs would also need a mojibake check.
+
+Blocked from the cloud address:
+
+- `https://www.fatwa.gov.kw/`, `https://fatwa.gov.kw/`: `curl: (35) Recv failure: Connection reset by peer`; the proxy status logged `tunnel closed (code 1006) after 11s`. `http://www.fatwa.gov.kw/` answered `503`, 114 bytes, `upstream connect error or disconnect/reset before headers ... connection timeout`.
+- `https://legislation.gov.kw/`, `https://www.legislation.gov.kw`, `https://www.gov.kw`, `https://www.kuwaitalyawm.media.gov.kw` (with www), `https://www.q8-law.com`: gateway answered `502` to CONNECT.
+- `https://www.mof.gov.kw`, `https://www.epa.gov.kw` (with www): tunnel closed after 10s and 3s.
+- `https://www.boursakuwait.com.kw/`, `/en`, `/en/sustainability`, `/en/resources/e-publications/esg-reporting-guide` and `/api/documents/boursa/1773566123759.pdf`: `403`, 381 to 450 bytes, "Access Denied" (edgesuite.net reference), to `curl -A 'Mozilla/5.0'`. No browser route was tried; the orchestrator can read them from the laptop.
+- `https://e.gov.kw`, `https://www.e.gov.kw`: `403`, 179 bytes.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Environmental Protection Law 42 of 2014 as amended by Law 99 of 2015 (`kw-epl-42-2014`) | https://epa.gov.kw/EPALaw | Row `KW-EPA-CONSOLIDATED` passes, but the only EPA Arabic file is an image-only PDF. The gazette needs registration, Fatwa did not answer, the KDIPA copy is a mohamoon-kw.com reprint with a broken text layer. |
+| EPA Decision 8 of 2017, outdoor air protection regulation (`kw-epa-outdoor-air-8-2017`) | https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf | Row passes; the PDF text layer is legacy-encoded (mojibake). |
+| EPA Decision 5 of 2020, gas flaring regulation (`kw-epa-gas-flaring-5-2020`) | https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf | Row passes; the PDF is a scan with a garbage text layer. |
+
+Not in scope: Boursa Kuwait ESG Reporting Guide (voluntary guidance of an exchange company, row `KW-BOURSA-ADOPTED` permission requested, register row only); Law No. 39 of 2014 on Consumer Protection (F6 candidate: no official page opened, since Fatwa and the gazette were not reachable and the Ministry of Commerce site, https://www.moci.gov.kw/ar/law/, lists no copy; no register row); a carbon pricing instrument (none found: the CMA, EPA and Ministry of Commerce pages opened list none, and a web search on 2026-11-03 found a voluntary market and a Low Carbon Strategy 2050 but no carbon tax or trading law; no register row because there is no instrument to name). Other EPA executive regulations (EIA, chemicals, hazardous waste, indoor air, biodiversity, workers' safety) are listed on `https://epa.gov.kw/ExecutiveLists` but were not scoped as F1 to F6 climate or emissions instruments.
+
+Stored by GEL-10-02: `kw-cma-circular-4-2025` (adopted 2025-02-12, ar).

@@ -7752,5 +7752,45 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://www.sluzbenilist.ba/search/searchresult?naziv=Zakon+o+za%C5%A1titi+potro%C5%A1a%C4%8Da"
+ },
+ {
+  "id": "kw-cma-circular-4-2025-pdf-head",
+  "source_id": "KW-CMA-ADOPTED",
+  "iso2": "KW",
+  "instrument": "kw-cma-circular-4-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cma.gov.kw/documents/55799/1627092/%D8%AA%D8%B9%D9%85%D9%8A%D9%85%20%D8%B1%D9%82%D9%85%20(04)%20%D9%84%D8%B3%D9%86%D8%A9%202025.pdf/0ca59dc0-b168-451a-4744-7b2d911e4ccf",
+  "params": {}
+ },
+ {
+  "id": "kw-epl-42-2014-epa-law-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epl-42-2014",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/EPALaw2015.pdf",
+  "params": {}
+ },
+ {
+  "id": "kw-epa-outdoor-air-8-2017-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epa-outdoor-air-8-2017",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/qarar8-2017.pdf",
+  "params": {}
+ },
+ {
+  "id": "kw-epa-gas-flaring-5-2020-pdf-head",
+  "source_id": "KW-EPA-CONSOLIDATED",
+  "iso2": "KW",
+  "instrument": "kw-epa-gas-flaring-5-2020",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf",
+  "params": {}
  }
 ]
