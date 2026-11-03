@@ -7659,5 +7659,55 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "sm-codice-ambientale-testi-coordinati-page",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-codice-ambientale",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/testi-coordinati/docCat.17003115.1.150.20.html",
+  "params": {}
+ },
+ {
+  "id": "sm-dd-160-2024-consumo-document",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-dd-160-2024-consumo",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17148431.html",
+  "params": {}
+ },
+ {
+  "id": "sm-l-101-2025-eudr-document",
+  "source_id": "SM-CGG-ADOPTED",
+  "iso2": "SM",
+  "instrument": "sm-l-101-2025-eudr",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17153669.html",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-05-regolamenti-page",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-05",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-02-regulations-page-en",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-02",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations",
+  "params": {}
  }
 ]
