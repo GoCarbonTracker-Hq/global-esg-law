@@ -11948,5 +11948,53 @@
   "tier": "regulator_page",
   "url": "https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf",
   "params": {}
+ },
+ {
+  "id": "tn-loi-2018-35-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2018-35",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1988-91-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1988-91",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1992-117-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1992-117",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-2015-36-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2015-36",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
  }
 ]
