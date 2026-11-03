@@ -6233,3 +6233,46 @@ No scope instrument is link only. Not stored and not in scope (register rows, fa
 - `https://www.mines.gouv.ml`: `403 5226 text/html`.
 - `https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/115722/MLI-115722.pdf`: `403 4543 text/html`.
 - `https://www.environnement.gouv.ml`: `curl: (60) SSL certificate problem: certificate has expired`, then `curl: (35) Recv failure: Connection reset by peer`; `https://environnement.gouv.ml`: `curl: (60) SSL certificate problem: certificate has expired`. TLS verification was not disabled.
+
+## Guinea
+
+Run on 2026-11-03 (GEL-12-09). Two rows pass, both on the statute alone: `GN-SGG-JO-ADOPTED` (Journal officiel de la République de Guinée, electronic edition) and `GN-MEDD-ADOPTED` (the Ministry of Environment's copies of promulgated laws). The statute is Loi L/2019/0028/AN art. 10: "La protection du droit d'auteur ne s'étend pas : - aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles ;", read on the WIPO Lex copy of the law (https://www.wipo.int/wipolex/en/legislation/details/22355, sha256 of the PDF `deb4173dba1fc5525478a4f207aed6af7cffefd057c5e7442b18b3ec86faa71a`), not on a Guinean page: the SGG instrument index lists the law as published in JO 2019-12-27-sp, but the 8-page PDF served at that address does not contain it. The site terms do not grant reuse (`https://journal-officiel.sgg.gov.gn/fr/mentions-legales.html`: reproduction "sans autorisation préalable et expresse du Secrétariat Général du Gouvernement est interdite"; a pop-up says "Tout téléchargement à but commercial est interdit et puni par la loi") and the JO site says only the paper edition of the ordinary issue is authoritative, so the pass depends on the statute and is flagged for Varun in the PR. `GN-BCRG-ADOPTED` is permission requested and serves no instrument: the BCRG site holds no climate or sustainability instruction (wp-json search for climat, durable, ESG, risques climatiques, environnemental returned none) and Guinea has no stock exchange. No translation row exists. The index of instruments by title (and the gazette issue that publishes each) is `https://journal-officiel.sgg.gov.gn/fr/textes-officiels/recherche.html?field_titre=<word>&action=Rechercher`; each hit carries a link to the issue PDF, or to a scan of the single instrument under `/textes-officiels/`.
+
+Row `GN-SGG-JO-ADOPTED`, Loi L/2024/002/CNT portant réglementation de la publicité (published in JO 2024-04). A bare curl is refused, a browser User-Agent is enough, so no browser recipe is used:
+
+```
+curl -sS -o jo-2024-04.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://journal-officiel.sgg.gov.gn/JO/2024/guinee-jo-2024-04.pdf'
+curl -sS -A 'Mozilla/5.0' -o jo-2024-04.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://journal-officiel.sgg.gov.gn/JO/2024/guinee-jo-2024-04.pdf'
+```
+
+The first returned `403 14304 text/html; charset=UTF-8` (an HTML refusal page), the second `200 4427408 application/pdf`. `fetched_sha256` is the hash of the PDF as received (`834a191e6aef44c8dcca856832cd608ab08e1d5a8c66caa3de4c334238a39d39`); a second fetch gave the same bytes. The same request pattern gave `200 6040508 application/pdf` for `JO/2023/guinee-jo-2023-05.pdf` (sha256 `c34774baa9ab23e6df1398f7090665d7c52c674f766d36f00e0e74b6bfaf7328`) and `200 8769439 application/pdf` for `JO/2022/guinee-jo-2022-07.pdf` (sha256 `b7d3ac85d712fc0549aedb97c844acb266b9b53688fa44ad1085b690bc7e5ca1`), each reproduced by a second fetch.
+
+Text: the gazette issues are born-digital two-column A4 PDFs (InDesign for 2023-05 and 2024-04) with the header and page number in the top 33 points, so the text is read one column at a time with poppler, `pdftotext -f <p> -l <p> -layout -x 30 -y 33 -W 260 -H 800 issue.pdf -` for the left column and `-x 305 -W 270` for the right (JO 2022-07 is laid out slightly differently: `-x 20 -W 250` and `-x 312 -W 265` with `-y 42`), pages in order, left column then right. Runs of spaces are collapsed to one, blank lines and form feeds dropped, and the instrument is cut from its heading to its signature line: `gn-loi-2024-002-publicite` pages 4 to 14 whole and page 15 left column only (`-y 33 -H 547`, which stops above the next law on the page); `gn-arrete-2023-1595-evaluations-environnementales` pages 58 to 80, from the line "MINISTERE DE L'ENVIRONNEMENT" to the signature after "Conakry, le 05 Mai 2023"; `gn-arrete-2022-1646-evaluations-environnementales` pages 99 to 112, from the two heading lines before "ARRETE A/2022/1646" to the signature after "Conakry, le 25 Juillet 2022". Line breaks and word-end hyphens are as printed. Checks: articles 1 to 92 present in order in the publicity law, 1 to 72 in the 2023 order (printed with two articles 51 and no 52), 1 to 71 in the 2022 order (printed "Article18"); the only non-ASCII characters are French accents, guillemets, the degree sign, the œ ligature and in single texts a bullet, a minus sign or a typographic apostrophe, so no mojibake. The `fetched_url` of every record is the whole issue PDF, so `fetched_sha256` covers pages that are not in `text`.
+
+Row `GN-MEDD-ADOPTED`, Loi L/2019/0034/AN portant Code de l'environnement:
+
+```
+curl -sS -A 'Mozilla/5.0' -o code-env.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://medd.gov.gn/file/2022/12/Code-de-lEnvironnement-du-04-juillet-2019-1.pdf'
+```
+
+Returned `200 16843143 application/pdf` (sha256 `4cb8255e5a30c4afe311e88b0b96e47b36e13730d6034d762017ec265bdd5f11`). The file is 45 pages of images (HP Scan); `pdftotext -layout` returns only the 45 page-break characters. The pages were read as images for the commencement clause (Art. 212) and the promulgation decree (page 1, D/2019/221/PRG/SGG, stamp "26 JUIL 2019"). No text is stored.
+
+### Languages
+
+French is the only language of Guinean legislation and the only language any of the four sites serves (`www.sgg.gov.gn`, `journal-officiel.sgg.gov.gn`, `medd.gov.gn`, `www.bcrg-guinee.org`); the language menu on www.sgg.gov.gn has no English text behind it. No official English translation was found, so no translation row exists and every record is `fr`. The 2022 order was stored with a repeal record dated 2023-05-05 because the SGG instrument index lists it as "Abrogé par" the 2023 order.
+
+### Link-only instruments
+
+| Instrument | Why link only |
+|---|---|
+| gn-code-environnement-2019 (F2) | Row passes. The MEDD PDF is an image scan (above); the gazette copy was not found (JO 2019-12-27-sp does not hold it, JO 2019-07 is a scan). No OCR tool is installed in the cloud image (`apt-get install tesseract-ocr` found no package) and OCR output would not be the file's own text. |
+| gn-arrete-2023-3256-comite-national-changements-climatiques (F2) | Row passes. `JO/2023/guinee-jo-2023-07-sp.pdf` (200, 15803332 bytes, 28 pages): pages 4 to 23, which hold the order, have no text layer (72 bytes of text per page). Commencement not read, `in_force` null. |
+| gn-loi-94-003-protection-consommateurs (F6) | Row passes. `curl -sS -A 'Mozilla/5.0' -o loi.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://journal-officiel.sgg.gov.gn/textes-officiels/lois/1994/Guinee-Loi-1994-03.pdf` returned `200 2004653 application/pdf`, a 5-page scan with holes, 5 bytes of text. Read as images for Art. 20 and the date. |
+
+Not entered: Loi L/2011/006/CNT (Code minier) with Loi L/2013/053/CNT, and Loi L/2017/060/AN (Code forestier), both in special issues with a text layer (JO 2011-09-sp, JO 2013-02-sp, JO 2017-12-1-sp). The Code minier issue was checked: it is laid out in several columns on A3 sheets and the default `pdftotext` reading order interleaves them; no column recipe was built for it, and neither law was clearly within families F1 to F6 as the brief sets them. The Loi L/94/040/CTRN on competition and price freedom (scan) and the Loi L/2022/010/CNT on local content (scan) are in the instrument index and not in scope. Décret D/2014/014 on environmental and social impact studies for mining (scan, 48 pages) was not read.
+
+### Blocked
+
+- `https://assemblee-nationale.gov.gn`: `curl: (56) CONNECT tunnel failed, response 502` on 2026-11-03 (not needed: the gazette serves the laws).
+- `https://journal-officiel.sgg.gov.gn/JO/...` with curl's default User-Agent: HTTP 403 text/html, 14304 bytes; answered with `-A 'Mozilla/5.0'`.
+- No URL needed a browser; no record is browser-fetched.

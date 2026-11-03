@@ -10406,5 +10406,65 @@
   "tier": "consolidation_site",
   "url": "https://sgg-mali.ml/JO/2015/mali-jo-2015-35.pdf",
   "params": {}
+ },
+ {
+  "id": "gn-code-environnement-2019-medd-pdf",
+  "source_id": "GN-MEDD-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-code-environnement-2019",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://medd.gov.gn/file/2022/12/Code-de-lEnvironnement-du-04-juillet-2019-1.pdf",
+  "params": {}
+ },
+ {
+  "id": "gn-arrete-2022-1646-evaluations-environnementales-jo-pdf",
+  "source_id": "GN-SGG-JO-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-arrete-2022-1646-evaluations-environnementales",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.sgg.gov.gn/JO/2022/guinee-jo-2022-07.pdf",
+  "params": {}
+ },
+ {
+  "id": "gn-arrete-2023-1595-evaluations-environnementales-jo-pdf",
+  "source_id": "GN-SGG-JO-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-arrete-2023-1595-evaluations-environnementales",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-05.pdf",
+  "params": {}
+ },
+ {
+  "id": "gn-arrete-2023-3256-comite-national-changements-climatiques-jo-pdf",
+  "source_id": "GN-SGG-JO-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-arrete-2023-3256-comite-national-changements-climatiques",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-07-sp.pdf",
+  "params": {}
+ },
+ {
+  "id": "gn-loi-2024-002-publicite-jo-pdf",
+  "source_id": "GN-SGG-JO-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-loi-2024-002-publicite",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.sgg.gov.gn/JO/2024/guinee-jo-2024-04.pdf",
+  "params": {}
+ },
+ {
+  "id": "gn-loi-94-003-protection-consommateurs-jo-pdf",
+  "source_id": "GN-SGG-JO-ADOPTED",
+  "iso2": "GN",
+  "instrument": "gn-loi-94-003-protection-consommateurs",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.sgg.gov.gn/textes-officiels/lois/1994/Guinee-Loi-1994-03.pdf",
+  "params": {}
  }
 ]
