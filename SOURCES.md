@@ -6098,6 +6098,10 @@ Malagasy (mg) and French (fr) are the official languages. CNLEGIS serves both: `
 
 Not in scope: the RSE manual (voluntary guidance, register row kept, `MG-MEDD-ADOPTED`), Décret 2021-1113 (repealed by Art. 103 of Décret 2025-626), the ratification acts for the Paris Agreement (Loi 2016-019, Décret 2016-1188) and Kyoto/Doha. The Décret 2014-1588 on the national climate committee is an F7 register row only; no climate framework act exists on CNLEGIS. Blocked from the cloud address: `https://www.csbf.mg` (`CONNECT tunnel failed, response 502` from curl, `getaddrinfo ENOTFOUND` from Chromium) and the Assemblée nationale PDF uploads (403). No CSBF sustainability instruction was found by web search.
 
+### OCR pass 2026-11-03
+
+GEL-04-12, run on 2026-11-03 after OCR was allowed (08:20Z). No OCR was run and nothing was stored. All three Madagascar rows (`MG-CNLEGIS-ADOPTED`, `MG-MEDD-ADOPTED`, `MG-CSBF-ADOPTED`) are still `permission requested` in `sources/licence-table.csv` on `origin/main` (4ed221f), and every scope instrument in `register/MG/scope.json` is `link only` under one of them. The pass stores text only under a `pass` row and does not change verdicts, so `mg-decret-2024-1354` (the scanned decree) and the other four instruments stay link only. `tesseract` is not installed in this environment and was not installed, because no instrument qualified. Nothing was downloaded. The OCR recipe is not proven here; it applies once Varun sets a Madagascar row to `pass`.
+
 ## Gabon
 
 Run on 2026-11-03 (GEL-12-10). Four rows added to `sources/licence-table.csv`: `GA-JO-ADOPTED` (Journal Officiel de la République Gabonaise, journal-officiel.ga, `pass`, basis statute) and three `permission requested` rows with nothing stored under them: `GA-GOUVERNEMENT-ADOPTED` (gouvernement.ga), `GA-COSUMAF-ADOPTED` (cosumaf.org), `GA-BVMAC-ADOPTED` (bvm-ac.org). No row exists for the Ministry of Waters and Forests: no live host was found (see Blocked).
