@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sv-nrp-53",
+    "title": "Normas Técnicas para la Gestión de Riesgos Ambientales y Sociales (NRP-53)",
+    "official_url": "https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf",
+    "citation": "NRP-53, CNBCR-01/2024, Comité de Normas del Banco Central de Reserva de El Salvador",
+    "in_force": "2024-02-15",
+    "evidence": "Header of every page of the BCR PDF: \"CNBCR-01/2024 NRP-53 Aprobación: 31/01/2024 ... Vigencia: 15/02/2024\". Opened https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf on 2026-11-03 (listed on https://www.bcr.gob.sv/regulaciones/normas.php, reference NRP-53, Mercados: Captadores de Depósitos).",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "SV-BCR-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: row SV-BCR-ADOPTED is permission requested (BCR Carta de derecho: no commercial reproduction without authorisation, no alteration; Art. 50 of the Ley de Propiedad Intelectual considered and not applied, see the row). The PDF is a text PDF (pdftotext readable, 16 pages). Mapped to F1: it is a bank risk-management norm that also requires disclosure of environmental and social risk, so F1 fits better than the F6 the earlier register row carried. It is a state regulation issued under Art. 99 of the Ley de Supervisión y Regulación del Sistema Financiero, binding on deposit takers. The register row title is kept and its official_source_url now points at the NRP-53 PDF instead of the regulations search page. No government English translation was found (looked for on bcr.gob.sv/regulaciones and ssf.gob.sv). The Taxonomía Verde de El Salvador (SSF, BCR, MARN, IFC; launched 2025-12-02) is a voluntary national reference framework, not an enacted instrument, and is not in scope.",
+    "status": "link only"
+  },
+  {
+    "id": "sv-lma-233",
+    "title": "Ley del Medio Ambiente (Decreto Legislativo 233 de 1998)",
+    "official_url": "https://www.diariooficial.gob.sv/seleccion/24985",
+    "citation": "Decreto Legislativo 233 of 2 March 1998, Diario Oficial 79, tomo 339, 4 May 1998",
+    "in_force": "1998-05-12",
+    "evidence": "Art. 116: \"La presente ley entrará en vigencia ocho días después de su publicación en el Diario Oficial.\" Published in the issue of 1998-05-04 (page header \"DIARIO OFICIAL - SAN SALVADOR, 4 DE MAYO DE 1998\", tomo 339), so eight days after is 1998-05-12 (computed). Read on 2026-11-03 from the scanned issue PDF https://www.diariooficial.gob.sv/seleccion/24985, printed page 25.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SV-DIARIOOFICIAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the Diario Oficial issue is a scan (no text layer; no OCR step is allowed) and row SV-DIARIOOFICIAL-ADOPTED is permission requested. The Asamblea consolidated text (amendments since 1998) could not be reached: asamblea.gob.sv is blocked from the cloud address (row SV-ASAMBLEA-CONSOLIDATED). Environmental framework act; the Reglamento General is sv-lma-reglamento-general. No government English translation was found (looked for on diariooficial.gob.sv and ambiente.gob.sv, the latter answers a Cloudflare 403 to scripts).",
+    "status": "link only"
+  },
+  {
+    "id": "sv-lma-reglamento-general",
+    "title": "Reglamento General de la Ley del Medio Ambiente (Decreto Ejecutivo 17 de 2000)",
+    "official_url": "https://www.diariooficial.gob.sv/seleccion/25452",
+    "citation": "Decreto Ejecutivo 17 of 21 March 2000, Diario Oficial 73, tomo 347, 12 April 2000 (nueva publicación)",
+    "in_force": null,
+    "evidence": "Art. 129: \"El presente Decreto entrará en vigencia ocho días después de su publicación en el Diario Oficial.\" Signed \"en Casa Presidencial: San Salvador, a los veintiún días del mes de marzo del año dos mil\". The issue of 2000-04-12 lists it as \"(Nueva publicación)\", so an earlier first publication exists whose date no page read states. Read on 2026-11-03 from the scanned PDF https://www.diariooficial.gob.sv/seleccion/25452, printed pages 15 to 35.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SV-DIARIOOFICIAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: scan, and row SV-DIARIOOFICIAL-ADOPTED is permission requested. in_force is null because the date of the first publication was not read from an official page (eight days after it would give the date); the 2000-04-12 issue is a republication. Implements sv-lma-233. No government English translation was found.",
+    "status": "link only"
+  },
+  {
+    "id": "sv-lpc-776",
+    "title": "Ley de Protección al Consumidor (Decreto Legislativo 776 de 2005)",
+    "official_url": "https://www.diariooficial.gob.sv/seleccion/26733",
+    "citation": "Decreto Legislativo 776 of 18 August 2005, Diario Oficial 166, tomo 368, 8 September 2005",
+    "in_force": "2005-10-08",
+    "evidence": "Art. 172: \"El presente Decreto entrará en vigencia treinta días después de su publicación en el Diario Oficial.\" Published in the issue \"JUEVES 8 DE SEPTIEMBRE DE 2005 NUMERO 166\", so thirty days after is 2005-10-08 (computed). Opened https://www.diariooficial.gob.sv/seleccion/26733 on 2026-11-03 (pdftotext readable, law on pages 5 to 34). Art. 31 prohibits \"todas las formas de publicidad engañosa o falsa\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SV-DIARIOOFICIAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: row SV-DIARIOOFICIAL-ADOPTED is permission requested (the gazette PDF is marked for consultation only and states no licence). This gazette issue has a text layer, so the text would be extractable if Varun accepts Art. 50 of the Ley de Propiedad Intelectual as a statute basis. Umbrella for misleading advertising, including environmental claims; it has no environmental-claims rule of its own. Adopted text only; later amendments were not reachable (asamblea.gob.sv blocked). No government English translation was found.",
+    "status": "link only"
+  }
+]

@@ -6487,3 +6487,46 @@ Spanish is the only official language of legislation. No government English tran
 - `cu-ley-150-2022-environment` (Ley 150 de 2022, GOC-2023-771-O87 of 2023-09-13): same row and reason.
 
 Not in scope, with reason: a climate framework act (none found; Tarea Vida is a state plan, F7, not confirmed on any official page, so no register row); a Banco Central de Cuba sustainability instruction (bc.gob.cu not opened; no stock exchange exists); MINCIN Resolución 54/2018 and a possible Decreto 167 of 2026 (mincin.gob.cu not opened, enactment unconfirmed); Ley 154 de 2022 copyright act (not an ESG instrument, read only for art. 9). Secondary copies (uclv.edu.cu, ampeid.org, leap.unep.org, climate-laws.org) were seen in web search results only and are never a source.
+
+## El Salvador
+
+Rows `SV-ASAMBLEA-CONSOLIDATED` (`permission requested`, site cannot be opened from the cloud address), `SV-DIARIOOFICIAL-ADOPTED` (`permission requested`, no terms, PDFs marked for consultation only) and `SV-BCR-ADOPTED` (`permission requested`, terms bar commercial reproduction). No row passes, so nothing is stored and all four scope instruments are link only. Run on 2026-11-03 (GEL-14-03).
+
+The statute: Art. 50 of the Ley de Propiedad Intelectual (Decreto Legislativo 66 de 2024, Diario Oficial 153, tomo 444, 2024-08-15, printed page 30) says laws, regulations, agreements and other provisions of the organs of the Government may be republished by private parties after the Government has published them, faithfully to the official text, without authorisation. It is a republication limitation, not an exclusion of official texts from copyright, and it does not mention translations; it was not applied (Varun to decide). The text was read from the scanned issue (see below), page images under a watermark layer.
+
+Row `SV-BCR-ADOPTED`, NRP-53 (a text PDF, works with or without a browser User-Agent):
+
+```
+curl -sS -o nrp53.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf
+```
+
+Returned `200 2067690 application/pdf` (16 pages, sha256 3c2f02cb1adc27d58f0ee4d263197ff599201e4f1940402ee8593519767e743c). Text extraction for the case a row passes: `pdftotext -layout nrp53.pdf -` with runs of spaces collapsed. The output is readable Spanish, with spurious spaces inside some words ("proh ibiendo") that the layout mode inserts; the page header and footer repeat on every page. The PDF header states `Aprobación: 31/01/2024`, `Vigencia: 15/02/2024`. The PDF links come from the list page `https://www.bcr.gob.sv/regulaciones/normas.php?...&pagina=6` (`upload/NRP-53.pdf` and `upload/NRP-53.docx`); the list page itself answers `200 100119 text/html` and the "Ver detalles" button calls `myFunction(878)`.
+
+Row `SV-DIARIOOFICIAL-ADOPTED`. The issue list is a JSON API (no browser needed); the issue PDF is `seleccion/<Id>`:
+
+```
+curl -sS -X POST -d 'year=1998&month=5' -w '\n%{http_code}\n' https://www.diariooficial.gob.sv/api/v1/diarios-disponibles
+curl -sS -L -o do_2005-09-08.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.diariooficial.gob.sv/seleccion/26733
+```
+
+The first returned `200` and JSON `{"data":[{"Id":"24985","FechaInicio":"1998-05-04","FechaInexacta":"0","NombreArchivo":"04-05-1998.pdf"},...]}` (`/api/v1/meses-disponibles` with `year=` lists the months). The second returned `200 7791836 application/pdf` (Diario Oficial 166, tomo 368, 2005-09-08, 208 pages, sha256 61a7ecb2b7a29a4e11811dd18a6e7e216c6871015d55f28e05a3ec1a07ae6523). Other issues fetched: `seleccion/24985` (1998-05-04, `200 13361731`), `seleccion/25452` (2000-04-12, `200 14569844`), `seleccion/31330` (2024-08-15, `200 16325431`). Whether a page has text depends on the issue: the 2005-09-08 issue gives readable text with `pdftotext -layout` (Ley de Protección al Consumidor, pages 5 to 34), while the 1998, 2000 and 2024 issues are scans for the legislative pages (`pdftotext` returns only the letters of the diagonal watermark "DIARIO OFICIAL SOLO PARA CONSULTA, NO TIENE VALIDEZ LEGAL"; `pdfimages -list` shows one JPX image per page). No OCR step is allowed, so those are link only for that reason as well. The home page lists no terms (`/terminos-y-condiciones`, `/terminos`, `/politica-de-privacidad`, `/aviso-legal` answer 404).
+
+Row `SV-ASAMBLEA-CONSOLIDATED`, blocked from the cloud address:
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download}\n' https://www.asamblea.gob.sv/
+```
+
+Returned `curl: (60) SSL certificate problem: unable to get local issuer certificate` and `000 0` (the egress gateway cannot verify the origin; `--cacert /root/.ccr/ca-bundle.crt` gives the same; `curl -x '' -I` gives `HTTP/2 503` "upstream connect error or disconnect/reset before headers"). Playwright chromium `page.goto('https://www.asamblea.gob.sv/')` returned HTTP 502 with a 174-byte body. `transparencia.asamblea.gob.sv` fails the same way. Blocked from the cloud address, so the orchestrator can read it from the laptop. No Asamblea consolidated text, amendment history or terms were read.
+
+### Languages
+
+Spanish (`es`) only; no other official language applies. No government English translation was found for any instrument: looked for on bcr.gob.sv/regulaciones, ssf.gob.sv, diariooficial.gob.sv and bolsadevalores.com.sv (none lists English texts); ambiente.gob.sv answers a Cloudflare challenge (403) to curl, so the MARN site was not read. No translation row exists.
+
+### Link only
+
+- `sv-nrp-53`: row `SV-BCR-ADOPTED` is permission requested (BCR Carta de derecho, https://www.bcr.gob.sv/carta-de-derecho/: "Se prohíbe la reproducción total o parcial de los contenidos de este sitio web con fines comerciales ... sin la previa autorización expresa del Banco Central de Reserva"; copying is allowed only non-commercially and unaltered). A norma técnica of the Comité de Normas is a state regulation, but Art. 50 of the Ley de Propiedad Intelectual is not an exclusion and does not clearly reach the central bank; not applied. The fetch above works if Varun decides otherwise.
+- `sv-lma-233`, `sv-lma-reglamento-general`: row `SV-DIARIOOFICIAL-ADOPTED` is permission requested, and the 1998 and 2000 issues are scans. The Asamblea consolidated texts were not reachable.
+- `sv-lpc-776`: row `SV-DIARIOOFICIAL-ADOPTED` is permission requested; the 2005-09-08 issue has a text layer, so the text could be stored if Art. 50 is accepted.
+- Not in scope, no instrument found: Superintendencia del Sistema Financiero (https://ssf.gob.sv, marco legal y normativo page opened) and Bolsa de Valores de El Salvador (https://www.bolsadevalores.com.sv, Leyes, Normativas, Instructivos and Reglamentos pages opened; terms de uso page says nothing on reuse and the exchange is a company) list no ESG disclosure rule. The Taxonomía Verde de El Salvador (SSF, 2025-12-02 news item) is a voluntary national reference framework. https://www.ambiente.gob.sv answers `403` with a Cloudflare "Attention Required" page.
+- A Ley de Cambio Climático and a carbon pricing instrument: none found enacted (web search; the Asamblea site could not be opened); register rows with `law_family` F7.
