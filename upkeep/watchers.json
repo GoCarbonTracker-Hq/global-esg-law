@@ -11820,6 +11820,36 @@
   }
  },
  {
+  "id": "lr-eo-155-carbon-markets-authority-executive-orders-page",
+  "source_id": "LR-EXECMANSION-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-eo-155-carbon-markets-authority",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://emansion.gov.lr/publications/document-type/executive-orders",
+  "params": {}
+ },
+ {
+  "id": "lr-epa-act-2002-pdf",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epa-act-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf",
+  "params": {}
+ },
+ {
+  "id": "lr-epml-2002-laws-page",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epml-2002",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/laws-regulations/",
+  "params": {}
+ },
+ {
   "id": "vu-meteorology-geohazards-climate-change-act-mocca-head",
   "source_id": "VU-MOCCA-ADOPTED",
   "iso2": "VU",

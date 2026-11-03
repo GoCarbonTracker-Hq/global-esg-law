@@ -7230,6 +7230,64 @@ Spanish (es) only. The Gaceta, ASFI and APMT serve Spanish; Bolivia's 36 indigen
 
 No browser-fetched record exists. Watchers: `python3 tools/watch.py --dry-run --source BO-GACETA-ADOPTED` ran 8 watchers, 0 failures; `--source BO-ASFI-ADOPTED` ran 4, 0 failures; the APMT, MMAYA and BBV rows have no watcher (0 run).
 
+## Liberia
+
+Run on 2026-11-03 (GEL-15-09). Two rows pass, both on the statute: `LR-EXECMANSION-ADOPTED` and `LR-EPA-ADOPTED`. The statute is the Liberia Intellectual Property Act, 2016, section 9.4 "Subject Matter Not Protected": "no protection shall extend under this Part to: ... b) any official legislative, judicial, or administrative text, including the Laws of the Government of Liberia, as well as any official translation thereof". It was read from the ARIPO copy (the WIPO Lex file link redirects to an HTML page from the cloud address):
+
+```
+curl -sS -A 'Mozilla/5.0' -o ip.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://aripo.org/storage/resources-member-state-laws/1674816283_php0A90q8.pdf
+```
+
+Returned `200 1249612 application/pdf` (sha256 `acf388a463755695b2bbe31894a76a09c270686287e8703ab620531ee083f79f`, the `terms_fingerprint` of both rows). Neither the Executive Mansion nor the EPA has a terms or copyright page; their footers say only "© 2026 All Rights Reserved" and "© 2026", so no terms-based pass exists. The Central Bank of Liberia footer says "Copyright © All Rights Reserved."; it has no instrument in scope and no row.
+
+Row `LR-EXECMANSION-ADOPTED`, Executive Order No. 155 (the file name is read from the list `https://emansion.gov.lr/publications/document-type/executive-orders`, link "EXECUTIVE ORDER 155"):
+
+```
+curl -sS -A 'Mozilla/5.0' -o eo155.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://emansion.gov.lr/sites/default/files/documents/EXECUTIVE%20ORDER%20155_0.pdf'
+```
+
+Returned `200 1486811 application/pdf`; a second fetch and a fetch without `-A` returned the same bytes (`sha256 e6359fbdf8065312d3e204d8e73d54f25ddf171ede2a59ccdb8b7dbeb2188a35`), so `fetched_sha256` reproduces. The 7-page PDF is a set of JPEG page scans (`pdfimages -list` shows one 180 ppi image per page); `pdftotext -layout eo155.pdf -` prints nothing. OCR (Varun, 2026-11-03): `tesseract` 5.3.4 with `tesseract-ocr-eng` was installed with apt, then
+
+```
+pdfimages -j eo155.pdf img/p
+for f in img/p-00*.jpg; do tesseract $f - --psm 4 -l eng; done | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+`ocrmypdf --force-ocr` over the same PDF was tried first and garbled the pages that carry the seal watermark (1487 words against 1596 for `--psm 4` on the page images, with lost lines in Sections 5 and 6), so the page-image run is the one stored. The output is stored uncorrected, with `"extraction": "ocr"` in the record; known recognition errors include the date line ("2G" for the handwritten day) and the "(ec)" for "(e)" in Section 6. The handwritten day is not legible with certainty (it reads 29th), so the record is dated 2025-10-31, the date of the Executive Mansion news page. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key. No record is browser-fetched.
+
+Row `LR-EPA-ADOPTED`, Environment Protection Agency Act (the link is read from `https://epa.gov.lr/laws-regulations/`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o epa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf
+pdftotext -layout epa.pdf - | sed -E 's/[ \t]+/ /g; s/^ //; s/ $//' | grep -v '^$'
+```
+
+Returned `200 281529 application/pdf` (46 pages, Acrobat Distiller 6.0.1 from Word, TrueType fonts without a ToUnicode map but WinAnsi encoding). A second fetch returned the same bytes (`sha256 32bdd7a5704975fbb520c7d62de097192b50f9dc1743ab12017efa3449322522`). The text has no mojibake; the only non-ASCII characters are en dashes in the Part headings and curly apostrophes. The "View or Download" link under the heading "The Environmental Protection and Management Law" (`/wp-content/uploads/2024/06/Act-Establishing-the-Liberia-EPA.pdf`) returns the identical file (`cmp` equal), so no separate text of the Law was found.
+
+Other pages opened:
+
+- `https://emansion.gov.lr/node/8948`: `200 48217 text/html`, the news page of 2025-10-31, with the sentence "The Executive Order takes immediate effect and will remain valid unless amended or replaced by future executive action or legislation."
+- `https://emansion.gov.lr/media/press-release/liberia-takes-first-step-toward-carbon-markets-president-boakai-receives`: `200`, dated September 4, 2026 (the National Carbon Policy presented to the President).
+- `https://www.mofa.gov.lr`: `200 92163 text/html`; no list of handbills, Acts or executive orders (`/publications`, `/handbills`, `/terms` answer 404; `/general/publications` holds financial statements). No row.
+- `https://www.cbl.org.lr`: `200 100731 text/html`; the site search for climate, sustainable, green and carbon and the Legal, Supervision and Risk Management pages show no climate or sustainability regulation. The Risk Management page says the Bank "is faced with Environmental, Social and Governance (ESG) risks" for its own risk programme. No row.
+- `https://epa.gov.lr/` search for carbon: news items and a terms of reference for a carbon policy consultant, no regulation.
+
+No site answered with a WAF challenge or a 403 to curl, and no browser recipe was needed. `legislature.gov.lr` and `liberialii.org` were not retried.
+
+### Languages
+
+English is the official language of Liberian legislation; every record is `en`. Looked for a second language or a translation on emansion.gov.lr, mofa.gov.lr, epa.gov.lr and cbl.org.lr: every page and document is English only. No translation row was added.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| lr-epml-2002 | https://epa.gov.lr/laws-regulations/ | Row `LR-EPA-ADOPTED` passes, but the page's link for the Law serves the same file as the EPA Act (stored as lr-epa-act-2002); no separate text found. |
+
+Stored by GEL-15-09: `lr-eo-155-carbon-markets-authority` (adopted 2025-10-31, en, OCR) and `lr-epa-act-2002` (adopted 2002-11-26, en).
+
+Not in scope.json: the Climate and Carbon Act (not enacted; no draft on any site opened), the Sovereign Carbon Initiative contribution on aviation and shipping (no instrument on any site opened), a Central Bank of Liberia climate regulation (none found), a consumer protection act (none on the four sites opened), the National Carbon Market Policy (F7, register row only).
+
 ## Vanuatu
 
 Run on 2026-11-03 (GEL-17-10). No licence row for Vanuatu is `pass`, so nothing is stored in `records/VU/` and there is no proven fetch for a stored record. Rows added, all `permission requested`: `VU-PARLIAMENT-ADOPTED` (parliament.gov.vu terms: "You must not: Republish material ... Reproduce, duplicate or copy material"), `VU-MOCCA-ADOPTED` (mocca.gov.vu states no reuse terms), `VU-DEPC-CONSOLIDATED` (environment.gov.vu: "All rights reserved"), `VU-VANIPO-CONSOLIDATED` (vanipo.gov.vu: "All Rights Reserved"), `VU-PACLII-ADOPTED` (site blocked). The Copyright and Related Rights Act 2000 (No. 42 of 2000), Consolidated Edition 2018, was read for a statute exception: s.7 excludes ideas, procedures, methods and mere data from protection and nothing else; no section removes legislation or official texts or mentions translations, so no row rests on a statute.
