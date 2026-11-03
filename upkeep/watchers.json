@@ -12032,6 +12032,54 @@
   "params": {}
  },
  {
+  "id": "mm-investment-rules-2017-dica-page",
+  "source_id": "MM-DICA-TRANSLATION",
+  "iso2": "MM",
+  "instrument": "mm-investment-rules-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf",
+  "params": {
+   "second_route": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-law-2012-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-law-2012",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-rules-2014-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-rules-2014",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-consumer-protection-law-2019-mlis-page",
+  "source_id": "MM-MLIS-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-consumer-protection-law-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mlis.gov.mm/",
+  "params": {
+   "second_route": "https://www.mlis.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
   "id": "mv-srf-watch",
   "source_id": "MV-CMDA-ADOPTED",
   "iso2": "MV",

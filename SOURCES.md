@@ -7506,6 +7506,35 @@ Arabic only (`ar`), the language the Ministry serves. No row for English: molae.
 - moj.gov.sy answers (WordPress news and circulars site; its only terms-like page is a privacy policy, no reuse terms); it serves no law texts that were found, so no row.
 - The People's Assembly, the Prime Ministry gazette and SANA were not reachable (see the Blocked list in the PR).
 
+## Myanmar
+
+Run on 2026-11-03 from the cloud address. No Myanmar state host answered, so no row passes, no text is stored, and every instrument is link only. Rows `MM-MLIS-ADOPTED`, `MM-DICA-TRANSLATION` and `MM-MONREC-ADOPTED` are `permission requested` (terms pages not opened, fingerprint not computed).
+
+No fetch request is proven for any row. Requests tried and answers:
+
+- `curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.mlis.gov.mm` gave `curl: (35) Recv failure: Connection reset by peer`. Same for `https://mlis.gov.mm`, `https://www.dica.gov.mm`, `https://dica.gov.mm`, `https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf`, `https://www.monrec.gov.mm`, `https://monrec.gov.mm`, `https://www.secm.gov.mm`, `https://secm.gov.mm`, `https://www.ecd.gov.mm`. The proxy status logged `tunnel closed (code 1006) after 3s to 12s` for each.
+- `https://www.moecc.gov.mm`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `http://www.mlis.gov.mm`: `503 114 text/plain`, body `upstream connect error or disconnect/reset before headers`.
+- Browser recipe: Playwright chromium `page.goto(url)` on mlis, dica, monrec and secm (www hosts) returned `502`, a 174-byte proxy page. The WebFetch route answered `503` for the same five URLs.
+
+### Languages
+
+Not reached: no Burmese or English text was served by any state host.
+
+### Hosts that answered
+
+- `https://www.cbm.gov.mm/`: `200 207316 text/html; charset=UTF-8` (Central Bank of Myanmar). The home page and its menus list laws and AML/CFT rules, the Financial Institutions Law 2016 and the Central Bank of Myanmar Law 2013; no sustainability, climate or ESG instrument was found in the menu or home page text. No row, as nothing in scope.
+- `https://ysx-mm.com`: `200 158418 text/html; charset=UTF-8`. A company, not an official law source; not used.
+- `https://myanmar.un.org/sites/default/files/2019-11/MyanmarClimateChangePolicy_2019.pdf`: `200 875189 application/pdf`. The National Climate Change Policy 2019, a UN-hosted copy; policy, F7, register row only.
+
+### Link only
+
+- `mm-investment-rules-2017`: row `MM-DICA-TRANSLATION` permission requested; DICA host reset the connection.
+- `mm-environmental-conservation-law-2012`, `mm-environmental-conservation-rules-2014`: row `MM-MONREC-ADOPTED` permission requested; MONREC host reset the connection.
+- `mm-consumer-protection-law-2019`: row `MM-MLIS-ADOPTED` permission requested; MLIS host reset the connection.
+
+Copyright Law 2019 s. 16(c) to (f) is not quoted anywhere: its text was not opened from an official page.
+
 ## Maldives
 
 Rows `MV-MVLAW-ADOPTED`, `MV-MVLAW-CONSOLIDATED`, `MV-AGO-TRANSLATION` and `MV-GAZETTE-ADOPTED` (`pass`, statute: Copyright and Related Rights Act 23/2010 s. 6(b), opened on mvlaw.gov.mv) and `MV-CMDA-ADOPTED` (`permission requested`). Run on 2026-11-03. None of the sites has a terms page: mvlaw.gov.mv, old.mvlaw.gov.mv, gazette.gov.mv and cmda.gov.mv carry only a copyright footer, so the first four rows rest on the statute alone. The statute reads "translations of such documents" without naming a translator; the translation row says so and Varun may overrule it. Stock exchange (stockexchange.mv, HTTP 200, footer "© 2026 Maldives Stock Exchange", no terms page) and the Maldives Monetary Authority (mma.gov.mv, an Angular shell; the rendered laws page lists no sustainability or climate item) serve no instrument in scope, so they get no row.
