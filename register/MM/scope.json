@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mm-investment-rules-2017",
+    "title": "Myanmar Investment Rules (Notification No. 35/2017), rules 196, 197 and 199: annual and quarterly reports of investors, publication of a summary",
+    "official_url": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf",
+    "citation": "Myanmar Investment Rules, Notification No. 35/2017, made under the Myanmar Investment Law 2016",
+    "in_force": null,
+    "evidence": "No official page states the in-force date as read on 2026-11-03: every Myanmar state host reset the connection from the cloud address.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MM-DICA-TRANSLATION",
+    "verification": "tracker_only",
+    "notes": "No record is stored: the licence row is permission requested (terms page not opened). Government English translation: not looked for in text; the hosts did not answer. Rule 196 (annual report within three months of the financial year, 196(b)(iv) on impact on the environment and local community), rule 197 (quarterly report) and rule 199 (publication of a summary) come from the brief and the earlier register review, unread today. Rules 189 and 190 concern impact-assessment status and are not the reporting duty. The Burmese original was not located.",
+    "status": "link only",
+    "status_note": "No official page could be opened from the cloud address on 2026-11-03, so the in-force date and the text are unread."
+  },
+  {
+    "id": "mm-environmental-conservation-law-2012",
+    "title": "Environmental Conservation Law (Pyidaungsu Hluttaw Law No. 9/2012)",
+    "official_url": "https://www.monrec.gov.mm/",
+    "citation": "Pyidaungsu Hluttaw Law No. 9/2012",
+    "in_force": null,
+    "evidence": "No official page states the in-force date as read on 2026-11-03: every Myanmar state host reset the connection from the cloud address.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MM-MONREC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "No record is stored: the licence row is permission requested (terms page not opened). Government English translation: not looked for in text; the hosts did not answer. Official URL is the ministry root because no law page could be opened; replace it with the law page once read from a laptop. MLIS (MM-MLIS-ADOPTED) is the second candidate publisher.",
+    "status": "link only",
+    "status_note": "No official page could be opened from the cloud address on 2026-11-03, so the in-force date and the text are unread."
+  },
+  {
+    "id": "mm-environmental-conservation-rules-2014",
+    "title": "Environmental Conservation Rules (2014)",
+    "official_url": "https://www.monrec.gov.mm/",
+    "citation": "Environmental Conservation Rules, 2014, under Law No. 9/2012",
+    "in_force": null,
+    "evidence": "No official page states the in-force date as read on 2026-11-03: every Myanmar state host reset the connection from the cloud address.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MM-MONREC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "No record is stored: the licence row is permission requested (terms page not opened). Government English translation: not looked for in text; the hosts did not answer. Implements mm-environmental-conservation-law-2012. Official URL is the ministry root because no rules page could be opened.",
+    "status": "link only",
+    "status_note": "No official page could be opened from the cloud address on 2026-11-03, so the in-force date and the text are unread."
+  },
+  {
+    "id": "mm-consumer-protection-law-2019",
+    "title": "Consumer Protection Law (Pyidaungsu Hluttaw Law No. 9/2019)",
+    "official_url": "https://www.mlis.gov.mm/",
+    "citation": "Pyidaungsu Hluttaw Law No. 9/2019",
+    "in_force": null,
+    "evidence": "No official page states the in-force date as read on 2026-11-03: every Myanmar state host reset the connection from the cloud address.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MM-MLIS-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "No record is stored: the licence row is permission requested (terms page not opened). Government English translation: not looked for in text; the hosts did not answer. Candidate umbrella for environmental claims; whether it reaches environmental claims was not read. Official URL is the MLIS root.",
+    "status": "link only",
+    "status_note": "No official page could be opened from the cloud address on 2026-11-03, so the in-force date and the text are unread."
+  }
+]
