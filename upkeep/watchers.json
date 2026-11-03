@@ -11998,6 +11998,30 @@
   }
  },
  {
+  "id": "kp-environmental-protection-law-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "kp-air-pollution-control-act-naenara-page",
+  "source_id": "KP-NAENARA-ADOPTED",
+  "iso2": "KP",
+  "instrument": "kp-air-pollution-control-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "http://www.naenara.com.kp",
+  "params": {
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
   "id": "ye-environment-protection-law-26-1995-agoye-page",
   "source_id": "YE-AGO-ADOPTED",
   "iso2": "YE",
