@@ -1,0 +1,53 @@
+[
+  {
+    "id": "gt-ley-marco-cambio-climatico",
+    "title": "Decreto 7-2013 Ley Marco para Regular la Reduccion de la Vulnerabilidad, la Adaptacion Obligatoria ante los Efectos del Cambio Climatico y la Mitigacion de Gases de Efecto Invernadero",
+    "official_url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf",
+    "citation": "Decreto 7-2013 del Congreso de la República, Diario de Centro América of 2013-10-04 (Tomo CCXCVIII, No. 3)",
+    "in_force": "2013-10-12",
+    "evidence": "Congreso's PDF is the gazette page set: masthead \"Guatemala, VIERNES 4 de octubre 2013 - DIARIO de CENTRO AMÉRICA\" and Art. 28: \"Vigencia. La presente ley entrará en vigencia a los ocho días de su publicación en el Diario de Centro América.\" Eight days after 2013-10-04 is 2013-10-12; the date is computed, no page states it. Congreso's listing gives the emission date as Thursday, 05 September 2013. Opened https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf on 2026-11-03 (curl 200 application/pdf 1162782).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "GT-CONGRESO-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Climate framework act. Art. 9 (national climate change information system): public and private entities must give MARN the climate information it requests, GHG emissions and reductions especially; the duty is on request, with no periodic report or threshold (F3 content). Art. 22 (carbon market projects) says the rights, tenure and trading of emission-reduction units will be regulated; no carbon-market regulation was found. Art. 28 sets entry into force. No general reglamento of the Ley Marco was found. The PDF is a scan of a whole gazette page with other instruments in interleaved columns and OCR errors (pdftotext output 66962 bytes, garbled), so no record is made. Row GT-CONGRESO-ADOPTED is permission requested. No government English translation was looked for beyond the Congreso, MARN and DCA sites, which list none.",
+    "status": "link only",
+    "status_note": "Row GT-CONGRESO-ADOPTED is permission requested (footer: all rights reserved) and the only official text is a garbled scan of a gazette page"
+  },
+  {
+    "id": "gt-ley-proteccion-mejoramiento-medio-ambiente",
+    "title": "Decreto 68-86 Ley de Protección y Mejoramiento del Medio Ambiente",
+    "official_url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/1986/gtdcx00681986.pdf",
+    "citation": "Decreto 68-86 del Congreso de la República",
+    "in_force": null,
+    "evidence": "No official page opened states the date: Congreso's listing gives only the emission date, Friday, 28 November 1986, and the PDF https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/1986/gtdcx00681986.pdf (curl 200 application/pdf 755984) is an image scan with no text layer (pdftotext output 3 bytes).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "GT-CONGRESO-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Environmental framework act, found in Congreso's decree listing; the text was not read (scan). Row GT-CONGRESO-ADOPTED is permission requested. No government English translation looked for.",
+    "status": "link only",
+    "status_note": "Row GT-CONGRESO-ADOPTED is permission requested and the official PDF is an image scan with no text layer"
+  },
+  {
+    "id": "gt-ley-proteccion-consumidor-usuario",
+    "title": "Decreto 6-2003 Ley de Protección al Consumidor y Usuario",
+    "official_url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2003/gtdcx06-2003.pdf",
+    "citation": "Decreto 6-2003 del Congreso de la República",
+    "in_force": null,
+    "evidence": "No official page opened states the date: Congreso's listing gives only the emission date, Monday, 10 March 2003, and the PDF https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2003/gtdcx06-2003.pdf (curl 200 application/pdf 1409737, 8 pages) is an image scan with no text layer (pdftotext output 8 bytes).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GT-CONGRESO-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Consumer protection act (misleading advertising), umbrella for environmental claims; found in Congreso's decree listing, text not read (scan). The brief wrote Decreto 006-2003; the listing shows it as 06-2003. Row GT-CONGRESO-ADOPTED is permission requested. No government English translation looked for.",
+    "status": "link only",
+    "status_note": "Row GT-CONGRESO-ADOPTED is permission requested and the official PDF is an image scan with no text layer"
+  }
+]

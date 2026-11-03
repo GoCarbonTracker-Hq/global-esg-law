@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ve-organic-environment-law",
+    "title": "Ley Orgánica del Ambiente",
+    "official_url": "https://www.asambleanacional.gob.ve/leyes/sancionadas/ley-organica-del-ambiente",
+    "citation": "Gaceta Oficial de la República Bolivariana de Venezuela N° 5.833 Extraordinario, 22 December 2006",
+    "in_force": null,
+    "evidence": "Asamblea Nacional law page (opened 2026-11-03) lists Nº Gaceta 5833 Ext., Fecha 22/12/2006, Condición Vigencia Total, and leaves the Vigencia date empty. The final provision in the gazette text reads: \"Esta Ley entrará en vigencia transcurridos seis meses a partir de su publicación en la Gaceta Oficial de la República Bolivariana de Venezuela.\" No official page states the date, so it is null.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "VE-ASAMBLEA-ADOPTED",
+      "VE-MINEC-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Framework act for environmental management (replaces the 1976 Ley Orgánica del Ambiente). Link only because both official copies are scans: the Asamblea PDF https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf (759657 bytes) gives 11 bytes from pdftotext; the MINEC copy https://www.minec.gob.ve/download/979/ (3871044 bytes) is the whole 32-page Gaceta 5.833 Extraordinario with an OCR layer, four laws interleaved by column and recognition errors in the text (for example 'Arto', 'interacrúan'), so it cannot be cut to this law without rewording. No OCR step is allowed yet. If counted from publication, six months ends 2007-06-22; that is arithmetic, not a stated date. Penalties are in ve-penal-environment-law. No government English translation: looked for on asambleanacional.gob.ve, minec.gob.ve and imprentanacional.gob.ve (law pages, Marco Jurídico list, home page); none found, so no translation record and no translation row.",
+    "status": "link only",
+    "status_note": "Both official PDFs are scans or whole-gazette OCR; Varun decides on an OCR step."
+  },
+  {
+    "id": "ve-penal-environment-law",
+    "title": "Ley Penal del Ambiente",
+    "official_url": "https://www.asambleanacional.gob.ve/leyes/sancionadas/ley-penal-del-ambiente",
+    "citation": "Gaceta Oficial de la República Bolivariana de Venezuela N° 39.913, 2 May 2012",
+    "in_force": "2012-07-01",
+    "evidence": "Asamblea Nacional law page (opened 2026-11-03): Nº Gaceta 39.913, Fecha 02/05/2012, Vigencia 01/07/2012, Condición Vigencia Total.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "VE-ASAMBLEA-ADOPTED",
+      "VE-MINEC-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Criminal law for environmental offences; the page text states it repeals arts. 131 to 143 of the Ley de Gestión de la Diversidad Biológica. Link only because both official copies are scans or whole-gazette OCR: the Asamblea PDF https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf (1103231 bytes) gives 9 bytes from pdftotext; the MINEC copy https://www.minec.gob.ve/download/1031/ (9464271 bytes) is the 96-page Gaceta 39.913 with an OCR layer covering many unrelated acts. The framework act is ve-organic-environment-law. No government English translation: looked for on asambleanacional.gob.ve, minec.gob.ve and imprentanacional.gob.ve (law pages, Marco Jurídico list, home page); none found, so no translation record and no translation row.",
+    "status": "link only",
+    "status_note": "Both official PDFs are scans or whole-gazette OCR; Varun decides on an OCR step."
+  }
+]
