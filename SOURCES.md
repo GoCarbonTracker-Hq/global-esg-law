@@ -5595,3 +5595,63 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 - Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
+
+## Gabon
+
+Run on 2026-11-03 (GEL-12-10). Four rows added to `sources/licence-table.csv`: `GA-JO-ADOPTED` (Journal Officiel de la République Gabonaise, journal-officiel.ga, `pass`, basis statute) and three `permission requested` rows with nothing stored under them: `GA-GOUVERNEMENT-ADOPTED` (gouvernement.ga), `GA-COSUMAF-ADOPTED` (cosumaf.org), `GA-BVMAC-ADOPTED` (bvm-ac.org). No row exists for the Ministry of Waters and Forests: no live host was found (see Blocked).
+
+Why `GA-JO-ADOPTED` passes: journal-officiel.ga is run by the Direction des Publications Officielles of the Prime Minister's services, which Art. 80 of Décret n°00064/PR/PM du 11 juin 2019 names « l'éditeur officiel exclusif de la République Gabonaise » (page `https://journal-officiel.ga/missions-et-organisation`). The site has no terms of use: its footer « Mentions légales » link is `#` and `/mentions-legales` answers 404. The pass rests on Art. 14 of Ordonnance n° 0011/PR/2024 du 26 février 2024 (Journal Officiel n°14 du 7 avril 2024, `https://journal-officiel.ga/20866-0011-pr-2024-/`, ratified by loi n°007/2024), which removes protection from « lois et règlements et à leurs travaux préparatoires officiellement publiés, aux décisions judiciaires et des organes administratifs ainsi qu'aux traductions officielles de ces textes »; Art. 143 of that ordinance repeals Loi n°1/87 du 29 juillet 1987, whose Art. 11 has the same words (read in the WIPO Lex scan, `https://www.wipo.int/wipolex/fr/text/493432`). The footer carries « © 2016 www.journal-officiel.ga » beside the developer's name; it is not treated as a claim over the law texts. That judgment is open for Varun (see the PR).
+
+### Proven fetch (`GA-JO-ADOPTED`, adopted, French)
+
+The path of a text is found with the site's own search form (POST, no key needed). Search for the climate ordinance:
+
+```
+curl -sS -X POST -A 'Mozilla/5.0' --data-urlencode 'fieldStr[status]=ENA' --data-urlencode 'type[]=documentLegislatif' --data-urlencode 'smallSearch=changements climatiques' -o s.html -w '%{http_code} %{size_download} %{content_type}\n' https://journal-officiel.ga/recherche
+```
+
+Returned `200 18661 text/html;charset=UTF-8`; the result links are `/<id>-<slug>/` (the first hits include `/17690-019-2021/` and `/19432-018-2022-/`). Then the text, one page per instrument, whole law in the HTML:
+
+```
+curl -sS -A 'Mozilla/5.0' -o f.html -w '%{http_code} %{size_download} %{content_type}\n' https://journal-officiel.ga/17690-019-2021/
+```
+
+Returned `200 99958 text/html;charset=UTF-8`, Ordonnance n° 019/2021 as published in Journal Officiel n°130 ter of 16 September 2021. `fetched_sha256` is the sha256 of the HTML bytes as received (`440f875b...f931` for this page). Every page stored was fetched twice and the hash reproduced; the page carries no per-request token. The pages are server-rendered, so no browser was needed and no stored record is subject to the New Zealand recipe decision (GEL-03 retro C4). The site answers `HEAD` with neither `Last-Modified` nor `Content-Length`, so the watchers use `page_hash`.
+
+Text extraction (`text`): from `<section class="rechercheAvance">` to `<section class="registerAbonne">` (the page body: issue header, title, law); `<br>`, `<hr>` and the ends of `p`, `div`, headings, `li` and `tr` as line breaks, the ends of `td` and `th` as a space; remaining tags stripped; entities unescaped; non-breaking spaces and runs of spaces collapsed; blank lines dropped; nothing reworded. The first two lines of every record are the issue header (`JOURNAL OFFICIEL N°… / DU …`), then the title line. Checked: no replacement characters, no mojibake, no tags left, in all nine files. Dot leaders and one-letter table cells of the nomenclature in `ga-decret-0020-2022` are kept as the page prints them. No PDF was used, so no `pdftotext`.
+
+`in_force`: no instrument fixes a commencement date other than publication (« sera enregistrée, publiée au Journal Officiel »), except Décret n° 0054/PR/MECCHF (« prend effet à compter de sa date de signature », 2025-01-16). For the other eight, `in_force` is the issue date printed on the page.
+
+### Stored (fetched 2026-11-03), all kind `adopted`, language `fr`
+
+| Instrument | `in_force` | Page |
+|---|---|---|
+| `ga-ordonnance-019-2021` | 2021-09-16 | `17690-019-2021` (JO 130 ter) |
+| `ga-loi-018-2022` | 2022-12-23 | `19432-018-2022-` (JO 191 ter) |
+| `ga-decret-00291-2022` | 2022-12-01 | `19372-00291-pr-mefmepcpat-mer-` (JO 189) |
+| `ga-decret-0054-2025` | 2025-01-16 | `21565-0054-pr-mecchf-` (JO 51) |
+| `ga-loi-041-2025` | 2025-12-30 | `22265-041-2025-` (JO 96 quater) |
+| `ga-loi-002-2026` | 2026-07-17 | `22595-002-2026` (JO 123 bis) |
+| `ga-loi-007-2014` | 2014-09-16 | `6186-007-2014` (JO 222) |
+| `ga-decret-0020-2022` | 2022-11-24 | `19525-0020-pr-mefmepcpat-` (JO 188 bis spécial) |
+| `ga-loi-14-98` | 1998-07-31 | `10003-14-98` (JO 8 bis) |
+
+The site serves each act once, as published, and no point-in-time consolidation. Loi n° 018/2022 restates the whole climate ordinance with changes (its Art. 3), so it is stored as its own instrument with `amends`; Loi n° 002/2026 rewrites the Contribution Carbone of Loi n° 041/2025 (its Art. 6) and likewise has `amends`. The two finance laws are stored whole (about 266,000 and 334,000 characters). The existing register row for the finance law pointed at a gouvernement.ga PDF that stayed unreachable; it now points at the Journal Officiel page.
+
+### Languages
+
+French only. No English record was made. Looked at on 2026-11-03: journal-officiel.ga (French only, no language switch), gouvernement.ga (connection reset, see Blocked), and a web search for an official English text of Ordonnance n° 019/2021, which returned only machine translations on third-party sites (not official, never stored). No translation row was added. Gabon's only official language is French; no other language is served.
+
+### Link only
+
+None of the nine. Not in `scope.json`:
+
+- The COSUMAF / IFC guidelines for green, social and sustainable bonds in Central Africa and the BVMAC guide for the same bonds: register row with `law_family` F7, regional, not Gabonese law. The final text, its number and date were not found: cosumaf.org is behind a Cloudflare challenge, and bvm-ac.org (`/textes-reglementaires/`, `/mentions-legales-de-la-bvmac/`, search « obligations vertes ») lists none. The BVMAC terms allow personal, non-commercial use only (`GA-BVMAC-ADOPTED`, `permission requested`).
+- The long-term low-carbon strategy (existing F2 row, climate-laws.org): kept as it is with a notes sentence.
+- Searched on journal-officiel.ga and not found: a Gabonese sustainability or ESG reporting duty for companies (« responsabilité sociétale », « développement durable » returned budget laws, sector laws and an arrêté creating a CSR forum committee), a consumer protection law, a green-claims rule. Loi n° 016/2001 (Code forestier) is not among the search hits (only its 2010 amending ordinance); it was not added. Loi n° 038/2025 and Ordonnance n° 0003/PT-PR (AGADEV, the green economy agency that collects the Contribution Carbone) create an agency and were not added.
+
+### Blocked from the cloud address
+
+- `https://gouvernement.ga` and `https://www.gouvernement.ga`: `curl: (35) Recv failure: Connection reset by peer`; Playwright chromium: HTTP 502 `upstream request failed`.
+- `https://www.cosumaf.org`: `curl -sS -i -A 'Mozilla/5.0' https://www.cosumaf.org` gave `HTTP/2 403`, `cf-mitigated: challenge`, `403 5331 text/html; charset=UTF-8`; Playwright chromium timed out after 45 s on `networkidle`.
+- `https://eauxforets.gouv.ga`: `CONNECT tunnel failed, response 502`; `https://environnement.gouv.ga`: no answer. `https://www.eauxforets.gouv.ga`, `https://eauxforets.ga`, `https://www.environnement.gouv.ga`, `https://mefe.gouv.ga` and `https://www.ministere-eauxforets.ga` returned no answer either. The live host of the ministry that took over environment and climate was not found (press reports on its structure disagree), so there is no ministry row; the orchestrator can look from the laptop.
