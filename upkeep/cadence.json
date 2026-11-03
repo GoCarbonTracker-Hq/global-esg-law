@@ -18,14 +18,14 @@
   },
   "consolidation_site": {
    "interval_days": 14,
-   "watchers": 793,
+   "watchers": 810,
    "seconds_per_run": 89.31,
    "bytes_per_run": 1107688,
    "failures_per_run": 18
   },
   "regulator_page": {
    "interval_days": 30,
-   "watchers": 199,
+   "watchers": 207,
    "seconds_per_run": 226.42,
    "bytes_per_run": 5354132,
    "failures_per_run": 16

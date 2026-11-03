@@ -11620,6 +11620,306 @@
   "params": {}
  },
  {
+  "id": "ni-decreto-15-2021-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-decreto-15-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-217-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-217",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-647-lagaceta-ediciones",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-647",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/ediciones?page=1&search=",
+  "params": {
+   "note": "latest gazette issues list; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-842-siboif-marco-juridico",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-842",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.siboif.gob.ni/supervision/intendencia-bancos/marco-juridico?combine=842",
+  "params": {
+   "note": "SIBOIF legal framework table filtered on '842' (lists Ley 1061, the 2021 reform of Ley 842); stable between requests"
+  }
+ },
+ {
+  "id": "bo-asfi-rse-reglamento-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-rse-reglamento",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/node/401",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNSF (browser; the RNSF viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-rmv-green-bonds-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-rmv-green-bonds",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-revision-externa-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-revision-externa",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-fondo-inversion-sostenible-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-fondo-inversion-sostenible",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-ley-300-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-300",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/300 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-1696-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-1696",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1696",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1696 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-1333-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-1333",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1333",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1333 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-24176-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-24176",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=24176",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/24176 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-3549-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-3549",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=3549",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3549 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-5264-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-5264",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=5264",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/5264 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-835-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-835",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=835",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/835 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-453-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-453",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=453",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/453 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "lr-eo-155-carbon-markets-authority-executive-orders-page",
+  "source_id": "LR-EXECMANSION-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-eo-155-carbon-markets-authority",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://emansion.gov.lr/publications/document-type/executive-orders",
+  "params": {}
+ },
+ {
+  "id": "lr-epa-act-2002-pdf",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epa-act-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf",
+  "params": {}
+ },
+ {
+  "id": "lr-epml-2002-laws-page",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epml-2002",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "pa-jtc-res-012-2025-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-jtc-res-012-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-sbp-acuerdo-011-2022-sbp-pdf",
+  "source_id": "PA-SBP-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-sbp-acuerdo-011-2022",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.pa/documentos/leyes_y_regulaciones/acuerdos/2022/Acuerdo_11-2022.pdf",
+  "params": {}
+ },
+ {
+  "id": "pa-ley-41-1998-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-41-1998",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-100-2020-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-100-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-142-2021-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-142-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-ley-45-2007-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-45-2007",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/25914/GacetaNo_25914_20071107.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
   "id": "bn-ghg-directive-2023-press-release",
   "source_id": "BN-CCS-ADOPTED",
   "iso2": "BN",
