@@ -6011,3 +6011,39 @@ French is the only official language of Togolese legislation and the only langua
 - https://www.jo.gouv.tg (the `www` host): `526 16` (Cloudflare invalid SSL certificate). `jo.gouv.tg` without `www` redirects to new.jo.gouv.tg.
 - https://www.amf-umoa.org/: `200 1685 text/html`, a JavaScript shell with no content; its terms and texts were not read.
 - No site answered with a WAF challenge or a 403 to curl.
+
+## Dominican Republic
+
+Run on 2026-11-03 (GEL-14-06). One row passes: `DO-CJPE-ADOPTED` (Consultoría Jurídica del Poder Ejecutivo, terms: "Los textos legales, decretos, resoluciones y gacetas publicadas en este portal son documentos de dominio público."; Ley 65-00 art. 41 quoted as support). Spanish is the only official language. Text extraction: `pdftotext -layout file.pdf -`, runs of spaces collapsed, blank lines dropped, then cut at the instrument's own heading line and at the next instrument's heading line, because the CJPE PDFs are page excerpts of the gazette volume and carry the neighbouring instrument at either end. Nothing inside the instrument is edited (page-number lines and rules stay).
+
+Row `DO-CJPE-ADOPTED`. Step 1, the document id (the search endpoint answers scripts that lack `Origin` and `Referer` with a Cloudflare challenge):
+
+```
+curl -s -A 'Mozilla/5.0' -H 'Content-Type: application/json' -H 'Origin: https://consultoria.gov.do' -H 'Referer: https://consultoria.gov.do/consultas/legislacion' -d '{"DocumentNumber":"541-20","GacetaOficial":"","FullText":"","Name":"","LastName":"","Identification":"","Charge":"","Institution":0,"President":0,"Consultor":0,"Career":0,"Guild":0,"PensionType":0,"PublicationYear":""}' -w '%{http_code} %{size_download} %{content_type}\n' https://consultoria.gov.do/api/consultas/search
+```
+
+Returned `201 1059 application/json; charset=utf-8` (JSON list; fields `DocId`, `Tipo`, `Numero`, `Titulo`, `Gaceta`, `FechaPromulgacion`, `FechaPublicacion`; publication date is the placeholder 2000-01-01 for the older instruments). The same POST without `Origin`/`Referer` (`-A curl/8`) returned 403 and the "Just a moment..." challenge page. Step 2, the text, Decreto 541-20:
+
+```
+curl -s -A 'Mozilla/5.0' -o d541.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://consultoria.gov.do/api/document/3397369
+```
+
+Returned `200 414278 application/pdf` (12 pages, text layer clean); a second fetch gave the same sha256 (7d97ab565e92...), so `fetched_sha256` reproduces. The GET needs no `Referer`; one request in the session returned `404` (24 bytes, text/plain) and an immediate repeat returned the PDF. It is the same file as the presidencia URL in the register (`https://presidencia.gob.do//sites/default/files/decree/2021-12/EXP_00114313.pdf`, `200 414278 application/pdf`). Other ids used: 3398204 (Decreto 348-21, `200 147805`), 3397471 (Ley 225-20, `200 570087`), 3404074 (Ley 98-25, `200 2457826`), 3406027 (Ley 36-26, `200 500002`), 3378290 (Ley 115-15, `200 34603`), all `application/pdf`. The searchable fields come from the site's own script (`/_next/static/chunks/app/consultas/.../page-*.js`, which posts to `/api/consultas/search`); the terms ask for no scraping that degrades the service, so one request per instrument was made. Browser fetches were not needed; no record is browser-fetched.
+
+### Languages
+
+Spanish only; one record per instrument, language `es`. English was looked for on `consultoria.gov.do/en` (404), `presidencia.gob.do/en` (200, Spanish site), `ambiente.gob.do/en/` (redirects to a Spanish news post), `cambioclimatico.gob.do/en/` (404) and `sb.gob.do/en/` (404): no government English, no translation row.
+
+### Link-only instruments and other sources
+
+| Instrument | Why link only or not stored |
+|---|---|
+| do-ley-64-00, do-decreto-601-08, do-ley-358-05, do-ley-57-07 | Row `DO-CJPE-ADOPTED` passes, but the CJPE PDFs (`https://consultoria.gov.do/api/document/3334621`, `3354746`, `3339542`, `3347058`; 2.9 MB, 345 KB, 3.4 MB, 1.5 MB) are scans with an OCR text layer: pdftotext output exists but misreads characters (los as `10s`, `CLIMATIC0`, `Dorninicana`; 724, 65, 591 and 338 digit-mixed tokens). Scan, no OCR step allowed yet; Varun decides. |
+| Ley 65-00 (Derecho de Autor) | Not in scope; read (id 3334622, same OCR quality) only for art. 41. |
+| F7 rows: SIMV C-SIMV-2020-02-MV, SB CCI-REG-2026000010, Decreto 269-15 | Register rows only, no scope entry. |
+
+Sources opened and not used: `https://ambiente.gob.do/terminos-de-uso/` and `https://cambioclimatico.gob.do/terminos-de-uso/` (both 200) say all content is protected by intellectual property rights owned by the body, no reuse grant; the Ley 64-00 copy on ambiente.gob.do was not opened. `https://sb.gob.do/regulacion/normativas-sb/carta-circular-cci-reg-2026000010/` (200, 81955 bytes) opened as a page only. No climate framework act and no carbon pricing instrument were found in the CJPE index (searches on cambio climático, gases de efecto invernadero, carbono, emisiones, mercado de carbono); no register row was added for them.
+
+Blocked from the cloud address: `https://simv.gob.do/` and `https://bvrd.com.do/` answer 403 (5306 and 5284 bytes, HTML) to curl, and 403 to headless Chromium (Playwright `page.goto`, 44576 and 44745 bytes). `https://www.gacetaoficial.gob.do` did not connect (curl status 000).
+
+Stored by GEL-14-06: `do-decreto-541-20` (2020-10-09), `do-decreto-348-21` (2021-05-31), `do-ley-225-20` (2020-10-02), `do-ley-98-25` (2025-12-16), `do-ley-36-26` (2026-07-11), `do-ley-115-15` (2015-06-08), all `adopted`, `es`. The watchers are `page_hash` on the PDF URL (a HEAD request returns neither Last-Modified nor Content-Length); `tools/watch.py --dry-run --source DO-CJPE-ADOPTED` ran 10 watchers, 0 failures.

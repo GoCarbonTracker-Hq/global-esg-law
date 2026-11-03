@@ -8987,5 +8987,27 @@
     "trailer_source_url": "https://www.brvm.org/fr/node/315",
     "trailer_licence": "Permission requested (BRVM terms)",
     "notes": "fingerprint: curl -sSL https://www.brvm.org/fr/node/405, scripts and styles removed, tags replaced by spaces, entities decoded, whitespace collapsed, cut from 'Conditions générales d’utilisation du site internet' to the end of the page, sha256 of the result plus a newline. The page includes live market tickers before the cut and site navigation after the legal text, so the hash can drift. The same row serves the AMF-UMOA instruments in the other UEMOA places. The AMF-UMOA own site https://www.amf-umoa.org is a JavaScript application (curl returns a 1685-byte shell) and its terms were not read. Permission request not sent."
+  },
+  {
+    "id": "DO-CJPE-ADOPTED",
+    "jurisdiction": "DO",
+    "publisher": "Consultoría Jurídica del Poder Ejecutivo (CJPE)",
+    "source_name": "CJPE Consulta de legislación: laws, decrees and regulations as published in the Gaceta Oficial (PDF excerpt of the gazette pages)",
+    "form": "adopted",
+    "fetch_url": "https://consultoria.gov.do/api/document/{DocId} (DocId from POST https://consultoria.gov.do/api/consultas/search; both calls need headers Referer: https://consultoria.gov.do/consultas/legislacion and, for the POST, Origin: https://consultoria.gov.do, Content-Type: application/json)",
+    "pinned_version": "Gaceta Oficial issue (as published); the site serves no consolidated texts",
+    "content_hash": "",
+    "terms_url": "https://consultoria.gov.do/terminos",
+    "terms_quote": "Los textos legales, decretos, resoluciones y gacetas publicadas en este portal son documentos de dominio público.",
+    "terms_fingerprint": "644c6bebd8ebe25bc3e11bda20b7d067b0c3fcd87d49fa3332a01fce86b11835",
+    "verdict": "pass",
+    "statute_exception": "Supporting only, the verdict rests on the terms. Ley 65-00 sobre Derecho de Autor, art. 41: \"Se permite la reproducción de la Constitución Política, las leyes, los decretos, ordenanzas y reglamentos debidamente actualizados, los convenios y demás actos administrativos y las decisiones judiciales, bajo la obligación de indicar la fuente y conformarse textualmente con la edición oficial, siempre y cuando no esté prohibido.\" Read in the OCR text layer of the CJPE copy of the Act (https://consultoria.gov.do/api/document/3334622, Gaceta Oficial 10056) on 2026-11-03; the Act has no exclusion of official texts, art. 41 is a permission conditioned on naming the source and following the official edition textually.",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Gaceta Oficial excerpt published by the Consultoría Jurídica del Poder Ejecutivo (law or decree number set per instrument)",
+    "trailer_source_url": "https://consultoria.gov.do/api/document/{DocId}",
+    "trailer_licence": "Public domain per CJPE terms (documentos de dominio público); source named, text follows the Gaceta Oficial edition (Ley 65-00 art. 41); not the authentic Gaceta Oficial",
+    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' https://consultoria.gov.do/terminos | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 (server-rendered page, plain curl works; recomputed twice on 2026-11-03). Same section 4 of the terms: trademarks, emblems and the portal design belong to the State and are protected; section 3 prohibits robots, scripts and scraping that degrade the service, so fetches are single requests per instrument. The PDFs are page excerpts of the gazette volume: the first and last pages can carry the end or heading of the neighbouring instrument; stored text is cut at the instrument headings. Older instruments (2000-2008 in the sample checked: Ley 64-00, Ley 65-00, Ley 358-05, Ley 57-07, Decreto 601-08) are scans with an OCR text layer that misreads characters (10s for los, Dorninicana, CLIMATIC0): not stored. Ministerio de Medio Ambiente (ambiente.gob.do/terminos-de-uso/) and Consejo Nacional para el Cambio Climático (cambioclimatico.gob.do/terminos-de-uso/) say all portal content is protected by intellectual property rights owned by the body; no reuse grant, so no row and nothing taken from them. presidencia.gob.do serves the same PDF for Decreto 541-20 (same size, same file name); no terms page was found there, so it is not used."
   }
 ]

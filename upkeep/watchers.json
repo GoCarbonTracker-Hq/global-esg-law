@@ -10073,5 +10073,125 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "do-decreto-541-20-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-541-20",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3397369",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-decreto-348-21-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-348-21",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3398204",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-225-20-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-225-20",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3397471",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-98-25-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-98-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3404074",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-36-26-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-36-26",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3406027",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-57-07-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-57-07",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3347058",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-115-15-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-115-15",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3378290",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-64-00-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-64-00",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3334621",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-decreto-601-08-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-601-08",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3354746",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-358-05-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-358-05",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3339542",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
  }
 ]
