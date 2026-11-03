@@ -5245,3 +5245,74 @@ Blocked or not opened from the cloud address:
 - `https://ncsi.gov.om/assets/docs/gov_license.pdf`: `curl: (60) SSL: no alternative certificate subject name matches target host name 'ncsi.gov.om'`. `https://omanlegal.net/`: `502 154 text/html`.
 
 Browser-fetched records: none. Archive of the gazette PDFs: only the file used for the dates was read (issues 1081, 1141, 1640); nothing from them is stored.
+
+## Georgia
+
+Rows `GE-MATSNE-ADOPTED`, `GE-MATSNE-CONSOLIDATED` and `GE-MATSNE-TRANSLATION`, all `pass` on the statute basis (Law of Georgia on Copyright and Related Rights Art. 8(1)(a): official documents, "as well as their official translations", are outside copyright; Organic Law on Normative Acts Art. 26(1): systematised acts on matsne.gov.ge have official legal force). matsne.gov.ge has no terms-of-use page; its footer says only "All Rights Reserved", so the rows rest on the statute. Row `GE-NBG-ADOPTED` is `permission requested` (nbg.gov.ge footer "©2021 All Rights Reserved", no reuse grant); nothing is stored under it. Run on 2026-11-03 for the Law on Accounting, Reporting and Audit (matsne document 3311504) and NBG Order 69/04 (document 5180556).
+
+matsne.gov.ge refuses curl's default user agent. This is the failing request:
+
+```
+curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://matsne.gov.ge/en
+```
+
+Returned `200 840 text/html; charset=utf-8` (a page titled "Access Denied"). With a browser-like user agent the same host answers, so no browser was needed and no record is browser-fetched. Every command below uses `-A 'Mozilla/5.0'`.
+
+Step 1, the editions of a law: open `https://matsne.gov.ge/en/document/view/3311504`. The links `?publication=0` to `?publication=18` are the editions. Index 0 is the text as first published; the line "Consolidated versions (dd/mm/yyyy - dd/mm/yyyy)" on `?publication=n&impose=original` gives the validity range of edition n; the last index has no range and starts on the newest date of the "Consolidated publications" list in the page header.
+
+Row `GE-MATSNE-ADOPTED`, Order 69/04 of the NBG President (Georgian, as first published):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o order_69_04.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://matsne.gov.ge/en/document/view/5180556?publication=0&impose=original'
+```
+
+Returned `200 89921 text/html; charset=utf-8`.
+
+Row `GE-MATSNE-CONSOLIDATED`, Accounting Law, edition 18 (valid from 2026-04-01), Georgian:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o acc_18.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://matsne.gov.ge/en/document/view/3311504?publication=18&impose=original'
+```
+
+Returned `200 560248 text/html; charset=utf-8`.
+
+Text extraction: the element `<div class="document" id="maindoc">` up to its matching `</div>`; comments, scripts and styles dropped; `p`, `div`, `h1` to `h6`, `tr`, `li`, `table`, `ul`, `ol` ends and `br` as line breaks; tags stripped; HTML entities decoded; non-breaking spaces to spaces; runs of spaces collapsed; blank lines dropped. Nothing reworded. `fetched_sha256` is the hash of the whole HTML page as received. A second fetch does not reproduce it: every page carries a per-request `theme_token` in a script element (checked on 2026-11-03: two fetches of the same URL gave two hashes). The stored text does not depend on the token.
+
+Which text is free: laws (acts of Parliament) are served in every edition. For secondary legislation (orders, ordinances) matsne shows anonymous users only the initial version: "You are viewing an initial version of the document. Viewing of a consolidated version of the document is paid." (page `https://matsne.gov.ge/en/document/view/4780380?publication=3&impose=original`). `?publication=n` returns the same initial text for every n, so secondary legislation has one `adopted` record each and the paid consolidations are not fetched.
+
+Editions stored: one record per edition, `in_force` the start of its stated validity range (the first edition takes the date the Law first applied). Not stored: an edition with a zero-length or inverted stated range (Accounting edition 9; Environmental Protection editions 31 and 37; Advertising edition 12), an edition not later than the previous stored start, an edition whose text equals the previous stored one. The English page of the as-published Consumer Rights text contains the whole text twice; it is stored once.
+
+| Instrument | Georgian records (`in_force`) | English records |
+|---|---|---|
+| `ge-accounting-law-2016` | 18, 2016-06-24 to 2026-04-01 | 1 (2017-12-23) |
+| `ge-environmental-protection-law-1996` | 37, 1997-01-22 to 2026-06-24 | 17 (2015-11-11 to 2026-04-28) |
+| `ge-consumer-rights-law-2022` | 4, 2022-06-01 to 2023-12-15 | 4 |
+| `ge-advertising-law-1998` | 36, 1998-02-18 to 2026-06-25 | 11 (2014-02-05 to 2026-06-25) |
+| `ge-nbg-corporate-governance-code-2018` | 1 (2018-09-27) | 0 |
+| `ge-nbg-cg-code-esg-amendment-2021` | 1 (2021-06-02) | 0 |
+| `ge-fgas-technical-regulation-2023` | 1 (2024-01-01) | 0 |
+| `ge-corsia-order-235-2023` | 1 (2024-01-01) | 0 |
+| `ge-corsia-order-amendment-2026` | 1 (2027-01-01, published, not yet in force) | 0 |
+| `ge-climate-change-council-decree-54-2020` | 1 (2020-01-29) | 0 |
+
+### Languages
+
+Georgian is the official language served and is stored under the adopted and consolidated rows above. Russian pages (offered for some acts) are not an official language of Georgia and are not stored; Abkhaz is not served by matsne. English is a translation made and published by the Legislative Herald, so it has its own row, `GE-MATSNE-TRANSLATION` (`translation`, `pass` on Copyright Law Art. 8(1)(a), "their official translations"; the reading it rests on is in the row notes and goes to Varun).
+
+Row `GE-MATSNE-TRANSLATION`, Accounting Law, English text of the edition valid from 2017-12-23 (edition 4):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o acc_4_en.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://matsne.gov.ge/en/document/view/3311504?publication=4&impose=translateEn'
+```
+
+Returned `200 379721 text/html; charset=utf-8`. When no English exists for an edition the same request returns a page whose body is only the title (about 30 characters of text), so English is found by trying `impose=translateEn` on every edition. An English record is stored only when the newest "website, dd.mm.yyyy" date in its amendment footnotes equals the newest such date in the Georgian text of the same edition; the record `message` quotes the English text's last amendment footnote. Advertising editions 2014-10-31 and 2016-12-29 failed that test and are not stored.
+
+### Link only
+
+None of the ten scope instruments is link only. Not stored and not in scope: the NBG ESG Reporting and Disclosure Principles (register row, family F7, voluntary guidance; row `GE-NBG-ADOPTED` is `permission requested`); the Georgian Stock Exchange listing rules (gse.ge/rules answered 200 and the Georgian and English rules PDFs were opened; they contain no ESG or sustainability provision, so there is no instrument and no row); the draft Law on Climate Change (register row, family F7). Secondary-legislation amendments whose consolidations are paid are not stored: eight further amendments of the NBG Corporate Governance Code and three of the Climate Change Council ordinance.
+
+### Blocked from the cloud address
+
+- `https://parliament.ge/en/media/news/garemos-datsvisa-da-bunebrivi-resursebis-komitetma-sakartvelos-klimatis-tsvlilebis-kanonis-tetri-tsigni-sajaro-konsultatsiebistvis-tsaradgina`: HTTP 403, Cloudflare "Attention Required" page.
+- `https://mepa.gov.ge/` answered `307` to `/ka` and then `200` with a browser user agent; curl without `--http1.1` failed with `curl: (92) Invalid HTTP header field was received`. Nothing was needed from it.
+- `https://matsne.gov.ge/` answers curl's default user agent with the Access Denied page (above); the watchers in `upkeep/watchers.json` use the watcher's own user agent, which answered 200 on 2026-11-03.

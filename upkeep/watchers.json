@@ -9060,5 +9060,125 @@
   "kind": "http_head",
   "tier": "regulator_page",
   "url": "https://www.ea.gov.om/media/hpskif3s/%D9%84%D8%A7%D8%A6%D8%AD%D8%A9-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B4%D8%A4%D9%88%D9%86-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%AE%D9%8A%D8%A9.pdf"
+ },
+ {
+  "id": "ge-accounting-law-2016-matsne-page",
+  "source_id": "GE-MATSNE-CONSOLIDATED",
+  "iso2": "GE",
+  "instrument": "ge-accounting-law-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/3311504",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/3311504 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-environmental-protection-law-1996-matsne-page",
+  "source_id": "GE-MATSNE-CONSOLIDATED",
+  "iso2": "GE",
+  "instrument": "ge-environmental-protection-law-1996",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/33340",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/33340 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-consumer-rights-law-2022-matsne-page",
+  "source_id": "GE-MATSNE-CONSOLIDATED",
+  "iso2": "GE",
+  "instrument": "ge-consumer-rights-law-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/5420598",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/5420598 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-advertising-law-1998-matsne-page",
+  "source_id": "GE-MATSNE-CONSOLIDATED",
+  "iso2": "GE",
+  "instrument": "ge-advertising-law-1998",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/31840",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/31840 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-nbg-corporate-governance-code-2018-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-nbg-corporate-governance-code-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/4333402",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/4333402 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-nbg-cg-code-esg-amendment-2021-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-nbg-cg-code-esg-amendment-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/5180556",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/5180556 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-fgas-technical-regulation-2023-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-fgas-technical-regulation-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/5855354",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/5855354 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-corsia-order-235-2023-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-corsia-order-235-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/5974679",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/5974679 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-corsia-order-amendment-2026-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-corsia-order-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/6998052",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/6998052 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
+ },
+ {
+  "id": "ge-climate-change-council-decree-54-2020-matsne-page",
+  "source_id": "GE-MATSNE-ADOPTED",
+  "iso2": "GE",
+  "instrument": "ge-climate-change-council-decree-54-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://matsne.gov.ge/en/document/view/4780380",
+  "params": {
+   "second_route": "https://matsne.gov.ge/en/document/view/4780380 (browser; matsne.gov.ge answered the watcher user agent with HTTP 200 on 2026-11-03 but answers the default curl user agent with a page titled Access Denied (840 bytes); the page carries a per-request theme_token, so its raw hash may change on every fetch)"
+  }
  }
 ]
