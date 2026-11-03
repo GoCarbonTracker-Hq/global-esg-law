@@ -6721,5 +6721,27 @@
     "trailer_source_url": "https://qbz.gov.al",
     "trailer_licence": "none granted; terms not read",
     "notes": "Blocked from the cloud address. DNS gives 134.0.42.139. To be read from the laptop. Not used for any record. Serves as source_row for link-only instruments whose text was found only on QBZ."
+  },
+  {
+    "id": "AD-BOPA-ADOPTED",
+    "jurisdiction": "AD",
+    "publisher": "Butlletí Oficial del Principat d'Andorra (BOPA), Govern d'Andorra",
+    "source_name": "BOPA as-published acts (laws, decrees and regulations), HTML",
+    "form": "adopted",
+    "fetch_url": "https://documents.bopa.ad/bopa-documents/{YYY}{NNN}/html/{nomDocument}.html (YYY = issue year minus 1988, NNN = issue number; nomDocument from POST https://bopaazurefunctions.azurewebsites.net/api/GetPaginatedDocuments2Indexes)",
+    "pinned_version": "BOPA issue number and year (act as published)",
+    "content_hash": "",
+    "terms_url": "https://www.bopa.ad/AvisLegal",
+    "terms_quote": "Pel que fa a la utilització de la informació inserida a la seu electrònica del Butlletí Oficial del Principat d'Andorra, el Servei del Butlletí Oficial del Principat d'Andorra en permet: - La còpia i la difusió. - L'adaptació, l'extracció, la reordenació i la combinació. - La reproducció, la distribució, la comunicació pública o la transformació necessària per a aquesta utilització, en qualsevol modalitat i format.",
+    "terms_fingerprint": "c46b4f7a776790952f229bc38e171d5679903ed708eb0c45f0f3ee574c7485b3",
+    "verdict": "pass",
+    "statute_exception": "Terms-based pass. The terms page (https://www.bopa.ad/AvisLegal, section \"Condicions generals d'utilització de la informació\") permits copying, distribution, adaptation, extraction, reordering, combination and transformation \"en qualsevol modalitat i format\" with no non-commercial or no-derivatives limit; conditions: do not distort the meaning, do not suggest BOPA sponsors the use, keep the update-date and conditions metadata, do not use BOPA domains, logos or graphic elements. Independent support in statute (not relied on for the verdict): Llei sobre drets d'autor i drets veïns, de 10-6-99 (BOPA no. 38, 1999-07-06, https://documents.bopa.ad/bopa-documents/011038/html/198BE.html, opened 2026-11-03), Article 4 \"Matèria no protegida\", para. 2: \"Cap text oficial de naturalesa legislativa, administrativa o judicial, com tampoc cap traducció oficial seva, queden protegits per aquesta Llei.\"",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "BOPA act as published (document name and issue set per instrument)",
+    "trailer_source_url": "https://www.bopa.ad/Legislacio/Detall?doc={nomDocument}",
+    "trailer_licence": "BOPA general conditions of use (Avís legal): copy, adaptation and distribution permitted; meaning not to be distorted, no suggestion of BOPA endorsement; for issues before 2015 only the paper edition is official",
+    "notes": "fingerprint: sha256 of the whitespace-collapsed innerText of the page body of https://www.bopa.ad/AvisLegal (the page is a React application and has no <main> element, so curl returns an empty shell of 995 bytes), read with Playwright chromium after networkidle plus 2 s; two runs on 2026-11-03 gave the same hash. The page ends with 'Copyright © <year> Govern d'Andorra', so the hash changes each year. Opened on 2026-11-03: the terms page; the BOPA API behind the site (https://bopaazurefunctions.azurewebsites.net, public key in the site's own JavaScript, POST /api/GetPaginatedDocuments2Indexes gives nomDocument, issue number and year); the files https://documents.bopa.ad/bopa-documents/<NNN><XXX>/html/<nomDocument>.html (NNN = issue year minus 1988, three digits; XXX = issue number, three digits), served as UTF-16 (older files) or UTF-8 HTML with text/html. The same folder serves /pdf/<nomDocument>.pdf, which is the issue file. BOPA serves each act as published; it exposes no consolidated text and no point-in-time versions (an amendment is a separate act). Its consolidation portal https://portaljuridicandorra.ad reset the connection from the cloud address (curl exit 35) and was not used. Authenticity: the terms say that since 1 January 2015 only the digital BOPA is authentic (Llei 25/2014, art. 4) and that for issues before 2015 only the paper edition is official, so a record from a pre-2015 issue (ad-llei-13-2013, BOPA no. 32 of 2013) is a reproduction of the official text. The Consell General and AFA were opened too; no text was stored from them, so they get no row. The stored text drops the hidden duplicate title paragraph (class=invisible) and nothing else. No English or other official translation of any Andorran law was found (Catalan is the only official language), so there is no translation row."
   }
 ]

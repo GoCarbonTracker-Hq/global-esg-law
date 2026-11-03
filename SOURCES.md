@@ -4332,3 +4332,49 @@ Albanian is the only official language. English: `kkk.gov.al` has no English sec
 - `https://akm.gov.al/` answered `200` (194772 bytes) at first and `curl: (52) Empty reply from server` on later requests.
 - Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
 - Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
+
+## Andorra
+
+Run on 2026-11-03 (GEL-11-07). One row, `AD-BOPA-ADOPTED` (Butlletí Oficial del Principat d'Andorra, `pass`, basis terms: the BOPA legal notice permits copying, adaptation and transformation in any form and format; Llei sobre drets d'autor i drets veïns art. 4 para. 2 is quoted in the row as support). No consolidation row and no translation row: BOPA serves each act as published and nothing else, and no official English was found. Catalan is the only official language.
+
+www.bopa.ad is a React application, so `curl https://www.bopa.ad/Legislacio/Detall?doc=...` returns a 995-byte shell. The text comes from two plain requests that work with `curl` from the cloud address. First the search API the site itself calls. Its function keys are in the site's own JavaScript (`https://www.bopa.ad/static/js/main.*.js`, the strings after `GetPaginatedDocuments2Indexes?code=` and `GetMonthButlletins?code=`); they are written here as `$KEY_SEARCH` and `$KEY_MONTH` because GitHub push protection blocks the literal key. Read them with `curl -s https://www.bopa.ad/static/js/main.*.js | grep -o 'GetPaginatedDocuments2Indexes?code=[^"]*'`, which gives `nomDocument`, issue number and year:
+
+```
+curl -sS -X POST -H 'Content-Type: application/json' -d '{"textSearch":"Llei 21/2018","temaFilter":[],"dateFilter":[],"organismeFilter":[],"butlletiFilter":"57","anyFilter":["2018-01-01"],"size":5,"skip":0,"orderBy":"DataPublicacioButlleti desc","searchMode":1}' -o s.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://bopaazurefunctions.azurewebsites.net/api/GetPaginatedDocuments2Indexes?code=$KEY_SEARCH'
+```
+
+Returned `200 17574 application/json; charset=utf-8`; the first document is `CGL20180928_13_54_03` (Llei 21/2018, `fileType` html). Issue lists: `GET /api/GetMonthButlletins?code=$KEY_MONTH&date=YYYY-MM-01`. `organismeFilter` takes objects (`{"filterType":"eq","filterValue":"<guid>"}`), not strings; the Lleis guid is `47bded20-8156-4a8d-8df5-99871b0d343f`. Then the file, at `https://documents.bopa.ad/bopa-documents/<YYY><NNN>/html/<nomDocument>.html` with YYY the issue year minus 1988 and NNN the issue number, both three digits (the `1_`, `4_` prefixed files in search results are fragments, not the whole act):
+
+```
+curl -sS -o l.html -w '%{http_code} %{size_download} %{content_type}\n' https://documents.bopa.ad/bopa-documents/030057/html/CGL20180928_13_54_03.html
+```
+
+Returned `200 299556 text/html`, Llei 21/2018 as published in BOPA no. 57. The same folder with `/pdf/CGL20180928_13_54_03.pdf` returned `200 399360 application/pdf`. `fetched_sha256` is the sha256 of the HTML bytes as received (`52f424c8...a7948` for this file); every file stored was fetched twice and the hash reproduced. Older files are UTF-16 with a byte order mark, newer ones may be UTF-8. Text extraction (`text`): head removed; the hidden duplicate title paragraph (`class="invisible"`) removed; `<br>` and the ends of `p`, `div`, headings and table rows as line breaks; remaining tags stripped; entities unescaped; runs of spaces collapsed; blank lines dropped; nothing reworded. Checked: no U+FFFD in any record.
+
+The terms page https://www.bopa.ad/AvisLegal is also rendered by JavaScript; the fingerprint comes from Playwright chromium (`goto` with `waitUntil: 'networkidle'`, 2 s wait, `document.body.innerText`, whitespace collapsed, sha256), `c46b4f7a...485b3` on two runs.
+
+Dates: the issue date printed on the issue file (PDF header) is one day after the `dataPublicacioButlleti` of the search result (the API stores UTC; 2018-10-02T22:00Z is 3 October in Andorra). `in_force` is computed from the commencement clause and the printed issue date; no page states it.
+
+### Stored (fetched 2026-11-03), all kind `adopted`, language `ca`
+
+| Instrument | `in_force` | BOPA file |
+|---|---|---|
+| `ad-litecc` | 2018-10-04 | `030057/html/CGL20180928_13_54_03.html` (BOPA 57, 3 Oct 2018) |
+| `ad-llei-19-2021` | 2021-08-12 | `033083/html/CGL20210721_11_40_36.html` (BOPA 83, 28 Jul 2021) |
+| `ad-decret-303-2021` | 2021-09-30 | `033101/html/GR20210923_14_22_45.html` (BOPA 101, 29 Sep 2021) |
+| `ad-llei-13-2013` | 2013-08-10 | `025032/html/7FB8E.html` (BOPA 32, 10 Jul 2013; pre-2015 issue, the digital text is a reproduction, the paper edition is official) |
+
+No browser was needed for any stored record, so none is subject to the New Zealand recipe decision. Later amendments are separate acts and BOPA serves no consolidation, so none is merged.
+
+### Languages
+
+Catalan only. No official translation of any of the four instruments was found. Looked at on 2026-11-03: bopa.ad (no translation function, the site is Catalan), govern.ad (home page 200, a web search limited to govern.ad, consellgeneral.ad, bopa.ad and afa.ad for an English Law 21/2018 returned only the Constitution, bond frameworks and IMF reports), afa.ad (Catalan and English press pages, no law translation). No translation row was added and no `translation` record was made.
+
+### Link only
+
+None of the four. Looked at and left out of scope: the Andorran Financial Authority (https://www.afa.ad) lists regulation by supervised sector and has a "Finances sostenibles" page (https://www.afa.ad/ca/consumidors/educacio-financera/finances-sostenibles) that is investor education, with no sustainability disclosure rule; a text search of the 2021 to 2026 laws for sustainability reporting found none (the audit law, Llei 30/2025, has no sustainability reporting provision), so there is no F1 instrument. Llei 25/2022 (circular economy) and Llei 4/2023 (environmental assessment) are not F1 to F6 duties and were not added.
+
+### Blocked from the cloud address
+
+- `https://portaljuridicandorra.ad` (BOPA's consolidated legal portal, linked from bopa.ad): `curl: (35) Recv failure: Connection reset by peer` on repeated requests. The orchestrator can try it from the laptop; it may offer consolidated texts, which would need their own terms check.
+- `https://www.energia.ad`: `curl: (60) SSL certificate problem: self-signed certificate`; `https://www.mediambient.ad` answers 301 only. Not used.

@@ -7698,5 +7698,41 @@
   "params": {
    "second_route": "https://akm.gov.al/ (browser; the agency site answered some script requests with an empty reply on 2026-11-03; qbz.gov.al, where the consolidated text is expected, is blocked from the cloud address: https://qbz.gov.al/ in a browser)"
   }
+ },
+ {
+  "id": "ad-litecc-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-litecc",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/030057/html/CGL20180928_13_54_03.html"
+ },
+ {
+  "id": "ad-llei-19-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-19-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033083/html/CGL20210721_11_40_36.html"
+ },
+ {
+  "id": "ad-decret-303-2021-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-decret-303-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/033101/html/GR20210923_14_22_45.html"
+ },
+ {
+  "id": "ad-llei-13-2013-bopa-document",
+  "source_id": "AD-BOPA-ADOPTED",
+  "iso2": "AD",
+  "instrument": "ad-llei-13-2013",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://documents.bopa.ad/bopa-documents/025032/html/7FB8E.html"
  }
 ]
