@@ -7659,5 +7659,55 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "cr-ley-7554-sinalevi-latest-version",
+  "source_id": "CR-SINALEVI-CONSOLIDATED",
+  "iso2": "CR",
+  "instrument": "cr-ley-7554",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=27738&version=-1&busqueda=",
+  "params": {}
+ },
+ {
+  "id": "cr-ley-8114-art1-5-sinalevi-latest-version",
+  "source_id": "CR-SINALEVI-CONSOLIDATED",
+  "iso2": "CR",
+  "instrument": "cr-ley-8114-art1-5",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=46631&version=-1&busqueda=",
+  "params": {}
+ },
+ {
+  "id": "cr-ley-7472-art34-37-sinalevi-latest-version",
+  "source_id": "CR-SINALEVI-CONSOLIDATED",
+  "iso2": "CR",
+  "instrument": "cr-ley-7472-art34-37",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=26481&version=-1&busqueda=",
+  "params": {}
+ },
+ {
+  "id": "cr-dec-37899-sinalevi-latest-version",
+  "source_id": "CR-SINALEVI-CONSOLIDATED",
+  "iso2": "CR",
+  "instrument": "cr-dec-37899",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=75696&version=-1&busqueda=",
+  "params": {}
+ },
+ {
+  "id": "cr-dec-42961-sinalevi-latest-version",
+  "source_id": "CR-SINALEVI-CONSOLIDATED",
+  "iso2": "CR",
+  "instrument": "cr-dec-42961",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=94315&version=-1&busqueda=",
+  "params": {}
  }
 ]

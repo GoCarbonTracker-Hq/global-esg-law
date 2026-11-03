@@ -1,0 +1,87 @@
+[
+  {
+    "id": "cr-ley-7554",
+    "title": "Ley 7554 Orgánica del Ambiente (whole Act)",
+    "official_url": "https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=27738&param2=&param3=1",
+    "citation": "Ley 7554 of 4 October 1995, published in La Gaceta 215 of 13 November 1995",
+    "in_force": "1995-11-13",
+    "evidence": "SINALEVI ficha of the norm (opened 2026-11-03): \"Fecha de vigencia desde: 13/11/1995 ... N° Gaceta: 215 del 13/11/1995\"; Art. 118: \"Vigencia. Rige a partir de su publicación.\"",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CR-SINALEVI-ADOPTED",
+      "CR-SINALEVI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Framework environmental statute, counted as F2. Climate framework checked on 2026-11-03: no Ley Marco de Cambio Climático is enacted. The SINALEVI title search 'Ley Marco de Cambio Climático' restricted to type Ley returned nothing, and 'cambio climático' returned only Ley 7414 (approval of the UNFCCC); Costa Rica has no emissions trading scheme. Record text is the whole Act (heading to Art. 118 and the Transitorios), 14 SINALEVI versions, 13 records. Version 1 (adopted, the 1995 text as plain lines) and version 2 (consolidated, same text re-set with the enacting formula) both take effect 1995-11-13; versions 3 to 14 are one record each, dated the 'Fecha de vigencia desde' of the amending Act (Leyes 7788, 8542, 8591, 8839, 9046, 9590, 9684, 10021, 10939, 10963, 10970). Version 10 (Ley 9825, dated 2020-07-09) is not stored: SINALEVI orders versions by the date of the amending Act, but Ley 9825 took effect 2021-11-04, after Ley 10021 (2021-10-29), so version 11, which includes both, is dated 2021-11-04 and carries a message saying so. SINALEVI's version date is the amending Act's date, not its in-force date. Languages stored: es, the only official language (SINALEVI serves Spanish only). No government English translation found on 2026-11-03: https://sinalevi.go.cr/en answered 404 and the norm pages have no language switch; https://www.imprentanacional.go.cr/en/ answered 404; https://www.pgr.go.cr/ (HTTP 200, 248623 bytes) has no English marker; https://minae.go.cr/ and https://www.mideplan.go.cr/ answered a Cloudflare challenge (HTTP 403) to the cloud address, so English pages there could not be checked. No translation row added.",
+    "status": "stored"
+  },
+  {
+    "id": "cr-ley-8114-art1-5",
+    "title": "Ley 8114 de Simplificación y Eficiencia Tributarias, art. 1 (impuesto único a los combustibles) and art. 5 (destino de los recursos, including 3.5% to Fonafifo)",
+    "official_url": "https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=46631&param2=&param3=1",
+    "citation": "Ley 8114 of 4 July 2001, published in La Gaceta 131, Alcance 53, of 9 July 2001; Arts. 1 and 5",
+    "in_force": "2001-08-01",
+    "evidence": "Art. 32: \"Los capítulos I, II, III y V ... regirán a partir del primer día del mes siguiente a la publicación de esta Ley.\" SINALEVI ficha: \"N° Gaceta: 131 del 09/07/2001 Alcance: 53\", so Chapter I (Arts. 1 to 8) takes effect 2001-08-01. Opened 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CR-SINALEVI-ADOPTED",
+      "CR-SINALEVI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Counted as F3 as the only fuel-based, carbon-related levy found, not as a carbon price: Costa Rica has no ETS, the Act is a per-litre excise on fuels and does not mention carbon. Art. 5 c) allocates 'un tres coma cinco por ciento (3,5%), exclusivamente al pago de servicios ambientales, a favor del Fondo Nacional de Financiamiento Forestal (Fonafifo)' of the yearly proceeds. Record text is Art. 1 (with the Act heading and Chapter I title that SINALEVI serves in the same block) and Art. 5; Arts. 1 bis, 5 bis, 6 bis and the Transitorios are not included, nor the rest of the Act (beverage taxes, income tax changes). 220 SINALEVI versions, 100 records: a version is stored only when the text of Arts. 1 and 5 differs from the version before it, dated the amending norm's 'Fecha de vigencia desde'. About 200 executive decrees re-set the per-litre amounts of Art. 1 (the 'Nota de Sinalevi' under the table names the latest one), so most records differ in the amounts only. Versions 55, 210 and 216 are not stored: SINALEVI orders versions by the date of the amending norm, a later version took effect on the same day or earlier, and that later version (56, 212, 217) carries the later date and a message saying so. The adopted record is dated 2001-08-01, not the publication date 2001-07-09, because Art. 32 postpones Chapter I. Version 2 (Decreto 29644) also takes effect 2001-08-01. The ficha for an amendment on 2025-05-13 lists two Acts (Leyes 10728 and 10717); Ley 10728 is the one that affects Art. 5, so its in-force date (2025-06-18) is used. Languages stored: es, the only official language (SINALEVI serves Spanish only). No government English translation found on 2026-11-03: https://sinalevi.go.cr/en answered 404 and the norm pages have no language switch; https://www.imprentanacional.go.cr/en/ answered 404; https://www.pgr.go.cr/ (HTTP 200, 248623 bytes) has no English marker; https://minae.go.cr/ and https://www.mideplan.go.cr/ answered a Cloudflare challenge (HTTP 403) to the cloud address, so English pages there could not be checked. No translation row added.",
+    "status": "stored"
+  },
+  {
+    "id": "cr-ley-7472-art34-37",
+    "title": "Ley 7472 de Promoción de la Competencia y Defensa Efectiva del Consumidor, art. 34 (obligaciones del comerciante) and art. 37 (oferta, promoción y publicidad)",
+    "official_url": "https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=26481&param2=&param3=1",
+    "citation": "Ley 7472 of 20 December 1994, published in La Gaceta 14 of 19 January 1995; Arts. 34 and 37 as numbered since 2002",
+    "in_force": "1995-01-19",
+    "evidence": "SINALEVI ficha (opened 2026-11-03): \"Fecha de vigencia desde: 19/01/1995 ... N° Gaceta: 14 del 19/01/1995\"; the original text ends \"Rige a partir de su publicación.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CR-SINALEVI-ADOPTED",
+      "CR-SINALEVI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading advertising (publicidad engañosa). The stored articles do not name environmental claims; Art. 34 d) only requires information on risks 'para su salud, su seguridad y el medio ambiente'. The brief's 'arts. 34 and 37' are the current numbers. Ley 8343 (2002) renumbered the Act, so the record is cut by article title, not number: 'Obligaciones del comerciante' (Art. 31 in 1994, Art. 34 since 2002-12-18) and 'Oferta, promoción y publicidad' (Art. 34 in 1994, Art. 37 since 2002-12-18). 23 SINALEVI versions, 9 records (one per change in the text of those two articles; Leyes 7623, 7854, 8343, 8542, 8591, 9098, 8975). The last record, 2016-05-18, is the Sala Constitucional resolution 6728 of that date that annulled a phrase added by Ley 9098; SINALEVI lists no amending norm for it and states no later effect date, so the resolution's date is used and the record carries a message. See cr-dec-37899 for the implementing regulation. Languages stored: es, the only official language (SINALEVI serves Spanish only). No government English translation found on 2026-11-03: https://sinalevi.go.cr/en answered 404 and the norm pages have no language switch; https://www.imprentanacional.go.cr/en/ answered 404; https://www.pgr.go.cr/ (HTTP 200, 248623 bytes) has no English marker; https://minae.go.cr/ and https://www.mideplan.go.cr/ answered a Cloudflare challenge (HTTP 403) to the cloud address, so English pages there could not be checked. No translation row added.",
+    "status": "stored"
+  },
+  {
+    "id": "cr-dec-37899",
+    "title": "Decreto Ejecutivo 37899, Reglamento a la Ley de Promoción de la Competencia y Defensa Efectiva del Consumidor N° 7472",
+    "official_url": "https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=75696&param2=&param3=1",
+    "citation": "Decreto Ejecutivo 37899 of 8 July 2013, published in La Gaceta 182 of 23 September 2013",
+    "in_force": "2013-09-23",
+    "evidence": "SINALEVI ficha (opened 2026-11-03): \"Fecha de vigencia desde: 23/09/2013 ... N° Gaceta: 182 del 23/09/2013\"; Art. 248: \"Vigencia. Rige a partir de su publicación en el Diario Oficial La Gaceta.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CR-SINALEVI-ADOPTED",
+      "CR-SINALEVI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Added to the brief candidates: the regulation that implements Ley 7472 (cr-ley-7472-art34-37). Stored whole (248 articles; the text mentions publicidad about 70 times), 12 SINALEVI versions, 12 records, each dated the amending decree's 'Fecha de vigencia desde' (Decretos 38359, 39917, 40387, 40703, 42239, 42713, 42995, 43721, 44400, 44480). The 2016-07-06 record is a Tribunal Contencioso Administrativo resolution (060-2016) that annulled the ten-year limitation period in Art. 198; SINALEVI lists no amending norm for it, so the resolution's date is used and the record carries a message. Languages stored: es, the only official language (SINALEVI serves Spanish only). No government English translation found on 2026-11-03: https://sinalevi.go.cr/en answered 404 and the norm pages have no language switch; https://www.imprentanacional.go.cr/en/ answered 404; https://www.pgr.go.cr/ (HTTP 200, 248623 bytes) has no English marker; https://minae.go.cr/ and https://www.mideplan.go.cr/ answered a Cloudflare challenge (HTTP 403) to the cloud address, so English pages there could not be checked. No translation row added.",
+    "status": "stored"
+  },
+  {
+    "id": "cr-dec-42961",
+    "title": "Decreto Ejecutivo 42961-MINAE, Creación y Operación del Sistema Nacional de Métrica de Cambio Climático (SINAMECC)",
+    "official_url": "https://sinalevi.go.cr/ResultadosNormativa/Informacion?param1=94315&param2=&param3=1",
+    "citation": "Decreto Ejecutivo 42961-MINAE of 13 April 2021, published in La Gaceta 92 of 14 May 2021",
+    "in_force": "2021-05-14",
+    "evidence": "SINALEVI ficha (opened 2026-11-03): \"Fecha de vigencia desde: 14/05/2021 ... N° Gaceta: 92 del 14/05/2021\"; Art. 19: \"Vigencia. Rige a partir de su publicación.\"",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "CR-SINALEVI-ADOPTED",
+      "CR-SINALEVI-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Added to the brief candidates. A government data platform for the national greenhouse gas inventory (Art. 8, INGEI) run by the Dirección de Cambio Climático; Executive Branch bodies must share data (Art. 14) and other entities 'podrán' support it (Art. 15), so it puts no reporting duty on companies. Counted as F2 (climate governance). It repeals Decreto 41127-MINAE (Art. 18), which is not in scope. One SINALEVI version, one record. Languages stored: es, the only official language (SINALEVI serves Spanish only). No government English translation found on 2026-11-03: https://sinalevi.go.cr/en answered 404 and the norm pages have no language switch; https://www.imprentanacional.go.cr/en/ answered 404; https://www.pgr.go.cr/ (HTTP 200, 248623 bytes) has no English marker; https://minae.go.cr/ and https://www.mideplan.go.cr/ answered a Cloudflare challenge (HTTP 403) to the cloud address, so English pages there could not be checked. No translation row added.",
+    "status": "stored"
+  }
+]
