@@ -10073,5 +10073,41 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "sv-nrp-53-bcr-pdf",
+  "source_id": "SV-BCR-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-nrp-53",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf"
+ },
+ {
+  "id": "sv-lma-233-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lma-233",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/24985"
+ },
+ {
+  "id": "sv-lma-reglamento-general-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lma-reglamento-general",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/25452"
+ },
+ {
+  "id": "sv-lpc-776-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lpc-776",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/26733"
  }
 ]
