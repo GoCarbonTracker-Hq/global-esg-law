@@ -4843,3 +4843,52 @@ returned `200 99751 application/xml; charset=utf-8`. The English view translates
 - Mecc.gov.qa answers curl with a 302 and headless Chromium with 200; it was used for discovery only (laws page; the Environment and Climate Change Strategy PDF, `200 8468602 application/pdf`, 18 pages, no extractable text, registered as an F7 row).
 
 Candidates dropped: no carbon pricing or GHG reporting instrument is on Al Meezan (searches for carbon, greenhouse, emissions, ESG and sustainability gave nothing relevant), so Qatar has no F3 entry; the National Climate Change Action Plan 2030 is policy. The amending acts of Law No. 8 of 2008 (Decree-Law No. 14 of 2011, Law No. 7 of 2018) are not entries because their changes sit inside the stored text. Radiation, wildlife and waste-management decisions of the Supreme Council (for example Decision No. 11 of 2005) were not taken as ESG instruments.
+
+## Armenia
+
+Rows `AM-ARLIS-ADOPTED` and `AM-ARLIS-CONSOLIDATED` (`pass`, statute: Law on Copyright and Related Rights ՀՕ-142-Ն Art. 4 para. 1 point գ, legal acts and their official translations are not objects of copyright; Art. 3 para. 1 point ժա for the incorporated texts) and `AM-CBA-ADOPTED`, `AM-AMX-ADOPTED` (`permission requested`: the Central Bank and the Armenia Securities Exchange both reserve their content). Run on 2026-11-03 (GEL-10-10). arlis.am is the Ministry of Justice legal information system and, by the Law on Normative Legal Acts Art. 25 and Minister of Justice order 180-Ն (2018), the place of official electronic publication. The old site old.arlis.am still answers (`200`) but is not used; the existing register URL for the Climate Law was moved from `https://old.arlis.am/DocumentView.aspx?docID=220890` to `https://www.arlis.am/hy/acts/220890`. No browser was needed for any stored text, so no record in `records/AM/` is browser-fetched. The row decision on the unofficial incorporations is open for Varun (see the notes of `AM-ARLIS-CONSOLIDATED`).
+
+Step 1, find the docID of an act. The www.arlis.am search is a JavaScript page that calls a JSON endpoint; it answers a plain request with `302` to `/hy/error/403`. It works with a session cookie and the two headers the page script sends:
+
+```
+curl -sS -c cj -o /dev/null -A 'Mozilla/5.0' https://www.arlis.am/hy/
+curl -sS -b cj -A 'Mozilla/5.0' -H 'X-REQUESTED-WITH: XMLHttpRequest' -H 'Accept: application/json' 'https://www.arlis.am/hy/search/page/1?%7B%22simple_text%22%3A%20%22%D4%BF%D5%AC%D5%AB%D5%B4%D5%A1%D5%B5%D5%AB%20%D5%B4%D5%A1%D5%BD%D5%AB%D5%B6%22%7D&order_by=' -o s.json -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 47550 application/json; charset=UTF-8` for the title search above (`{"simple_text": "Կլիմայի մասին"}`, url-encoded JSON as the query string): `{"status":0,"message":null,"html":"..."}` with one `/hy/acts/<docID>/latest` link per hit (29 hits; the first is the Climate Law, docID 220890). Other keys the search form sends: `year`, `number`, `text_filter` (`1` title only, `2` title and text). The search only lists; the text is fetched in step 2.
+
+Step 2, row `AM-ARLIS-ADOPTED`, the Law on Climate (docID 220890), the print view of the act as published:
+
+```
+curl -sS -A 'Mozilla/5.0' -o act.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.arlis.am/hy/acts/220890/print/act
+```
+
+Returned `200 122769 text/html; charset=UTF-8`, sha256 `c444f8477e9f8b29b7cd38c003d01177d593616e488b73f8b45f641153b6614a`; a second fetch gave the same hash (the print view carries no per-request token). This is `fetched_sha256`, the hash of the HTML as received. The page starts with a metadata block (`Համար`, `Ակտի տիպ`, `Կարգավիճակ`, adoption, signature and in-force dates), then the act, then `<script>window.print()</script>`. `Ակտի տիպ` `Հիմնական ակտ` is the act as enacted (row `AM-ARLIS-ADOPTED`). The record `text` is what lies between `<p class="new-page"></p>` and `<script>window.print()`: change-history table cut if present, `p`, `div`, `tr`, `td`, `th`, `table`, `br`, `li`, `ul`, `ol` and heading tags turned into line breaks, other tags dropped, runs of spaces collapsed, empty lines removed, nothing reworded. The metadata block is not part of the text; the record `in_force` is read from it.
+
+Step 3, row `AM-ARLIS-CONSOLIDATED`, the Law on Protection of Consumer Rights (docID 226867), current incorporated text:
+
+```
+curl -sS -A 'Mozilla/5.0' -o act2.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.arlis.am/hy/acts/226867/print/act
+```
+
+Returned `200 309825 text/html; charset=UTF-8`, sha256 `b9675dc7f00bef09cf2934bb56a0f5a6434b7a5562527ba251add488f435f2d0`, reproduced on a second fetch. `Ակտի տիպ` is `Ինկորպորացիա` (the badge `Պաշտոնական ինկորպորացիա` appears only on the Advertising law, docID 230017, and the copyright law). The record `in_force` is the start date in `Կարգավիճակ` (`Գործում է (01.07.2026-մինչ օրս)` gives 2026-07-01), not the 2002 date of the original act. arlis.am exposes only the current incorporation of an act: the table `Փոփոխման պատմություն` inside `.../print/act_changes` lists every amending act and every earlier incorporation, but its links carry docIDs that open unrelated documents on both www.arlis.am and old.arlis.am (checked for 34748, 32286, 24679 on 2026-11-03), so earlier point-in-time texts cannot be fetched and one record per instrument is stored. The amending acts that matter are stored as their own enacted records (`am-air-protection-amendment-2026`, `am-consumer-rights-amendment-2026`). `https://www.arlis.am/hy/acts/220890/download/act` returns the same act as PDF (`200 98879 application/pdf`) and is not used.
+
+Stored on 2026-11-03: seven records, one per instrument (see `register/AM/scope.json`): `am-climate-law`, `am-air-protection-amendment-2026`, `am-ghg-inventory-order`, `am-consumer-rights-amendment-2026` under `AM-ARLIS-ADOPTED`; `am-air-protection-law`, `am-consumer-rights-law`, `am-advertising-law` under `AM-ARLIS-CONSOLIDATED`. All hash-reproduced on a second fetch.
+
+### Languages
+
+Armenian (`hy`) is the only official language of Armenia, so every record is `hy`. arlis.am also serves Russian texts at `https://www.arlis.am/ru/acts/<docID>` (for example the Copyright Law, docID 173423, which ends `Опубликование русского перевода 20 января 2023 года`; the Consumer Rights Law original of 2001, docID 63621, `ЗР-197`). These are translations by the publisher; neither the site nor Art. 4 names who made them, the site's About page says only that it posts those translations of National Assembly laws that were officially sent for publication, and Russian is not an official language. No translation row was created and nothing Russian is stored. The Russian consumer text is the 2001 original and matches no stored version. For the Climate Law, `/ru` and `/en` searches (`curl` with the step 1 cookie and headers, `/ru/search/page/1`, `/en/search/page/1`) found no Russian or English text on 2026-11-03: `О климате`, `Об изменении климата` and `Climate` returned `0` hits. `Consumer Rights` and `Advertising` returned `0` hits in `/en`. In `/ru`, `О рекламе` and `Об охране атмосферного воздуха` returned only Russian texts of old amending acts (1999 to 2004 and 2001), not a base law; the Russian consumer text is the 2001 original above. The Government decision and the 2026 amending acts were not searched by title in `/ru` or `/en`. No government English was found for any instrument (the environment.gov.am home page, 200 128070 bytes, links no English legal text). English copies exist at climate-laws.org (machine-translated by Google Cloud Translate, per the page) and are not stored.
+
+### Not stored and why
+
+None of the seven scope instruments is link only. Pages looked at that gave no text:
+
+- `AM-CBA-ADOPTED` (cba.am): `permission requested`. The terms of use (`https://www.cba.am/hy/terms-of-use/`, `200 46176`) reserve text, graphics and downloads. No Central Bank sustainability or climate-risk regulation was found on cba.am or on arlis.am (titles `ESG`, `կայուն ֆինանս`, `կլիմայական ռիսկ`). The Sustainable Finance Roadmap of 2023-10-06 is a plan; it is in `register/register.csv` as such.
+- `AM-AMX-ADOPTED` (amx.am): `permission requested`. `curl -sS -A 'Mozilla/5.0' https://amx.am/en/pages/terms_of_use` returns `200 3910 text/html; charset=UTF-8`, a JavaScript challenge shell without the terms. Browser recipe: Playwright chromium, `page.goto('https://amx.am/en/pages/terms_of_use', {waitUntil:'networkidle'})`, wait 2.5 s, read the innerText of `.main_description`; it returned `200` with the two sentences quoted in the row, sha256 of the whitespace-collapsed text `8134f630c65f622ef024a930c0a207d9c5407bb47ae48287b0b9d4e2eb67b8b5`, the same on a second run. The same browser read of Regulation > Exchange Rules, Information Center > Guides and Issuers & Instruments > Sustainable bonds found no ESG reporting guide or listing rule; the Guides page lists seven guides, none about ESG.
+- Candidates dropped: the Government decision N 2318-Լ (long-term low-emission development strategy to 2050, docID 188021) and the Prime Minister decisions N 320-Ա (list of implementing measures, docID 224022) and N 844-Ա (Climate Council and working groups, docID 230562) are strategies and plans, not enacted rules; the amending acts ՀՕ-179-Ն and ՀՕ-400-Ն of the Advertising law do not mention the environment. The EIA law (docID 228231) is an F7 row in `register/register.csv`.
+
+### Blocked from the cloud address
+
+- https://www.moj.am/ (Ministry of Justice): `403 199 text/html; charset=iso-8859-1` to `curl -sSL -A 'Mozilla/5.0'`. Not needed; arlis.am carries the acts.
+- https://amx.am/en/pages/terms_of_use: curl gets a challenge shell (above); the headless browser passes.
+- https://www.arlis.am/hy/search/page/1?... without the session cookie and `X-REQUESTED-WITH` header: `302` to `https://www.arlis.am/hy/error/403`.

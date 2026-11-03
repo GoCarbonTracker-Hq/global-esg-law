@@ -8555,5 +8555,68 @@
   "params": {
    "second_route": "https://www.qe.com.qa/sustainability-and-esg (browser; qe.com.qa gives curl with a Mozilla/5.0 user agent an empty reply and default headless Chromium HTTP 502 on 2026-11-03, while the watcher user agent gets 200)"
   }
+ },
+ {
+  "id": "am-climate-law-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-climate-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220890/print/act"
+ },
+ {
+  "id": "am-air-protection-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220906/print/act"
+ },
+ {
+  "id": "am-air-protection-amendment-2026-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-air-protection-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/220873/print/act"
+ },
+ {
+  "id": "am-ghg-inventory-order-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-ghg-inventory-order",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/188713/print/act"
+ },
+ {
+  "id": "am-consumer-rights-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/226867/print/act"
+ },
+ {
+  "id": "am-consumer-rights-amendment-2026-arlis-page",
+  "source_id": "AM-ARLIS-ADOPTED",
+  "iso2": "AM",
+  "instrument": "am-consumer-rights-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/224775/print/act"
+ },
+ {
+  "id": "am-advertising-law-arlis-page",
+  "source_id": "AM-ARLIS-CONSOLIDATED",
+  "iso2": "AM",
+  "instrument": "am-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.arlis.am/hy/acts/230017/print/act"
  }
 ]
