@@ -1,0 +1,65 @@
+[
+  {
+    "id": "np-environment-protection-act",
+    "title": "Environment Protection Act 2076 (2019) (वातावरण संरक्षण ऐन, २०७६)",
+    "official_url": "https://lawcommission.gov.np/content/12571/12571-the-environment-protection-act/",
+    "citation": "Environment Protection Act 2076 (2019), Act No. 9 of 2019, authenticated 2076.06.24 (11 October 2019)",
+    "in_force": null,
+    "evidence": "Law Commission English translation, s. 1(2): \"This Act shall commence on the eighth day of the date on which it is authenticated.\" Header: \"Date of Authentication 2076.06.24 (11th October, 2019)\". Nepali copy s. 1(2): \"यो ऐन प्रमाणीकरण भएको आठौं दिनदेखि प्रारम्भ हुनेछ।\" Opened https://giwmscdnone.gov.np/media/app/public/275/posts/1721034076_86.pdf and https://giwmscdnone.gov.np/media/pdf_upload/9.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%90%E0%A4%A8%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AC_d91zo4v.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NP-LAWCOMMISSION-CONSOLIDATED",
+      "NP-LAWCOMMISSION-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "in_force is null because no official page states a date, only the rule: the eighth day after 2019-10-11 is 2019-10-18 or 2019-10-19 depending on whether the day of authentication counts. Environmental framework act; the preamble names climate change and s. 2 defines adaptation, emission and climate change; the climate chapter was not read in full. The Nepali copy on the Law Commission page lists one amendment (the Act to amend some Nepal Acts, 2082, dated 2082.04.14). The English PDF states only the 2019 authentication and no amendment, so it reflects the text as authenticated; no version is stored. Implemented by np-environment-protection-rules. Not stored: row NP-LAWCOMMISSION-CONSOLIDATED and NP-LAWCOMMISSION-TRANSLATION is permission requested (the Law Commission publishes no terms and Copyright Act 2059 s. 4 does not name Acts or rules). The Nepali PDF's text layer is partly garbled (legacy font), so storing it would need OCR; tesseract with the nep pack installs in the session (apt) and read the Copyright Act page used for the licence row, but nothing is stored because the rows are not pass.",
+    "status": "link only"
+  },
+  {
+    "id": "np-environment-protection-rules",
+    "title": "Environment Protection Rules 2077 (2020) (वातावरण संरक्षण नियमावली, २०७७)",
+    "official_url": "https://lawcommission.gov.np/content/12941/12941-environment-protection-regulat/",
+    "citation": "Environment Protection Rules 2077 (2020), made under s. 44 of the Environment Protection Act 2076, published in the Nepal Gazette 2077.03.01",
+    "in_force": "2020-06-15",
+    "evidence": "Nepali text: \"नेपाल राजपत्रमा प्रकाशित मिति २०७७।०३।०१\" and Rule 1(2): \"यो नियमावली तुरुन्त प्रारम्भ हुनेछ।\" Opened https://giwmscdnone.gov.np/media/pdf_upload/8.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AD_jahaoua.pdf on 2026-11-03. 2077.03.01 BS converted to 2020-06-15 with the nepali-datetime library; the same library gives 2076.06.24 = 2019-10-11, the date the Law Commission's English Act states.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "NP-LAWCOMMISSION-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implementing rules of np-environment-protection-act. The Law Commission copy lists one amendment: the Carbon Trading Rules 2082 (2082.08.22), see np-carbon-trading-rules. Not stored: row NP-LAWCOMMISSION-CONSOLIDATED is permission requested (the Law Commission publishes no terms and Copyright Act 2059 s. 4 does not name Acts or rules). No government English text was found: the Law Commission instrument page https://lawcommission.gov.np/content/12941/12941-environment-protection-regulat/ links one Nepali PDF only (the Ministry of Forests and Environment page for these rules was not searched). The Nepali PDF's text layer is partly garbled (legacy font), so storing it would need OCR; tesseract with the nep pack installs in the session (apt) and read the Copyright Act page used for the licence row, but nothing is stored because the rows are not pass.",
+    "status": "link only"
+  },
+  {
+    "id": "np-carbon-trading-rules",
+    "title": "Carbon Trading Regulation 2082 (2025) (Carbon Trading Rules, कार्बन व्यापार नियमावली, २०८२)",
+    "official_url": "https://lawcommission.gov.np/content/13554/carbon-trading-rules--2082/",
+    "citation": "Carbon Trading Rules 2082 (2025), Nepal Gazette Rules No. 29 of 2082, published 2082.08.22, made under s. 44 of the Environment Protection Act 2076",
+    "in_force": "2025-12-08",
+    "evidence": "Nepali text: \"नेपाल राजपत्रमा प्रकाशित मिति २०८२।०८।२२\" and Rule 1(2): \"यो नियमावली तुरुन्त प्रारम्भ हुनेछ।\" Opened https://giwmscdnone.gov.np/media/pdf_upload/Final%20%20Opmc%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AC%E0%A4%A8%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80-%E0%A5%A8%E0%A5%A6%E0%A5%AE%E0%A5%A8%208-11_2w5ukgo.pdf on 2026-11-03. 2082.08.22 BS converted to 2025-12-08 with the nepali-datetime library (cross-check as for np-environment-protection-rules).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "NP-LAWCOMMISSION-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "amends": "np-environment-protection-rules",
+    "notes": "The Law Commission copy of the Environment Protection Rules lists these Rules as an amendment, hence amends. The Ministry of Forests and Environment has the same Rules at https://mofe.gov.np/content/358/carbon-trading-rules--2082/ (a Nepali PDF); the climate portal page the earlier register row pointed to (www.climatenepal.org.np) refused the cloud address, so official_source_url is now the Law Commission page. Duties of carbon project proponents were not summarised from the text. Not stored: row NP-LAWCOMMISSION-CONSOLIDATED is permission requested (the Law Commission publishes no terms and Copyright Act 2059 s. 4 does not name Acts or rules). No government English text was found: the Law Commission instrument page https://lawcommission.gov.np/content/13554/carbon-trading-rules--2082/ links one Nepali PDF only and the Ministry page https://mofe.gov.np/content/358/carbon-trading-rules--2082/ links one Nepali PDF. The Nepali PDF's text layer is partly garbled (legacy font), so storing it would need OCR; tesseract with the nep pack installs in the session (apt) and read the Copyright Act page used for the licence row, but nothing is stored because the rows are not pass.",
+    "status": "link only"
+  },
+  {
+    "id": "np-consumer-protection-act",
+    "title": "Consumer Protection Act 2075 (2018) (उपभोक्ता संरक्षण ऐन, २०७५)",
+    "official_url": "https://lawcommission.gov.np/content/12167/12167-the-consumer-protection-act-2/",
+    "citation": "Consumer Protection Act 2075 (2018), Act No. 10 of 2018, authenticated 2075.06.02 (18 September 2018)",
+    "in_force": "2018-09-18",
+    "evidence": "Law Commission English translation, header: \"Date of Authentication 2075/6/2 (18 September 2018)\" and s. 1(2): \"This Act shall commence immediately.\" Nepali copy s. 1(2): \"यो ऐन तुरुन्त प्रारम्भ हुनेछ।\" Opened https://giwmscdnone.gov.np/media/app/public/275/posts/1721033312_37.pdf and https://giwmscdnone.gov.np/media/app/public/275/posts/1719394748_73.pdf on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NP-LAWCOMMISSION-CONSOLIDATED",
+      "NP-LAWCOMMISSION-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Listed as the umbrella consumer law for environmental claims, as the brief names it; the text was not searched for a provision on environmental claims. The Nepali copy lists one amendment (the Act to amend some Nepal Acts to conform to the Constitution, 2075, dated 2075.11.19); the English PDF states no amendment, so it reflects the text as authenticated; no version is stored. The Consumer Protection Rules 2076 (https://lawcommission.gov.np/content/12452/12452-consumer-protection-regulation/) are not in scope. Not stored: row NP-LAWCOMMISSION-CONSOLIDATED and NP-LAWCOMMISSION-TRANSLATION is permission requested (the Law Commission publishes no terms and Copyright Act 2059 s. 4 does not name Acts or rules). The Nepali PDF's text layer is partly garbled (legacy font), so storing it would need OCR; tesseract with the nep pack installs in the session (apt) and read the Copyright Act page used for the licence row, but nothing is stored because the rows are not pass.",
+    "status": "link only"
+  }
+]
