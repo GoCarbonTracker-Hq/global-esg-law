@@ -8618,5 +8618,89 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://www.arlis.am/hy/acts/230017/print/act"
+ },
+ {
+  "id": "az-air-protection-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=3515",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/3515 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-air-emission-inventory-decision-63-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-air-emission-inventory-decision-63",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=1522",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/1522 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-environmental-protection-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-environmental-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=3852",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/3852 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-bank-corporate-governance-standards-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-bank-corporate-governance-standards",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=55125",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/55125 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-consumer-rights-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=9479",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/9479 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-advertising-law-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=30348",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/30348 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
+ },
+ {
+  "id": "az-ndc3-decision-335-eqanun-versions",
+  "source_id": "AZ-EQANUN-CONSOLIDATED",
+  "iso2": "AZ",
+  "instrument": "az-ndc3-decision-335",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://api.e-qanun.az/getVersions?id=60816",
+  "params": {
+   "second_route": "https://e-qanun.az/framework/60816 (browser; the Versions tab lists the version files; e-qanun.az dates versions in dd.mm.yyyy, so date_list cannot read the API and a hash of the version list is watched; the .html files answer 403 to a request without a Referer header)"
+  }
  }
 ]
