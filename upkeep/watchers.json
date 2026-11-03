@@ -12138,5 +12138,96 @@
   "params": {
    "second_route": "https://www.pma.ps/banking-circulars (browser; a JavaScript application, the 2025 filter lists the circulars and their PDF links; curl gets a 6300-byte shell)"
   }
+ },
+ {
+  "id": "tm-air-protection-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/92?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-nature-protection-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-nature-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/154?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-audit-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-audit-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/41?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-expertise-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-expertise-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/167?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-safety-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-safety-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/73?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-information-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-information-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/32?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-consumer-rights-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/176?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-advertising-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/99?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-terms-mejlis-consolidated",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mejlis.gov.tm/single-law/209?lang=ru",
+  "change": "terms_changed",
+  "params": {}
  }
 ]

@@ -11334,5 +11334,27 @@
     "trailer_source_url": "https://ogb.gov.ps/",
     "trailer_licence": "none: terms page not opened",
     "notes": "Blocked from the cloud address. Tried with User-Agent Mozilla/5.0: https://ogb.gov.ps and https://www.ogb.gov.ps (curl 35 connection reset; Chromium \"upstream request failed\"), http://ogb.gov.ps and http://www.ogb.gov.ps (503, 114 bytes, text/plain), http://www.lab.pna.ps/ (200, a 5-second JavaScript loader that reloads itself), https://www.lab.pna.ps/ (301 to https://ogb.gov.ps/). dft.pna.ps, dft.gov.ps, alwaqa.ps, gazette.ps, diwan.pna.ps did not resolve or reset. The host ogb.gov.ps was found through the lab.pna.ps redirect and is not yet confirmed as the gazette portal. The orchestrator can read it from the laptop."
+  },
+  {
+    "id": "TM-MEJLIS-CONSOLIDATED",
+    "jurisdiction": "TM",
+    "publisher": "Mejlis of Turkmenistan (Parliament)",
+    "source_name": "Mejlis of Turkmenistan website, Laws section: single-law pages with the current text of each law as amended, Turkmen and Russian",
+    "form": "consolidated",
+    "fetch_url": "https://mejlis.gov.tm/single-law/{n}?lang={tm|ru} (curl --http1.1; n is the Mejlis law number; the law text is the div class text_content)",
+    "pinned_version": "text as served on the fetch date, headed as amended through the last amending law named in the heading",
+    "content_hash": "",
+    "terms_url": "https://mejlis.gov.tm/single-law/209?lang=ru",
+    "terms_quote": "Не являются объектами авторского права: - официальные документы (законы, судебные решения, иные тексты законодательного, административного и судебного характера), а также их официальные переводы;",
+    "terms_fingerprint": "b738d7e3ad67a139e1a124a0823f267716f5c84653d0047571ea67a1120e33f3",
+    "verdict": "pass",
+    "statute_exception": "Law of Turkmenistan on Copyright and Related Rights (Об авторском праве и смежных правах; Vedomosti Mejlisa Turkmenistana 2012, No. 1, art. 8), Article 7 (Произведения, не являющиеся объектами авторского права): \"Не являются объектами авторского права: - официальные документы (законы, судебные решения, иные тексты законодательного, административного и судебного характера), а также их официальные переводы;\" Opened on the Mejlis site on 2026-11-03: https://mejlis.gov.tm/single-law/209?lang=ru (fetched with curl --http1.1, 224188 bytes, sha256 b738d7e3ad67a139e1a124a0823f267716f5c84653d0047571ea67a1120e33f3).",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Mejlis of Turkmenistan law page (law title and Vedomosti citation set per instrument)",
+    "trailer_source_url": "https://mejlis.gov.tm/single-law/{n}?lang={tm|ru}",
+    "trailer_licence": "Not copyright-protected (Turkmenistan Law on Copyright and Related Rights, Art. 7: laws and other official legislative texts and their official translations); the Mejlis site footer says all rights reserved",
+    "notes": "The Mejlis site has no terms-of-use page: the footer links only to Contacts, and the only site-wide statement is the footer line '2026 Все права защищены' (all rights reserved), which names no licence and no reuse condition. terms_url is therefore the Mejlis edition of the copyright law, and terms_fingerprint is the sha256 of that page as received (curl --http1.1 returned the same bytes on two requests); a changed hash means the statute text on the page changed. Verdict rests on the statute (Article 7: laws and other legislative texts, and their official translations, are not objects of copyright), quoted in statute_exception. The texts are published by the Mejlis of Turkmenistan on its own site, so they are official documents in the statute's sense. Judgement calls for Varun: (1) the footer 'all rights reserved' is read as a general site notice that cannot restore a protection the statute removes; (2) the Russian pages are marked '*Перевод с государственного языка Туркменистана' (translation from the state language), issued by the Mejlis itself and not credited to an outside translator or called unofficial, so they are stored under the same row on Article 7's words 'их официальные переводы'; the Turkmen page carries no such mark. Languages: Turkmen (lang=tm in the URL, ISO 639-1 tk) and Russian (lang=ru). The lang=en page of every law opened (13 laws checked on 2026-11-03) is an empty shell of 45k bytes with no law text, so there is no government English text on this site and no translation row. The site serves one current text per law, headed 'with amendments' through the last amending law, and no earlier versions. Fetching: use curl --http1.1; over HTTP/2 the host intermittently cuts the transfer (curl error 92 INTERNAL_ERROR) and returns a truncated page, so require a body that ends with </html>. The law text is the <div class=\"text_content\"> element. Other candidate publishers checked on 2026-11-03 and given no row: minjust.gov.tm (Ministry of Adalat site, a Next.js application; no law database or law texts found on the pages opened), cbt.tm (Central Bank; the laws and regulations pages contain no sustainability or climate instruction), mfa.gov.tm (news page only), mep.gov.tm and tse.gov.tm (proxy CONNECT failed with 502)."
   }
 ]
