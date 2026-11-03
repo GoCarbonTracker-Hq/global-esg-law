@@ -6460,3 +6460,30 @@ Cap. 1 (Interpretation of Laws Act) R.E. 2023 s. 85 (the brief said s. 84, the s
 - `https://www.vpo.go.tz` (Vice President's Office, Division of Environment), `https://www.agc.go.tz`, `https://www.sheria.go.tz`, `https://www.fcctz.go.tz`: `502` on CONNECT or empty answer (`000`). `https://www.tic.go.tz`: tunnel closed mid-exchange.
 - TanzLII Act pages, for example `https://tanzlii.org/en/akn/tz/act/1999/7/eng`: `403`, a Cloudflare "Just a moment..." challenge (`403 5399 text/html`); the listing, about and terms pages answered `200`.
 - `https://polis.bunge.go.tz` (the Parliament Acts list and files behind `www.parliament.go.tz/acts`): TLS fails with curl `(60) unable to get local issuer certificate` because the server omits its intermediate certificate (DigiCert Global G2 TLS RSA SHA256 2020 CA1). Fetched with `--cacert` set to the proxy CA bundle plus that intermediate, downloaded from `http://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt`; verification stayed on. `www.parliament.go.tz` reset the connection on the first request of some runs and answered on retry. Its Disclaimer page (`/pages/disclaimer`) carries hidden gambling spam keywords in the page body, which suggests the site was tampered with.
+
+## Cuba
+
+Row `CU-GACETA-ADOPTED`, `permission requested`. No row passes, so no record is stored and both instruments in `register/CU/scope.json` are `link only`. Run on 2026-11-03. No proven fetch recipe is listed for a `pass` row because there is none; what was tried follows.
+
+### Blocked from the cloud address
+
+Every Cuban host reset the TLS connection before any answer. DNS resolved (www.gacetaoficial.gob.cu 190.92.115.173, www.citma.gob.cu 169.158.144.68, www.bc.gob.cu 190.6.81.134), so the host exists; the connection is cut mid-handshake.
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.gacetaoficial.gob.cu/
+```
+
+Answer: `curl: (35) Recv failure: Connection reset by peer`, code `000`. Plain `http://www.gacetaoficial.gob.cu/` answered `503 114 text/plain` from the proxy ("upstream connect error ... connection timeout"). Headless Chromium (Playwright `page.goto`, 30 s) returned `502` for the Gaceta, CITMA and Banco Central de Cuba home pages. Same `000` for: https://gacetaoficial.gob.cu/, https://www.gacetaoficial.gob.cu/es/gaceta-oficial-no-77-ordinaria-de-2025, https://www.citma.gob.cu/, https://www.bc.gob.cu/, https://www.mincin.gob.cu/, https://www.mep.gob.cu/, https://www.parlamentocubano.gob.cu/, https://www.minjus.gob.cu/, https://www.cubadebate.cu/. The orchestrator can read them from the laptop.
+
+No terms page was read, so no row passes. The reading of Ley 154 de 2022 art. 9 (exclusions from copyright) is open: the article was not opened and is not applied.
+
+### Languages
+
+Spanish is the only official language of legislation. No government English translation was found: no Cuban site opened, so none was looked for beyond the home pages above. No translation row.
+
+### Link only
+
+- `cu-res-106-2025-carbon-market` (CITMA Resolución 106/2025, GOC-2025-426-O77): row `CU-GACETA-ADOPTED`, `permission requested`; the Gaceta issue page is unknown, `official_url` holds the site root.
+- `cu-ley-150-2022-environment` (Ley 150 de 2022, GOC-2023-771-O87 of 2023-09-13): same row and reason.
+
+Not in scope, with reason: a climate framework act (none found; Tarea Vida is a state plan, F7, not confirmed on any official page, so no register row); a Banco Central de Cuba sustainability instruction (bc.gob.cu not opened; no stock exchange exists); MINCIN Resolución 54/2018 and a possible Decreto 167 of 2026 (mincin.gob.cu not opened, enactment unconfirmed); Ley 154 de 2022 copyright act (not an ESG instrument, read only for art. 9). Secondary copies (uclv.edu.cu, ampeid.org, leap.unep.org, climate-laws.org) were seen in web search results only and are never a source.

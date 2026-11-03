@@ -9669,5 +9669,27 @@
     "trailer_source_url": "https://tanzlii.org/en/akn/tz/act/{year}/{n}/eng@{date}",
     "trailer_licence": "CC BY-NC 4.0 (non-commercial): not usable; written permission required",
     "notes": "About page (https://tanzlii.org/en/about/) reads: \"TanzLII is operated by the Judiciary of Tanzania and the Office of the Attorney General, Chief Parliamentary Draftsman, and publishes the law of Tanzania for free online access for all.\" The brief expected a statement of publication under the authority of the Attorney General; the page says operated by, so TanzLII is treated as a state-run host. The terms (notice dated 8 October 2025) license under CC BY-NC 4.0 (a non-commercial licence is not pass), say \"Scraping and bulk downloading from this website is strictly prohibited\", and robots.txt carries Content-Signal ai-train=no, ai-input=no. Act pages answered the cloud address with a Cloudflare challenge (HTTP 403, \"Just a moment...\"); only the listing, about and terms pages answered 200. fingerprint: sha256 of the whitespace-collapsed text of section 9 \"Copyright and Licensing\" of the terms page, computed 2026-11-03. Nothing stored under this row. Its legislation list links dated versions (for example /en/akn/tz/act/2004/1/eng@2023-12-31); those pages were not opened, so what dated versions it holds beyond the Revised Edition is not established."
+  },
+  {
+    "id": "CU-GACETA-ADOPTED",
+    "jurisdiction": "Cuba",
+    "publisher": "Ministerio de Justicia (Gaceta Oficial de la República de Cuba)",
+    "source_name": "Gaceta Oficial de la República de Cuba (gacetaoficial.gob.cu), issues as PDF",
+    "form": "adopted",
+    "fetch_url": "https://www.gacetaoficial.gob.cu/",
+    "pinned_version": "not pinned: page not opened, no fetch",
+    "content_hash": "",
+    "terms_url": "https://www.gacetaoficial.gob.cu/",
+    "terms_quote": "Not read: https://www.gacetaoficial.gob.cu/ and its other paths gave no answer from the cloud address on 2026-11-03 (curl: connection reset by peer, TLS handshake never completed; http:// answered 503 from the proxy; headless Chromium: 502).",
+    "terms_fingerprint": "not computed: terms page not opened",
+    "verdict": "permission requested",
+    "statute_exception": "none found (Ley 154 de 2022, art. 9, exclusions from copyright: not opened, so not applied)",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Gaceta Oficial de la República de Cuba issue (number and date set per instrument)",
+    "trailer_source_url": "https://www.gacetaoficial.gob.cu/",
+    "trailer_licence": "none: terms page not opened",
+    "notes": "Blocked from the cloud address: gacetaoficial.gob.cu, citma.gob.cu, bc.gob.cu, mincin.gob.cu, mep.gob.cu, parlamentocubano.gob.cu, minjus.gob.cu, cubadebate.cu all reset the TLS connection (DNS resolved: 190.92.115.173, 169.158.144.68, 190.6.81.134). No CITMA or Banco Central de Cuba row: neither site could be opened, and no instrument in scope depends on them. The orchestrator can read the Gaceta terms from the laptop; if the Gaceta text is free of copyright (Ley 154 de 2022 art. 9) the row can become a statute-based pass."
   }
 ]

@@ -10704,5 +10704,29 @@
   "params": {
    "second_route": "https://www.cmsa.go.tz/publications/12 (browser; list of CMSA regulations)"
   }
+ },
+ {
+  "id": "cu-res-106-2025-carbon-market-gaceta-page",
+  "source_id": "CU-GACETA-ADOPTED",
+  "iso2": "CU",
+  "instrument": "cu-res-106-2025-carbon-market",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.cu/",
+  "params": {
+   "second_route": "https://www.gacetaoficial.gob.cu/ (browser; the site reset the TLS connection to scripts and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "cu-ley-150-2022-environment-gaceta-page",
+  "source_id": "CU-GACETA-ADOPTED",
+  "iso2": "CU",
+  "instrument": "cu-ley-150-2022-environment",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.cu/",
+  "params": {
+   "second_route": "https://www.gacetaoficial.gob.cu/ (browser; the site reset the TLS connection to scripts and to headless Chromium from the cloud address on 2026-11-03)"
+  }
  }
 ]
