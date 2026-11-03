@@ -9486,5 +9486,87 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/6052633"
+ },
+ {
+  "id": "cv-dl-35-2026-boe-act-file",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-dl-35-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/DownloadAct?id=101440"
+ },
+ {
+  "id": "cv-lei-71-x-2026-boe-act-file",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-lei-71-x-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/DownloadAct?id=89468"
+ },
+ {
+  "id": "cv-lei-44-x-2024-boe-bulletin-page",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-lei-44-x-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/Details/A2024/S1/BO123/6143"
+ },
+ {
+  "id": "cv-dl-31-2026-boe-act-file",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-dl-31-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/DownloadAct?id=101316"
+ },
+ {
+  "id": "cv-lei-23-x-2023-boe-act-page",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-lei-23-x-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/View?id=58853"
+ },
+ {
+  "id": "cv-lei-86-iv-93-boe-amending-act-page",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-lei-86-iv-93",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/View?id=58853"
+ },
+ {
+  "id": "cv-portaria-conjunta-39-2025-boe-act-file",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-portaria-conjunta-39-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/DownloadAct?id=88603"
+ },
+ {
+  "id": "cv-portaria-30-2026-boe-act-file",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "cv-portaria-30-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://boe.incv.cv/Bulletins/DownloadAct?id=100537"
+ },
+ {
+  "id": "terms-cv-boe-adopted",
+  "source_id": "CV-BOE-ADOPTED",
+  "iso2": "CV",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://boe.incv.cv/Documents/Index/7",
+  "change": "terms_changed"
  }
 ]
