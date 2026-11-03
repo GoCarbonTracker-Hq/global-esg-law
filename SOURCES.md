@@ -8116,3 +8116,48 @@ Looked at and left out: other laws on the same collection that are not ESG law (
 - `https://agoye.gov.ye/` with the default curl User-Agent: `403 987 text/html` (works with a browser User-Agent, see above); `download.php` PDFs on the same host: connection reset.
 - `https://moit.gov.ye/terms`, `/privacy`, `/accessibility`: `404`; `https://moit.gov.ye/node/174`: `500`.
 - Some hosts answer on one try and not on the next (`www.moit.gov.ye`, `yemenparliament.gov.ye` returned 200 on a later try); the list above is what refused on 2026-11-03.
+
+## Mongolia
+
+Run on 2026-11-03 (GEL-16-04). Three rows pass, all on the statute basis (Law on Copyright of 2021-05-06, art. 7.1.1 and 7.1.4): `MN-MECC-CONSOLIDATED`, `MN-MECC-ADOPTED`, `MN-PARLIAMENT-ADOPTED`. Four rows are `permission requested`: `MN-LEGALINFO-CONSOLIDATED` (page could not be opened), `MN-FRC-ADOPTED`, `MN-MSE-ADOPTED`, `MN-BOM-ADOPTED` (no terms found, or an all rights reserved footer). Language: Mongolian only; no government English text was found for any instrument. The statute was read in a PDF copy of the 2021 Law on Copyright on the Intellectual Property Office site (`https://www.ipom.gov.mn/source/legalinfo.mn%20-%20ЗОХИОГЧИЙН%20ЭРХИЙН%20ТУХАЙ%20_Шинэчилсэн%20найруулга_.pdf`, percent-encoded in the row, sha256 `abb296b907415be0a6d32962f72420ae27c0bfebd77577edcadd61f33a04413b`) because legalinfo.mn is blocked from the cloud address.
+
+Row `MN-MECC-CONSOLIDATED`, Law on Environmental Protection. The file UUID is read from the table at `https://mecc.gov.mn/documents/huulitogtoomj062026?sort=date&order=desc` (page 1, then `&page=2`; the list has 17 laws):
+
+```
+curl -sS -L -o epl.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mecc.gov.mn/storage/media/c0c2055b-38af-4716-b85d-8e727e1b9975.pdf
+```
+
+Returned `200 256550 application/pdf`; a second fetch gave the same sha256 (`4a9264f7cbc80b57...`). The Law on Air (`.../91d4e3b0-b612-4d6b-b14b-25d7f0f9e7a4.pdf`) returned `200 136692 application/pdf`, also reproduced. Both PDFs have a text layer. The PDFs carry amendment footnotes and no consolidation date; the record `in_force` is the latest amending-law date named in the footnotes (2024-06-05 and 2025-07-09), a choice recorded in each record `message`.
+
+Row `MN-MECC-ADOPTED`, Order A/422 (Unified Carbon Registry Procedure), listed at `https://mecc.gov.mn/documents/d-rem-zhuram?sort=date&order=desc`:
+
+```
+curl -sS -L -o a422.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mecc.gov.mn/storage/media/395e3efd-0f6a-492b-86b3-dd0b85dd9700.pdf
+```
+
+Returned `200 644378 application/pdf`, reproduced on a second fetch. The file is six scanned pages with no text layer (`pdftotext -layout` returned 6 bytes), so OCR was run: poppler `pdftoppm -r 300 -png`, then `tesseract <page>.png <page> -l mon` on each page (apt `tesseract-ocr`, `tesseract-ocr-mon`, installed in the session; `ocrmypdf` is also installed), pages concatenated, each line stripped and runs of spaces collapsed, three or more line breaks reduced to two. The record carries `extraction: "ocr"` and the original PDF's `fetched_url` and `fetched_sha256`. The OCR output was not corrected: the order number and date line and the stamp came out garbled. `python3 tools/check_corpus.py` accepts the extra key (2756 records checked on the merged branch); `python3 tools/publish_gate.py` result is in the PR report.
+
+Row `MN-PARLIAMENT-ADOPTED`, Law on Climate Change, law page `https://old.parliament.mn/laws/17426/`:
+
+```
+curl -sS -L -o climate.docx -w '%{http_code} %{size_download} %{content_type}\n' 'https://old.parliament.mn/files/c619e1c1262147a385f910d25c3c9e9c/?d=1'
+```
+
+Returned `200 139775 application/vnd.openxmlformats-officedocument.wordprocessingml.document` (file name `26-h-07.docx`), reproduced on a second fetch. Text extraction is stdlib: unzip `word/document.xml`, one line per `w:p` paragraph, the text of its `w:t` runs joined, entities unescaped, lines stripped, three or more line breaks reduced to two. `https://www.parliament.mn/laws/<id>/` is a JavaScript shell (967 bytes); the same law pages on `old.parliament.mn` are server-rendered. Search there is `https://old.parliament.mn/laws/?keywords=<text>&page=<n>`.
+
+### Languages
+
+Mongolian is the only official language of legislation and the only one served. English looked for: `https://mecc.gov.mn/bajgal-orchny-salbaryn-bodlogo-huul-togtoomzhijn-orchuulga` (the translations listed are the Law on Living Modified Organisms, the Law on Water and the Law on Forest, none in scope), `old.parliament.mn` (Mongolian files only) and `mongolbank.mn`. English texts that exist are not official translations: the MSE rules ("unofficial translation" in the file title), the FRC Corporate Governance Code ("Unofficial translation"). Neither is stored and no translation row was written.
+
+### Link only
+
+- `mn-corporate-governance-code`: `MN-LEGALINFO-CONSOLIDATED` and `MN-FRC-ADOPTED` are permission requested. legalinfo.mn answers every request from the cloud address with a connection reset: `curl -sS -m 40 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code}\n' https://legalinfo.mn/mn/detail?lawId=16468331291331` gives `curl: (35) Recv failure: Connection reset by peer`; headless Chromium (Playwright, `goto` on the same URL) got HTTP 502 with a 174-byte body. Blocked from the cloud address: https://legalinfo.mn/ . The FRC site (https://www.frc.mn/) is an Angular app whose API is `https://www.frc.mn:5001`, which also resets the connection, so the document list cannot be read.
+- `mn-mse-disclosure-rules`: `MN-MSE-ADOPTED` permission requested (no terms page found). The rule PDF opens: `curl -sS -L -o dtr.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mse.mn/uploads/images/laws/Disclosure%20and%20Transparency%20Rules%20(unofficial%20translation).pdf'` returned `200 90827 application/pdf`. Nothing stored.
+- `mn-law-consumer-protection`, `mn-law-advertising`: the row passes but the only texts found are legacy `.doc` files on old.parliament.mn (`/laws/5183/`; `/laws/2437/`, `/laws/2478/`, `/laws/4663/`). `catdoc -d utf-8` reads the Cyrillic correctly but leaves field-code lines (`HYPERLINK "../../Nemelt/..."`, `PAGE`) inside the text, and the files give no consolidation date. Storing that output would mean removing text by hand, so nothing is stored. legalinfo.mn, the other source, is blocked.
+- `mn-bom-order-a31-esg-risk`: `MN-BOM-ADOPTED` permission requested (footer `Copyright © 2026 - Монголбанк`). The scanned order opens: `curl -sS -L -o a31.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.mongolbank.mn/file/4f687af8d68656e14435c26b10aab2a6/files/A-31_ESG%20methodlogy_Final.pdf'` returned `200 10376404 application/pdf`, no text layer. Nothing stored.
+
+### Dropped or reclassified candidates
+
+- The Mongolian Sustainable Finance Roadmap and the FRC ESG and Sustainability Reporting Guidance of August 2022 are policy or voluntary guidance: `register.csv` rows with `law_family` F7, no scope entry.
+- The brief's candidate "Bank of Mongolia sustainable finance regulation" was not confirmed as a regulation; the Bank's green policy page (`https://www.mongolbank.mn/en/p/1601`) lists the Roadmap, a taxonomy, disclosure guidance and Governor Order A-31, of which only A-31 is an order (scope entry `mn-bom-order-a31-esg-risk`, F6).
+- The Climate Change Law's in-force date (2026-08-03 in the brief) appears only in a PwC alert, not on an official page opened, so the scope entry carries `in_force` null.

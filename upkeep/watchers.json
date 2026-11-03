@@ -12666,5 +12666,89 @@
   "params": {
    "second_route": "https://moit.gov.ye/node/175 (browser; the PDF is linked from this page)"
   }
+ },
+ {
+  "id": "mn-corporate-governance-code-legalinfo-page",
+  "source_id": "MN-LEGALINFO-CONSOLIDATED",
+  "iso2": "MN",
+  "instrument": "mn-corporate-governance-code",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legalinfo.mn/mn/detail?lawId=16468331291331",
+  "params": {
+   "second_route": "https://legalinfo.mn/mn/detail?lawId=16468331291331 (browser; legalinfo.mn resets connections from the cloud address)"
+  }
+ },
+ {
+  "id": "mn-mse-disclosure-rules-pdf",
+  "source_id": "MN-MSE-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-mse-disclosure-rules",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mse.mn/uploads/images/laws/Disclosure%20and%20Transparency%20Rules%20(unofficial%20translation).pdf"
+ },
+ {
+  "id": "mn-law-environmental-protection-mecc-pdf",
+  "source_id": "MN-MECC-CONSOLIDATED",
+  "iso2": "MN",
+  "instrument": "mn-law-environmental-protection",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mecc.gov.mn/storage/media/c0c2055b-38af-4716-b85d-8e727e1b9975.pdf"
+ },
+ {
+  "id": "mn-law-air-mecc-pdf",
+  "source_id": "MN-MECC-CONSOLIDATED",
+  "iso2": "MN",
+  "instrument": "mn-law-air",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mecc.gov.mn/storage/media/91d4e3b0-b612-4d6b-b14b-25d7f0f9e7a4.pdf"
+ },
+ {
+  "id": "mn-law-climate-change-parliament-page",
+  "source_id": "MN-PARLIAMENT-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-law-climate-change",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://old.parliament.mn/laws/17426/"
+ },
+ {
+  "id": "mn-carbon-registry-procedure-a422-mecc-list",
+  "source_id": "MN-MECC-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-carbon-registry-procedure-a422",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mecc.gov.mn/documents/d-rem-zhuram?sort=date&order=desc"
+ },
+ {
+  "id": "mn-law-consumer-protection-parliament-page",
+  "source_id": "MN-PARLIAMENT-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-law-consumer-protection",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://old.parliament.mn/laws/5183/"
+ },
+ {
+  "id": "mn-law-advertising-parliament-page",
+  "source_id": "MN-PARLIAMENT-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-law-advertising",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://old.parliament.mn/laws/2437/"
+ },
+ {
+  "id": "mn-bom-order-a31-esg-risk-green-policy-page",
+  "source_id": "MN-BOM-ADOPTED",
+  "iso2": "MN",
+  "instrument": "mn-bom-order-a31-esg-risk",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mongolbank.mn/en/p/1601"
  }
 ]
