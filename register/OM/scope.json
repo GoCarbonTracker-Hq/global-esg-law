@@ -1,0 +1,103 @@
+[
+  {
+    "id": "om-msx-esg-guideline",
+    "title": "Muscat Stock Exchange ESG Disclosure Guideline",
+    "official_url": "https://www.msx.om/MSMDOCS/downloads/ESG-MSX-E.pdf",
+    "citation": "MSX ESG Disclosure Guideline (English PDF, file created 2024-11-28)",
+    "in_force": null,
+    "evidence": "Page 'Purpose of the MSX ESG Disclosure Guideline' of the PDF opened 2026-11-03: \"All listed companies are required to disclose their 30 metrics through the MSX ESG Disclosure platform and publish their sustainability reports. While ESG and sustainability disclosures were voluntary in 2024, from 2025 onwards, reporting on activities from the 2024 fiscal year will become mandatory.\" The PDF states no commencement date.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "OM-MSX-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Exchange guideline for companies listed on MSX. The brief called it voluntary for FY2023; the PDF says voluntary in 2024 and mandatory for reporting on FY2024 from 2025, so the register wording is kept. MSX terms allow personal non-commercial use only, so the row is permission requested and nothing is stored. The PDF text is clean English (pdftotext), but the row decides. The guideline names GRI and other frameworks, none stored. The MSX ESG page (https://www.msx.om/page.aspx?b1=SUSTAINABLE-INVESTMENTS&b2=ESG&pg=ESG&t=Pages&ti=ESG) links only English files (the guideline, a metrics file and a presentation); no Arabic guideline was found.",
+    "status": "link only"
+  },
+  {
+    "id": "om-fsa-decision-e-7-2026",
+    "title": "Financial Services Authority Decision No. E/7/2026 on the Adoption of the International Sustainability Disclosure Standards (IFRS S1 and IFRS S2)",
+    "official_url": "https://e.fsa.gov.om/LegislationEncyclopedia/",
+    "citation": "FSA Decision No. E/7/2026 of 17 March 2026 (27 Ramadan 1447 AH), Official Gazette issue 1640 of 24 March 2026, page 5",
+    "in_force": "2026-03-25",
+    "evidence": "Article Five of the decision as served by the FSA Legislation Encyclopedia (id 98): \"This Decision shall be published in the Official Gazette and shall come into force on the day following the date of its publication.\" Official Gazette issue (1640) dated Tuesday 24 March 2026 (5 Shawwal 1447), opened as PDF from https://mjla.gov.om/legislation/1 on 2026-11-03, lists the decision on page 5 under the Financial Services Authority; the next day is 2026-03-25. The Encyclopedia lists 'Publication date 17/03/2026', which is the issue date.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "OM-FSA-ADOPTED",
+      "OM-FSA-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Adopts IFRS S1 and IFRS S2 for the reports of listed public joint stock companies and financial institutions; full application for reporting periods beginning on or after 2029-01-01, Scope 3 greenhouse gas emissions disclosures from 2030-01-01 (Article Two); administrative sanctions in Article Four apply to practitioners of the accountancy and auditing profession. Only the decision text is stored, not the IFRS standards text (IFRS Foundation copyright; no ISO or GRI text). The brief's number E/7/2026 and date 2026-03-17 are confirmed; the Arabic number reads خ / ٧ / ٢٠٢٦. Languages stored 2026-11-03: ar (record 2026-03-25-adopted-ar.json, the text the Encyclopedia marks as published in the Official Gazette) and en (translation record under OM-FSA-TRANSLATION; the English page states no amendment state, and no amending instrument exists on the Encyclopedia). The Arabic body carries the signatory (Executive President of the FSA), the English does not. The Encyclopedia served the same text on two fetches (identical sha256).",
+    "status": "stored"
+  },
+  {
+    "id": "om-environment-law",
+    "title": "Law on Protection of the Environment and Prevention of Pollution, Royal Decree No. 114/2001",
+    "official_url": "https://mjla.gov.om/laws/ar/1/show/57/",
+    "citation": "Royal Decree No. 114/2001 of 14 November 2001 (28 Shaban 1422 AH) issuing the Law on Protection of the Environment and Prevention of Pollution",
+    "in_force": null,
+    "evidence": "Article Four of the decree, read on the page image of the MJLA PDF (https://www.mjla.gov.om/modules/laws/download.php?file=57, opened 2026-11-03): \"ينشر هذا المرسوم في الجريدة الرسمية، ويعمل به من تاريخ نشره\" (published in the Official Gazette and effective from its publication date). The decree is dated 14 November 2001; the gazette issue is not on the MJLA portal (its list starts at issue 1000), so no official page read states the first in-force day.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "OM-MJLA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The MJLA PDF text layer is corrupt (AXt Manal fonts: U+FFFD for letters, moved lam-alef pairs), so no faithful text could be stored; the instrument is link only although row OM-MJLA-ADOPTED passes. No consolidated version exists on the MJLA portal (one PDF per instrument as published). No government English text was found: looked for on mjla.gov.om (English interface index.om?GetLang=en lists the same Arabic PDFs), ea.gov.om and e.fsa.gov.om. Implemented by the Environment Authority regulations (ea.gov.om lists them: noise 296/2024, waste, hazardous chemicals, environmental permits 48/2017), none entered in this scope list yet. Article Three lets the minister issue implementing regulations.",
+    "status": "link only"
+  },
+  {
+    "id": "om-drinking-water-protection-law",
+    "title": "Law on Protection of Drinking Water Sources from Pollution, Royal Decree No. 115/2001",
+    "official_url": "https://mjla.gov.om/laws/ar/1/show/58/",
+    "citation": "Royal Decree No. 115/2001 of 14 November 2001 (28 Shaban 1422 AH) issuing the Law on Protection of Drinking Water Sources from Pollution",
+    "in_force": null,
+    "evidence": "Article Three of the decree as read in the text layer of the MJLA PDF (https://www.mjla.gov.om/modules/laws/download.php?file=58, opened 2026-11-03): ينشر هذا المرسوم في الجريدة الرسمية، ويعمل به من تاريخ نشره (published in the Official Gazette and effective from its publication date). Dated 14 November 2001; the gazette issue is not on the MJLA portal, so no official page read states the first in-force day.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "OM-MJLA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The MJLA PDF text layer is corrupt (AXt Manal fonts: U+FFFD for letters, moved lam-alef pairs), so no faithful text could be stored; the instrument is link only although row OM-MJLA-ADOPTED passes. No consolidated version exists on the MJLA portal (one PDF per instrument as published). No government English text was found: looked for on mjla.gov.om (English interface index.om?GetLang=en lists the same Arabic PDFs), ea.gov.om and e.fsa.gov.om. The Environment Authority legislation page pairs the label 6/2003 with a PDF that is this decree (115/2001), so the EA copy is not used.",
+    "status": "link only"
+  },
+  {
+    "id": "om-nature-reserves-law",
+    "title": "Law on Nature Reserves and Conservation of Wildlife, Royal Decree No. 6/2003",
+    "official_url": "https://mjla.gov.om/laws/ar/1/show/63/",
+    "citation": "Royal Decree No. 6/2003 of 8 January 2003 (5 Dhu al-Qadah 1423 AH) issuing the Law on Nature Reserves and Conservation of Wildlife",
+    "in_force": null,
+    "evidence": "Article Four of the decree as read in the text layer of the MJLA PDF (https://www.mjla.gov.om/modules/laws/download.php?file=63, opened 2026-11-03): ينشر هذا المرسوم في الجريدة الرسمية، ويعمل به من تاريخ نشره (published in the Official Gazette and effective from its publication date). Dated 8 January 2003; the gazette issue is not on the MJLA portal, so no official page read states the first in-force day.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "OM-MJLA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The MJLA PDF text layer is corrupt (AXt Manal fonts: U+FFFD for letters, moved lam-alef pairs), so no faithful text could be stored; the instrument is link only although row OM-MJLA-ADOPTED passes. No consolidated version exists on the MJLA portal (one PDF per instrument as published). No government English text was found: looked for on mjla.gov.om (English interface index.om?GetLang=en lists the same Arabic PDFs), ea.gov.om and e.fsa.gov.om. Nature conservation law, kept in scope as an F2 environmental law; it carries no emissions or disclosure duty that was read.",
+    "status": "link only"
+  },
+  {
+    "id": "om-consumer-protection-law",
+    "title": "Consumer Protection Law, Royal Decree No. 66/2014",
+    "official_url": "https://mjla.gov.om/laws/ar/1/show/137/",
+    "citation": "Royal Decree No. 66/2014 of 30 November 2014 (7 Safar 1436 AH) issuing the Consumer Protection Law, Official Gazette issue 1081 of 7 December 2014",
+    "in_force": null,
+    "evidence": "Article 49 of the law, read in the text layer of the MJLA PDF (https://www.mjla.gov.om/modules/laws/download.php?file=137, opened 2026-11-03): يعمل بهذا القانون بعد (٣) ثلاثة أشهر من تاريخ نشره في الجريدة الرسمية (in force after three months from its publication in the Official Gazette). Gazette issue 1081 dated Sunday 7 December 2014 (14 Safar 1436) lists the decree on page 7, read on the page image. The text says 'after' three months and states no date, so the first in-force day (7 or 8 March 2015) is not read from any page and in_force stays null.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "OM-MJLA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The MJLA PDF text layer is corrupt (AXt Manal fonts: U+FFFD for letters, moved lam-alef pairs), so no faithful text could be stored; the instrument is link only although row OM-MJLA-ADOPTED passes. No consolidated version exists on the MJLA portal (one PDF per instrument as published). No government English text was found: looked for on mjla.gov.om (English interface index.om?GetLang=en lists the same Arabic PDFs), ea.gov.om and e.fsa.gov.om. Umbrella law on consumer protection (Public Authority for Consumer Protection, Royal Decree 66/2014 replaces 81/2002); no clause on environmental claims was read because the text could not be extracted. Related, found and not entered: Royal Decree 54/2021 applying the GCC Unified Anti-Commercial Fraud Law (MJLA show 182; its PDF download returned a damaged file).",
+    "status": "link only"
+  },
+  {
+    "id": "om-climate-affairs-regulations",
+    "title": "Regulations for the Management of Climate Affairs, Ministerial Decision No. 20/2016",
+    "official_url": "https://www.ea.gov.om/media/hpskif3s/%D9%84%D8%A7%D8%A6%D8%AD%D8%A9-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B4%D8%A4%D9%88%D9%86-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%AE%D9%8A%D8%A9.pdf",
+    "citation": "Ministerial Decision No. 20/2016 of 29 March 2016 (20 Jumada al-Thani 1437 AH) issuing the Regulations for the Management of Climate Affairs, Official Gazette issue 1141 of 3 April 2016, page 5",
+    "in_force": "2016-04-04",
+    "evidence": "Article Four of the decision in the English PDF on ea.gov.om (opened 2026-11-03): \"This decision shall be published in the Official Gazette and shall be effective from the date following the date of its publication.\" Official Gazette issue 1141, dated Sunday 3 April 2016 (25 Jumada al-Thani 1437), opened as PDF from https://mjla.gov.om/legislation/1 on 2026-11-03, lists 'قرار وزاري رقم ٢٠١٦/٢٠ صادر في ٢٠١٦/٣/٢٩ بإصدار لائحة إدارة الشؤون المناخية' on page 5 (read on the page image); the next day is 2016-04-04.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "OM-MJLA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Owners of projects in the regulations' annex B need a climate affairs licence (Article 5, issued for two years), with an initial report on greenhouse gas emissions attached to the application (Article 6) and an annual greenhouse gas emissions report due by 28 February (Article 10); read in the English PDF on ea.gov.om. Article Two repeals Ministerial Decision 18/2012. Climate affairs moved to the Environment Authority by Royal Decree 60/2022. No carbon price or emissions trading rule was found on the pages read. The MJLA PDF text layer is corrupt (AXt Manal fonts: U+FFFD for letters, moved lam-alef pairs), so no faithful text could be stored; the instrument is link only although row OM-MJLA-ADOPTED passes. No consolidated version exists on the MJLA portal (one PDF per instrument as published). No government English text was found: looked for on mjla.gov.om (English interface index.om?GetLang=en lists the same Arabic PDFs), ea.gov.om and e.fsa.gov.om. The EA English PDF (row OM-EA-ADOPTED, permission requested) is a scan with an OCR layer that misreads numbers, so it is not stored either. The text and the gazette issue are the same decision; the gazette issue 1141 (MJLA, pass row) is listed as the source row.",
+    "status": "link only"
+  }
+]
