@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mk-nbrm-bank-disclosure-decision",
+    "title": "Decision on disclosure of reports and data by banks (Одлука за објавување извештаи и податоци од страна на банките), National Bank of the Republic of North Macedonia",
+    "official_url": "https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf",
+    "citation": "Official Gazette of the Republic of North Macedonia No. 36/2023 (17 February 2023), item 644; Decision No. 02-3614/7 of 2 February 2023",
+    "in_force": "2023-02-25",
+    "evidence": "Point 45: \"Оваа одлука влегува во сила осмиот ден од денот на објавувањето во „Службен весник на Република Северна Македонија“, а ќе започне да се применува од 1 јануари 2025 година. По исклучок на ставот 1 од оваа точка, одредбите од точката 28 на оваа одлука ќе почнат да се применуваат од 1 јануари 2026 година.\" Gazette No. 36 is dated 17 февруари 2023; the eighth day after publication is 2023-02-25 (computed, the Gazette states the rule, not the date). Opened https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "MK-SLVESNIK-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Stored 2026-11-03 from the Gazette issue, cut out of the whole-issue PDF (Macedonian item 644 and the Albanian version that follows in the same issue); both are official (Gazette is bilingual). The Decision applies from 2025-01-01; point 28 (climate and environment risk disclosure) applies from 2026-01-01, point 38 from 2030-01-01. in_force is the entry-into-force date, not the application date. English: the NBRM English PDF named in the register (https://www.nbrm.mk/content/Regulativa/Decision%20on%20disclosure%20by%20banks.pdf) and nbrm.mk answer the cloud address with a Cloudflare challenge, so row MK-NBRM-TRANSLATION is permission requested and no English record exists; no other government English was found (looked at: nbrm.mk, slvesnik.com.mk, sobranie.mk). Amendments to the Decision after 2023-02-17 were not looked for beyond Gazette issues 1 to 23 of 2026 (the only 2026 issues the free archive serves).",
+    "status": "stored"
+  },
+  {
+    "id": "mk-law-environment",
+    "title": "Law on Environment (Закон за животната средина), as adopted",
+    "official_url": "https://slvesnik.com.mk/Issues/ACF1AC118E6F81438BE8DD53D5A613F0.pdf",
+    "citation": "Official Gazette of the Republic of Macedonia No. 53/2005 (5 July 2005)",
+    "in_force": "2005-07-13",
+    "evidence": "Art. 228: \"Овој закон влегува во сила осмиот ден од денот на објавувањето во “Службен весник на Република Македонија”, a ќе се применува од 1 септември 2005 година.\" Gazette No. 53 is dated 5 јули 2005; the eighth day after publication is 2005-07-13 (computed). Opened https://slvesnik.com.mk/Issues/ACF1AC118E6F81438BE8DD53D5A613F0.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MK-SLVESNIK-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Record is the Law as adopted in 53/2005, in Macedonian and Albanian (the 2005 issue prints both). The Law has been amended many times since; the free archive serves no consolidation and no dated point-in-time version, so only the adopted text is stored and later amendments are not merged. The law applies from 2005-09-01. Climate content: Art. 3 lists among objectives stabilising greenhouse-gas concentrations in the atmosphere. Text comes out of pdftotext in the PDF's own reading order, which is not always the printed order (the Art. 3 heading follows part of its list in Macedonian; the Albanian is partly shuffled near its end). No government English was found (looked at: slvesnik.com.mk, sobranie.mk; moepp.gov.mk and arhiva.moepp.gov.mk refused the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "mk-law-consumer-protection",
+    "title": "Law on Consumer Protection (Закон за заштита на потрошувачите), as adopted",
+    "official_url": "https://slvesnik.com.mk/Issues/c4ef6c06718f4fe18ff615a5877f73f4.pdf",
+    "citation": "Official Gazette of the Republic of North Macedonia No. 236/2022 (7 November 2022)",
+    "in_force": "2022-11-15",
+    "evidence": "Art. 226: \"Овој закон влегува во сила осмиот ден од денот на објавувањето во „Службен весник на Република Северна Македонија“.\" Gazette No. 236 is dated 7 ноември 2022; the eighth day after publication is 2022-11-15 (computed). Opened https://slvesnik.com.mk/Issues/c4ef6c06718f4fe18ff615a5877f73f4.pdf on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MK-SLVESNIK-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella consumer law; it has no article on environmental claims by name. Art. 2(1) item 8 lists a consumer right to a healthy and sustainable environment, and the information duties refer to the effect of goods or services on the environment. Stored in Macedonian and Albanian as adopted (pdftotext follows the PDF's own reading order, so the Albanian text is partly shuffled). Later amendments are not merged: the free archive serves no consolidation. No government English was found (looked at: slvesnik.com.mk, sobranie.mk).",
+    "status": "stored"
+  }
+]
