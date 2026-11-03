@@ -7009,3 +7009,60 @@ English is the only official language of Dominican legislation, and the portal a
 
 - https://www.eccb-centralbank.org/ and https://www.eccb-centralbank.org/enforced: `403` from curl and from headless Chromium (HTTP 403 Forbidden, 117 to 118 bytes, server awselb/2.0). The orchestrator can read the ECCB terms page and the standards page from the laptop.
 - Nothing else refused the cloud address: dominica.gov.dm, printery.dominica.gov.dm, www.ecsrc.com (`200 60104 text/html; charset=UTF-8`) and www.ecseonline.com (`200 101003 text/html; charset=UTF-8`) answered. The ECSRC and ECSE pages show no ESG or climate rule by title; no row for them since nothing was taken.
+
+## Yemen
+
+Run on 2026-11-03 (GEL-17-04). Two rows pass, both on a statute: `YE-AGO-ADOPTED` (Public Prosecution collection of Yemeni legislation, agoye.gov.ye) and `YE-MOIT-ADOPTED` (Ministry of Economy, Industry and Investment, moit.gov.ye). Neither site publishes usable terms (agoye.gov.ye has a rights-reserved footer and no terms page; the moit.gov.ye links to /terms, /privacy and /accessibility all answer 404), so both rest on Law No. 15 of 2012 art. 5 item 2, which excludes the text of laws and regulations from copyright; the statute was read in the Arabic PDF on WIPO Lex because yemen-nic.info refuses the cloud address. Varun to confirm. Both sites appear to be run by the Sanaa administration. Stored: Arabic only, the one official language; no government English text was found. Nothing was fetched with a browser; every record came from `curl`.
+
+Row `YE-AGO-ADOPTED`, Law No. 26 of 1995 on Environment Protection. The default curl User-Agent is refused:
+
+```
+curl -sS -o law26.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://agoye.gov.ye/page.php?lng=arabic&pprint=323'
+```
+
+Returned `403 987 text/html`. With a browser User-Agent it works:
+
+```
+curl -sS -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36' -o law26.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://agoye.gov.ye/page.php?lng=arabic&pprint=323'
+```
+
+Returned `200 341617 text/html; charset=UTF-8`, the printable page of the law. The same bytes came back on three further requests (curl twice, headless Chromium twice), so `fetched_sha256` (`55d0421a...22a5`) reproduces. The page `?lng=arabic&id=323` is the screen version with counters that change, which is why the print page is the fetch URL. Text: the HTML between `<div align="justify">` and the closing `</td>`, through `extract_text` of `tools/update.py` (tags stripped, `<br>` and paragraphs as line breaks). The law page numbers come from the list at `https://agoye.gov.ye/page.php?lng=arabic&cid=11` (needs the same User-Agent; it answered 403, then 200 from headless Chromium, and the host answers 502 "upstream request failed" now and then, so a request is retried). Law No. 11 of 1993 on the marine environment is `pprint=322`: `200 180574 text/html; charset=UTF-8`, sha256 `139ac4d8...afd`. The Law 26 page lists an Official Gazette issue (20 of 1995) and a PDF (`download.php?path=b-2-2-16.pdf&id=323`, which reset the connection from curl).
+
+Row `YE-MOIT-ADOPTED`, Law No. 46 of 2008 on Consumer Protection, PDF listed on `https://moit.gov.ye/legislations/laws`:
+
+```
+curl -sS -o law46.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://moit.gov.ye/sites/default/files/2026-02/%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf'
+```
+
+Returned `200 1795728 application/pdf` (8 pages, Last-Modified 2026-02-11, sha256 `97ba8f54...edd`, same on a second request). Text: `pdftotext law46.pdf -` (reading order; `-layout` scrambles the right-to-left definitions list), then Unicode NFKC (the PDF's letters are Arabic presentation forms, 12052 of 22937 characters, which do not search as ordinary Arabic), bidi control marks removed, runs of spaces collapsed, blank lines dropped. The text layer puts hamza, tanween and kasra marks on lines of their own, so some words are split; digits and article numbers are intact. A trial OCR of the same PDF read the digits wrongly (the year 2008 came out as a different number), so the text layer was kept. Varun to decide whether NFKC counts as rewording and whether OCR is preferred for this file.
+
+Executive Regulation (Prime Minister's decision), `https://moit.gov.ye/node/175` links the PDF; node 174 lists the same bytes and answered `500` (a PHP error) on 2026-11-03:
+
+```
+curl -sS -o reg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://moit.gov.ye/sites/default/files/2026-02/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83_0.pdf'
+```
+
+Returned `200 365664 application/pdf` (9 pages, sha256 `25dc314d...776`). Here `pdftotext` gives garbled Arabic (the letter ya comes out as a different mark, ligatures are lost, digits are wrong), so the record is OCR: `pdftoppm -r 300 -gray -png reg.pdf p`, then `tesseract p-N.png p-N -l ara --psm 6` for each page (tesseract 5.3.4 with the `ara` pack, installed from the Ubuntu archive), pages joined in order, blank lines dropped, nothing corrected by hand. The record carries `extraction: "ocr"`; the digits in it are unreliable.
+
+### Languages
+
+Arabic is the only official language of Yemeni legislation and the only language of every page above, so there is no second-language row. No translation row: no government English text of any stored instrument was found (agoye.gov.ye and moit.gov.ye are Arabic only; english.cby-ye.com carries central bank pages only). Unofficial English copies exist on WIPO Lex, CMS and UNESCWA pages; they are UN or NGO copies and nothing is taken from them.
+
+### Link only
+
+None of the four scope instruments is link only. Law No. 26 of 1995 is stored from the Public Prosecution collection, not from the National Information Center page the register pointed at (see Blocked). No instrument was found for the climate or carbon market question or for a central bank sustainability instruction; both are F7 "None found" rows in `register/register.csv`.
+
+### Not taken
+
+Looked at and left out: other laws on the same collection that are not ESG law (public cleanliness law of 1999 and its violations regulation, water law circulars, commercial companies law, competition and commercial fraud law, standards and metrology law); the central bank laws on cby-ye.com (no climate or ESG content); the Ministry of Justice site moj.gov.ye (its law list, 38 items over 5 pages, holds civil service, tax, investment and procedure laws only; page 2 of its list answered 403).
+
+### Blocked
+
+- `https://www.yemen-nic.info/` and `https://www.yemen-nic.info/db/laws_ye/detail.php?ID=11458` (the register's original pointer; also `http://`): `curl: (35) Recv failure: Connection reset by peer` over HTTPS, `503 114` over HTTP from the proxy, whose log says the tunnel closed after the request was sent; headless Chromium got `502 174`. The host resolves to 67.227.156.124. Blocked from the cloud address; the orchestrator can read it, and the National Information Center terms, from the laptop.
+- `https://epa.gov.ye/` (82.114.162.21): `curl: (28) Connection timed out after 20001 milliseconds`; Chromium `502 174`.
+- `https://www.centralbank.gov.ye/` and `https://yemen.gov.ye/` and `https://moi.gov.ye/`: `curl: (35) Recv failure: Connection reset by peer`.
+- `https://mola.gov.ye/`, `https://mowe.gov.ye/`, `https://www.mop.gov.ye/`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `http://www.yemen.gov.ye/portal/justic/`: `503 114 text/plain` from the proxy.
+- `https://agoye.gov.ye/` with the default curl User-Agent: `403 987 text/html` (works with a browser User-Agent, see above); `download.php` PDFs on the same host: connection reset.
+- `https://moit.gov.ye/terms`, `/privacy`, `/accessibility`: `404`; `https://moit.gov.ye/node/174`: `500`.
+- Some hosts answer on one try and not on the next (`www.moit.gov.ye`, `yemenparliament.gov.ye` returned 200 on a later try); the list above is what refused on 2026-11-03.
