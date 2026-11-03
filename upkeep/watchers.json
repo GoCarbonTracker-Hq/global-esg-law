@@ -11277,5 +11277,77 @@
   "params": {
    "second_route": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03 (browser; plain curl answered 200 on 2026-11-03)"
   }
+ },
+ {
+  "id": "py-ley-7190-2023-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-7190-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono"
+ },
+ {
+  "id": "py-ley-5875-2017-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-5875-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/8712/ley-n-5875-nacional-de-cambio-climatico"
+ },
+ {
+  "id": "py-ley-294-1993-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-294-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/2374/ley-n-294-evaluacion-de-impacto-ambiental"
+ },
+ {
+  "id": "py-ley-1561-2000-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-1561-2000",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/1645/ley-n-1561-crea-el-sistema-nacional-del-ambiente-el-consejo-nacional-del-ambiente-y-la-secretaria-del-ambiente"
+ },
+ {
+  "id": "py-ley-1334-1998-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-1334-1998",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario"
+ },
+ {
+  "id": "py-decreto-3369-2025-mades-decretos",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-3369-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/decretos/"
+ },
+ {
+  "id": "py-decreto-453-2013-mades-pdf",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-453-2013",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf"
+ },
+ {
+  "id": "py-decreto-954-2013-mades-pdf",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-954-2013",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-954-modifica-algunos-articulos-decreto-453.pdf"
  }
 ]

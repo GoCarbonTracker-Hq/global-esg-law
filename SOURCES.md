@@ -6876,3 +6876,46 @@ Link-only instruments:
 | Bank of Sierra Leone climate or sustainability guideline | none | `https://bsl.gov.sl/Legislation.html` and the supervision and publications pages list no climate or sustainability guideline; nothing added. |
 
 Stored by GEL-15-10: `sl-ods-regulations-2025` (adopted 2025-04-03, English).
+
+## Paraguay
+
+Run on 2026-11-03 (GEL-14-09). Two rows pass: `PY-BACN-ADOPTED` (Biblioteca y Archivo Central del Congreso Nacional) and `PY-MADES-ADOPTED` (Ministerio del Ambiente y Desarrollo Sostenible), both on the statute, Ley 1328/1998 art. 8 numeral 2 ("los textos oficiales de carácter legislativo, administrativo o judicial, ni sus traducciones, sin perjuicio de la obligación de respetar los textos y citar la fuente"). Neither site has a terms page, so the pass rests on the statute alone. `PY-BCP-ADOPTED`, `PY-GACETA-ADOPTED` and `PY-BOLSA-ADOPTED` are `permission requested` because the sites could not be opened. Text extraction for BACN: the law page's text block (from the download line to the end of the article element) with tags stripped, block elements as line breaks, whitespace collapsed per line, blank lines dropped, and the trailing "Archivos adjuntos" and "Tags" blocks cut. A page is not strictly UTF-8 (a stray byte in a side widget), so only the cut-out text block is decoded.
+
+Row `PY-BACN-ADOPTED`, Ley 7190/2023 as published (the number and slug come from the law's page address; the bare number without the slug returns the "Página no encontrada" page):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ley7190.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono
+```
+
+Returned `200 109874 text/html; charset=UTF-8`. The same request for Ley 5875 (`.../8712/ley-n-5875-nacional-de-cambio-climatico`) returned `200 114588`, Ley 294 (`.../2374/ley-n-294-evaluacion-de-impacto-ambiental`) `200 94728`, Ley 1334 (`.../897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario`) `200 129348`, all `text/html; charset=UTF-8`. `fetched_sha256` is the hash of the HTML as received. A second fetch does not reproduce it (the page carries a view counter and lists the newest laws in a side widget; the sizes above differ from the sizes of the first fetches), but the extracted text was identical on a second fetch for all five laws. The law page also links a PDF (`https://www.bacn.gov.py/descarga/11986/LEY7190.pdf`); a script request for it returns `200 49682 text/html` (an HTML page, not a PDF, with or without a Referer), so the HTML text block is the stored source. The law page states the promulgation and publication dates as "Fecha de Promulgación" and "Fecha de Publicación" (dd-mm-yyyy). BACN serves the text of the law as published; amending laws are separate laws on separate pages, so each law has one dated version and no point-in-time consolidation. How to find a page: `https://www.bacn.gov.py/buscar/buscar?s=<terms>` lists matching pages (spaces as `%20`), or a web search restricted to `bacn.gov.py`.
+
+Row `PY-MADES-ADOPTED`, Decreto 453/2013:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o decreto453.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf
+```
+
+Returned `200 538343 application/pdf`. `pdftotext -layout decreto453.pdf -` returns 68927 characters of OCR noise over a scan (the decree number reads "Ífb :3" and the date "ock~e"), so the decree is not stored. Decreto 954/2013 (`.../Decreto-954-modifica-algunos-articulos-decreto-453.pdf`): `200 271207 application/pdf`, same defect. The Ley 5875 PDF that MADES re-hosts (`.../2025/09/LEY-N°-5875-NACIONAL-DE-CAMBIO-CLIMATICO.pdf`, percent-encoded) is the Gaceta scan and `pdftotext -layout` returns only the page headers. MADES lists its documents at `https://www.mades.gov.py/leyes`, `/decretos` and `/resoluciones` (HTML tables with a "Ver Archivo" link per row). The PDF command for a stored text would be `pdftotext -layout file.pdf -` with runs of spaces collapsed, as in `## Brazil`; no Paraguayan PDF passed the garble check.
+
+### Languages
+
+Spanish is the language of publication and the only language BACN and MADES serve; every stored record is `es`. Guaraní (`gn`) is co-official, but no Guaraní text of any of the five laws was found on the BACN law pages or the MADES lists, so no `gn` record exists. No government English text was found on the BACN law pages or the MADES laws and decrees lists, so no translation row was written. The Guaraní and English routes elsewhere (Gaceta Oficial, Presidency, BCP) could not be reached; see the blocked list.
+
+Blocked from the cloud address, recorded for the orchestrator to read from the laptop:
+
+- `https://www.bcp.gov.py/` and `https://www.bcp.gov.py/marco-normativo-siv`: first `curl -sS -A 'Mozilla/5.0' -o bcp.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.bcp.gov.py` answered `403 5330 text/html; charset=UTF-8`, a Cloudflare "Just a moment..." challenge; `https://www.bcp.gov.py/documents/20117/0/` answered `403 5405`. Later requests were reset (`curl: (35) Recv failure: Connection reset by peer`). Headless Chromium through Playwright (`chromium.launch()`, `page.goto(url, {waitUntil: 'networkidle', timeout: 60000})` with a desktop Chrome User-Agent) timed out at 60 s for the home page, `/marco-normativo-siv` and a news page. Row `PY-BCP-ADOPTED` is `permission requested`; nothing from the BCP or the Superintendencia de Valores is stored.
+- `https://www.gacetaoficial.gov.py/` (https and http): no HTTP answer (curl status `000`; the agent proxy logged the tunnel closing mid-exchange).
+- `https://www.bolsadeasuncion.com.py/`: the agent proxy answered CONNECT with `502`.
+- `https://www.presidencia.gov.py`, `https://edicion.presidencia.gov.py/...`, `https://www.silpy.congreso.gov.py`, `https://www.cnv.gov.py`, `https://sv.bcp.gov.py`: no HTTP answer (status `000` or connection reset).
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Decreto 3369/2025 (py-decreto-3369-2025) | https://www.mades.gov.py/2025/02/18/paraguay-moderniza-legislacion-de-credito-carbono-y-muestra-al-mundo-potencial-como-pulmon-verde/ | No opened official page serves the decree text: not in the MADES decree list, Gaceta and Presidency not reachable. Third-party copies were not used. in_force is null. |
+| Decreto 453/2013 (py-decreto-453-2013) | https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf | Scan with OCR-noise text layer; no OCR step is allowed yet. |
+| Decreto 954/2013 (py-decreto-954-2013) | https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-954-modifica-algunos-articulos-decreto-453.pdf | Scan with OCR-noise text layer; no OCR step is allowed yet. |
+| BCP Resolución 8/2018, Resolución 31/2025, Resolución CNV CG 09/20 | none opened | `PY-BCP-ADOPTED` is permission requested (Cloudflare 403); register rows only. |
+| Ley 7572/2025 (F7) | https://www.bacn.gov.py/leyes-paraguayas/12910/ley-n-7572-2025-mercado-de-valores-y-productos | F7: register row only, no scope entry. |
+
+Stored by GEL-14-09 (adopted, `es`, source `PY-BACN-ADOPTED`): `py-ley-7190-2023` (2023-10-13), `py-ley-5875-2017` (2017-09-28), `py-ley-294-1993` (1994-01-01), `py-ley-1561-2000` (2000-07-25), `py-ley-1334-1998` (1999-04-25). Dates are the day after publication (Código Civil art. 1) except Ley 1334, whose art. 53 sets 180 days after promulgation.
