@@ -12777,5 +12777,101 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.ccfdg.gov.kh/en/laws-regulations/laws/"
+ },
+ {
+  "id": "la-decree-climate-change-321-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-climate-change-321",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/321%E0%BA%A5%E0%BA%9A2019.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=1544 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-decree-carbon-credits-292-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-carbon-credits-292",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/292.%2028.5.2025.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2380 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-agreement-forest-carbon-4565-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-agreement-forest-carbon-4565",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/4565.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2272 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-law-environmental-protection-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-law-environmental-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/53%20%E0%BA%81%E0%BA%BB%E0%BA%94%E0%BB%9D%E0%BA%B2%E0%BA%8D%20%E0%BA%A7%E0%BB%88%E0%BA%B2%E0%BA%94%E0%BB%89%E0%BA%A7%E0%BA%8D%E0%BA%81%E0%BA%B2%E0%BA%99%E0%BA%9B%E0%BA%BB%E0%BA%81%E0%BA%9B%E0%BA%B1%E0%BA%81%E0%BA%AE%E0%BA%B1%E0%BA%81%E0%BA%AA%E0%BA%B2%E0%BA%AA%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BB%81%E0%BA%A7%E0%BA%94%E0%BA%A5%E0%BB%89%E0%BA%AD%E0%BA%A1%20%28%E0%BA%AA%E0%BA%B0%E0%BA%9A%E0%BA%B1%E0%BA%9A%E0%BA%9B%E0%BA%B1%E0%BA%9A%E0%BA%9B%E0%BA%B8%E0%BA%87%2928-6-2024.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2312 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-decree-eia-389-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-eia-389",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/389%E0%BA%A5%E0%BA%9A20.10.2022.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2008 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-law-consumer-protection-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-law-consumer-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/Protecting%20consumers%20Law%20.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=545 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-agreement-green-label-1888-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-agreement-green-label-1888",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/1888.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2277 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-lsc-guideline-gss-bonds-06-lsc-pdf-head",
+  "source_id": "LA-LSC-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-lsc-guideline-gss-bonds-06",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.lsc.gov.la/Doc_legal/Scan2024-08-20_06%20(1).pdf",
+  "params": {
+   "second_route": "https://www.lsc.gov.la/legislation/guideline.php?page=1 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
  }
 ]

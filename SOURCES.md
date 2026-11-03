@@ -8220,3 +8220,73 @@ Blocked from the cloud address (2026-11-03; the orchestrator can read these from
 | https://www.moc.gov.kh/ | `403 14917 text/html; charset=UTF-8` |
 
 The Royal Gazette has no free online edition that was found; no Cambodian gazette page was opened.
+
+## Laos
+
+Run on 2026-11-03 (GEL-16-02). Three licence rows: `LA-GAZETTE-ADOPTED` (Lao Official Gazette, Ministry of Justice) and `LA-LSC-ADOPTED` (Lao Securities Commission) are `pass` on a statute, `LA-GAZETTE-TRANSLATION` is `permission requested`. Eight instruments are stored, all in Lao (the only official language of legislation), all as uncorrected OCR text because every official PDF is a scan with no text layer. No instrument is link only. No browser was used, so no record is browser-fetched.
+
+Statute: Law on Intellectual Property No. 50/NA of 2023-11-20 (Gazette id 2214), Article 93 item 3, under the heading `ສິ່ງທີ່ບໍ່ສາມາດປົກປ້ອງເປັນລິຂະສິດ` (things that cannot be protected as copyright): `ນິຕິກຳ, ລະບຽບການປົກຄອງ ແລະ ເອກະສານທາງດ້ານການດຳເນີນຄະດີ ລວມທັງເອກະສານດັ່ງກ່າວ ທີ່ໄດ້ແປເປັນທາງການ` (legal instruments, administrative regulations and court-procedure documents, including such documents officially translated). Read from the OCR of the Gazette scan (`https://laoofficialgazette.gov.la/kcfinder/upload/files/50%20%E0%BA%AA%E0%BA%9E%E0%BA%8A%2020.11.2023.pdf`, `200 10326392 application/pdf`, 65 pages, sha256 `1fba8f0ee7e8590f4830aaa09782312882eb45d88c296bb4d228649a54d7c0f9`, page 43 of the PDF) and checked on the page image. The Gazette terms page (`https://laoofficialgazette.gov.la/index.php?r=site/display&id=12`, paragraph `ລິຂະສິດ`) grants no licence: it says the instruments can be accessed free of charge, that changing, adding to or editing their text "is regarded as a violation of criminal law", and that printing them as books needs permission from the Ministry of Justice. The pass therefore rests on the statute, not on the terms; whether the criminal-law sentence reaches a verbatim machine copy is listed for Varun in the PR. The Lao Securities Commission site has no terms page.
+
+### Row `LA-GAZETTE-ADOPTED`: PDF files on laoofficialgazette.gov.la
+
+Each instrument has a page `https://laoofficialgazette.gov.la/index.php?r=site/display&id=<n>` (found with the title search `https://laoofficialgazette.gov.la/index.php?r=site/index&Document[title]=<words>`; the result grid shows the instrument date, the Gazette date and the PDF link) and a PDF under `/kcfinder/upload/files/`. The server resets some connections during the TLS handshake from the cloud address (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`), so every request is made with retries. Proven request for Decree on Carbon Credits No. 292/GOV (Gazette id 2380):
+
+```
+curl -sS --retry 6 --retry-all-errors -m 120 -A 'Mozilla/5.0' -o cc292.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laoofficialgazette.gov.la/kcfinder/upload/files/292.%2028.5.2025.pdf'
+```
+
+Returned `200 3176594 application/pdf` (20 pages, sha256 `12e21a336294b48c56c34fb2eb32d7604526d5f76f5e2f3224af926d10902d3f`); a second fetch returned the same bytes. The file name is the one printed on the instrument's Gazette page, percent-encoded. A request for every PDF below was repeated and reproduced its sha256 on 2026-11-03:
+
+| Instrument | Gazette id | PDF path under `/kcfinder/upload/files/` | Size | sha256 |
+|---|---|---|---|---|
+| `la-decree-climate-change-321` | 1544 | `321%E0%BA%A5%E0%BA%9A2019.pdf` | 894948 | `745935791da57f41f989ff495762822bd5191df0336deea92439fd0f2a258302` |
+| `la-decree-carbon-credits-292` | 2380 | `292.%2028.5.2025.pdf` | 3176594 | `12e21a336294b48c56c34fb2eb32d7604526d5f76f5e2f3224af926d10902d3f` |
+| `la-agreement-forest-carbon-4565` | 2272 | `4565.pdf` | 2418065 | `3a5abcdba76d62ed735669965fa608c48dfc8b0183393cf59076e5a3629baaef` |
+| `la-law-environmental-protection` | 2312 | `53%20%E0%BA%81%E0%BA%BB%E0%BA%94%E0%BB%9D%E0%BA%B2%E0%BA%8D%20...28-6-2024.pdf` (full name in the record's `fetched_url`) | 8617598 | `39da446cc26fd583e07d8d32a96ea5123e9e1df9acb317c65ec1e1a9d4257f05` |
+| `la-decree-eia-389` | 2008 | `389%E0%BA%A5%E0%BA%9A20.10.2022.pdf` | 1849761 | `4d95eaec5c471fadbc722373f6f7d713eefe1241afee4a3426952ce47e63753f` |
+| `la-law-consumer-protection` | 545 | `Protecting%20consumers%20Law%20.pdf` | 3535093 | `61da734c4202753516d89e02108d408c37c96fc575be9e0f92b8d23985b853d8` |
+| `la-agreement-green-label-1888` | 2277 | `1888.pdf` | 1499730 | `f8ee3fa6821ecdf7b0e77b6e1f40cf0d7885070285ea50a6a752f12ad803b159` |
+
+All answered `200 application/pdf`. The Gazette serves the as-published scan only: there are no consolidations and no later versions of these instruments, so each has one record dated its in-force date. `fetched_sha256` is the hash of the PDF as received.
+
+Text extraction. `pdftotext -layout` returns only form feeds for every file (no text layer; `pdfimages -list` shows one 200 ppi page image per page), so the text is made by OCR as the dispatch allows. Tesseract is not preinstalled; it was installed with `apt-get install -y tesseract-ocr tesseract-ocr-lao` (tesseract 5.3.4, languages `eng lao osd`). Per PDF: `pdftoppm -r 300 -gray -png file.pdf p`, then per page `OMP_THREAD_LIMIT=1 tesseract p-NN.png - -l lao --psm 3`, pages joined by a form feed. The record text is that output with each line stripped, runs of spaces or tabs collapsed to one space, form feeds turned into line breaks and three or more line breaks reduced to two. Nothing was corrected, reflowed or reworded by hand. Quality is modest: Lao tone marks, upper and lower vowels and numerals are often misread (for example the decree number `321/ລບ` reads `ວິຈ /.ງບ`, and `ກົດໝາຍ` often reads `ກົດຫມາຍ` or `ກົດຫາຍ`), and stamps and signatures add stray characters. Between 78% and 90% of the characters of each text are in the Lao block (U+0E80 to U+0EFF). Commencement clauses, numbers and dates quoted in `register/LA/scope.json` were read from the page images, not from the OCR. Every record has `"extraction": "ocr"`; `tools/check_corpus.py` and `tools/publish_gate.py` accept the field (the checker does not read it).
+
+### Row `LA-LSC-ADOPTED`: PDF files on www.lsc.gov.la
+
+The LSC legislation lists (`https://www.lsc.gov.la/legislation/guideline.php?page=1` and the same for `laws`, `resolutions`, `ordinance`, `decree`, `order`, `agreement`, `notification`, `regulation`) are plain HTML tables with a download link `../readpdf.php?id=<n>&pdf=<file>`. That link returns a 104-byte page with a JavaScript redirect to `Doc_legal/<file>`, so the PDF is fetched from the `Doc_legal` path:
+
+```
+curl -sS --retry 6 --retry-all-errors -m 90 -A 'Mozilla/5.0' -o lsc06.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lsc.gov.la/Doc_legal/Scan2024-08-20_06%20(1).pdf'
+```
+
+Returned `200 2860730 application/pdf` (6 pages, sha256 `e23952050efcced2ae819f3b8c4289abc8652a3b6d72d022c44a02986f6540a1`, `Producer: Scanner System Image Conversion`); a second fetch returned the same bytes. It is Guideline No. 06/LSC of 2024-08-20 (`la-lsc-guideline-gss-bonds-06`), OCR as above. The site has no terms, copyright or licence page (home page and footer carry none, `/robots.txt` answers 404), so the row passes only on the Law on Intellectual Property Art. 93 item 3.
+
+### Languages
+
+Lao is the only official language of legislation (Gazette help page `https://laoofficialgazette.gov.la/index.php?r=site/display&id=15`: `ພາສາທາງການສຳລັບຈົດໝາຍເຫດທາງລັດຖະການ ແລະ ສຳລັບນິຕິກຳທັງໝົດ ຢູ່ ສປປ ລາວ ແມ່ນພາສາລາວ`), so no second official language row is needed and each instrument has one `-lo` record.
+
+English: row `LA-GAZETTE-TRANSLATION` is `permission requested` and nothing is stored under it. The Gazette's home page says `ສຳລັບນິຕິກຳພິມລົງໃນຈົດໝາຍເຫດທາງລັດຖະການ ທີ່ເປັນພາສາອັງກິດແມ່ນແປບໍ່ເປັນທາງການ` (English texts on the Gazette are unofficial translations), and the help page says the instruments on the Gazette currently have no English version. Art. 93 item 3 covers translations only when officially made (`ທີ່ໄດ້ແປເປັນທາງການ`), so the statute is not applied, and the Gazette terms give no licence. The one English PDF found for an instrument in scope is the Law on Consumer Protection:
+
+```
+curl -sS --retry 6 --retry-all-errors -m 120 -A 'Mozilla/5.0' -o cp_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laoofficialgazette.gov.la/kcfinder/upload/files/Law%20on%20Consumer%20Protection.pdf'
+```
+
+Returned `200 707974 application/pdf` (26 pages with a text layer, sha256 `1a9417052b261d8d830848625bde118c1c8aa8fb8b4b2d219a44cd8983780775`); not stored. No English was found on the Gazette pages of the other six Gazette instruments or on the LSC site. The Carbon Credit Information System resources page (`https://carbonregistry.gov.la/resources`, `200 121006 text/html`) serves a "Bilingual edition (Lao and English)" of Decree No. 292/GOV labelled `Source: gggi.org`: GGGI is an outside translator, so it is not stored and has no row.
+
+### Link-only instruments and instruments not in scope
+
+No scope instrument is link only: all eight are stored.
+
+Not in scope and why:
+
+- Law on Environmental Protection of 2012 (No. 29/NA of 18 December 2012, cited as 041/NA in the 2019 climate decree): replaced by the amended law No. 53/NA, whose Art. 102 repeals it; a Gazette title search for the 2012 law returned only the 2024 law, so no 2012 text is served and none is stored.
+- Guidelines on Carbon Project Approval and Management (Ministry of Agriculture and Environment, on `carbonregistry.gov.la`): listed as "Schedules ... To be published" and a pilot guideline on the CCIS about page; not an instrument on the Gazette and no text was opened.
+- LSC ESG disclosure rule for listed companies: none found (see the notes of `la-lsc-guideline-gss-bonds-06`); no F7 register row was added because no instrument was identified. LSC Notice No. 09/LSC of 2025-09-12 (fee waiver for green, social and sustainability bonds) and the general reporting and disclosure agreement No. 29/LSC of 2022 were listed, not read, and have no scope entry.
+- Ministry of Industry and Commerce agreement on the content of advertising of goods (Gazette id 2337) and the EIA project classification list (Gazette id 2016): not read beyond their titles and, for the first, a search of its OCR text for the Lao word for environment.
+
+### Blocked from the cloud address
+
+- `https://mae.gov.la` (Ministry of Agriculture and Environment): `curl: (35) Recv failure: Connection reset by peer` on every attempt, also with `--retry 3 --retry-all-errors`.
+- `https://www.lsx.com.la` (Lao Securities Exchange): the same `curl: (35) Recv failure: Connection reset by peer`.
+- `https://www.bol.gov.la` (Bank of the Lao PDR) and `https://monre.gov.la`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`; certificate checking was not switched off. monre.gov.la also timed out once at 120 s.
+- `https://laoofficialgazette.gov.la` answers, but some connections are reset during the TLS handshake (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`); a retry succeeds, so it is not blocked.
