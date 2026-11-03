@@ -9618,5 +9618,41 @@
   "params": {
    "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
   }
+ },
+ {
+  "id": "sn-loi-2023-15-code-environnement-page",
+  "source_id": "SN-SGG-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2023-15-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement",
+  "params": {
+   "second_route": "https://primature.sn/publications/lois-et-reglements/codes (browser listing of the codes); the attached PDF answers a JavaScript challenge to scripts"
+  }
+ },
+ {
+  "id": "sn-decret-2025-227-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-decret-2025-227",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "sn-loi-2021-25-consommateur-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2021-25-consommateur",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
  }
 ]
