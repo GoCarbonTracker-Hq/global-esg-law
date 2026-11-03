@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tj-env-code",
+    "title": "Environmental Code of the Republic of Tajikistan (Кодекси экологии Ҷумҳурии Тоҷикистон)",
+    "official_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=174541",
+    "citation": "Environmental Code of the Republic of Tajikistan of 21 October 2026, No. 2299; adopted by resolution of the Majlisi Namoyandagon of 26 June 2026 No. 540 and approved by resolution of the Majlisi Milli No. 238",
+    "in_force": null,
+    "evidence": "Adlia header, opened 2026-11-03: \"Кодекси экологии Ҷумҳурии Тоҷикистон аз 21 октябри соли 2026, № 2299 ... Санаи амалкуни: [empty] Ҳолати ҳуҷҷат: Амалкунанда\"; the text carries \"Бо қарори Маҷлиси намояндагони Маҷлиси Олии Ҷумҳурии Тоҷикистон аз 26 июни соли 2026, №540 қабул гардидааст\" and \"Бо қарори Маҷлиси миллии ... аз 17 октябри соли 2026, №238 ҷонибдорӣ гардидааст\"; the table of contents ends with \"Моддаи 497. Тартиби мавриди амал қарор додани Кодекси мазкур\". The effective-date field is empty and article 497 is cut off, so no official page read states the first in-force date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TJ-ADLIA-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "The brief described this as a December 2025 draft; the Adlia record is the enacted Code (status Амалкунанда, number 2299, 21 October 2026, 497 articles in the table of contents), so the register row is not marked proposed. The Russian text of the same page gives the Majlisi Milli resolution as \"от 17 октября 2023 года, №238\" where the Tajik text says 2026; the Tajik text is followed. Article 496 is titled \"Дар бораи аз эътибор соқит донистани баъзе санадҳои қонунгузории Ҷумҳурии Тоҷикистон\" (on repeal of some legislative acts): which acts it repeals was not readable, so whether it replaces tj-law-env-protection-2011 is unverified, and the 2011 Law is listed as in force on Adlia. The table of contents shows an article on eco-labelling (Моддаи 55. Тамғагузории экологӣ), polluter-pays and green-procurement principles and waste duties of legal entities; detailed company duties were not read. Adlia serves anonymous readers only the table of contents, the header and the first article, then '...' (full text needs a paid subscription, see row TJ-ADLIA-CONSOLIDATED), so no text is stored and the commencement article could not be read. No government English: the Adlia page holds Tajik and Russian blocks only and its English switch (https://mmih.adlia.tj/Home/SetCulture?lang=en) answered HTTP 500; the Majlisi Oli site is blocked from the cloud address (row TJ-MAJLISI-ADOPTED). Languages offered by the repository: Tajik and Russian.",
+    "status": "link only"
+  },
+  {
+    "id": "tj-law-env-protection-2011",
+    "title": "Law of the Republic of Tajikistan on Environmental Protection (Қонуни Ҷумҳурии Тоҷикистон «Дар бораи ҳифзи муҳити зист»), No. 760 of 2 August 2011",
+    "official_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=167018",
+    "citation": "Law on Environmental Protection of 2 August 2011, No. 760 (Akhbori Majlisi Oli 2011 No. 7-8 art. 614), amended by Laws of 27.11.2014 No. 1160, 18.07.2017 No. 1449, 8.06.2022 No. 1879 and 8.06.2022 No. 1880",
+    "in_force": null,
+    "evidence": "Adlia header, opened 2026-11-03: \"Қонуни Ҷумҳурии Тоҷикистон аз 2 августи соли 2011 № 760 \"Дар бораи ҳифзи муҳити зист\" Санаи амалкуни: [empty] Ҳолати ҳуҷҷат: Амалкунанда\". The first in-force date is in the closing article, which the page cuts off.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TJ-ADLIA-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Framework act in force before the Environmental Code (tj-env-code); Adlia still shows it as in force and the Code's repeal list (article 496) was not readable. The Adlia page is titled after the 2022 amending law No. 1880 but its header, table of contents and amendment list are those of the 2011 Law as amended. Adlia serves anonymous readers only the table of contents, the header and the first article, then '...' (full text needs a paid subscription, see row TJ-ADLIA-CONSOLIDATED), so no text is stored and the commencement article could not be read. No government English: the Adlia page holds Tajik and Russian blocks only and its English switch (https://mmih.adlia.tj/Home/SetCulture?lang=en) answered HTTP 500; the Majlisi Oli site is blocked from the cloud address (row TJ-MAJLISI-ADOPTED). Languages offered by the repository: Tajik and Russian.",
+    "status": "link only"
+  },
+  {
+    "id": "tj-green-taxonomy-res-170",
+    "title": "Resolution of the Government of the Republic of Tajikistan No. 170 of 28 March 2026 approving the Classification System (Taxonomy) of Green Projects",
+    "official_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=173098",
+    "citation": "Government Resolution of 28 March 2026, No. 170, \"On the Classification System (Taxonomy) of Green Projects\" (Қарори Ҳукумати ҶТ аз 28 марти соли 2026, №170), under art. 18 of the Constitutional Law on the Government; the System implements the Strategy for Green Economy Development 2023-2037",
+    "in_force": "2026-03-28",
+    "evidence": "Adlia, opened 2026-11-03: the resolution has two points (\"1. Низоми гурӯҳбандии (таксономияи) лоиҳаҳои «сабз» тасдиқ карда шавад (замима мегардад).\" and an instruction to ministries, local bodies, enterprises and institutions) and no commencement clause; status Амалкунанда, \"Санаи амалкуни\" empty. The NBT PDFs open with \"Утверждена постановлением Правительства Республики Таджикистан от «28» марта 2026 года, № 170\". The issue date is taken as the first in-force date under the lookup policy for acts with no commencement clause (Varun, 2026-11-02, stated for circulars and notices; applied here to a Government resolution).",
+    "law_family": "F6",
+    "duty_on": "unknown",
+    "source_row": "TJ-NBT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Stored from nbt.tj, not from Adlia (Adlia's annex is cut off after the heading): Russian (ru) from the PDF text layer (pdftotext -layout, 36 pages) and Tajik (tg) as uncorrected OCR output of the NBT PDF (34 pages, tesseract 5.3.4 --oem 1 -l tgk on pages rendered at 300 dpi): the PDF's own Tajik text layer substitutes Cyrillic letters for the Tajik ones (њ, ќ, ї, љ, ў, ѓ for ҳ, қ, ӣ, ҷ, ӯ, ғ in some 700 places), so it was not used. The OCR has its own errors, mostly in numbers and list marks: 32 of about 1,030 numeric tokens differ from the Russian text (for example the resolution number printed as \"ХҲе170\", \"б)\" for \"6)\"), so quantitative thresholds should be read in the Russian record. The OCR text was not corrected or reflowed by hand. Both files are the Annex only (the System); the two-point cover resolution is on the Adlia page and is not stored. The NBT PDFs carry the file name stamp ДИП 20.02.26 and were not compared with the Adlia annex, so they may be a pre-signature layout of the same System; the header names Resolution No. 170. No government English: the Adlia page holds Tajik and Russian blocks only (its English switch answered HTTP 500) and https://nbt.tj/en/suboti-moliyavi/stable-financing/index.php lists no English materials. The Government resolution is a voluntary classification for green projects and finance, issued by the Government, hosted by the National Bank; no NBT regulation making it mandatory was found.",
+    "status": "stored"
+  },
+  {
+    "id": "tj-law-consumer-rights-2004",
+    "title": "Law of the Republic of Tajikistan on Protection of Consumer Rights (Қонуни Ҷумҳурии Тоҷикистон «Дар бораи ҳимояи ҳуқуқи истеъмолкунандагон»), No. 72 of 9 December 2004",
+    "official_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=25626",
+    "citation": "Law on Protection of Consumer Rights of 9 December 2004, No. 72 (Akhbori Majlisi Oli 2004 No. 12 part 1 art. 699), amended up to Law No. 1980 of 22.06.2023",
+    "in_force": null,
+    "evidence": "Adlia header, opened 2026-11-03: \"Қонуни Ҷумҳурии Тоҷикистон 9 декабри соли 2004, № 72 \"Дар бораи ҳимояи ҳуқуқи истеъмолкунандагон\" Санаи амалкуни: 22.06.2023 Ҳолати ҳуҷҷат: Амалкунанда\". The \"Санаи амалкуни\" field holds the date of the latest amendment (Law No. 1980 of 22.06.2023), not the first in-force date, and the commencement article (the table of contents ends with article 44 on repeal of the earlier law) is cut off, so the first in-force date is not stated.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TJ-ADLIA-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Listed as the umbrella consumer statute for claims about goods and services; no article on environmental claims was read (the text is cut off). Adlia serves anonymous readers only the table of contents, the header and the first article, then '...' (full text needs a paid subscription, see row TJ-ADLIA-CONSOLIDATED), so no text is stored and the commencement article could not be read. No government English: the Adlia page holds Tajik and Russian blocks only and its English switch (https://mmih.adlia.tj/Home/SetCulture?lang=en) answered HTTP 500; the Majlisi Oli site is blocked from the cloud address (row TJ-MAJLISI-ADOPTED). Languages offered by the repository: Tajik and Russian.",
+    "status": "link only"
+  },
+  {
+    "id": "tj-law-advertising-2003",
+    "title": "Law of the Republic of Tajikistan on Advertising (Қонуни Ҷумҳурии Тоҷикистон «Дар бораи реклама»), No. 34 of 1 August 2003",
+    "official_url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585",
+    "citation": "Law on Advertising of 1 August 2003, No. 34 (Akhbori Majlisi Oli 2003 No. 8 art. 457), amended up to Law No. 2140 of 02.01.2025",
+    "in_force": null,
+    "evidence": "Adlia header, opened 2026-11-03: \"Қонуни Ҷумҳурии Тоҷикистон аз 1 августи соли 2003, № 34 \"Дар бораи реклама\" Санаи амалкуни: 24.12.2022 Ҳолати ҳуҷҷат: Амалкунанда\"; the table of contents ends with \"Моддаи 32. Тартиби мавриди амал қарор додани Қонуни мазкур\". The \"Санаи амалкуни\" field holds an amendment date (Law No. 1947 of 24.12.2022), not the first in-force date, and article 32 is cut off, so the first in-force date is not stated.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TJ-ADLIA-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Listed as the umbrella for misleading advertising, which would reach environmental claims; no article on environmental claims was read (the text is cut off). Adlia serves anonymous readers only the table of contents, the header and the first article, then '...' (full text needs a paid subscription, see row TJ-ADLIA-CONSOLIDATED), so no text is stored and the commencement article could not be read. No government English: the Adlia page holds Tajik and Russian blocks only and its English switch (https://mmih.adlia.tj/Home/SetCulture?lang=en) answered HTTP 500; the Majlisi Oli site is blocked from the cloud address (row TJ-MAJLISI-ADOPTED). Languages offered by the repository: Tajik and Russian.",
+    "status": "link only"
+  }
+]
