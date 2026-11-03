@@ -1,0 +1,122 @@
+[
+  {
+    "id": "tz-bot-sustainability-reporting-guidelines-2025",
+    "title": "Guidelines on Reporting of Sustainability-Related Risks and Opportunities for Banks and Financial Institutions, 2025 (Bank of Tanzania)",
+    "official_url": "https://www.bot.go.tz/Publications/Acts,%20Regulations,%20Circulars,%20Guidelines/Guidelines/en/2025013119524653.pdf",
+    "citation": "Bank of Tanzania guidelines issued under s. 71 of the Banking and Financial Institutions Act, 2006; cover \"JANUARY 2025\"; signed by the Governor",
+    "in_force": null,
+    "evidence": "The cover reads \"BANK OF TANZANIA JANUARY 2025\" and the guidelines say \"These guidelines are issued under Section 71 of the Banking and Financial Institutions Act, 2006\" (clause 2); no page opened states a day of issue or a commencement date. Opened https://www.bot.go.tz/Publications/Acts,%20Regulations,%20Circulars,%20Guidelines/Guidelines/en/2025013119524653.pdf on 2026-11-03 (200, 4207809 bytes, application/pdf).",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "TZ-BOT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Replaces the URL of the earlier register row (.../en/2025011015075199.pdf, a PDF created 2025-01-07 with the same title and a different layout and no \"JANUARY 2025\" cover), which is not the file the Bank now lists at https://www.bot.go.tz/BankSupervision/Regulations; the day 2025-01-31 in the earlier row is the date stamp in the listed file names, not a statement on an official page, so in_force is null. Row TZ-BOT-ADOPTED is permission requested: the Bank site grants no reuse licence, and s. 7(a) of the Copyright Act (laws and decisions of administrative bodies) is not applied to guidelines. Clause 17 ties disclosures to the annual audited financial statements; Annex 1 sets an NBAA roadmap 2025 to 2029. No Kiswahili or other English text found on the Bank page. Companion guideline: tz-bot-climate-risk-guidelines-2025.",
+    "status": "link only"
+  },
+  {
+    "id": "tz-bot-climate-risk-guidelines-2025",
+    "title": "Guidelines on Climate-Related Financial Risks Management and Disclosures, 2025 (Bank of Tanzania)",
+    "official_url": "https://www.bot.go.tz/Publications/Acts,%20Regulations,%20Circulars,%20Guidelines/Guidelines/en/2025013119505259.pdf",
+    "citation": "Bank of Tanzania guidelines issued under s. 71 of the Banking and Financial Institutions Act, 2006; cover \"JANUARY 2025\"; signed by the Governor",
+    "in_force": null,
+    "evidence": "The cover reads \"GUIDELINES ON CLIMATE-RELATED FINANCIAL RISKS MANAGEMENT AND DISCLOSURES, 2025 BANK OF TANZANIA JANUARY 2025\" and clause 2 reads \"These Guidelines are issued under section 71 of the Banking and Financial Institutions Act\"; no page opened states a day of issue or a commencement date. Opened https://www.bot.go.tz/Publications/Acts,%20Regulations,%20Circulars,%20Guidelines/Guidelines/en/2025013119505259.pdf on 2026-11-03 (200, 447050 bytes, application/pdf).",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "TZ-BOT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Found on the Bank regulations listing on 2026-11-03; it was not in the register. Row TZ-BOT-ADOPTED is permission requested (no reuse licence on the Bank site; s. 7(a) of the Copyright Act not applied to guidelines). No Kiswahili or other English text found on the Bank page.",
+    "status": "link only"
+  },
+  {
+    "id": "tz-ema-cap191",
+    "title": "Environmental Management Act (Cap. 191), Revised Edition 2023",
+    "official_url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/295",
+    "citation": "Environmental Management Act, Act No. 20 of 2004, Cap. 191 R.E. 2023; GN No. 170 of 2005",
+    "in_force": "2005-07-01",
+    "evidence": "Commencement line of Cap. 191 R.E. 2023: \"[1st July 2005] [GN. No. 170 of 2005]\" (Acts Nos. 20 of 2004, 13 of 2016 listed beneath). Opened https://oagmis.oag.go.tz/portal/acts/revised/295/download on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TZ-OAG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "One record, the Revised Edition 2023 (OAG page: proclamation 2025-04-23, publication 2025-04-25; record dated 2025-04-25, Varun may prefer 2025-04-23). The Revised Edition does not contain Act No. 5 of 2025 (see tz-ema-amendment-2025), so s. 29A, the National Carbon Monitoring Centre and s. 75A are not in the text. The adopted Act No. 20 of 2004 is not in the OAG catalogue of Acts of Parliament (earliest 2004 acts there are numbers 1 to 8) or on the Parliament list, so it is not stored, and between 2005-07-01 and 2025-04-25 no text is stored. Kiswahili: the Cap. 1 R.E. 2023 s. 85(2) duty to translate English-enacted laws into Kiswahili has no served Kiswahili chapter in the OAG catalogue or the Parliament list. English translation of a Kiswahili original: not applicable, the Act was enacted in English. The TanzLII page (row TZ-TANZLII-CONSOLIDATED, permission requested) was not used. The Environmental Management Act carries the carbon trading regulations (tz-carbon-trading-regs-2022) under ss. 75 and 230(2)(s).",
+    "status": "stored"
+  },
+  {
+    "id": "tz-ema-amendment-2025",
+    "title": "Environmental Management (Amendment) Act, 2025 (No. 5 of 2025)",
+    "official_url": "https://oagmis.oag.go.tz/portal/acts/327",
+    "citation": "Act No. 5 of 2025, passed by the National Assembly on 12 February 2025; OAG commencement date 2025-03-14",
+    "in_force": "2025-03-14",
+    "evidence": "OAG-MIS page https://oagmis.oag.go.tz/portal/acts/327 (opened 2026-11-03): \"Enactment Number: 5 of 2025; Enactment Date: 2025-02-12; Publication Date: 2025-03-14; Commencement Date: 2025-03-14\". The Act has no commencement clause; its text ends \"Passed by the National Assembly on the 12th February, 2025\" and the assent line gives only \"March, 2025\".",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "TZ-OAG-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "tz-ema-cap191",
+    "notes": "Adds s. 75A (the National Environmental Advisory Committee is designated the National Climate Change Steering Committee, with five functions on greenhouse gases and climate programmes) and, by s. 7, sub-part (e) with s. 29A establishing the National Carbon Monitoring Centre (coordination of carbon and greenhouse gases, registration of carbon projects, verification and certification). English only: the OAG catalogue and the Parliament list (https://polis.bunge.go.tz/api/acts/async, id 1940, text identical) serve one English PDF; no Kiswahili text found. The in-force date rests on the OAG page field, not on the Act text.",
+    "status": "stored"
+  },
+  {
+    "id": "tz-carbon-trading-regs-2022",
+    "title": "Environmental Management (Control and Management of Carbon Trading) Regulations, 2022 (GN No. 636 of 2022; Kiswahili GN No. 637 of 2022)",
+    "official_url": "https://oagmis.oag.go.tz/portal/legislation/933",
+    "citation": "GN No. 636 of 2022 (English) and GN No. 637 of 2022 (Kiswahili), made under ss. 75 and 230(2)(s) of the Environmental Management Act (Cap. 191), published 28 October 2022",
+    "in_force": "2022-10-28",
+    "evidence": "First line of the notice: \"GOVERNMENT NOTICE No. 636 published on 28/10/2022\"; the Kiswahili notice reads \"TANGAZO LA SERIKALI NA. 637 la tarehe 28/10/2022\". Neither text has a commencement clause, so the publication date is taken. Opened https://oagmis.oag.go.tz/portal/legislation/933/download and .../934/download on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TZ-OAG-ADOPTED",
+      "TZ-OAG-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two records, same in_force: Kiswahili GN 637 (adopted, sw) and English GN 636 (translation, en; the text as made, before the 2023 amendment). Neither notice says which is the translation; the English is treated as the translation because Cap. 1 R.E. 2023 s. 85(1) makes Kiswahili the language of enactment and s. 85(5) gives the enacting version precedence (Varun decides). The amendment in force from 2023-10-06 is GN 721 of 2023 (English) and GN 716 of 2023 (Kiswahili), entry tz-carbon-trading-amendment-2023. No consolidated text of the regulations as amended is served. The Vice President's Office site (vpo.go.tz) was blocked from the cloud address, so the gazette text on OAG-MIS is the source.",
+    "status": "stored"
+  },
+  {
+    "id": "tz-carbon-trading-amendment-2023",
+    "title": "Environmental Management (Control and Management of Carbon Trading) (Amendment) Regulations, 2023 (GN No. 721 of 2023; Kiswahili GN No. 716 of 2023)",
+    "official_url": "https://oagmis.oag.go.tz/portal/legislation/2571",
+    "citation": "GN No. 721 of 2023 (English) and GN No. 716 of 2023 (Kiswahili), published 6 October 2023, amending GN No. 636 of 2022",
+    "in_force": "2023-10-06",
+    "evidence": "First line of the English notice: \"GOVERNMENT NOTICE No. 721 published on. 6/10/2023\"; Kiswahili: \"TANGAZO LA SERIKALI. 716 la tarehe 6/10/2023\". No commencement clause in either, so the publication date is taken; the OAG page lists commencement 2023-10-06. Opened https://oagmis.oag.go.tz/portal/legislation/2571/download and .../2566/download on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TZ-OAG-ADOPTED",
+      "TZ-OAG-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "amends": "tz-carbon-trading-regs-2022",
+    "notes": "The text of the amending notice only, not a consolidation. Records: Kiswahili GN 716 (adopted, sw) and English GN 721 (translation, en; it states it amends GN 636 of 2022). Same translation question as tz-carbon-trading-regs-2022.",
+    "status": "stored"
+  },
+  {
+    "id": "tz-fca-cap285",
+    "title": "Fair Competition Act (Cap. 285), Revised Edition 2023, Part III misleading and deceptive conduct (ss. 15 to 17)",
+    "official_url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/389",
+    "citation": "Fair Competition Act, Act No. 8 of 2003, Cap. 285 R.E. 2023; GN No. 150 of 2004",
+    "in_force": "2004-05-12",
+    "evidence": "Commencement line of Cap. 285 R.E. 2023: \"[12th May, 2004] [GN. No. 150 of 2004]\" (Acts Nos. 8 of 2003, 3 of 2010, 8 of 2020, 4 of 2021 beneath). Opened https://oagmis.oag.go.tz/portal/acts/revised/389/download on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TZ-OAG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "s. 15(1): \"A person shall not, in trade, engage in conduct that is misleading or deceptive or is likely to mislead or deceive.\"; s. 16 lists false representations on goods and services. The Act has no environmental-claims provision; it is the umbrella the brief named. The whole Act is stored (one record, Revised Edition 2023, dated 2025-04-25). The OAG acts page gives commencement 2003-05-12, which differs from the Revised Edition line; the Revised Edition is used. Not stored: the adopted Act No. 8 of 2003 (a 25 MB image-only PDF on OAG-MIS, no text layer, no OCR in the recipe) and the Fair Competition (Amendment) Act, 2024 (No. 13 of 2024, in force 2024-10-11 per OAG), whose arrangement of sections does not list ss. 15 to 17 and which is not an entry. No Kiswahili edition served.",
+    "status": "stored"
+  },
+  {
+    "id": "tz-cmsa-sustainability-bonds-regs-2025",
+    "title": "Capital Markets and Securities (Corporate and Subnational Sustainability Bonds) Regulations, 2025 (GN No. 302 of 2025)",
+    "official_url": "https://www.cmsa.go.tz/uploads/publications/en-1748586307-CMSA%20CORPORATE%20AND%20SUBNATIONAL%20SUSTAINABILITY%20BONDS%20REGULATIONS.pdf",
+    "citation": "GN No. 302 of 2025 made under s. 148(1) of the Capital Markets and Securities Act (Cap. 79), published 23 May 2025",
+    "in_force": "2025-05-23",
+    "evidence": "First line of the notice: \"GOVERNMENT NOTICE NO. 302 published on 23/5/2025\"; no commencement clause was found in the text, so the publication date is taken. Opened the PDF on 2026-11-03 (200, 536291 bytes, application/pdf).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TZ-CMSA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Green, blue, social and sustainability-linked bonds (Parts II to V); reporting and disclosure duties in regulations 24 and 25 (annual sustainability bond progress report). Not an ESG disclosure rule for listed companies generally: no such CMSA or DSE rule was found (the DSE pages list a Sustainability overview and Green Bonds & Sukuk, no rule). Stored from the CMSA copy under TZ-CMSA-ADOPTED, pass on s. 7(a) of the Copyright Act because the notice is a law; the CMSA site claims all rights in its contents (Varun decides). The notice is not on the OAG-MIS subsidiary legislation list (checked by title and GN number). English only; no Kiswahili text on the CMSA regulations page.",
+    "status": "stored"
+  }
+]
