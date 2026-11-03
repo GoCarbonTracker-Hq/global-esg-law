@@ -9488,6 +9488,138 @@
   "url": "https://lex.uz/ru/docs/6052633"
  },
  {
+  "id": "bj-carbon-project-registration-decree-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-carbon-project-registration-decree",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/decret-2022-698/download",
+  "params": {}
+ },
+ {
+  "id": "bj-aepc-decree-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-aepc-decree",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/decret-2022-699/download",
+  "params": {}
+ },
+ {
+  "id": "bj-climate-change-act-2018-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-climate-change-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2018-18/download",
+  "params": {}
+ },
+ {
+  "id": "bj-environment-framework-act-1998-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-environment-framework-act-1998",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-98-030/download",
+  "params": {}
+ },
+ {
+  "id": "bj-environment-act-2026-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-environment-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2026-15/download",
+  "params": {}
+ },
+ {
+  "id": "bj-consumer-protection-act-2007-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-consumer-protection-act-2007",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2007-21/download",
+  "params": {}
+ },
+ {
+  "id": "km-loi-94-018-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-94-018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-loi-95-007-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-95-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-decret-01-052-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-decret-01-052",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
+  "id": "mz-aviso-6-gbm-2025-bancomoc-pdf",
+  "source_id": "MZ-BANCOMOC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-aviso-6-gbm-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf"
+ },
+ {
+  "id": "mz-lei-20-97-ambiente-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-20-97-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-lei-22-2009-consumidor-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-22-2009-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-decreto-23-2018-redd-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-decreto-23-2018-redd",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
   "id": "tg-climate-change-act-2025-jo-gazette-pdf",
   "source_id": "TG-JO-ADOPTED",
   "iso2": "TG",
