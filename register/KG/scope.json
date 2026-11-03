@@ -1,0 +1,154 @@
+[
+  {
+    "id": "kg-climate-law-104",
+    "title": "Law of the Kyrgyz Republic of 7 July 2026 No. 104 on Climate Activity",
+    "official_url": "https://cbd.minjust.gov.kg/230050082/edition/57539/kg",
+    "citation": "Law of the Kyrgyz Republic of 7 July 2026 No. 104 \"On Climate Activity\" (Erkin-Too no. 51 (3811) of 10 July 2026)",
+    "in_force": "2027-01-01",
+    "evidence": "Article 39(1) of the text on the CBD: \"Настоящий Закон вступает в силу с 1 января 2027 года.\" followed by \"Опубликован в официальной государственной газете «Эркин Тоо» от 10 июля 2026 года № 51 (3811)\". The CBD status field reads \"Не вступил в силу\" (not yet in force). Opened https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=57539&lang=ru on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (1 edition on the site; records: ru 1, ky 1). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Adopted 2026-07-07; not yet in force on 2026-11-03, so the record is dated its in-force date, 2027-01-01. The CBD serves one edition. Article 14(2) requires large greenhouse-gas-emitting economic entities (criteria set by the Cabinet of Ministers) to give the authorised state body, free of charge, the information and data it requests for the greenhouse gas inventory; small and medium businesses take part voluntarily (art. 14(3)); the earlier register row said no private-sector duty was identified, which this text corrects. Article 39(2)(1) repeals Law No. 71 of 2007 (kg-ghg-emission-law-71) from the same date. Ministry page https://mnr.gov.kg/ is a JavaScript application whose climate documents list (https://mnr.gov.kg/ky/npas/izmeneniye-climata) did not render a link to the law for a script; the in_force date is read from the law text itself. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-ghg-emission-law-71",
+    "title": "Law of the Kyrgyz Republic of 25 May 2007 No. 71 on State Regulation and Policy in the Field of Emission and Removal of Greenhouse Gases",
+    "official_url": "https://cbd.minjust.gov.kg/4-3550/edition/725202/kg",
+    "citation": "Law of the Kyrgyz Republic of 25 May 2007 No. 71 \"On state regulation and policy in the field of emission and removal of greenhouse gases\"",
+    "in_force": null,
+    "evidence": "Article 20(1) of the text on the CBD: \"Настоящий Закон вступает в силу со дня официального опубликования.\" The text names no gazette and the CBD publication fields are empty (opened https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-3550 on 2026-11-03), so the commencement date is not stated.",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (2 editions on the site; records: ru 2, ky 2). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Records are dated 2007-05-25 (the adoption date, edition label of the first CBD edition) because no page states the publication date; the law took effect on official publication. Repealed from 2027-01-01 by Law No. 104 of 2026 art. 39(2)(1) (kg-climate-law-104); the repeal record is dated 2027-01-01. Establishes inventory, monitoring, verification and a state cadastre of greenhouse gas emissions and removals; articles 9 to 16. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored",
+    "status_note": "In force until 2027-01-01, when Law No. 104 of 2026 on Climate Activity (kg-climate-law-104) repeals it (art. 39(2)(1))."
+  },
+  {
+    "id": "kg-env-protection-law-53",
+    "title": "Law of the Kyrgyz Republic of 16 June 1999 No. 53 on Environmental Protection",
+    "official_url": "https://cbd.minjust.gov.kg/4-205/edition/11538/kg",
+    "citation": "Law of the Kyrgyz Republic of 16 June 1999 No. 53 \"On environmental protection\"",
+    "in_force": "1999-07-07",
+    "evidence": "Closing clause of the text on the CBD: \"Настоящий Закон вступает в силу со дня опубликования (\\\"Эркин Тоо\\\" от 7 июля 1999 года N 54-55).\" Opened https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=1003903&lang=ru on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (17 editions on the site; records: ru 17, ky 16). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Kyrgyz records not stored: edition(s) 25.07.2016 (the CBD returned the Russian text for the Kyrgyz request). Environmental framework act. Later records are dated by the CBD edition date, which is the date of the amending act; the CBD does not state each edition's commencement date. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-air-protection-law-51",
+    "title": "Law of the Kyrgyz Republic of 12 June 1999 No. 51 on Protection of Atmospheric Air",
+    "official_url": "https://cbd.minjust.gov.kg/4-203/edition/10665/kg",
+    "citation": "Law of the Kyrgyz Republic of 12 June 1999 No. 51 \"On protection of atmospheric air\"",
+    "in_force": "1999-06-25",
+    "evidence": "Closing clause of the text on the CBD: \"Настоящий Закон вступает в силу со дня опубликования (\\\"Эркин Тоо\\\", 25 июня 1999 года N 51).\" Opened https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=725233&lang=ru on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (8 editions on the site; records: ru 8, ky 8). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. The brief called it the Law on Air Protection (1999); the title on the CBD is \"Об охране атмосферного воздуха\" (No. 51). Later records are dated by the CBD edition date, which is the date of the amending act. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-res-133-2026",
+    "title": "Resolution of the Cabinet of Ministers of 24 February 2026 No. 133 on the National System for Inventory of Greenhouse Gases, Monitoring, Reporting, Verification and Circulation of Carbon Units",
+    "official_url": "https://cbd.minjust.gov.kg/7-52416/edition/48613/kg",
+    "citation": "Resolution of the Cabinet of Ministers of the Kyrgyz Republic of 24 February 2026 No. 133 (published 27 February 2026, no. 15 (3775))",
+    "in_force": "2026-03-06",
+    "evidence": "Point 6 of the resolution on the CBD: \"Настоящее постановление вступает в силу по истечении семи дней со дня официального опубликования.\" Published 2026-02-27 (CBD field datePublication, numberPublication \"15 (3775)\"), so seven days later is 2026-03-06, which is the CBD field dateOfEntry. Opened https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=7-52416 on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (1 edition on the site; records: ru 1, ky 1). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. The resolution is 2,376 characters; the Regulation it approves is the separate CBD document 230042004 (kg-res-133-regulation-2026). The brief expected a single registry of carbon units; the registry rules are in the Regulation, not the resolution text. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-res-133-regulation-2026",
+    "title": "Regulation on the National System for Inventory of Greenhouse Gases, Monitoring, Reporting, Verification and Circulation of Carbon Units (annex to Cabinet Resolution No. 133 of 24 February 2026)",
+    "official_url": "https://cbd.minjust.gov.kg/230042004/edition/48624/kg",
+    "citation": "Annex to the Resolution of the Cabinet of Ministers of the Kyrgyz Republic of 24 February 2026 No. 133",
+    "in_force": "2026-03-06",
+    "evidence": "The Regulation is the annex of Resolution No. 133, whose point 6 reads \"Настоящее постановление вступает в силу по истечении семи дней со дня официального опубликования.\" (published 2026-02-27); the CBD field dateOfEntry of document 230042004 is 2026-03-06. Opened https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230042004 on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (1 edition on the site; records: ru 1, ky 1). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Implementing regulation of kg-res-133-2026 (the annex is a separate document on the CBD). No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-consumer-rights-law-90",
+    "title": "Law of the Kyrgyz Republic of 10 December 1997 No. 90 on Protection of Consumer Rights",
+    "official_url": "https://cbd.minjust.gov.kg/4-556/edition/44233/kg",
+    "citation": "Law of the Kyrgyz Republic of 10 December 1997 No. 90 \"On protection of consumer rights\" (CBD title: of 5 December 1997)",
+    "in_force": "1997-12-24",
+    "evidence": "Introduction clause of the first CBD edition: \"Ввести в действие настоящий Закон с момента опубликования (\\\"Эркин-Тоо\\\" от 24 декабря 1997 года N 114-115).\" Opened https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=1262691&lang=ru on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (21 editions on the site; records: ru 21, ky 15). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Kyrgyz records not stored: edition(s) 10.12.1997, 20.03.2002, 17.02.2003, 18.07.2008, 08.12.2009, 13.02.2013 (the CBD returned no text for this edition). Umbrella for environmental and other product claims (information about goods, art. 11 in the first edition); no article specific to environmental claims was identified. The CBD title says \"от 5 декабря 1997 года\", its adoption-date field and the text say 10 December 1997; the title here follows the text. Later records are dated by the CBD edition date, which is the date of the amending act. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-advertising-law-155",
+    "title": "Law of the Kyrgyz Republic of 24 December 1998 No. 155 on Advertising",
+    "official_url": "https://cbd.minjust.gov.kg/4-150/edition/40301/kg",
+    "citation": "Law of the Kyrgyz Republic of 24 December 1998 No. 155 \"On advertising\"",
+    "in_force": "1999-01-06",
+    "evidence": "Article 33(1) of the first CBD edition: \"Настоящий Закон вступает в силу со дня официального опубликования. (\\\"Эркин Тоо\\\", 6 января 1999 года, N 1)\". Opened https://cbd.minjust.gov.kg/api/v1/GetEdition?editionId=1264796&lang=ru on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "KG-MINJUST-ADOPTED",
+      "KG-MINJUST-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored from the Ministry of Justice CBD (37 editions on the site; records: ru 37, ky 27). Text is the plain text of the HTML in the JSON returned by GetEdition for each edition and language, nothing reworded; editions before about 2013 are preformatted text with the CBD's hard line breaks and hyphenation, kept as served. Kyrgyz records not stored: edition(s) 24.12.1998, 30.11.1999, 25.07.2002, 27.01.2006, 06.02.2006, 31.07.2006, 18.07.2014, 12.01.2015, 21.01.2015, 08.04.2015 (the CBD returned no text for this edition). Umbrella for advertising claims, including environmental ones; no article specific to environmental claims was identified. The CBD field dateOfEntry reads 1998-01-06, which is before the adoption date; the date here is the gazette date printed in the text (1999-01-06). Later records are dated by the CBD edition date, which is the date of the amending act. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "stored"
+  },
+  {
+    "id": "kg-kse-esg-guide",
+    "title": "Kyrgyz Stock Exchange: Guide on the preparation and publication of reports on climate, sustainable development and corporate governance (April 2025 revision)",
+    "official_url": "https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf",
+    "citation": "ZAO Kyrgyz Stock Exchange, Руководство по подготовке и публикации отчетов в области климата, устойчивого развития и корпоративного управления, 2025",
+    "in_force": null,
+    "evidence": "Guide section 1.1: \"В текущей версии, после пересмотра в апреле 2025 года, частично учтены недавно введённые Стандарты раскрытия информации в области устойчивого развития, разработанные Советом по международным стандартам финансовой отчётности (IFRS).\" Section 1.8: \"Те компании, для которых действующий Кодекс корпоративного управления Кыргызской Республики является обязательным на основе принципа «соблюдай или объясняй», обязаны применять настоящее Руководство при подготовке и публикации своих отчетов об устойчивом развитии.\" No page opened states a commencement date. Opened https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf on 2026-11-03 (200 application/pdf, 1143627 bytes).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "KG-KSE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the publisher kse.kg states \"Копирование материалов – только с письменного разрешения\" and the row KG-KSE-ADOPTED is permission requested; nothing is stored and no request has been sent. Section 1.8 makes the Guide mandatory for companies that must apply the Corporate Governance Code of the Kyrgyz Republic on a comply-or-explain basis and voluntary for all others; section 1.6 says the exchange will work from 2026 to 2028 with the state financial-market regulator and the National Bank on full adoption of the ISSB standards. The brief asked for the financial regulator's rule: the National Bank material found (roadmap, see register.csv) is a plan, and the financial-market regulator's site (fmrs.kg) did not answer from the cloud address. No government English translation was found: looked for at https://cbd.minjust.gov.kg/ (interface and API serve Russian and Kyrgyz only; GetEdition with lang=en returns the Kyrgyz text), https://mnr.gov.kg/en (200, 93633 bytes, no law text linked), https://kenesh.kg/en (200, 1561 bytes, a JavaScript shell that served no content to a script), https://www.nbkr.kg/index.jsp?lang=ENG (200, 91758 bytes, no climate law) and https://minjust.gov.kg/en (403, 5663 bytes). No translation row exists.",
+    "status": "link only",
+    "status_note": "Binding only through the comply-or-explain Corporate Governance Code for the companies named in Guide section 1.8; otherwise voluntary."
+  }
+]
