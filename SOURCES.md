@@ -5701,6 +5701,76 @@ Refused the cloud address on 2026-11-03: `https://www.imprensanac.gov.mz` (curl 
 
 Headless Chromium (Playwright) was used only to read Lei n.º 9/2022 from WIPO Lex (curl got an HTML wrapper page for the PDF address); no record comes from it. The Aviso record comes from plain curl.
 
+## Senegal
+
+Checked on 2026-11-03 from the cloud address. No record is stored: the one row that passes (SN-SGG-ADOPTED) serves a page whose file is dead, and the other two rows are permission requested. All three scope instruments are link only.
+
+### SN-SGG-ADOPTED (Secrétariat général du Gouvernement, primature.sn): pass on Loi 2008-09 art. 9
+
+The site is the "Gouvernement du Sénégal" portal (theme `sgg`; `https://www.sec.gouv.sn` redirects to it). Proven fetch, for one instrument that is not in scope (the Code forestier, Loi n° 2018-25), to show the route works:
+
+```
+curl -sS -L -o cf.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2022-04/Loi%20n%C2%B0%202018-25%20du%2012%20novembre%202018%20portant%20Code%20forestier.pdf'
+```
+
+Returned `200 876266 application/pdf`; sha256 `26a5d1523b3f8053774d56e1bfef2e876f85c86515d4df8918c8ad991763aae3`. The PDF links come from the instrument page (`https://primature.sn/publications/lois-et-reglements/<slug>`, "Pièces jointes"). The page of the Code de l'environnement, `curl -sS -L https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement`, returns `200 68588 text/html` and links `/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf`, but that file does not exist:
+
+```
+curl -sS -L -o ce.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf'
+```
+
+Returned `404 40531 text/html; charset=UTF-8`. Headless Chromium (Playwright `request.get`, then `page.goto` with a 45 s wait for a download) gets `200 text/html 12155` titled "One moment, please..." (a JavaScript challenge page) and no download. The `www.` host gives the same 404. No hash is recorded because nothing was fetched. The statute text was read from the WIPO Lex PDF `https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/sn/sn004fr_1.pdf`: curl got an HTML page (`200 133278 text/html`), Chromium saved a 132474-byte PDF (`pdftotext -layout`), an English translation.
+
+### Languages
+
+French is the only official language of legislation; the national languages have no gazette edition. No French or English record is stored. English: no government translation was found on primature.sn, on environnement.gouv.sn (its pages redirect to `https://environnement.gouv.sn/?password-protected=login`, a password login, `200 8822 text/html`) or on jo.gouv.sn (refused). No translation row was added.
+
+### Link only
+
+- sn-loi-2023-15-code-environnement: row passes, file 404 (above). Other copies tried: vie-publique.sn (`200 text/html`, a civic information site, not the state publisher, so no row) and `https://ditp.sec.gouv.sn/download/file/fid/49` (`CONNECT tunnel failed, response 502`).
+- sn-decret-2025-227 and sn-loi-2021-25-consommateur: row SN-JO-ADOPTED is permission requested; primature.sn has no copy (its list stops in 2024).
+- AMF-UMOA and CREPMF circulars (register rows only, F7, SN-BRVM-ADOPTED permission requested; same instruments sit in BJ BF CI GW ML NE TG): `curl -sS -L -o g.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf` returned `200 1560342 application/pdf` (text layer, `pdftotext -layout`); the 2024 taxonomy circular PDF returned `200 4237687 application/pdf` with 39 scanned pages and no text layer. `https://www.amf-umoa.org/` returned `200 1685 text/html` (JavaScript shell).
+
+### Blocked from the cloud address
+
+- https://www.jo.gouv.sn: curl `curl: (35) Recv failure: Connection reset by peer`; headless Chromium `HTTP 502`, 174 bytes; `jo.gouv.sn` (no www): `curl: (6) Could not resolve host` and `CONNECT tunnel failed, response 502`.
+- https://www.environnement.gouv.sn: `302` to a password login page.
+- https://www.assemblee-nationale.sn, https://www.finances.gouv.sn, https://www.ansd.sn: no connection (`000`). https://www.commerce.gouv.sn: `503`.
+
+## Mauritania
+
+Run on 2026-11-03 (GEL-12-03). One row passes: `MR-MSGG-ADOPTED` (Journal Officiel de la République Islamique de Mauritanie, served by the Ministère chargé du Secrétariat Général du Gouvernement at msgg.gov.mr). It passes on a statute, not on the site terms: the `mentions-legales` page reserves all reproduction of the site and its texts to the Ministry, while Loi n° 2012-038 relative à la propriété littéraire et artistique, Art. 11, says laws, regulations and administrative acts of State bodies "et la traduction officielle de ces textes ne sont pas soumises à la protection des droits d'auteur". Varun decides whether to keep the row at pass (row notes give the tension). The row covers the French issue and the separate Arabic issue; there is no consolidated or English source: the portal's "Codes usuels" are Droit-Afrique compilations and are not used. No row for the Ministry of the Environment (`environnement.gov.mr`) or the central bank (`bcm.mr`): no text was taken from either.
+
+Row `MR-MSGG-ADOPTED`, French gazette issue n° 1585 of 15 July 2025 (holds Loi n° 2025-019 on page 619 of the gazette; no cookie, header or token is needed, a `User-Agent` is sent out of habit):
+
+```
+curl -sS -A 'Mozilla/5.0' -o mauritanie-jo-2025-1585.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/JO/2025/mauritanie-jo-2025-1585.pdf
+```
+
+Returned `200 1458371 application/pdf`; sha256 `83a7a04ab0e13c721deb19ceac91f644836396f9fcba793e5b4cb760521ba3d6`, and a second fetch gave the same hash (same for the other two issues below). `fetched_sha256` of each record is the hash of the PDF as returned. Other issues stored: `https://msgg.gov.mr/JO/2020/mauritanie-jo-2020-1465.pdf` returned `200 1037570 application/pdf` (sha256 `0bcf66e19b2e5d2869c73d0bd06c0d197211a3b6d33817b7cabea7d0995b1c2a`), and `https://msgg.gov.mr/JO/2024/mauritanie-jo-2024-1559.pdf` returned `200 1507232 application/pdf` (sha256 `6e554533875272582e664c10a233544af8fb10ada0f4198cf588fdabf4013714`). Issue numbers and dates come from the gazette list `https://msgg.gov.mr/fr/droit-mauritanien/le-journal-officiel.html?page=N&row=1648` (20 issues a page); the text search `https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=<words>&action=Rechercher` (or `field_numeroAAAA=<year>&field_numeroNN=<n>`) returns, for each text, its title, the issue it was published in and any "Modifié par" or repeal annotation. Both pages answered `200` to plain curl on 2026-11-03.
+
+Text extraction (poppler, no OCR): the gazette is two columns, and both `pdftotext -layout` (columns interleaved on one line) and plain `pdftotext` (articles out of order at page breaks, for example Article 6 before Article 5 in Loi 2025-019) failed the check that article numbers run in sequence. What worked: for each page `N`, `pdftotext -f N -l N -x 0 -y 0 -W 298 -H 842 file.pdf -` (left column) followed by the same with `-x 298` (right column), pages concatenated in order, then the text cut from the title line of the instrument to the line before the next item, running headers ("Journal Officiel de la République Islamique de Mauritanie <date> …<issue>", including their cut-off fragments) and lines that are only a page number dropped, runs of spaces collapsed, hard line wraps kept (justified text puts some words on their own line). Article numbers run in order in all three stored texts and no mojibake was found in the French text.
+
+Arabic issue (same row, same publisher): `curl -sS -A 'Mozilla/5.0' -o mauritanie-jo-2025-1585-ar.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/JO-AR/2025/mauritanie-jo-2025-1585-ar.pdf` returned `200 1612624 application/pdf`; the same path pattern worked for 2020-1465 and 2024-1559 (`200 1244326` and `200 1388010`). Not stored: `pdftotext` (plain, `-layout`, `-raw`) returns words in visual order and wrong digits (the index line for Loi n° 2025-019 reads `قانون رقم 350-0301`), so the text cannot be stored without reading it back wrongly. Each stored instrument says so in its `notes`. A source with a clean Arabic text layer, or OCR with a human check, is needed.
+
+### Languages
+
+Arabic: see above, issue served, text not stored. French: stored for `mr-loi-2025-019` (record date 2025-07-15, the gazette date, because the law has no commencement clause), `mr-loi-2020-007` (2021-01-15, six months after the 2020-07-15 gazette, Art. 91) and `mr-decret-2024-027` (2024-06-15, gazette date, no commencement date stated). English: none. Looked for on `msgg.gov.mr` (the portal has a `/fr/` and an `/ar/` side only; `https://msgg.gov.mr/en/` answered 404 and `/en/index.html` redirected to the French home page) and on `http://www.environnement.gov.mr/fr/index.php/reglementation/lois` (French documents only). No translation row is needed.
+
+Statute read for the row: `curl -sS -A 'Mozilla/5.0' -o loi2012-38.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://msgg.gov.mr/textes-officiels/lois/2012/Mauritanie-Loi-2012-38.pdf` returned `200 950733 application/pdf` (found through the portal search for "propriété littéraire", which titles the law "du 7 juillet 2012", published in JO 2012-1272; the dispatch brief says 17 juillet 2012, and page 1 of the PDF is an image, so the date was not read from the text). Terms page: `curl -sS -L -A 'Mozilla/5.0' https://msgg.gov.mr/mentions-legales.html` returned `200 18884 text/html`.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| mr-loi-2000-045 (Code de l'environnement) | https://msgg.gov.mr/JO/2000/mauritanie-jo-2000-985.pdf | Row passes, but the issue is a scanned image: `200 481027 application/pdf`, `pdftotext` returns 24 characters; no OCR recipe. Repealed 'notamment' by Art. 44 of Loi 2025-019. |
+| mr-decret-2004-094 (étude d'impact) | https://msgg.gov.mr/JO/2005/mauritanie-jo-2005-1095.pdf | Scanned image: `200 389790 application/pdf`, 20 characters. Still in force under Art. 44 of Loi 2025-019. |
+| mr-decret-2007-105 (amends the above) | https://msgg.gov.mr/JO/2007/mauritanie-jo-2007-1145.pdf | Scanned image: `200 831929 application/pdf`, 52 characters. |
+| mr-loi-2018-017 (publicité) | https://msgg.gov.mr/JO/2018/mauritanie-jo-2018-1410.pdf | `200 1266638 application/pdf`, text layer present, but the 40-page issue extracts with repeated and out-of-order article numbers (66, 66, 66, 64 …) in plain mode and in two-column crops; no faithful cut found. |
+| F7 rows (Loi 2018-002 air, Loi 2023-031 waste, Loi 2024-037 hydrogène vert, Loi 2017-002 Paris Agreement) | gazette URLs in `register.csv` | F7: register row only, no scope entry. |
+
+Blocked or unusable from the cloud address: `https://www.environnement.gov.mr` (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, 000; plain `http://www.environnement.gov.mr/fr/` answered `200 74488 text/html` and its `reglementation/lois` page lists PDFs of the laws, not used because the ministry has no licence row and the gazette is preferred); `https://www.bcm.mr/` (`200 2568 text/html`, a JavaScript shell; its back office `https://bo.bcm.mr/` answered `500 38353 text/html` to curl, so no instruction on climate or sustainability of banks could be confirmed or ruled out). No browser recipe was needed or used: no Mauritania record was fetched in a browser.
+
 ## Guinea
 
 Run on 2026-11-03 (GEL-12-09). Two rows pass, both on the statute alone: `GN-SGG-JO-ADOPTED` (Journal officiel de la République de Guinée, electronic edition) and `GN-MEDD-ADOPTED` (the Ministry of Environment's copies of promulgated laws). The statute is Loi L/2019/0028/AN art. 10: "La protection du droit d'auteur ne s'étend pas : - aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles ;", read on the WIPO Lex copy of the law (https://www.wipo.int/wipolex/en/legislation/details/22355, sha256 of the PDF `deb4173dba1fc5525478a4f207aed6af7cffefd057c5e7442b18b3ec86faa71a`), not on a Guinean page: the SGG instrument index lists the law as published in JO 2019-12-27-sp, but the 8-page PDF served at that address does not contain it. The site terms do not grant reuse (`https://journal-officiel.sgg.gov.gn/fr/mentions-legales.html`: reproduction "sans autorisation préalable et expresse du Secrétariat Général du Gouvernement est interdite"; a pop-up says "Tout téléchargement à but commercial est interdit et puni par la loi") and the JO site says only the paper edition of the ordinary issue is authoritative, so the pass depends on the statute and is flagged for Varun in the PR. `GN-BCRG-ADOPTED` is permission requested and serves no instrument: the BCRG site holds no climate or sustainability instruction (wp-json search for climat, durable, ESG, risques climatiques, environnemental returned none) and Guinea has no stock exchange. No translation row exists. The index of instruments by title (and the gazette issue that publishes each) is `https://journal-officiel.sgg.gov.gn/fr/textes-officiels/recherche.html?field_titre=<word>&action=Rechercher`; each hit carries a link to the issue PDF, or to a scan of the single instrument under `/textes-officiels/`.
