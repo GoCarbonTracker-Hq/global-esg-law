@@ -7147,3 +7147,35 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
+
+## North Korea
+
+GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
+
+Requests made (curl, then headless Chromium with Playwright `page.goto(url, {timeout: 30000})`; Chromium got the same proxy answer):
+
+```
+curl -sS -m 25 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' http://www.naenara.com.kp
+```
+
+Returned `503 114 text/plain`; the body is "upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout" (sha256 of body plus status line `719f467bca080bedf90ff26e725031a62a758a4841e577fb6992f0647bced3e9`, the same on four runs). `http://www.kcna.kp` returned the same `503 114 text/plain`; `http://www.kcna.kp/en` and `http://www.ryongnamsan.edu.kp` returned `503 48`; `http://www.rodong.rep.kp` returned `503 114`; `https://www.naenara.com.kp`, `https://naenara.com.kp` and `https://www.kcna.kp` returned no answer (curl exit, code 000). Chromium: naenara 503 (265 bytes), kcna 503 (199 bytes).
+
+South Korean copies, read for titles only and nothing stored:
+
+- `https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95`: `403 203 text/plain; charset=utf-8`, "Automated collection is not permitted. Terms: https://www.nk-law.kr/terms#copyright". Not retried with a browser, because the terms forbid automated collection. The title and the 2021-04-30 version date come from the existing register row.
+- `https://www.unilaw.go.kr` (Ministry of Unification): connection reset by peer (curl exit 35) on three tries.
+
+Web search (titles and decree numbers only, no text taken): climate-laws.org and the LSE Grantham Institute copy of the Air Pollution Control Act (adopted 2012-07-11, Decree No. 2520, amended by Decree No. 3292 of 2013-07-24); lawandnorthkorea.com on the Copyright Law (2012 text keeps an exclusion for state administration documents "as long as they have no commercial purpose"; article number not confirmed, no state copy found).
+
+### Languages
+
+Korean is the only official language. No government English translation was found; the state hosts did not answer, so none was looked for there beyond that. No translation row was made.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `kp-environmental-protection-law` | Row `KP-NAENARA-ADOPTED`, permission requested: the portal could not be opened and no state host serves law text. |
+| `kp-air-pollution-control-act` | Same row and reason. |
+
+Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
