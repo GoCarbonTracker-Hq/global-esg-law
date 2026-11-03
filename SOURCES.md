@@ -4294,3 +4294,65 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Oman
+
+GEL-10-03, run 2026-11-03. Rows added: `OM-MJLA-ADOPTED`, `OM-FSA-ADOPTED`, `OM-FSA-TRANSLATION` (all `pass`, basis terms) and `OM-EA-ADOPTED`, `OM-MSX-ADOPTED` (`permission requested`). Two records are stored, both of Financial Services Authority Decision No. E/7/2026 (Arabic and English). The other six instruments are link only, although `OM-MJLA-ADOPTED` passes: every MJLA and Environment Authority PDF checked has a corrupt text layer (details below), and nothing is stored that is not a faithful copy of the text.
+
+Row `OM-FSA-ADOPTED`, Arabic text of decision E/7/2026 (FSA Legislation Encyclopedia). The site is an ASP.NET application; the list is a DataTables JSON endpoint behind a POST, the text is an HTML fragment. Step 1 finds the id (the session cookie is needed, so the first request sets it):
+
+```
+curl -sS -A 'Mozilla/5.0' -c cj -b cj -o /dev/null https://e.fsa.gov.om/LegislationEncyclopedia/
+curl -sS -A 'Mozilla/5.0' -c cj -b cj -H 'Content-Type: application/json; charset=utf-8' -H 'X-Requested-With: XMLHttpRequest' -d '{"draw":1,"columns":[{"data":"Id","searchable":true,"orderable":true,"search":{"value":"","regex":false}},{"data":null,"searchable":false,"orderable":false,"search":{"value":"","regex":false}},{"data":"HeaderEn","searchable":true,"orderable":true,"search":{"value":"","regex":false}},{"data":"IssueDate","searchable":true,"orderable":true,"search":{"value":"","regex":false}}],"order":[{"column":3,"dir":"desc"}],"start":0,"length":10,"search":{"value":"sustain","regex":false},"searchType":"SearchInTitle","sector":"","isExactMatch":"false"}' 'https://e.fsa.gov.om/LegislationEncyclopedia/GetPublishedLegislationList?type=Decision'
+```
+
+Returned `200 application/json`: `{"draw":1,"recordsTotal":1,"recordsFiltered":1,"data":[{"Id":98,"LegislationNumberEn":"Decision No.E/ 7/2026","HeaderEn":"On the Adoption of the International Sustainability Disclosure Standards","IssueDate":"2026-03-17T00:00:00",...}]}` (`type` is `Decision`, `Regulation`, `RoyalDecree` or `Circular`; an empty search lists everything, 13 decisions, 13 regulations, 31 royal decrees, 0 circulars on the day). Step 2, the text, Arabic:
+
+```
+curl -sS -A 'Mozilla/5.0' -b '_culture=ar-OM' -o d98_ar.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://e.fsa.gov.om/LegislationEncyclopedia/DisplayLegislationDetails?isHome=False&type=Decision&id=98&type=3&searchType=SearchInTitle&isExactMatch=false'
+```
+
+Returned `200 27264 text/html; charset=utf-8`, sha256 `2777a4b951ea67d22d5faae5b6d647858af1ea34860b8cb06cd29009f8cc5580`. A second fetch gave the identical hash, so the recipe reproduces (no per-request token). `text` is the content of `<div id="content_98">` only (the page menu, the Back button and the search box are left out): tags stripped, block elements and table cells as line breaks, entities decoded, runs of blanks collapsed, nothing reworded. The page marks the Arabic text as 'القرار (المنشور في الجريدة الرسمية)'.
+
+### Languages
+
+Row `OM-FSA-TRANSLATION`, English text of the same decision, same URL without the `_culture` cookie (English is the default):
+
+```
+curl -sS -A 'Mozilla/5.0' -o d98_en.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://e.fsa.gov.om/LegislationEncyclopedia/DisplayLegislationDetails?isHome=False&type=Decision&id=98&type=3&searchType=SearchInTitle&isExactMatch=false'
+```
+
+Returned `200 19932 text/html; charset=utf-8`, sha256 `1234cbaf5b125d7be6980a10d38948a424865df28454bfb21b06a7836dc577bc`, identical on a second fetch. The page carries no translator credit, no disclaimer and no amendment state, so the row is judged on the FSA licence alone (clause 2 covers translating); no statute is relied on. A PDF is also served (`https://e.fsa.gov.om/LegislationEncyclopedia/GetPDF/98?type=Decision`, `200 38190 application/pdf`, English, `Last-Modified` is the request time, so it is no use for the watcher). The Official Gazette issue that carries the decision is 1640 of 2026-03-24 (page 5): `https://www.mjla.gov.om/images/legislation/file/Book731853.pdf` is issue 1672; issue 1640 comes from the list `https://mjla.gov.om/legislation/1/page/<n>` (29 pages, 24 issues each, 673 issues from 1000 to 1672).
+
+Row `OM-MJLA-ADOPTED` (laws, decrees, gazette; Arabic). `mjla.gov.om` sends only its leaf certificate, so a plain request fails:
+
+```
+curl -sS -m 30 -A 'Mozilla/5.0' -L https://mjla.gov.om/
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+The intermediate named in the leaf's AIA field (Sectigo Public Server Authentication CA DV R36) was fetched with `curl -sS -o ca.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVR36.crt` (`200 1616`), converted with `openssl x509 -inform DER`, and appended to `/root/.ccr/ca-bundle.crt` as a local bundle passed with `--cacert`. TLS verification stayed on. With that bundle the proven request for one named instrument, Royal Decree 114/2001 (environment law):
+
+```
+curl -sS -L -A 'Mozilla/5.0' --cacert bundle.pem -o l57.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.mjla.gov.om/modules/laws/download.php?file=57'
+```
+
+Returned `200 192889 application/pdf`, sha256 `bbf6aec62de6b3c29a6d3191aa1eb6a15163b239f03d1a0a1caaba1fc28b131f`. The number is the id in the page URL `https://mjla.gov.om/laws/ar/1/show/57/`; the lists are `https://mjla.gov.om/laws/1/page/<n>`, `decrees/1/page/<n>`, `orders/1/page/<n>`, `decisions` (195 laws, 1382 decrees, 106 orders on the day). The PDF link also appears as `https://www.mjla.gov.om/images/laws/file/Book54917.pdf` (same size). The licence PDF is `https://www.mjla.gov.om/images/opendata/file/Book110050.pdf` (`200 238581 application/pdf`; its page links it as a bare `Book110050.pdf`, which 404s because of `<base href="/">`).
+
+No record is stored under this row. Command used to test the text layer: `pdftotext -layout l57.pdf -`, spaces collapsed. Result: the first lines read `مر�ســــوم �ســــلطاين` and `ب�إ�صدار قانون حماية البيئة ومكافحة التلوث`; U+FFFD stands where the page image shows س ص ش أ, and the lam-alef pair is stored reversed (`املر�سوم` for `المرسوم`, `اجلريدة` for `الجريدة`). Same result (U+FFFD counts from `pdftotext`) for 115/2001 (file 58, 1889), 6/2003 (file 63, 514), 66/2014 (file 137, 829), 2026/100 (file 235, 407) and gazette issue 1640 (2204); gazette issues 1141 and 1081 have no U+FFFD but a legacy byte encoding (`º```«MôdG øª``MôdG`). The fonts are `AXtManalBLack` and `AXtManalBold` in every MJLA file tested. The Environment Authority copy of 115/2001 (`/media/wnhhidfk/maraseem7003765139.pdf`) instead swaps letters (`سمطان` for `سلطان`, `التموث` for `التلوث`). Repairing the text by rule would reword it, and the repo has no OCR, so these are not stored.
+
+### Link-only instruments and why
+
+- `om-msx-esg-guideline`: `OM-MSX-ADOPTED` is `permission requested` (MSX terms, personal non-commercial use only). The PDF (`https://www.msx.om/MSMDOCS/downloads/ESG-MSX-E.pdf`, `200 9455543 application/pdf`, sha256 `c7e2c79a677183b91c6a193153f7d4bf8ad97bd3e2784b7b25a27e5ead700e93`) reads cleanly with `pdftotext -layout`, but it is not stored.
+- `om-environment-law`, `om-drinking-water-protection-law`, `om-nature-reserves-law`, `om-consumer-protection-law`: row `pass`, no usable text layer (above). Dates: the decrees say 'effective from publication'; the 2001 and 2003 gazette issues are not on the MJLA portal (its list starts at issue 1000), so `in_force` is null; the consumer law (Art. 49) takes effect three months after publication in issue 1081 of 2014-12-07 and states no date, so it is null too.
+- `om-climate-affairs-regulations`: Ministerial Decision 20/2016 is in gazette issue 1141 (2016-04-03, page 5; text layer a legacy byte encoding) and on ea.gov.om as an English scan (`https://www.ea.gov.om/media/hpskif3s/...pdf`, `200 8092928 application/pdf`) whose OCR layer misreads numbers (`Royal Decree No. (174/200I)` for 114/2001). In force 2016-04-04 by Article Four and the gazette date. Row `OM-EA-ADOPTED` is `permission requested` (the licence page the footer links to answers 'Request Rejected').
+- Not entered in scope (time box): other Environment Authority regulations on `https://www.ea.gov.om/ar/the-authority/legislations-conventions/legislation-laws/?pageMinistrial=<n>` (noise 296/2024, waste 15/2021 and 65/2023, hazardous chemicals and waste 50/2023 and 51/2023, plastic bags 23/2020, environmental permits 48/2017, ozone 107/2013 and 67/2015), Royal Decree 54/2021 (GCC Unified Anti-Commercial Fraud Law, MJLA file 182, damaged download), the Securities Law 46/2022 and Royal Decree 2022/60 (climate affairs moved to the Environment Authority).
+
+Blocked or not opened from the cloud address:
+
+- `https://www.msx.om`, `https://fsa.gov.om`, `https://e.fsa.gov.om`, `https://www.ea.gov.om` and `https://decree.om` answered 200 to plain curl. `decree.om` is a commercial site and is not a source.
+- `http://oman.om/wps/portal/index/opendata/ogl/...` (the Open Government Licence link in the EA footer): `200 3063 text/html`, body 'Request Rejected ... support ID 3093149647350603515'.
+- `https://opendata.gov.om/` (national portal): `307` redirect loop without cookies; with a cookie jar the page loads, but `/ar/license` is a JavaScript application and Chromium got 'Loading chunk 5726 failed'. The licence text was read from the MJLA and FSA copies instead, and OGL-om v1.0 from `https://www.moheri.gov.om/userupload/Policy/Open%20Government%20Licence.pdf` (`200 538811 application/pdf`).
+- `https://ncsi.gov.om/assets/docs/gov_license.pdf`: `curl: (60) SSL: no alternative certificate subject name matches target host name 'ncsi.gov.om'`. `https://omanlegal.net/`: `502 154 text/html`.
+
+Browser-fetched records: none. Archive of the gazette PDFs: only the file used for the dates was read (issues 1081, 1141, 1640); nothing from them is stored.

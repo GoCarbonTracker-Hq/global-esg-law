@@ -7659,5 +7659,80 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "om-msx-esg-guideline-pdf",
+  "source_id": "OM-MSX-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-msx-esg-guideline",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.msx.om/MSMDOCS/downloads/ESG-MSX-E.pdf"
+ },
+ {
+  "id": "om-fsa-decision-e-7-2026-page",
+  "source_id": "OM-FSA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-fsa-decision-e-7-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://e.fsa.gov.om/LegislationEncyclopedia/DisplayLegislationDetails?isHome=False&type=Decision&id=98&type=3&searchType=SearchInTitle&isExactMatch=false"
+ },
+ {
+  "id": "om-environment-law-mjla-pdf",
+  "source_id": "OM-MJLA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.mjla.gov.om/images/laws/file/Book54917.pdf",
+  "params": {
+   "second_route": "https://mjla.gov.om/laws/ar/1/show/57/ (browser; mjla.gov.om sends an incomplete certificate chain, so curl and urllib fail verification)"
+  }
+ },
+ {
+  "id": "om-drinking-water-protection-law-mjla-pdf",
+  "source_id": "OM-MJLA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-drinking-water-protection-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.mjla.gov.om/images/laws/file/Book535200.pdf",
+  "params": {
+   "second_route": "https://mjla.gov.om/laws/ar/1/show/58/ (browser; mjla.gov.om sends an incomplete certificate chain, so curl and urllib fail verification)"
+  }
+ },
+ {
+  "id": "om-nature-reserves-law-mjla-pdf",
+  "source_id": "OM-MJLA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-nature-reserves-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.mjla.gov.om/images/laws/file/Book474117.pdf",
+  "params": {
+   "second_route": "https://mjla.gov.om/laws/ar/1/show/63/ (browser; mjla.gov.om sends an incomplete certificate chain, so curl and urllib fail verification)"
+  }
+ },
+ {
+  "id": "om-consumer-protection-law-mjla-pdf",
+  "source_id": "OM-MJLA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-consumer-protection-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.mjla.gov.om/images/laws/file/Book152855.pdf",
+  "params": {
+   "second_route": "https://mjla.gov.om/laws/ar/1/show/137/ (browser; mjla.gov.om sends an incomplete certificate chain, so curl and urllib fail verification)"
+  }
+ },
+ {
+  "id": "om-climate-affairs-regulations-ea-pdf",
+  "source_id": "OM-MJLA-ADOPTED",
+  "iso2": "OM",
+  "instrument": "om-climate-affairs-regulations",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.ea.gov.om/media/hpskif3s/%D9%84%D8%A7%D8%A6%D8%AD%D8%A9-%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B4%D8%A4%D9%88%D9%86-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%AE%D9%8A%D8%A9.pdf"
  }
 ]
