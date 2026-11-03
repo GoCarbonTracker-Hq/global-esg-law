@@ -1,0 +1,59 @@
+[
+  {
+    "id": "vu-meteorology-geohazards-climate-change-act",
+    "title": "Meteorology, Geological Hazards and Climate Change Act 2016 (No. 25 of 2016)",
+    "official_url": "https://mocca.gov.vu/images/publications/legislation/VMGD/Meteorology%2C%20Geological%20Hazards%20and%20Climate%20Change%20Act%202016.pdf",
+    "citation": "Act No. 25 of 2016 (assent 26/01/2017)",
+    "in_force": "2017-02-01",
+    "evidence": "Cover of the official PDF: \"Assent: 26/01/2017 Commencement: 01/02/2017\". Opened https://mocca.gov.vu/images/publications/legislation/VMGD/Meteorology%2C%20Geological%20Hazards%20and%20Climate%20Change%20Act%202016.pdf on 2026-11-03. Section 38 of the same text says \"This Act commences on the day on which it is published in the Gazette\", which the PDF does not date.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "VU-MOCCA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Sets up the National Advisory Board on Climate Change and Disaster Risk Reduction (s.7), Director functions for meteorology, geological hazards and climate change (Parts 4 to 6, including mitigation, CDM and REDD+ coordination in s.23), asset protection (Part 8) and offences (s.32). Duties on private persons are limited to the offence of issuing unauthorised hazard or weather warnings, interfering with protected assets and failing to comply with removal notices (ss.28 to 32); there is no emissions or reporting duty. Not stored: row VU-MOCCA-ADOPTED is permission requested (mocca.gov.vu states no reuse terms). Government English text: this PDF, English only; the Act is enacted in English and French, and a French or Bislama text was not found on mocca.gov.vu, parliament.gov.vu (links redirect to PacLII) or environment.gov.vu; PacLII could not be opened from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "vu-environmental-protection-conservation-act",
+    "title": "Environmental Protection and Conservation Act [CAP 283] (Act 12 of 2002), Consolidated Edition 2006 with 2011 amendments",
+    "official_url": "https://mocca.gov.vu/images/publications/legislation/DEPC/Legislation/Environmental%20Protection%20and%20Conservation%20Act%20PC_Act_2002_%28consolidated_version_incl_2011_amends%29.pdf",
+    "citation": "Act 12 of 2002; CAP 283",
+    "in_force": "2003-03-10",
+    "evidence": "Cover of the official PDF (Laws of the Republic of Vanuatu, Consolidated Edition 2006): \"Commencement: 10 March 2003\". Opened the PDF on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "VU-DEPC-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act: Director and Environmental Registry (Part 2), environmental impact assessment (Part 3, s.18), community conservation areas, bioprospecting permits. The brief named 2010 and 2016 amendments; the only official text found is the 2006 edition with the 2011 amendments, and no amending Act of 2010 or 2016 was found on mocca.gov.vu or environment.gov.vu (PacLII, which would list them, could not be opened). No climate or emissions duty. Not stored: row VU-DEPC-CONSOLIDATED is permission requested (environment.gov.vu: \"All rights reserved\"). Government English only; no French or Bislama text found on those sites.",
+    "status": "link only"
+  },
+  {
+    "id": "vu-eia-regulations",
+    "title": "Environmental Impact Assessment Regulations, Order No. 175 of 2011 (unofficial consolidated version 2012)",
+    "official_url": "https://mocca.gov.vu/images/publications/legislation/DEPC/Subsidiary%20Legislations/Environmental%20Impact%20Assessment%20%28EIA%29%20Regulations%20%28Consolidated%29.pdf",
+    "citation": "Order No. 175 of 2011 under CAP 283",
+    "in_force": "2011-08-22",
+    "evidence": "Section 32: \"This Order commences on the day on which it is made.\" followed by \"Made at Port Vila this 22nd day of August, 2011\". Opened the PDF on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "VU-DEPC-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implements Part 3 of vu-environmental-protection-conservation-act: activities needing a preliminary assessment or EIA (Schedule 1), EIA report contents, approval, penalty notices. The PDF is headed UNOFFICIAL CONSOLIDATED VERSION 2012. Not stored: row VU-DEPC-CONSOLIDATED is permission requested. Government English only; no French or Bislama text found.",
+    "status": "link only",
+    "amends": "vu-environmental-protection-conservation-act"
+  },
+  {
+    "id": "vu-price-monitoring-consumer-affairs-act",
+    "title": "Price Monitoring and Consumer Affairs Act No. 5 of 2023",
+    "official_url": "https://rms.paclii.org/vu/legis/num_act/pmacaa2023360",
+    "citation": "Act No. 5 of 2023",
+    "in_force": null,
+    "evidence": "No official page opened states it. A search result for the PacLII PDF gives assent 30 March 2023 and commencement 3 April 2023, but PacLII and its AustLII mirror could not be opened from the cloud address, so the sentence was not read.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "VU-PACLII-ADOPTED",
+    "verification": "not_checked",
+    "notes": "Umbrella consumer act named in the brief for environmental claims; whether it carries a misleading-claims or green-claims provision was not read, because the text is served only by PacLII (the Parliament Acts page redirects there) and PacLII answered 403 with a Cloudflare challenge. Link only: row VU-PACLII-ADOPTED is permission requested. A French translation is listed by PacLII (num_act_fr/sdpeaadc2023528.pdf is a different Act); not opened. Where looked for government English: parliament.gov.vu (redirect to PacLII), mocca.gov.vu, environment.gov.vu, docc.gov.vu.",
+    "status": "link only"
+  }
+]
