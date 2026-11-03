@@ -5595,3 +5595,43 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 - Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
+
+## Comoros
+
+GEL-13-09, run 2026-11-03. Rows `KM-JUSTICE-ADOPTED` (`permission requested`, terms) and `KM-BCC-ADOPTED` (`pass`, terms; no instrument in scope, so nothing is stored under it). `records/KM/` is empty. All three instruments in `register/KM/scope.json` are link only.
+
+Proven requests (plain `curl`, no challenge, from the cloud address). The terms pages that decide the verdicts:
+
+```
+curl -sS -A 'Mozilla/5.0' -o mentions-legales.html -w '%{http_code} %{size_download} %{content_type}\n' https://justice.gouv.km/mentions-legales/
+```
+
+Returned `200 45411 text/html; charset=UTF-8`. Decisive sentence: "Toute reproduction, représentation, modification, publication, transmission ou dénaturation, totale ou partielle, du site ou de son contenu, par quelque procédé que ce soit, sans autorisation préalable, est interdite." Hence `permission requested`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o bcc-mentions.html -w '%{http_code} %{size_download} %{content_type}\n' https://banque-comores.km/page/show/mentions-legales
+```
+
+Returned `200 58386 text/html; charset=UTF-8`. Decisive sentence: "les utilisateurs du site Internet de la BCC peuvent disposer librement des informations qu'ils y trouvent aux conditions suivantes" (accurate reproduction, BCC named, modifications stated; named-author documents excepted). Hence `pass`.
+
+A text fetch would work for the Ministry of Justice pages, but is not used for storage. The loi-cadre page is server-rendered HTML:
+
+```
+curl -sS -A 'Mozilla/5.0' -o loi-94-018.html -w '%{http_code} %{size_download} %{content_type}\n' https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/
+```
+
+Returned `200 86353 text/html; charset=UTF-8` (the amended text sits in `<main>`, about 36,600 characters after tags are stripped). The decree and the amending act are pages that only link a PDF: `https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/` returned `200 39487 text/html; charset=UTF-8`; `https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/` returned `200 39935 text/html; charset=UTF-8`. The list of all 332 texts is `https://justice.gouv.km/texte-sitemap1.xml` (`200 65387 text/xml;charset=UTF-8`); the WordPress REST route `https://justice.gouv.km/wp-json/wp/v2/texte/303` answers `401 140 application/json` (`rest_not_logged_in`). The BCC regulations are PDFs, for example `curl -sS -A 'Mozilla/5.0' -o r007.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://banque-comores.km/uploads/DOCUMENTS/R%C3%A8glement_007_r%C3%A9serves_obligatoires.pdf'` returned `200 1116929 application/pdf`. No PDF text was extracted (poppler `pdftotext -layout` would be the command).
+
+### Languages
+
+French is the language of every text found. justice.gouv.km has `/ar/` and `/en/` versions of its listing pages (`https://justice.gouv.km/ar/%d8%a7%d9%84%d8%aa%d8%b4%d8%b1%d9%8a%d8%b9%d8%a7%d8%aa-%d9%88%d8%a7%d9%84%d9%86%d8%b5%d9%88%d8%b5-%d8%a7%d9%84%d8%b1%d8%b3%d9%85%d9%8a%d8%a9/`, `https://justice.gouv.km/en/legislation-and-official-texts/`); the three environmental texts were found only under `/texte/` in French. Comorian has no ISO 639-1 code. No government English translation was found on justice.gouv.km or banque-comores.km, and no translation row was added.
+
+### Link only
+
+- `km-loi-94-018`, `km-loi-95-007`, `km-decret-01-052`: `KM-JUSTICE-ADOPTED` is `permission requested`.
+- Climate framework act or carbon pricing instrument: none found in the 332-text sitemap (title search for climat, carbon, energie, environnement). The renewable energy law (Loi n° 17-020/AU, promulgated by Décret n° 16-008/PR) is on the same site; it is an energy law and was not added to scope.
+- Bank sustainability instruction: none on the BCC pages `textes-reglementaires`, `lois-et-decrets` and `textes-reglementaires-de-la-bcc` (searched for climat, environnement, durable, carbone: no match). Comoros has no stock exchange.
+- Consumer protection or competition law: no title containing consommation or concurrence in the sitemap.
+- Journal Officiel de l’Union des Comores: no online edition located.
+
+Blocked from the cloud address (the egress proxy refused the connection, `curl: (56) CONNECT tunnel failed, response 502`): https://www.environnement.gouv.km/ , https://environnement.gouv.km/ , https://www.journal-officiel.km/ , https://journal-officiel.gouv.km/ , https://www.gouvernement.km/ . The orchestrator can read them from the laptop.
