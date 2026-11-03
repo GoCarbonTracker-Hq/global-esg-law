@@ -5671,3 +5671,55 @@ French is the language of every text found. justice.gouv.km has `/ar/` and `/en/
 - Journal Officiel de l’Union des Comores: no online edition located.
 
 Blocked from the cloud address (the egress proxy refused the connection, `curl: (56) CONNECT tunnel failed, response 502`): https://www.environnement.gouv.km/ , https://environnement.gouv.km/ , https://www.journal-officiel.km/ , https://journal-officiel.gouv.km/ , https://www.gouvernement.km/ . The orchestrator can read them from the laptop.
+
+## Ethiopia
+
+Run on 2026-11-03 from the cloud address. No row for Ethiopia passes, so nothing is stored and no fetch recipe for a record is proven. Every Ethiopian publisher source is `permission requested` (rows ET-NBE-ADOPTED, ET-ECMA-ADOPTED, ET-ESX-ADOPTED, ET-HOPR-ADOPTED, ET-EPA-ADOPTED): the sites carry a copyright footer and no reuse licence, and the wording of Proclamation No. 410/2004 art. 5(b) (as amended by No. 872/2014) could not be read in the gazette text, so no statute exception is claimed. The requests below were run to read the instruments for the scope entries, and a second run on the same day returned identical bytes (same sha256) for each file.
+
+### Requests that work (read only, not a recipe for records)
+
+National Bank of Ethiopia, Bank Corporate Governance Directive No. SBB/91/2024 (PDF with a clean text layer):
+
+```
+curl -sL -A 'Mozilla/5.0' -o sbb91.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf'
+200 4611812 application/pdf
+```
+
+Environmental Protection Authority (EPA), gazette PDFs. The host answers a `Mozilla/5.0` User-Agent with HTTP 406 (779 bytes, `text/html`) and a request with no User-Agent with a proxy tunnel failure; a plain `curl/8.5.0` User-Agent gets the file:
+
+```
+curl -sL -A 'curl/8.5.0' -o p1371.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/PDF/Proc%20No.1371-2025-Environmental%20and%20Social%20Impact%20Assessment.pdf'
+200 314642 application/pdf        (Proclamation No. 1371/2025; 17 pages, image only, no text layer; read as page images)
+curl -sL -A 'curl/8.5.0' -o p300.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/Proclamation/Proc%20No.%20300-2002%20Environmental%20Pollution%20Control.pdf'
+200 836157 application/pdf        (Proclamation No. 300/2002)
+curl -sL -A 'curl/8.5.0' -o p1401.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/images/PDF/proclamation-for-ecosytem-service-paymeny-1401.pdf'
+200 1151044 application/pdf       (Proclamation No. 1401/2026)
+curl -sL -A 'curl/8.5.0' -o proclamations.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/downloads/proclamations.html'
+200 25737 text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.epa.gov.et/downloads/proclamations.html'
+406 779 text/html
+```
+
+PDF text: `pdftotext -layout file.pdf -` (poppler). The NBE PDF extracts clean. The EPA PDF for 300/2002 and the Amharic column of 1401/2026 extract as mojibake (legacy font encodings; 26,128 non-ASCII characters in the 1401 output, none of them readable Ethiopic), and the 1371/2025 PDF has no text layer and no OCR tool was available. Had any row passed, these files could not be stored as they are.
+
+### Languages
+
+The Federal Negarit Gazeta prints Amharic and English side by side and the Amharic prevails on conflict. The gazette PDFs on epa.gov.et carry both columns, so both languages would be stored under the one EPA row if it passed. No separate English translation source was found, so no translation row exists. The NBE directive PDF is English only.
+
+### Link-only instruments
+
+- et-nbe-bank-cg-directive-sbb-91-2024: row ET-NBE-ADOPTED is permission requested (footer "Copyright © 2025 NBE").
+- et-esia-proclamation-1371-2025, et-pollution-control-proclamation-300-2002, et-ecosystem-services-payment-proclamation-1401-2026: row ET-EPA-ADOPTED is permission requested (footer "Copyright © 2025 EPA, Ethiopia. All rights reserved."). The scope entries cover 1371/2025, which repeals 299/2002 (art. 24(1)); 299/2002 has no entry.
+- ECMA Sustainable Securities Framework: F7, no scope entry. ECMA's Laws & Regulation list has no framework document; only a news page exists. ESX (esx.et) rulebook PDFs are on a company site (row ET-ESX-ADOPTED, permission requested) and no ESX sustainable-securities guideline was found there.
+- House of Peoples' Representatives (hopr.gov.et): no law or gazette section and no terms page (row ET-HOPR-ADOPTED, permission requested).
+- Trade Competition and Consumer Protection Proclamation No. 813/2013 (F6): not entered. The Trade Competition and Consumer Protection Authority and Ministry of Trade hosts refused the cloud address, and no official page for the text was opened.
+
+### Blocked from the cloud address
+
+- https://www.moj.gov.et, https://moj.gov.et, https://www.mojsr.gov.et: no connection (curl exit code 000).
+- https://www.epa.gov.et with a `Mozilla/5.0` User-Agent: HTTP 406; with no User-Agent: proxy tunnel failure (works with `curl/8.5.0`, see above). https://epa.gov.et (no `www`): proxy tunnel failure, HTTP 502.
+- https://tccpa.gov.et, https://www.tccpa.gov.et, https://www.moti.gov.et, https://www.motri.gov.et: `connect_rejected` by the egress proxy.
+- https://www.mint.gov.et, https://www.mofed.gov.et, https://www.mowe.gov.et, https://eiabc.gov.et, https://www.eipo.gov.et: no connection (000).
+- https://fsc.gov.et answered 404 and https://www.fsc.gov.et answered 500.
+- https://www.fao.org/faolex/country-profiles/en/?iso3=ETH: 403 to scripts (FAOLEX is not an Ethiopian publisher and has no row).
+- https://wipolex-res.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf and https://www.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf: HTTP 200 with an HTML page, not the PDF, so Proclamation No. 410/2004 art. 5(b) could not be read.
