@@ -12550,5 +12550,73 @@
   "tier": "consolidation_site",
   "url": "https://giwmscdnone.gov.np/media/app/public/275/posts/1719394748_73.pdf",
   "params": {}
+ },
+ {
+  "id": "iq-isc-esg-guide-edition-2-head",
+  "source_id": "IQ-ISC-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-isc-esg-guide",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://uploads.isc.gov.iq/upload/2026/06/17//6a32dc6fcd9df.pdf",
+  "params": {
+   "note": "2nd edition PDF of the ESG guide (effective 2026-05-13); the server sends Content-Length only, no Last-Modified. A 3rd edition would be a new upload path on https://isc.gov.iq/pages/43"
+  }
+ },
+ {
+  "id": "iq-cbi-esg-code-2025-head",
+  "source_id": "IQ-CBI-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-cbi-esg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbi.iq/static/uploads/up/file-175396251558377.pdf",
+  "params": {
+   "note": "2025 Arabic edition; a new edition would be a new file on https://cbi.iq/page/99"
+  }
+ },
+ {
+  "id": "iq-env-protection-law-27-2009-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-env-protection-law-27-2009",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/4142.pdf",
+  "params": {}
+ },
+ {
+  "id": "iq-emission-limits-instructions-3-2012-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-emission-limits-instructions-3-2012",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/4242.pdf",
+  "params": {
+   "note": "the first amendment sits in Gazette 4434 (https://moen.gov.iq/files/TableFiles/4434.pdf), seen through the MOEN list watcher"
+  }
+ },
+ {
+  "id": "iq-environmental-approval-instructions-3-2011-moen-list",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-environmental-approval-instructions-3-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/moe-backend/api/tbm-post/ar/legislation?table_page=2",
+  "params": {
+   "note": "JSON behind https://moen.gov.iq/ar/legislation, page 2 of 5 (rows 11 to 20: the 2011 instructions and the 2012 emission limits); the page itself is an Angular app that curl sees as an empty shell"
+  }
+ },
+ {
+  "id": "iq-carbon-economics-company-statement-2025-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-carbon-economics-company-statement-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf",
+  "params": {}
  }
 ]
