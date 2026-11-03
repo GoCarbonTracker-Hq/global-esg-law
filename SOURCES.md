@@ -7212,6 +7212,36 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
 
+### OCR pass 2026-11-03
+
+Run after OCR was allowed (08:20Z, 2026-11-03, GEL-04-12). Rows `HN-TSC-ADOPTED` and `HN-JUNTEC-ADOPTED` pass; `HN-CNBS-ADOPTED` stays `permission requested`, so `hn-cnbs-norma-ras`, `hn-cnbs-norma-ras-art15` and `hn-cnbs-circ-008-2024` stay link only and were not touched. No verdict, register row, licence row or watcher was changed. Tools: `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa` gave tesseract 5.3.4 with `spa` 1:4.1.0-2 (`tesseract --list-langs`: eng, osd, spa). Downloads (each fetched twice, same sha256):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cc.pdf 'https://www.tsc.gob.hn/web/leyes/Ley%20de%20Cambio%20Climatico.pdf'          # 200 1197058, 9 pages, sha256 0a871135d27dbd8e282e09d7e4866515678f077c54a1a1f5aa4ecc233fb81ec2
+curl -sS -L -A 'Mozilla/5.0' -o reg.pdf 'https://www.tsc.gob.hn/web/leyes/Reglamento_General_de_la_Ley_del_Ambiente.pdf'  # 200 1453810, 43 pages, sha256 d4edd2c38aef830a82cf5a5f447346f36942690e2241689d218269a90c89cfdd
+curl -sS -L -A 'Mozilla/5.0' -o cons.pdf 'https://www.tsc.gob.hn/web/leyes/Ley%20de%20Protecci%C3%B3n%20al%20Consumidor.pdf'  # 200 16219438, 22 pages, sha256 02e6a2a632ef26f874a757f31463d6779d43867baec0d089c9027f03d28cf030
+curl -sS -o j.pdf 'https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf'  # 200 1851050, 3 pages, sha256 7f40cbca94def12401cbb3f93ff89c294bc15a714a673027c0ccb90508338a64 (the value already recorded above)
+```
+
+OCR (two-column Gaceta files `cc.pdf`, `cons.pdf`, `j.pdf`; the Reglamento is single column and was read whole):
+
+```
+pdftoppm -r 200 -png X.pdf pg                      # one PNG per page
+# column crop (Pillow): split x found per page as the emptiest vertical strip between 40% and 60% of the width; body y-range 11.5% to 92.5% (cc), 11.7% to 90.5% (cons), page 1 of cons below the masthead and summary box, page 2 of cons above the Gaceta address box; j.pdf: halves at 50%, y 11.5% to 92.5%
+OMP_THREAD_LIMIT=1 tesseract pageOrColumn.png out -l spa   # default page segmentation, one run per page or column
+```
+
+Left column then right column, pages in order, stripped of form feeds and empty lines, nothing else. Whole-page `tesseract -l spa` on the Gaceta pages dropped or interleaved the right column (JUNTEC pages 1 and 2 lost it), so the column crop is what is stored. `ocrmypdf` was not used. Articles were counted as a check: Decreto 24-2008 articles 1 to 116 and the Reglamento articles 1 to 144 all appear in order; Decreto 297-2013 has 1 to 41 (heading of art. 5 read as `ARTÍCULOS`). 200 dpi was readable for all four; no 300 dpi pass was needed.
+
+| Instrument | Row | Stored | Pages | Notes |
+|---|---|---|---|---|
+| `hn-juntec-res-006-01-2025` | `HN-JUNTEC-ADOPTED` (pass) | `2028-01-01-adopted-es.json` | 1 to 3 | `in_force` as scope; PDF text layer ignored |
+| `hn-ley-cambio-climatico` | `HN-TSC-ADOPTED` (pass) | `2014-11-10-adopted-es.json` | 1 to 9, page 9 left column only | art. 41 commencement read; `in_force` set from null |
+| `hn-ley-proteccion-consumidor` | `HN-TSC-ADOPTED` (pass) | `2008-07-07-adopted-es.json` | 1 to 22 | art. 116 commencement read; `in_force` set from null |
+| `hn-lga-reglamento` | `HN-TSC-ADOPTED` (pass) | none, link only | 1 to 43 read | OCR is clean, but art. 144 starts the day after a Gaceta date that no page gives, so no record date |
+
+Records carry `extraction: ocr` and the original PDF's `fetched_url` and `fetched_sha256`. `tools/build.py` and `tools/watch.py` were not run.
+
 ## Nicaragua
 
 Run on 2026-11-03 (GEL-14-04). One row passes, on a statute and not on site terms: `NI-LAGACETA-ADOPTED` (La Gaceta, Diario Oficial, https://www.lagaceta.gob.ni, run by the Secretaría Jurídica de la Presidencia). The statute is Ley 312 (Derecho de Autor y Derechos Conexos), Artículo 16, read in the consolidated text La Gaceta No. 232 of 2020-12-16: "No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores." (The brief says Ley 963 art. 16; the article is in Ley 312 as consolidated under Ley 1032, which Ley 963 orders published.) The site has no terms or copyright page. No row was added for the Asamblea Nacional portal, MARENA, SIBOIF or the Bolsa de Valores de Nicaragua (reasons below).
