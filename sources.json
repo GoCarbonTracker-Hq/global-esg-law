@@ -9383,5 +9383,27 @@
     "trailer_source_url": "https://www.bcrg-guinee.org/",
     "trailer_licence": "none granted: the conditions d'utilisation say the site is for information only; footer \"Copyright© 2025 BCRG. Tous Droits Reservés\"",
     "notes": "fingerprint: same recipe as GN-SGG-JO-ADOPTED on https://www.bcrg-guinee.org/mentions-legales/ (two runs on 2026-11-03 gave the same hash). The conditions d'utilisation grant no reuse right: the site is \"destinés exclusivement à des fins informatives\". Searched on 2026-11-03: the site search (wp-json search for climat, durable, ESG, risques climatiques, environnemental) returned no sustainability or climate instruction, and the compliance-texts page lists only anti-money-laundering, payment, foreign-exchange and data-protection documents. Guinea has no stock exchange. No scope entry uses this row."
+  },
+  {
+    "id": "CV-BOE-ADOPTED",
+    "jurisdiction": "CV",
+    "publisher": "Imprensa Nacional de Cabo Verde (INCV)",
+    "source_name": "Boletim Oficial da Republica de Cabo Verde, portal BOE: individual acts as published (PDF)",
+    "form": "adopted",
+    "fetch_url": "https://boe.incv.cv/Bulletins/DownloadAct?id={act id} (the id is the number in https://boe.incv.cv/Bulletins/View?id={act id})",
+    "pinned_version": "act as published in the Boletim Oficial (no consolidations are served)",
+    "content_hash": "",
+    "terms_url": "https://boe.incv.cv/Documents/Index/7",
+    "terms_quote": "É proibida a cópia, total ou parcial do site, incluindo qualquer conteúdo ou formato digital pertencente ao site da INCV, sem a prévia autorização da INCV.",
+    "terms_fingerprint": "386d43815cef2e2c92d8893549d2a2027b0fbb7b7427461cf10ec0dc211f955f",
+    "verdict": "pass",
+    "statute_exception": "Decreto-Legislativo n.º 1/2009, de 27 de Abril (Lei dos Direitos de Autor), art. 10 (Obras não protegidas): \"Não constituem objecto de protecção: ... b) As leis e decisões dos órgãos judiciais e administrativos, bem como os requerimentos, alegações, queixas e outros textos apresentados perante autoridade ou serviços públicos;\". Read in the Boletim Oficial I Série n.º 17 Suplemento of 2009-04-27, pp. 1 ff. (PDF cv022pt.pdf from WIPO Lex, https://www.wipo.int/wipolex/en/legislation/details/8227, sha256 36a0f6722ffdb76f383e35832086e8c521063bffe4ff62af621f0600d55fc21e, opened on 2026-11-03). Decreto-Legislativo n.º 2/2017 of 2017-11-16 (Boletim Oficial I Série n.º 67, p. 1381) amended art. 10 but printed only its heading (\"Exclusão de proteção\") followed by \"[…]\", the body being unchanged.",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Boletim Oficial act as published (act type, number and year set per instrument)",
+    "trailer_source_url": "https://boe.incv.cv/Bulletins/View?id={act id}",
+    "trailer_licence": "Official legislative text, not protected by copyright (Cape Verde Decreto-Legislativo 1/2009 art. 10 b)",
+    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://boe.incv.cv/Documents/Index/7' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 (recomputed twice on 2026-11-03, same hash). The portal terms (Termos e condições, item 6) forbid copying any content or digital format of the site without INCV authorisation, so the pass rests on the statute alone, as with BR-BCB-ADOPTED. Art. 10 b says \"leis e decisões dos órgãos judiciais e administrativos\"; it is read as covering the Decretos-Leis, Leis and Portarias stored (legislative and administrative acts of the State); it does not name translations, and art. 8 a protects translations of unprotected works, so no English translation can pass on the statute. Varun to confirm the reading and the conflict with item 6. The BOE serves one PDF per act (DownloadAct) only for acts indexed individually (DownloadAct returned a PDF for ids 101440, 89468, 101316, 88603 and 100537 on 2026-11-03 and a 404 page for ids 58853 and 73215; many 2023 and 2024 acts, for example Lei n.º 23/X/2023 and Lei n.º 44/X/2024, and everything before about 2009, are in the whole-bulletin PDF /Bulletins/Download/{bulletin id} only, two-column, which pdftotext cannot read in order). Acts as published only; no consolidated texts exist on the site. Portuguese only."
   }
 ]

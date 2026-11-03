@@ -6276,3 +6276,40 @@ Not entered: Loi L/2011/006/CNT (Code minier) with Loi L/2013/053/CNT, and Loi L
 - `https://assemblee-nationale.gov.gn`: `curl: (56) CONNECT tunnel failed, response 502` on 2026-11-03 (not needed: the gazette serves the laws).
 - `https://journal-officiel.sgg.gov.gn/JO/...` with curl's default User-Agent: HTTP 403 text/html, 14304 bytes; answered with `-A 'Mozilla/5.0'`.
 - No URL needed a browser; no record is browser-fetched.
+
+## Cape Verde
+
+Run on 2026-11-03 (GEL-13-10). One row passes: `CV-BOE-ADOPTED` (Imprensa Nacional de Cabo Verde, portal https://boe.incv.cv). The pass rests on the statute, Decreto-Legislativo n.º 1/2009 art. 10 b ("As leis e decisões dos órgãos judiciais e administrativos" are not protected), because the portal terms (https://boe.incv.cv/Documents/Index/7, item 6) forbid copying any content or digital format of the site without INCV authorisation. Varun to confirm that reading and the conflict with item 6. No other row was added: no regulator instrument was found (see the lists below).
+
+Row `CV-BOE-ADOPTED`, Decreto-Lei n.º 35/2026 (act id 101440, read from the `View?id=` page of the act):
+
+```
+curl -sS -L -o dl35_2026.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://boe.incv.cv/Bulletins/DownloadAct?id=101440'
+```
+
+Returned `200 670005 application/pdf`; the same bytes came back on a second request (sha256 `100d5ae0fb6547b31e187261f3d68811316d25da73e2c6c06c93e7c044f043c0`), so `fetched_sha256` reproduces. Other acts with the same request: id 89468 (Lei n.º 71/X/2026) `200 253095 application/pdf`; id 101316 (Decreto-Lei n.º 31/2026) `200 298589 application/pdf`; id 88603 (Portaria Conjunta n.º 39/2025) `200 203665 application/pdf`; id 100537 (Portaria n.º 30/2026) `200 162725 application/pdf`. Text extraction: `pdftotext -layout file.pdf -` (poppler), runs of spaces and tabs collapsed to one space, each line stripped, runs of blank lines reduced to one, page breaks as line breaks. poppler prints "Bad block header in flate stream" for an embedded image stream; the text layer is unaffected, and no mojibake or replacement characters were found (only typographic quotes and dashes). The page header and footer lines of the gazette ("I Série | nº 60 21 de maio de 2026 | Pág. 70", "A2026/S1/BO60/34039 | Decreto-Lei n.º 35/2026") stay in the text. The act id is the number in `https://boe.incv.cv/Bulletins/View?id=<id>`; acts are found with `https://boe.incv.cv/Bulletins?Query=<text>&Year=<yyyy>&Series=1&page=<n>&rows=15` (HTML; each result card links to the View page). The portal serves no consolidated texts, so every record is the act as published (`adopted`), Portuguese.
+
+Limits of the request: `DownloadAct?id=` returns the portal's 404 page (`404 852737 text/html; charset=utf-8`) for acts the portal indexes without a file, for example id 58853 (Lei n.º 23/X/2023) and id 73215 (Lei n.º 45/X/2024, the 2025 budget). Those acts, and Lei n.º 44/X/2024 (not indexed at all), exist only in the whole-bulletin PDF `https://boe.incv.cv/Bulletins/Download/<bulletin id>` (for example `Download/6143`, `200 363910 application/pdf`, Boletim Oficial I Série n.º 123 of 2024-12-23). The old bulletins are two-column pages; `pdftotext` (with and without `-layout`) interleaves the columns and the running heads, so the article order is wrong. Cropping columns with `-x/-y/-W/-H` reads them in order but keeps the running heads inside the columns. Nothing was stored from them.
+
+### Languages
+
+Cape Verde's legislation is published in Portuguese only (Cape Verdean Creole has no gazette edition and no ISO 639-1 code). English was looked for once: the portal pages (home, terms, act pages) and https://www.governo.cv (`200 67584 text/html; charset=UTF-8`) show Portuguese only and no translation of any scope instrument. No translation row was added. A statute exception could not cover a translation anyway: art. 8 a of Decreto-Legislativo n.º 1/2009 protects translations even of unprotected works.
+
+Decreto-Legislativo n.º 1/2009 (Lei dos Direitos de Autor) was read from the Boletim Oficial I Série n.º 17 Suplemento of 2009-04-27 as served by WIPO Lex (`https://www.wipo.int/wipolex/en/legislation/details/8227`, link to `cv022pt.pdf`, sha256 `36a0f6722ffdb76f383e35832086e8c521063bffe4ff62af621f0600d55fc21e`), since the 2009 supplement is not in the BOE index. Art. 10 was amended by Decreto-Legislativo n.º 2/2017 (Boletim Oficial I Série n.º 67 of 2017-11-16, p. 1381), which prints only the new heading "Exclusão de proteção" and "[…]" for the body.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Lei n.º 44/X/2024 (Fundo Climático e Ambiental) | https://boe.incv.cv/Bulletins/Details/A2024/S1/BO123/6143 | No per-act file; whole-bulletin PDF is two-column and reads out of order. |
+| Lei n.º 23/X/2023 (amends the environment framework law) | https://boe.incv.cv/Bulletins/View?id=58853 | `DownloadAct?id=58853` returns 404; whole-bulletin PDF `Download/4750` reads out of order. |
+| Lei n.º 86/IV/93 (Lei de Bases da Política do Ambiente) | https://boe.incv.cv/Bulletins/View?id=58853 | The 1993 gazette text is not on the portal (one bulletin of 1993-12-31); URL is the amending act's page. |
+
+Looked at and not turned into entries: Lei n.º 88/V/98 (consumer protection) and Decreto-Legislativo n.º 14/97 (not found in the portal's 1997 and 1998 bulletins; the 1998 PDFs are scanned with unusable OCR, for example `Download/11895` returned `200 14807252` bytes of garbled text); Lei n.º 45/X/2024 art. 80 (creates the carbon charges; budget law without a per-act file, cited by the Portaria); Lei n.º 22/X/2023 and Lei n.º 43/X/2024 (single-use plastics, not climate); Decreto-Lei n.º 23/2023 (strategic environmental assessment) and Decreto-Lei n.º 15/2024 (Basel Convention), environmental but outside the climate and disclosure families sought; Resoluções of the Council of Ministers (climate governance framework, climate and environment action programme, NDC 3.0), which are policy plans, not instruments with duties.
+
+Regulators: https://agmvm.cv (`200 134995 text/html`) has only a news item of 2025-02-03 saying the AGMVM is preparing an ESG taxonomy with consultants; no rule or duty was found, so no row. https://bvc.cv (`200`) shows training sessions on sustainable finance, no listing rule; the exchange is a company and no row was added. Banco de Cabo Verde: no climate-risk or sustainability aviso was found among the 2023 to 2026 I Série acts (the register row for Decreto-Lei n.º 35/2026 cites a bank news item only).
+
+### Blocked from the cloud address
+
+- `https://www.bcv.cv/` answered `403 35007 text/html` to a plain `curl`; with a `Mozilla/5.0` user agent it answered `302` to `https://www.bcv.cv/Pages/VariationRoot.aspx`, not followed. The orchestrator can read it from the laptop.
+- `https://www.bvc.cv` (with www) ended with `curl: (35) Recv failure: Connection reset by peer`; `https://bvc.cv` answered 200.
