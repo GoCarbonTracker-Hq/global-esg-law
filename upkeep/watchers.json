@@ -9573,5 +9573,53 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
+  "id": "tn-loi-2018-35-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2018-35",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1988-91-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1988-91",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-1992-117-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-1992-117",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
+ },
+ {
+  "id": "tn-loi-2015-36-iort-page",
+  "source_id": "TN-IORT-ADOPTED",
+  "iso2": "TN",
+  "instrument": "tn-loi-2015-36",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "http://www.iort.gov.tn/",
+  "params": {
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+  }
  }
 ]

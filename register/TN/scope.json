@@ -1,0 +1,68 @@
+[
+  {
+    "id": "tn-loi-2018-35",
+    "title": "Loi n° 2018-35 du 11 juin 2018, relative à la responsabilité sociétale des entreprises",
+    "official_url": "http://www.iort.gov.tn/",
+    "citation": "Loi n° 2018-35 du 11 juin 2018; JORT n° 49 of 2018-06-19",
+    "in_force": null,
+    "evidence": "Text opened on IORT (Arabic and French editions): Art. 2: \"Les dispositions de la présente loi s'appliquent aux établissements publics et aux entreprises publiques et privées\" and \"Les établissements prévus au premier paragraphe doivent allouer des crédits pour le financement des programmes de responsabilité sociétale\"; Art. 5: les institutions veillent à publier les rapports sur les programmes exécutés. The text ends \"La présente loi sera publiée au Journal Officiel de la République Tunisienne et exécutée comme loi de l'Etat. Tunis, le 11 juin 2018.\" and has no commencement clause; IORT lists it in JORT n° 049 of 2018-06-19. No official page states an in-force date, so in_force is null.",
+    "law_family": "F4",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TN-IORT-ADOPTED",
+      "TN-IORT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The brief said JORT n° 48-49; IORT lists issue 049 dated 19/06/2018. Both language texts are complete on IORT (about 4,000 characters French, 2,600 Arabic). Not stored because TN-IORT-ADOPTED and TN-IORT-TRANSLATION are permission requested (footer: all rights reserved). The application decree (Art. 4 and 6 refer to a government order for the regional committee and the observatory) was not searched for on IORT and is not in scope. English: no government translation looked for beyond IORT's English link, which is a site language switch; none found. Found on http://www.iort.gov.tn/ with the text search (year, number, category) in a headless browser on 2026-11-03; the site has no stable URL per text, so official_url is the portal.",
+    "status": "link only"
+  },
+  {
+    "id": "tn-loi-1988-91",
+    "title": "Loi n° 88-91 du 2 août 1988 portant création d'une Agence nationale de protection de l'environnement",
+    "official_url": "http://www.iort.gov.tn/",
+    "citation": "Loi n° 88-91 du 2 août 1988; JORT n° 52 of 1988-08-02",
+    "in_force": null,
+    "evidence": "IORT lists it as قانون عدد 91 لسنة 1988 مؤرخ في 2 أوت 1988 يتعلق بإحداث وكالة وطنية لحماية المحيط, JORT n° 052 of 02/08/1988. The text is served only as an image PDF (JournalArabe0521988.pdf, no text layer), so no commencement sentence was read; in_force is null.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TN-IORT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act; Tunisia has no environment code. Whether a code or climate framework law was adopted after the 2022 Constitution was not checked: legislation.tn is blocked from the cloud address. Amendments were not listed (IORT revisions page shows 'in progress'). Not stored: image-only PDF and a permission requested row. Found on http://www.iort.gov.tn/ with the text search (year, number, category) in a headless browser on 2026-11-03; the site has no stable URL per text, so official_url is the portal.",
+    "status": "link only"
+  },
+  {
+    "id": "tn-loi-1992-117",
+    "title": "Loi n° 92-117 du 7 décembre 1992, relative à la protection du consommateur",
+    "official_url": "http://www.iort.gov.tn/",
+    "citation": "Loi n° 92-117 du 7 décembre 1992; JORT n° 83 of 1992-12-15",
+    "in_force": null,
+    "evidence": "IORT lists it as قانون عدد 117 لسنة 1992 مؤرخ في 7 ديسمبر 1992 يتعلق بحماية المستهلك, JORT n° 083 of 15/12/1992. Image-only PDF (JournalArabe0831992.pdf), no commencement sentence read; in_force is null.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TN-IORT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading claims to consumers. Not stored: image-only PDF and a permission requested row. Whether it was repealed or rewritten by a later consumer code was not checked. Found on http://www.iort.gov.tn/ with the text search (year, number, category) in a headless browser on 2026-11-03; the site has no stable URL per text, so official_url is the portal.",
+    "status": "link only"
+  },
+  {
+    "id": "tn-loi-2015-36",
+    "title": "Loi n° 2015-36 du 15 septembre 2015, relative à la réorganisation de la concurrence et des prix",
+    "official_url": "http://www.iort.gov.tn/",
+    "citation": "Loi n° 2015-36 du 15 septembre 2015; JORT n° 78 of 2015-09-29",
+    "in_force": null,
+    "evidence": "IORT lists it as قانون عدد 36 لسنة 2015 مؤرخ في 15 سبتمبر 2015 يتعلق بإعادة تنظيم المنافسة والأسعار, JORT n° 078 of 29/09/2015. The IORT HTML text is cut off by the site and no commencement sentence was read; in_force is null.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TN-IORT-ADOPTED",
+      "TN-IORT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Competition and prices law, listed by the brief as an umbrella for environmental claims; it is not an environmental-claims rule in itself. Not stored: permission requested row and a cut-off HTML page (the PDF Loi2015_36Arabe.pdf was not text-checked). Found on http://www.iort.gov.tn/ with the text search (year, number, category) in a headless browser on 2026-11-03; the site has no stable URL per text, so official_url is the portal.",
+    "status": "link only"
+  }
+]

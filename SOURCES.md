@@ -5671,3 +5671,45 @@ French is the language of every text found. justice.gouv.km has `/ar/` and `/en/
 - Journal Officiel de l’Union des Comores: no online edition located.
 
 Blocked from the cloud address (the egress proxy refused the connection, `curl: (56) CONNECT tunnel failed, response 502`): https://www.environnement.gouv.km/ , https://environnement.gouv.km/ , https://www.journal-officiel.km/ , https://journal-officiel.gouv.km/ , https://www.gouvernement.km/ . The orchestrator can read them from the laptop.
+
+## Tunisia
+
+Checked 2026-11-03 (GEL-12-02). No licence row passes, so no text is stored and no `curl` request is proven for a `pass` row. Every instrument in `register/TN/scope.json` is `link only`. Below is what was tried and what would work if a row passed.
+
+### Rows
+
+All six rows added for Tunisia (`TN-IORT-ADOPTED`, `TN-IORT-TRANSLATION`, `TN-LEGISLATION-CONSOLIDATED`, `TN-CMF-ADOPTED`, `TN-BVMT-ADOPTED`, `TN-MEDD-ADOPTED`) are `permission requested`. The terms found were footers: IORT "جميع الحقوق محفوظة المطبعة الرسمية للجمهورية التونسية 2008", Ministry of Environment "Tous droits réservés 2022", CMF "Copyright © 2026 Conseil du Marché Financier", Bourse de Tunis "2026 © La Bourse de Tunis". The statute route (Loi n° 94-36 du 24 février 1994, which the brief says excludes official texts and their official translations in art. 1) was not confirmed on a publisher page. Art. 1 in the 1994 gazette scan lists protected works and has no exclusion; Loi n° 2009-33 replaces only two tirets of art. 1. A web search reports the exclusion on WIPO Lex and legislation-securite.tn, which were not opened as the publisher.
+
+### Browser recipe (IORT, the gazette publisher)
+
+`curl` over https is reset, and over http returns only a redirect stub:
+
+```
+$ curl -sS -A 'Mozilla/5.0' https://www.iort.gov.tn/
+curl: (35) Recv failure: Connection reset by peer
+$ curl -sS -A 'Mozilla/5.0' -w '%{http_code} %{size_download} %{content_type}\n' http://www.iort.gov.tn/
+<meta http-equiv="Refresh" content="0; url=http://www.iort.gov.tn/WD120AWP/WD120Awp.exe/CONNECT/SITEIORT">   (200 159 text/html)
+```
+
+The target is a WebDev session site: every link is a `javascript:_JSL(...)` call and the session id sits in the URL (`CTX_...`). Playwright (headless Chromium) works over http: open `http://www.iort.gov.tn/`, click "الرائد الرسمي الأخير", click "البحث عن النص", select the year in `#A8`, type the number in `#A6`, select the category in `#A9` (قانون, مرسوم, أمر, قرار, رإي), run `_JSL(_PAGE_,'A40','_self','','')` (the search button has no id), then for the result row set `_PAGE_.A4.value` to the row number and run `_JSL` with `A17` (Arabic full text, new tab), `A16` (French edition, new tab) or `A7` (PDF download). For Loi n° 2018-35 (2018 / 35 / قانون) on 2026-11-03: Arabic page `200 text/html; charset=utf-8` 23150 bytes, French page 28885 bytes, PDF `200 application/pdf` 284054 bytes (`Loi2018_35Arabe.pdf`, a gazette page excerpt in two RTL columns with another text mixed in, not usable as clean text). The text sits in the cell `td#tzA21`. The page names the gazette issue (2018, n° 049, 19/06/2018). Nothing was stored, so there is no `fetched_sha256`; the page carries a per-session token and would not reproduce a hash.
+
+Limits seen: the HTML text is cut off at about 12,000 characters (Loi 2009-33 ends mid art. 49 in French and mid sentence in Arabic); texts of 1988 to 1994 are image-only PDFs of the whole gazette issue (no text layer, no OCR available); the Loi 2009-33 PDF has a legacy font encoding (mojibake in `pdftotext`); the revisions page says "in progress", so IORT serves adopted texts only, no consolidations; the French link of the 1988, 1992 and 1994 laws returns the Arabic page.
+
+### Languages
+
+Arabic is the authentic language; French exists for recent texts only (Loi 2018-35 and Loi 2015-36 French pages answered; both under `TN-IORT-TRANSLATION`). No government English text was found; the English link on IORT is a site-language switch.
+
+### Link-only instruments
+
+- `tn-loi-2018-35`, `tn-loi-1988-91`, `tn-loi-1992-117`, `tn-loi-2015-36`: rows `TN-IORT-ADOPTED` and `TN-IORT-TRANSLATION` are permission requested. The 1988 and 1992 texts are also image-only.
+- Guide méthodologique et de reporting RSE: register row only, `TN-MEDD-ADOPTED` permission requested. The guide PDF answers `curl` with `200 7321207 application/pdf` at `https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`.
+
+### Blocked from the cloud address
+
+- `https://legislation.tn/` and `https://www.legislation.tn/`: curl (35) connection reset; headless Chromium HTTP 502; `http://legislation.tn/` HTTP 503 "temporarily unavailable".
+- `https://www.iort.gov.tn/` and `https://iort.gov.tn/`: connection reset (the http form of `www` works, see above).
+- `https://www.bvmt.com.tn/` answers 200 with a 503-byte page that points to `https://tunis-stockexchange.com/`; `https://tunis-stockexchange.com/mentions-legales` is 404 (the footer link target was not read).
+
+Reachable: `https://www.cmf.tn/` (200, 65962 bytes), `https://www.environnement.gov.tn/` (200, 218946), `https://www.pm.gov.tn/ar` (200, a script that sets a fingerprint cookie), `https://tunis-stockexchange.com/` (200, 181001), `https://www.lois.tn/` (200, a private search site).
+
+Not reached: a CMF règlement text on ESG (the CMF site has "Finance verte" and "Les incitations en faveur de la RSE" pages, a fiche, no règlement); the BVMT Guide de reporting ESG 2021; the application decree of Loi 2018-35; any post-2022 environment code or climate law (needs legislation.tn).
