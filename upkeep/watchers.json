@@ -9488,6 +9488,93 @@
   "url": "https://lex.uz/ru/docs/6052633"
  },
  {
+  "id": "bj-carbon-project-registration-decree-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-carbon-project-registration-decree",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/decret-2022-698/download",
+  "params": {}
+ },
+ {
+  "id": "bj-aepc-decree-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-aepc-decree",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/decret-2022-699/download",
+  "params": {}
+ },
+ {
+  "id": "bj-climate-change-act-2018-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-climate-change-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2018-18/download",
+  "params": {}
+ },
+ {
+  "id": "bj-environment-framework-act-1998-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-environment-framework-act-1998",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-98-030/download",
+  "params": {}
+ },
+ {
+  "id": "bj-environment-act-2026-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-environment-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2026-15/download",
+  "params": {}
+ },
+ {
+  "id": "bj-consumer-protection-act-2007-sgg-pdf-head",
+  "source_id": "BJ-SGG-ADOPTED",
+  "iso2": "BJ",
+  "instrument": "bj-consumer-protection-act-2007",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg.gouv.bj/doc/loi-2007-21/download",
+  "params": {}
+ },
+ {
+  "id": "km-loi-94-018-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-94-018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-loi-95-007-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-loi-95-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/"
+ },
+ {
+  "id": "km-decret-01-052-justice-page",
+  "source_id": "KM-JUSTICE-ADOPTED",
+  "iso2": "KM",
+  "instrument": "km-decret-01-052",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
   "id": "zm-gecc-act-2024-official-page",
   "source_id": "ZM-NAZ-ADOPTED",
   "iso2": "ZM",
