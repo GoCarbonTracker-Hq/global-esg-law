@@ -4332,3 +4332,67 @@ Albanian is the only official language. English: `kkk.gov.al` has no English sec
 - `https://akm.gov.al/` answered `200` (194772 bytes) at first and `curl: (52) Empty reply from server` on later requests.
 - Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
 - Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
+
+## Montenegro
+
+Rows `ME-SLUZBENILIST-ADOPTED` (`pass`, statute: Law on Copyright and Related Rights Art. 8 item 2), `ME-SLUZBENILIST-CONSOLIDATED` (REGIS, `permission requested`: terms forbid copying and commercial use), `ME-SLUZBENILIST-TRANSLATION` (`permission requested`: no translation text could be opened) and `ME-GOVME-ADOPTED` (`permission requested`: blocked from the cloud address). Run on 2026-11-03 (GEL-11-04). No record is stored for Montenegro, see "Held" below; all 22 scope instruments are `link only`.
+
+The www.sluzbenilist.me act page shows the act as page images only (`<img alt="PDF Page">`, one data URI per `?page=N`), so the HTML has no text. The same act is served as a PDF with a text layer at `/propisi/<id>/download`. Search, to find the id: `https://www.sluzbenilist.me/propisi?type=0&q=<words>` (the page lists `/propisi/<id>` links; `200 80694 text/html; charset=utf-8` for `q=klimatskim+promjenama`).
+
+Request, row `ME-SLUZBENILIST-ADOPTED`, Law on Climate Change (Official Gazette 149/2025, id 389045):
+
+```
+curl -sS -L -o zkp_149_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/propisi/389045/download
+```
+
+Returned `200 792849 application/pdf` (58 pages, sha256 `03033d82f8abfc48a04a16e70b66fa311596d98b17b79fdbbfca4b1c0a9834dd`); a second request returned the same bytes, so `fetched_sha256` would reproduce. The act page `curl -sS -L -o p.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/propisi/389045` returned `200 309128 text/html; charset=utf-8`; its HTML differs on every request in the `csrf-token` meta tag, so the act page cannot be hashed. No challenge, 403 or WAF answer from sluzbenilist.me. The file starts with the President's decree of proclamation, then the act.
+
+Text extraction (tested, not stored): `pdftotext -layout zkp_149_2025.pdf - | sed 's/  */ /g'`. The text of all 22 scope PDFs was checked for replacement characters and dropped letters: none in the 21 climate, accounting, environment and consumer acts; the Central Bank decision (94/2025, id 384500) drops letters in the annexes ("pra enja" for "praćenja", "port olije"), so it would need another text source before storing.
+
+Gazette page fields read for the scope: title, issue (`Izdanje`), `Objavljeno`, `Datum stupanja na snagu` (printed for all but 149/2025 and 88/2026), `Status` (Važeći or Nevažeći).
+
+### Languages
+
+Montenegrin is the only language the Gazette serves for an act; its Cyrillic toggle (`/cyr/propisi/<id>`) is a script switch of the interface. Serbian, Bosnian, Croatian and Albanian texts: the Gazette serves none. English: the Gazette register of translations, `curl -sS -L -o prevodi.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sluzbenilist.me/prevodi`, returned `200 231669 text/html; charset=utf-8` and lists 161 titles (for example LAW ON ENVIRONMENT, ENERGY LAW), none of the climate acts; every detail page and `/prevodi/<id>/download` answered `404 6603 text/html` (tried 356382, 356383, 356388, 356407), hence row `ME-SLUZBENILIST-TRANSLATION` is `permission requested`. The Government's English translation named in the old register row sits on gov.me or wapi.gov.me, both blocked (see Blocked).
+
+### Held (decision for Varun)
+
+The brief asks for Montenegrin records with language `cnr`. Montenegrin has no ISO 639-1 code, `records/README.md` requires ISO 639-1 and `tools/check_corpus.py` refuses any `language` that is not two lowercase letters. Storing the texts as `sr`, `hr` or `bs` would write a wrong `Language` trailer into dated git history, so nothing is stored. The recipe above is proven; once a code is chosen (or the check accepts `cnr`), each instrument below is one `/download` fetch each, `kind` adopted, `in_force` as in its scope entry.
+
+| Instrument | Gazette issue | `in_force` |
+|---|---|---|
+| `me-climate-change-law` | 149/2025 | 2025-12-25 |
+| `me-climate-change-law-amend-2026` | 70/2026 | 2026-05-28 |
+| `me-ets-permit-activities-decree` | 116/2026 | 2026-08-13 |
+| `me-ghg-permit-form-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-monitoring-plan-rulebook` | 111/2026 | 2026-08-07 |
+| `me-ghg-reporting-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-reporting-rulebook-amend-2026` | 108/2026 | 2026-08-01 |
+| `me-ghg-verification-rulebook` | 111/2026 | 2026-08-07 |
+| `me-ghg-verifier-requirements-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-data-management-rulebook` | 21/2026 | 2026-02-27 |
+| `me-ghg-data-management-rulebook-amend-2026` | 108/2026 | 2026-08-01 |
+| `me-ghg-ships-monitoring-rulebook` | 92/2026 | 2026-07-08 |
+| `me-ghg-ships-verification-rulebook` | 91/2026 | 2026-07-07 |
+| `me-ghg-inventory-decree` | 115/2026 | 2026-08-12 |
+| `me-ghg-policies-measures-decree` | 115/2026 | 2026-08-12 |
+| `me-ghg-inventory-data-rulebook` | 91/2026 | 2026-07-07 |
+| `me-lulucf-emissions-rulebook` | 88/2026 | 2026-07-03 |
+| `me-policies-measures-report-rulebook` | 97/2026 | 2026-07-16 |
+| `me-accounting-law` | 84/2025 | 2025-08-08 |
+| `me-environment-law` | 52/2016 | 2016-08-17 |
+| `me-consumer-protection-law` | 12/2026 | 2026-02-14 |
+| `me-cbcg-esg-risk-decision` | 94/2025 | 2025-08-20 |
+
+### Link only
+
+All 22 scope instruments, for the reason above. Row-level: `ME-SLUZBENILIST-CONSOLIDATED` (REGIS, https://regis.sluzbenilist.me/uslovi item 1.1 and 2.1), `ME-SLUZBENILIST-TRANSLATION` and `ME-GOVME-ADOPTED` are not `pass`, so no scope entry lists them in `source_row`.
+
+### Not in scope
+
+Law on Protection against Negative Impacts of Climate Change 73/19 (repealed by 149/2025 Art. 103, no longer in force). Gazette acts with Status Nevažeći superseded by a later act of the same subject: 21/2026 monitoring-plan rulebook (390867) and its 37/2026 supplement (391922), 21/2026 verification rulebook (390871), 28/2026 ship monitoring and ship reporting rulebooks (391051, 391073). Law on Accounting 145/21 (Nevažeći, replaced by 84/2025). Capital Market Authority (scmn.me, `200 173602 text/html; charset=utf-8`, redirects to /me/) and Montenegro Stock Exchange (mnse.me, `200 4483 text/html`): web searches and the home pages found no ESG disclosure rule, so no row and no scope entry; the Law on Amendments to the Law on Capital Market 69/2025 was not read for ESG content. Central Bank (cbcg.me, `200 125831 text/html; charset=UTF-8`): its ESG risk decision is published in the Gazette and is covered by `me-cbcg-esg-risk-decision`; the cbcg.me terms were not read. No F7 instrument was registered.
+
+### Blocked
+
+- https://www.gov.me : `curl: (35) Recv failure: Connection reset by peer`; headless Chromium: `502 upstream request failed`.
+- https://wapi.gov.me/download/d8a08068-3f2b-488a-833a-321d3481abd9?version=1.0 : same (reset by curl, 502 in Chromium). The orchestrator can read both from the laptop.
