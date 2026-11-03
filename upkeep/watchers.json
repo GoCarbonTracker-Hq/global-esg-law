@@ -9575,6 +9575,87 @@
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
  },
  {
+  "id": "mz-aviso-6-gbm-2025-bancomoc-pdf",
+  "source_id": "MZ-BANCOMOC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-aviso-6-gbm-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf"
+ },
+ {
+  "id": "mz-lei-20-97-ambiente-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-20-97-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-lei-22-2009-consumidor-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-22-2009-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-decreto-23-2018-redd-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-decreto-23-2018-redd",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sn-loi-2023-15-code-environnement-page",
+  "source_id": "SN-SGG-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2023-15-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement",
+  "params": {
+   "second_route": "https://primature.sn/publications/lois-et-reglements/codes (browser listing of the codes); the attached PDF answers a JavaScript challenge to scripts"
+  }
+ },
+ {
+  "id": "sn-decret-2025-227-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-decret-2025-227",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "sn-loi-2021-25-consommateur-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2021-25-consommateur",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
   "id": "mr-loi-2025-019-portal-search",
   "source_id": "MR-MSGG-ADOPTED",
   "iso2": "MR",
