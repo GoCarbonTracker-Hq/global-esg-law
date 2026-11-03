@@ -5771,6 +5771,59 @@ Link-only instruments:
 
 Blocked or unusable from the cloud address: `https://www.environnement.gov.mr` (`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, 000; plain `http://www.environnement.gov.mr/fr/` answered `200 74488 text/html` and its `reglementation/lois` page lists PDFs of the laws, not used because the ministry has no licence row and the gazette is preferred); `https://www.bcm.mr/` (`200 2568 text/html`, a JavaScript shell; its back office `https://bo.bcm.mr/` answered `500 38353 text/html` to curl, so no instruction on climate or sustainability of banks could be confirmed or ruled out). No browser recipe was needed or used: no Mauritania record was fetched in a browser.
 
+## Zimbabwe
+
+Run on 2026-11-03 (GEL-13-04). Two rows pass, both on the statute: `ZW-EMA-CONSOLIDATED` and `ZW-SECZ-ADOPTED` (Copyright and Neighbouring Rights Act [Chapter 26:05] s.10(6)(a), "official texts of enactments" are not eligible for copyright; read on WIPO Lex https://www.wipo.int/wipolex/en/text/214697 because ZimLII and Parliament answered the cloud address with a Cloudflare challenge). Three rows are `permission requested`: `ZW-ZSE-RULES`, `ZW-VFEX-RULES` (companies, all rights reserved, no licence) and `ZW-PAAB-STATEMENT` (site unreachable). No English translation source exists: the Acts are published in English only.
+
+Text extraction: `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, blank lines dropped (so line breaks are the PDF's line wraps); no replacement characters in the output. Only one record is stored.
+
+Row `ZW-EMA-CONSOLIDATED`, Environmental Management Act [Chapter 20:27] (Law Development Commission revised edition on the Environmental Management Agency site, 45 pages):
+
+```
+curl -sS -o EMA-ACT.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf
+```
+
+Returned `200 1595258 application/pdf`, with and without a browser User-Agent. A second fetch gave the same sha256 (`c4dd5a07...3da39`), so `fetched_sha256` reproduces. The file is a single revised edition (Acts 13/2002, 5/2004, 6/2005); no other dated version is served.
+
+Row `ZW-SECZ-ADOPTED`, SI 134 of 2019 (Securities and Exchange Commission of Zimbabwe; the bare host `seczim.co.zw` works, `www.seczim.co.zw` answers 406 from Mod_Security):
+
+```
+curl -sS -o si134.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://seczim.co.zw/wp-content/uploads/2020/12/SI-2019-134-Zimbabwe-Stock-Exchange-Listings-Requirements-2019_0.pdf
+```
+
+Returned `200 1715893 application/pdf` (214 pages, Part XXI sections 399 to 404 read as text). The download page `https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/` returned `200 747792 text/html; charset=UTF-8`; the instrument list is `https://seczim.co.zw/download-category/statutory-instruments/`. The file has no date, so nothing is stored.
+
+Row `ZW-ZSE-RULES` (not stored, opened only to read content and date): the ZSE site is a script-rendered Next.js app whose lists come from `curl -sS 'https://ds88jcmqc11je.cloudfront.net/api/docs?exchange=ZSE&category=practice%20and%20procedures'` (JSON, 21 documents); Practice Note 16 is `curl -sS -o pn16.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ds88jcmqc11je.cloudfront.net/api/docs/42/download`, returned `200 93565 application/pdf`.
+
+### Languages
+
+English only. Sixteen languages are official in Zimbabwe but legislation is published in English; no other-language edition and no government translation was found on `ema.co.zw`, `seczim.co.zw`, `zse.co.zw`, `vfex.exchange` or `mecw.gov.zw`. No translation row was added.
+
+### Link-only instruments
+
+| Instrument | Why link only |
+|---|---|
+| zw-si-134-2019 | Row `ZW-SECZ-ADOPTED` passes and the text was fetched, but no official page states a commencement or gazette date, so no dated record can be written. A date from the Government Gazette would unlock it. |
+| zw-zse-practice-note-16 | Row `ZW-ZSE-RULES` is permission requested (ZSE Limited, all rights reserved). |
+
+### Not in scope, with what was tried
+
+- Carbon Trading (General) Regulations, 2025 (SI 48 of 2025) and SI 150 of 2023: no official page found. `zicma.gov.zw`, `www.zicma.gov.zw` and `zimcarbonregistry.gov.zw` do not connect; `www.mecw.gov.zw` (HTTP 200) lists no carbon regulation; the UNFCCC report that links the ZiCMA copy returned an empty PDF. Not in `scope.json` or `register.csv`.
+- Consumer Protection Act [Chapter 14:44]: only ZimLII and Laws.Africa copies were found (private hosts, no row). Not in scope.
+- Climate Change Management Bill [H. B. 5A, 2025]: read the third time in the Senate on 2026-08-05 (https://e-portal.parlzim.gov.zw/files/HAN-1785946724561.pdf, `200 628926 application/pdf`); no assent found. Register row, family F7.
+- Joint Regulatory Statement (PAAB, ZSE, VFEX, 2025-02-12): not on the ZSE or VFEX document lists; PAAB unreachable. Register row only.
+- Government Gazette: Printflow (`https://printflow.co.zw/`, HTTP 200) sells Acts as products (paid); no free official gazette edition found, nothing stored. Veritas (`https://www.veritaszim.net/`, 200) and ZimLII are private hosts.
+
+### Blocked from the cloud address
+
+| URL | Answer |
+|---|---|
+| https://www.parlzim.gov.zw/ and paths | HTTP 403, Cloudflare "Just a moment" challenge, for curl and for headless Chromium (waited 6 s). `e-portal.parlzim.gov.zw/files/<id>.pdf` links work; the e-portal root answers 403. |
+| https://zimlii.org/akn/zw/act/2007/13 | HTTP 403, same challenge, curl and Chromium. |
+| https://www.paab.co.zw/ | CONNECT answered 502 by the agent proxy (curl exit 56; Chromium ERR_TUNNEL_CONNECTION_FAILED). |
+| https://www.environment.gov.zw/ | CONNECT answered 502. The live Ministry host is https://www.mecw.gov.zw/; its file downloads (`?wpdmpro=...&wpdmdl=...`) need a per-request token and return an HTML form to curl. |
+| https://www.seczim.co.zw/ | 406 Mod_Security (use `seczim.co.zw`). |
+
 ## Cape Verde
 
 Run on 2026-11-03 (GEL-13-10). One row passes: `CV-BOE-ADOPTED` (Imprensa Nacional de Cabo Verde, portal https://boe.incv.cv). The pass rests on the statute, Decreto-Legislativo n.º 1/2009 art. 10 b ("As leis e decisões dos órgãos judiciais e administrativos" are not protected), because the portal terms (https://boe.incv.cv/Documents/Index/7, item 6) forbid copying any content or digital format of the site without INCV authorisation. Varun to confirm that reading and the conflict with item 6. No other row was added: no regulator instrument was found (see the lists below).
