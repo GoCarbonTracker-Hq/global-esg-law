@@ -1,0 +1,62 @@
+[
+  {
+    "id": "et-nbe-bank-cg-directive-sbb-91-2024",
+    "title": "Bank Corporate Governance Directive No. SBB/91/2024 (National Bank of Ethiopia)",
+    "official_url": "https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf",
+    "citation": "National Bank of Ethiopia, Licensing and Supervision of Banking Business, Bank Corporate Governance Directive No. SBB/91/2024, issued under Banking Business Proclamation No. 592/2008 (as amended by No. 1159/2019) arts 13(1/a), 14(4) and 66(2)",
+    "in_force": "2024-06-12",
+    "evidence": "Art. 27 of the directive: \"This Directive shall enter into force as of the 12th day of June, 2024.\" Opened the PDF at https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf on 2026-11-03 (HTTP 200, 4611812 bytes, application/pdf, text layer clean).",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "ET-NBE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Mapped to F1: art. 21.4.7(k) requires the annual report to shareholders to include a corporate governance report with \"sustainability-related information including the governance process, strategy, risk management and metrics to address sustainability matters that are material for the organization, including sustainability-related risks and opportunities in a bank's loan portfolio\". Also art. 15.1.4 (climate risk analysis of the loan portfolio) and art. 13.11 (board oversight of non-financial reporting). Replaces Directive SBB/71/2019 (art. 26). Whether the statute exclusion for official texts (Proclamation 410/2004 art. 5(b)) reaches a central bank directive was not settled: the article could not be read in the gazette text from the cloud address. No government English or Amharic version beyond the single English PDF was found on nbe.gov.et (the PDF is English only). Text is not stored: row ET-NBE-ADOPTED is permission requested (the site's own footer reserves all rights; no statute section was read).",
+    "status": "link only",
+    "status_note": "Row ET-NBE-ADOPTED is permission requested; no text stored."
+  },
+  {
+    "id": "et-esia-proclamation-1371-2025",
+    "title": "Environmental and Social Impact Assessment Proclamation No. 1371/2025",
+    "official_url": "https://www.epa.gov.et/images/PDF/Proc%20No.1371-2025-Environmental%20and%20Social%20Impact%20Assessment.pdf",
+    "citation": "Federal Negarit Gazeta, 31st Year No. 37, Addis Ababa, 11th April 2025, Proclamation No. 1371/2025, pp. 18214-18230",
+    "in_force": "2025-04-11",
+    "evidence": "Art. 25 (Effective Date): \"This Proclamation shall come into force upon publication in the Federal Negarit Gazetee.\" signed \"Done at Addis Ababa, on this 11th day of April, 2025\"; the gazette cover reads \"31st Year No. 37 ADDIS ABABA 11th April, 2025\". Read from the 17-page gazette PDF on epa.gov.et on 2026-11-03 (image-only PDF, read as page images).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "ET-EPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The brief's number 1317/2025 is a typo in one law-firm article; the gazette number is 1371/2025. Art. 24(1) repeals Environmental Impact Assessment Proclamation No. 299/2002 (so 299/2002 is not in scope), art. 21 gives existing projects one year from commencement to submit an environmental and social management plan, and art. 22 lets the Council of Ministers issue regulations and the Authority issue directives. English and Amharic texts are printed side by side in the gazette. The PDF has no text layer and no OCR tool was available. Text is not stored: row ET-EPA-ADOPTED is permission requested (the site's own footer reserves all rights; no statute section was read).",
+    "status": "link only",
+    "status_note": "Row ET-EPA-ADOPTED is permission requested; no text stored."
+  },
+  {
+    "id": "et-pollution-control-proclamation-300-2002",
+    "title": "Environmental Pollution Control Proclamation No. 300/2002",
+    "official_url": "https://www.epa.gov.et/images/Proclamation/Proc%20No.%20300-2002%20Environmental%20Pollution%20Control.pdf",
+    "citation": "Federal Negarit Gazeta, 9th Year No. 12, Addis Ababa, 3rd December 2002, Proclamation No. 300/2002, pp. 1959-1966",
+    "in_force": "2002-12-03",
+    "evidence": "Art. 22 (Effective Date): \"This Proclamation shall come into force as of the 3rd day of December, 2002.\" Read from the gazette PDF on epa.gov.et on 2026-11-03 (HTTP 200, 836157 bytes, application/pdf).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "ET-EPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Pollution control framework (general pollution rules, environmental standards, inspectors, offences); no sustainability or climate reporting duty. Implementing regulation (not in scope, not opened): Prevention of Industrial Pollution Council of Ministers Regulation No. 159/2008, listed as Industrial_Pollution_Regulation.pdf on https://www.epa.gov.et/downloads/regulations-and-directives.html. The Amharic text in the PDF is in a legacy font and extracts as mojibake. Text is not stored: row ET-EPA-ADOPTED is permission requested (the site's own footer reserves all rights; no statute section was read).",
+    "status": "link only",
+    "status_note": "Row ET-EPA-ADOPTED is permission requested; no text stored."
+  },
+  {
+    "id": "et-ecosystem-services-payment-proclamation-1401-2026",
+    "title": "Proclamation on Payment for Ecosystem Services No. 1401/2026",
+    "official_url": "https://www.epa.gov.et/images/PDF/proclamation-for-ecosytem-service-paymeny-1401.pdf",
+    "citation": "Federal Negarit Gazette No. 21, 21st April 2026, Proclamation No. 1401/2026 (2018 E.C.), p. 19637",
+    "in_force": "2026-04-21",
+    "evidence": "Art. 18 (Effective Date): \"This Proclamation shall come into force upon Publication on the Federal Negarit Gazettee.\" The gazette footer reads \"Federal Negarit Gazette No. 21, 21th April, 2026\"; in force date taken as that issue date (a proclamation that starts on publication takes the gazette issue date). Read from the 16-page gazette PDF on epa.gov.et on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "ET-EPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Mapped to F2 as a nature and ecosystem-service framework; the English column does not mention carbon, climate or emissions, so it is not F3. Found on the EPA proclamations page, not on the brief's candidate list. The Amharic column extracts as mojibake (legacy font). Text is not stored: row ET-EPA-ADOPTED is permission requested (the site's own footer reserves all rights; no statute section was read).",
+    "status": "link only",
+    "status_note": "Row ET-EPA-ADOPTED is permission requested; no text stored."
+  }
+]
