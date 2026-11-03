@@ -7147,3 +7147,77 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
+
+## Bhutan
+
+Run 2026-11-03 by GEL-16-06. Three rows pass, all on the statute: `BT-OAG-ADOPTED`, `BT-OAG-CONSOLIDATED` (Office of the Attorney General, Depository of Laws, https://legislation.gov.bt) and `BT-MOENR-ADOPTED` (Ministry of Energy and Natural Resources, https://www.moenr.gov.bt). Neither site has a terms or copyright page (the Depository home page carries only "Free online access to Bhutan's legislation."), so the verdict rests on the Copyright Act of the Kingdom of Bhutan 2001, s. 7(b): "no protection shall extend, under this Act, to ... b. any official text of a legislative, administrative or legal nature, as well as any official translation thereof." The Act was read in its own PDF, https://www.legislation.gov.bt/api/storage/documentcopies/4b14.pdf (22 pages, sha256 4803566014f12a61017079cdcc581756c906728600135048d32d2d2d3b6b19d6, the same on a second fetch). `terms_url` and `terms_fingerprint` of the three rows point at that PDF. Bhutanese Acts are enacted in Dzongkha and English, so both languages are official and no translation row exists. Every command below was run from the cloud address with a plain `Mozilla/5.0` User-Agent and no login.
+
+### Depository of Laws (BT-OAG-ADOPTED, BT-OAG-CONSOLIDATED)
+
+The site is a hash-routed Angular app (deep links such as /help return 404 from nginx). Its public API answers without login under `/api/p/` and `/api/storage/documentcopies/`; `/api/legislation/{id}` and the same paths without `/api` answer 403. Lists: `GET https://www.legislation.gov.bt/api/p/legislations/current?page=N` (also `amended`, `repealed`) and `/api/p/delegated-legislations/current?page=N` (also `modified`); they return 10 items a page and each Act carries `documentCopies[].fileUri` and `language` (ENG, DZO or BILINGUAL). The legislations list counts 187 current items but 19 pages returned 149 of them on 2026-11-03; the missing ones were not searched for by title.
+
+Acts (PDF), Environmental Assessment Act 2000, English:
+
+```
+curl -sS -A 'Mozilla/5.0' -o ea-en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.legislation.gov.bt/api/storage/documentcopies/8aaa.pdf
+200 148679 application/pdf
+```
+
+sha256 97bba33b4cff5fcb298ba7668c8aa5bbdeab5acb8d5d98e8026955b56e9f4e63, the same on the second fetch (also the same bytes as the English EA Act on moenr.gov.bt). The Depository path without `/api` answers `403 153 text/html`.
+
+Rules and regulations (clause-level JSON), Waste Prevention and Management Regulation 2012:
+
+```
+curl -sS -A 'Mozilla/5.0' -o sec272.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.legislation.gov.bt/api/p/delegated-legislation/sections/272
+200 13226438 application/json; charset=utf-8
+```
+
+sha256 1984e256f08cb3056695535686953f558c13517638788d383fd364479fb10645, the same on the second fetch. The JSON is a list of sections with `order`, `type`, `clause_eng`, `clause_dzo` (HTML) and `softDelete`; the size is mostly base64 images embedded in a few clauses. `BT-OAG-CONSOLIDATED` is the same request for an item the Depository marks MODIFIED, Green Tax Rules and Regulations 2024: `curl ... https://www.legislation.gov.bt/api/p/delegated-legislation/sections/241` returned `200 475797 application/json; charset=utf-8`, sha256 7091d44ee4964e0099c66f409db8204a5cc0c287f788a8d4010556c1e81ad234, the same on the second fetch. Item metadata (enactment date, status, updatedAt): `/api/p/delegated-legislation/{id}`, 470 bytes for id 55.
+
+The host drops about one TLS handshake in seven through the cloud proxy (`SSL: UNEXPECTED_EOF_WHILE_READING`, `Connection reset by peer`); a retry works. `python3 tools/watch.py --dry-run --source BT-OAG-ADOPTED` showed one `watch_failed` of this kind on each of two runs, on a different watcher each time (`bt-waste-prevention-management-act-2009-pdf`, then `bt-consumer-protection-rules-2015-item`); the other six passed each time.
+
+Text extraction. PDF: poppler `pdftotext -layout file.pdf -`, each line stripped, runs of spaces and tabs collapsed, form feeds turned into line breaks, three or more line breaks reduced to two (the Brazil and South Africa recipe). JSON: sections sorted by `order`, soft-deleted ones dropped, `clause_eng` or `clause_dzo` HTML stripped to text with p, div, br, li, tr, table and heading tags as line breaks and images dropped, then the same space and line-break collapse. Nothing reworded. Checked for mojibake: the English PDFs and all JSON text are clean; the cover page (page 1) of the Consumer Protection Act PDF is private-use glyphs and is left out.
+
+### Ministry of Energy and Natural Resources (BT-MOENR-ADOPTED)
+
+The links are on https://www.moenr.gov.bt/?page_id=941 ("Acts, Rules and Regulations, Policies, Guidelines"). National Environment Protection Act 2007, English:
+
+```
+curl -sS -A 'Mozilla/5.0' -o nepa-en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.moenr.gov.bt/wp-content/uploads/2017/07/National-Environment-Protection-Act-of-Bhutan-2007-EN.pdf
+200 287380 application/pdf
+```
+
+sha256 ad975a26b455d14dd6412d452e2da59f1e26bd916391390cbd28af219f03d236, the same on the second fetch. Carbon Markets Rules 2023: `.../Carbon-Market-Rules_FINAL.pdf` returned `200 266861 application/pdf`, sha256 1acb0ce6c4f25415a6c7fd43b27cc7d8c01571f34190ae162a17709847763d8c, `Last-Modified: Tue, 11 Aug 2026 04:32:16 GMT`. The same Rules are in the Depository as delegated legislation 55 (English only); the record uses the ministry PDF because the register points at the ministry and the National Environment Commission site did not answer. The ministry's text extraction is the PDF recipe above.
+
+### Languages
+
+Dzongkha (dz) and English (en) are both stored where the publisher serves them, under the same row as the English text; there is no translation row.
+
+- Depository rules and regulations: one JSON, `clause_eng` gives en and `clause_dzo` gives dz (Waste Regulation 2012, Waste Amendment Regulation 2016, Consumer Protection Rules 2015 and the 2022 Revision Regulations). In the Green Tax Rules 2024 and the Corporate Governance and CSR Regulations the `clause_dzo` fields hold the placeholder `NA` in every clause, so only en is stored for them. The Carbon Markets Rules in the Depository have no Dzongkha text.
+- Depository bilingual PDF, Consumer Protection Act 2012: `curl -sS -A 'Mozilla/5.0' -o cpa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.legislation.gov.bt/api/storage/documentcopies/7e68.pdf` returned `200 3495748 application/pdf`, sha256 cb56507ff12ff12417fa55d461dfffe2a30ac106afc6910b3891824d6fc33b53, the same on the second fetch. The PDF has 100 pages: Dzongkha on the odd pages from 3 (a Unicode text layer, clean), English on the even pages from 6; pages 2, 4 and 5 have no text. Each page was assigned by counting Tibetan against Latin letters (`pdftotext -f N -l N -layout`), and the dz and en records are those pages in order. Both records carry the same `fetched_url` and `fetched_sha256`.
+- Depository Dzongkha PDF, Environmental Assessment Act 2000: `.../documentcopies/4515.pdf` returned `200 114181 application/pdf`, sha256 26195c851c8585203a02a6821252e3e3d673d172e0ce7614e2c29c71a3e336d1, the same on the second fetch. Its text layer is legacy-font mojibake (`pdftotext` gives Latin-looking symbols such as `¤fº-ºDô¼-GmÅ-`), so the record is OCR.
+- MoENR Dzongkha PDF, National Environment Protection Act 2007: `.../National-Environment-Protection-Act-of-Bhutan-2007-Dzongkha.pdf` returned `200 587315 application/pdf`, sha256 c9655b6feebaee2693dabd142466d80db0733299e880de9ddc1e312bf13556ea, the same on the second fetch. The text layer is Unicode but drops glyphs (for example `མཐའ་འཁོར་ ི་ ས་ཚད་ ང་ ོབ།`), so the record is OCR.
+
+OCR (the two records above, `"extraction": "ocr"`): `pdftoppm -r 300 -gray -png file.pdf p`, then `OMP_THREAD_LIMIT=1 tesseract p-NN.png p-NN -l dzo --psm 6` per page (tesseract 5.3.4, `tesseract-ocr-dzo` 4.1.0 from the Ubuntu archive, installed in the session; `ocrmypdf` was not installed). The page texts were joined in page order, each line stripped and spaces collapsed, and nothing was corrected, reflowed or reworded. The output is rough Tibetan with substitutions, and it starts with noise from the cover. `fetched_url` and `fetched_sha256` are those of the original PDF. `python3 tools/check_corpus.py` and `python3 tools/publish_gate.py` accept the extra key (they read only the keys they name); no tool reads the value `ocr`. The English Environmental Assessment Act states that the Dzongkha text prevails on a difference of interpretation (Art. 66), so the OCR record is the weakest record of the text that prevails.
+
+### Link only and not entered
+
+- `bt-waste-prevention-management-act-2009` is link only with a passing row: the only official text (Depository PDF 5cec.pdf, English) leaves the commencement date blank ("Come into force on the …..day of the ….month of the Earth Ox Year ... corresponding to the ….day…. 2009."), so no `in_force` can be read.
+- Environmental Assessment Regulation 2016: no entry. The MoENR page lists only `EC-exempted-and-delegated-2016.pdf` and the Depository has no such title in its lists.
+- Carbon Markets Framework for the Kingdom of Bhutan 2025: no entry, not found on moenr.gov.bt (page_id=941, site search for "carbon markets framework") or in the Depository lists. https://carbonmarketsplatform.moenr.gov.bt/ answered `200 479 text/html`, an empty JavaScript shell.
+- Climate Change Policy of the Kingdom of Bhutan 2020: register row only, mapped to F7; no policy document page was found on moenr.gov.bt, so the register URL stays at the ministry root.
+- Climate framework act: none found among the 149 current Acts the Depository list returned (titles matching climate, carbon, emission) or on the MoENR page; no row.
+- RMA green finance or ESG guideline and an RSEBL ESG disclosure rule: not confirmed. `https://rsebl.org.bt/` (without www) answers `200` and its Downloads page HTML (https://rsebl.org.bt/resources/downloads, a JavaScript table with tabs Annual Reports, Regulations, Forms, Audited Reports) says "No results"; `https://www.rma.org.bt/` and the other hosts below refused the cloud address. No row.
+- Macro-prudential Rules and Regulations Disclosure Requirements (Depository delegated legislation 159) and the other Depository titles seen on the lists (Green Tax, Companies Act 2016, Forest and Nature Conservation Act 2023, Water Act 2011, Electricity Act 2001, Public Finance and tax Acts) were not entered: they are either not ESG-specific or were not reached in the time box. The Forest and Nature Conservation Act 2023 (Depository record 28, English PDF 324f.pdf) and the Water Act 2011 (record 46, bilingual PDF 1a64.pdf) are the two most likely next F2 entries.
+
+### Blocked from the cloud address
+
+- https://www.nab.gov.bt/ : `curl: (60) SSL: no alternative certificate subject name matches target host name 'www.nab.gov.bt'`; https://nab.gov.bt/ : `curl: (35) Recv failure: Connection reset by peer`.
+- https://www.nec.gov.bt/ and https://nec.gov.bt/ : `curl: (35) Recv failure: Connection reset by peer` (proxy log: tunnel closed after 3 to 11 s).
+- https://www.rma.org.bt/ : `curl: (60) SSL certificate problem: unable to get local issuer certificate`; https://rma.org.bt/ : `curl: (56) CONNECT tunnel failed, response 502`.
+- https://www.rsebl.org.bt/ : `curl: (35) Recv failure: Connection reset by peer`.
+- https://www.bhutanlaws.gov.bt/ : `CONNECT` answered 502.
+
+TLS verification was not disabled for any of them. The orchestrator can read these from the laptop.
+
+Browser-fetched records: none. Headless Chromium (Playwright) was used only to read the Depository home page and to try the RSEBL Downloads tabs (they showed only the ticker bar); every record text comes from `curl`-class requests above.

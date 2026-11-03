@@ -11618,5 +11618,137 @@
   "tier": "regulator_page",
   "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
   "params": {}
+ },
+ {
+  "id": "bt-environmental-assessment-act-2000-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-environmental-assessment-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/8aaa.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-national-environment-protection-act-2007-pdf",
+  "source_id": "BT-MOENR-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-national-environment-protection-act-2007",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.moenr.gov.bt/wp-content/uploads/2017/07/National-Environment-Protection-Act-of-Bhutan-2007-EN.pdf",
+  "params": {
+   "second_route": "https://www.moenr.gov.bt/?page_id=941 (browser; the Acts, Rules and Regulations, Policies, Guidelines page lists the PDF)"
+  }
+ },
+ {
+  "id": "bt-waste-prevention-management-act-2009-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-prevention-management-act-2009",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/5cec.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-waste-regulation-2012-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-regulation-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/272",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-waste-amendment-regulation-2016-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-amendment-regulation-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/271",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-carbon-markets-rules-2023-pdf",
+  "source_id": "BT-MOENR-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-carbon-markets-rules-2023",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.moenr.gov.bt/wp-content/uploads/2017/07/Carbon-Market-Rules_FINAL.pdf",
+  "params": {
+   "second_route": "https://www.moenr.gov.bt/?page_id=941 (browser; the page lists the PDF); https://www.nec.gov.bt/ did not answer the cloud address (connection reset) on 2026-11-03"
+  }
+ },
+ {
+  "id": "bt-green-tax-rules-2024-item",
+  "source_id": "BT-OAG-CONSOLIDATED",
+  "iso2": "BT",
+  "instrument": "bt-green-tax-rules-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/241",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-corporate-governance-csr-regulations-item",
+  "source_id": "BT-OAG-CONSOLIDATED",
+  "iso2": "BT",
+  "instrument": "bt-corporate-governance-csr-regulations",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/238",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-act-2012-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-act-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/7e68.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-rules-2015-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-rules-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/83",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-revision-regulations-2022-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-revision-regulations-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/87",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
  }
 ]
