@@ -1,0 +1,149 @@
+[
+  {
+    "id": "md-law-74-2024",
+    "title": "Law No. 74/2024 on Climate Actions (Legea nr. 74/2024 privind acțiunile climatice)",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/2901",
+    "citation": "Law No. 74 of 11 April 2024, Monitorul Oficial al Republicii Moldova 2024, nr. 209-212, art. 293 (16 May 2024); amended by Law No. 243 of 10 July 2025",
+    "in_force": "2025-11-16",
+    "evidence": "Art. 61 para. (1): \"Prezenta lege intră în vigoare peste 18 luni de la data publicării în Monitorul Oficial al Republicii Moldova.\" Published in Monitorul Oficial Nr. 209-212 of 16 May 2024 (18 months later is 16 November 2025). Law No. 243/2025 Art. VII para. (4) confirms the date: \"prevederile ... Legii nr. 74/2024 privind acțiunile climatice se pun în aplicare de la 16 noiembrie 2025\" (Monitorul Oficial Nr. 445-447 of 22 August 2025). Opened https://monitorul.gov.md/ro/monitorul/view/pdf/2901 (page 20 of the issue) on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MD-MONITORUL-ADOPTED",
+      "MD-MONITORUL-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The climate framework act (mapped to F2). Its greenhouse gas monitoring, reporting and verification provisions are F3 content: Chapter IV (Art. 49 stationary installations, Art. 50 verification and accreditation, Art. 51 maritime transport, Art. 52 aviation), operator duties in Art. 26 and Annex 1 (activities and thresholds). The Government regulations under it are md-hg-575-2024 (installations and aviation), md-hg-544-2024 (maritime) and md-hg-257-2026 (verifiers); the amendments of Law 243/2025 Art. VI are in md-law-243-2025 (amends this entry). Carbon pricing: Art. 56 \"instituie mecanismul financiar de stabilire a prețului pentru emisiile de CO2\" but says the mechanism (cap and trade and/or carbon pricing for goods) \"se stabilește prin lege\", so no emissions trading system is in force; the register carries it as an F7 row. Records stored on 2026-11-03: the Law as first published in Monitorul Oficial 209-212 (adopted, ro) and the Russian text of the same issue (translation, ru), both articles 1 to 61 only: the text layer of Annex 1 is garbled (legacy font encoding) and the three annexes are left out. The stored text is the 2024 text; Law 243/2025 Art. VI changes Art. 8 lit. g, Art. 18, Art. 26, Art. 49 and Annex 1 point 4 (adding the environmental permit alongside the integrated environmental permit), and no consolidation with those changes is stored. legis.md, the Register's consolidated text, was not reachable (Cloudflare challenge), so no consolidation is stored; the records are the text as the gazette printed it. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "md-law-243-2025",
+    "title": "Law No. 243/2025 amending certain normative acts (Lege pentru modificarea unor acte normative; water, waste, environmental impact, industrial emissions and climate actions)",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/3145",
+    "citation": "Law No. 243 of 10 July 2025, Monitorul Oficial al Republicii Moldova 2025, nr. 445-447, art. 612 (22 August 2025)",
+    "in_force": "2025-09-22",
+    "evidence": "Art. VII para. (1): \"Prezenta lege intră în vigoare peste o lună de la data publicării în Monitorul Oficial al Republicii Moldova.\" Published in Monitorul Oficial Nr. 445-447 of 22 August 2025 (one month later is 22 September 2025); para. (4) puts the provisions of Law 227/2022 on industrial emissions listed there and Law 74/2024 into application from 16 November 2025. Opened https://monitorul.gov.md/ro/monitorul/view/pdf/3145 (page 30 of the issue) on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MD-MONITORUL-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The register row for Law 74/2024 named this act as the amending law. Its F3 content: Art. V adds the greenhouse gas monitoring plan to the content of the environmental permit under Law 227/2022 on industrial emissions, and Art. VI amends Law 74/2024 (annual list of operators of stationary installations that hold an integrated environmental permit or an environmental permit). Arts. I to IV amend the Water Law, Law 303/2013, Law 86/2014 on environmental impact assessment and Law 209/2016 on waste; they are stored with it as one act. Record stored on 2026-11-03: Romanian only. The Russian text of the same law (Russian issue, pages 23 to 30) was not stored: it holds garbled lines (legacy font encoding) on pages 28 to 30. legis.md, the Register's consolidated text, was not reachable (Cloudflare challenge), so no consolidation is stored; the records are the text as the gazette printed it. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored",
+    "amends": "md-law-74-2024"
+  },
+  {
+    "id": "md-hg-575-2024",
+    "title": "Government Decision No. 575/2024 approving the Regulation on monitoring, reporting and verification of greenhouse gas emissions from stationary installations and aviation activities",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/2984",
+    "citation": "Government Decision No. 575 of 21 August 2024, Monitorul Oficial al Republicii Moldova 2024, nr. 467-469, art. 868 (14 November 2024)",
+    "in_force": "2025-11-16",
+    "evidence": "Point 3 of the Decision: \"Prezenta hotărâre intră în vigoare la data de 16 noiembrie 2025.\" Opened https://monitorul.gov.md/ro/monitorul/view/pdf/2984 (page 6 of the issue) on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MD-MONITORUL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adopted under Art. 18 lit. g of Law 74/2024 (md-law-74-2024). Link only: both the Romanian and the Russian text of this decision in Monitorul Oficial 467-469 come out of the PDF text layer as garbled characters on every page (legacy font encoding without a text layer; Romanian words as shifted capitals, Russian words as Latin-extended glyphs), and no OCR tool was available, so no record can be stored without rewording. Retry with an OCR step or from the laptop. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "link only",
+    "status_note": "Text layer of the Monitorul Oficial PDF is garbled in both languages; row MD-MONITORUL-ADOPTED is pass but nothing usable can be stored."
+  },
+  {
+    "id": "md-hg-544-2024",
+    "title": "Government Decision No. 544/2024 approving the Regulation on monitoring, reporting and verification of greenhouse gas emissions from maritime transport",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/2954",
+    "citation": "Government Decision No. 544 of 24 July 2024, Monitorul Oficial al Republicii Moldova 2024, nr. 380-382, art. 714 (5 September 2024)",
+    "in_force": "2025-11-16",
+    "evidence": "Point 5 of the Decision: \"Prezenta hotărâre intră în vigoare la data de 16 noiembrie 2025.\" Opened https://monitorul.gov.md/ro/monitorul/view/pdf/2954 (page 42 of the issue) on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MD-MONITORUL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Adopted under Art. 6 lit. a and Art. 52 para. (1) of Law 74/2024 (md-law-74-2024). Link only for the same reason as md-hg-575-2024: the Regulation pages of Monitorul Oficial 380-382 come out garbled in both Romanian and Russian. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "link only",
+    "status_note": "Text layer of the Monitorul Oficial PDF is garbled in both languages; row MD-MONITORUL-ADOPTED is pass but nothing usable can be stored."
+  },
+  {
+    "id": "md-hg-257-2026",
+    "title": "Government Decision No. 257/2026 approving the Regulation on accreditation and requirements applicable to greenhouse gas emissions verifiers",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/3276",
+    "citation": "Government Decision No. 257 of 20 May 2026, Monitorul Oficial al Republicii Moldova 2026, nr. 224-226, art. 277 (28 May 2026)",
+    "in_force": "2026-05-28",
+    "evidence": "Point 3 of the Decision: \"Prezenta hotărâre intră în vigoare la data publicării\"; published in Monitorul Oficial Nr. 224-226 of 28 May 2026. Opened https://monitorul.gov.md/ro/monitorul/view/pdf/3276 (page 18 of the issue) on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MD-MONITORUL-ADOPTED",
+      "MD-MONITORUL-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements the verifier accreditation of Art. 50 of Law 74/2024 (md-law-74-2024). Records stored on 2026-11-03: Romanian (adopted) and Russian (translation), the Decision and Annex 1 (the Regulation); Annex 2 (areas of accreditation) is left out because its text layer is garbled in both languages. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "md-hg-1277-2018",
+    "title": "Government Decision No. 1277/2018 on the establishment and operation of the National System for monitoring and reporting greenhouse gas emissions and other information relevant to climate change",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/2099",
+    "citation": "Government Decision No. 1277 of 26 December 2018, Monitorul Oficial al Republicii Moldova 2019, nr. 38-47, art. 67 (8 February 2019)",
+    "in_force": "2019-02-08",
+    "evidence": "Point 6 of the Decision: \"Prezenta hotărîre intră în vigoare la data publicării\"; published in Monitorul Oficial Nr. 38-47 of 8 February 2019. Opened https://monitorul.gov.md/ro/monitorul/view/pdf/2099 (page 50 of the issue) on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "public_sector",
+    "source_row": [
+      "MD-MONITORUL-ADOPTED",
+      "MD-MONITORUL-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The national greenhouse gas inventory system (duties on the competent authority and on the bodies that supply data; it is not a duty on companies). Amended by a Government Decision published in Monitorul Oficial 309-312 of 17 December 2021 (art. 714) and by Government Decision No. 208/2024 published in Monitorul Oficial 89-92 of 5 March 2024 (art. 208); those two amending acts are not in scope and not stored, so the stored text is the 2019 text without their changes. Records stored on 2026-11-03: Romanian (adopted) and Russian (translation), the Decision and the Regulation; the inventory tables that follow the Regulation are left out because their text layer is garbled. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "md-law-287-2017",
+    "title": "Law No. 287/2017 on Accounting and Financial Reporting (Legea contabilității și raportării financiare), Art. 23 management report and non-financial statement",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/2016",
+    "citation": "Law No. 287 of 15 December 2017, Monitorul Oficial al Republicii Moldova 2018, nr. 1-6, art. 22 (5 January 2018)",
+    "in_force": "2019-01-01",
+    "evidence": "Art. 36 para. (1): \"Prezenta lege intră în vigoare la data de 1 ianuarie 2019.\" Opened https://monitorul.gov.md/ro/monitorul/view/pdf/2016 (page 56 of the issue) on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MD-MONITORUL-ADOPTED",
+      "MD-MONITORUL-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Art. 23 para. (5) to (7) as first published: a public-interest entity that meets the criteria for large entities and has more than 500 employees must include a non-financial statement in the management report; para. (6) lists environmental, social and personnel matters, human rights and anti-corruption, with the business model, policies, results and principal risks; para. (7) is the comply-or-explain rule. The brief's candidate (art. 23) is confirmed in the 2018 text. The whole Law is one record. Later amendments exist in the gazette (Law No. 106 of 26 April 2024 amending Art. 12, Monitorul Oficial 209-212; Law No. 86 of 21 May 2026, Monitorul Oficial 231-234 of 4 June 2026) and are not worked into the stored text; whether they touch Art. 23 was not read. Records stored on 2026-11-03: Romanian (adopted) and Russian (translation). legis.md, the Register's consolidated text, was not reachable (Cloudflare challenge), so no consolidation is stored; the records are the text as the gazette printed it. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "md-law-105-2003",
+    "title": "Law No. 105-XV/2003 on Consumer Protection (Legea privind protecția consumatorilor)",
+    "official_url": "https://monitorul.gov.md/ro/monitorul/view/pdf/1734",
+    "citation": "Law No. 105-XV of 13 March 2003, republished in Monitorul Oficial al Republicii Moldova 2011, nr. 176-181, art. 513 (21 October 2011)",
+    "in_force": null,
+    "evidence": "Art. 34 para. (1) of the republished text: \"Prezenta lege intră în vigoare la expirarea a 4 luni de la data publicării.\" No page opened states the publication date of the original 2003 text, so no commencement date is entered. The republished text is dated 21 October 2011 (Monitorul Oficial Nr. 176-181). Opened https://monitorul.gov.md/ro/monitorul/view/pdf/1734 on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MD-MONITORUL-CONSOLIDATED",
+      "MD-MONITORUL-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The consumer-protection umbrella act named in the brief for environmental claims; the 2011 text bans misleading and aggressive commercial practices (it transposes Directive 2005/29/EC) and never uses the words ecological or green, so environmental claims fall under it only as misleading practices in general. The only dated version the Monitorul Oficial serves is the 2011 republication, so the record is that text (form consolidated) dated 2011-10-21; it holds provisions marked as in force until or from 1 January 2012 and none of the amendments since (Law No. 187 of 22 July 2016 and later, Monitorul Oficial 306-313 of 16 September 2016 and others). The current version is on legis.md, which was not reachable. Records stored on 2026-11-03: Romanian (consolidated) and Russian (translation). English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "stored"
+  },
+  {
+    "id": "md-law-1515-1993",
+    "title": "Law No. 1515-XII/1993 on Environmental Protection (Legea privind protecția mediului înconjurător)",
+    "official_url": "https://www.legis.md/",
+    "citation": "Law No. 1515-XII of 16 June 1993 (date as cited in Monitorul Oficial 83-85 of 20 May 2011, art. 408)",
+    "in_force": null,
+    "evidence": "No official page opened states the commencement date. The Law is cited as Law No. 1515-XII of 16 June 1993 in Monitorul Oficial Nr. 83-85 of 20 May 2011 and Nr. 15-17 of 22 January 2013; Government Decision 1277/2018 point 52 refers to Art. 26 of it for environmental inspection.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MD-LEGIS-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Link only. The Law of 1993 was not found in the Monitorul Oficial viewer (the earliest issues seen through its search date from 2000), and the only official source of its text is legis.md, which answered every request with a Cloudflare challenge from the cloud address (row MD-LEGIS-CONSOLIDATED, permission requested). The official_url is the legis.md home page because the document id could not be read. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
+    "status": "link only",
+    "status_note": "legis.md blocked from the cloud address; the 1993 act is not in the Monitorul Oficial viewer."
+  }
+]

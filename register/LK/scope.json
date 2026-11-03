@@ -1,0 +1,148 @@
+[
+  {
+    "id": "lk-slfrs-s1-s2",
+    "title": "Sri Lanka Sustainability Disclosure Standards SLFRS S1 and SLFRS S2, adopted by the Institute of Chartered Accountants of Sri Lanka and published in Gazette Extraordinary No. 2393/31 of 18 July 2024",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2393-31_E_1784566044.pdf",
+    "citation": "Sri Lanka Accounting and Auditing Standards Act, No. 15 of 1995, publication under Section 4(2); Gazette Extraordinary No. 2393/31, 2024-07-18",
+    "in_force": "2025-01-01",
+    "evidence": "Gazette Extraordinary No. 2393/31 (English), page 1A, paragraph (a): \"The first 100 listed entities of the Colombo Stock Exchange, based on respective entities’ market capitalization as of 01st January, 2025 are required to adopt for annual reporting periods beginning on or after 01st January, 2025.\" Paragraph (b): all Main Board listed entities, periods beginning on or after 01st January, 2026; paragraph (c): all listed entities except the Empower Board, periods beginning on or after 01st January, 2027; paragraphs (f) and (g) end with 01st January, 2029 and 01st January, 2030. Read from the rendered page image because poppler text of pages 1 and 2 is corrupt. Opened on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "LK-GOVPRINT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only. The Gazette is the Institute's publication of the adopted standards (71 pages, English; its N.B. says the Sinhala and Tamil versions are published separately, and a search of the site's Gazette Extraordinary list for 'SLFRS' shows only an English file for 2393/31). Poppler output is corrupt on pages 1 and 2, which carry the application schedule (glyph ids with no Unicode map: 'The first' prints as '7KH¿UVW', digits as control characters), and every page's running header is in a legacy Sinhala font (e.g. 'I fldgi ( ^I& fcoh'); pages 3 to 71 extract cleanly. No OCR or font tool is installed in the cloud session, and a record with corrupt or hand-corrected text is not stored, so this instrument is link only. Paragraphs (d) to (g) of the schedule (Empower Board entities, large non-listed companies from 2028 and 2029, other specified business enterprises from 2030) are not transcribed here beyond the dates because the turnover thresholds are among the corrupt characters. The earlier register row cited https://documents.gov.lk/view/egz/2024/7/2393-31_E.pdf, which now answers 404 (the site was rebuilt); the working request is in SOURCES.md. The CSE Listing Rules provision that sets issuer scope was not opened.",
+    "status": "link only"
+  },
+  {
+    "id": "lk-national-environmental-act",
+    "title": "National Environmental Act, No. 47 of 1980",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/47-1980_E_1784553232.pdf",
+    "citation": "National Environmental Act, No. 47 of 1980 (certified 29 October 1980)",
+    "in_force": null,
+    "evidence": "Page 1 of the English PDF (read from the page image): \"[Certified on 29th October, 1980]\" and section 1: \"This Act may be cited as the National Environmental Act, No. 47 of 1980 and shall come into operation on such date as the Minister may appoint by Order published in the Gazette.\" The appointing Order was not found on the site, so no official page read states the date it came into operation. Opened on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "LK-GOVPRINT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only. The site serves the Act as passed, in English only (no Sinhala or Tamil file is listed), as a 19-page scan: pdftotext returns no text and no OCR is installed in the cloud session. The site has no consolidation, and the Act as amended (by Act No. 56 of 1988, not on the site, Act No. 53 of 2000 and Act No. 15 of 2026) is not available there. Companion entries: lk-national-environmental-amendment-2000 and lk-national-environmental-amendment-2026. The Act sets up the Central Environmental Authority and licensing of prescribed activities; it contains no climate-change provision that was read. This is the F2 fallback: no Climate Change Act or Bill was found (see lk-national-environmental-amendment-2026 notes).",
+    "status": "link only"
+  },
+  {
+    "id": "lk-national-environmental-amendment-2000",
+    "title": "National Environmental (Amendment) Act, No. 53 of 2000",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/53-2000_E_1784553252.pdf",
+    "citation": "National Environmental (Amendment) Act, No. 53 of 2000 (certified 18 August 2000)",
+    "in_force": "2000-08-18",
+    "evidence": "Cover page of the English PDF (page image): \"[Certified on 18th August, 2000]\"; section 1 (page 2) reads \"This Act may be cited as the National Environmental (Amendment) Act, No. 53 of 2000.\" and the Act has no commencement clause, so the certification date is used. Opened on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "LK-GOVPRINT-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "lk-national-environmental-act",
+    "notes": "Link only. Sinhala and English PDFs are listed (no Tamil file); both are 5-page scans with no text layer, and no OCR is installed in the cloud session. The Act replaces section 23A (licences for prescribed activities) and amends sections 23AA and 23BB of the 1980 Act as amended by Act No. 56 of 1988.",
+    "status": "link only"
+  },
+  {
+    "id": "lk-national-environmental-amendment-2026",
+    "title": "National Environmental (Amendment) Act, No. 15 of 2026",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/15-2026_E_1786337298.pdf",
+    "citation": "National Environmental (Amendment) Act, No. 15 of 2026 (certified 21 July 2026)",
+    "in_force": "2026-07-21",
+    "evidence": "Page 1 of the English PDF: \"[Certified on 21st of July, 2026]\"; section 1: \"This Act may be cited as the National Environmental (Amendment) Act, No. 15 of 2026.\" The Act has no commencement clause, so the certification date is used. Opened on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LK-GOVPRINT-ADOPTED",
+      "LK-GOVPRINT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "amends": "lk-national-environmental-act",
+    "notes": "Stored: one English translation record (60-page PDF, clean text). Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Only the English text (a translation, row LK-GOVPRINT-TRANSLATION) is stored. Sinhala and Tamil are not stored: poppler's output is not the text: the 70-page Sinhala PDF comes out with doubled vowel signs (for example the title line) and 2642 U+FFFD replacement characters, and the 84-page Tamil PDF comes out with vowel signs in the wrong order (for example 'இலங்ைகச்'). The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text. The Act amends section 2 (the Central Environmental Authority) and other sections of the 1980 Act; the words climate, carbon and greenhouse do not occur in the English text, so it is an F2 fallback rather than a climate law. The Bills page of the same site also lists a 'National Environmental (Bill)' dated 2026-05-06; a bill is not law and is not in scope. No Climate Change Act or Climate Change Bill was found: the Acts, Bills and Gazette Extraordinary lists of documents.gov.lk were searched for 'Climate' on 2026-11-03 (the only hits are two 2021 Presidential Secretariat task-force Gazettes).",
+    "status": "stored"
+  },
+  {
+    "id": "lk-finance-act-2018",
+    "title": "Finance Act, No. 35 of 2018 (Part XI: Carbon Tax)",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/35-2018_E_1784553147.pdf",
+    "citation": "Finance Act, No. 35 of 2018 (certified 1 November 2018), Part XI, sections 40 to 42 and Third Schedule",
+    "in_force": "2019-01-01",
+    "evidence": "Section 40(1) (Part XI, Carbon Tax): \"There shall be levied for every year commencing from January 1, 2019, from the registered owner of every motor vehicle specified in the Third Schedule hereto, a tax to be called the “Carbon Tax”\". Cover: \"[Certified on 01st of November, 2018]\". Opened on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LK-GOVPRINT-ADOPTED",
+      "LK-GOVPRINT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored: one English translation record, dated 2019-01-01 (the first levy year), holding the whole Act (24 pages, clean text) because the site serves the Act as passed and the stored text is not cut; Part XI is a small part of it. The carbon tax is a levy on motor vehicles collected at annual registration, not an emissions trading system. Section 40(1) was substituted by Finance Act No. 21 of 2019 (lk-finance-act-2019), which limits the levy to 1 January to 30 November 2019. Implementing regulations: lk-finance-carbon-tax-regulations-2019. Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Only the English text (a translation, row LK-GOVPRINT-TRANSLATION) is stored. Sinhala and Tamil are not stored: these Sinhala and Tamil PDFs were not extracted; every Sinhala and Tamil PDF that was (Acts No. 15 of 2026 and No. 20 of 2021) came out as corrupt text. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text. The brief named Finance Act No. 11 of 2019 and a 2020 repeal; the official pages read name Finance Act No. 35 of 2018 (Part XI) and No. 21 of 2019, and no repeal Act was found (see lk-finance-act-2019 notes).",
+    "status": "stored"
+  },
+  {
+    "id": "lk-finance-act-2019",
+    "title": "Finance Act, No. 21 of 2019 (Part II amends Part XI, Carbon Tax, of Act No. 35 of 2018)",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/21-2019_E_1784553007.pdf",
+    "citation": "Finance Act, No. 21 of 2019 (certified 31 October 2019), Part II (sections 3 and 4)",
+    "in_force": "2019-10-31",
+    "evidence": "Cover: \"[Certified on 31st of October, 2019]\". Section 3 substitutes section 40(1) of Act No. 35 of 2018: \"There shall be levied a tax to be called the “Carbon Tax” ... for the period commencing from January 1, 2019 and ending on November 30, 2019, from the registered owner of every motor vehicle specified in the Third Schedule\". Only Part IV (section 6) has its own commencement clause, so Part II takes the certification date. Opened on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LK-GOVPRINT-ADOPTED",
+      "LK-GOVPRINT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "amends": "lk-finance-act-2018",
+    "notes": "Stored: one English translation record, whole Act (clean text). Its Part II ends the Carbon Tax levy period on 2019-11-30; the other Parts amend Parts VII and XII of Act No. 35 of 2018 and add a levy on foreign commercial transactions. No Act restoring the tax was found: the 238 English Acts dated 2019 to 2026 that the site lists were fetched on 2026-11-03 and 178 of them have a text layer; searched for 'carbon', 'climate change' and 'greenhouse', the only Acts that use these words for anything but chemistry or hydrocarbons are this Act, the Sri Lanka Electricity Act No. 36 of 2024 (decarbonisation goals) and the Tea Research Board (Amendment) Act No. 8 of 2019; the other 60 Acts are scans and were not searched. A formal repeal of Part XI (the brief mentions 2020) was not found: the Finance (Amendment) Act No. 2 of 2020 amends section 36 only. The tax therefore lapsed by its own limited period (1 January to 30 November 2019) on the official pages read. Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Only the English text (a translation, row LK-GOVPRINT-TRANSLATION) is stored. Sinhala and Tamil are not stored: these Sinhala and Tamil PDFs were not extracted; every Sinhala and Tamil PDF that was (Acts No. 15 of 2026 and No. 20 of 2021) came out as corrupt text. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text.",
+    "status": "stored"
+  },
+  {
+    "id": "lk-finance-carbon-tax-regulations-2019",
+    "title": "Finance (Carbon Tax) Regulations, No. 1 of 2019 (Gazette Extraordinary No. 2105/47, 11 January 2019)",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2105-47_E_1784560951.pdf",
+    "citation": "Finance (Carbon Tax) Regulations, No. 1 of 2019, made under sections 41(3) and 51 of the Finance Act, No. 35 of 2018; Gazette Extraordinary No. 2105/47",
+    "in_force": "2019-01-11",
+    "evidence": "Gazette Extraordinary No. 2105/47 of 11 January 2019: \"BY virtue of the powers vested in me by Section 41 (3) read with Section 51 of the Finance Act, No. 35 of 2018, I, Mangala Samaraweera, Minister of Finance and Mass Media, do by this Order prescribe the following regulations.\" signed \"11th January, 2019\". The regulations have no commencement clause, so the Gazette date is used. Opened on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "LK-GOVPRINT-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "lk-finance-act-2018",
+    "notes": "Link only. One-page Gazette; the body extracts cleanly with pdftotext but its first line is the running header in a legacy Sinhala font ('I fldgi ( ^I& fPoh - YS% ,xld ...'), which is corrupt, and a record with a corrupt line or a hand-removed line is not stored. Sinhala, Tamil and English Gazettes are listed. The regulations say the tax is paid by the registered owner and collected by the Divisional Secretary or the Provincial Commissioner of Motor Traffic and remitted to the Consolidated Fund; they set no rate. The levy period was later limited to 2019-01-01 to 2019-11-30 by Finance Act No. 21 of 2019 (lk-finance-act-2019); whether the regulations were revoked was not found.",
+    "status": "link only"
+  },
+  {
+    "id": "lk-caa-act-2003",
+    "title": "Consumer Affairs Authority Act, No. 9 of 2003 (sections 30 and 31: misleading or deceptive conduct, false representations)",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/09-2003_E_1784552867.pdf",
+    "citation": "Consumer Affairs Authority Act, No. 9 of 2003 (certified 17 March 2003), ss. 30 and 31",
+    "in_force": "2003-03-17",
+    "evidence": "Cover: \"[Certified on 17th March, 2003]\"; section 1 gives the short title only and the Act has no commencement clause, so the certification date is used. Section 30: \"No trader shall, in the course of a trade or business, engage in any type of conduct that is misleading or deceptive or is likely to mislead or deceive the consumer or any other trader.\" Section 31 makes a trader guilty of an offence who falsely represents goods or services in the ways listed in paragraphs (a) to (g). Opened on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LK-GOVPRINT-ADOPTED",
+      "LK-GOVPRINT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Stored: one English translation record, the whole Act (53 pages, clean text). The Act has no environmental-claims provision; ss. 30 and 31 are the general umbrella, and the Act is listed as the F6 fallback for that reason. Amended by Act No. 20 of 2021 (lk-caa-amendment-2021). Languages: the site lists a Sinhala PDF (59 pages, a scan with no text layer, not stored) and the English PDF; no Tamil file is listed. The Act says the Sinhala text prevails over the Tamil text (section 76), so the stored English record is not the prevailing text.",
+    "status": "stored"
+  },
+  {
+    "id": "lk-caa-amendment-2021",
+    "title": "Consumer Affairs Authority (Amendment) Act, No. 20 of 2021",
+    "official_url": "https://documents.gov.lk/api/content-file-proxy?file=/act-content/20-2021_E_1784552998.pdf",
+    "citation": "Consumer Affairs Authority (Amendment) Act, No. 20 of 2021 (certified 22 September 2021)",
+    "in_force": "2021-09-22",
+    "evidence": "Cover: \"[Certified on 22nd of September, 2021]\"; section 1: \"This Act may be cited as the Consumer Affairs Authority (Amendment) Act, No. 20 of 2021.\" The Act has no commencement clause, so the certification date is used. Opened on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "LK-GOVPRINT-ADOPTED",
+      "LK-GOVPRINT-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "amends": "lk-caa-act-2003",
+    "notes": "Stored: one English translation record (4 pages, clean text). It amends section 60 of the 2003 Act (non-compliance with an order). Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Only the English text (a translation, row LK-GOVPRINT-TRANSLATION) is stored. Sinhala and Tamil are not stored: poppler's output is not the text: the 4-page Sinhala PDF is in a legacy Sinhala font (it prints as Latin letters such as 'iy;slh igyka') and the Tamil PDF likewise ('nrj;njk;gh; khjk;'), so neither is readable text. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text.",
+    "status": "stored"
+  }
+]
