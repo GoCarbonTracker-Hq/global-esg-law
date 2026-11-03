@@ -5632,6 +5632,21 @@ Returned `200 4237687 application/pdf` (39 pages, no text layer) and `200 156034
 - `bj-environment-framework-act-1998` is abrogated by Art. 138 of Loi n° 2026-15; Loi 2026-15 states no commencement date on the pages read, so no repeal record is written.
 - `cadredevie.bj`: `curl` returned `200 3 text/html` with the body `asd`; no instruments found there. The text comes from sgg.gouv.bj.
 
+### OCR pass 2026-11-03
+
+OCR was allowed at 08:20Z on 2026-11-03 (GEL-04-12). Row `BJ-SGG-ADOPTED` is `pass`, so the six link-only scope instruments are stored as French records; nothing else changed. Row `BJ-BRVM-ADOPTED` stays `permission requested` and the AMF-UMOA circulars stay outside `scope.json`. The tool is `tesseract 5.3.4` with `tesseract-ocr-fra 1:4.1.0-2`, installed with `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-fra`. French is the only official language; no English or other record exists.
+
+Commands, run per act (`<slug>` is `decret-2022-698`, `decret-2022-699`, `loi-2018-18`, `loi-98-030`, `loi-2026-15`, `loi-2007-21`; every request answered `200 application/pdf`, sizes and sha256 in each scope entry's notes, the sha256 of `loi-2018-18` equals the one recorded in the first pass):
+
+```
+curl -sS -L -o <slug>.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.gouv.bj/doc/<slug>/download
+sha256sum <slug>.pdf
+pdftoppm -r 200 -gray -png <slug>.pdf p
+OMP_THREAD_LIMIT=1 tesseract p-NN.png p-NN -l fra --psm 4
+```
+
+The text of each record is the page `.txt` files in page order, a form feed removed from each page's end and the pages joined with one newline; nothing was corrected. Each file is one act (with annexes and signatures), so every page is kept: decree 2022-698 pages 1 to 20, decree 2022-699 pages 1 to 7, Loi 2018-18 pages 1 to 35, Loi 98-030 pages 1 to 30, Loi 2026-15 pages 1 to 31, Loi 2007-21 pages 1 to 14. A first run with the default page mode (`--psm 3`) dropped the text of the "Vu" recital lines on page 1 of decree 2022-698 because the hanging "Vu" column was read as a second column; `--psm 4` read them in order and was used for every page of every act. A 300 dpi attempt was not needed: no act was empty or mostly garbage at 200 dpi (share of tokens that look like words 0.94 to 0.97). The OCR has misreads that stay in the records (for example "Article 127" for "Article 1er" on Loi 2018-18 page 1, "2018" for "2019" in the Constitution recital of decree 2022-698). `in_force` is `null` for the four acts whose entry has no commencement date; their file names carry the date of the act.
+
 ## Comoros
 
 GEL-13-09, run 2026-11-03. Rows `KM-JUSTICE-ADOPTED` (`permission requested`, terms) and `KM-BCC-ADOPTED` (`pass`, terms; no instrument in scope, so nothing is stored under it). `records/KM/` is empty. All three instruments in `register/KM/scope.json` are link only.
