@@ -7805,3 +7805,51 @@ Returned `200 26532762 application/pdf`, sha256 `fd54232e2439a1c04423a469b5e11de
 | `bn-ghg-directive-2023` | row `BN-CCS-ADOPTED` is permission requested (site blocked, expired certificate) |
 
 - Browser recipe: none needed; no record is browser-fetched.
+
+## Fiji
+
+Rows `FJ-LAWS-CONSOLIDATED` and `FJ-LAWS-ADOPTED`, both `pass` on the statute basis (Copyright Act 1999, s. 27(1)(b) and (c): no copyright exists in any Act or subsidiary legislation; s. 26(6) makes State copyright subject to s. 27). The site terms (Disclaimer page) grant no licence, so there is no terms basis. Run on 2026-11-03. The brief expected PDFs from laws.gov.fj; the consolidated law is not served as PDF but as section-by-section HTML inside JSON from the site's own API (`https://www.laws.gov.fj/api/...`), and only the Laws as Published are PDFs. The site is a JavaScript application with hash routes (a direct path such as `https://laws.gov.fj/consolidated-law` returns an IIS 404), but the API answered plain `curl` with a `Mozilla/5.0` user agent from the cloud address, so no browser recipe is needed and no record is browser-fetched. The API names were read from the site's JavaScript (`chunk-ENCSSVOG.js`: `get_all_acts_initials`, `get_act_by_initial/{letter}`, `get_act_by_id/{ActId}`, `retrieve_html/{LegalId}`, `toc_lawsaspublished`, `show_pdf_lawsaspublished/{Id}`, `toc_omittedrepealed`, `retrieve_all_pages`).
+
+Row `FJ-LAWS-CONSOLIDATED`, step 1, table of contents of the Climate Change Act 2021 (ActId 3290; ids come from `get_act_by_initial/C`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o toc.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.laws.gov.fj/api/get_act_by_id/3290
+```
+
+Returned `200 31393 application/json`. Subsidiary legislation of an act is further entries in the same array (`ActId` empty), each with its own `BODY` node (for the EIA Regulations: `LOF_LOF.VOL19.SGM_LOF.CAP141B.EPRFJ07.BODY` inside `get_act_by_id/2576`).
+
+Step 2, one node (section 30 of the same Act):
+
+```
+curl -sS -A 'Mozilla/5.0' -o s30.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.laws.gov.fj/api/retrieve_html/LOF.CAP106B.CCAFJ21.S30
+```
+
+Returned `200 8843 application/json` (fields `section_html`, `act_last_updated`, `ActName`, `FootNoteRels`). A part node returns only its heading, so the whole text is the nodes concatenated.
+
+Text extraction and hash: nodes taken in tree order (children sorted by natural order of `FileName`, then `Position`, as the site does), each `section_html` converted to text with block elements (`p`, `div`, `h1`-`h6`, `li`, `tr`, `section`, `dl`, `dt`, `br`) as line breaks, runs of spaces (including em space and zero-width characters) collapsed, empty lines dropped, nothing reworded; section markers such as `[CLI 30]` and the `Table of Amendments` node are the site's and stay in. The Climate Change Act gives 135 nodes, 112 sections plus the two schedule clauses. `fetched_url` is the table-of-contents URL; `fetched_sha256` is the sha256 of the `section_html` strings in that order joined with a newline (the text has no single file). A second fetch on the same day reproduced the hash and the text for the Climate Change Act and the EIA Regulations. The site shows one consolidation per act ("Last Updated" in `act_last_updated`), so there is one consolidated record per instrument; its `in_force` is the latest commencement date in the node's Table of Amendments, and the Last Updated date is in the record `message`. Footnote markers come through without footnote bodies where the API's `FootNoteRels` is empty (Environment Management Act).
+
+Row `FJ-LAWS-ADOPTED`, Act as published, the Climate Change Act 2021 (Act 43 of 2021, list Id 1241; Ids come from `toc_lawsaspublished`, 449 Acts and 1510 Legal Notices from 2014, all with Language `English`):
+
+```
+curl -sS -A 'Mozilla/5.0' -o a1241.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.laws.gov.fj/api/show_pdf_lawsaspublished/1241
+```
+
+Returned `200 1050944 application/json`; the field `PDFFile` is the PDF, base64 (788041 bytes decoded, 86 pages, text PDF). Text: `pdftotext -layout file.pdf -`, form feeds as line breaks, runs of two or more spaces collapsed to one, blank lines dropped; no mojibake (no U+FFFD; the only non-ASCII characters are typographic quotes, dashes, degree sign, soft hyphen and zero-width non-joiner). `fetched_sha256` is the sha256 of the decoded PDF (`0df3b4204b59bf6b50040578b2899d728bd559737904bd3b5976bf5b1c554198` for Act 43 of 2021); a second fetch reproduced it. No OCR was needed, so no record carries `extraction`.
+
+### Languages
+
+English only. The Laws as Published list serves every entry as `English`; the consolidation serves no other language. iTaukei and Hindi are official languages and the Constitution page offers translations, but the Constitution is not in scope and no Fijian text of any scope instrument is served, so there is no second-language record and no translation row. Acts are enacted in English. Ran on 2026-11-03: `toc_lawsaspublished` language count (English 1959), consolidation API (English fields only).
+
+### Link only
+
+Every scope instrument has a pass row, so none is link only. Not stored:
+
+- Carbon market regulations under Part 10 of the Climate Change Act 2021: not gazetted (Part 10 has not commenced; no title in the Laws as Published list; web search found only the May 2025 consultation). `register.csv` F7 row, no scope entry.
+- Reserve Bank of Fiji climate disclosure: no final guideline. `https://www.rbf.gov.fj/48949-2/` (Press Release 21/2025, 4 November 2025) announces the Sustainable Finance Roadmap, non-binding; `register.csv` F7 row. No RBF licence row: the site's disclaimer page (`https://www.rbf.gov.fj/disclaimer/`) grants no reuse and no RBF instrument is stored.
+- Environment Management Act 2005 as originally published, the Fijian Competition and Consumer Commission Decree 2010 as promulgated, and earlier consolidations: not served (the Laws as Published list starts in 2014, the consolidation shows only the current version).
+- Parliament of Fiji (`https://www.parliament.gov.fj`, 200 text/html) was opened but not used: the Acts as published come from laws.gov.fj, so there is no Parliament row.
+
+### Blocked from the cloud address
+
+- `https://www.environment.gov.fj/`: `curl: (35) Recv failure: Connection reset by peer`, twice on 2026-11-03. Not needed for any stored text.
+- Answered normally: laws.gov.fj, www.laws.gov.fj (API), www.parliament.gov.fj, fijiclimatechangeportal.gov.fj (the Climate Change Act PDF, `200 1255503 application/pdf`), www.rbf.gov.fj, www.spx.com.fj.
