@@ -11516,5 +11516,15 @@
   "params": {
    "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
   }
+ },
+ {
+  "id": "sy-environment-protection-law-12-2012-molae-law-page",
+  "source_id": "SY-MOLAE-ADOPTED",
+  "iso2": "SY",
+  "instrument": "sy-environment-protection-law-12-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://molae.gov.sy/law",
+  "params": {}
  }
 ]
