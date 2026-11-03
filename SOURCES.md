@@ -4788,6 +4788,62 @@ None: every scope instrument is stored.
 - Consumer protection: no Code de la consommation or advertising-claims statute is on Legimonaco. Mapped to F6 only Code pénal article 362 (deception of the contractor on goods); Loi n° 1.383 du 2 août 2011 article 12 (online advertising must be identifiable) was read and not mapped. Treaty ratification acts (Kyoto, Paris Agreement, UNFCCC) and the Ordonnance Souveraine of 27 June 1907 on frauds in the sale of goods were seen as titles and not mapped.
 - Blocked from the cloud address: none. legimonaco.mc, journaldemonaco.gouv.mc, ccaf.mc and transition-energetique.gouv.mc all answered scripts.
 
+## Qatar
+
+Rows `QA-ALMEEZAN-CONSOLIDATED` (`pass`, statute: Law No. 7 of 2002 on Copyright and Neighbouring Rights, art. 4(1)), `QA-ALMEEZAN-TRANSLATION`, `QA-QCB-ADOPTED`, `QA-QFMA-ADOPTED` and `QA-QSE-ADOPTED` (all `permission requested`). Run on 2026-11-03. The Al Meezan terms of use (https://almeezan.qa/content/Terms_of_Use) say the content is owned by the Ministry of Justice and may not be copied without prior written permission, "unless otherwise stated"; the pass rests on the statute, which is a decision for Varun (see the PR).
+
+Al Meezan (https://almeezan.qa, the Ministry of Justice legal portal) is a JavaScript application: a page address returns a 6 KB shell with no law text.
+
+```
+curl -sS -L -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' https://almeezan.qa/legislations/law/2008/8/general
+```
+
+Returned `200 6010 text/html`. The application reads a JSON API at https://api.moj.gov.qa/api/v1 that answers curl without a challenge or a key, so no browser is needed for the records. Three requests, for the Environment Protection Law (Decree-Law No. 30 of 2002; portal id `164f4a20-8bce-4c6a-87f4-9cda0cc42b5b`), in order:
+
+```
+curl -sS -G -H 'Accept-Language: en' 'https://api.moj.gov.qa/api/v1/Legislation/search-index' --data-urlencode 'searchTerm=Law of the Environment Protection' --data-urlencode 'showAlmeezan=true' -o search.json -w '%{http_code} %{size_download} %{content_type}\n'
+curl -sS 'https://api.moj.gov.qa/api/v1/Legislation/164f4a20-8bce-4c6a-87f4-9cda0cc42b5b' -o details.json -w '%{http_code} %{size_download} %{content_type}\n'
+curl -sS -H 'Accept: application/xml' -H 'Accept-Language: ar' 'https://api.moj.gov.qa/api/v1/Legislation/164f4a20-8bce-4c6a-87f4-9cda0cc42b5b/akoma-ntoso?lang=ar' -o env-ar.xml -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 97752 application/json; charset=utf-8` (1853 hits for that term; each item has `id` as `legislation-<uuid>`, `legislationURL`, `effectiveDate`, `legislationStatusName`), `200 211669 application/json; charset=utf-8` (the page's data: metadata, every article with its `effectiveDate`, `isAmended`, `hasHistory`, and the file list) and `200 107760 application/xml; charset=utf-8` (the Law as Akoma Ntoso, Arabic). The language is chosen by the `Accept-Language` header (`ar` or `en`); the `lang=` query parameter alone does nothing: the same request with only `Accept: application/xml` and `?lang=ar` returned `200 99751 application/xml`, the English view. Without a browser user agent the API answers; the portal pages answer headless Chromium's default `HeadlessChrome` user agent with HTTP 500 "The URL you requested has been blocked", so Playwright needs a normal user agent string.
+
+How a record is made: `fetched_url` is the Akoma Ntoso URL above and `fetched_sha256` the sha256 of the XML as received (`68b5167a899f47e1aa1ffbfbf95f88dfbc32254e3c0c57563374b6f445abaa9f` for the Environment Protection Law; a second fetch the same day gave the same hash). The XML carries a manifestation `FRBRdate ... name="Generation"` equal to the day of the request (`2026-11-03`), so the hash will not reproduce on another day; the extracted text will. `text` is the XML from `<preface>` on: block elements (`p`, `heading`, `longTitle`, `num`, `chapter`, `article`, `content` and the preface fields) and `<BR>` become line breaks, other tags are removed, HTML entities are unescaped (the article text is HTML escaped inside the XML), runs of spaces collapse, empty lines drop; nothing is reworded. The preface therefore opens with the document type, number and date lines. The portal serves one current text per instrument and shows amendments as per-article chains (`isAmended`, `hasHistory`, and `relatedAlmawad` on `/Legislation/{id}/mada/{articleId}`), not as whole-law versions, so each instrument has one record, dated with the latest article `effectiveDate` in the text (the instrument's first in-force date when no article was amended). The text includes the editorial markers of the portal as served (for example `معدلة` in an article heading, and in Law No. 8 of 2008 both the 2008 and the 2011 version of article 18 bis next to the article marked `معدلة ملغاة`). Annex tables are separate appendix HTML files on the portal (52 for the Executive Regulation, one for Decision No. 31 of 2023, one for Decision No. 68 of 2012) and are not in the export, so they are not stored. Whole-law versions at earlier dates (Law No. 8 of 2008 at 2008-07-24 and 2011-10-24; the Executive Regulation at 2005-04-18) could be assembled from the article chains but are not files the portal serves, so they are not stored.
+
+Terms fingerprint: the terms page is a JavaScript application too. Playwright chromium, user agent `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36`, `localStorage.i18nextLng` set to `en` (or `ar`) before load, `goto` with `networkidle`, 3 s wait, `innerText` of `<main>`, whitespace collapsed, sha256: `6a19aebf94cbf1f1967062777bf63653fdc756ea22c89e35b11fdd7e97c8a766` (English, identical in two runs) and `f6cc90e3fcbbf644420d976801e4b80792f37971b1cfe4b288fed6aaa69ccc90` (Arabic).
+
+### Stored (fetched 2026-11-03, Arabic, kind consolidated)
+
+| Instrument | Record date | Records (ar) |
+|---|---|---|
+| `qa-environment-law-30-2002` | 2003-05-03 | 1 |
+| `qa-environment-exec-regulation-4-2005` | 2022-08-05 (first in force 2005-04-18) | 1 |
+| `qa-environment-exec-regulation-amendment-8-2022` | 2022-08-05 | 1 |
+| `qa-environment-exec-regulation-amendment-31-2023` | 2024-01-10 | 1 |
+| `qa-air-quality-decision-310-2020` | 2021-01-01 | 1 |
+| `qa-hcfc-import-quotas-decision-20-2022` | 2022-11-21 | 1 |
+| `qa-consumer-protection-law-8-2008` | 2018-05-13 (first in force 2008-07-24) | 1 |
+| `qa-consumer-protection-exec-regulation-68-2012` | 2012-12-23 | 1 |
+
+### Languages
+
+Arabic is the authentic language of Qatari legislation and the only language of the stored records; all 8 stored records contain Arabic text and no run of 30 or more Latin letters. English: the same request with `Accept-Language: en`,
+
+```
+curl -sS -H 'Accept: application/xml' -H 'Accept-Language: en' 'https://api.moj.gov.qa/api/v1/Legislation/164f4a20-8bce-4c6a-87f4-9cda0cc42b5b/akoma-ntoso?lang=en' -o env-en.xml -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+returned `200 99751 application/xml; charset=utf-8`. The English view translates the title, preamble and some headings only; the article text is Arabic. Of the lines longer than 40 characters in the English XML of the eight instruments, English-only lines were 43 of 226 (Law 30 of 2002), 7 of 572 (Decision 4 of 2005), 7 of 85 (Law 8 of 2008) and none in the other five. The portal does not call these English texts official, so they go under `QA-ALMEEZAN-TRANSLATION`, judged on the terms of use: `permission requested`, nothing stored. No government English text was found elsewhere: the Al Meezan file lists hold Official Gazette PDFs, an audio zip and Arabic-titled appendices, and the MECC laws page (https://www.mecc.gov.qa/Arabic/LawsandAgreements/Pages/LawsandRegulations.aspx, opened with headless Chromium) links Arabic pages.
+
+### Link only
+
+- `qa-qcb-sustainability-reporting-framework`: `QA-QCB-ADOPTED` is `permission requested`; no terms were read because qcb.gov.qa is blocked from the cloud address. `curl -sS https://www.qcb.gov.qa/` returned `curl: (60) SSL certificate problem: unable to get local issuer certificate` (also for `https://qcb.gov.qa/` and the PDF URL; verification was not disabled), and headless Chromium (Playwright, normal user agent) got `502 text/plain` (23 bytes). Blocked from the cloud address: https://www.qcb.gov.qa/ . The orchestrator can read it from the laptop.
+- `qa-qfma-sustainability-reporting-guidance`: `QA-QFMA-ADOPTED` is `permission requested`. The PDF opens (`curl -sS -o guide.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.qfma.org.qa/Arabic/Legislation/GuidesAndTemplates/Documents/2%20QFMA%20Sustainability%20Guide%20EN%2023%20November%202025.pdf'` returned `200 2129752 application/pdf`, 80 pages; `pdftotext -layout` reads it cleanly, no mojibake), but the only legal page on qfma.org.qa is a privacy policy (https://www.qfma.org.qa/English/About-QFMA/Pages/Disclaimer.aspx) with no reuse terms, and the Guidance quotes IFRS Foundation material.
+- `qa-qse-esg-reporting-guidance`: `QA-QSE-ADOPTED` is `permission requested`. https://www.qe.com.qa/disclaimer allows personal, research and educational use, not commercial gain. qe.com.qa answers curl with a `Mozilla/5.0` user agent with `curl: (52) Empty reply from server` and default headless Chromium with `502 text/plain`, but curl with its own or the watcher's user agent gets `200 253726 text/html` for https://www.qe.com.qa/sustainability-and-esg. The link to the 2016 guidance file on that page is an unresolved template, so no guidance file was located.
+- Mecc.gov.qa answers curl with a 302 and headless Chromium with 200; it was used for discovery only (laws page; the Environment and Climate Change Strategy PDF, `200 8468602 application/pdf`, 18 pages, no extractable text, registered as an F7 row).
+
+Candidates dropped: no carbon pricing or GHG reporting instrument is on Al Meezan (searches for carbon, greenhouse, emissions, ESG and sustainability gave nothing relevant), so Qatar has no F3 entry; the National Climate Change Action Plan 2030 is policy. The amending acts of Law No. 8 of 2008 (Decree-Law No. 14 of 2011, Law No. 7 of 2018) are not entries because their changes sit inside the stored text. Radiation, wildlife and waste-management decisions of the Supreme Council (for example Decision No. 11 of 2005) were not taken as ESG instruments.
+
 ## Costa Rica
 
 Run on 2026-11-03 (GEL-09-07). Three rows pass: `CR-SINALEVI-ADOPTED` and `CR-SINALEVI-CONSOLIDATED` (statute: Ley 6683 art. 75, which allows free reproduction of laws, decrees and regulations on condition of following the official edition) and `CR-IMPRENTA-ADOPTED` (terms: the Imprenta Nacional site notice, Creative Commons Reconocimiento 4.0). Three rows are `permission requested`: `CR-CCPA-ADOPTED`, `CR-SUGEVAL-ADOPTED`, `CR-CONASSIF-ADOPTED`. The SINALEVI passes are the soft ones (art. 75 permits reproduction but does not remove copyright; SINALEVI is a PGR compilation, not the official edition; see the row notes); Varun to confirm.
