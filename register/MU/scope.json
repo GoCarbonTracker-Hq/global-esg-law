@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mu-climate-change-act-2020",
+    "title": "Climate Change Act 2020 (Act No. 11 of 2020)",
+    "official_url": "https://lawsofmauritius.govmu.org/portal/acts",
+    "citation": "Climate Change Act 2020, Act 11 of 2020 (Government Gazette No. 145 of 28 November 2020, Legal Supplement)",
+    "in_force": "2021-04-22",
+    "evidence": "Header of the Act on the Laws of Mauritius portal: \"Act 11 of 2020 – 22 April 2021 / P 2/2021 (cio 22/4/2021)\". Section 31(1): \"this Act shall come into operation on a date to be fixed by Proclamation\". Opened https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?doctitle=Q2xpbWF0ZSBDaGFuZ2UgQWN0IDIwMjA%3D&docnumber=&doctype=act on 2026-11-03. The proclamation itself (P 2/2021) was not opened: the portal proclamations list was not searchable for it.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MU-AGO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Framework act: Inter-Ministerial Council on Climate Change, Department of Climate Change, national adaptation and mitigation strategies, national inventory report (Part V), duties of institutions to submit climate data (ss. 16-17) and reporting (s. 18). Record text is the portal's current consolidated PDF, English only (no amendments are listed in its header). The adopted text as published in the Legal Supplement of 28 November 2020 (https://mauritiusassembly.govmu.org/mauritiusassembly/wp-content/uploads/2023/03/act112020.pdf, Assembly site, terms not checked) and the old AG site copy (https://attorneygeneral.govmu.org/Documents/Laws%20of%20Mauritius/ACTS/ACTS2020/ACT1120.pdf, font-encoding garbled in pdftotext) are not stored; no row covers them. No French text and no government English translation exist: the Acts are enacted in English; looked for on the portal Acts list and the FAQ. No implementing order or regulation under the Act was found on the portal (regulations list is updated only as at 2019).",
+    "status": "stored"
+  },
+  {
+    "id": "mu-environment-act-2024",
+    "title": "Environment Act 2024 (Act No. 3 of 2024)",
+    "official_url": "https://lawsofmauritius.govmu.org/portal/acts",
+    "citation": "Environment Act 2024, Act 3 of 2024 (Government Gazette No. 51 of 24 May 2024); s. 135A added by Act 3 of 2026",
+    "in_force": "2024-08-01",
+    "evidence": "Header of the Act on the Laws of Mauritius portal: \"Act 3 of 2024 – 1 August 2024 / P 36/24 (cio 1/8/24)\". Section 151(1): \"this Act shall come into operation on a date to be fixed by Proclamation\"; section 148: \"The Environment Protection Act is repealed.\" Opened https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?doctitle=RW52aXJvbm1lbnQgQWN0IDIwMjQ%3D&docnumber=&doctype=act on 2026-11-03. Proclamation 36 of 2024 is named in the header, its text was not opened.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MU-AGO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Replaces the Environment Protection Act 2002 (s. 148). The header says Act 18 of 2025 is 'partly NIF' (not in force), so the stored text contains provisions not yet in force. Section 135A (Ecocide) was added by Act 3 of 2026 w.e.f. 18 April 2026 (footnote in the text). Record text is the portal's current consolidated PDF (amendments through Act 13 of 2026, cio 1/10/26), dated 2026-10-01; the earlier consolidations need a MauPass login and are not stored, so history before 2026-10-01 is missing. Assent 2024-04-24 and Gazette No. 51 of 2024-05-24 come from the brief and were not read on an official page. English only; no French or translation served. The Environment Protection Act 2002 is repealed and not in scope; its regulations under the 2024 Act were not found on the portal.",
+    "status": "stored"
+  },
+  {
+    "id": "mu-financial-reporting-act-2004",
+    "title": "Financial Reporting Act (Act No. 45 of 2004), ss. 73A and 75: sustainability reporting standards and corporate governance reporting",
+    "official_url": "https://lawsofmauritius.govmu.org/portal/acts",
+    "citation": "Financial Reporting Act, Act 45 of 2004; s. 73A inserted by Act 13 of 2026 w.e.f. 13 August 2026; s. 75 as replaced 2009, 2012, 2017, 2022",
+    "in_force": "2005-01-20",
+    "evidence": "Header of the Act on the Laws of Mauritius portal: \"Act 45 of 2004 – 20 January 2005\". Footnote to s. 73A: \"[S. 73A inserted by s. 19 of Act 13 of 2026 w.e.f. 13 August 2026.]\". Opened https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?doctitle=RmluYW5jaWFsIFJlcG9ydGluZyBBY3Q%3D&docnumber=&doctype=act on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MU-AGO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the whole Act (the portal serves no extract), the current consolidation dated 2026-08-13, the date s. 73A came in. Section 73A: the Financial Reporting Council may recognise or adopt sustainability reporting standards including climate-related disclosure standards, applied voluntarily or mandatorily; the Minister may make regulations for sector-specific mandatory reporting. No such regulations were found on the portal. Section 75(2) and (3): every public interest entity shall adopt, and report on, corporate governance in accordance with the National Code of Corporate Governance and submit a statement of compliance, with reasons for non-compliance. The National Code of Corporate Governance for Mauritius (2016) is not an entry: its text was not found on any government page that could be opened (the FSC circular about it gave HTTP 403), so it is listed in the PR report only. The earlier consolidations need a MauPass login and are not stored, so the text before 2026-08-13 (without s. 73A) is missing. English only.",
+    "status": "stored"
+  },
+  {
+    "id": "mu-bom-climate-risk-guideline-2022",
+    "title": "Guideline on Climate-related and Environmental Financial Risk Management (BOM/BSD 44, April 2022), Bank of Mauritius",
+    "official_url": "https://www.bom.mu/sites/default/files/guideline_on_climate-related_and_environmental_financial_risk_management_01.04.2022.pdf",
+    "citation": "Bank of Mauritius, Guideline on Climate-related and Environmental Financial Risk Management, BOM/BSD 44, April 2022",
+    "in_force": "2022-04-01",
+    "evidence": "Not re-read on 2026-11-03: www.bom.mu did not answer the cloud address (curl SSL certificate error, Chromium HTTP 502). The date comes from the existing register row (research run2, 'effective date: found'), which says the official text took effect 2022-04-01.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "MU-BOM-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Mapped to F1 (a disclosure and risk-management instrument for banks and non-bank deposit-taking institutions); the register row carried F6. The register row calls it binding and says it cites Banking Act sections 50 and 100; neither was re-read. Whether the Copyright Act 2014 s. 5(b) official-text exception covers it is open, so the row is permission requested and the text is not stored. English only.",
+    "status": "link only"
+  },
+  {
+    "id": "mu-fsc-esg-funds-guidelines",
+    "title": "Disclosure and Reporting Guidelines for ESG Funds, Financial Services Commission",
+    "official_url": "https://www.fscmauritius.org/media/198694/disclosure-and-reporting-guidelines-for-esg-funds.pdf",
+    "citation": "Financial Services Commission, Disclosure and Reporting Guidelines for ESG Funds",
+    "in_force": null,
+    "evidence": "No official page states a date: the FSC site answered curl and headless Chromium with HTTP 403 (Incapsula) on 2026-11-03, and the existing register row has an empty in_force_date.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "MU-FSC-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Binding force unknown: whether the guidelines were issued under the Securities Act or another statute was not established (the PDF could not be opened). Text not stored, row is permission requested. English only.",
+    "status": "link only"
+  }
+]
