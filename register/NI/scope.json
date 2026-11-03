@@ -1,0 +1,59 @@
+[
+  {
+    "id": "ni-decreto-15-2021",
+    "title": "Decreto Presidencial No. 15-2021, creating the Sistema Nacional de Gestión del Cambio Climático and establishing the principles and guidelines of the Política Nacional de Cambio Climático",
+    "official_url": "https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/",
+    "citation": "Decreto Presidencial No. 15-2021 of 2021-06-25, La Gaceta, Diario Oficial No. 120 of 2021-06-30, pp. 5847-5850",
+    "in_force": "2021-06-30",
+    "evidence": "Artículo 14: \"El presente Decreto entrará en vigencia a partir de su publicación. Publíquese en La Gaceta, Diario Oficial.\" The issue is dated 30-06-2021 in its running head. Opened https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/ on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": "NI-LAGACETA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the Decreto only (title to the signature line after Art. 14) cut from the gazette issue, which also holds other acts. Duties: the Sistema (21 public bodies, coordinated by the Secretaría de Cambio Climático de la Presidencia, Art. 4) validates policies and plans (Art. 5); no article sets an obligation on a private entity. Private entities appear in Art. 7 (private sector representatives may be convened to the Comité Técnico, advisory only), Art. 9 (the Política Nacional de Cambio Climático applies to state bodies and to natural or legal persons, national or foreign, in the whole territory) and Art. 10 principles 3 and 8 (private-sector business strategies; climate finance). Art. 12 gave the Sistema 60 days to submit the Política Nacional; Art. 13 repeals Decreto 07-2019. The consolidated text with amendments to 2023-09-27 is part of La Gaceta No. 217 of 2023-11-29 (Ley 1163 and Ley 1166, Digesto); that file is listed on https://www.lagaceta.gob.ni/descargables only behind a login ('Inicia sesión para poder visualizar este archivo'), the issue itself is missing from /ediciones, and no account was made, so only the 2021 text is stored; the 2023 text is not read and the amendments are not identified. The Asamblea portal legislacion.asamblea.gob.ni (the old URL of the register row) did not answer from the cloud address. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "ni-ley-217",
+    "title": "Ley No. 217, Ley General del Medio Ambiente y los Recursos Naturales",
+    "official_url": "https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/",
+    "citation": "Ley No. 217 of 1996-03-27, La Gaceta, Diario Oficial No. 105 of 1996-06-06; reformed by Ley No. 647 (2008)",
+    "in_force": null,
+    "evidence": "Arto. 156: \"La presente Ley entrará en vigencia desde la fecha de su publicación en cualquier medio de comunicación, sin perjuicio de su posterior publicación en La Gaceta, Diario Oficial.\" The clause ties the date to a first publication in any medium, which no official page dates; La Gaceta No. 105 is dated Managua, Jueves 6 de Junio de 1996. Read in the OCR text layer of the issue PDF opened on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "NI-LAGACETA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the issue PDF (https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/, 200, 5771509 bytes HTML, 3941486 bytes PDF, 32 pages) is a scan (300 ppi bitonal page images) with a machine OCR text layer whose words are wrong in places (Arto. I.- for Arto. 1.-, 'Marea Colectiva'), laid out in two columns; no OCR step is allowed yet, so nothing is stored (Varun decides). The brief asked for the consolidated text: it is the Digesto Ley 1163 in La Gaceta No. 217 of 2023-11-29, behind a login on https://www.lagaceta.gob.ni/descargables (see ni-decreto-15-2021), so it is not stored either. The amending text, Ley 647, is stored as ni-ley-647. Env. permits and impact assessment duties on private projects sit in this act and its regulations; the regulations (Decreto 9-96, Decreto 76-2006) were not looked for in this wave. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "ni-ley-647",
+    "title": "Ley No. 647, Ley de Reformas y Adiciones a la Ley No. 217, Ley General del Medio Ambiente y los Recursos Naturales",
+    "official_url": "https://www.lagaceta.gob.ni/la-gaceta-n-62-jueves-03-abril-de-2008/",
+    "citation": "Ley No. 647 of 2008-02-13, La Gaceta, Diario Oficial No. 62 of 2008-04-03",
+    "in_force": "2008-04-03",
+    "evidence": "Art. 27: \"La presente Ley entrará en vigencia a partir de la fecha de su publicación en La Gaceta, Diario Oficial.\" The issue is dated 3-04-08 in its running head. Opened https://www.lagaceta.gob.ni/la-gaceta-n-62-jueves-03-abril-de-2008/ on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "NI-LAGACETA-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "ni-ley-217",
+    "notes": "Record text is Ley 647 only (header to the signature line), cut from the gazette issue; the two-column pages are read left column then right column (pdftotext -x/-W crop per page). It reforms and adds to Ley 217: new definitions (including a climate change impact study, vulnerability, adaptation) and articles on protected areas; Art. 26 orders the reforms to be merged into Ley 217 and published in full, which the site serves only as the Digesto consolidation behind a login (see ni-ley-217). Stored as the act as published, not as a consolidated Ley 217. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "ni-ley-842",
+    "title": "Ley No. 842, Ley de Protección de los Derechos de las Personas Consumidoras y Usuarias",
+    "official_url": "https://www.lagaceta.gob.ni/la-gaceta-n-129-jueves-11-julio-de-2013/",
+    "citation": "Ley No. 842 of 2013-06-13, La Gaceta, Diario Oficial No. 129 of 2013-07-11, pp. 5725-5751",
+    "in_force": "2013-10-09",
+    "evidence": "Art. 138: \"La presente Ley entrará en vigencia noventa días después de su publicación en La Gaceta, Diario Oficial.\" The issue is dated 11-07-13 in its running head; 2013-10-09 is computed (ninety days after 2013-07-11), no official page states the day. Opened https://www.lagaceta.gob.ni/la-gaceta-n-129-jueves-11-julio-de-2013/ on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "NI-LAGACETA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Record text is the whole Ley 842 (Arts. 1 to 138, preamble to the signature line) as published, columns read left then right; the issue also holds other acts. The brief names it as the umbrella for environmental claims: it bans misleading or abusive advertising (consumer right 15, chapter on 'Publicidad engañosa o abusiva') and gives consumers the right to a healthy environment (right 16); it has no article on environmental or green claims as such. Amended since: Ley No. 1061 (La Gaceta No. 27 of 2021-02-09, listed at https://www.siboif.gob.ni/sites/default/files/documentos/leyes/ley_1061.pdf); the reform is not stored (not looked for on lagaceta.gob.ni) and the consolidated text is in the Digesto Ley 1097 (Empresa, Industria y Comercio, listed on /descargables behind a login), so only the 2013 text is stored. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "status": "stored"
+  }
+]
