@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sl-epa-act-2022",
+    "title": "Environmental Protection Agency Act, 2022 (Act 15 of 2022)",
+    "official_url": "https://sierralii.gov.sl/akn/sl/act/2022/15/eng%402022-09-15",
+    "citation": "Environmental Protection Agency Act, 2022 (Act No. 15 of 2022), Sierra Leone Gazette No. 65 of 15 September 2022",
+    "in_force": "2022-09-15",
+    "evidence": "SierraLII page of the Act: \"Published in Sierra Leone Gazette 65 on 15 September 2022 Assented to on 6 September 2022 Commenced on 15 September 2022\" (https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15, opened 2026-11-03). SierraLII is a non-profit host on a government domain, not the issuing body; the Gazette PDF was not opened.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SL-SIERRALII-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Mapped from F7 to F2: the environmental framework Act defines climate change, greenhouse gas, mitigation and adaptation and gives the Agency the function to coordinate all aspects relating to climate change (s.12). It sets no company GHG reporting duty; s.53 allows record-keeping and periodic submission. Text link only: the only full text found is on SierraLII (permission requested, CC BY-NC 4.0, bulk copying prohibited). The EPA site (https://epa.gov.sl/laws-regulations/) carries only a 31-page EPA 'Abridged Version' of the Act (May 2025), which is not law text and is not stored. parliament.gov.sl did not open (self-signed certificate).",
+    "status": "link only"
+  },
+  {
+    "id": "sl-ods-regulations-2025",
+    "title": "Protection of the Ozone Layer and Substances Covered in the Montreal Protocol Regulations, 2025 (Statutory Instrument 4 of 2025)",
+    "official_url": "https://epa.gov.sl/wp-content/uploads/2025/11/ODS-REGULATION-2025.pdf",
+    "citation": "Statutory Instrument No. 4 of 2025, made under s.77 of the Environment Protection Agency Act, 2022, Supplement to the Sierra Leone Gazette Vol. CLXVI, No. 26 of 3 April 2025",
+    "in_force": "2025-04-03",
+    "evidence": "Gazette supplement text: \"STATUTORY INSTRUMENT 4 of 2025 Published 3rd April, 2025\" and \"GAZETTE NO. 26 OF 3RD APRIL, 2025\" (PDF at https://epa.gov.sl/download/3901/, opened 2026-11-03). The regulations carry no commencement clause (the signature line reads \"MADE this day of February, 2025\"), so 3 April 2025 is the publication date, used as in_force; no page states a commencement date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SL-EPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Implements the EPA Act (sl-epa-act-2022). Family F2 is a judgement: the instrument is an ozone-layer and HFC import and equipment regulation; reg. 9 prohibits import of high global warming potential hydrofluorocarbon refrigerants. Text is the Gazette supplement printed two sheets to a page; the record keeps the marginal side notes in line with the text because pdftotext cannot separate them. English only; Sierra Leone has no other official legislative language. The Copyright Act 2011 s.7(b) read supports storing it (row SL-EPA-ADOPTED).",
+    "status": "stored"
+  },
+  {
+    "id": "sl-consumer-protection-act-2020",
+    "title": "Consumer Protection Act, 2020 (Act 7 of 2020)",
+    "official_url": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng%402020-09-03",
+    "citation": "Consumer Protection Act, 2020 (Act No. 7 of 2020), Supplement to the Sierra Leone Gazette No. 58 of 3 September 2020",
+    "in_force": null,
+    "evidence": "Gazette supplement PDF (https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03/source.pdf, opened 2026-11-03): signed 25 August 2020, passed in Parliament 6 August 2020, printed in Gazette No. 58 of 3 September 2020; the margin reads \"Date of commencement\" with the date left blank. No official page found states a commencement date.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SL-SIERRALII-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella consumer law, not an environmental-claims law: s.51 prohibits misleading or deceptive conduct and s.61 false or misleading representations about goods or services; neither names environmental claims. Text link only: the only copy found is on SierraLII (permission requested). Searched for an English official copy on epa.gov.sl and parliament.gov.sl (the latter did not open).",
+    "status": "link only"
+  }
+]

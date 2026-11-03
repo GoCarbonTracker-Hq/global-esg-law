@@ -10610,6 +10610,1316 @@
   }
  },
  {
+  "id": "tz-bot-sustainability-reporting-guidelines-2025-pdf-hash",
+  "source_id": "TZ-BOT-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-bot-sustainability-reporting-guidelines-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bot.go.tz/Publications/Acts%2C%20Regulations%2C%20Circulars%2C%20Guidelines/Guidelines/en/2025013119524653.pdf",
+  "params": {
+   "second_route": "https://www.bot.go.tz/BankSupervision/Regulations (browser; the Bank server answers HEAD with 404, so the watcher hashes the GET body of the PDF, and the listing page changes on every request)"
+  }
+ },
+ {
+  "id": "tz-bot-climate-risk-guidelines-2025-pdf-hash",
+  "source_id": "TZ-BOT-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-bot-climate-risk-guidelines-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bot.go.tz/Publications/Acts%2C%20Regulations%2C%20Circulars%2C%20Guidelines/Guidelines/en/2025013119505259.pdf",
+  "params": {
+   "second_route": "https://www.bot.go.tz/BankSupervision/Regulations (browser; the Bank server answers HEAD with 404, so the watcher hashes the GET body of the PDF)"
+  }
+ },
+ {
+  "id": "tz-ema-cap191-oag-page",
+  "source_id": "TZ-OAG-CONSOLIDATED",
+  "iso2": "TZ",
+  "instrument": "tz-ema-cap191",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/295",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/revised-acts (browser; DataTables list of revised acts, the page lists amending legislation when OAG adds it)"
+  }
+ },
+ {
+  "id": "tz-ema-amendment-2025-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-ema-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/acts/327",
+  "params": {
+   "second_route": "https://www.parliament.go.tz/acts (browser; Parliament list of Acts, the file is also served at polis.bunge.go.tz, whose server omits its intermediate certificate)"
+  }
+ },
+ {
+  "id": "tz-carbon-trading-regs-2022-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-carbon-trading-regs-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/legislation/934",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/legislation (browser; DataTables list of subsidiary legislation, 4653 rows on 2026-11-03)"
+  }
+ },
+ {
+  "id": "tz-carbon-trading-amendment-2023-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-carbon-trading-amendment-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/legislation/2566",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/legislation (browser; look for further amendments of GN 636 of 2022)"
+  }
+ },
+ {
+  "id": "tz-fca-cap285-oag-page",
+  "source_id": "TZ-OAG-CONSOLIDATED",
+  "iso2": "TZ",
+  "instrument": "tz-fca-cap285",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/389",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/acts/269 (browser; the Fair Competition (Amendment) Act, 2024 page, the first act after the Revised Edition)"
+  }
+ },
+ {
+  "id": "tz-cmsa-sustainability-bonds-regs-2025-pdf-head",
+  "source_id": "TZ-CMSA-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-cmsa-sustainability-bonds-regs-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cmsa.go.tz/uploads/publications/en-1748586307-CMSA%20CORPORATE%20AND%20SUBNATIONAL%20SUSTAINABILITY%20BONDS%20REGULATIONS.pdf",
+  "params": {
+   "second_route": "https://www.cmsa.go.tz/publications/12 (browser; list of CMSA regulations)"
+  }
+ },
+ {
+  "id": "cu-res-106-2025-carbon-market-gaceta-page",
+  "source_id": "CU-GACETA-ADOPTED",
+  "iso2": "CU",
+  "instrument": "cu-res-106-2025-carbon-market",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.cu/",
+  "params": {
+   "second_route": "https://www.gacetaoficial.gob.cu/ (browser; the site reset the TLS connection to scripts and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "cu-ley-150-2022-environment-gaceta-page",
+  "source_id": "CU-GACETA-ADOPTED",
+  "iso2": "CU",
+  "instrument": "cu-ley-150-2022-environment",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.cu/",
+  "params": {
+   "second_route": "https://www.gacetaoficial.gob.cu/ (browser; the site reset the TLS connection to scripts and to headless Chromium from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sv-nrp-53-bcr-pdf",
+  "source_id": "SV-BCR-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-nrp-53",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf"
+ },
+ {
+  "id": "sv-lma-233-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lma-233",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/24985"
+ },
+ {
+  "id": "sv-lma-reglamento-general-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lma-reglamento-general",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/25452"
+ },
+ {
+  "id": "sv-lpc-776-diario-oficial",
+  "source_id": "SV-DIARIOOFICIAL-ADOPTED",
+  "iso2": "SV",
+  "instrument": "sv-lpc-776",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariooficial.gob.sv/seleccion/26733"
+ },
+ {
+  "id": "ve-organic-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-organic-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf",
+  "params": {}
+ },
+ {
+  "id": "ve-penal-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-penal-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf",
+  "params": {}
+ },
+ {
+  "id": "gt-ley-marco-cambio-climatico-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-marco-cambio-climatico",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
+ },
+ {
+  "id": "gt-ley-proteccion-mejoramiento-medio-ambiente-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-proteccion-mejoramiento-medio-ambiente",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/1986/gtdcx00681986.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
+ },
+ {
+  "id": "gt-ley-proteccion-consumidor-usuario-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-proteccion-consumidor-usuario",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2003/gtdcx06-2003.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
+ },
+ {
+  "id": "ag-epma-2019-laws-gov-ag-annual",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-epma-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.ag/wp-content/uploads/2025/03/No.-10-of-2019-Environmental-Protection-and-Management-2019.pdf",
+  "params": {
+   "second_route": "https://laws.gov.ag/annual/?variable=2019 (browser; the Acts of 2019 list; amending Acts appear in the list of their own year)"
+  }
+ },
+ {
+  "id": "ag-consumer-protection-act-2025-laws-gov-ag-annual",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-consumer-protection-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.ag/wp-content/uploads/2025/11/No.-7-of-2025-Consumer-Protection-Act-2025.pdf",
+  "params": {
+   "second_route": "https://laws.gov.ag/annual/?variable=2025 (browser; the Acts of 2025 list; amending Acts appear in the list of their own year)"
+  }
+ },
+ {
+  "id": "ag-eccb-climate-risk-standard-enforced-page",
+  "source_id": "AG-ECCB-ADOPTED",
+  "iso2": "AG",
+  "instrument": "ag-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200; the page lists the enforced prudential standards)"
+  }
+ },
+ {
+  "id": "terms-ag-lawsgov-adopted",
+  "source_id": "AG-LAWSGOV-ADOPTED",
+  "iso2": "AG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://laws.gov.ag/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://laws.gov.ag/ (browser; the home page carries the footer and is the only place a terms text would appear; the page also lists Latest Notices, so the hash can drift)"
+  }
+ },
+ {
+  "id": "terms-ag-eccb-adopted",
+  "source_id": "AG-ECCB-ADOPTED",
+  "iso2": "AG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/disclaimer-policy",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/disclaimer-policy (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200)"
+  }
+ },
+ {
+  "id": "do-decreto-541-20-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-541-20",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://presidencia.gob.do//sites/default/files/decree/2021-12/EXP_00114313.pdf",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-decreto-348-21-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-348-21",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3398204",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-225-20-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-225-20",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3397471",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-98-25-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-98-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3404074",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-36-26-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-36-26",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3406027",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-57-07-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-57-07",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3347058",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-115-15-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-115-15",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3378290",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-64-00-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-64-00",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3334621",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-decreto-601-08-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-decreto-601-08",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3354746",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "do-ley-358-05-cjpe-pdf",
+  "source_id": "DO-CJPE-ADOPTED",
+  "iso2": "DO",
+  "instrument": "do-ley-358-05",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://consultoria.gov.do/api/document/3339542",
+  "params": {
+   "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
+  }
+ },
+ {
+  "id": "bz-climate-change-carbon-market-act-2026-public-records",
+  "source_id": "BZ-NATIONALASSEMBLY-ADOPTED",
+  "iso2": "BZ",
+  "instrument": "bz-climate-change-carbon-market-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://doc.belizeparliament.bz/api/docs?filters%5BTitle%5D%5B%24containsi%5D=Carbon%20Market&fields%5B0%5D=Title&fields%5B1%5D=Date&fields%5B2%5D=updatedAt&populate=PDF",
+  "params": {}
+ },
+ {
+  "id": "bz-environmental-protection-act-agm-pdf",
+  "source_id": "BZ-AGM-CONSOLIDATED",
+  "iso2": "BZ",
+  "instrument": "bz-environmental-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "sr-milieu-raamwet-dna-page",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-milieu-raamwet",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/milieu-raamwet/",
+  "params": {}
+ },
+ {
+  "id": "sr-milieu-raamwet-wijziging-2024-dna-pdf",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-milieu-raamwet-wijziging-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf",
+  "params": {}
+ },
+ {
+  "id": "sr-paris-agreement-act-2018-dna-page",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-paris-agreement-act-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/overeenkomsten-verdragen/paris-agreement/",
+  "params": {}
+ },
+ {
+  "id": "gy-epa-1996-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-epa-1996",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/6032-11_of_1996_environmental_protection_act_1996.pdf"
+ },
+ {
+  "id": "gy-epa-water-quality-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-water-quality-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-hazardous-waste-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-hazardous-waste-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-noise-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-noise-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-air-quality-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-air-quality-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-authorisation-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-authorisation-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-local-content-act-2021-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-local-content-act-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/22943-act_no._18_of_2021.pdf"
+ },
+ {
+  "id": "gy-consumer-affairs-act-2011-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-consumer-affairs-act-2011",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/3634-act_13_of_2011.pdf"
+ },
+ {
+  "id": "gy-oil-pollution-act-2025-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-oil-pollution-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/24368-24494-act_no._6_of_2025.pdf"
+ },
+ {
+  "id": "bs-climate-change-carbon-market-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-carbon-market-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2022/2022-0015/2022-0015_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-climate-change-carbon-market-act-amendment-2026-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-carbon-market-act-amendment-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/AMENDING/2026/2026-0002A/2026-0002A.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-emissions-reduction-initiatives-regulations-2025-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-emissions-reduction-initiatives-regulations-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2025/2025-0024/2025-0024_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-carbon-credit-trading-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-carbon-credit-trading-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2022/2022-0036/2022-0036_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0040/2019-0040_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-act-amendment-2024-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-act-amendment-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/AMENDING/2024/2024-0006A/2024-0006A.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-spot-fines-regulations-2024-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-spot-fines-regulations-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2024/2024-0078/2024-0078_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-consumer-protection-act-2023-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-consumer-protection-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2023/2023-0049/2023-0049_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-climate-change-environmental-advisory-unit-act-2026-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-environmental-advisory-unit-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2026/2026-0003/2026-0003_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "sl-epa-act-2022-sierralii-page",
+  "source_id": "SL-SIERRALII-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-epa-act-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15",
+  "params": {
+   "second_route": "https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15 (browser; plain curl answered 200 on 2026-11-03, the site asks for few requests and no bulk scraping)"
+  }
+ },
+ {
+  "id": "sl-ods-regulations-2025-epa-pdf-head",
+  "source_id": "SL-EPA-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-ods-regulations-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.sl/wp-content/uploads/2025/11/ODS-REGULATION-2025.pdf",
+  "params": {
+   "second_route": "https://epa.gov.sl/laws-regulations/ (browser; the page lists the ODS Regulation download)"
+  }
+ },
+ {
+  "id": "sl-consumer-protection-act-2020-sierralii-page",
+  "source_id": "SL-SIERRALII-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-consumer-protection-act-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03",
+  "params": {
+   "second_route": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03 (browser; plain curl answered 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "py-ley-7190-2023-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-7190-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono"
+ },
+ {
+  "id": "py-ley-5875-2017-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-5875-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/8712/ley-n-5875-nacional-de-cambio-climatico"
+ },
+ {
+  "id": "py-ley-294-1993-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-294-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/2374/ley-n-294-evaluacion-de-impacto-ambiental"
+ },
+ {
+  "id": "py-ley-1561-2000-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-1561-2000",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/1645/ley-n-1561-crea-el-sistema-nacional-del-ambiente-el-consejo-nacional-del-ambiente-y-la-secretaria-del-ambiente"
+ },
+ {
+  "id": "py-ley-1334-1998-bacn-page",
+  "source_id": "PY-BACN-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-ley-1334-1998",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario"
+ },
+ {
+  "id": "py-decreto-3369-2025-mades-decretos",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-3369-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/decretos/"
+ },
+ {
+  "id": "py-decreto-453-2013-mades-pdf",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-453-2013",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf"
+ },
+ {
+  "id": "py-decreto-954-2013-mades-pdf",
+  "source_id": "PY-MADES-ADOPTED",
+  "iso2": "PY",
+  "instrument": "py-decreto-954-2013",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-954-modifica-algunos-articulos-decreto-453.pdf"
+ },
+ {
+  "id": "gd-eccb-climate-risk-standard-enforced-page",
+  "source_id": "GD-ECCB-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; the cloud address and plain scripts get 403 Forbidden; the page lists the enforced prudential standards, find the climate standard by title)"
+  }
+ },
+ {
+  "id": "gd-ppdca-2016-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-ppdca-2016",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-No.-23-of-2016-Physical-Planning-and-Development-Control-Act.pdf"
+ },
+ {
+  "id": "gd-ppdca-amendment-2017-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-ppdca-amendment-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-23-of-2017-Physical-Planning-and-Development-Control-Amendment.pdf"
+ },
+ {
+  "id": "gd-consumer-protection-act-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-consumer-protection-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-2-of-2018-Consumer-Protection-Act.pdf"
+ },
+ {
+  "id": "gd-consumer-protection-amendment-2020-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-consumer-protection-amendment-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/10/Act-No.-5-of-2020-Consumer-Protection-Amendment-Act-2020-1.pdf"
+ },
+ {
+  "id": "gd-nbwc-act-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-9-of-2018-Non-Biodegradable-Waste-Control.pdf"
+ },
+ {
+  "id": "gd-nbwc-eps-order-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-eps-order-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-18-of-2018-Non-Biodegradable-Waste-Control-Expanded-Polystyrene-Order-1.pdf"
+ },
+ {
+  "id": "gd-nbwc-plastic-bags-order-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-plastic-bags-order-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-19-of-2018-Non-Biodegradable-Waste-Control-Plastic-Bags-Order.pdf"
+ },
+ {
+  "id": "gd-nbwc-plastic-food-products-order-2019-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-plastic-food-products-order-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-30-of-2019-Non-Biodegradable-Waste-Control-Plastic-Food-Products-Order-2019.pdf"
+ },
+ {
+  "id": "terms-gd-parliament-adopted",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/07/Act-No.-21-of-2011-Copyright-Act.pdf",
+  "change": "terms_changed"
+ },
+ {
+  "id": "dm-climate-resilience-act-2018-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-climate-resilience-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2018/Climate%20Resilience%20Act%202018.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-climate-resilience-extension-order-2021-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-climate-resilience-extension-order-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2021/Climate%20Resilience%20%28Extension%20of%20duration%29%20Order%2C%202021%20sro%2044%20of%202021.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-physical-planning-act-2002-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-physical-planning-act-2002",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/2002/act5-2002.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-environmental-health-services-act-1997-portal-pdf",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-environmental-health-services-act-1997",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://dominica.gov.dm/laws/1997/act08-1997.pdf",
+  "params": {
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "dm-eccb-climate-risk-standard-enforced-page",
+  "source_id": "DM-ECCB-ADOPTED",
+  "iso2": "DM",
+  "instrument": "dm-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; HTTP 403 to curl and to headless Chromium from the cloud address on 2026-11-03, so the watcher will log a failure from there; open it from the laptop and look for a revised climate standard or a new effective date)"
+  }
+ },
+ {
+  "id": "terms-dm-gov-adopted",
+  "source_id": "DM-GOV-ADOPTED",
+  "iso2": "DM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://dominica.gov.dm/privacy-copyright-notices",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
+  }
+ },
+ {
+  "id": "hn-juntec-res-006-01-2025-juntec-pdf-head",
+  "source_id": "HN-JUNTEC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-juntec-res-006-01-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf",
+  "params": {
+   "second_route": "https://juntec.org.hn/2025/09/01/resolucion-jtnca-006-01-2025/ (browser; juntec.org.hn answers 406 to the User-Agent Mozilla/5.0 and 200 to curl and to the watcher User-Agent)"
+  }
+ },
+ {
+  "id": "hn-ley-cambio-climatico-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-ley-cambio-climatico",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley%20de%20Cambio%20Climatico.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley_general_del_ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-reglamento-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga-reglamento",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Reglamento_General_de_la_Ley_del_Ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-reglamento-art112-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga-reglamento-art112",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Reforma__regl-ley_general_del_ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-carbono-forestal-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-carbono-forestal",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Decreto-54-2023.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-ley-proteccion-consumidor-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-ley-proteccion-consumidor",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley%20de%20Protecci%C3%B3n%20al%20Consumidor.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-norma-ras-cnbs-search-riesgo-ambiental",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-norma-ras",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Home/Search?text=riesgo%20ambiental",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-norma-ras-art15-cnbs-pdf",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-norma-ras-art15",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/2603/021-2023%20REFORMA%20ARTICULA%20NORMA%20RIESGO.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-circ-008-2024-cnbs-pdf",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-circ-008-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
+  "params": {}
+ },
+ {
+  "id": "ni-decreto-15-2021-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-decreto-15-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-217-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-217",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-647-lagaceta-ediciones",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-647",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/ediciones?page=1&search=",
+  "params": {
+   "note": "latest gazette issues list; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-842-siboif-marco-juridico",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-842",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.siboif.gob.ni/supervision/intendencia-bancos/marco-juridico?combine=842",
+  "params": {
+   "note": "SIBOIF legal framework table filtered on '842' (lists Ley 1061, the 2021 reform of Ley 842); stable between requests"
+  }
+ },
+ {
+  "id": "bo-asfi-rse-reglamento-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-rse-reglamento",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/node/401",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNSF (browser; the RNSF viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-rmv-green-bonds-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-rmv-green-bonds",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-revision-externa-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-revision-externa",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-asfi-fondo-inversion-sostenible-asfi-page",
+  "source_id": "BO-ASFI-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-asfi-fondo-inversion-sostenible",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asfi.gob.bo/pb/boletin-trimestral-actualizacion-y-emision-normativa",
+  "params": {
+   "second_route": "https://wiki-normativa.asfi.gob.bo/es/normativa/RNMV (browser; the RNMV viewer and servdmzw.asfi.gob.bo are blocked from the cloud address)"
+  }
+ },
+ {
+  "id": "bo-ley-300-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-300",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/300 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-1696-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-1696",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1696",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1696 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-1333-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-1333",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1333",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1333 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-24176-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-24176",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=24176",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/24176 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-3549-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-3549",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=3549",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3549 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ds-5264-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ds-5264",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=5264",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/5264 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-835-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-835",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=835",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/835 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "bo-ley-453-gaceta-number-search",
+  "source_id": "BO-GACETA-ADOPTED",
+  "iso2": "BO",
+  "instrument": "bo-ley-453",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=453",
+  "params": {
+   "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/453 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+  }
+ },
+ {
+  "id": "lr-eo-155-carbon-markets-authority-executive-orders-page",
+  "source_id": "LR-EXECMANSION-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-eo-155-carbon-markets-authority",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://emansion.gov.lr/publications/document-type/executive-orders",
+  "params": {}
+ },
+ {
+  "id": "lr-epa-act-2002-pdf",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epa-act-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf",
+  "params": {}
+ },
+ {
+  "id": "lr-epml-2002-laws-page",
+  "source_id": "LR-EPA-ADOPTED",
+  "iso2": "LR",
+  "instrument": "lr-epml-2002",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.lr/laws-regulations/",
+  "params": {}
+ },
+ {
+  "id": "pa-jtc-res-012-2025-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-jtc-res-012-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/storage/gacetas/2026/03/30480/GacetaNo_30480_20260311.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-sbp-acuerdo-011-2022-sbp-pdf",
+  "source_id": "PA-SBP-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-sbp-acuerdo-011-2022",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.superbancos.gob.pa/documentos/leyes_y_regulaciones/acuerdos/2022/Acuerdo_11-2022.pdf",
+  "params": {}
+ },
+ {
+  "id": "pa-ley-41-1998-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-41-1998",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/28131_A/GacetaNo_28131a_20161004.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-100-2020-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-100-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29138_C/GacetaNo_29138c_20201020.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-de-142-2021-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-de-142-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/29430_C/GacetaNo_29430c_20211209.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
+  "id": "pa-ley-45-2007-gaceta-pdf",
+  "source_id": "PA-GACETA-ADOPTED",
+  "iso2": "PA",
+  "instrument": "pa-ley-45-2007",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gacetaoficial.gob.pa/pdfTemp/25914/GacetaNo_25914_20071107.pdf",
+  "params": {
+   "second_route": "same URL in a browser (Gaceta Oficial answers scripts with an Imperva Incapsula stub; open the home page https://www.gacetaoficial.gob.pa/ in headless Chromium first, then fetch the PDF with the browser session's cookies, see SOURCES.md ## Panama)"
+  }
+ },
+ {
   "id": "ht-environment-decree-2005-mde-citing-pdf-head",
   "source_id": "HT-MDE-ADOPTED",
   "iso2": "HT",
