@@ -7397,6 +7397,354 @@ Haiti's official languages are French and Haitian Creole; laws are published in 
 - BRH circular on climate risk or sustainability: none in the circulars list (`?act=circulaires`). Haiti has no stock exchange.
 - General consumer protection act: none found; Circulaire 131 is the financial-sector instrument.
 
+## Tunisia
+
+Rows `TN-IORT-ADOPTED` and `TN-IORT-TRANSLATION` are `pass` on the statute basis; `TN-LEGISLATION-CONSOLIDATED`, `TN-CMF-ADOPTED`, `TN-BVMT-ADOPTED` and `TN-MEDD-ADOPTED` are `permission requested`. Run on 2026-11-03 (GEL-12-02, restart).
+
+### Statute test
+
+Loi n° 94-36 du 24 février 1994 relative à la propriété littéraire et artistique. The brief names art. 1 of Loi n° 2009-33 as the rewrite that kept the exclusion; on the IORT page of Loi n° 2009-33 (2026-11-03) it is Art. 2 that does it: Art. 1 of the 2009 law replaces the eleventh and fourteenth tirets of Art. 1 of the 1994 law (and other articles), and Art. 2 adds "une dernière paragraphe" to Art. 1. The first session read only the 1994 gazette scan, which has no such paragraph, and wrongly concluded there is no exclusion. Quoted from the IORT French page of Loi 2009-33: "La protection au titre du droit d’auteur s’étend aux expressions et ne couvre pas : - les idées, procédures, méthodes de fonctionnement ou concepts mathématiques, en tant que tels. - les textes officiels d’ordre législatif, administratif ou judiciaire et leurs traductions officielles." The Arabic page reads "تشمل الحماية الممنوحة بموجب حق المؤلف أوجه التعبير ولا تشمل : ... ـ النصوص الرسمية ذات الصبغة التشريعية أو الإدارية أو القضائية وترجمتها الرسمية،" (it adds a third tiret on daily news that the French page does not carry). The IORT footer "جميع الحقوق محفوظة" does not override this for the text of the law. Not checked: a later amendment of Art. 1 (legislation.tn is blocked from the cloud address). So the Arabic texts pass as official texts and the IORT French edition as an official translation; whether an IORT French edition is an "official translation" in the statute's sense is the reading Varun decides.
+
+### Browser recipe (IORT, the gazette publisher)
+
+`curl` over https is reset, and over http returns only a redirect stub:
+
+```
+$ curl -sS -A 'Mozilla/5.0' https://www.iort.gov.tn/
+curl: (35) Recv failure: Connection reset by peer
+$ curl -sS -A 'Mozilla/5.0' -w '%{http_code} %{size_download} %{content_type}\n' http://www.iort.gov.tn/
+<meta http-equiv="Refresh" content="0; url=http://www.iort.gov.tn/WD120AWP/WD120Awp.exe/CONNECT/SITEIORT">  200 159 text/html
+```
+
+The target is a WebDev session site (the session id `CTX_...` and a request counter `SYNC_...` sit in the URL), so no URL reaches a text twice. Playwright (headless Chromium, default launch, user agent `Mozilla/5.0`) works over http. Steps: open `http://www.iort.gov.tn/`, wait 2.5 s, click the text "الرائد الرسمي الأخير", wait, click "البحث عن النص", wait; select the year in `#A8` by label, type the number in `#A6`, select the category in `#A9` by label (قانون, مرسوم, أمر, قرار, رإي); run `_JSL(_PAGE_,'A40','_self','','')` (search button, no id) and wait 4 s; then set `_PAGE_.A4.value=1` (first result row) and run `_JSL` with `A17` and target `_blank` (Arabic full text, opens a page), `A16` and `_blank` (French edition, opens a page), or `A7` and `_self` (PDF download). The text is read from the element `#tzA21` as `innerText` (paragraphs and headings as line breaks, tags stripped, nothing reworded); `fetched_sha256` of an HTML record is the sha256 of `page.content()` of that page, the HTML as received after the site's scripts ran.
+
+Run on 2026-11-03 for Loi n° 2018-35 (year 2018, number 35, category قانون): Arabic page `200 text/html; charset=utf-8`, 25229 bytes, 2618 characters of text; French page 30975 bytes, 4231 characters; PDF `Loi2018_35Arabe.pdf` `200 application/pdf` 284054 bytes (a gazette page excerpt, not used). A second fetch returned the same text but a different HTML hash (the page carries a per-session token), so `fetched_sha256` of the HTML records is not reproducible; the text is. The PDFs reproduced byte for byte: `JournalArabe0521988.pdf` and `JournalArabe0831992.pdf` gave the same sha256 on two fetches. Browser-fetched records (list for GEL-03 retro C4): all six Tunisia records.
+
+The first session reported a cut-off of IORT HTML pages at about 12,000 characters; it did not reproduce. Loi 2009-33 (Arabic 35046 characters, French 50341) and Loi 2015-36 (Arabic 50209, French 73640) came back complete, each ending with the signature of the President.
+
+### Stored
+
+| Instrument | Language | Row | Record date | Source |
+|---|---|---|---|---|
+| `tn-loi-2018-35` | ar, fr | adopted, translation | 2018-06-19 (JORT n° 49, no commencement clause) | IORT HTML |
+| `tn-loi-2015-36` | ar, fr | adopted, translation | 2015-09-29 (JORT n° 77-78, no commencement clause) | IORT HTML |
+| `tn-loi-1988-91` | ar | adopted | 1988-08-02 (JORT n° 52, no commencement clause) | OCR of the gazette PDF |
+| `tn-loi-1992-117` | ar | adopted | 1993-06-01 (Art. 50) | OCR of the gazette PDF |
+
+### OCR
+
+The 1988 and 1992 laws are served only as image PDFs of the whole gazette issue (`pdftotext -layout` returns no text: 32 and 16 bytes). The files were downloaded with the recipe above, `apt-get install tesseract-ocr tesseract-ocr-ara tesseract-ocr-fra` (tesseract 5.3.4), `pdftoppm -r 200 -gray file.pdf p`, then `tesseract <crop> <out> -l ara --psm 6` on each column crop (`OMP_THREAD_LIMIT=1`). The pages hold two columns and several laws, so each page was cropped into its right and left column (x split at 816 px of 1640), reading order right column then left column, and only the crops that hold the law were kept: 1988 gazette p. 1087 left column from the title down (PDF page 5) and p. 1088 (PDF page 6) to the signature; 1992 gazette pp. 1583 to 1586 (PDF pages 3 to 6), p. 1586 left column down to the signature (the next law starts below). Crop edges came from tesseract word positions of the page footer and the title. The OCR output is stored as is: nothing corrected, reflowed or reworded by hand, recognition errors included (for example "ياسم" for "باسم", "القصل" for "الفصل"); `fetched_url` and `fetched_sha256` are those of the original PDF, and the record has `"extraction": "ocr"`. The checks run on the branch are in the PR.
+
+### Languages
+
+Arabic is the authentic language and is stored under `TN-IORT-ADOPTED`. French is the IORT French edition ("deux langues" link of the text search, action `A16` above), stored under `TN-IORT-TRANSLATION` as the brief says; it exists for recent texts only: the French link of the 1988 and 1992 laws returns the Arabic page, so no French record exists for them. No government English text was found: IORT's "English" link is a site language switch, and legislation.tn, the other place one would look, is blocked from the cloud address.
+
+### Link-only and not stored
+
+- `TN-LEGISLATION-CONSOLIDATED` (legislation.tn): `curl: (35) Recv failure: Connection reset by peer` over https (HTTP 503 over http), HTTP 502 from headless Chromium; blocked from the cloud address, so no terms read and no consolidation stored. The orchestrator can read https://legislation.tn/ from the laptop.
+- `TN-CMF-ADOPTED` (cmf.tn answers curl `200`, 65962 bytes): footer "Copyright © 2026 Conseil du Marché Financier", no reuse grant, permission requested. No CMF instrument is in scope; a CMF règlement is approved by arrêté and published in the JORT, which is the route IORT would serve.
+- `TN-BVMT-ADOPTED` (tunis-stockexchange.com answers curl `200`, 181135 bytes; bvmt.com.tn redirects there): footer "2026 © La Bourse de Tunis", permission requested; the Guide de reporting ESG 2021 was not found on the site; no instrument in scope.
+- `TN-MEDD-ADOPTED` (environnement.gov.tn answers curl `200`, 218946 bytes): footer "Tous droits réservés 2022", permission requested; the Guide méthodologique et de reporting RSE PDF (`https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`, 200, 7321207 bytes, `application/pdf`) is voluntary guidance, not an enacted instrument, so it has no scope entry and nothing is stored.
+- Not in scope.json: Décret gouvernemental n° 2018-263 du 12 mars 2018 (governance of the Paris Agreement work, family F7, register row only). No binding GHG reporting or carbon pricing instrument was found on IORT; legislation.tn could not be opened to confirm. No application decree of Loi 2018-35 was located (the IORT advanced search could not be driven), so none is in scope.
+
+## North Korea
+
+GEL-17-06, run on 2026-11-03. Both licence rows (`KP-NAENARA-ADOPTED`, `KP-KCNA-ADOPTED`) are `permission requested`, so there is no `pass` row and no proven fetch. Nothing is stored. Every host below is blocked from the cloud address; the orchestrator can read them from the laptop.
+
+Requests made (curl, then headless Chromium with Playwright `page.goto(url, {timeout: 30000})`; Chromium got the same proxy answer):
+
+```
+curl -sS -m 25 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' http://www.naenara.com.kp
+```
+
+Returned `503 114 text/plain`; the body is "upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout" (sha256 of body plus status line `719f467bca080bedf90ff26e725031a62a758a4841e577fb6992f0647bced3e9`, the same on four runs). `http://www.kcna.kp` returned the same `503 114 text/plain`; `http://www.kcna.kp/en` and `http://www.ryongnamsan.edu.kp` returned `503 48`; `http://www.rodong.rep.kp` returned `503 114`; `https://www.naenara.com.kp`, `https://naenara.com.kp` and `https://www.kcna.kp` returned no answer (curl exit, code 000). Chromium: naenara 503 (265 bytes), kcna 503 (199 bytes).
+
+South Korean copies, read for titles only and nothing stored:
+
+- `https://www.nk-law.kr/law/%ED%99%98%EA%B2%BD%EB%B3%B4%ED%98%B8%EB%B2%95`: `403 203 text/plain; charset=utf-8`, "Automated collection is not permitted. Terms: https://www.nk-law.kr/terms#copyright". Not retried with a browser, because the terms forbid automated collection. The title and the 2021-04-30 version date come from the existing register row.
+- `https://www.unilaw.go.kr` (Ministry of Unification): connection reset by peer (curl exit 35) on three tries.
+
+Web search (titles and decree numbers only, no text taken): climate-laws.org and the LSE Grantham Institute copy of the Air Pollution Control Act (adopted 2012-07-11, Decree No. 2520, amended by Decree No. 3292 of 2013-07-24); lawandnorthkorea.com on the Copyright Law (2012 text keeps an exclusion for state administration documents "as long as they have no commercial purpose"; article number not confirmed, no state copy found).
+
+### Languages
+
+Korean is the only official language. No government English translation was found; the state hosts did not answer, so none was looked for there beyond that. No translation row was made.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| `kp-environmental-protection-law` | Row `KP-NAENARA-ADOPTED`, permission requested: the portal could not be opened and no state host serves law text. |
+| `kp-air-pollution-control-act` | Same row and reason. |
+
+Dropped: the Law on Protection of Consumer Rights (2015, reported). A web search found no DPRK law of that title, so no register or scope entry was made. No carbon market instrument was found; `register.csv` has an F7 row saying so.
+
+## Syria
+
+Run 2026-11-03 from the cloud address. One `pass` row: SY-MOLAE-ADOPTED (Ministry of Local Administration and Environment), verdict `pass` on the statute (Legislative Decree 62 of 2013, Art. 4(a)(3), no copyright in laws and official documents), not on site terms: molae.gov.sy has no terms page and its footer says all rights reserved 2025.
+
+### SY-MOLAE-ADOPTED
+
+```
+curl -sS -o l12.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://molae.gov.sy/wp-content/uploads/2025/11/قانون-12-بشأن-حماية-البيئة.pdf"
+200 227143 application/pdf
+```
+
+Instrument `sy-environment-protection-law-12-2012`. The URL is linked from https://molae.gov.sy/law (HTTP 200, 58628 bytes, text/html). A second fetch gave the same bytes: sha256 `09cb4340e41a96076e86f6e54b8015ceb34e740be1de06a34ff834b117b291fa`, which is `fetched_sha256` (hash of the PDF as received). The file name carries an upload month (`2025/11`), so the URL is found from the law page, not guessed.
+
+Text extraction: `pdftotext -layout l12.pdf -` returns text in which every lam-alef ligature has its letters in reverse order (`اآلتية` for `الآتية`, `ميالدي` for `ميلادي`), so it is not stored. OCR was used instead: `pdftoppm -r 300 -png l12.pdf pg` then `tesseract pg-NN.png pg-NN -l ara` for the 11 pages (tesseract 5.3.4, `ara` language pack, installed with apt in the session). Blank lines were dropped and runs of spaces collapsed; nothing else was changed. The record carries `"extraction": "ocr"`. The OCR reads letters well and Arabic-Indic digits badly (the issue date `29-3-2012` comes out as `7٠١1١7-5-759`), so the digits in the stored text are unreliable; the issue date in scope.json was read from the pdftotext output, whose digits are correct.
+
+### Languages
+
+Arabic only (`ar`), the language the Ministry serves. No row for English: molae.gov.sy has an English switch (https://molae.gov.sy/ with `pll_language`) but the law page serves only the Arabic PDF; no Syrian state host publishes a government English translation of the law.
+
+### Link only, no statute stored
+
+- `Law No. 50 of 2002` (register row only, repealed by Art. 24 of Law 12 of 2012): no state host serves the text.
+- `Legislative Decree No. 8 of 2021` (consumer protection, register row only): no state host serving it was reached (mintrade.gov.sy answers `CONNECT tunnel failed, response 502`).
+- Climate framework act, carbon market instrument, financial-market sustainability rule: none found. Searched: the law, regulation, circular and board-decision lists of dse.sy and scfms.sy, the legislation lists of cb.gov.sy (laws and decrees, decisions, circulars), the law and circular lists of molae.gov.sy, and the web. Keywords tried: استدامة، مناخ، بيئة، المسؤولية الاجتماعية. Only a list-page keyword scan was done for dse.sy, scfms.sy and cb.gov.sy, not a read of each linked PDF.
+- moj.gov.sy answers (WordPress news and circulars site; its only terms-like page is a privacy policy, no reuse terms); it serves no law texts that were found, so no row.
+- The People's Assembly, the Prime Ministry gazette and SANA were not reachable (see the Blocked list in the PR).
+
+## Myanmar
+
+Run on 2026-11-03 from the cloud address. No Myanmar state host answered, so no row passes, no text is stored, and every instrument is link only. Rows `MM-MLIS-ADOPTED`, `MM-DICA-TRANSLATION` and `MM-MONREC-ADOPTED` are `permission requested` (terms pages not opened, fingerprint not computed).
+
+No fetch request is proven for any row. Requests tried and answers:
+
+- `curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.mlis.gov.mm` gave `curl: (35) Recv failure: Connection reset by peer`. Same for `https://mlis.gov.mm`, `https://www.dica.gov.mm`, `https://dica.gov.mm`, `https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf`, `https://www.monrec.gov.mm`, `https://monrec.gov.mm`, `https://www.secm.gov.mm`, `https://secm.gov.mm`, `https://www.ecd.gov.mm`. The proxy status logged `tunnel closed (code 1006) after 3s to 12s` for each.
+- `https://www.moecc.gov.mm`: `curl: (56) CONNECT tunnel failed, response 502`.
+- `http://www.mlis.gov.mm`: `503 114 text/plain`, body `upstream connect error or disconnect/reset before headers`.
+- Browser recipe: Playwright chromium `page.goto(url)` on mlis, dica, monrec and secm (www hosts) returned `502`, a 174-byte proxy page. The WebFetch route answered `503` for the same five URLs.
+
+### Languages
+
+Not reached: no Burmese or English text was served by any state host.
+
+### Hosts that answered
+
+- `https://www.cbm.gov.mm/`: `200 207316 text/html; charset=UTF-8` (Central Bank of Myanmar). The home page and its menus list laws and AML/CFT rules, the Financial Institutions Law 2016 and the Central Bank of Myanmar Law 2013; no sustainability, climate or ESG instrument was found in the menu or home page text. No row, as nothing in scope.
+- `https://ysx-mm.com`: `200 158418 text/html; charset=UTF-8`. A company, not an official law source; not used.
+- `https://myanmar.un.org/sites/default/files/2019-11/MyanmarClimateChangePolicy_2019.pdf`: `200 875189 application/pdf`. The National Climate Change Policy 2019, a UN-hosted copy; policy, F7, register row only.
+
+### Link only
+
+- `mm-investment-rules-2017`: row `MM-DICA-TRANSLATION` permission requested; DICA host reset the connection.
+- `mm-environmental-conservation-law-2012`, `mm-environmental-conservation-rules-2014`: row `MM-MONREC-ADOPTED` permission requested; MONREC host reset the connection.
+- `mm-consumer-protection-law-2019`: row `MM-MLIS-ADOPTED` permission requested; MLIS host reset the connection.
+
+Copyright Law 2019 s. 16(c) to (f) is not quoted anywhere: its text was not opened from an official page.
+
+## Vanuatu
+
+Run on 2026-11-03 (GEL-17-10). No licence row for Vanuatu is `pass`, so nothing is stored in `records/VU/` and there is no proven fetch for a stored record. Rows added, all `permission requested`: `VU-PARLIAMENT-ADOPTED` (parliament.gov.vu terms: "You must not: Republish material ... Reproduce, duplicate or copy material"), `VU-MOCCA-ADOPTED` (mocca.gov.vu states no reuse terms), `VU-DEPC-CONSOLIDATED` (environment.gov.vu: "All rights reserved"), `VU-VANIPO-CONSOLIDATED` (vanipo.gov.vu: "All Rights Reserved"), `VU-PACLII-ADOPTED` (site blocked). The Copyright and Related Rights Act 2000 (No. 42 of 2000), Consolidated Edition 2018, was read for a statute exception: s.7 excludes ideas, procedures, methods and mere data from protection and nothing else; no section removes legislation or official texts or mentions translations, so no row rests on a statute.
+
+Pages that do open from the cloud address (the files an operator can read, none stored). Files were fetched to confirm they are readable PDFs; `pdftotext -layout file.pdf -` returned clean English text for all three (checked for mojibake: none), so OCR was not needed.
+
+```
+curl -sS -L -o met.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mocca.gov.vu/images/publications/legislation/VMGD/Meteorology%2C%20Geological%20Hazards%20and%20Climate%20Change%20Act%202016.pdf'
+```
+
+Returned `200 357537 application/pdf` (Meteorology, Geological Hazards and Climate Change Act 2016, cover: "Assent: 26/01/2017 Commencement: 01/02/2017"). The Environmental Protection and Conservation Act PDF (`.../legislation/DEPC/Legislation/Environmental%20Protection%20and%20Conservation%20Act%20PC_Act_2002_%28consolidated_version_incl_2011_amends%29.pdf`) returned `200 312017 application/pdf`; the EIA Regulations PDF (`.../DEPC/Subsidiary%20Legislations/Environmental%20Impact%20Assessment%20%28EIA%29%20Regulations%20%28Consolidated%29.pdf`) returned `200 124879 application/pdf`. The VANIPO Copyright Act PDF (`https://vanipo.gov.vu/images/pdf/CopyrightRelated_Rights_Act_No_42_of_2000.pdf`) returned `200 350870 application/pdf`; the backslash path the page links (`/images\pdf\...`) returns 404, the forward-slash form works.
+
+### Languages
+
+Bislama, English and French are official. The Acts are enacted in English and French, but every Parliament Acts link redirects to PacLII, and mocca.gov.vu, environment.gov.vu and vanipo.gov.vu serve English PDFs only for the instruments in scope. No government English translation row exists. Nothing is stored in any language.
+
+### Link only
+
+- `vu-meteorology-geohazards-climate-change-act`: row `VU-MOCCA-ADOPTED`, `permission requested` (no reuse terms on mocca.gov.vu).
+- `vu-environmental-protection-conservation-act`, `vu-eia-regulations`: row `VU-DEPC-CONSOLIDATED`, `permission requested` ("All rights reserved").
+- `vu-price-monitoring-consumer-affairs-act`: row `VU-PACLII-ADOPTED`, `permission requested`; the Act is served only by PacLII and no request worked (below).
+- Not in scope: Vanuatu National Climate Change and Disaster Risk Reduction Policy 2022-2030 and the carbon market framework are `register.csv` rows with family F7. No carbon-market regulation was found on any page opened.
+
+### Blocked from the cloud address
+
+- `https://www.paclii.org/vu/` and every paclii.org page tried (`/paclii/copyright.html`, `/vu/about.html`, `https://rms.paclii.org/vu/legis/num_act/pmacaa2023360`): `curl -sS -A 'Mozilla/5.0' -I https://www.paclii.org/vu/` answered `HTTP/2 403`, `cf-mitigated: challenge`, `server: cloudflare`, 5339 bytes `text/html`. Headless Chromium (Playwright `chromium.launch()`, `page.goto(url, {waitUntil:'networkidle'})`, waited 4 s) answered 403 with the Cloudflare page "Sorry, you have been blocked". Blocked from the cloud address; read it from the laptop.
+- `https://pacliirms.austlii.edu.au/vu/legis/num_act/pmacaa2023360.pdf`, `https://pacliirms.austlii.edu.au/vu/`, `https://web.archive.org/web/2026/http://www.paclii.org/paclii/copyright.html`: `curl: (35) Recv failure: Connection reset by peer`.
+- `https://www.rbv.gov.vu` and `https://rbv.gov.vu`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`, also with `--cacert /root/.ccr/ca-bundle.crt`. Not opened; certificate checks were not disabled. Whether the Reserve Bank has a climate or sustainability guideline is unknown.
+
+## Palestine
+
+Checked 2026-11-03 from the cloud address. No Palestine row passes, so nothing is stored and no fetch recipe for a `pass` row exists. The PMA circular below is the one request proven for a scope instrument (it is link only).
+
+### Requests proven (link only, nothing stored)
+
+PMA circular list (row `PS-PMA-ADOPTED`, permission requested). `curl` gets a JavaScript shell for every path:
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.pma.ps/banking-circulars
+200 6300 text/html; charset=utf-8
+```
+
+The same 6300 bytes come back for `/circulars`, `/ar/circulars` and `/terms-of-use`. Browser recipe (Playwright, headless Chromium, `waitUntil: 'domcontentloaded'`, then a 12 s wait for the list to render; `networkidle` never settles on this site): the rendered page shows 497 files and one link per circular to a PDF in the site's storage bucket. Clicking the year `2025` lists the 2025 circulars. Circular 87/2025 is `رقم (87) مخرجات الاجتماع الأول لفريق عمل التمويل المستدام`. The terms page `https://www.pma.ps/terms-of-use` renders the same way and its text is the fingerprint source for the row.
+
+The PDF itself is served to `curl`:
+
+```
+curl -sS -o 87.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf
+200 534388 application/pdf
+```
+
+sha256 of the PDF as received: `b97299978bb2a255215895ac6a5a5f5157d96fc0409f8b1ed9a3eeba66073b48`. `pdftotext -layout` returns mojibake for it (legacy font encoding, scanned page with an invisible text layer), so it fails the mojibake check; OCR would be needed. `tesseract` and `ocrmypdf` are not installed in the session. The circular was read by rendering page 1 with `pdftoppm -r 80`.
+
+### Languages
+
+Arabic is the language of every Palestinian instrument found. No government English text was found: the PMA circulars page has an English switch that was not opened, and no English gazette exists. Nothing is stored in any language.
+
+### Link-only instruments and why
+
+- `ps-pma-circular-87-2025`: row `PS-PMA-ADOPTED` is permission requested (terms: all content owned by the Authority, reuse needs prior permission, information may be used for non-commercial purposes with the source named).
+
+### Rows that are not pass
+
+- `PS-MUQTAFI-ADOPTED` (Al-Muqtafi, Birzeit University Institute of Law): university host. `http://muqtafi.birzeit.edu/terms.aspx` gives a personal licence for registered users only, no derived products; https resets the connection, http answers 200. Its terms add that the legislative texts are not in themselves the Institute's property, but that does not release the database.
+- `PS-OGB-ADOPTED` (gazette): see Blocked.
+
+### Blocked from the cloud address
+
+- `https://ogb.gov.ps/` and `https://www.ogb.gov.ps/`: curl exit 35 (connection reset by peer); Chromium `upstream request failed`. `http://ogb.gov.ps` and `http://www.ogb.gov.ps`: 503, 114 bytes, text/plain.
+- `https://www.lab.pna.ps/`: 301 to `https://ogb.gov.ps/`. `http://www.lab.pna.ps/`: 200, 11.8 KB, a 5-second self-reloading JavaScript loader ("One moment, please...").
+- `http://www.environment.pna.ps` and `http://www.palestinecabinet.gov.ps`: 503, 114 bytes, text/plain (upstream connect error, connection timeout). `https://www.moj.pna.ps`: curl exit 35.
+- No DNS or connection for: dft.pna.ps, dft.gov.ps, alwaqa.ps, gazette.ps, diwan.pna.ps, eqa.ps, environment.gov.ps, moj.gov.ps.
+- `https://www.pex.ps`: 200, 434 bytes, a JavaScript shell; not rendered.
+
+## Turkmenistan
+
+GEL-17-05, run 2026-11-03. One row passes, `TM-MEJLIS-CONSOLIDATED` (Mejlis of Turkmenistan, https://mejlis.gov.tm, statute basis: Law on Copyright and Related Rights Art. 7 removes official legislative texts and their official translations from copyright; the site has no terms page, so the pass rests on the statute alone and the footer line "all rights reserved" is read as a general notice). Eight instruments are stored, each in Turkmen (`tk`) and Russian (`ru`), 16 records. No government English text was found, so there is no translation row. Records are plain `curl` fetches, no browser recipe.
+
+### Row TM-MEJLIS-CONSOLIDATED
+
+The law pages are `https://mejlis.gov.tm/single-law/<n>?lang=<ru|tm|en>`; `<n>` is the Mejlis law number (the Laws list at `https://mejlis.gov.tm/laws?lang=ru` shows nine laws per page and its paging is JavaScript, so the numbers were found by requesting `single-law/1` to `single-law/399` and reading the title on each page). Use HTTP/1.1. With the default HTTP/2, curl intermittently ends a transfer early and the page arrives truncated (the first of these answers came back as `curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR` with a short body):
+
+```
+curl -sS -A 'Mozilla/5.0' -o h2.html -w '%{http_code} %{size_download}\n' 'https://mejlis.gov.tm/single-law/154?lang=ru'
+```
+
+Four runs returned `200 80880` (with the curl 92 error), `200 142312` (with the curl 92 error), `200 262500`, `200 262500`; the complete page is 262500 bytes. Over HTTP/1.1 a cold request can also arrive short (`200 64214` on the first request for `single-law/209` and on first requests for several others); a short body does not end with `</html>`, so repeat the request until it does. The watcher turns the same cut into an `IncompleteRead` failure, not a changed page.
+
+Proven request, Law on Protection of Atmospheric Air (`tm-air-protection-law`), Russian:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-ru.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=ru'
+```
+
+Returned `200 179430 text/html; charset=UTF-8`, sha256 `08b3f47787b7628f29a7cb379141b95150417e2406c7bc934222a83a4df53c30`. A second fetch of every stored page gave the same bytes (all 16 hashes identical on two fetches), so `fetched_sha256` reproduces; no per-request token is in the pages. `Mozilla/5.0` and `global-esg-law-watch/1` as `User-Agent` both answered 200.
+
+Text extraction (every record): the law text is the `<div class="text_content">` element, taken whole. `<script>` and `<style>` dropped, `p`, `div`, `br`, headings, list items and table rows turned into line breaks, non-breaking spaces and runs of spaces collapsed to one space, empty lines dropped, nothing reworded. The text starts at the "ЗАКОН ТУРКМЕНИСТАНА" (ru) or "TÜRKMENISTANYŇ KANUNY" (tk) heading and ends with the signing place, date and number. No mojibake: both pages are UTF-8 and Cyrillic, Turkmen letters such as ň, ý, ü and ş read correctly in the output sampled.
+
+Each law has one record per language, `kind` consolidated, `source_id` `TM-MEJLIS-CONSOLIDATED`. The site serves only the current text, headed "with amendments" through the last amending law, and no earlier versions, so there is no second version to store. `in_force` of each record is the signing date of that last amending law; the page states no publication or commencement date (the laws enter into force on official publication). File name `<in_force>-consolidated-<lang>.json`.
+
+| Instrument | Mejlis n | `in_force` | `fetched_sha256` ru | `fetched_sha256` tk |
+|---|---|---|---|---|
+| `tm-air-protection-law` | 92 | 2021-11-13 | `08b3f47787b7628f29a7cb379141b95150417e2406c7bc934222a83a4df53c30` | `0589fba7314fa2555e7f167209c4ef9c4ddc569da6f24cd368dd826e4bfa7961` |
+| `tm-nature-protection-law` | 154 | 2017-03-20 | `2f7f380aaf08755ac436d5be066e878f6a325beb915584989faa5f69ddee31f8` | `b010051f23dabb85ae228aaa81f85b668c437f6d0075b20578f59da99cb086f1` |
+| `tm-ecological-audit-law` | 41 | 2023-11-25 | `9e40f22941257b11fd2e1fa9705c6d3b214b26a265efff02c80237e8082ffafb` | `e1304de4b45f1632562f82a682fdcbf5cd65c836f4b482e6bdb57116e13e7874` |
+| `tm-ecological-expertise-law` | 167 | 2023-11-25 | `2d02744e4ec33ff565316cb6eea936433f1ecf36730e4185064f76859f1635a1` | `b821c307ae452b19dcf9fa839bb49cced083fd07534179ad323f09b6ab1837fd` |
+| `tm-ecological-safety-law` | 73 | 2023-11-25 | `0fd80a1f2196972f43c609490dc4489df6c8ce4825cad1f1aeb34c188c4c8b75` | `3de8421a77b2881ef1c24ee9f0335d127cd4149c4bc4fb8a3087692819880cdf` |
+| `tm-ecological-information-law` | 32 | 2023-11-25 | `23d407394ae56c20a52b01b4f377a2618e7bd8b41ed20b0d53531108dabd28bf` | `9fefe70a6d120f99a76c83300becc5b33c695367bb42c9b39e937ecd1a287fb3` |
+| `tm-consumer-rights-law` | 176 | 2018-12-01 | `342a1a9de4a520edd6f6d1f7aa7b13463187e31e273d6c4cdaf39e7540650a92` | `715f8cf78d0a60bb7a868fbc662bc56e9cd855390d9a1588536cb0e0d6fe94d8` |
+| `tm-advertising-law` | 99 | 2018-06-09 | `e133acf11c73b9d8548f8be707bcde94b36e498b196a6653c34434ed3ba50fbf` | `ad17b2457d3b9a4b36e0ab610b8846ca6c9cd1bbd12d60b470cf23aab0a918f3` |
+
+### Languages
+
+Turkmen is the state language; the Mejlis edition in Russian is marked "*Перевод с государственного языка Туркменистана" and is stored under the same row. Turkmen request (same law):
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-tm.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=tm'
+```
+
+Returned `200 131401 text/html; charset=UTF-8`, sha256 `0589fba7314fa2555e7f167209c4ef9c4ddc569da6f24cd368dd826e4bfa7961`. The URL language code is `tm`; the record `language` is the ISO 639-1 code `tk`.
+
+English: the same URL with `lang=en`:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-en.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=en'
+```
+
+Returned `200 45474 text/html; charset=UTF-8` and the page has no `text_content` element: it is the empty site shell. The same holds for the 13 law pages opened in English on 2026-11-03. No English translation is stored, no translation row exists. English was also looked for on cbt.tm (`en/index.html`, a bank page, no laws) and minjust.gov.tm (`/en`, 6625 bytes, no laws); nothing found.
+
+Terms source (statute): the Mejlis edition of the Law on Copyright and Related Rights:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 209-ru.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/209?lang=ru'
+```
+
+Returned `200 224188 text/html; charset=UTF-8`, sha256 `b738d7e3ad67a139e1a124a0823f267716f5c84653d0047571ea67a1120e33f3` (the `terms_fingerprint`). That page holds Article 7.
+
+### Watchers
+
+One `page_hash` watcher per instrument on the Russian page (`tm-<instrument>-mejlis-page`, tier `consolidation_site`) and one terms watcher on the copyright-law page (`tm-terms-mejlis-consolidated`, change `terms_changed`, tier `regulator_page`). `page_hash` is used because the Mejlis pages list no version dates. A page hash changes when the Mejlis site changes anything on the page, not only the law text. The `tools/watch.py --dry-run --source TM-MEJLIS-CONSOLIDATED` run baselined the eight instrument pages and failed on the terms page with `IncompleteRead(125936 bytes read)` (the short transfer above); the terms watcher failed in each of four dry runs. No `second_route` is set: no page answered with a challenge or a 403.
+
+### Link only and not used
+
+No scope instrument is link only; all eight are stored. Candidates and hosts that gave no instrument:
+
+- Climate framework act: none among the Mejlis law titles (single-law 1 to 399); register row F7.
+- National Strategy of Turkmenistan on Climate Change: `https://www.mfa.gov.tm/ru/news/1615` answered `200` (39736 bytes) and is a news item dated 24 September 2019 that links no document; F7 register row only, no scope entry.
+- minjust.gov.tm: `200`, 30485 bytes on `/`, a Next.js application; the "Hukuk maglumatlar merkezi" (legal information centre) entry describes a fee-based information service, no law database or law texts found on the pages opened; no row.
+- cbt.tm: `200`, 30158 bytes; the pages `tm/laws/laws.html` and `tm/duzumler.html` and the `ru` and `en` home pages contain no sustainability, climate or green-finance string; no instrument.
+- mep.gov.tm, www.mep.gov.tm and tse.gov.tm: the proxy answered `curl: (56) CONNECT tunnel failed, response 502` (no route found; the brief says mep.gov.tm has no DNS record). The Ashgabat Stock Exchange host was not found (tse.gov.tm is the only one tried).
+
+## Papua New Guinea
+
+Checked 2026-11-03 from the cloud address. Three publisher sites answer `curl` and carry law text: CCDA (ccda.gov.pg), SCPNG (www.scpng.gov.pg) and ICCC (iccc.gov.pg). Every PDF used for a stored record is a scan with no text layer, so `pdftotext` returns nothing and the stored text is OCR output (see below). No browser recipe was needed for the stored records.
+
+### PG-CCDA-ADOPTED (pass, statute: PNG Copyright and Neighbouring Rights Act 2000 s. 5(b))
+
+```
+curl -sS -A 'Mozilla/5.0' -o NDC-Regulations-2022.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ccda.gov.pg/wp-content/uploads/2026/02/NDC-Regulations-2022.pdf
+```
+Returned `200 338581 application/pdf` for pg-ndc-regulation-2022, sha256 `d255a9f0a0a7569f...` (full value in the record), reproduced on a second fetch. The Carbon Markets Regulation is the same request with `Carbon-Market-Regulation.pdf` (`200 876202 application/pdf`). The file URLs come from the WordPress media list `https://ccda.gov.pg/wp-json/wp/v2/media?search=regulation` and from the pages `https://ccda.gov.pg/eywa-resources/<slug>/`.
+
+`pdftotext -layout NDC-Regulations-2022.pdf -` returns 8 characters (empty); `pdfimages -list` shows one CCITT image per page. OCR: `pdftoppm -r 300 -gray -png file.pdf p` then `tesseract p-N.png p-N -l eng` for each page (tesseract 5.3.4 from apt, `apt-get install tesseract-ocr`; ocrmypdf was installed with pip and not used). Page texts are joined in page order, blank lines dropped, trailing spaces trimmed; nothing else is changed. The record carries `"extraction": "ocr"`, `fetched_url` and `fetched_sha256` of the original PDF. `tools/check_corpus.py` and `tools/publish_gate.py` both accepted the extra key (2738 records checked, gate exit 0). Handwritten dates are garbled in the OCR text; the in-force dates in scope.json were read from the page images.
+
+### PG-CCDA-CONSOLIDATED (pass, statute; link only, no record)
+
+```
+curl -sS -A 'Mozilla/5.0' -o act.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ccda.gov.pg/wp-content/uploads/2026/02/Climate-Change-Management-Act-2015_consolidated.pdf
+```
+Returned `200 869318 application/pdf` (72 pages, Word-generated, text layer present, `pdftotext -layout` gives 183,283 characters without mojibake). Not stored: the file has no dates and no official page states the gazette commencement date.
+
+### PG-SCPNG-ADOPTED (pass, statute)
+
+```
+curl -sS -A 'Mozilla/5.0' -o g1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.scpng.gov.pg/wp-content/uploads/2026/07/GUIDELINES-2026_001-GREEN-BOND-GUIDELINES.pdf
+```
+Returned `200 698169 application/pdf` for pg-scpng-green-bond-guidelines-2026 (Social `200 703046`, Sustainability `200 610735`, both `application/pdf`). The list page is `https://www.scpng.gov.pg/laws/guidelines/`. Same scanned-PDF OCR recipe as above (`pdftotext` returns 8 to 10 characters, empty).
+
+### PG-ICCC-CONSOLIDATED (pass, statute; link only, no record)
+
+```
+curl -sS -A 'Mozilla/5.0' -o ad.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://iccc.gov.pg/wp-content/uploads/2023/07/Commercial-Advertisement-Protection-of-the-Public-Act-1976.pdf
+```
+Returned `200 20071 application/pdf` (text layer present). Listed on `https://iccc.gov.pg/about-us-2/`.
+
+### Languages
+
+English is the only language of the Acts and instruments found. Tok Pisin and Hiri Motu are official languages, but no Tok Pisin or Hiri Motu text of any instrument was found on CCDA, SCPNG, ICCC, Parliament or CEPA pages, and Tok Pisin has no ISO 639-1 code, so none could be stored. No government English translation is needed. No translation row exists.
+
+### Statute exception source
+
+```
+curl -sS -A 'Mozilla/5.0' -o act-detail.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.wipo.int/wipolex/en/legislation/details/3427
+```
+Returned `200 87813 text/html`; the page holds a signed link to the Act PDF (`wipolex-res.wipo.int/.../pg006en_1.pdf`, signed URL, `200 105678 application/pdf` on 2026-11-03; sha256 `f8fbd679619938222c3ccc39fa2a551ef14264a342178e8759805b3cb9a33fef`). s. 5(b) read in `pdftotext -layout` output. PacLII and the AustLII mirror could not be opened.
+
+### Link only
+
+- pg-climate-change-management-act-2015: row PG-CCDA-CONSOLIDATED passes; no date to put on a record (no official page states the commencement notice or the 2021 and 2023 amendment dates).
+- pg-commercial-advertisement-act-1976: row PG-ICCC-CONSOLIDATED passes; commencement not stated, certification date blank in the PDF.
+- Not in scope: Independent Consumer and Competition Commission Act 2002 (read in full, no misleading-conduct provision), Environment Act 2000 (no official text found: cepa.gov.pg is an empty JavaScript shell), Bank of PNG rules (site blocked), PNGX listing rules (company, terms not read).
+
+### Blocked from the cloud address
+
+- `http://www.paclii.org/` and `/pg/legis/consol_act/caara2000402/`: HTTP 403, `cf-mitigated: challenge`, 5.3 KB; headless Chromium never reached networkidle in 45 s.
+- `https://www.bankpng.gov.pg/`: HTTP 403, Cloudflare challenge, 5.4 KB; Chromium timed out the same way.
+- `https://pacliirms.austlii.edu.au/pg/legis/num_act/canra2000341.pdf`: curl connection reset, Chromium 502.
+- `https://www.parliament.gov.pg/uploads/acts/15A-19.pdf`: 404 after redirect to parliament.gov.pg.
+- `https://cepa.gov.pg/` (any path) and `https://www.pngx.com.pg/`: HTTP 200 but only a JavaScript shell, no law or terms text for curl.
+
 ## Brunei
 
 GEL-16-08, run 2026-11-03. Four licence rows added: `BN-AGC-ADOPTED` and `BN-AGC-CONSOLIDATED` (Attorney General's Chambers, `permission requested`), `BN-CCS-ADOPTED` (Brunei Climate Change Secretariat, `permission requested`, terms not read) and `BN-BDCB-ADOPTED` (Brunei Darussalam Central Bank, `pass` on its terms of use, no record stored under it). No Brunei record is stored: every scope instrument is link only. No translation row was added: no government English translation exists, because the Laws of Brunei are published in English.
