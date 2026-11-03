@@ -11349,5 +11349,99 @@
   "kind": "http_head",
   "tier": "regulator_page",
   "url": "https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-954-modifica-algunos-articulos-decreto-453.pdf"
+ },
+ {
+  "id": "gd-eccb-climate-risk-standard-enforced-page",
+  "source_id": "GD-ECCB-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; the cloud address and plain scripts get 403 Forbidden; the page lists the enforced prudential standards, find the climate standard by title)"
+  }
+ },
+ {
+  "id": "gd-ppdca-2016-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-ppdca-2016",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-No.-23-of-2016-Physical-Planning-and-Development-Control-Act.pdf"
+ },
+ {
+  "id": "gd-ppdca-amendment-2017-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-ppdca-amendment-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-23-of-2017-Physical-Planning-and-Development-Control-Amendment.pdf"
+ },
+ {
+  "id": "gd-consumer-protection-act-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-consumer-protection-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-2-of-2018-Consumer-Protection-Act.pdf"
+ },
+ {
+  "id": "gd-consumer-protection-amendment-2020-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-consumer-protection-amendment-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/10/Act-No.-5-of-2020-Consumer-Protection-Amendment-Act-2020-1.pdf"
+ },
+ {
+  "id": "gd-nbwc-act-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-9-of-2018-Non-Biodegradable-Waste-Control.pdf"
+ },
+ {
+  "id": "gd-nbwc-eps-order-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-eps-order-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-18-of-2018-Non-Biodegradable-Waste-Control-Expanded-Polystyrene-Order-1.pdf"
+ },
+ {
+  "id": "gd-nbwc-plastic-bags-order-2018-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-plastic-bags-order-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-19-of-2018-Non-Biodegradable-Waste-Control-Plastic-Bags-Order.pdf"
+ },
+ {
+  "id": "gd-nbwc-plastic-food-products-order-2019-pdf-head",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "gd-nbwc-plastic-food-products-order-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/08/S.R.O.-30-of-2019-Non-Biodegradable-Waste-Control-Plastic-Food-Products-Order-2019.pdf"
+ },
+ {
+  "id": "terms-gd-parliament-adopted",
+  "source_id": "GD-PARLIAMENT-ADOPTED",
+  "iso2": "GD",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://grenadaparliament.gd/wp-content/uploads/2021/07/Act-No.-21-of-2011-Copyright-Act.pdf",
+  "change": "terms_changed"
  }
 ]
