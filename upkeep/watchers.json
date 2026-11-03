@@ -10348,6 +10348,66 @@
   }
  },
  {
+  "id": "ml-loi-2023-041-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-loi-2023-041",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2023/mali-jo-2023-22.pdf",
+  "params": {}
+ },
+ {
+  "id": "ml-decret-2024-0397-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-decret-2024-0397",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2024/mali-jo-2024-16.pdf",
+  "params": {}
+ },
+ {
+  "id": "ml-loi-2021-032-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-loi-2021-032",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2021/mali-jo-2021-16.pdf",
+  "params": {}
+ },
+ {
+  "id": "ml-ordonnance-2025-018-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-ordonnance-2025-018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2025/mali-jo-2025-11-2.pdf",
+  "params": {}
+ },
+ {
+  "id": "ml-decret-2018-0991-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-decret-2018-0991",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2018/mali-jo-2018-51.pdf",
+  "params": {}
+ },
+ {
+  "id": "ml-loi-2015-036-sgg-pdf-head",
+  "source_id": "ML-SGG-ADOPTED",
+  "iso2": "ML",
+  "instrument": "ml-loi-2015-036",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://sgg-mali.ml/JO/2015/mali-jo-2015-35.pdf",
+  "params": {}
+ },
+ {
   "id": "hn-juntec-res-006-01-2025-juntec-pdf-head",
   "source_id": "HN-JUNTEC-ADOPTED",
   "iso2": "HN",
