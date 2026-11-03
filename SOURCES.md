@@ -4661,3 +4661,61 @@ Law on Protection against Negative Impacts of Climate Change 73/19 (repealed by 
 
 - https://www.gov.me : `curl: (35) Recv failure: Connection reset by peer`; headless Chromium: `502 upstream request failed`.
 - https://wapi.gov.me/download/d8a08068-3f2b-488a-833a-321d3481abd9?version=1.0 : same (reset by curl, 502 in Chromium). The orchestrator can read both from the laptop.
+
+## Belarus
+
+Run on 2026-11-03 (GEL-11-06). One row, `BY-PRAVO-ADOPTED` (National Legal Internet Portal, pravo.by): `pass`, basis statute (Law No. 262-Z of 17 May 2011 on Copyright and Related Rights, Art. 7 para. 1: official documents, "а также их официальные переводы", are not objects of copyright; the brief named Art. 8, which in the published text is "Возникновение авторского права"). pravo.by has no terms-of-use page; its footer only asks for an active hyperlink, so the row rests on the statute. The portal serves each act once, as published, in Russian; the amended text exists only on the paid ЭТАЛОН-ONLINE, so the records are adopted texts and no consolidation is stored. No browser was needed: curl with a `Mozilla/5.0` User-Agent reaches every pravo.by page used.
+
+Row `BY-PRAVO-ADOPTED`, an act published after 2012-07-01 (Council of Ministers Resolution No. 137 of 2021, portal code `C22100137`). The card gives the PDF link (`Скачать`); the timestamp in the file name is the publication date:
+
+```
+curl -sS -A 'Mozilla/5.0' -o card137.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://pravo.by/document/?guid=12551&p0=C22100137'
+curl -sS -A 'Mozilla/5.0' -o res137.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://pravo.by/upload/docs/op/C22100137_1615410000.pdf'
+```
+
+Returned `200 8429 text/html; charset=UTF-8` and `200 154615 application/pdf`. A second fetch of the PDF gave the same sha256 (`89f0745adc1c651966a854c7d33263a619f97c125d4bc7d1b523dfa9d6ce0586`, the value in the record), so the hash reproduces. The other three post-2012 acts (`C22400130`, `H12300294`, `H12300295`) were fetched the same way (`/upload/docs/op/C22400130_1709586000.pdf` 200 378298; `H12300294_1690232400.pdf` 200 400445; `H12300295_1689973200.pdf` 200 197958, all `application/pdf`) and reproduced their hashes on a second fetch. The portal code is `C2` plus the two-digit year and five-digit number for resolutions of the Council of Ministers, `H1` plus year and number for laws; a wrong code or the `guid` of another page type redirects (302) to a 404 page, and `guid=12551` shows the official publication card while `guid=3961` shows the register card with the date of entry into force and the list of amending acts.
+
+Acts published before 2012-07-01 (Law No. 2-Z of 2008 on Protection of Atmospheric Air, `H10800002`): the register card (`https://pravo.by/document/?guid=3961&p0=H10800002`, `200 16638 text/html; charset=UTF-8`) links the PDF of the printed register issue pages ("Открыть текст (PDF)"):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o air2008.pdf -w '%{http_code} %{size_download} %{content_type} %{url_effective}\n' 'https://www.pravo.by/pdf/2009-4/2009-4(010-032).pdf'
+```
+
+Returned `200 212226 application/pdf https://pravo.by/pdf/2009-4/2009-4(010-032).pdf` (the `www.` host answers 301 to the bare host; `fetched_url` is the final URL). sha256 `915b6f2a9453fe2e6ca95034e8809dd1d028ea93e0cacf683a46c3822210499d`, the same on a second fetch. The Law on Advertising No. 225-Z of 2007 is in `https://pravo.by/pdf/2007-119/2007-119(012-056).pdf` (`200 356068 application/pdf`, sha256 `33cf67fc2b2f1860765a3522b1b73b773520203facbb665ad84dee2789c0b064`, reproduced); that file holds acts 220-Z to 227-Z, so the record text is the cut from the heading of 225-Z to the signature line after Art. 35, and `fetched_sha256` is the hash of the whole issue file.
+
+Text extraction: all six files are PDFs with a text layer. Command: `pdftotext -layout <file> -` (poppler), then every run of spaces or tabs collapsed to one space, each line stripped, empty lines dropped; page headers ("Национальный правовой Интернет-портал Республики Беларусь, <date>, <number>" or the register page rule) and hyphenated line ends stay as the PDF has them. Mojibake check: each stored text was tested for U+FFFD and for the share of Cyrillic among letters (above 90 percent); the six texts read as correct Russian on inspection of their first and last lines.
+
+Terms page and statute (fingerprint inputs): `curl -sS -A 'Mozilla/5.0' -o terms.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://pravo.by/ofitsialnoe-opublikovanie/obshchie-svedeniya-o-poryadke-ofitsialnogo-opublikovaniya-i-obnarodovaniya-pravovykh-aktov/'` returned `200 48554 text/html; charset=UTF-8`; the Copyright Law issue PDF `curl -sS -L -A 'Mozilla/5.0' -o copyright2011.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.pravo.by/pdf/2011-60/2011-60(015-082).pdf'` returned `200 518682 application/pdf` (Art. 7 at the quoted place in the row).
+
+### Stored (fetched 2026-11-03)
+
+| Instrument | Records (ru) | Dated |
+|---|---|---|
+| `by-res-137-2021` | 1 | 2021-03-12 |
+| `by-res-130-2024` | 1 | 2024-04-26 |
+| `by-law-294-z-2023` | 1 (restates the whole Law on Environmental Protection) | 2024-04-26 |
+| `by-law-295-z-2023` | 1 | 2024-01-23 |
+| `by-law-air-protection-2008` | 1 | 2009-07-10 (computed from publication 2009-01-09 plus six months, Art. 47) |
+| `by-law-advertising-2007` | 1 | 2007-11-22 (computed from publication 2007-05-21 plus six months, Art. 35) |
+
+### Languages
+
+Belarusian and Russian are both state languages. pravo.by serves one file per act, in Russian; none of the six cards opened links a Belarusian file, and the page on official publication says Belarusian law texts are printed in the newspaper Звязда, which is not an official free source and has no row. So there is no `be` record. English: `https://law.by` is the English face of the same portal (`200`, 16343 bytes); it lists the Business databank (Russian texts) and says the full databank is "only in Russian and Belarusian language". No government English translation of any scope instrument was found there, on bcse.by, or on the Ministry (blocked, below), so there is no translation row and no `en` record.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `by-law-consumer-rights-2002` (Law 90-Z of 2002) | https://pravo.by/document/?guid=3961&p0=H10200090 | Row passes, but the register card links no text file (card `200 20837 text/html; charset=UTF-8`; no "Открыть текст (PDF)"); the amended text is only on paid ЭТАЛОН-ONLINE. |
+| `by-law-env-protection-1992` (Law 1982-XII of 1992) | https://pravo.by/document/?guid=3961&p0=V19201982 | Same: no text file on the card. The restated text of 2023 is stored as `by-law-294-z-2023`. |
+
+F7 (register row only): the Concept of State Green Bonds of the Republic of Belarus, hosted on https://www.bcse.by/markets/green_finance/concept_green_finance (`200 45583`; PDF `https://www.bcse.by/fileManager/files/green_finance/koncepcia_green_bonds_RB_fce1.pdf` `200 415696 application/pdf`). The bcse.by footer allows reuse only with written consent of the exchange, so no row was added and nothing is stored. bcse.by lists no sustainability disclosure or listing rule in its site map (`https://www.bcse.by/SiteMap/Map`, `200 109571`), which is the whole check for an exchange ESG rule.
+
+### Blocked from the cloud address
+
+- https://minpriroda.gov.by/ and https://www.minpriroda.gov.by/: `curl: (28) Operation timed out after 20002 milliseconds with 0 bytes received`. Blocked from the cloud address: https://minpriroda.gov.by . pravo.by carries the Resolution text instead.
+- https://www.nbrb.by/, https://nbrb.by/ and https://www.nbrb.by/engl/: `curl: (35) Recv failure: Connection reset by peer` on the first run and `curl: (28) Operation timed out` on the second. Blocked from the cloud address: https://www.nbrb.by . No National Bank sustainability disclosure rule could be checked; a reader with a Belarus address should open it.
+- https://minfin.gov.by/: `curl: (35) Recv failure: Connection reset by peer`. https://www.mintrade.gov.by/: no answer (curl status 000, 0 bytes). Neither was needed.
+- https://pravo.by/document/?guid=3961&p0=C22100137 (and the other cards used by the watchers) answer `403` (63 bytes) to `tools/watch.py`'s User-Agent (`global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)`) and `200` to curl with `Mozilla/5.0` or with `global-esg-law-watch/1` alone, so the site refuses User-Agents that carry a github.com address. `python3 tools/watch.py --dry-run --source BY-PRAVO-ADOPTED` therefore printed eight `watch_failed ... HTTP 403` rows; each watcher carries a `params.second_route` (the card in a browser). `tools/watch.py` was not edited.
+
+Watchers: one `page_hash` per scope instrument on the register card (`guid=3961`), tier `consolidation_site`, which changes when an amending act is added to the card (two fetches a second apart gave the same hash). `date_list` does not fit: the card dates are `DD.MM.YYYY`, which the date regex of `tools/watch.py` does not accept.

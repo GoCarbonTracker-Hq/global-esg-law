@@ -8235,5 +8235,101 @@
   "params": {
    "note": "sha256 of the act PDF as published; reproduced byte for byte on two requests on 2026-11-03. The act page https://www.sluzbenilist.me/propisi/384500 carries a per-request csrf token in its HTML, so it cannot be hashed; open it in a browser to see the Status field (Va\u017ee\u0107i or Neva\u017ee\u0107i) and the lists of amending and implementing acts."
   }
+ },
+ {
+  "id": "by-res-137-2021-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-res-137-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=C22100137",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22100137 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-res-130-2024-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-res-130-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=C22400130",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22400130 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-294-z-2023-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-294-z-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H12300294",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300294 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-295-z-2023-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-295-z-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H12300295",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300295 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-air-protection-2008-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-air-protection-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10800002",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10800002 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-advertising-2007-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-advertising-2007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10700225",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10700225 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-consumer-rights-2002-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-consumer-rights-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=H10200090",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10200090 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
+ },
+ {
+  "id": "by-law-env-protection-1992-card",
+  "source_id": "BY-PRAVO-ADOPTED",
+  "iso2": "BY",
+  "instrument": "by-law-env-protection-1992",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://pravo.by/document/?guid=3961&p0=V19201982",
+  "params": {
+   "second_route": "https://pravo.by/document/?guid=3961&p0=V19201982 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+  }
  }
 ]
