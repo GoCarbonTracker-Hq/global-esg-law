@@ -11002,5 +11002,25 @@
   "params": {
    "second_route": "https://consultoria.gov.do/consultas/legislacion (browser; the search endpoint answers scripts without Origin and Referer headers with a Cloudflare challenge, HTTP 403)"
   }
+ },
+ {
+  "id": "bz-climate-change-carbon-market-act-2026-public-records",
+  "source_id": "BZ-NATIONALASSEMBLY-ADOPTED",
+  "iso2": "BZ",
+  "instrument": "bz-climate-change-carbon-market-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://doc.belizeparliament.bz/api/docs?filters%5BTitle%5D%5B%24containsi%5D=Carbon%20Market&fields%5B0%5D=Title&fields%5B1%5D=Date&fields%5B2%5D=updatedAt&populate=PDF",
+  "params": {}
+ },
+ {
+  "id": "bz-environmental-protection-act-agm-pdf",
+  "source_id": "BZ-AGM-CONSOLIDATED",
+  "iso2": "BZ",
+  "instrument": "bz-environmental-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf",
+  "params": {}
  }
 ]

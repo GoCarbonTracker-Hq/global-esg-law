@@ -6677,3 +6677,56 @@ Sources opened and not used: `https://ambiente.gob.do/terminos-de-uso/` and `htt
 Blocked from the cloud address: `https://simv.gob.do/` and `https://bvrd.com.do/` answer 403 (5306 and 5284 bytes, HTML) to curl, and 403 to headless Chromium (Playwright `page.goto`, 44576 and 44745 bytes). `https://www.gacetaoficial.gob.do` did not connect (curl status 000).
 
 Stored by GEL-14-06: `do-decreto-541-20` (2020-10-09), `do-decreto-348-21` (2021-05-31), `do-ley-225-20` (2020-10-02), `do-ley-98-25` (2025-12-16), `do-ley-36-26` (2026-07-11), `do-ley-115-15` (2015-06-08), all `adopted`, `es`. The watchers are `page_hash` on the PDF URL (a HEAD request returns neither Last-Modified nor Content-Length); `tools/watch.py --dry-run --source DO-CJPE-ADOPTED` ran 10 watchers, 0 failures.
+
+## Belize
+
+Rows `BZ-NATIONALASSEMBLY-ADOPTED`, `BZ-AGM-CONSOLIDATED` and `BZ-NATIONALASSEMBLY-GOV-ADOPTED`, all `permission requested`. Run on 2026-11-03. No row passes, so no text is stored and no record exists under `records/BZ/`. The fetches below were proven to read the official PDFs for the scope entries and the Copyright Act; they are not record recipes.
+
+Why no row passes: the Copyright Act (Cap. 252, Revised Edition 2020) s. 25(4) and (5) vest copyright in works made or first published by or under the Government in the State, and no section excludes Acts or other official texts (s. 71 excuses acts done for parliamentary or judicial proceedings; s. 72 covers copies of public records made by the Keeper). The sites carry "Copyright © 2026 National Assembly of Belize" (https://belizeparliament.bz/) and "All Rights Reserved" (https://agm.gov.bz/), with no licence or reuse grant. doc.belizeparliament.bz has no terms page (`/terms` answers 404).
+
+### National Assembly (doc.belizeparliament.bz), Acts as passed
+
+The Public Records page is a JavaScript app over a JSON API. The list, 406 Acts of Parliament:
+
+```
+curl -sS -m 60 -A 'Mozilla/5.0' -o docs.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://doc.belizeparliament.bz/api/docs?pagination%5BpageSize%5D=500&populate=PDF&sort%5B0%5D=Date%3Adesc&filters%5BAccess%5D%5B%24eq%5D=Public&filters%5BType%5D%5B%24containsi%5D=Act'
+```
+
+Returned `200 462376 application/json; charset=utf-8`. Each entry has `Title`, `Date`, `IsLatest` and `PDF.url`. The PDF path as listed (`/uploads/<file>.pdf`) answers `401 87 application/json` ("Authentication required") to curl. The page itself fetches the file through `/api/uploads?p=<path>` (found by logging the browser's requests in headless Chromium), and that works with plain curl:
+
+```
+curl -sS -m 90 -A 'Mozilla/5.0' -o act13.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://doc.belizeparliament.bz/api/uploads?p=%2Fuploads%2FAct_No_13_of_2026_Climate_Change_and_Carbon_Market_Initiatives_Act_2026_f0709b709a.pdf'
+```
+
+Returned `200 690889 application/pdf`, Act No. 13 of 2026, sha256 `e77de93a6704f4966ae585e43e7a4c24b3b808a106756818d612ed3e99bb7a22`. `pdftotext -layout act13.pdf act13.txt` gave 1752 lines of clean text with no replacement characters (section 42 read from it). The list holds only Acts as passed (no amended versions, no statutory instruments).
+
+### Attorney General's Ministry (agm.gov.bz), Laws of Belize Revised Edition 2020
+
+The Judiciary site (https://www.belizejudiciary.org/laws-of-belize/) has an empty page body; its menu links "Laws of Belize" to https://www.agm.gov.bz/laws/. The chapter lists are a POST API (gzip answers even without a request for it):
+
+```
+curl -sS --compressed -m 60 -A 'Mozilla/5.0' -d 'action=1000&volume=18' https://agm.gov.bz/api-laws/
+```
+
+Returned `200` JSON, `{"rc":"1","data":[["<a href=\"/uploads/laws/<file>.pdf\">Cap ...</a>"],...]}`. Volumes 1 to 18 hold 412 chapters in all. The Environmental Protection Act (Chapter 328):
+
+```
+curl -sS -m 120 -A 'Mozilla/5.0' -o cap328.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf
+```
+
+Returned `200 453294 application/pdf`, sha256 `7ca23cffd50a90b302c07baae8af9cc2690fa0c5941dc930401f65e44d34cf81`; `pdftotext -layout` gave 3002 lines with no replacement characters. The Copyright Act (`.../63976ff31bd42_Cap_252_Copyright_Act.pdf`) returned `200 714118 application/pdf`, sha256 `0852ad0921eeaede71d12869b6a8102779798c90add6479b8fdcd83d33616a56`. No OCR was needed for any file.
+
+### Languages
+
+English only. Belize legislates in English; no government translation exists to look for.
+
+### Link only
+
+- `bz-climate-change-carbon-market-act-2026`: row `BZ-NATIONALASSEMBLY-ADOPTED`, permission requested. No in-force date (s. 42: by Ministerial Order; none found).
+- `bz-environmental-protection-act`: row `BZ-AGM-CONSOLIDATED`, permission requested.
+
+### Not used
+
+- https://www.nationalassembly.gov.bz/ : blocked from the cloud address. `curl -sS -L -A 'Mozilla/5.0' https://www.nationalassembly.gov.bz/wp-content/uploads/2026/06/` answers `406 226 text/html; charset=iso-8859-1`; headless Chromium loads a page reading "Account Suspended". The orchestrator can try from the laptop. Row `BZ-NATIONALASSEMBLY-GOV-ADOPTED`.
+- https://doe.gov.bz/ : lists regulations under the Environmental Protection Act (pollution, effluent, hazardous waste, plastics, medical waste) as PDFs; footer "All Rights Reserved"; no climate rule; not in scope, no row.
+- https://www.belizefsc.org.bz/ : Terms of Use (last updated 2021-09-01): "You may not print or otherwise make copies of any such content without our express prior permission." No climate or sustainability rule on its regulatory-framework or laws pages. https://www.centralbank.org.bz/ lists 11 Acts, none on climate. No rows, no instruments (register.csv F7 row).
