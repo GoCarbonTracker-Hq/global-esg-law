@@ -8161,3 +8161,62 @@ Mongolian is the only official language of legislation and the only one served. 
 - The Mongolian Sustainable Finance Roadmap and the FRC ESG and Sustainability Reporting Guidance of August 2022 are policy or voluntary guidance: `register.csv` rows with `law_family` F7, no scope entry.
 - The brief's candidate "Bank of Mongolia sustainable finance regulation" was not confirmed as a regulation; the Bank's green policy page (`https://www.mongolbank.mn/en/p/1601`) lists the Roadmap, a taxonomy, disclosure guidance and Governor Order A-31, of which only A-31 is an order (scope entry `mn-bom-order-a31-esg-risk`, F6).
 - The Climate Change Law's in-force date (2026-08-03 in the brief) appears only in a PwC alert, not on an official page opened, so the scope entry carries `in_force` null.
+
+## Cambodia
+
+Run on 2026-11-03 (GEL-16-01). Four rows pass on the statute, all four on Law on Copyright and Related Rights 2003 Art. 10 (Royal Kram NS/RKM/0303/008; quoted in each row from the Ministry of Culture and Fine Arts English copy, https://mcfa.gov.kh/cdn-media/2026/law_regulation/Law-on-Copyright-English-Version-20200508.pdf, `200 269252 application/pdf`, sha256 `9bf9fcdf...`): `KH-SERC-ADOPTED` (SERC), `KH-MOE-ADOPTED` (Ministry of Environment), `KH-CCF-ADOPTED` and `KH-CCF-TRANSLATION` (Consumer Protection, Competition and Fraud Repression Directorate-General of the Ministry of Commerce). None of the three sites has a terms page: the footers say "all rights reserved" and the CCF terms-of-use page renders no terms text. The rows pass on the statute and the footer is named in each row; Varun to confirm that reading. `KH-MOE-TRANSLATION`, `KH-NBC-ADOPTED` and `KH-CSX-ADOPTED` are `permission requested`.
+
+Text extraction. English PDF: `pdftotext -layout file.pdf -` (poppler 24.02.0), each line stripped, runs of spaces collapsed, blank lines dropped; the line breaks are the PDF's wraps and the page numbers stay. The Khmer PDFs of the Prakas and of the Consumer Protection Law are scans with no text layer (`pdftotext` returns noise or nothing), so OCR was used as the brief allows: tesseract 5.3.4 with the `khm` language pack (`apt-get install tesseract-ocr tesseract-ocr-khm`; ocrmypdf was not installed and not needed), `pdftoppm -r 300 -png file.pdf p`, then `tesseract p-NN.png - -l khm --psm 6` per page, pages joined in order, and the same strip, collapse and blank-line drop as above. Nothing was corrected, reflowed or reworded by hand. Those two records carry `"extraction": "ocr"`; `tools/check_corpus.py` ignores unknown keys and accepts them, and `tools/publish_gate.py` exits 0 with them. Read against the page images (Prakas pages 1 and 6), the OCR of printed Khmer body text is mostly legible; handwritten parts, letterheads, stamps and tables come out as noise.
+
+Row `KH-SERC-ADOPTED`, Prakas No. 034 (SERC board entry 92). The Prakas list is filled in by script on `https://www.serc.gov.kh/khmer/m23.php?pn=3`, so the entry number was found once with headless Chromium (Playwright, `waitUntil: 'networkidle'`, logging the page's own requests; they go to `/boards/index.php?bid=m23Prakas_k&nav=list&no=0` and `...&nav=download&no=<n>&file=<k>`). After that curl is enough, but only with a browser user agent: the same request with curl's default agent returned `403 2248 text/html; charset=utf-8` ("Access forbidden!").
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o prakas_list.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=list&no=0'
+curl -sS -L -A 'Mozilla/5.0' -o prakas034.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=download&no=92&file=2'
+```
+
+Returned `200 51855 text/html; charset=UTF-8` (95 entries, 20 per page) and `200 3873301 application/octet-stream` (12 pages, HP Scan, sha256 `0b6075dd...`, equal on two fetches). `file=1` of the same entry is a JPEG of page 1 (720868 bytes). The record's `fetched_url` is the second URL. The home page `https://www.serc.gov.kh/` answered `200 1758 text/html` (a script redirect to `/khmer/`); `https://www.serc.gov.kh/en` answered 404. The watch dry-run (agent `global-esg-law-watch/1`) read the list page with `200`.
+
+Row `KH-CCF-ADOPTED`, Law on Consumer Protection, Khmer (scan, 17 pages):
+
+```
+curl -sS -L -o cp_km.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.ccfdg.gov.kh/wp-content/uploads/2021/02/Khmer_Law-on-Consumer-Protection.pdf
+```
+
+Returned `200 29779458 application/pdf` (sha256 `38836010...`). The list page `https://www.ccfdg.gov.kh/laws-regulations/laws/` gave `200 100346 text/html; charset=UTF-8`.
+
+Row `KH-MOE-ADOPTED`, Environment and Natural Resources Code: the page `curl -sS -L -o moe50787.html -w '%{http_code} %{size_download} %{content_type}\n' https://moe.gov.kh/index/50787` returned `200 48628 text/html; charset=UTF-8` (8 to 34 seconds; the first `watch.py` dry-run timed out at 30 s, the second passed); it links the Khmer PDF (`200 17645744 application/pdf`, 228 pages, scan, sha256 `c0958941...`) and the English PDF. Nothing is stored under this row (see below).
+
+### Languages
+
+Cambodia legislates in Khmer. English was looked for once per publisher.
+
+Row `KH-CCF-TRANSLATION`, Law on Consumer Protection, English (text layer, 21 pages):
+
+```
+curl -sS -L -o cp_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.ccfdg.gov.kh/wp-content/uploads/2021/01/1-20191102_Law-on-Consumer-Protection.pdf
+```
+
+Returned `200 195035 application/pdf` (sha256 `ad4407f8...`, equal on two fetches); the English list page `https://www.ccfdg.gov.kh/en/laws-regulations/laws/` returned `200 93498 text/html; charset=UTF-8`. The PDF states no amendment state; the record message says so. Row `KH-MOE-TRANSLATION`: the MoE English Code `curl -sS -L -o enr_code_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.moe.gov.kh/wp-content/uploads/2024/07/Code-on-Environment-and-Natural-Resources.pdf` returned `200 2425443 application/pdf` (320 pages, sha256 `eb4c2ca5...`); it credits UNEP support, so the row is `permission requested` and nothing is stored. SERC: the English prakas board `https://www.serc.gov.kh/boards/index.php?bid=m23Prakas&nav=list&no=0&lang=en` (30 entries) has no sustainability prakas.
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| kh-enr-code | https://moe.gov.kh/index/50787 | Row `KH-MOE-ADOPTED` passes, but the Code says "applicable one (1) year after its entry into force" (Art. 865) and no official page opened gives the entry-into-force date, so `in_force` is null and no dated record can be written. The Khmer PDF is a 228-page scan (OCR possible, not run); the English text is under `KH-MOE-TRANSLATION` (permission requested). |
+
+Not instruments in scope (register rows, F7): Cambodia Climate Change Strategic Plan 2024-2033 (https://ncsd.moe.gov.kh/resources/document/cambodia-climate-change-strategic-plan-2024-2033, `200 73512` page, published 22 May 2025; policy); Operations Manual for the Implementation of Article 6 (https://www.moe.gov.kh/wp-content/uploads/2024/01/Article-6-OM_EN.pdf, `200 5076784 application/pdf`; approved for launch by letter No. 1380 of the Office of the Council of Ministers dated 14 December 2023, not by prakas or sub-decree); SERC Guideline 61/25 on sustainability information disclosure (https://www.serc.gov.kh/boards/index.php?bid=m24guide_k&nav=read&no=66, `200 5657` page, published 2025-10-24, PDF not opened). No climate framework act and no issued sub-decree on greenhouse gas emission-reduction mechanisms was found on the Ministry of Environment laws page (sub-decree and prakas lists read for climate, carbon and greenhouse gas terms). No National Bank of Cambodia sustainable finance or climate-risk prakas was found on a page that opened (nbc.gov.kh is blocked, see below). Inter-Ministerial Prakas No. 450 of 2026-07-01 on forced-labour imports (named in the earlier register note) has no copy on an official page that opened: only law-firm and news pages; mef.gov.kh is blocked, so it has no scope entry.
+
+Blocked from the cloud address (2026-11-03; the orchestrator can read these from the laptop):
+
+| URL | Answer |
+|---|---|
+| https://mef.gov.kh/ | `403 5330 text/html; charset=UTF-8`, a Cloudflare "Just a moment..." challenge (curl with a browser agent) |
+| https://www.nbc.gov.kh/, /english/, /english/index.php | `403 919 text/html`, CloudFront "The request could not be satisfied" (curl and Chromium) |
+| https://nbfsa.gov.kh/ | `curl: (56) CONNECT tunnel failed, response 502` |
+| https://www.csx.com.kh/ | `CONNECT tunnel failed, response 502` |
+| https://laws.moj.gov.kh/ | `CONNECT tunnel failed, response 502` |
+| https://www.moj.gov.kh/ | `200 266 text/html`, "Request Rejected" (support ID page) |
+| https://www.moc.gov.kh/ | `403 14917 text/html; charset=UTF-8` |
+
+The Royal Gazette has no free online edition that was found; no Cambodian gazette page was opened.

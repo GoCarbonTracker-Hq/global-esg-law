@@ -12750,5 +12750,32 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.mongolbank.mn/en/p/1601"
+ },
+ {
+  "id": "kh-serc-prakas-034-serc-prakas-board",
+  "source_id": "KH-SERC-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-serc-prakas-034",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=list&no=0"
+ },
+ {
+  "id": "kh-enr-code-moe-code-page",
+  "source_id": "KH-MOE-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-enr-code",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moe.gov.kh/index/50787"
+ },
+ {
+  "id": "kh-consumer-protection-law-ccf-laws-page",
+  "source_id": "KH-CCF-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ccfdg.gov.kh/en/laws-regulations/laws/"
  }
 ]
