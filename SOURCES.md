@@ -5596,6 +5596,42 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
 
+## Benin
+
+Run on 2026-11-03 (GEL-12-07). Row `BJ-SGG-ADOPTED` (Secretariat General du Gouvernement, sgg.gouv.bj) is `pass` on the statute basis: Loi n° 2005-30 du 05 avril 2006, Art. 9, excludes "les textes officiels de nature legislative, administrative ou judiciaire" and their official translations from copyright. The site's own terms page (`https://sgg.gouv.bj/mentions-legales/`, `curl` `200 14486 text/html; charset=UTF-8`) has no body text, so no terms were found to quote. Row `BJ-BRVM-ADOPTED` (BRVM host of AMF-UMOA circulars) is `permission requested` (BRVM terms, `https://www.brvm.org/fr/node/405`: reproduction and modification forbidden without prior written authorisation). No site was blocked from the cloud address, and no browser recipe was needed.
+
+Proven request, row `BJ-SGG-ADOPTED`, Loi n° 2018-18 (the page for each act is `/doc/<type>-<year>-<number>/`, the PDF is the same path plus `download`):
+
+```
+curl -sS -L -o loi-2018-18.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.gouv.bj/doc/loi-2018-18/download
+```
+
+Returned `200 15201418 application/pdf`, sha256 `49ed0b778968d7342a7ac14250c202a9df0f875b7e7b3d4dde984143bb3a4ef6`. The other five acts answered the same way: `decret-2022-698` `200 2289098`, `decret-2022-699` `200 760251`, `loi-98-030` `200 1462789`, `loi-2007-21` `200 629311`, `loi-2026-15` `200 11746870`, all `application/pdf`. The site lists no dates, no consolidations and no other language. Slugs follow `loi-<year>-<n>` for laws since 2000 and `loi-98-030` for 1998; `loi-1998-30` answers 404.
+
+Text extraction was tried with `pdftotext -layout file.pdf -` on every file. Result: decrees 2022-698 and 2022-699 and Loi 2026-15 are image scans with no text layer (7, 20 and 31 bytes out). Loi 2018-18, Loi 98-030 and Loi 2007-21 carry an OCR layer with heavy recognition errors (Loi 2018-18: "chongements cllmotiques", "Io loi dont Io teneur"). That is damaged text, not law text, so it was not stored. No OCR program is installed in the cloud container and the repo recipe is stdlib plus poppler, so no record was written for any Benin instrument. The commencement clauses, signatures and the abrogation in Art. 138 of Loi 2026-15 were read from page images (`pdftoppm -r 70 -png`).
+
+### Languages
+
+French is the only official language of legislation. The sgg.gouv.bj site and its documentheque are French only and list no English translation, so there is no translation row and no English record. The copyright statute basis (Loi 2005-30 Art. 9) was read in `https://sgg.gouv.bj/doc/loi-2005-30/download` (`200 1639731 application/pdf`, OCR layer; the Article 9 sentence was legible). Loi 2017-20 (code du numerique) Art. 529 and 530 amend Articles 2 and 8 of the 2005 law only.
+
+### AMF-UMOA (regional, eight UEMOA states)
+
+`www.amf-umoa.org` answered `200 1685 text/html` (a JavaScript shell, no content for curl). The BRVM site hosts the instruments as plain pages and PDFs and answered every request:
+
+```
+curl -sS -L -o taxonomie.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.brvm.org/sites/default/files/circulaire_ndeg001-amf-umoa-2024_-_mise_en_place_dune_taxonomie_des_projets_faisant_lobjet_demissions_dobligations_vertes_sociales_et_durable.pdf'
+curl -sS -L -o guide.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf
+```
+
+Returned `200 4237687 application/pdf` (39 pages, no text layer) and `200 1560342 application/pdf` (OCR layer present). Both are `permission requested` under `BJ-BRVM-ADOPTED`, so nothing is stored. Circulaire n° 001/AMF-UMOA/2024 of 2024-02-28 informs the market of the taxonomy and states no duty on issuers (pages 1 and 2 read as images), so it is F7 in `register.csv` and not in `scope.json`; the same applies to Circulaire n° 001/CREPMF/2020. The same two instruments sit in the other UEMOA places (BF CI GW ML NE SN TG).
+
+### Link only
+
+- `bj-carbon-project-registration-decree`, `bj-aepc-decree`, `bj-environment-act-2026`: row `pass`, but the PDF is a scan with no text layer; no working request yields text.
+- `bj-climate-change-act-2018`, `bj-environment-framework-act-1998`, `bj-consumer-protection-act-2007`: row `pass`, OCR layer too damaged to store.
+- `bj-environment-framework-act-1998` is abrogated by Art. 138 of Loi n° 2026-15; Loi 2026-15 states no commencement date on the pages read, so no repeal record is written.
+- `cadredevie.bj`: `curl` returned `200 3 text/html` with the body `asd`; no instruments found there. The text comes from sgg.gouv.bj.
+
 ## Comoros
 
 GEL-13-09, run 2026-11-03. Rows `KM-JUSTICE-ADOPTED` (`permission requested`, terms) and `KM-BCC-ADOPTED` (`pass`, terms; no instrument in scope, so nothing is stored under it). `records/KM/` is empty. All three instruments in `register/KM/scope.json` are link only.
