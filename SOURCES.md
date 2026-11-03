@@ -7534,3 +7534,32 @@ Not reached: no Burmese or English text was served by any state host.
 - `mm-consumer-protection-law-2019`: row `MM-MLIS-ADOPTED` permission requested; MLIS host reset the connection.
 
 Copyright Law 2019 s. 16(c) to (f) is not quoted anywhere: its text was not opened from an official page.
+
+## Vanuatu
+
+Run on 2026-11-03 (GEL-17-10). No licence row for Vanuatu is `pass`, so nothing is stored in `records/VU/` and there is no proven fetch for a stored record. Rows added, all `permission requested`: `VU-PARLIAMENT-ADOPTED` (parliament.gov.vu terms: "You must not: Republish material ... Reproduce, duplicate or copy material"), `VU-MOCCA-ADOPTED` (mocca.gov.vu states no reuse terms), `VU-DEPC-CONSOLIDATED` (environment.gov.vu: "All rights reserved"), `VU-VANIPO-CONSOLIDATED` (vanipo.gov.vu: "All Rights Reserved"), `VU-PACLII-ADOPTED` (site blocked). The Copyright and Related Rights Act 2000 (No. 42 of 2000), Consolidated Edition 2018, was read for a statute exception: s.7 excludes ideas, procedures, methods and mere data from protection and nothing else; no section removes legislation or official texts or mentions translations, so no row rests on a statute.
+
+Pages that do open from the cloud address (the files an operator can read, none stored). Files were fetched to confirm they are readable PDFs; `pdftotext -layout file.pdf -` returned clean English text for all three (checked for mojibake: none), so OCR was not needed.
+
+```
+curl -sS -L -o met.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mocca.gov.vu/images/publications/legislation/VMGD/Meteorology%2C%20Geological%20Hazards%20and%20Climate%20Change%20Act%202016.pdf'
+```
+
+Returned `200 357537 application/pdf` (Meteorology, Geological Hazards and Climate Change Act 2016, cover: "Assent: 26/01/2017 Commencement: 01/02/2017"). The Environmental Protection and Conservation Act PDF (`.../legislation/DEPC/Legislation/Environmental%20Protection%20and%20Conservation%20Act%20PC_Act_2002_%28consolidated_version_incl_2011_amends%29.pdf`) returned `200 312017 application/pdf`; the EIA Regulations PDF (`.../DEPC/Subsidiary%20Legislations/Environmental%20Impact%20Assessment%20%28EIA%29%20Regulations%20%28Consolidated%29.pdf`) returned `200 124879 application/pdf`. The VANIPO Copyright Act PDF (`https://vanipo.gov.vu/images/pdf/CopyrightRelated_Rights_Act_No_42_of_2000.pdf`) returned `200 350870 application/pdf`; the backslash path the page links (`/images\pdf\...`) returns 404, the forward-slash form works.
+
+### Languages
+
+Bislama, English and French are official. The Acts are enacted in English and French, but every Parliament Acts link redirects to PacLII, and mocca.gov.vu, environment.gov.vu and vanipo.gov.vu serve English PDFs only for the instruments in scope. No government English translation row exists. Nothing is stored in any language.
+
+### Link only
+
+- `vu-meteorology-geohazards-climate-change-act`: row `VU-MOCCA-ADOPTED`, `permission requested` (no reuse terms on mocca.gov.vu).
+- `vu-environmental-protection-conservation-act`, `vu-eia-regulations`: row `VU-DEPC-CONSOLIDATED`, `permission requested` ("All rights reserved").
+- `vu-price-monitoring-consumer-affairs-act`: row `VU-PACLII-ADOPTED`, `permission requested`; the Act is served only by PacLII and no request worked (below).
+- Not in scope: Vanuatu National Climate Change and Disaster Risk Reduction Policy 2022-2030 and the carbon market framework are `register.csv` rows with family F7. No carbon-market regulation was found on any page opened.
+
+### Blocked from the cloud address
+
+- `https://www.paclii.org/vu/` and every paclii.org page tried (`/paclii/copyright.html`, `/vu/about.html`, `https://rms.paclii.org/vu/legis/num_act/pmacaa2023360`): `curl -sS -A 'Mozilla/5.0' -I https://www.paclii.org/vu/` answered `HTTP/2 403`, `cf-mitigated: challenge`, `server: cloudflare`, 5339 bytes `text/html`. Headless Chromium (Playwright `chromium.launch()`, `page.goto(url, {waitUntil:'networkidle'})`, waited 4 s) answered 403 with the Cloudflare page "Sorry, you have been blocked". Blocked from the cloud address; read it from the laptop.
+- `https://pacliirms.austlii.edu.au/vu/legis/num_act/pmacaa2023360.pdf`, `https://pacliirms.austlii.edu.au/vu/`, `https://web.archive.org/web/2026/http://www.paclii.org/paclii/copyright.html`: `curl: (35) Recv failure: Connection reset by peer`.
+- `https://www.rbv.gov.vu` and `https://rbv.gov.vu`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`, also with `--cacert /root/.ccr/ca-bundle.crt`. Not opened; certificate checks were not disabled. Whether the Reserve Bank has a climate or sustainability guideline is unknown.
