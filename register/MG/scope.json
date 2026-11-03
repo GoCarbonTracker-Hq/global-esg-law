@@ -1,0 +1,80 @@
+[
+  {
+    "id": "mg-investment-law-2023-002",
+    "title": "Loi n° 2023-002 du 27 juillet 2023 sur les investissements à Madagascar",
+    "official_url": "https://cnlegis.gov.mg/uploads/L2023-002-VF.pdf",
+    "citation": "Loi n° 2023-002 du 27 juillet 2023; Journal Officiel n° 4155 du 18 septembre 2023, p. 4409",
+    "in_force": "2023-09-18",
+    "evidence": "Art. 35: \"La présente loi entre en vigueur après sa promulgation, dès sa publication au Journal Officiel.\" The CNLEGIS record (id 53280, search answer of 2026-11-03) gives Journal Officiel n° 4155, date_jo 18-09-2023, page 4409; the law is promulgated at Antananarivo on 27 July 2023. Opened https://cnlegis.gov.mg/uploads/L2023-002-VF.pdf (HTTP 200, 240309 bytes) on 2026-11-03.",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": "MG-CNLEGIS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Chapter VII (Responsabilités des investisseurs). Art. 22 para. 3 makes respect for human rights \"à travers toutes les chaînes de valeur et les chaînes de production\" a general obligation of investors and investee companies, and says a breach is a breach of Malagasy domestic law; there is no due-diligence process duty, so F5 rests on that value-chain clause. Art. 23 requires investors to take recognised CSR norms into account (para. 3: implementing rules by regulation, see mg-decret-2024-1354). Art. 24 requires respect for the environment, including \"en luttant contre le changement climatique\". The earlier register row said the publication date was not stated; the CNLEGIS record gives it. Languages: CNLEGIS serves the French PDF L2023-002-VF.pdf and the Malagasy PDF L2023-002-VM.pdf (fr, mg). Nothing is stored because MG-CNLEGIS-ADOPTED is permission requested. No government English translation: looked for on cnlegis.gov.mg (the search answer has French and Malagasy fields only) and on environnement.mg (Textes et Loi page); no English text found.",
+    "status": "link only",
+    "status_note": "Row MG-CNLEGIS-ADOPTED is permission requested: no reuse terms on cnlegis.gov.mg and no official-texts exclusion in Loi n° 94-036."
+  },
+  {
+    "id": "mg-decret-2024-1354",
+    "title": "Décret n° 2024-1354 du 3 juillet 2024 portant application de la loi n° 2023-002 sur les investissements à Madagascar concernant les dispositions relatives à la Responsabilité Sociétale de l'Entreprise",
+    "official_url": "https://cnlegis.gov.mg/uploads/D2024-1354-VF%20(1).pdf",
+    "citation": "Décret n° 2024-1354 du 3 juillet 2024; Journal Officiel n° 4241 du 25 novembre 2024",
+    "in_force": null,
+    "evidence": "No official page opened states the commencement. The CNLEGIS record (search answer of 2026-11-03) gives type Décret, date 03-07-2024, ministry MIC, état \"En vigueur\", Journal Officiel n° 4241 of 25-11-2024. The linked PDF (https://cnlegis.gov.mg/uploads/D2024-1354-VF%20(1).pdf, HTTP 200, 960207 bytes, 3 pages) has no text layer (pdftotext -layout returns 78 bytes), so no article was read.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MG-CNLEGIS-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Implementing decree of Art. 23 of mg-investment-law-2023-002 (title as on CNLEGIS). Only the title and metadata were read; the content (what an investor must do or report) is not known to this session and needs OCR or a read from the laptop. Languages: CNLEGIS serves a French PDF and a Malagasy PDF (D2024-1354-VM.pdf) (fr, mg). Nothing is stored because MG-CNLEGIS-ADOPTED is permission requested. No government English translation: looked for on cnlegis.gov.mg (the search answer has French and Malagasy fields only) and on environnement.mg (Textes et Loi page); no English text found.",
+    "status": "link only",
+    "status_note": "Row MG-CNLEGIS-ADOPTED is permission requested; the PDF is also a scan without a text layer."
+  },
+  {
+    "id": "mg-charte-environnement-2015-003",
+    "title": "Loi n° 2015-003 du 19 février 2015 portant Charte de l'Environnement Malagasy actualisée",
+    "official_url": "https://cnlegis.gov.mg/page_cherche_dir_mots_texte/",
+    "citation": "Loi n° 2015-003 du 19 février 2015; Journal Officiel n° 3612 du 6 avril 2015, p. 1449",
+    "in_force": null,
+    "evidence": "The text has no commencement clause: Art. 23 repeals Lois n° 90-033, 97-012 and 2004-015 and ends \"La présente loi sera publiée au Journal officiel de la République de Madagascar. Elle sera exécutée comme loi de l'Etat. Promulguée à Antananarivo, le 19 février 2015\". The CNLEGIS record (id 43641, search answer of 2026-11-03) gives Journal Officiel n° 3612, date_jo 06-04-2015, page 1449. The date the law became binding is not stated on any page opened.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MG-CNLEGIS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act, replaces the Charte of Loi n° 90-033. CNLEGIS serves it as HTML inside the search answer (field html_fichier_fr, 27641 characters of text); there is no per-act URL, so official_url is the CNLEGIS search page (POST txt_recherche, see SOURCES.md). The Assemblée nationale copy (https://www.assemblee-nationale.mg/wp-content/uploads/2020/11/Loi-n°2015-003-Charte-de-lenvironnement.pdf) answered 403 to curl and Chromium. Not climate-specific: Madagascar has no climate framework act (see the F7 register row for the national climate committee decree). Languages: CNLEGIS serves French HTML only (the Malagasy field is empty). Nothing is stored because MG-CNLEGIS-ADOPTED is permission requested. No government English translation: looked for on cnlegis.gov.mg (the search answer has French and Malagasy fields only) and on environnement.mg (Textes et Loi page); no English text found.",
+    "status": "link only",
+    "status_note": "Row MG-CNLEGIS-ADOPTED is permission requested."
+  },
+  {
+    "id": "mg-decret-2025-626",
+    "title": "Décret n° 2025-626 du 6 juin 2025 relatif à la régulation de l'accès au marché du carbone forestier",
+    "official_url": "https://cnlegis.gov.mg/uploads/D2025-626-VF.pdf",
+    "citation": "Décret n° 2025-626 du 6 juin 2025; Journal Officiel du 31 juillet 2025 (date_jo on CNLEGIS)",
+    "in_force": null,
+    "evidence": "Art. 105: \"le présent décret entre immédiatement en vigueur dès sa publication par émission radiodiffusée et/ou télévisée, indépendamment de son insertion au Journal Officiel de la République.\" The broadcast date is not on any page opened. Signed \"Fait à Antananarivo, le 06 juin 2025\". CNLEGIS record (id 56350) gives date_jo 31-07-2025, num_jo \"VOIR_J.O\". Opened https://cnlegis.gov.mg/uploads/D2025-626-VF.pdf (HTTP 200, 803763 bytes) and the ministry copy on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MG-CNLEGIS-ADOPTED",
+      "MG-MEDD-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Art. 103 repeals contrary provisions \"notamment\" Décret n° 2021-1113 du 20 octobre 2021 on the same subject (CNLEGIS still lists 2021-1113 as En vigueur, id 50118; the repeal is by the decree's own text). Two official copies: cnlegis.gov.mg/uploads/D2025-626-VF.pdf (French) and D2025-626-VM.pdf (Malagasy, 513753 bytes), and the ministry PDF https://www.environnement.mg/wp-content/uploads/2025/06/DRMCF-portant-sur-le-Decret-2025-626-relatif-a-la-regulation-de-l-acces-au-marche-du-carbone-forestier.pdf (1135050 bytes, same text with a clean text layer). The CNLEGIS result for this decree also links D2025-606 (a different decree, not examined). Languages: fr and mg. No government English translation: looked for on cnlegis.gov.mg (the search answer has French and Malagasy fields only) and on environnement.mg (Textes et Loi page); no English text found.",
+    "status": "link only",
+    "status_note": "Rows MG-CNLEGIS-ADOPTED and MG-MEDD-ADOPTED are permission requested."
+  },
+  {
+    "id": "mg-loi-2015-014",
+    "title": "Loi n° 2015-014 du 10 août 2015 sur les garanties et la protection des consommateurs",
+    "official_url": "https://cnlegis.gov.mg/page_cherche_dir_mots_texte/",
+    "citation": "Loi n° 2015-014 du 10 août 2015; Journal Officiel n° 3647 du 26 octobre 2015, p. 4602",
+    "in_force": null,
+    "evidence": "The text has no commencement clause: Art. 101 \"La présente loi sera publiée au Journal Officiel de la République. Elle sera exécutée comme loi de l'État. Promulguée à Antananarivo, le 10 août 2015\". The CNLEGIS record (id 43919, search answer of 2026-11-03) gives Journal Officiel n° 3647, date_jo 26-10-2015, page 4602.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MG-CNLEGIS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The brief gave the date as 19 août 2015; the official text and CNLEGIS give 10 août 2015 (the Haute Cour Constitutionnelle decision 27-HCC/D3 of 30 July 2015 concerns it). Art. 28 prohibits any advertising with false or misleading allegations on, among other things, nature, composition, substantial qualities, origin and the results expected from use; it does not name environmental or climate claims, so it is an umbrella for them, not a green-claims rule. Art. 4 lists \"Droit à un environnement sain\" among consumer rights. Art. 100: implementing texts by regulation. CNLEGIS serves the text as HTML (field html_fichier_fr, 55843 characters), no per-act URL. Languages: CNLEGIS serves French HTML only. Nothing is stored because MG-CNLEGIS-ADOPTED is permission requested. No government English translation: looked for on cnlegis.gov.mg (the search answer has French and Malagasy fields only) and on environnement.mg (Textes et Loi page); no English text found.",
+    "status": "link only",
+    "status_note": "Row MG-CNLEGIS-ADOPTED is permission requested."
+  }
+]
