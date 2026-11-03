@@ -24,8 +24,8 @@
     "duty_on": "private_sector",
     "source_row": "SV-DIARIOOFICIAL-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Link only: the Diario Oficial issue is a scan (no text layer; no OCR step is allowed) and row SV-DIARIOOFICIAL-ADOPTED is permission requested. The Asamblea consolidated text (amendments since 1998) could not be reached: asamblea.gob.sv is blocked from the cloud address (row SV-ASAMBLEA-CONSOLIDATED). Environmental framework act; the Reglamento General is sv-lma-reglamento-general. No government English translation was found (looked for on diariooficial.gob.sv and ambiente.gob.sv, the latter answers a Cloudflare 403 to scripts).",
-    "status": "link only"
+    "notes": "Stored from the Diario Oficial issue of 1998-05-04 (tomo 339) under row SV-DIARIOOFICIAL-ADOPTED (pass on statute, Art. 50 of the Ley de Propiedad Intelectual, ruling 2026-11-03). The text is uncorrected OCR output of a scanned official PDF (tesseract 5.3.4, language pack spa, 300 dpi); the diagonal watermark \"DIARIO OFICIAL SOLO PARA CONSULTA, NO TIENE VALIDEZ LEGAL\" garbles the middle of many lines and those misreads are left as read. The whole-gazette PDF is cut to PDF pages 2 to 24 (the law, Decreto 233 to the signature page). The Asamblea consolidated text (amendments since 1998) could not be reached: asamblea.gob.sv is blocked from the cloud address (row SV-ASAMBLEA-CONSOLIDATED, left as it was). Environmental framework act; the Reglamento General is sv-lma-reglamento-general. Spanish only; no government English translation was found.",
+    "status": "stored"
   },
   {
     "id": "sv-lma-reglamento-general",
@@ -38,8 +38,8 @@
     "duty_on": "private_sector",
     "source_row": "SV-DIARIOOFICIAL-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Link only: scan, and row SV-DIARIOOFICIAL-ADOPTED is permission requested. in_force is null because the date of the first publication was not read from an official page (eight days after it would give the date); the 2000-04-12 issue is a republication. Implements sv-lma-233. No government English translation was found.",
-    "status": "link only"
+    "notes": "Stored from the Diario Oficial issue of 2000-04-12 (tomo 347) under row SV-DIARIOOFICIAL-ADOPTED (pass on statute, Art. 50 of the Ley de Propiedad Intelectual, ruling 2026-11-03). The text is uncorrected OCR output of a scanned official PDF (tesseract 5.3.4, language pack spa, 300 dpi); the diagonal watermark garbles the middle of many lines and those misreads are left as read. The whole-gazette PDF is cut to PDF pages 15 to 35 (the Decreto Ejecutivo 17 with its Apéndice No. 1 glossary). The header of this republication says the decree was published again because the issue Diario Oficial 63, tomo 346, of 29 March 2000 came out incomplete; in_force stays null because no page states an in-force date. Implements sv-lma-233. Spanish only; no government English translation was found.",
+    "status": "stored"
   },
   {
     "id": "sv-lpc-776",
@@ -52,7 +52,7 @@
     "duty_on": "private_sector",
     "source_row": "SV-DIARIOOFICIAL-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Link only: row SV-DIARIOOFICIAL-ADOPTED is permission requested (the gazette PDF is marked for consultation only and states no licence). This gazette issue has a text layer, so the text would be extractable if Varun accepts Art. 50 of the Ley de Propiedad Intelectual as a statute basis. Umbrella for misleading advertising, including environmental claims; it has no environmental-claims rule of its own. Adopted text only; later amendments were not reachable (asamblea.gob.sv blocked). No government English translation was found.",
-    "status": "link only"
+    "notes": "Stored from the Diario Oficial issue of 2005-09-08 (tomo 368) under row SV-DIARIOOFICIAL-ADOPTED (pass on statute, Art. 50 of the Ley de Propiedad Intelectual, ruling 2026-11-03). The text is uncorrected OCR output of the official PDF (tesseract 5.3.4, language pack spa, 300 dpi, page images only); this issue also carries a text layer, which was ignored because the watermark letters are interleaved into it. The whole-gazette PDF is cut to PDF pages 5 to 34 (Decreto 776 to the signature page). Umbrella for misleading advertising, including environmental claims; it has no environmental-claims rule of its own. Adopted text only; later amendments were not reachable (asamblea.gob.sv blocked). Spanish only; no government English translation was found.",
+    "status": "stored"
   }
 ]

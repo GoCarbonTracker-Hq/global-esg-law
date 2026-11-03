@@ -6595,6 +6595,33 @@ Spanish (`es`) only; no other official language applies. No government English t
 - Not in scope, no instrument found: Superintendencia del Sistema Financiero (https://ssf.gob.sv, marco legal y normativo page opened) and Bolsa de Valores de El Salvador (https://www.bolsadevalores.com.sv, Leyes, Normativas, Instructivos and Reglamentos pages opened; terms de uso page says nothing on reuse and the exchange is a company) list no ESG disclosure rule. The Taxonomía Verde de El Salvador (SSF, 2025-12-02 news item) is a voluntary national reference framework. https://www.ambiente.gob.sv answers `403` with a Cloudflare "Attention Required" page.
 - A Ley de Cambio Climático and a carbon pricing instrument: none found enacted (web search; the Asamblea site could not be opened); register rows with `law_family` F7.
 
+### OCR pass 2026-11-03
+
+Ruling (Varun, 2026-11-03): row `SV-DIARIOOFICIAL-ADOPTED` is `pass` on `statute` (Art. 50 of the Ley de Propiedad Intelectual, conditioned republication faithful to the official publication). It supersedes the "No row passes" paragraph above for that row; `SV-ASAMBLEA-CONSOLIDATED` (never opened) and `SV-BCR-ADOPTED` (permission requested) are unchanged, so `sv-nrp-53` stays link only. Stored: `sv-lma-233`, `sv-lma-reglamento-general`, `sv-lpc-776`, Spanish only, `extraction` `ocr`, uncorrected.
+
+Install (apt worked after `apt-get update`): `apt-get install -y tesseract-ocr tesseract-ocr-spa` gave tesseract 5.3.4 and `spa` 1:4.1.0-2.
+
+Download, as above; the sizes and sha256 reproduced (the 2005 hash equals the one recorded above):
+
+```
+curl -sS -L -o do_1998-05-04.pdf https://www.diariooficial.gob.sv/seleccion/24985   # 200 13361731, 140 pages, sha256 e26c772f7108e8c1e7e2c4f3afa546248e0b90a31646ddfe6e1d762648fb4601
+curl -sS -L -o do_2000-04-12.pdf https://www.diariooficial.gob.sv/seleccion/25452   # 200 14569844, 132 pages, sha256 161633a0e84e3dca0423baf598d5005b3e91b48119f2a3c6e41adb2f22924059
+curl -sS -L -o do_2005-09-08.pdf https://www.diariooficial.gob.sv/seleccion/26733   # 200 7791836, 208 pages, sha256 61a7ecb2b7a29a4e11811dd18a6e7e216c6871015d55f28e05a3ec1a07ae6523
+```
+
+Page ranges were found by OCR of every page at 100 dpi and reading the headings: the gazette pages are single column, so no cropping. OCR (300 dpi, page images only, the text layer of the 2005 issue ignored), then the page files joined in page order with one newline between pages and the trailing form feed removed:
+
+```
+pdftoppm -r 300 -png -f 2  -l 24 do_1998-05-04.pdf p    # sv-lma-233, PDF pages 2 to 24
+pdftoppm -r 300 -png -f 15 -l 35 do_2000-04-12.pdf p    # sv-lma-reglamento-general, PDF pages 15 to 35
+pdftoppm -r 300 -png -f 5  -l 34 do_2005-09-08.pdf p    # sv-lpc-776, PDF pages 5 to 34
+ls p-*.png | xargs -P 4 -I{} sh -c 'OMP_THREAD_LIMIT=1 tesseract {} {}.t -l spa'
+```
+
+A 200 dpi run of the 1998 law (pages 2 to 24) read readably but the diagonal watermark garbled the middle of many lines; 300 dpi read slightly better on a spot check (PDF page 12), so 300 dpi was used for all three. The watermark still garbles part of some lines in the 1998 and 2000 issues; those misreads are stored as read. Nothing was corrected.
+
+The first publication of the Reglamento General was Diario Oficial 63, tomo 346, 29 March 2000 (printed in the header of the 2000-04-12 republication, PDF page 15); no in-force date is stated, so `in_force` stays null (eight days after 29 March would be 6 April 2000, computed, not entered).
+
 ## Venezuela
 
 Checked 2026-11-03 from the cloud address. Nothing is stored: every official copy found is a scan or a whole-gazette OCR file, so both scope instruments are link only. Venezuelan law texts are covered by the Ley sobre el Derecho de Autor (1993) art. 4; the two `pass` rows rest on that statute, not on site terms.
