@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lr-eo-155-carbon-markets-authority",
+    "title": "Executive Order No. 155 establishing the Carbon Markets Authority",
+    "official_url": "https://emansion.gov.lr/sites/default/files/documents/EXECUTIVE%20ORDER%20155_0.pdf",
+    "citation": "Executive Order No. 155 of the President of the Republic of Liberia, October 2025 (Executive Mansion page dated 2025-10-31)",
+    "in_force": null,
+    "evidence": "Section 13: \"This Executive Order shall take immediate effect and remains valid unless revoked, amended, or replaced by future executive action or legislation.\" The signed day (handwritten, \"__ DAY OF OCTOBER A.D. 2025\") is not legible with certainty, and the Executive Mansion news page https://emansion.gov.lr/node/8948 is dated October 31, 2025, so no official page states the in-force date. Opened the PDF on 2026-11-03.",
+    "law_family": "F3",
+    "duty_on": "state_only",
+    "source_row": "LR-EXECMANSION-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "official_url is the order's own signed PDF on the Executive Mansion (the earlier register row pointed at the news node https://emansion.gov.lr/node/8948). The PDF is a scanned image with no text layer, so the record text is uncorrected OCR output of a scanned official PDF (tesseract, English, page images; the record carries extraction ocr); it contains recognition errors, for example in the date line. The record is dated 2025-10-31, the date of the Executive Mansion page, because the signed day is not legible. Deviation from the brief: no one-year lapse applies on the text (Section 13), and the Executive Orders list (24 orders, newest No. 157 of 2026-01-23) shows no revocation or renewal of No. 155, so it is not recorded as lapsed. Section 1.2 tells the Authority to draft a Climate and Carbon Act within 12 months; no such act and no instrument for the Sovereign Carbon Initiative contribution on aviation and shipping was found on emansion.gov.lr, epa.gov.lr or mofa.gov.lr, so neither has an entry. English is the only language; no translation exists or is needed.",
+    "status": "stored"
+  },
+  {
+    "id": "lr-epa-act-2002",
+    "title": "Environment Protection Agency Act of the Republic of Liberia (An Act creating the Environment Protection Agency), approved 2002-11-26",
+    "official_url": "https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf",
+    "citation": "An Act creating the Environment Protection Agency of the Republic of Liberia, approved November 26, 2002, published by authority, Ministry of Foreign Affairs, Monrovia, April 30, 2003",
+    "in_force": null,
+    "evidence": "Section 55(2): \"Notwithstanding sub-section (1), this Act has the full forces of its effective date.\" No page opened gives the effective date; the cover says \"APPROVED: NOVEMBER 26, 2002\". Opened https://epa.gov.lr/wp-content/uploads/2024/10/Act-Establishing-the-Liberia-EPA.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "LR-EPA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "One record: the Act as published, 46 pages, dated by its approval date 2002-11-26 because no commencement date is stated. The EPA site serves no amended or consolidated version. English only; no translation exists or is needed. The EPA Laws & Regulations page also lists the Environmental Protection and Management Law (lr-epml-2002).",
+    "status": "stored"
+  },
+  {
+    "id": "lr-epml-2002",
+    "title": "Environmental Protection and Management Law of Liberia (2002)",
+    "official_url": "https://epa.gov.lr/laws-regulations/",
+    "citation": "Environmental Protection and Management Law of Liberia, listed on the EPA Liberia Laws & Regulations page",
+    "in_force": null,
+    "evidence": "The EPA page https://epa.gov.lr/laws-regulations/ lists \"The Environmental Protection and Management Law\" with the text \"This Act establishes a legal framework for the sustainable development, management and protection of the environment\". No in-force date appears on any page opened on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "LR-EPA-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: the download link under this heading serves the same file as the Act creating the EPA (sha256 32bdd7a5704975fbb520c7d62de097192b50f9dc1743ab12017efa3449322522), which calls itself the Environment Protection Agency Act and is stored as lr-epa-act-2002. No separate text of the Law was found on epa.gov.lr, emansion.gov.lr or mofa.gov.lr (mofa.gov.lr lists no Acts or handbills), so storing the same bytes twice under another title is avoided.",
+    "status": "link only"
+  }
+]
