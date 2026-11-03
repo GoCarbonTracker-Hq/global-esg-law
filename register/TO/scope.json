@@ -1,0 +1,101 @@
+[
+  {
+    "id": "to-environment-management-act",
+    "title": "Environment Management Act 2010 (Act 27 of 2010)",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct_3.pdf",
+    "citation": "Environment Management Act 2010 (Act 27 of 2010), Cap. 21.03 in the 2020 Revised Edition; assented 27 August 2010",
+    "in_force": "2010-08-30",
+    "evidence": "The 2020 Revised Edition (https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct_3.pdf, opened 2026-11-03) prints under the long title \"Commencement [30 August 2010]\"; the Act as first published prints \"I assent, GEORGE TUPOU V, 27th August 2010\"; the Legislation History Table gives Version 1 \"Date Commenced: Monday, 30 August 2010\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TO-AGO-ADOPTED",
+      "TO-AGO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Mapped to F2: the register row carried F7; the Act is the environmental framework act (Ministry of Environment and Climate Change, protection and management of the environment, sustainable development), not a climate-specific or company-disclosure law. It contains no greenhouse gas reporting or carbon duty; the duties on private persons are environmental (permits, pollution, waste). official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). Versions: the Legislation History Table lists Version 1 (as first published), Version 2 (Revised Edition, Date Commenced 2016-12-31) and Version 3 (2020 Revised Edition, 2020-12-04, the current file); each is stored in English and Tongan with the record in_force set to that date. The site says it consolidates the law to 31 October 2020. Languages stored on 2026-11-03: en and to (Tongan), both enacted by the King and the Legislative Assembly and served by the Attorney General's Office under the same row as the English file; no separate translation row. No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). Related, not in scope: Environment Management (Litter and Waste Control) Regulations 2016 (F7).",
+    "status": "stored"
+  },
+  {
+    "id": "to-eia-act",
+    "title": "Environmental Impact Assessment Act 2003 (Act 16 of 2003)",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0016/EnvironmentalImpactAssessmentAct_3.pdf",
+    "citation": "Environmental Impact Assessment Act 2003 (Act 16 of 2003), Cap. 21.04 in the 2020 Revised Edition; assented 18 November 2003",
+    "in_force": "2003-11-18",
+    "evidence": "The 2020 Revised Edition (https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0016/EnvironmentalImpactAssessmentAct_3.pdf, opened 2026-11-03) prints \"Commencement [18th November, 2003]\"; the Act as first published prints \"I assent, TAUFA'AHAU TUPOU IV, 18th November, 2003 [11th of September, 2003]\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TO-AGO-ADOPTED",
+      "TO-AGO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Duty on persons who plan development projects: environmental impact assessment before approval, with offences for non-compliance, false information and offences by corporations. official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). Versions: the Legislation History Table lists Version 1 (as first published), Version 2 (Revised Edition, Date Commenced 2016-12-31) and Version 3 (2020 Revised Edition, 2020-12-04, the current file); each is stored in English and Tongan with the record in_force set to that date. The site says it consolidates the law to 31 October 2020. The Legislation History Table dates Version 1 at 2003-09-11, the date the Legislative Assembly passed the Act; the record is dated 2003-11-18, the assent and commencement date the Act and its Revised Edition print. The Tongan Version 1 PDF has a faulty text layer (a control character in place of the okina and other marks), so that one record is OCR: the text is uncorrected OCR output of a scanned official PDF (tesseract, language ton) and carries extraction ocr. Languages stored on 2026-11-03: en and to (Tongan), both enacted by the King and the Legislative Assembly and served by the Attorney General's Office under the same row as the English file; no separate translation row. No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). ",
+    "status": "stored"
+  },
+  {
+    "id": "to-eia-regulations",
+    "title": "Environmental Impact Assessment Regulations (made under section 24 of the Environmental Impact Assessment Act 2003)",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/4704/4704-0001/EnvironmentalImpactAssessmentRegulations_3.pdf",
+    "citation": "Environmental Impact Assessment Regulations, Cap. 21.04.01 in the 2020 Revised Edition (Cap. 47.04.1 in the 2016 edition); item 4704-0001",
+    "in_force": "2010-11-01",
+    "evidence": "The Revised Edition (https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/4704/4704-0001/EnvironmentalImpactAssessmentRegulations_2.pdf, opened 2026-11-03) prints \"Made under section 24 of the Environmental Impact Assessment Act 2003 Commencement [1st November 2010]\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TO-AGO-ADOPTED",
+      "TO-AGO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implementing regulations of to-eia-act: forms, fees and procedures for the environmental impact assessment application and approval. The Legislation History Table lists only Version 2 (2016-12-31) and Version 3 (2020-12-04); the as-made 2010 text is not served, so the earliest record is 2016-12-31 although the first in-force date is 2010-11-01. official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). Languages stored on 2026-11-03: en and to (Tongan), both enacted by the King and the Legislative Assembly and served by the Attorney General's Office under the same row as the English file; no separate translation row. No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). ",
+    "status": "stored"
+  },
+  {
+    "id": "to-eia-consultants-regulations-2021",
+    "title": "Registration of Environmental Impact Assessment Consultant's Regulations 2021",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/2021/2021-0069/RegistrationofEnvironmentalImpactAssessmentConsultantsRegulations2021_1.pdf",
+    "citation": "Registration of Environmental Impact Assessment Consultant's Regulations 2021, made under the Environmental Impact Assessment Act [Cap. 21.04]; Gazette Supplement GS 35/21 of 1 December 2021; item 2021-0069",
+    "in_force": "2021-12-01",
+    "evidence": "Regulation 1(2) (https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/2021/2021-0069/RegistrationofEnvironmentalImpactAssessmentConsultantsRegulations2021_1.pdf, opened 2026-11-03): \"These Regulations shall come into force on the date of gazettal.\"; the Legislation History Table gives \"Date Commenced: Wednesday, 01 December 2021 Gazetted 1 Dec 2021 GS 35/21\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TO-AGO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Duty on persons who act as environmental impact assessment consultants: registration and EIA Consultant Certificate. One version only (Version 1). The PDF text carries Symbol-font bullets (U+F0B7) and three check-box glyphs that pdftotext reads as U+FFFD in the application form; they are stored as extracted. official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). Languages stored on 2026-11-03: en and to (Tongan), both enacted by the King and the Legislative Assembly and served by the Attorney General's Office under the same row as the English file; no separate translation row. No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). ",
+    "status": "stored"
+  },
+  {
+    "id": "to-consumer-protection-act-2000",
+    "title": "Consumer Protection Act 2000 (Act 15 of 2000)",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0015/ConsumerProtectionAct_3.pdf",
+    "citation": "Consumer Protection Act 2000 (Act 15 of 2000), Cap. 17.04 in the 2020 Revised Edition; assented 7 November 2000",
+    "in_force": "2001-07-02",
+    "evidence": "The 2016 and 2020 Revised Editions (https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0015/ConsumerProtectionAct_3.pdf, opened 2026-11-03) print \"Commencement [2nd July 2001]\". Section 1(2) of the Act as first published: \"This Act shall come into force on a date to be proclaimed by His Majesty in Council.\" The proclamation itself was not found on the site.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TO-AGO-ADOPTED",
+      "TO-AGO-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading claims by traders: s. 22 (misleading or deceptive conduct, an offence) and s. 23 (false representations about goods and services). The Act does not mention environmental or climate claims. official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). Versions: the Legislation History Table lists Version 1 (as first published), Version 2 (Revised Edition, Date Commenced 2016-12-31) and Version 3 (2020 Revised Edition, 2020-12-04, the current file); each is stored in English and Tongan with the record in_force set to that date. The site says it consolidates the law to 31 October 2020. Repealed by section 148(1) of the Consumer Protection Act 2025 (to-consumer-protection-act-2025) once that Act is proclaimed; until then this Act stays in force. The as-passed Version 1 is dated 2001-07-02, the commencement date; the Legislation History Table shows 2000-11-07 (assent). Languages stored on 2026-11-03: en and to (Tongan), both enacted by the King and the Legislative Assembly and served by the Attorney General's Office under the same row as the English file; no separate translation row. No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). ",
+    "status": "stored"
+  },
+  {
+    "id": "to-consumer-protection-act-2025",
+    "title": "Consumer Protection Act 2025 (Act 39 of 2025)",
+    "official_url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2025/2025-0053/ConsumerProtectionAct2025_1.pdf",
+    "citation": "Consumer Protection Act 2025 (Act 39 of 2025), assented 16 December 2025, Gazette Supplement GAZ_SE 17/25 of 17 December 2025; passed by the Legislative Assembly 18 September 2025",
+    "in_force": null,
+    "evidence": "Section 1(2) (https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2025/2025-0053/ConsumerProtectionAct2025_1.pdf, opened 2026-11-03): \"This Act shall come into force on a day to be proclaimed by Cabinet.\"; the Legislation History Table note: \"This Act shall come into force on a day to be proclaimed by Cabinet\". No proclamation was found on the site (the Not in Force page https://ago.gov.to/cms/legislation/not-in-force.html does not list it either), so no official page states a commencement date.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TO-AGO-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Replaces the Consumer Protection Act 2000 (s. 148(1) repeals Cap. 17.04; the Product Safety & Labelling Standards Regulations continue under s. 148(2)). Section 61 prohibits misleading or deceptive conduct in trade and section 62 unsubstantiated representations about goods or services, with pecuniary penalties; neither names environmental claims. Not stored: a record needs a first in-force date and none is stated, and an Act not yet in force is not part of the law in force on a date. The English and Tongan PDFs were fetched on 2026-11-03 and are available at the URLs in SOURCES.md; store them under TO-AGO-ADOPTED once a proclamation date is published. official_url is the PDF of the current English version: the iLAWS site has no page of its own for an Act, only the Legislation History Table row on https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (category 'Environment' or 'Commerce'), which links the PDFs. The Tongan PDF of the same version sits beside the English one (same folder, file name ending x.pdf). No separate government English translation exists (the English file is itself an enacted text); looked for on ago.gov.to (Legislation History Table and the Index by Category) and on parliament.gov.to (Acts Passed). ",
+    "status": "link only",
+    "status_note": "Enacted and assented 2025-12-16, not in force: commencement is by Cabinet proclamation (s. 1(2)) and none was found on 2026-11-03. Watched for the proclamation."
+  }
+]

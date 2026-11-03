@@ -7853,3 +7853,72 @@ Every scope instrument has a pass row, so none is link only. Not stored:
 
 - `https://www.environment.gov.fj/`: `curl: (35) Recv failure: Connection reset by peer`, twice on 2026-11-03. Not needed for any stored text.
 - Answered normally: laws.gov.fj, www.laws.gov.fj (API), www.parliament.gov.fj, fijiclimatechangeportal.gov.fj (the Climate Change Act PDF, `200 1255503 application/pdf`), www.rbf.gov.fj, www.spx.com.fj.
+
+## Tonga
+
+Run on 2026-11-03 (GEL-17-09). Two rows pass, both on the Attorney General's Office legislation site (https://ago.gov.to/cms/, "Tongan Legislation", the iLAWS database): `TO-AGO-ADOPTED` (Version 1 of an instrument, as first published) and `TO-AGO-CONSOLIDATED` (Version 2, the Revised Edition of 2016-12-31, and Version 3, the 2020 Revised Edition of 2020-12-04). Both pass on a statute, not on terms: the site footer says "All Web Content © 2026 The Kingdom of Tonga - All Rights Reserved" (https://ago.gov.to/cms/about/using-this-website.html) and there is no other terms page, but the Copyright Act 2002 (Act 12 of 2002) s. 5(b) withholds protection from "any official text of a legislative, administrative or legal nature, or any official translation thereof" (read in https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2002/2002-0012/CopyrightAct_3.pdf, in force 2008-09-01 per its "Commencement [1 September 2008]"; the 2025 amendment does not touch s. 5). Whether a website PDF counts as the "official text" is a reading; it is listed under what Varun decides in the PR. No other Tonga source was used, so no other row: parliament.gov.to (Acts Passed lists two items for 2021 and 2022 only; footer "Copyright © 2025 Parliament of Tonga ... All Rights Reserved"), reservebank.to (no climate or sustainability guideline) and meidecc.gov.to (see Blocked).
+
+How the files are found. The index pages list titles only; the PDF addresses and the dated versions are in the Legislation History Table of the Current Revised Edition pages, which are a form that POSTs `catid` (Environment 26, Commerce 6, Revenue 24, Finance and Banking 12 and so on):
+
+```
+curl -sS -A 'Mozilla/5.0' -X POST -F catid=26 -o cat26.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html?view=acts_by_category'
+```
+
+Returned `200 98886 text/html; charset=utf-8`. Each instrument has a row with its item number (Act number and year), the current English and Tongan PDFs, and a modal "Legislation History Table" with Version, Date Commenced, Details and Date Superseded and the English PDF of each version. The Tongan PDF of an older version is not linked from the table; it has the current Tongan file name with the year of the English Version 1 name added and the version number changed (`LaokihonoPuleioeAtakai_3x.pdf` becomes `LaokihonoPuleioeAtakai_2x.pdf` and `LaokihonoPuleioeAtakai2010_1x.pdf`). Each such address was fetched and answered `200 application/pdf`; all 12 Tongan files stored were fetched that way. A plain `curl` with the default agent works; `Mozilla/5.0` was used throughout. parliament.gov.to answered `406` to `Mozilla/5.0` and `200` to the default curl agent on the same day.
+
+Text extraction: poppler `pdftotext -layout file.pdf -`, form feeds turned into line breaks, each line stripped, runs of spaces and tabs collapsed to one space, blank lines dropped (the `## Brazil` recipe). The tables of contents with dot leaders are kept. Checked for mojibake: the English files and the Tongan files are clean except where listed here. Tongan uses the okina (U+2018, U+02BB) and macron vowels, and they come out as characters. The Symbol-font bullets of the application form in `to-eia-consultants-regulations-2021` come out as U+F0B7 (111 of them) and three check-box glyphs as U+FFFD; they are stored as extracted. The Tongan Version 1 PDFs of `to-eia-act` and `to-consumer-protection-act-2000` have a faulty text layer (a control character U+0001 replaces the okina and other marks in 33 and 78 places), so those two records are OCR (below).
+
+Row `TO-AGO-ADOPTED`, Environment Management Act 2010 as first published (Version 1):
+
+```
+curl -sS -A 'Mozilla/5.0' -o ema2010_1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct2010_1.pdf
+```
+
+Returned `200 81425 application/pdf`, sha256 `2131af8c0ab729446cade553c7b7a52471fa1ac0e807b2361336688dd5aa2ebd`, identical on a second run (the files are static; `Last-Modified` is stable).
+
+Row `TO-AGO-CONSOLIDATED`, Environment Management Act, 2020 Revised Edition (Version 3):
+
+```
+curl -sS -A 'Mozilla/5.0' -o ema_3.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct_3.pdf
+```
+
+Returned `200 394910 application/pdf`, sha256 `2b525be098b3c505bcd01bf6e837ea80148bebadc29d573d26d6afd8271ae829`, identical on a second run. `curl -sSI` on the same address answers `200`, `content-type: application/pdf`, `content-length: 394910`, `last-modified: Tue, 13 Apr 2021 11:04:50 GMT`, which is what the `http_head` watchers read.
+
+Stored (all fetched 2026-11-03; each version in English `en` and Tongan `to`; `in_force` is the date the version took effect):
+
+| Instrument | Records `in_force` (kind) | Note |
+|---|---|---|
+| `to-environment-management-act` | 2010-08-30 (adopted), 2016-12-31, 2020-12-04 (consolidated) | |
+| `to-eia-act` | 2003-11-18 (adopted), 2016-12-31, 2020-12-04 (consolidated) | Version 1 dated by assent and the printed commencement, not by the table's 2003-09-11; Tongan Version 1 is OCR |
+| `to-eia-regulations` | 2016-12-31, 2020-12-04 (consolidated) | no Version 1 is served |
+| `to-eia-consultants-regulations-2021` | 2021-12-01 (adopted) | |
+| `to-consumer-protection-act-2000` | 2001-07-02 (adopted), 2016-12-31, 2020-12-04 (consolidated) | Version 1 dated by the commencement printed in the Revised Editions, not by the table's 2000-11-07; Tongan Version 1 is OCR |
+
+OCR. `records/TO/to-eia-act/2003-11-18-adopted-to.json` and `records/TO/to-consumer-protection-act-2000/2001-07-02-adopted-to.json` carry `extraction: ocr`. Tools installed in the session: `apt-get install tesseract-ocr tesseract-ocr-ton` (tesseract 5.3.4, language `ton` from Debian's tesseract-ocr-ton 4.1.0). Commands: `pdftoppm -r 300 -png file.pdf p`, then `tesseract p-N.png - -l ton --psm 6` for each page, the page texts joined and given the same whitespace normalisation as the other records. The text is uncorrected: it has stray marks from the stamps and the page margins (for example a line of `$ €` and `íaako'>seooy A` near the assent), the okina comes out as U+02BB, and nothing was corrected, reflowed or reworded. A second OCR run was not made. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key (results in the PR).
+
+### Languages
+
+Tongan and English are both served by the same publisher in the same table, so there is no translation row: both are enacted texts (the Acts say "BE IT ENACTED by the King and the Legislative Assembly", and the Tongan files are headed "Lao ki ..." with the same Act number). Each language of a version is a record with the row of its version (`-en` and `-to`, same `in_force`). Tongan proof, Version 3 and Version 1 of the Environment Management Act:
+
+```
+curl -sS -A 'Mozilla/5.0' -o ema_3x.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/LaokihonoPuleioeAtakai_3x.pdf
+curl -sS -A 'Mozilla/5.0' -o ema2010_1x.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/LaokihonoPuleioeAtakai2010_1x.pdf
+```
+
+Returned `200 518913 application/pdf` (sha256 `c0a82553b0b9538550e54d9e944583ba5039cf0a89f9757c2e2665e8ba69a886`) and `200 86110 application/pdf` (sha256 `fa2930aab85b752b2e7f95b7bda86360fac753087a24fe799cb9a9b77ac2e2c8`), identical on a second run. No government English translation exists apart from the English enacted text; none was looked for beyond ago.gov.to and parliament.gov.to, and no translation row was made.
+
+### Link only
+
+- `to-consumer-protection-act-2025` (row `TO-AGO-ADOPTED`, a pass row; the reason is the Act, not the row): enacted (assent 2025-12-16) but not in force; section 1(2) says "on a day to be proclaimed by Cabinet" and no proclamation is on the site, so there is no in-force date and no record. The English and Tongan PDFs answered `200` on 2026-11-03: `curl -sS -A 'Mozilla/5.0' -o cpa25.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2025/2025-0053/ConsumerProtectionAct2025_1.pdf` returned `200 746843 application/pdf`; the Tongan `LaokiheMaluioeKonisiuma2025_1x.pdf` returned `200 1379549 application/pdf`. Store them dated the proclamation date once it is published. The watcher reads the Not in Force page https://ago.gov.to/cms/legislation/not-in-force.html.
+
+### Not in scope (register rows F7 or none)
+
+- Tonga Climate Change Fund Act 2021 (`.../PRINCIPAL/2021/2021-0058/TongaClimateChangeFundAct2021_1.pdf`) and the Tonga Climate Change Fund Regulations 2024: a public fund, F7 rows. No Climate Change Act exists on the site (all 26 categories were read on 2026-11-03).
+- JNAP 2 (2018-2028): a plan, F7 row with the SPREP data hub address. The operational manual of about January 2025 was not found.
+- Carbon market: no instrument found; F7 row. National Reserve Bank of Tonga: prudential statements 1 to 15 and the regulatory frameworks page opened, no climate or sustainability guideline; F7 row. Tonga has no stock exchange.
+- Other environment-related Acts seen in the index and left out for time (Next): Waste Management Act 2005, Hazardous Wastes and Chemicals Act 2010, Ozone Layer Protection Act 2010, Renewable Energy Act 2008, Energy Act 2021, Minimum Energy Performance Standards and Labelling Regulations 2025, Ocean Management Act 2025, Water Resources Act 2020, Meteorology Act 2017, Disaster Risk Management Act 2021, Environment Management (Litter and Waste Control) Regulations 2016, Consumer Protection (Product Safety & Labelling Standards) Regulations. None was read for a company duty.
+
+### Blocked
+
+- https://meidecc.gov.to: `curl -sS https://meidecc.gov.to` fails with `curl: (60) SSL: no alternative certificate subject name matches target host name 'meidecc.gov.to'` (the server presents a certificate for `mail.pmg.gov.to`). TLS verification was not disabled. https://www.meidecc.gov.to: `curl: (56) CONNECT tunnel failed, response 502` (no DNS record from the cloud). The orchestrator can open both from the laptop, and look for the Climate Change Fund operational manual and the JNAP 2 file.
+- Nothing else refused the cloud address. No browser recipe was needed and no record is browser-fetched.

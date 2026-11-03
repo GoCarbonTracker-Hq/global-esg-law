@@ -12412,5 +12412,103 @@
   "params": {
    "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2733 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
   }
+ },
+ {
+  "id": "to-environment-management-act-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-environment-management-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-act-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-eia-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0016/EnvironmentalImpactAssessmentAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-regulations-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-eia-regulations",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/4704/4704-0001/EnvironmentalImpactAssessmentRegulations_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-consultants-regulations-2021-ago-pdf",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "to-eia-consultants-regulations-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/2021/2021-0069/RegistrationofEnvironmentalImpactAssessmentConsultantsRegulations2021_1.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-consumer-protection-act-2000-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-consumer-protection-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0015/ConsumerProtectionAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-consumer-protection-act-2025-not-in-force-page",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "to-consumer-protection-act-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/legislation/not-in-force.html",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/not-in-force.html (browser; the list of Acts not yet in force, a change may be the proclamation of the Consumer Protection Act 2025; also read its row in the Legislation History Table, whose commencement note changes when Cabinet proclaims it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "terms-to-ago-adopted",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ago.gov.to/cms/about/using-this-website.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/about/using-this-website.html (browser; the pass rests on Copyright Act 2002 s. 5(b), so a change here is a prompt to reread, not a failure; the footer carries the year, so the hash changes every January)"
+  }
+ },
+ {
+  "id": "terms-to-ago-consolidated",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ago.gov.to/cms/about/using-this-website.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/about/using-this-website.html (browser; the pass rests on Copyright Act 2002 s. 5(b), so a change here is a prompt to reread, not a failure; the footer carries the year, so the hash changes every January)"
+  }
  }
 ]
