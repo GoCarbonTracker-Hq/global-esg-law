@@ -4994,3 +4994,71 @@ Russian is the state language and the only language the publication portal serve
 - `http://kremlin.ru/`, `http://government.ru/`, `https://sozd.duma.gov.ru/`, `http://duma.gov.ru/`, `http://council.gov.ru/`, `https://minprirody.gov.ru/`, `https://regulation.gov.ru/`, `https://rosstat.gov.ru/`, `https://pravo-search.minjust.ru/bigs/portal.html`: curl 000 (connection fails).
 - `https://epp.genproc.gov.ru/ru/proc_16/activity/legal-education/explain/e5628393/` (the old register URL for 296-FZ): HTTP 400, 157 bytes.
 - `https://www.cbr.ru/` without a browser User-Agent: HTTP 403, 902 bytes. `https://www.cbr.ru/Crosscut/LawActs/File/{N}`: 302 DDoS-Guard challenge to curl; a browser request works.
+
+## Bahrain
+
+GEL-10-04, run 2026-11-03. One row passes, `BH-LLOC-ADOPTED` (Legislation and Legal Opinion Commission, statute basis: Law No. (22) of 2006 Art. (4)(b) removes legislation and official documents from copyright; the LLOC site terms claim copyright, so the pass rests on the statute alone). Three rows are `permission requested`: `BH-LLOC-TRANSLATION` (LLOC English versions, guidance translations), `BH-CBB-ADOPTED` (Central Bank of Bahrain Rulebook), `BH-BHB-ADOPTED` (Bahrain Bourse). Stored: seven instruments in Arabic, as published, one record each. No browser was needed for any stored record.
+
+### Row BH-LLOC-ADOPTED
+
+Step 1, find the instrument id (the site has no list URL that can be guessed; ids are a type letter, number and year, for example `K0722` = Law No. 7 of 2022, `RSCE0115` = Supreme Council for Environment decision 1 of 2015). The search page sets a session cookie and a per-session token that the search POST must send back:
+
+```
+curl -sS -A 'Mozilla/5.0' -c cj.txt -b cj.txt -o search.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/en/Legislation/Search
+TOK=$(grep -oE 'id="token" value="[^"]+"' search.html | sed 's/.*value="//;s/"$//')
+curl -sS -A 'Mozilla/5.0' -b cj.txt -H "requestverificationtoken: $TOK" -H 'x-requested-with: XMLHttpRequest' -H 'content-type: application/json; charset=UTF-8' -X POST https://www.lloc.gov.bh/en/legislation/search --data '{PostParam: {"IsSearchTitle":true,"LegNum":"","YearFrom":"","YearTo":"","OGFrom":"","OGTo":"","TypeID":"","SourceID":"","CategoryID":"","KeywordAll":"environment","KeywordAny":"","KeywordPhrase":"","KeywordNot":"","IsSearchTreaty":false,"IsSearchWomen":false,"IsSearchEnglish":false,"SortBy":"SortDate"}, PageNum: 1, PageSize: 10}' -o result.html -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 113497 text/html; charset=utf-8` for the first request and `200 31313 text/html; charset=utf-8` for the POST ("Results (13 records found)", first hit Law No. (7) of 2022 regarding Environment, Official Gazette No. 3593, 17-March-2022). The body is an HTML fragment; each hit carries `/Legislation/HTM/<id>` (Arabic text), `/PDF/<id>.pdf` (image of the Gazette page), `/FullEn/<id>.docx` (English version, when there is one) and, when the instrument has amendments, `/Legislation/Amendments/<id>`. The same POST at `/legislation/search` (no `/en`) searches the Arabic site; `KeywordAny` takes several words, `SourceID` takes a publisher code such as `RSCE` (Supreme Council for Environment). The date LLOC prints is the Official Gazette date (checked: every date used here is a Thursday, the Gazette day).
+
+Step 2, the text, row `BH-LLOC-ADOPTED`, Law No. (7) of 2022:
+
+```
+curl -sS -A 'Mozilla/5.0' -o K0722.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/Legislation/HTM/K0722
+```
+
+Returned `200 288595 text/html; charset=utf-8`, sha256 `89763eb35884c92c1ba54f08b0e1ec20476dd3685be7cbeba687d3d2a997aacd`. A second fetch gave the same bytes (checked for K0722, K5414, RSCE0115, RSCE0725, K3512, RCIN6614 and K2826: identical sha256 twice). Any `User-Agent` works (`curl/8`, `global-esg-law-watch/1` and `Mozilla/5.0` all answered 200).
+
+Text extraction (for every record below): the file is Word-exported HTML served with `charset=utf-8` while its `<meta>` says windows-1256; it is decoded as UTF-8 (no U+FFFD in any record). `<head>`, `<script>` and `<style>` removed, runs of whitespace (including the line breaks inside paragraphs) collapsed to one space, `</p>`, `</div>`, `<br>`, headings, list items and table rows turned into line breaks, other tags stripped, HTML entities decoded, no-break spaces turned into spaces, empty lines dropped. Nothing reworded. `fetched_sha256` is the hash of the file as returned.
+
+Stored (fetched 2026-11-03), all `kind` adopted, one record per instrument; the file name is `<in_force>-adopted-ar.json`:
+
+| Instrument | LLOC id | Official Gazette date | `in_force` | Language | `fetched_sha256` |
+|---|---|---|---|---|---|
+| `bh-env-law-7-2022` | `K0722` | 2022-03-17 (OG 3593) | 2022-09-18 | `ar` | 89763eb35884c92c1ba54f08b0e1ec20476dd3685be7cbeba687d3d2a997aacd |
+| `bh-ods-law-54-2014` | `K5414` | 2014-10-02 (OG 3177) | 2014-10-03 | `ar` | b0a0f64753363cf2b146e4cc84a6087e4f98f380cec8701d85d0be9286a5ed58 |
+| `bh-hcfc-quota-decision-1-2015` | `RSCE0115` | 2015-09-17 (OG 3227) | 2015-09-18 | `ar` | 85090913240407168188bd0f46641b219a82e1af4576fd7dcf8ea1c9b69cf4b2 |
+| `bh-climate-adaptation-committee-7-2025` | `RSCE0725` | 2025-12-04 (OG 3848) | 2025-12-05 | `ar` | d330ed6c14d8b60a7834ebbfa6deca8aea847672381fb7f72fa94112983d2726 |
+| `bh-consumer-protection-law-35-2012` | `K3512` | 2012-08-02 (OG 3063) | 2012-08-03 | `ar` | 47b0e6063fcf2cc238799c2b122413a49175b3ddce01aae3f9e17f4e513877ba |
+| `bh-consumer-protection-regulation-66-2014` | `RCIN6614` | 2014-07-17 (OG 3165) | 2014-07-18 | `ar` | 038df241a54ce77055f8f47c50cd7a701a600adcfbd8793e18fbb9c18a379eb5 |
+| `bh-consumer-protection-law-28-2026` | `K2826` | 2026-06-18 (OG 3889) | 2026-06-19 | `ar` | 9346be6efb65d61c77be46c557b1b22861dfe2248701c9d095aabb99edf4adb6 |
+
+`in_force` is computed: all but one of the seven instruments say they apply "from the day after publication in the Official Gazette", the Environment Law "after six months from publication". The Gazette date plus one day (plus six months and one day for the Environment Law) is the stored date; no page states the date itself. Whether "after six months" means the day after the sixth month ends is a reading, flagged in the PR.
+
+One dated version per instrument: LLOC serves the as-published text only. An amendment is a separate instrument (`Legislation/Amendments/<id>` lists them); only Law No. (35) of 2012 has one (Law No. (28) of 2026, stored as its own instrument). LLOC also serves an Arabic Word file "with amendments" (`/FullAr/<id>.docx`, for example `/FullAr/K3512.docx`, `200 34376`) that states no amendment date; it is not stored because it cannot be dated.
+
+### Languages
+
+Arabic is the authentic language of legislation and the only official language LLOC serves; each instrument has one Arabic record. English:
+
+- Row `BH-LLOC-TRANSLATION` is `permission requested`, so no English record is stored. The request tried: `curl -sS -A 'Mozilla/5.0' -o K0722.docx -w '%{http_code} %{size_download} %{content_type}\n' https://www.lloc.gov.bh/FullEn/K0722.docx` returned `200 52750 application/vnd.openxmlformats-officedocument.wordprocessingml.document`; the text is in `word/document.xml` of the zip. The file opens with a disclaimer that the Arabic Gazette version is the official one and the English is "provided for guidance and easy reference purposes", and "Published on the website on May 2024". Law No. (22) of 2006 Art. (4)(b) excludes "official translations", but a guidance translation is not shown to be one; that reading is Varun's to make (PR report).
+- English files exist for `bh-env-law-7-2022`, `bh-ods-law-54-2014`, `bh-hcfc-quota-decision-1-2015`, `bh-consumer-protection-law-35-2012` and `bh-consumer-protection-regulation-66-2014`. None exists for `bh-climate-adaptation-committee-7-2025` (`/FullEn/RSCE0725.docx` returned `404 1245 text/html` and the English search lists it nowhere) or `bh-consumer-protection-law-28-2026`.
+- Statute text used for the pass: `curl -sS -A 'Mozilla/5.0' -o K2206.html https://www.lloc.gov.bh/Legislation/HTM/K2206` returned `200 328185 text/html; charset=utf-8`, sha256 `563e5e91f62a183888f3724a285e032da22591e47aab2f020a546bf4280f61a8` (Law No. (22) of 2006 on the Protection of Copyright and Neighbouring Rights, Art. (4)(b); not stored, it is not an ESG instrument).
+
+### Link only
+
+- `bh-bhb-listing-rules` (F1): row `BH-BHB-ADOPTED`, `permission requested` (terms page https://bahrainbourse.com/en/Bahrain%20Clear/eServices/Pages/Terms-and-Conditions.aspx: "The Bourse’s Website and all services offered through it are intellectual property of the Bourse."). The Listing Rules PDF was opened: `curl -sS -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36' -o ListingRules_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework/Documents/ListingRules_2024.pdf'` returned `200 1181911 application/pdf`; no text is stored.
+- `bh-cbb-esg-module` (F1): row `BH-CBB-ADOPTED`, `permission requested` (https://www.cbb.gov.bh/copyright/: "material should not be copied, used or re-published in whole or in part without the prior written permission of the CBB and without acknowledging the source"). The module PDF was opened: `curl -sS -L -A '<desktop Chrome user agent as above>' -o Common_Vol_ESG_January_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cbben.thomsonreuters.com/sites/default/files/net_file_store/Common_Vol_ESG_January_2024.pdf` returned `200 806740 application/pdf`; no text is stored. The pages of the Rulebook are reached from https://cbben.thomsonreuters.com/cbb-rulebook, Common Volume Part A, node 2304727.
+- Not in scope.json: `RSCE0321` (water standards), `RSCE0521` (electrical and electronic waste), `RSCE0320` (hazardous healthcare waste), `RSCE0724` (waste transport licences) and `RSEA0120` (renewable energy certificates) are F7 register rows only; a carbon pricing instrument was not found (register row F7 "none found"). Not taken: Decree No. (75) of 2016 (Paris Agreement), Decree No. (7) of 1994 (UNFCCC), Decree No. (45) of 2005 (Kyoto Protocol) are ratification decrees; Decree No. (87) of 2019 (Sustainable Energy Authority) and Decree No. (9) of 2023 (Ministry of Sustainable Development) are institutional; Legislative Decree No. (21) of 1996 on the Environment is replaced by Law No. (7) of 2022; Decision No. (91) of 2022 (Corporate Management and Governance Charter) is governance, not ESG disclosure; Decision No. (10) of 2006 on air pollutant emissions (RCPMW1006) status not checked.
+- No scope instrument is link only for want of a working request: every instrument is either stored or held back by the row verdict.
+
+### Blocked from the cloud address
+
+Answers on 2026-11-03 from the cloud address to `curl -A 'Mozilla/5.0'`:
+
+- https://cbben.thomsonreuters.com/ : `403 118` (`403 Forbidden`, nginx-style page). With the desktop Chrome user agent above: `200`. The `upkeep` watcher user agent (`global-esg-law-watch/1`) gets `403` on the ESG module PDF, so `bh-cbb-esg-module-pdf` has `params.second_route`.
+- https://bahrainbourse.com/ : `403 4553` (Cloudflare-style error page). With the desktop Chrome user agent: `200`; the watcher user agent also gets `200` on the Listing Rules PDF HEAD.
+- https://www.sce.gov.bh/ : `403 118`. With the desktop Chrome user agent: `200`, but `/en` redirects to `https://www.sce.gov.bh/en/Error.aspx`. No SCE page was used (the Commission text is preferred), so there is no SCE row.
+- https://www.legalaffairs.gov.bh : `curl: (60) SSL: no alternative certificate subject name matches target host name 'www.legalaffairs.gov.bh'`.
+- https://www.lloc.gov.bh through headless Chromium (Playwright) with its default user agent: `403 Forbidden` (117 bytes); with a desktop Chrome user agent: `200`. Playwright was only used to read the search form; curl does the work.
+- https://www.cbb.gov.bh/rulebook/ : `404`; the Rulebook lives on the Thomson Reuters host.

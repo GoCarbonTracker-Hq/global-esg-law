@@ -8798,5 +8798,92 @@
   "params": {
    "second_route": "https://www.cbr.ru/issuers_corporate/development_corp_relations/ (browser; the PDF route https://www.cbr.ru/Crosscut/LawActs/File/1249 answers curl with a DDoS-Guard 302 and needs a browser; www.cbr.ru answers a script without a browser User-Agent with 403)"
   }
+ },
+ {
+  "id": "bh-env-law-7-2022-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-env-law-7-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K0722"
+ },
+ {
+  "id": "bh-ods-law-54-2014-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-ods-law-54-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K5414"
+ },
+ {
+  "id": "bh-hcfc-quota-decision-1-2015-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-hcfc-quota-decision-1-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RSCE0115"
+ },
+ {
+  "id": "bh-climate-adaptation-committee-7-2025-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-climate-adaptation-committee-7-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RSCE0725"
+ },
+ {
+  "id": "bh-consumer-protection-law-35-2012-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-law-35-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K3512"
+ },
+ {
+  "id": "bh-consumer-protection-regulation-66-2014-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-regulation-66-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/RCIN6614"
+ },
+ {
+  "id": "bh-consumer-protection-law-28-2026-lloc-text",
+  "source_id": "BH-LLOC-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-consumer-protection-law-28-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lloc.gov.bh/Legislation/HTM/K2826"
+ },
+ {
+  "id": "bh-bhb-listing-rules-pdf",
+  "source_id": "BH-BHB-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-bhb-listing-rules",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework/Documents/ListingRules_2024.pdf",
+  "params": {
+   "second_route": "https://bahrainbourse.com/en/Rules%20and%20Regulations/LegalFramework (browser; bahrainbourse.com answers 403 to curl -A 'Mozilla/5.0' and opens with a desktop Chrome user agent; the Listing Rules link is on that page)"
+  }
+ },
+ {
+  "id": "bh-cbb-esg-module-pdf",
+  "source_id": "BH-CBB-ADOPTED",
+  "iso2": "BH",
+  "instrument": "bh-cbb-esg-module",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbben.thomsonreuters.com/sites/default/files/net_file_store/Common_Vol_ESG_January_2024.pdf",
+  "params": {
+   "second_route": "https://cbben.thomsonreuters.com/node/2304727 (browser; the Rulebook host answers 403 to scripts with a plain user agent and opens with a desktop Chrome user agent; the module page links the PDF and its version date)"
+  }
  }
 ]
