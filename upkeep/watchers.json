@@ -7659,5 +7659,44 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "al-accounting-law-25-2018-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-accounting-law-25-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-law-87-2026-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-law-87-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-climate-law-155-2020-mjedisi-page",
+  "source_id": "AL-MJEDISI-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-climate-law-155-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mjedisi.gov.al/ndryshimet-klimatike/"
+ },
+ {
+  "id": "al-environmental-protection-law-10431-2011-akm-page",
+  "source_id": "AL-QBZ-CONSOLIDATED",
+  "iso2": "AL",
+  "instrument": "al-environmental-protection-law-10431-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://akm.gov.al/",
+  "params": {
+   "second_route": "https://akm.gov.al/ (browser; the agency site answered some script requests with an empty reply on 2026-11-03; qbz.gov.al, where the consolidated text is expected, is blocked from the cloud address: https://qbz.gov.al/ in a browser)"
+  }
  }
 ]
