@@ -1,0 +1,513 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="828" height="632" viewBox="0 0 828 632" role="img" aria-labelledby="t d" font-family="monospace">
+<title id="t">Coverage grid of places in the register</title>
+<desc id="d">As of 2026-11-03: 250 places. 112 with text stored, 42 link only, 96 with no corpus.</desc>
+<rect width="828" height="632" fill="#ffffff"/>
+<text x="16" y="26" font-size="16" fill="#212121">Coverage by place, sorted by two-letter code</text>
+<rect x="16" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="34" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AD</text>
+<rect x="56" y="44" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="74" y="66" font-size="12" text-anchor="middle" fill="#212121">AE</text>
+<rect x="96" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="114" y="66" font-size="12" text-anchor="middle" fill="#424242">AF</text>
+<rect x="136" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AG</text>
+<rect x="176" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="66" font-size="12" text-anchor="middle" fill="#424242">AI</text>
+<rect x="216" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AL</text>
+<rect x="256" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="274" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AM</text>
+<rect x="296" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="314" y="66" font-size="12" text-anchor="middle" fill="#424242">AO</text>
+<rect x="336" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="66" font-size="12" text-anchor="middle" fill="#424242">AQ</text>
+<rect x="376" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AR</text>
+<rect x="416" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="434" y="66" font-size="12" text-anchor="middle" fill="#424242">AS</text>
+<rect x="456" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AT</text>
+<rect x="496" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AU</text>
+<rect x="536" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="66" font-size="12" text-anchor="middle" fill="#424242">AW</text>
+<rect x="576" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="594" y="66" font-size="12" text-anchor="middle" fill="#424242">AX</text>
+<rect x="616" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AZ</text>
+<rect x="656" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="674" y="66" font-size="12" text-anchor="middle" fill="#ffffff">BA</text>
+<rect x="696" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="714" y="66" font-size="12" text-anchor="middle" fill="#424242">BB</text>
+<rect x="736" y="44" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="754" y="66" font-size="12" text-anchor="middle" fill="#212121">BD</text>
+<rect x="776" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="66" font-size="12" text-anchor="middle" fill="#ffffff">BE</text>
+<rect x="16" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="106" font-size="12" text-anchor="middle" fill="#424242">BF</text>
+<rect x="56" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="74" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BG</text>
+<rect x="96" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BH</text>
+<rect x="136" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="154" y="106" font-size="12" text-anchor="middle" fill="#424242">BI</text>
+<rect x="176" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BJ</text>
+<rect x="216" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="234" y="106" font-size="12" text-anchor="middle" fill="#424242">BL</text>
+<rect x="256" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="106" font-size="12" text-anchor="middle" fill="#424242">BM</text>
+<rect x="296" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="314" y="106" font-size="12" text-anchor="middle" fill="#212121">BN</text>
+<rect x="336" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="354" y="106" font-size="12" text-anchor="middle" fill="#212121">BO</text>
+<rect x="376" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="394" y="106" font-size="12" text-anchor="middle" fill="#424242">BQ</text>
+<rect x="416" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BR</text>
+<rect x="456" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="474" y="106" font-size="12" text-anchor="middle" fill="#212121">BS</text>
+<rect x="496" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BT</text>
+<rect x="536" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="106" font-size="12" text-anchor="middle" fill="#424242">BV</text>
+<rect x="576" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="594" y="106" font-size="12" text-anchor="middle" fill="#424242">BW</text>
+<rect x="616" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BY</text>
+<rect x="656" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="674" y="106" font-size="12" text-anchor="middle" fill="#212121">BZ</text>
+<rect x="696" y="84" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="106" font-size="12" text-anchor="middle" fill="#ffffff">CA</text>
+<rect x="736" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="754" y="106" font-size="12" text-anchor="middle" fill="#424242">CC</text>
+<rect x="776" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="794" y="106" font-size="12" text-anchor="middle" fill="#424242">CD</text>
+<rect x="16" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="146" font-size="12" text-anchor="middle" fill="#424242">CF</text>
+<rect x="56" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="146" font-size="12" text-anchor="middle" fill="#424242">CG</text>
+<rect x="96" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CH</text>
+<rect x="136" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CI</text>
+<rect x="176" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="146" font-size="12" text-anchor="middle" fill="#424242">CK</text>
+<rect x="216" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CL</text>
+<rect x="256" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="146" font-size="12" text-anchor="middle" fill="#424242">CM</text>
+<rect x="296" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CN</text>
+<rect x="336" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="354" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CO</text>
+<rect x="376" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CR</text>
+<rect x="416" y="124" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="434" y="146" font-size="12" text-anchor="middle" fill="#212121">CU</text>
+<rect x="456" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CV</text>
+<rect x="496" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="146" font-size="12" text-anchor="middle" fill="#424242">CW</text>
+<rect x="536" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="146" font-size="12" text-anchor="middle" fill="#424242">CX</text>
+<rect x="576" y="124" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="594" y="146" font-size="12" text-anchor="middle" fill="#212121">CY</text>
+<rect x="616" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CZ</text>
+<rect x="656" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="674" y="146" font-size="12" text-anchor="middle" fill="#ffffff">DE</text>
+<rect x="696" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="714" y="146" font-size="12" text-anchor="middle" fill="#424242">DJ</text>
+<rect x="736" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="754" y="146" font-size="12" text-anchor="middle" fill="#ffffff">DK</text>
+<rect x="776" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="146" font-size="12" text-anchor="middle" fill="#ffffff">DM</text>
+<rect x="16" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="34" y="186" font-size="12" text-anchor="middle" fill="#ffffff">DO</text>
+<rect x="56" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="74" y="186" font-size="12" text-anchor="middle" fill="#ffffff">DZ</text>
+<rect x="96" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="186" font-size="12" text-anchor="middle" fill="#ffffff">EC</text>
+<rect x="136" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="186" font-size="12" text-anchor="middle" fill="#ffffff">EE</text>
+<rect x="176" y="164" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="194" y="186" font-size="12" text-anchor="middle" fill="#212121">EG</text>
+<rect x="216" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="234" y="186" font-size="12" text-anchor="middle" fill="#424242">EH</text>
+<rect x="256" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="186" font-size="12" text-anchor="middle" fill="#424242">ER</text>
+<rect x="296" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="186" font-size="12" text-anchor="middle" fill="#ffffff">ES</text>
+<rect x="336" y="164" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="354" y="186" font-size="12" text-anchor="middle" fill="#212121">ET</text>
+<rect x="376" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="186" font-size="12" text-anchor="middle" fill="#ffffff">EU</text>
+<rect x="416" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FI</text>
+<rect x="456" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FJ</text>
+<rect x="496" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="186" font-size="12" text-anchor="middle" fill="#424242">FK</text>
+<rect x="536" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="186" font-size="12" text-anchor="middle" fill="#424242">FM</text>
+<rect x="576" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="594" y="186" font-size="12" text-anchor="middle" fill="#424242">FO</text>
+<rect x="616" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FR</text>
+<rect x="656" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="674" y="186" font-size="12" text-anchor="middle" fill="#ffffff">GA</text>
+<rect x="696" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="186" font-size="12" text-anchor="middle" fill="#ffffff">GB</text>
+<rect x="736" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="754" y="186" font-size="12" text-anchor="middle" fill="#ffffff">GD</text>
+<rect x="776" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="186" font-size="12" text-anchor="middle" fill="#ffffff">GE</text>
+<rect x="16" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="226" font-size="12" text-anchor="middle" fill="#424242">GF</text>
+<rect x="56" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="226" font-size="12" text-anchor="middle" fill="#424242">GG</text>
+<rect x="96" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GH</text>
+<rect x="136" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="154" y="226" font-size="12" text-anchor="middle" fill="#424242">GI</text>
+<rect x="176" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="226" font-size="12" text-anchor="middle" fill="#424242">GL</text>
+<rect x="216" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="234" y="226" font-size="12" text-anchor="middle" fill="#424242">GM</text>
+<rect x="256" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="274" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GN</text>
+<rect x="296" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="314" y="226" font-size="12" text-anchor="middle" fill="#424242">GP</text>
+<rect x="336" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="226" font-size="12" text-anchor="middle" fill="#424242">GQ</text>
+<rect x="376" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GR</text>
+<rect x="416" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="434" y="226" font-size="12" text-anchor="middle" fill="#424242">GS</text>
+<rect x="456" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GT</text>
+<rect x="496" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="226" font-size="12" text-anchor="middle" fill="#424242">GU</text>
+<rect x="536" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="226" font-size="12" text-anchor="middle" fill="#424242">GW</text>
+<rect x="576" y="204" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="594" y="226" font-size="12" text-anchor="middle" fill="#212121">GY</text>
+<rect x="616" y="204" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="634" y="226" font-size="12" text-anchor="middle" fill="#212121">HK</text>
+<rect x="656" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="226" font-size="12" text-anchor="middle" fill="#424242">HM</text>
+<rect x="696" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="226" font-size="12" text-anchor="middle" fill="#ffffff">HN</text>
+<rect x="736" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="754" y="226" font-size="12" text-anchor="middle" fill="#ffffff">HR</text>
+<rect x="776" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="226" font-size="12" text-anchor="middle" fill="#ffffff">HT</text>
+<rect x="16" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="34" y="266" font-size="12" text-anchor="middle" fill="#ffffff">HU</text>
+<rect x="56" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="74" y="266" font-size="12" text-anchor="middle" fill="#212121">ID</text>
+<rect x="96" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IE</text>
+<rect x="136" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IL</text>
+<rect x="176" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="266" font-size="12" text-anchor="middle" fill="#424242">IM</text>
+<rect x="216" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="234" y="266" font-size="12" text-anchor="middle" fill="#212121">IN</text>
+<rect x="256" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="266" font-size="12" text-anchor="middle" fill="#424242">IO</text>
+<rect x="296" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="314" y="266" font-size="12" text-anchor="middle" fill="#212121">IQ</text>
+<rect x="336" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="266" font-size="12" text-anchor="middle" fill="#424242">IR</text>
+<rect x="376" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="394" y="266" font-size="12" text-anchor="middle" fill="#212121">IS</text>
+<rect x="416" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IT</text>
+<rect x="456" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="474" y="266" font-size="12" text-anchor="middle" fill="#424242">JE</text>
+<rect x="496" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="266" font-size="12" text-anchor="middle" fill="#424242">JM</text>
+<rect x="536" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="554" y="266" font-size="12" text-anchor="middle" fill="#ffffff">JO</text>
+<rect x="576" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="266" font-size="12" text-anchor="middle" fill="#ffffff">JP</text>
+<rect x="616" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="634" y="266" font-size="12" text-anchor="middle" fill="#212121">KE</text>
+<rect x="656" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="674" y="266" font-size="12" text-anchor="middle" fill="#ffffff">KG</text>
+<rect x="696" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="266" font-size="12" text-anchor="middle" fill="#ffffff">KH</text>
+<rect x="736" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="754" y="266" font-size="12" text-anchor="middle" fill="#424242">KI</text>
+<rect x="776" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="794" y="266" font-size="12" text-anchor="middle" fill="#212121">KM</text>
+<rect x="16" y="284" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="306" font-size="12" text-anchor="middle" fill="#424242">KN</text>
+<rect x="56" y="284" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="74" y="306" font-size="12" text-anchor="middle" fill="#212121">KP</text>
+<rect x="96" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="306" font-size="12" text-anchor="middle" fill="#ffffff">KR</text>
+<rect x="136" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="306" font-size="12" text-anchor="middle" fill="#ffffff">KW</text>
+<rect x="176" y="284" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="306" font-size="12" text-anchor="middle" fill="#424242">KY</text>
+<rect x="216" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="306" font-size="12" text-anchor="middle" fill="#ffffff">KZ</text>
+<rect x="256" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="274" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LA</text>
+<rect x="296" y="284" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="314" y="306" font-size="12" text-anchor="middle" fill="#212121">LB</text>
+<rect x="336" y="284" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="306" font-size="12" text-anchor="middle" fill="#424242">LC</text>
+<rect x="376" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LI</text>
+<rect x="416" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LK</text>
+<rect x="456" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LR</text>
+<rect x="496" y="284" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="306" font-size="12" text-anchor="middle" fill="#424242">LS</text>
+<rect x="536" y="284" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="554" y="306" font-size="12" text-anchor="middle" fill="#212121">LT</text>
+<rect x="576" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LU</text>
+<rect x="616" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="306" font-size="12" text-anchor="middle" fill="#ffffff">LV</text>
+<rect x="656" y="284" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="306" font-size="12" text-anchor="middle" fill="#424242">LY</text>
+<rect x="696" y="284" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="714" y="306" font-size="12" text-anchor="middle" fill="#212121">MA</text>
+<rect x="736" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="754" y="306" font-size="12" text-anchor="middle" fill="#ffffff">MC</text>
+<rect x="776" y="284" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="306" font-size="12" text-anchor="middle" fill="#ffffff">MD</text>
+<rect x="16" y="324" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="34" y="346" font-size="12" text-anchor="middle" fill="#212121">ME</text>
+<rect x="56" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="346" font-size="12" text-anchor="middle" fill="#424242">MF</text>
+<rect x="96" y="324" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="114" y="346" font-size="12" text-anchor="middle" fill="#212121">MG</text>
+<rect x="136" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="154" y="346" font-size="12" text-anchor="middle" fill="#424242">MH</text>
+<rect x="176" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MK</text>
+<rect x="216" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="346" font-size="12" text-anchor="middle" fill="#ffffff">ML</text>
+<rect x="256" y="324" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="274" y="346" font-size="12" text-anchor="middle" fill="#212121">MM</text>
+<rect x="296" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MN</text>
+<rect x="336" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="346" font-size="12" text-anchor="middle" fill="#424242">MO</text>
+<rect x="376" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="394" y="346" font-size="12" text-anchor="middle" fill="#424242">MP</text>
+<rect x="416" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="434" y="346" font-size="12" text-anchor="middle" fill="#424242">MQ</text>
+<rect x="456" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MR</text>
+<rect x="496" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="346" font-size="12" text-anchor="middle" fill="#424242">MS</text>
+<rect x="536" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="554" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MT</text>
+<rect x="576" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MU</text>
+<rect x="616" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MV</text>
+<rect x="656" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="346" font-size="12" text-anchor="middle" fill="#424242">MW</text>
+<rect x="696" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MX</text>
+<rect x="736" y="324" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="754" y="346" font-size="12" text-anchor="middle" fill="#212121">MY</text>
+<rect x="776" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MZ</text>
+<rect x="16" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="386" font-size="12" text-anchor="middle" fill="#424242">NA</text>
+<rect x="56" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="386" font-size="12" text-anchor="middle" fill="#424242">NC</text>
+<rect x="96" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="114" y="386" font-size="12" text-anchor="middle" fill="#424242">NE</text>
+<rect x="136" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="154" y="386" font-size="12" text-anchor="middle" fill="#424242">NF</text>
+<rect x="176" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NG</text>
+<rect x="216" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NI</text>
+<rect x="256" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="274" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NL</text>
+<rect x="296" y="364" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="314" y="386" font-size="12" text-anchor="middle" fill="#212121">NO</text>
+<rect x="336" y="364" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="354" y="386" font-size="12" text-anchor="middle" fill="#212121">NP</text>
+<rect x="376" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="394" y="386" font-size="12" text-anchor="middle" fill="#424242">NR</text>
+<rect x="416" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="434" y="386" font-size="12" text-anchor="middle" fill="#424242">NU</text>
+<rect x="456" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NZ</text>
+<rect x="496" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="386" font-size="12" text-anchor="middle" fill="#ffffff">OM</text>
+<rect x="536" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="554" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PA</text>
+<rect x="576" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PE</text>
+<rect x="616" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="634" y="386" font-size="12" text-anchor="middle" fill="#424242">PF</text>
+<rect x="656" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="674" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PG</text>
+<rect x="696" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PH</text>
+<rect x="736" y="364" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="754" y="386" font-size="12" text-anchor="middle" fill="#212121">PK</text>
+<rect x="776" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PL</text>
+<rect x="16" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="426" font-size="12" text-anchor="middle" fill="#424242">PM</text>
+<rect x="56" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="426" font-size="12" text-anchor="middle" fill="#424242">PN</text>
+<rect x="96" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="114" y="426" font-size="12" text-anchor="middle" fill="#424242">PR</text>
+<rect x="136" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="154" y="426" font-size="12" text-anchor="middle" fill="#212121">PS</text>
+<rect x="176" y="404" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="426" font-size="12" text-anchor="middle" fill="#ffffff">PT</text>
+<rect x="216" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="234" y="426" font-size="12" text-anchor="middle" fill="#424242">PW</text>
+<rect x="256" y="404" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="274" y="426" font-size="12" text-anchor="middle" fill="#ffffff">PY</text>
+<rect x="296" y="404" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="426" font-size="12" text-anchor="middle" fill="#ffffff">QA</text>
+<rect x="336" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="426" font-size="12" text-anchor="middle" fill="#424242">RE</text>
+<rect x="376" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="394" y="426" font-size="12" text-anchor="middle" fill="#212121">RO</text>
+<rect x="416" y="404" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="426" font-size="12" text-anchor="middle" fill="#ffffff">RS</text>
+<rect x="456" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="474" y="426" font-size="12" text-anchor="middle" fill="#212121">RU</text>
+<rect x="496" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="426" font-size="12" text-anchor="middle" fill="#424242">RW</text>
+<rect x="536" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="554" y="426" font-size="12" text-anchor="middle" fill="#212121">SA</text>
+<rect x="576" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="594" y="426" font-size="12" text-anchor="middle" fill="#424242">SB</text>
+<rect x="616" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="634" y="426" font-size="12" text-anchor="middle" fill="#212121">SC</text>
+<rect x="656" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="426" font-size="12" text-anchor="middle" fill="#424242">SD</text>
+<rect x="696" y="404" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="714" y="426" font-size="12" text-anchor="middle" fill="#ffffff">SE</text>
+<rect x="736" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="754" y="426" font-size="12" text-anchor="middle" fill="#212121">SG</text>
+<rect x="776" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="794" y="426" font-size="12" text-anchor="middle" fill="#424242">SH</text>
+<rect x="16" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="34" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SI</text>
+<rect x="56" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="466" font-size="12" text-anchor="middle" fill="#424242">SJ</text>
+<rect x="96" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SK</text>
+<rect x="136" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SL</text>
+<rect x="176" y="444" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="194" y="466" font-size="12" text-anchor="middle" fill="#212121">SM</text>
+<rect x="216" y="444" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="234" y="466" font-size="12" text-anchor="middle" fill="#212121">SN</text>
+<rect x="256" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="466" font-size="12" text-anchor="middle" fill="#424242">SO</text>
+<rect x="296" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SR</text>
+<rect x="336" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="354" y="466" font-size="12" text-anchor="middle" fill="#424242">SS</text>
+<rect x="376" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="394" y="466" font-size="12" text-anchor="middle" fill="#424242">ST</text>
+<rect x="416" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="434" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SV</text>
+<rect x="456" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="474" y="466" font-size="12" text-anchor="middle" fill="#424242">SX</text>
+<rect x="496" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SY</text>
+<rect x="536" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="554" y="466" font-size="12" text-anchor="middle" fill="#424242">SZ</text>
+<rect x="576" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="594" y="466" font-size="12" text-anchor="middle" fill="#424242">TC</text>
+<rect x="616" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="634" y="466" font-size="12" text-anchor="middle" fill="#424242">TD</text>
+<rect x="656" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="466" font-size="12" text-anchor="middle" fill="#424242">TF</text>
+<rect x="696" y="444" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="714" y="466" font-size="12" text-anchor="middle" fill="#212121">TG</text>
+<rect x="736" y="444" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="754" y="466" font-size="12" text-anchor="middle" fill="#212121">TH</text>
+<rect x="776" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="794" y="466" font-size="12" text-anchor="middle" fill="#ffffff">TJ</text>
+<rect x="16" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="506" font-size="12" text-anchor="middle" fill="#424242">TK</text>
+<rect x="56" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="74" y="506" font-size="12" text-anchor="middle" fill="#424242">TL</text>
+<rect x="96" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="114" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TM</text>
+<rect x="136" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="154" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TN</text>
+<rect x="176" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TO</text>
+<rect x="216" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TR</text>
+<rect x="256" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="506" font-size="12" text-anchor="middle" fill="#424242">TT</text>
+<rect x="296" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="314" y="506" font-size="12" text-anchor="middle" fill="#424242">TV</text>
+<rect x="336" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="354" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TW</text>
+<rect x="376" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="506" font-size="12" text-anchor="middle" fill="#ffffff">TZ</text>
+<rect x="416" y="484" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="434" y="506" font-size="12" text-anchor="middle" fill="#212121">UA</text>
+<rect x="456" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="474" y="506" font-size="12" text-anchor="middle" fill="#424242">UG</text>
+<rect x="496" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="514" y="506" font-size="12" text-anchor="middle" fill="#424242">UM</text>
+<rect x="536" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="554" y="506" font-size="12" text-anchor="middle" fill="#ffffff">US</text>
+<rect x="576" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="506" font-size="12" text-anchor="middle" fill="#ffffff">UY</text>
+<rect x="616" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="634" y="506" font-size="12" text-anchor="middle" fill="#ffffff">UZ</text>
+<rect x="656" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="674" y="506" font-size="12" text-anchor="middle" fill="#424242">VA</text>
+<rect x="696" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="714" y="506" font-size="12" text-anchor="middle" fill="#424242">VC</text>
+<rect x="736" y="484" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="754" y="506" font-size="12" text-anchor="middle" fill="#ffffff">VE</text>
+<rect x="776" y="484" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="794" y="506" font-size="12" text-anchor="middle" fill="#424242">VG</text>
+<rect x="16" y="524" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="34" y="546" font-size="12" text-anchor="middle" fill="#424242">VI</text>
+<rect x="56" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="74" y="546" font-size="12" text-anchor="middle" fill="#ffffff">VN</text>
+<rect x="96" y="524" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="114" y="546" font-size="12" text-anchor="middle" fill="#212121">VU</text>
+<rect x="136" y="524" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="154" y="546" font-size="12" text-anchor="middle" fill="#424242">WF</text>
+<rect x="176" y="524" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="194" y="546" font-size="12" text-anchor="middle" fill="#424242">WS</text>
+<rect x="216" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="234" y="546" font-size="12" text-anchor="middle" fill="#ffffff">YE</text>
+<rect x="256" y="524" width="36" height="36" rx="3" fill="#e0e0e0"/>
+<text x="274" y="546" font-size="12" text-anchor="middle" fill="#424242">YT</text>
+<rect x="296" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="314" y="546" font-size="12" text-anchor="middle" fill="#ffffff">ZA</text>
+<rect x="336" y="524" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="354" y="546" font-size="12" text-anchor="middle" fill="#212121">ZM</text>
+<rect x="376" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="394" y="546" font-size="12" text-anchor="middle" fill="#ffffff">ZW</text>
+<rect x="16" y="580" width="16" height="16" rx="2" fill="#1b5e20"/>
+<text x="38" y="593" font-size="13" fill="#212121">text stored (112)</text>
+<rect x="206" y="580" width="16" height="16" rx="2" fill="#ffb300"/>
+<text x="228" y="593" font-size="13" fill="#212121">link only (42)</text>
+<rect x="396" y="580" width="16" height="16" rx="2" fill="#e0e0e0"/>
+<text x="418" y="593" font-size="13" fill="#212121">no corpus (96)</text>
+<text x="16" y="622" font-size="13" fill="#212121">As of 2026-11-03: 250 places. 112 with text stored, 42 link only, 96 with no corpus.</text>
+</svg>
