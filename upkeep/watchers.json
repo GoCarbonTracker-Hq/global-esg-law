@@ -9573,5 +9573,65 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
+  "id": "mg-investment-law-2023-002-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-investment-law-2023-002",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/L2023-002-VF.pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03; the Last-Modified of the PDF moved to 2026-11-02, so it reflects file handling and not necessarily a text change"
+  }
+ },
+ {
+  "id": "mg-decret-2024-1354-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-decret-2024-1354",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/D2024-1354-VF%20(1).pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03"
+  }
+ },
+ {
+  "id": "mg-charte-environnement-2015-003-cnlegis-home",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-charte-environnement-2015-003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/",
+  "params": {
+   "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), which this watcher cannot send, so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43641"
+  }
+ },
+ {
+  "id": "mg-decret-2025-626-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-decret-2025-626",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/D2025-626-VF.pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03; the ministry copy is https://www.environnement.mg/wp-content/uploads/2025/06/DRMCF-portant-sur-le-Decret-2025-626-relatif-a-la-regulation-de-l-acces-au-marche-du-carbone-forestier.pdf"
+  }
+ },
+ {
+  "id": "mg-loi-2015-014-cnlegis-home",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-loi-2015-014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/",
+  "params": {
+   "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43919"
+  }
  }
 ]
