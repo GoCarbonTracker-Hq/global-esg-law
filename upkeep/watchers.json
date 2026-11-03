@@ -10548,5 +10548,65 @@
   "tier": "regulator_page",
   "url": "https://boe.incv.cv/Documents/Index/7",
   "change": "terms_changed"
+ },
+ {
+  "id": "ci-code-environnement-minete-pdf",
+  "source_id": "CI-MINETE-ADOPTED",
+  "iso2": "CI",
+  "instrument": "ci-code-environnement",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://environnement.gouv.ci/uploads/publications/177332357270.pdf",
+  "params": {
+   "second_route": "https://environnement.gouv.ci/publications/sous-categorie/34 (browser; environnement.gouv.ci answers a script without a browser User-Agent with HTTP 403)"
+  }
+ },
+ {
+  "id": "ci-decret-2024-658-minete-pdf",
+  "source_id": "CI-MINETE-ADOPTED",
+  "iso2": "CI",
+  "instrument": "ci-decret-2024-658",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://environnement.gouv.ci/uploads/publications/177332351911.pdf",
+  "params": {
+   "second_route": "https://environnement.gouv.ci/publications/sous-categorie/36 (browser; environnement.gouv.ci answers a script without a browser User-Agent with HTTP 403)"
+  }
+ },
+ {
+  "id": "ci-decret-2024-595-minete-pdf",
+  "source_id": "CI-MINETE-ADOPTED",
+  "iso2": "CI",
+  "instrument": "ci-decret-2024-595",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://environnement.gouv.ci/uploads/publications/177332342290.pdf",
+  "params": {
+   "second_route": "https://environnement.gouv.ci/publications/sous-categorie/36 (browser; environnement.gouv.ci answers a script without a browser User-Agent with HTTP 403)"
+  }
+ },
+ {
+  "id": "ci-loi-2025-528-pncc-pdf",
+  "source_id": "CI-PNCC-ADOPTED",
+  "iso2": "CI",
+  "instrument": "ci-loi-2025-528",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf",
+  "params": {
+   "second_route": "https://pncc.ci/page/textes-juridiques (browser; list page of the PDF)"
+  }
+ },
+ {
+  "id": "ci-decret-2025-345-pncc-pdf",
+  "source_id": "CI-PNCC-ADOPTED",
+  "iso2": "CI",
+  "instrument": "ci-decret-2025-345",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://pncc.ci/assets/documentation//VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf",
+  "params": {
+   "second_route": "https://pncc.ci/page/textes-juridiques (browser; list page of the PDF)"
+  }
  }
 ]
