@@ -5132,3 +5132,54 @@ Link-only instruments:
 Not in scope: Boursa Kuwait ESG Reporting Guide (voluntary guidance of an exchange company, row `KW-BOURSA-ADOPTED` permission requested, register row only); Law No. 39 of 2014 on Consumer Protection (F6 candidate: no official page opened, since Fatwa and the gazette were not reachable and the Ministry of Commerce site, https://www.moci.gov.kw/ar/law/, lists no copy; no register row); a carbon pricing instrument (none found: the CMA, EPA and Ministry of Commerce pages opened list none, and a web search on 2026-11-03 found a voluntary market and a Low Carbon Strategy 2050 but no carbon tax or trading law; no register row because there is no instrument to name). Other EPA executive regulations (EIA, chemicals, hazardous waste, indoor air, biodiversity, workers' safety) are listed on `https://epa.gov.kw/ExecutiveLists` but were not scoped as F1 to F6 climate or emissions instruments.
 
 Stored by GEL-10-02: `kw-cma-circular-4-2025` (adopted 2025-02-12, ar).
+
+## Jordan
+
+Rows `JO-LOB-ADOPTED` (`pass`, statute: Copyright Law No. 22 of 1992 Art. 7(a)), `JO-JSC-ADOPTED` and `JO-ASE-ADOPTED` (`permission requested`). Run on 2026-11-03.
+
+The Legislation and Opinion Bureau site (lob.gov.jo) is a single-page application. Its law text comes from an encrypted API (`/OPSHandler/OPS.ashx`, request encryption switched on in `Config.js`), so `curl` gets only the page shell. The failing line:
+
+```
+curl -sS -A 'Mozilla/5.0' -o shell.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false'
+```
+
+Returned `200 13197 text/html`, the same shell for every page, no article text. Browser recipe (headless Chromium through the pre-installed Playwright, `detail.js`): open the URL, wait for the selector `li.article` (up to 40 s), wait 6 s, then read the page. `text` is the title line (`<h*>` containing "رقم N لسنة Y"), the gazette line (`<h6>` containing "الجريدة"), then for each `li.article` the heading in `.article-num strong` and each innermost `<p>` of `.article-content` as one line.
+
+```
+node detail.js 3168 2 false epl      # LegislationID, LegislationType (2 law, 3 bylaw), isMod=false, output prefix
+```
+
+Returned for `jo-epl-2017` (Environmental Protection Law No. 6 of 2017): page rendered with 32 articles; the rendered HTML (`page.content()`) is 398720 bytes, `text/html`. `fetched_sha256` is the hash of that rendered HTML as received. The fetch was run three times for LegislationID 3168 and twice each for 3169 and 6243: the hash was identical every time (9e9c9c05..., 9f9cfde0..., fdc97c96...), because the page carries no per-request token. `fetched_url` carries the `#!` fragment; a server never sees it, the browser app reads it.
+
+How to find a LegislationID: open `https://www.lob.gov.jo/?v=3&lang=ar#!Jordanian-Legislation`, fill the name, year or number input, press the search button (`بحث`), click the result row; the URL then carries `LegislationID` and `LegislationType`. IDs used: 3168 (law 6/2017), 3169 (law 7/2017), 6243 (bylaw 79/2019), 2145 (Copyright Law 22/1992, read for the exception only). The tab "التشريع كما صدر" (as issued) opens the as-issued record; for the three stored instruments the amendment list is empty and it opens the same ID, so the text is the adopted text. For an amended law it opens a second ID (Copyright Law: 507). The site exposes no dated consolidations. `isMod=true` is not a switch for the as-issued text: it makes the ID read in a separate space of amending instruments (ID 3169 with `isMod=true` opened an unrelated 1980 bylaw).
+
+The site has no terms or copyright page. The statute exception is Art. 7(a) of the Copyright Law, read on the Bureau's own copy of that law (ID 2145) and quoted in the row.
+
+No English text: `?lang=en` renders the same Arabic articles.
+
+### Stored (fetched 2026-11-03)
+
+| Instrument | Row | Records |
+|---|---|---|
+| `jo-epl-2017` | adopted | 2017-04-16, ar |
+| `jo-climate-change-bylaw-2019` | adopted | 2019-05-16, ar (annexes 1 to 3 are not in the Bureau text) |
+| `jo-consumer-protection-law-2017` | adopted | 2017-06-15, ar (date computed: gazette 2017-04-16 plus sixty days) |
+
+These three are browser-fetched records, subject to the open decision on the browser recipe (GEL-03 retro C4).
+
+### Languages
+
+Arabic is the only official language. English: no government translation was found; the Bureau has none and a search of moenv.gov.jo found none. No translation row was added.
+
+### Link only
+
+- `jo-jsc-esg-code`: row `JO-JSC-ADOPTED`, permission requested. The JSC terms allow downloading "for personal and non-commercial purposes" with no right to "create derivative works". The Code PDF itself downloads without a cookie jar:
+
+```
+curl -sS -A 'Mozilla/5.0' -o esg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.jsc.gov.jo/Uploads/Files/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AD%D9%88%D9%83%D9%85%D8%A9/Jordan%20Securities%20Commission%20ESG%20Code.pdf'
+```
+
+  Returned `200 2658773 application/pdf` (sha256 cb9d0152e762236c4704...; `pdftotext -layout` gave clean English text, no mojibake). HTML pages on jsc.gov.jo answer a first request with a 302 and a cookie and loop forever without a cookie jar (`curl -L -c jar -b jar` works).
+- `jo-ase-climate-disclosure`: row `JO-ASE-ADOPTED`, permission requested (terms: "I agree not to modify, print, copy, publish ... create derivative works from"). The Report Rules PDF `https://www.exchange.jo/sites/default/files/2026-03/Climate%20Related%20Disclosures%20Report%20Rules%20eng.pdf` returned `200 835201 application/pdf` and the Framework PDF `https://www.exchange.jo/sites/default/files/2024-12/Regulatory%20Framework%20-%20V6%20%28002%29.pdf` returned `200 296546 application/pdf`, both to plain curl.
+- Ministry of Environment (moenv.gov.jo): no row, no text used. `https://www.moenv.gov.jo` redirects to `/Default/Ar` (200); the Bureau text was used for the environmental instruments instead.
+- Blocked from the cloud address: `https://www.lob.gov.jo/ar/Home` reset the connection (curl 35); nothing else refused.

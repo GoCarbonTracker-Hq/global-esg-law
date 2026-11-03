@@ -8925,5 +8925,65 @@
   "tier": "regulator_page",
   "url": "https://epa.gov.kw/Portals/0/PDF/qarar5-2020.pdf",
   "params": {}
+ },
+ {
+  "id": "jo-epl-2017-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-epl-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-climate-change-bylaw-2019-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-climate-change-bylaw-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=6243&LegislationType=3&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-consumer-protection-law-2017-lob-page",
+  "source_id": "JO-LOB-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-consumer-protection-law-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lob.gov.jo/",
+  "params": {
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3169&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+  }
+ },
+ {
+  "id": "jo-jsc-esg-code-pdf",
+  "source_id": "JO-JSC-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-jsc-esg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.jsc.gov.jo/Uploads/Files/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AD%D9%88%D9%83%D9%85%D8%A9/Jordan%20Securities%20Commission%20ESG%20Code.pdf",
+  "params": {
+   "second_route": "https://www.jsc.gov.jo/Search/en/ESG (browser; jsc.gov.jo answers a first request with a 302 and a cookie, and loops without a cookie jar)"
+  }
+ },
+ {
+  "id": "jo-ase-climate-disclosure-framework-pdf",
+  "source_id": "JO-ASE-ADOPTED",
+  "iso2": "JO",
+  "instrument": "jo-ase-climate-disclosure",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.exchange.jo/sites/default/files/2024-12/Regulatory%20Framework%20-%20V6%20%28002%29.pdf",
+  "params": {
+   "second_route": "https://www.exchange.jo/en/Sustainability-and-Climate (browser; lists the Framework, Guidance, Policy and Report Rules PDFs)"
+  }
  }
 ]
