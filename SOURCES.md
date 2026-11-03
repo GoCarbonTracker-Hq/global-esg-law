@@ -5876,6 +5876,19 @@ The Federal Negarit Gazeta prints Amharic and English side by side and the Amhar
 - https://www.fao.org/faolex/country-profiles/en/?iso3=ETH: 403 to scripts (FAOLEX is not an Ethiopian publisher and has no row).
 - https://wipolex-res.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf and https://www.wipo.int/edocs/lexdocs/laws/en/et/et001en.pdf: HTTP 200 with an HTML page, not the PDF, so Proclamation No. 410/2004 art. 5(b) could not be read.
 
+### OCR pass 2026-11-03
+
+Run on 2026-11-03 after OCR was allowed (08:20Z). No OCR was run and nothing was stored: every Ethiopian licence row is `permission requested` (ET-NBE-ADOPTED, ET-ECMA-ADOPTED, ET-ESX-ADOPTED, ET-HOPR-ADOPTED, ET-EPA-ADOPTED), and a text is stored only under a `pass` row. The four link only gazette and directive instruments in `register/ET/scope.json` therefore stay link only, and no verdict was changed. The commands run were a read of the verdict column and a merge check:
+
+```
+python3 - <<'PY'
+import csv
+for r in csv.DictReader(open('sources/licence-table.csv')):
+    if r['id'].startswith('ET-'): print(r['id'], r['verdict'])
+PY
+git fetch origin && git merge origin/main
+```
+
 ## Zambia
 
 Rows `ZM-NAZ-ADOPTED` (National Assembly of Zambia) and `ZM-MGEE-ADOPTED` (Ministry of Green Economy and Environment), both `permission requested`, so no `pass` row exists and no text is stored. Run on 2026-11-03 (GEL-13-03). Terms: the National Assembly "Use Policy" (https://www.parliament.gov.zm/node/3595) says "Permission from the Clerk of the National Assembly of Zambia is required for any reproduction of, or extended quotation from, the records"; mgee.gov.zm has only the footer "©2026 MGEE. All Rights Reserved." The Copyright and Performance Rights Act, 1994 (Cap. 406) was read: s. 8(1) lists the protected categories with no exclusion for laws, and s. 12(2) treats the Government as first owner of works by public officers, so no statute exception was found.
