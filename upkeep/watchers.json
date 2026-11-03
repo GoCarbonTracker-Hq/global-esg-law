@@ -10548,5 +10548,35 @@
   "tier": "regulator_page",
   "url": "https://boe.incv.cv/Documents/Index/7",
   "change": "terms_changed"
+ },
+ {
+  "id": "ht-environment-decree-2005-mde-citing-pdf-head",
+  "source_id": "HT-MDE-ADOPTED",
+  "iso2": "HT",
+  "instrument": "ht-environment-decree-2005",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf",
+  "params": {}
+ },
+ {
+  "id": "ht-mde-organic-decree-2020-mde-pdf-head",
+  "source_id": "HT-MDE-ADOPTED",
+  "iso2": "HT",
+  "instrument": "ht-mde-organic-decree-2020",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mde.gouv.ht/phocadownload/DECRET%20ORGANISANT%20LE%20MDE%20-%2016%20AOUT%20%20%20%202020.pdf",
+  "params": {}
+ },
+ {
+  "id": "ht-brh-circ-131-brh-pdf-head",
+  "source_id": "HT-BRH-ADOPTED",
+  "iso2": "HT",
+  "instrument": "ht-brh-circ-131",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.brh.ht/wp-content/uploads/Circulaire-CIR-.-BRH-IF-2026-131-Aux-Institutions-Financieres-6-fevrier-2026-Protection-des-consommateurs-de-produits-et-services-financiers_0001.pdf",
+  "params": {}
  }
 ]
