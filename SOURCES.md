@@ -7446,3 +7446,69 @@ Arabic is the authentic language and is stored under `TN-IORT-ADOPTED`. French i
 - `TN-BVMT-ADOPTED` (tunis-stockexchange.com answers curl `200`, 181135 bytes; bvmt.com.tn redirects there): footer "2026 © La Bourse de Tunis", permission requested; the Guide de reporting ESG 2021 was not found on the site; no instrument in scope.
 - `TN-MEDD-ADOPTED` (environnement.gov.tn answers curl `200`, 218946 bytes): footer "Tous droits réservés 2022", permission requested; the Guide méthodologique et de reporting RSE PDF (`https://www.environnement.gov.tn/fileadmin/Bibliotheque/Developpement_durable/guide_RSE_et_reporting.pdf`, 200, 7321207 bytes, `application/pdf`) is voluntary guidance, not an enacted instrument, so it has no scope entry and nothing is stored.
 - Not in scope.json: Décret gouvernemental n° 2018-263 du 12 mars 2018 (governance of the Paris Agreement work, family F7, register row only). No binding GHG reporting or carbon pricing instrument was found on IORT; legislation.tn could not be opened to confirm. No application decree of Loi 2018-35 was located (the IORT advanced search could not be driven), so none is in scope.
+
+## Tajikistan
+
+Run on 2026-11-03 (GEL-16-10). Tajikistan has two official-language texts of its laws, Tajik (`tg`, the state language) and Russian (`ru`, the language of interethnic communication); English exists only where a translation was published. Rows: `TJ-NBT-ADOPTED` (`pass`, statute: Law on Copyright and Related Rights art. 7 item 1, quoted in the row), `TJ-ADLIA-CONSOLIDATED` (`permission requested`, terms), `TJ-MAJLISI-ADOPTED` and `TJ-TAJNATURE-ADOPTED` (`permission requested`, sites blocked from the cloud address). Only the first row has records: one instrument, `tj-green-taxonomy-res-170`, in `ru` and `tg`.
+
+Where the statute was read: the Adlia copy of the Copyright Law (`DocumentId=20366`) cuts off after article 3 for anonymous readers, so article 7 was read in the copy WIPO Lex holds (Law No. 726 of 13 November 1998, amended to Law No. 1488 of 2 January 2018; the brief named the 2009 state). The WIPO details page is `curl -sS -L -o wl.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.wipo.int/wipolex/en/legislation/details/23537`, which returned `200 42325 text/html; charset=utf-8`; the Russian and Tajik PDF links on that page are signed and expire, and returned `200 380108 application/pdf` and `200 166747 application/pdf`. Article 7 item 1 reads, in Russian, "официальные документы (законы, судебные решения, другие тексты законодательного, административного и судебного характера), а также их официальные переводы".
+
+### Row `TJ-NBT-ADOPTED` (nbt.tj), proven fetch
+
+The National Bank of Tajikistan hosts the Annex to Government Resolution No. 170 of 28 March 2026 (Classification System (Taxonomy) of Green Projects) as PDFs linked from the Sustainable Finance page (`https://nbt.tj/ru/suboti-moliyavi/stable-financing/index.php`, `200`). Plain curl works; no browser is needed and nbt.tj sends no challenge. Russian PDF for `tj-green-taxonomy-res-170`:
+
+```
+curl -sS -L -o taxonomy_ru.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://nbt.tj/files/suboti-moliyavi/2026/4.%20%D0%A2%D0%90%D0%9A%D0%A1%D0%9E%D0%9D%D0%9E%D0%9C%D0%98%D0%AF%20-%D0%94%D0%98%D0%9F%2020.02.26-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9.pdf'
+```
+
+Returned `200 396026 application/pdf` (36 pages, creator ABBYY FineReader), sha256 `0fe573bf30efd6e2039eb9b0c3ccb2b52ff2c5b501841c132c132efb0741d463`; a second fetch gave the same hash (the server sends `Last-Modified: Fri, 30 Oct 2026 14:52:43 GMT`). Text: `pdftotext -layout taxonomy_ru.pdf -`, then every line stripped, runs of spaces collapsed, form feeds turned into line breaks and empty lines dropped. Checked for mojibake: every non-ASCII character in the output is basic Cyrillic, guillemets, an en dash or a subscript, and the numeric tokens agree with the Tajik text layer to within 8 of about 1,030. The file name carries a stamp "ДИП 20.02.26" (before the 28 March resolution date) while the page header names Resolution No. 170; the file was not compared with the Adlia annex, which is cut off.
+
+### Languages
+
+Row `TJ-NBT-ADOPTED` serves the Tajik version under the same row, no row of its own. Tajik PDF, linked from `https://nbt.tj/tj/suboti-moliyavi/stable-financing/index.php`:
+
+```
+curl -sS -L -o taxonomy_tg.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://nbt.tj/files/suboti-moliyavi/2026/3.%20%D0%A2%D0%90%D0%9A%D0%A1%D0%90%D0%9D%D0%9E%D0%9C%D0%98%D0%AF%20-%20%D0%94%D0%98%D0%9F%2020.02.26-%D1%82%D0%BE%D1%87%D0%B8%D0%BA%D0%B8.pdf'
+```
+
+Returned `200 930965 application/pdf` (34 pages, ABBYY FineReader), sha256 `8f866598585013075f0527444c61722948f197e30b24492185461a4a3f5cfd38`. `pdftotext -layout` returns text, but it fails the mojibake check: the layer uses Ukrainian, Macedonian and Serbian letters for Tajik ones (њ, ќ, ї, љ, ў, ѓ for ҳ, қ, ӣ, ҷ, ӯ, ғ), about 700 characters against about 4,000 Tajik-specific letters, for example "ќарори", "њадафҳо", "иљтимої". So the Tajik record is OCR (Varun, 2026-11-03): `apt-get install -y tesseract-ocr tesseract-ocr-tgk` (tesseract 5.3.4, `tgk` traineddata 4.1.0; `ocrmypdf` is not in the apt sources of the session, so no `ocrmypdf`), `pdftoppm -r 300 -png taxonomy_tg.pdf p`, then `OMP_THREAD_LIMIT=1 tesseract p-NN.png out -l tgk --oem 1` for each of the 34 pages (3.6 s a page; the default engine mode had not finished any of the first four pages after 2 minutes 47 seconds of CPU each and was abandoned). The page texts are concatenated, lines stripped, spaces collapsed, empty lines dropped. The records carry `extraction: ocr`, `fetched_url` and `fetched_sha256` of the original PDF. `python3 tools/check_corpus.py` and `python3 tools/publish_gate.py` accept the field (neither reads it). Quality: letters are right (no substituted ones), but 32 of about 1,030 numeric tokens differ from the Russian text (for example the resolution number prints as "ХҲе170" and list marks such as "6)" come out as "б)"), so figures should be read in the Russian record. The OCR text was not corrected or reflowed by hand.
+
+English: no government translation was found. `https://nbt.tj/en/suboti-moliyavi/stable-financing/index.php` (`200 85901 text/html`) lists no English materials; the Adlia documents hold Tajik and Russian blocks only and the English switch `https://mmih.adlia.tj/Home/SetCulture?lang=en` answered HTTP 500. No translation row was added.
+
+### Row `TJ-ADLIA-CONSOLIDATED` (mmih.adlia.tj), no usable fetch
+
+Adlia answers plain curl, but the text is cut off:
+
+```
+curl -sS -L -o doc.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=173098'
+```
+
+Returned `200 38830 text/html; charset=utf-8`: the table of contents, the header (title, number, date, status), the two-point cover resolution, the heading of the annex, `...`, then the Russian block cut off the same way. The Environmental Code (`DocumentId=174541`, 650,891 bytes) shows the table of contents of 497 articles, the preamble and article 1, then `...`. Registered use is a paid subscription (https://mmih.adlia.tj/Home/Pricing, https://mmih.adlia.tj/Home/Instruction); no account was created. The search form works anonymously and returns the list of documents with number, date and status:
+
+```
+curl -sS -F 'DocumentText=таксономия' -F 'DocumentType=' -F 'DocumentNumber=' -F 'DocumentDate=' -F 'EmitentId=' -F 'DocCategory=' -w '%{http_code} %{size_download} %{content_type}\n' https://mmih.adlia.tj/SEARCH/Index
+```
+
+Returned `200 2594 text/html; charset=utf-8` (an HTML table, `DocumentType` 4 restricts to laws). The search is a loose full-text match, so a missing title does not prove a missing instrument.
+
+### Link only
+
+| Instrument | Row | Why link only |
+|---|---|---|
+| `tj-env-code` (Environmental Code No. 2299, 2026-10-21) | `TJ-ADLIA-CONSOLIDATED` | Adlia permission requested; full text behind a subscription; the Majlisi Oli site is blocked from the cloud address. |
+| `tj-law-env-protection-2011` (No. 760, 2011-08-02) | `TJ-ADLIA-CONSOLIDATED` | Same. |
+| `tj-law-consumer-rights-2004` (No. 72, 2004-12-09) | `TJ-ADLIA-CONSOLIDATED` | Same. |
+| `tj-law-advertising-2003` (No. 34, 2003-08-01) | `TJ-ADLIA-CONSOLIDATED` | Same. |
+
+Not in scope: the Strategy for Green Economy Development 2023-2037 (Government Resolution No. 482 of 2022-09-30) and the National Strategy for Adaptation to Climate Change to 2030 (Government Resolution No. 482 of 2019-10-02) are policy documents (F7, register rows only). No climate framework act and no carbon market act was found; no National Bank regulation on sustainability or green finance beyond the Government taxonomy was found (the nbt.tj regulation and law lists, in Tajik, Russian and English, hold none, and the Sustainable Finance page says the Bank "is working on the development of fundamental documents on financing in line with ESG principles").
+
+### Blocked from the cloud address
+
+All answered from the cloud address on 2026-11-03 as follows (nothing retried through another route):
+
+- `https://parlament.tj/`, `https://www.parlament.tj/`: `curl: (35) Recv failure: Connection reset by peer`; `https://majlisi.tj/`: `curl: (56) CONNECT tunnel failed, response 502`. Row `TJ-MAJLISI-ADOPTED`.
+- `https://tajnature.tj/`, `https://www.tajnature.tj/`, `https://tajnature.tj/en`: `curl: (56) CONNECT tunnel failed, response 502`. Row `TJ-TAJNATURE-ADOPTED`.
+- `https://hydromet.tj/`, `https://www.hydromet.tj/` (Agency for Hydrometeorology, host not confirmed): `CONNECT tunnel failed, response 502`.
+- `https://mmk.tj/`, `https://www.mmk.tj/` (National Legislation Centre under the President, linked from nbt.tj): `Connection reset by peer`.
+- `https://moj.tj/`, `https://admin.adlia.tj`, `https://adlia.tj`: connection failed. The Agency for Securities Market host was not found (`sec.tj`, `amcb.tj`, `tse.tj` failed); Tajikistan has no active exchange of note, so no exchange site was tried.
+- Opened without trouble: `https://mmih.adlia.tj/`, `https://nbt.tj/en/` (`nbt.tj/` answers `302` with an empty body), `https://www.wipo.int/`, `https://president.tj/`.
