@@ -11241,5 +11241,41 @@
   "params": {
    "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
   }
+ },
+ {
+  "id": "sl-epa-act-2022-sierralii-page",
+  "source_id": "SL-SIERRALII-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-epa-act-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15",
+  "params": {
+   "second_route": "https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15 (browser; plain curl answered 200 on 2026-11-03, the site asks for few requests and no bulk scraping)"
+  }
+ },
+ {
+  "id": "sl-ods-regulations-2025-epa-pdf-head",
+  "source_id": "SL-EPA-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-ods-regulations-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://epa.gov.sl/wp-content/uploads/2025/11/ODS-REGULATION-2025.pdf",
+  "params": {
+   "second_route": "https://epa.gov.sl/laws-regulations/ (browser; the page lists the ODS Regulation download)"
+  }
+ },
+ {
+  "id": "sl-consumer-protection-act-2020-sierralii-page",
+  "source_id": "SL-SIERRALII-ADOPTED",
+  "iso2": "SL",
+  "instrument": "sl-consumer-protection-act-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03",
+  "params": {
+   "second_route": "https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03 (browser; plain curl answered 200 on 2026-11-03)"
+  }
  }
 ]
