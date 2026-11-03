@@ -4444,3 +4444,69 @@ All five scope instruments are link only; none has a record, none has `pass` row
 - `sm-bcsm-reg-2024-05`, `sm-bcsm-reg-2024-02`: `SM-BCSM-CONSOLIDATED` is `permission requested`. Requests above work.
 - No carbon pricing instrument was found. Title searches in the Consiglio archive for emissioni and cambiamento climatico returned only postal, debt-issue and name-change acts, and carbon returned nothing; full-text searches for gas serra and quote di emissione returned hundreds of unrelated documents and were not read through. There is no F3 or F7 entry, because there is no instrument to describe.
 - Not in scope: energy-efficiency acts (Legge 7 maggio 2008 n.72, DD 24 maggio 2017 n.51 and the energy collection `docCat.17005070`), which the dispatch did not list and which fit none of F1 to F6 on a plain reading.
+
+## North Macedonia
+
+Run on 2026-11-03 (GEL-11-02). One row passes: `MK-SLVESNIK-ADOPTED` (JP Sluzben vesnik, free issue archive; statute basis, Law on Copyright and Related Rights Art. 16 item 2, quoted in the row; the publisher's terms page grants no licence and claims database rights over its paid database, so Varun to confirm). One row is `permission requested`: `MK-NBRM-TRANSLATION` (nbrm.mk is behind a Cloudflare challenge, nothing read). No browser recipe was needed for anything stored; no browser-fetched records.
+
+Three instruments are stored, each in Macedonian (`mk`) and Albanian (`sq`), kind `adopted`, six records. Both languages are official texts printed in the same Gazette issue, so they share the one row. No English record exists.
+
+### Cloud address and the certificate
+
+`https://www.slvesnik.com.mk/` redirects to `https://slvesnik.com.mk/`. The host does not send its Sectigo intermediate certificate, so curl, Python and the watcher fail verification (`curl: (60) SSL certificate problem: unable to get local issuer certificate`; Python `CERTIFICATE_VERIFY_FAILED`). Verification stays on. The intermediate is named in the leaf's authority information access field, so fetch it and add it to a private bundle:
+
+```
+curl -sS -o int.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt
+openssl x509 -inform DER -in int.crt -out int.pem
+cat /root/.ccr/ca-bundle.crt int.pem > bundle.pem
+```
+
+(`int.crt` returned `200 1616`.) Every request below uses `--cacert bundle.pem`. Headless Chromium through the cloud proxy answers `502 upstream request failed` for this host, so the archive is read with curl only.
+
+### Row MK-SLVESNIK-ADOPTED
+
+The free archive is a script-driven page (`/besplaten-pristap-do-izdanija.nspx`); the script posts JSON to two endpoints, found in `/Scripts/FreeIssue/FreeIssue/freeIssue.js`. Requests proven on 2026-11-03:
+
+```
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{}' https://slvesnik.com.mk/FreeIssue/GetIssueYears
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{"year":2023}' https://slvesnik.com.mk/FreeIssue/GetIssuesByYear
+```
+
+The first returned `[{"Year":"2025"},...,{"Year":"1944"}]` (82 years); the second 12 months with 287 issues, each `{IssueNumber, FileName, Title}` (`IssueDate` is empty, so the issue date is read from the PDF header). The PDF of Gazette issue 36 of 2023 (Decision on disclosure by banks):
+
+```
+curl -sS --cacert bundle.pem -o 2023-36.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf
+```
+
+Returned `200 3614653 application/pdf`; sha256 `c689ca8cbe3d773ee0c8f87770c7a46726a1dece1afe97c528805057c4cdd730`, reproduced by a second fetch. The other two issues the same way: 53/2005 (`ACF1AC118E6F81438BE8DD53D5A613F0`, `200 3109468 application/pdf`, sha256 `ebd048d9dee1b967ef3b2b608e5ec367f835a14fa34db3f95f65042a5fb2d046`) and 236/2022 (`c4ef6c06718f4fe18ff615a5877f73f4`, `200 2518059 application/pdf`, sha256 `223262e119704e03d84272655f994d8422cb861979738e810534743c24cbf4ef`). `fetched_sha256` is the hash of the whole-issue PDF; the record text is one instrument cut out of it.
+
+Which issues are free: `GetIssueYears` lists 1944 to 2025; `GetIssuesByYear` with 2026 lists 257 issues, but only issues 1 to 23 of 2026 (to 2026-02-05) return a PDF (200), issues 24 to 257 return 404. The terms page says the public page serves regulations up to the previous year and the database and current-year issues are paid.
+
+Text extraction: `pdftotext file.pdf out.txt` (reading-order mode, not `-layout`: the Gazette is set in two columns and `-layout` interleaves them line by line, which was tried first and rejected). Then, per instrument, the line range of the Macedonian text and of the Albanian text is cut by its first and last line (the act's title or enacting formula to its last article or signature), form feeds removed, blank lines dropped, and page furniture lines dropped (`Стр. N - Бр. N`, `Бр. N - Стр. N`, a bare issue date line such as `17 февруари 2023`, the bare running head `СЛУЖБЕН ВЕСНИК НА РЕПУБЛИКА МАКЕДОНИЈА`). Nothing reworded. Reading order follows the PDF text layer, which is not always the printed order: in the 2005 and 2022 issues the Albanian text is partly shuffled near its end, and the Art. 3 heading of the 2005 Law sits after part of its list. Checked before storing: no U+FFFD in any record, Cyrillic is 99.8 to 99.9 percent of the letters in the `mk` records and 0.0 to 0.1 percent in the `sq` records (the Albanian text keeps a Cyrillic signature line).
+
+| Instrument | `in_force` | Gazette issue | `mk` / `sq` line ranges in the pdftotext output |
+|---|---|---|---|
+| `mk-nbrm-bank-disclosure-decision` | 2023-02-25 | 36/2023 | 1305-1962 / 1964-2850 |
+| `mk-law-environment` | 2005-07-13 | 53/2005 | 78-5937 / 5939-11762 |
+| `mk-law-consumer-protection` | 2022-11-15 | 236/2022 | 240-5417 / 5423-12626 |
+
+`in_force` is the entry into force computed from the clause "the eighth day from the day of publication" and the issue date (the Gazette states the rule, not the date). The Law on Environment applies from 2005-09-01 and the Decision on bank disclosure from 2025-01-01 (point 28 from 2026-01-01).
+
+Statute text read from the archive itself: Law on Copyright and Related Rights, Gazette issue 115 of 2010 (`https://slvesnik.com.mk/Issues/F469FDB63C32AB429150D203B1E3C9C7.pdf`, `200 2097618 application/pdf`), Art. 16 item 2: "службените текстови од политичка, законодавна, административна и судска природа и нивните службени преводи".
+
+### Languages
+
+Macedonian is the language of legislation; the Gazette prints the Albanian version of each act in the same issue (Law on the Use of Languages), so no second request is needed and the one row serves both. Verified for the three stored acts. English: the National Bank's English PDF named in the register and `nbrm.mk` return a Cloudflare challenge (below), so the translation row is `permission requested` and nothing is stored. No government English text was found elsewhere (slvesnik.com.mk, sobranie.mk searched; moepp.gov.mk unreachable). The Gazette sells a Macedonian-English Constitution (price list on `/izdanija.nspx`), not the acts in scope.
+
+### Link only and not in scope
+
+- Law on Climate Action: not enacted on the day, so no scope entry; the register row stays proposed with family F7. Ministry of European Affairs page dated 2026-02-13 (`https://mep.gov.mk/en-GB/transparentnost/novosti/ministerot-sali-na-ministerski-sostanok-na-ek-za-sproveduvanje-na-cbam`, `200`): "in January 2026, the Government adopted the draft Law on Climate Action". Gazette issues 1 to 23 of 2026 (grep for климатск and стаклен in the first two pages of each) hold no such law; later 2026 issues are not served.
+- Law on Trade Companies: no article on non-financial statements was found. A web search pointed to the accounting law (Directive 2013/34/EU) as the home of that duty, not to the Law on Trade Companies. Dropped, no row.
+- Law on Environment implementing rules (GHG monitoring and reporting), Law on Accounting, Securities Law, Law on Energy: not searched in the Gazette within the time box; listed under Next.
+- Securities and Exchange Commission and Macedonian Stock Exchange: `https://sec.gov.mk` `200 41834 text/html`, `https://www.mse.mk` `200 152409 text/html`; no instrument in scope depends on them, so no row was written.
+
+### Blocked from the cloud address
+
+- `https://www.nbrm.mk/` and `https://www.nbrm.mk/content/Regulativa/Decision%20on%20disclosure%20by%20banks.pdf`: HTTP 403, 5327 and 5598 bytes, text/html, `cf-mitigated: challenge`; headless Chromium waited 24 s and stayed on "Performing security verification".
+- `https://moepp.gov.mk`, `https://www.moepp.gov.mk`, `https://arhiva.moepp.gov.mk`, `https://www.sec.gov.mk`, `https://economy.gov.mk`: tunnel closed by the egress proxy (curl exit 000, `ws_closed_mid_exchange`). `https://www.pravo.org.mk`: gateway answered 502 to CONNECT.
+- `https://www.slvesnik.com.mk` through Chromium: `502 upstream request failed`; curl works with the intermediate certificate (above).
