@@ -1,0 +1,45 @@
+[
+  {
+    "id": "km-loi-94-018",
+    "title": "Loi n° 94-018/AF du 22 juin 1994 portant loi-cadre relative à l’environnement, modifiée par la loi n° 95-007/AF du 19 juin 1995",
+    "official_url": "https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/",
+    "citation": "Loi n° 94-018/AF du 22 juin 1994, modifiée par la loi n° 95-007/AF du 19 juin 1995",
+    "in_force": null,
+    "evidence": "The Ministère de la Justice page (opened https://justice.gouv.km/texte/loi-n94-018-portant-loi-cadre-relative-a-lenvironnement/ on 2026-11-03) is headed \"Loi n°94-018 du 22 juin 1994 portant loi cadre relative à l’environnement Modifiée par la loi n°95-007 du 19 juin 1995\" and contains no commencement clause; the date of enactment is 1994-06-22 but no official page states a date of entry into force.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KM-JUSTICE-ADOPTED",
+    "verification": "official_text_seen",
+    "status": "link only",
+    "notes": "Environmental framework act (the existing register row carried F7; mapped to F2). Link only: KM-JUSTICE-ADOPTED is permission requested because the site terms bar reproduction and modification without prior authorisation. The page is the amended text (Art. 5 and others marked \"Loi n°95-007\"); no earlier or later dated version is served. Languages: French only on the page; no Arabic or English text of this law was found on justice.gouv.km (its /ar/ and /en/ listing pages exist but the law is listed in French) and Comorian has no ISO 639-1 code. No government English translation was found on justice.gouv.km or banque-comores.km. The Journal Officiel de l’Union des Comores has no online edition that could be located."
+  },
+  {
+    "id": "km-loi-95-007",
+    "title": "Loi n° 95-007/AF du 19 juin 1995 portant modification de certaines dispositions de la loi n° 94-018/AF du 22 juin 1994 relative à l’environnement",
+    "official_url": "https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/",
+    "citation": "Loi n° 95-007/AF du 19 juin 1995",
+    "in_force": null,
+    "evidence": "The Ministère de la Justice page (opened https://justice.gouv.km/texte/loi-n95-007-af-du-19-juin-1995-portant-modification-de-certaines-dispositions-de-la-loi-n94-018-af-du-22-juin-1994-relative-a-lenvironnement/ on 2026-11-03) gives the title \"Loi n°95–007/AF du 19 juin 1995 Portant modification de certaines dispositions de la loi n°94–018/AF du 22 juin 1994 relative à l’Environnement\" and a PDF link only; it states no date of entry into force.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KM-JUSTICE-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "notes": "Amending act, served as a PDF link (the text is not on the page). Its changes are already worked into the amended text of km-loi-94-018. Link only: KM-JUSTICE-ADOPTED is permission requested. The PDF was not opened. No Arabic or English text found.",
+    "amends": "km-loi-94-018"
+  },
+  {
+    "id": "km-decret-01-052",
+    "title": "Décret n° 01-052/CE du 19 avril 2001 relatif aux études d’impact sur l’environnement",
+    "official_url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/",
+    "citation": "Décret n° 01-052/CE du 19 avril 2001, pris en application de l’article 14 de la loi n° 94-018",
+    "in_force": null,
+    "evidence": "The Ministère de la Justice page (opened https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/ on 2026-11-03) says the decree is \"pris en application de l’article 14 de la loi cadre n°94-018 du 22juin 19 94 modifiée relative à l’environnement\" and regulates how impact studies are made, presented and examined; it states no date of entry into force.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "KM-JUSTICE-ADOPTED",
+    "verification": "official_page_seen",
+    "status": "link only",
+    "notes": "Implementing decree of km-loi-94-018 (environmental impact studies). Served as a PDF link (the text is not on the page); the PDF was not opened. Link only: KM-JUSTICE-ADOPTED is permission requested. No Arabic or English text found."
+  }
+]
