@@ -66,6 +66,14 @@ def test_language_trailer_and_official_record_first(tmp_path):
     assert log.split() == ["adopted", "en", "adopted", "en", "adopted", "de", "adopted", "fr", "translation", "en"]
 
 
+def test_null_in_force_orders_by_file_name_date(tmp_path):
+    fixture(tmp_path)
+    folder = tmp_path / "records" / "EU" / "law2"
+    (folder / "1990-06-07-null.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "null"}))
+    assert build.build(tmp_path, branch="history") == [("1965-01-02", "Scope Title"), ("1990-06-07", "Scope Title"), ("2020-03-04", "Scope Title")]
+
+
 def test_branch_build_is_orphan_and_rebuild_equal(tmp_path):
     fixture(tmp_path)
     def snapshot():
