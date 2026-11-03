@@ -1,0 +1,359 @@
+[
+  {
+    "id": "me-climate-change-law",
+    "title": "Law on Climate Change (Zakon o klimatskim promjenama)",
+    "official_url": "https://www.sluzbenilist.me/propisi/389045",
+    "citation": "Official Gazette of Montenegro 149/2025",
+    "in_force": "2025-12-25",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/389045 (read 2026-11-03) gives issue 149/2025, published 17.12.2025, and does not print a commencement date. The act text, Art. 104, reads \"Ovaj zakon stupa na snagu osmog dana od dana objavljivanja u „Službenom listu Crne Gore”.\" (read in the Gazette PDF and on the page image of the last page); 8 days after 2025-12-17 is 2025-12-25. The existing register row gave the same date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Montenegro climate framework act; its emission allowance, permit, monitoring-reporting-verification and GHG reporting provisions (Art. 33 verified emissions reports; Art. 103 repeals Law 73/19) are F3 content. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/389045/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-climate-change-law-amend-2026",
+    "title": "Law on Amendments to the Law on Climate Change (Zakon o izmjenama i dopunama Zakona o klimatskim promjenama)",
+    "official_url": "https://www.sluzbenilist.me/propisi/394393",
+    "citation": "Official Gazette of Montenegro 70/2026",
+    "in_force": "2026-05-28",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/394393 (read 2026-11-03) prints \"Datum stupanja na snagu: 28.05.2026.\" for issue 70/2026, published 20.05.2026.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amends the Law on Climate Change 149/2025 (two-page act, text read in full). Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/394393/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only",
+    "amends": "me-climate-change-law"
+  },
+  {
+    "id": "me-ets-permit-activities-decree",
+    "title": "Decree on the activities that emit greenhouse gases for which a greenhouse gas emission permit is issued (Uredba o aktivnostima, odnosno djelatnostima koje emituju gasove sa efektom staklene bašte za koje se izdaje dozvola za emisiju gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396827",
+    "citation": "Official Gazette of Montenegro 116/2026",
+    "in_force": "2026-08-13",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396827 (read 2026-11-03) prints \"Datum stupanja na snagu: 13.08.2026.\" for issue 116/2026, published 05.08.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Government decree issued under the Law on Climate Change (Art. 15 para 6, 21 para 15, 45 para 14, 47 para 11, 48 para 9, as the decree cites them); this is the ETS decree. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396827/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-permit-form-rulebook",
+    "title": "Rulebook on the form of the greenhouse gas emission permit and on keeping records (Pravilnik o obrascu dozvole za emisiju gasova sa efektom staklene bašte i načinu vođenja evidencije)",
+    "official_url": "https://www.sluzbenilist.me/propisi/391288",
+    "citation": "Official Gazette of Montenegro 21/2026",
+    "in_force": "2026-02-27",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/391288 (read 2026-11-03) prints \"Datum stupanja na snagu: 27.02.2026.\" for issue 21/2026, published 19.02.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued under Art. 18 para 8 and Art. 21 para 16 of the Law on Climate Change. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/391288/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-monitoring-plan-rulebook",
+    "title": "Rulebook on the content of the monitoring plan and the methodology for monitoring greenhouse gas emissions from stationary installations, aircraft and for regulated entities (Pravilnik o sadržaju plana i metodologiji praćenja emisija gasova sa efektom staklene bašte iz stacionarnih postrojenja, vazduhoplova i za regulisane subjekte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396635",
+    "citation": "Official Gazette of Montenegro 111/2026",
+    "in_force": "2026-08-07",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396635 (read 2026-11-03) prints \"Datum stupanja na snagu: 07.08.2026.\" for issue 111/2026, published 30.07.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Monitoring methodology rulebook (103 pages). It replaces, by subject, the 21/2026 rulebook of the same title (Gazette 390867) and its 37/2026 supplement (391922), both shown by the Gazette with Status Nevažeći. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396635/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-reporting-rulebook",
+    "title": "Rulebook on the manner of reporting greenhouse gas emissions (Pravilnik o načinu izvještavanja o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/390870",
+    "citation": "Official Gazette of Montenegro 21/2026",
+    "in_force": "2026-02-27",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/390870 (read 2026-11-03) prints \"Datum stupanja na snagu: 27.02.2026.\" for issue 21/2026, published 19.02.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued under Art. 33 para 9 of the Law on Climate Change (the emissions reporting duty). Amended by the 108/2026 rulebook (me-ghg-reporting-rulebook-amend-2026). Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/390870/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-reporting-rulebook-amend-2026",
+    "title": "Rulebook amending the Rulebook on the manner of reporting greenhouse gas emissions (Pravilnik o izmjenama Pravilnika o načinu izvještavanja o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396417",
+    "citation": "Official Gazette of Montenegro 108/2026",
+    "in_force": "2026-08-01",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396417 (read 2026-11-03) prints \"Datum stupanja na snagu: 01.08.2026.\" for issue 108/2026, published 24.07.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Amends me-ghg-reporting-rulebook. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396417/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only",
+    "amends": "me-ghg-reporting-rulebook"
+  },
+  {
+    "id": "me-ghg-verification-rulebook",
+    "title": "Rulebook on the criteria and manner of verifying greenhouse gas emission data, and the content and form of the verification report (Pravilnik o kriterijumima i načinu verifikovanja podataka o emisijama gasova sa efektom staklene bašte, sadržaju i obrascu izvještaja o verifikaciji)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396634",
+    "citation": "Official Gazette of Montenegro 111/2026",
+    "in_force": "2026-08-07",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396634 (read 2026-11-03) prints \"Datum stupanja na snagu: 07.08.2026.\" for issue 111/2026, published 30.07.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "The 21/2026 rulebook of the same subject (Gazette 390871) shows Status Nevažeći. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396634/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-verifier-requirements-rulebook",
+    "title": "Rulebook on the conditions on staff and equipment for a legal person that verifies greenhouse gas emission reports (Pravilnik o bližim uslovima koje u pogledu kadra i opreme treba da ispunjava pravno lice koje vrši verifikaciju izvještaja o emisiji gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/390868",
+    "citation": "Official Gazette of Montenegro 21/2026",
+    "in_force": "2026-02-27",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/390868 (read 2026-11-03) prints \"Datum stupanja na snagu: 27.02.2026.\" for issue 21/2026, published 19.02.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued under Art. 55 para 2 and Art. 35 para 14 of the Law on Climate Change. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/390868/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-data-management-rulebook",
+    "title": "Rulebook on management, control and records of greenhouse gas emission data (Pravilnik o bližim uslovima u pogledu upravljanja, kontrole i evidencije podataka o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/390872",
+    "citation": "Official Gazette of Montenegro 21/2026",
+    "in_force": "2026-02-27",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/390872 (read 2026-11-03) prints \"Datum stupanja na snagu: 27.02.2026.\" for issue 21/2026, published 19.02.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued under Art. 43 para 5 and Art. 38 para 13 of the Law on Climate Change. Amended by 108/2026 (me-ghg-data-management-rulebook-amend-2026). Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/390872/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-data-management-rulebook-amend-2026",
+    "title": "Rulebook amending the Rulebook on management, control and records of greenhouse gas emission data (Pravilnik o izmjenama Pravilnika o bližim uslovima u pogledu upravljanja, kontrole i evidencije podataka o emisijama gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396416",
+    "citation": "Official Gazette of Montenegro 108/2026",
+    "in_force": "2026-08-01",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396416 (read 2026-11-03) prints \"Datum stupanja na snagu: 01.08.2026.\" for issue 108/2026, published 24.07.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Two-page act; amends me-ghg-data-management-rulebook. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396416/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only",
+    "amends": "me-ghg-data-management-rulebook"
+  },
+  {
+    "id": "me-ghg-ships-monitoring-rulebook",
+    "title": "Rulebook on the methodology for monitoring greenhouse gas emissions and other relevant data from ships, data management and control, content and drafting of monitoring plans, emission reports and the document of compliance (Pravilnik o metodologiji praćenja emisija gasova sa efektom staklene bašte i drugih relevantnih podataka iz brodova, upravljanju i kontroli podataka, sadržaju i izradi planova praćenja, izvještaja o emisijama i dokumenta o usklađenosti)",
+    "official_url": "https://www.sluzbenilist.me/propisi/395550",
+    "citation": "Official Gazette of Montenegro 92/2026",
+    "in_force": "2026-07-08",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/395550 (read 2026-11-03) prints \"Datum stupanja na snagu: 08.07.2026.\" for issue 92/2026, published 30.06.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Shipping MRV. The 28/2026 rulebook on ship emission monitoring (Gazette 391051) shows Status Nevažeći. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/395550/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-ships-verification-rulebook",
+    "title": "Rulebook on the assessment of monitoring plans and the verification of greenhouse gas emission reports from ships (Pravilnik o načinu ocjene planova praćenja i verifikacije izvještaja o emisijama gasova sa efektom staklene bašte iz brodova)",
+    "official_url": "https://www.sluzbenilist.me/propisi/395512",
+    "citation": "Official Gazette of Montenegro 91/2026",
+    "in_force": "2026-07-07",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/395512 (read 2026-11-03) prints \"Datum stupanja na snagu: 07.07.2026.\" for issue 91/2026, published 29.06.2026.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Shipping verification. The 28/2026 rulebook on the content and form of the ship emission report and verification methodology (Gazette 391073) shows Status Nevažeći. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/395512/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-inventory-decree",
+    "title": "Decree on the greenhouse gas inventory system (Uredba o sistemu inventara gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396752",
+    "citation": "Official Gazette of Montenegro 115/2026",
+    "in_force": "2026-08-12",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396752 (read 2026-11-03) prints \"Datum stupanja na snagu: 12.08.2026.\" for issue 115/2026, published 04.08.2026.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National inventory system; obliges public bodies, not companies. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396752/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-policies-measures-decree",
+    "title": "Decree on establishing, maintaining and improving the system of policies, measures and greenhouse gas emission projections (Uredba o uspostavljanju, održavanju i kontinuiranom unapređenju sistema politika, mjera i projekcija emisija gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/396753",
+    "citation": "Official Gazette of Montenegro 115/2026",
+    "in_force": "2026-08-12",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/396753 (read 2026-11-03) prints \"Datum stupanja na snagu: 12.08.2026.\" for issue 115/2026, published 04.08.2026.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National policies, measures and projections system; obliges public bodies. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396753/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-ghg-inventory-data-rulebook",
+    "title": "Rulebook on the types, manner, deadlines and methodology for submitting data for the greenhouse gas emission inventory (Pravilnik o vrstama, načinu, rokovima i metodologiji za dostavljanje podataka za inventar emisija gasova sa efektom staklene bašte)",
+    "official_url": "https://www.sluzbenilist.me/propisi/395511",
+    "citation": "Official Gazette of Montenegro 91/2026",
+    "in_force": "2026-07-07",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/395511 (read 2026-11-03) prints \"Datum stupanja na snagu: 07.07.2026.\" for issue 91/2026, published 29.06.2026.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Issued under Art. 65 para 4 of the Law on Climate Change; data submission duties on data holders for the national inventory. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/395511/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-lulucf-emissions-rulebook",
+    "title": "Rulebook on the manner of calculating emissions from the forestry, land use and land-use change sector (Pravilnik o načinu obračuna emisija iz sektora šumarstva, korišćenja zemljišta i promjene namjene zemljišta)",
+    "official_url": "https://www.sluzbenilist.me/propisi/395423",
+    "citation": "Official Gazette of Montenegro 88/2026",
+    "in_force": "2026-07-03",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/395423 (read 2026-11-03) gives issue 88/2026, published 25.06.2026., and prints no commencement date. The last article of the PDF reads \"Ovaj pravilnik stupa na snagu osmog dana od dana objavljivanja u „Službenom listu Crne Gore”.\"; the date 2026-07-03 is that clause applied to the publication date (derived, not printed).",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National accounting methodology for the LULUCF sector, issued under Art. 31 para 5. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/395423/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-policies-measures-report-rulebook",
+    "title": "Rulebook on the manner, methodology and content of the report on policies and measures for mitigation of and adaptation to climate change and the report on emission projections (Pravilnik o načinu i metodologiji izrade i sadržaju izvještaja o politikama i mjerama za ublažavanje i prilagođavanje klimatskim promjenama i izvještaja o projekcijama emisija)",
+    "official_url": "https://www.sluzbenilist.me/propisi/395833",
+    "citation": "Official Gazette of Montenegro 97/2026",
+    "in_force": "2026-07-16",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/395833 (read 2026-11-03) prints \"Datum stupanja na snagu: 16.07.2026.\" for issue 97/2026, published 08.07.2026.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "National reporting methodology (53 pages), issued under Art. 67 para 5, Art. 68 para 7 and Art. 70 para 5. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/395833/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-accounting-law",
+    "title": "Law on Accounting (Zakon o računovodstvu)",
+    "official_url": "https://www.sluzbenilist.me/propisi/384020",
+    "citation": "Official Gazette of Montenegro 84/2025",
+    "in_force": "2025-08-08",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/384020 (read 2026-11-03) prints \"Datum stupanja na snagu: 08.08.2025.\" for issue 84/2025, published 31.07.2025.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Art. 35 requires large legal persons and parent undertakings of large groups with more than 500 employees to include in the management report, or a separate non-financial report, the business model, policies on social and staff matters, environment, human rights and anti-corruption, results, principal risks and non-financial KPIs; auditors check that it was delivered. Art. 71 delays Art. 26 paras 2 and 5, Art. 36 to 39 and Art. 42 para 4 to 2027-01-01. The brief named the Law on Accounting 145/21; the Gazette shows 145/2021 as Nevažeći and 84/2025 as the current law, so 84/2025 is the entry. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/384020/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only",
+    "status_note": "The Gazette shows the earlier Law on Accounting 145/2021 (Gazette 319422, in force 2022-01-08) with Status Nevažeći."
+  },
+  {
+    "id": "me-environment-law",
+    "title": "Law on Environment (Zakon o životnoj sredini)",
+    "official_url": "https://www.sluzbenilist.me/propisi/336900",
+    "citation": "Official Gazette of Montenegro 52/2016",
+    "in_force": "2016-08-17",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/336900 (read 2026-11-03) prints \"Datum stupanja na snagu: 17.08.2016.\" for issue 52/2016, published 09.08.2016.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act (31 pages). Its Gazette page lists the Law on Protection against Negative Impacts of Climate Change among later acts; the Law on Climate Change 149/2025 repeals that law, not this one. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/336900/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only",
+    "status_note": "The Gazette page shows Status Nevažeći for 52/2016, but no replacing Law on Environment was found in the Gazette search; the status is reported as shown and not resolved."
+  },
+  {
+    "id": "me-consumer-protection-law",
+    "title": "Law on Consumer Protection (Zakon o zaštiti potrošača)",
+    "official_url": "https://www.sluzbenilist.me/propisi/390427",
+    "citation": "Official Gazette of Montenegro 12/2026",
+    "in_force": "2026-02-14",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/390427 (read 2026-11-03) prints \"Datum stupanja na snagu: 14.02.2026.\" for issue 12/2026, published 06.02.2026.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading claims: Chapter on unfair commercial practices with misleading practices (Art. 157 to 159 as numbered in the text read). The text read contains no provision that names environmental or green claims; the brief named Law 2/14 with amendments, which is replaced by this law. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/390427/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  },
+  {
+    "id": "me-cbcg-esg-risk-decision",
+    "title": "Decision amending the Decision on minimum standards for risk management in credit institutions (Odluka o izmjenama i dopunama Odluke o minimalnim standardima za upravljanje rizicima u kreditnim institucijama), new Art. 23a on ESG risk management and Annex 3",
+    "official_url": "https://www.sluzbenilist.me/propisi/384500",
+    "citation": "Official Gazette of Montenegro 94/2025",
+    "in_force": "2025-08-20",
+    "evidence": "Gazette act page https://www.sluzbenilist.me/propisi/384500 (read 2026-11-03) prints \"Datum stupanja na snagu: 20.08.2025.\" for issue 94/2025, published 12.08.2025.",
+    "law_family": "F4",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "ME-SLUZBENILIST-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Central Bank of Montenegro Council decision of 2025-07-25. New Chapter IIIa, Art. 23a: a credit institution must have strategies, policies, processes and systems to identify, measure, manage and monitor short, medium and long-term ESG risks, per Annex 3 guidelines. The Gazette page prints \"Datum početka primjene: 01.01.2026.\". PDF text for the annexes has dropped letters (mojibake: \"pra enja\", \"port olije\"), so any record would need another source. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/384500/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
+    "status": "link only"
+  }
+]
