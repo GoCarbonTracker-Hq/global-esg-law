@@ -12873,5 +12873,83 @@
   "params": {
    "second_route": "https://www.lsc.gov.la/legislation/guideline.php?page=1 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
   }
+ },
+ {
+  "id": "mv-srf-watch",
+  "source_id": "MV-CMDA-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-srf",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cmda.gov.mv/storage/uploads/QoQQQ1ov/hqr955hx.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-cmda-cg-code-watch",
+  "source_id": "MV-CMDA-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-cmda-cg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cmda.gov.mv/storage/uploads/24YE1Yey/4zzu4vft.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-climate-emergency-act-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-climate-emergency-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/156/consolidations/185",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "mv-ghg-data-collection-regulation-watch",
+  "source_id": "MV-GAZETTE-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-ghg-data-collection-regulation",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://storage.googleapis.com/gazette.gov.mv/docs/gazette/7772.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-eppa-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-eppa",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/82/consolidations/815",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "mv-eia-regulation-2012-watch",
+  "source_id": "MV-GAZETTE-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-eia-regulation-2012",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://media.environment.gov.mv/EIA%20Regulation%202012.pdf",
+  "params": {
+   "second_route": "https://environment.gov.mv/en/legislation (browser; the ministry page answers curl with a connection reset, and it lists the eight EIA Regulation amendments that this PDF watcher cannot see)"
+  }
+ },
+ {
+  "id": "mv-consumer-protection-act-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-consumer-protection-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/147/consolidations/177",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
  }
 ]
