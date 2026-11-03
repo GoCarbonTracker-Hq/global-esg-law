@@ -5631,3 +5631,39 @@ Returned `200 4237687 application/pdf` (39 pages, no text layer) and `200 156034
 - `bj-climate-change-act-2018`, `bj-environment-framework-act-1998`, `bj-consumer-protection-act-2007`: row `pass`, OCR layer too damaged to store.
 - `bj-environment-framework-act-1998` is abrogated by Art. 138 of Loi n° 2026-15; Loi 2026-15 states no commencement date on the pages read, so no repeal record is written.
 - `cadredevie.bj`: `curl` returned `200 3 text/html` with the body `asd`; no instruments found there. The text comes from sgg.gouv.bj.
+
+## Senegal
+
+Checked on 2026-11-03 from the cloud address. No record is stored: the one row that passes (SN-SGG-ADOPTED) serves a page whose file is dead, and the other two rows are permission requested. All three scope instruments are link only.
+
+### SN-SGG-ADOPTED (Secrétariat général du Gouvernement, primature.sn): pass on Loi 2008-09 art. 9
+
+The site is the "Gouvernement du Sénégal" portal (theme `sgg`; `https://www.sec.gouv.sn` redirects to it). Proven fetch, for one instrument that is not in scope (the Code forestier, Loi n° 2018-25), to show the route works:
+
+```
+curl -sS -L -o cf.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2022-04/Loi%20n%C2%B0%202018-25%20du%2012%20novembre%202018%20portant%20Code%20forestier.pdf'
+```
+
+Returned `200 876266 application/pdf`; sha256 `26a5d1523b3f8053774d56e1bfef2e876f85c86515d4df8918c8ad991763aae3`. The PDF links come from the instrument page (`https://primature.sn/publications/lois-et-reglements/<slug>`, "Pièces jointes"). The page of the Code de l'environnement, `curl -sS -L https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement`, returns `200 68588 text/html` and links `/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf`, but that file does not exist:
+
+```
+curl -sS -L -o ce.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://primature.sn/sites/default/files/2023-10/Loi%20n%C2%B02023-15%20du%2002%20ao%C3%BBt%202023%20portant%20Code%20de%20l%27Environnement.pdf'
+```
+
+Returned `404 40531 text/html; charset=UTF-8`. Headless Chromium (Playwright `request.get`, then `page.goto` with a 45 s wait for a download) gets `200 text/html 12155` titled "One moment, please..." (a JavaScript challenge page) and no download. The `www.` host gives the same 404. No hash is recorded because nothing was fetched. The statute text was read from the WIPO Lex PDF `https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/sn/sn004fr_1.pdf`: curl got an HTML page (`200 133278 text/html`), Chromium saved a 132474-byte PDF (`pdftotext -layout`), an English translation.
+
+### Languages
+
+French is the only official language of legislation; the national languages have no gazette edition. No French or English record is stored. English: no government translation was found on primature.sn, on environnement.gouv.sn (its pages redirect to `https://environnement.gouv.sn/?password-protected=login`, a password login, `200 8822 text/html`) or on jo.gouv.sn (refused). No translation row was added.
+
+### Link only
+
+- sn-loi-2023-15-code-environnement: row passes, file 404 (above). Other copies tried: vie-publique.sn (`200 text/html`, a civic information site, not the state publisher, so no row) and `https://ditp.sec.gouv.sn/download/file/fid/49` (`CONNECT tunnel failed, response 502`).
+- sn-decret-2025-227 and sn-loi-2021-25-consommateur: row SN-JO-ADOPTED is permission requested; primature.sn has no copy (its list stops in 2024).
+- AMF-UMOA and CREPMF circulars (register rows only, F7, SN-BRVM-ADOPTED permission requested; same instruments sit in BJ BF CI GW ML NE TG): `curl -sS -L -o g.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf` returned `200 1560342 application/pdf` (text layer, `pdftotext -layout`); the 2024 taxonomy circular PDF returned `200 4237687 application/pdf` with 39 scanned pages and no text layer. `https://www.amf-umoa.org/` returned `200 1685 text/html` (JavaScript shell).
+
+### Blocked from the cloud address
+
+- https://www.jo.gouv.sn: curl `curl: (35) Recv failure: Connection reset by peer`; headless Chromium `HTTP 502`, 174 bytes; `jo.gouv.sn` (no www): `curl: (6) Could not resolve host` and `CONNECT tunnel failed, response 502`.
+- https://www.environnement.gouv.sn: `302` to a password login page.
+- https://www.assemblee-nationale.sn, https://www.finances.gouv.sn, https://www.ansd.sn: no connection (`000`). https://www.commerce.gouv.sn: `503`.
