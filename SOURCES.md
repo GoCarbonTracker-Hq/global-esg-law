@@ -6097,3 +6097,40 @@ Malagasy (mg) and French (fr) are the official languages. CNLEGIS serves both: `
 | mg-loi-2015-014 | Same row as the Charte; the brief's date 19 août 2015 is wrong, the official text says 10 août 2015. |
 
 Not in scope: the RSE manual (voluntary guidance, register row kept, `MG-MEDD-ADOPTED`), Décret 2021-1113 (repealed by Art. 103 of Décret 2025-626), the ratification acts for the Paris Agreement (Loi 2016-019, Décret 2016-1188) and Kyoto/Doha. The Décret 2014-1588 on the national climate committee is an F7 register row only; no climate framework act exists on CNLEGIS. Blocked from the cloud address: `https://www.csbf.mg` (`CONNECT tunnel failed, response 502` from curl, `getaddrinfo ENOTFOUND` from Chromium) and the Assemblée nationale PDF uploads (403). No CSBF sustainability instruction was found by web search.
+
+## Guyana
+
+Rows `GY-PARLIAMENT-ADOPTED`, `GY-MOLA-CONSOLIDATED` and `GY-GAZETTE-ADOPTED`, all `permission requested` (checked 2026-11-03). No row passes, so nothing is stored and there is no proven fetch for a `pass` row. The requests below were run on 2026-11-03 from the cloud address to show that the official files are reachable; their text was read, not stored.
+
+Why no row passes: the three sites publish no reuse terms (Parliament's footer links "Copyright Information" and "Disclaimer" point to `#`; MOLA has only an accuracy disclaimer; the E-Gazette says "All rights reserved"). The only statute found, the Copyright Act 1956 as applied to Guyana (s. 39(1), read on WIPO Lex), vests copyright in works made by or under the direction of the Crown or a Government department in the Crown; it is not an exclusion of official texts. The brief's "Chapter 22:01" is not the Copyright Act in the Laws of Guyana index on mola.gov.gy (Cap. 022:01 there is the Fire Prevention Act); WIPO Lex calls the Act "Cap. 74", which is the UK chapter number of the 1956 Act.
+
+Parliament, Act as passed (Environmental Protection Act 1996):
+
+```
+curl -sS -L -o epa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.gov.gy/documents/acts/6032-11_of_1996_environmental_protection_act_1996.pdf
+```
+
+Returned `200 3371117 application/pdf`, sha256 `3c544fb7139b1c9a18c434aa81ee25cd739b1265eb443b1f95a7a28fe44fcaa7`. `pdftotext -layout epa.pdf -` gives a text layer with OCR-style noise ("Tl>i.s", "En vironmental"), so it would need the OCR route or a cleaner file before any record. The path in the existing register row (`/new2/documents/acts/...`, and the `parliament.gov.gy` host without `www`) answers `404 72 text/html`; the working path has no `new2`. The Local Content Act (`22943-act_no._18_of_2021.pdf`, `200 3450052 application/pdf`) and Oil Pollution Act (`24368-24494-act_no._6_of_2025.pdf`, `200 3853172`) are scanned images: `pdftotext` returns only the page headers. No OCR tool could be installed (`tesseract` and `ocrmypdf` are not available; apt has no `tesseract-ocr`). The Consumer Affairs Act (`3634-act_13_of_2011.pdf`) returned `200 2180310 application/pdf` with a text layer. The Acts list is `https://parliament.gov.gy/publications/acts-of-parliament/P<offset>` with offset in steps of 10 (1836 PDF links in all).
+
+MOLA, Laws of Guyana revised edition (L.R.O. 1/2012):
+
+```
+curl -sS -L -o vol6.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf'
+```
+
+Returned `200 6969984 application/pdf`, 197 pages, sha256 `a86117aa8bd0961d03854d58f3c6cdf1e047dba7a04dc0d652f23efe7f7c1d41`; `pdftotext -layout vol6.pdf -` is clean text. It holds the Environmental Protection Act (Cap. 20:05, amended by Act No. 17 of 2005) and its five regulations. The index of volumes is `https://mola.gov.gy/laws-of-guyana?page=1` to `52` (461 chapters, Cap. 001:01 to 099:10; the file name carries a counter, so it is read from the page). One version per chapter (laws as at 31 December 2012); the 2022 Revised Edition was presented to the National Assembly on 2026-06-19 (https://mola.gov.gy/post/nandlall-presents-2022-revised-edition-of-guyanas-laws-to-parliament) and was not on the site on 2026-11-03.
+
+Official E-Gazette: `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://officialegazette.gov.gy/` returned `200 35685 text/html; charset=utf-8`; the publications list is loaded by script, so no publication file was fetched.
+
+### Languages
+
+English only (the language of legislation); no official second language and no government translation exist, so no translation row was added.
+
+### Link only
+
+All instruments in `register/GY/scope.json` are `link only`, reason: the row they depend on is `permission requested` (see above). Those whose text is a scanned image (`gy-local-content-act-2021`, `gy-oil-pollution-act-2025`) would also need OCR.
+
+### Blocked
+
+- https://www.gsc.gov.gy/ and https://gsc.gov.gy/ (Guyana Securities Council): `curl` ended with no HTTP answer; the egress proxy reported `connect_rejected` for both hosts. Blocked from the cloud address, for the orchestrator to read from the laptop.
+- https://www.bankofguyana.org.gy/ redirects to https://bankofguyana.org.gy/ and answers 200 (11928 bytes); no climate or sustainability rule was seen.

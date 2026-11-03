@@ -10205,5 +10205,86 @@
   "params": {
    "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43919"
   }
+ },
+ {
+  "id": "gy-epa-1996-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-epa-1996",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/6032-11_of_1996_environmental_protection_act_1996.pdf"
+ },
+ {
+  "id": "gy-epa-water-quality-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-water-quality-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-hazardous-waste-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-hazardous-waste-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-noise-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-noise-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-air-quality-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-air-quality-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-epa-authorisation-regs-2000-pdf-head",
+  "source_id": "GY-MOLA-CONSOLIDATED",
+  "iso2": "GY",
+  "instrument": "gy-epa-authorisation-regs-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf"
+ },
+ {
+  "id": "gy-local-content-act-2021-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-local-content-act-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/22943-act_no._18_of_2021.pdf"
+ },
+ {
+  "id": "gy-consumer-affairs-act-2011-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-consumer-affairs-act-2011",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/3634-act_13_of_2011.pdf"
+ },
+ {
+  "id": "gy-oil-pollution-act-2025-pdf-head",
+  "source_id": "GY-PARLIAMENT-ADOPTED",
+  "iso2": "GY",
+  "instrument": "gy-oil-pollution-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.gy/documents/acts/24368-24494-act_no._6_of_2025.pdf"
  }
 ]
