@@ -11516,5 +11516,107 @@
   "params": {
    "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
   }
+ },
+ {
+  "id": "hn-juntec-res-006-01-2025-juntec-pdf-head",
+  "source_id": "HN-JUNTEC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-juntec-res-006-01-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf",
+  "params": {
+   "second_route": "https://juntec.org.hn/2025/09/01/resolucion-jtnca-006-01-2025/ (browser; juntec.org.hn answers 406 to the User-Agent Mozilla/5.0 and 200 to curl and to the watcher User-Agent)"
+  }
+ },
+ {
+  "id": "hn-ley-cambio-climatico-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-ley-cambio-climatico",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley%20de%20Cambio%20Climatico.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley_general_del_ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-reglamento-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga-reglamento",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Reglamento_General_de_la_Ley_del_Ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-lga-reglamento-art112-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-lga-reglamento-art112",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Reforma__regl-ley_general_del_ambiente.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-carbono-forestal-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-carbono-forestal",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Decreto-54-2023.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-ley-proteccion-consumidor-tsc-pdf-head",
+  "source_id": "HN-TSC-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-ley-proteccion-consumidor",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.tsc.gob.hn/web/leyes/Ley%20de%20Protecci%C3%B3n%20al%20Consumidor.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-norma-ras-cnbs-search-riesgo-ambiental",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-norma-ras",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Home/Search?text=riesgo%20ambiental",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-norma-ras-art15-cnbs-pdf",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-norma-ras-art15",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/2603/021-2023%20REFORMA%20ARTICULA%20NORMA%20RIESGO.pdf",
+  "params": {}
+ },
+ {
+  "id": "hn-cnbs-circ-008-2024-cnbs-pdf",
+  "source_id": "HN-CNBS-ADOPTED",
+  "iso2": "HN",
+  "instrument": "hn-cnbs-circ-008-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
+  "params": {}
  }
 ]
