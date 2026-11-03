@@ -4294,3 +4294,44 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Uzbekistan
+
+Rows `UZ-LEXUZ-ADOPTED` and `UZ-LEXUZ-CONSOLIDATED` (`pass`, statute: Law No. ZRU-42 of 20 July 2006 on Copyright and Related Rights, Art. 8, "официальные документы (законы, постановления, решения и т. п.), а также их официальные переводы") and `UZ-LEXUZ-TRANSLATION` (`permission requested`; nothing stored). The Lex.uz terms page (https://lex.uz/ru/axborot) allows personal use only, so the pass rests on the statute. Run on 2026-11-03.
+
+Lex.uz (https://lex.uz, National Database of Legislation of the Ministry of Justice) answers plain `curl` with the full page; no challenge, no browser needed. Every act is a server-rendered HTML page. Point-in-time editions are reached with `?ONDATE=DD.MM.YYYY`; the dates are listed on the page of the act (the `lx_date_ddm` dropdown: the edition shown carries `lx_date_selected`, the others carry `lxOpenUrl('/ru/docs/<id>?ONDATE=<date>')`).
+
+```
+curl -sS -A 'Mozilla/5.0' -o ghg-uz.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://lex.uz/docs/7616051?ONDATE=09.01.2026'
+```
+
+Returned `200 313183 text/html; charset=utf-8` (Law on Limiting Greenhouse Gas Emissions, Uzbek, edition 09.01.2026); sha256 `562c75a8feda49566fd8ccede71cbea084de1adca2ad7b5faecda57133f3d645`, which is the `fetched_sha256` of `records/UZ/uz-ghg-law/2026-01-09-adopted-uz.json`. A second fetch gave the same hash. Russian, for the Law on Protection of Consumer Rights:
+
+```
+curl -sS -A 'Mozilla/5.0' -o consumer-ru.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://lex.uz/ru/docs/14643?ONDATE=19.01.2026'
+```
+
+Returned `200 419069 text/html; charset=utf-8`; sha256 `1c98a13bb96942c56189f4abb203f66eae71af9d4d9070e153fa411356488486` (the record `records/UZ/uz-consumer-rights-law/2026-01-19-consolidated-ru.json`), reproduced by a second fetch. `fetched_sha256` is the hash of the HTML as received. A request without `?ONDATE` returns the edition in force today; the records always use `?ONDATE` (or, for acts with one version, the plain URL).
+
+How a record is made: each element of the law is a `div` with class `lx_elem` (one per heading, article or paragraph); the text sits in the child `div` whose `name` and `id` are the same number. The stored `text` is those elements in page order, tags stripped, `<br>` and table rows as line breaks, one element per line. Left out: the page menus, the "Предложения по документу / Прослушать аудио / Получить ссылку" buttons, the classification indexes (ОКОЗ, ТСЗ), the Lex.uz comment blocks and the "См. предыдущую редакцию" links, which sit outside the `lx_elem` elements. The amendment notes that Lex.uz prints inside the paragraphs of a later edition (for example "(статья 34 дополнена частью девятой Законом … — Вступает в силу с 16 февраля 2020 года)") are kept. The first edition of an act is `adopted`, later editions are `consolidated`; an act with no edition list is one `adopted` record dated its in-force date from the card ("Дата вступления в силу"). Editions whose text is identical to the one before are kept (Lex.uz serves them as separate editions).
+
+### Languages
+
+Uzbek and Russian are separate documents on Lex.uz, each with its own document number and its own edition list; the language route does not translate (`https://lex.uz/uz/docs/<russian id>` and `https://lex.uz/en/docs/<russian id>` return the Russian text). The document numbers are in each scope entry's `notes`. Uzbek is stored from `https://lex.uz/docs/<uz id>` (the Cyrillic text as held; `/uz/docs/<uz id>` returns the same Cyrillic HTML, a Latin script display is made in the browser, so there is one Uzbek text). Russian is stored from `https://lex.uz/ru/docs/<ru id>`. Both use the same two rows.
+
+Not stored:
+
+- The Russian text of the Law on Limiting Greenhouse Gas Emissions (`https://lex.uz/ru/docs/7618153`): the page carries the label «Неофициальный перевод» in both editions (09.01.2026, 01.01.2027), so the statute does not cover it and the terms do not allow reuse (`UZ-LEXUZ-TRANSLATION`).
+- The Russian text of Cabinet Resolution No. 221 (`curl -sS -A 'Mozilla/5.0' -o r221-ru.html -w '%{http_code} %{size_download} %{content_type}\n' https://lex.uz/ru/docs/8181642` returned `200 66014 text/html; charset=utf-8`): the page holds the title, date and signature only (251 characters of text).
+- English: for each instrument the English page is a notice only, for example `curl -sS -A 'Mozilla/5.0' -o ghg-en.html -w '%{http_code} %{size_download} %{content_type}\n' https://lex.uz/en/docs/7618164` returned `200 62284 text/html; charset=utf-8` with 1192 characters of text ("The text of the act is given in uzbek and russian … Online translation (unofficial translation)"). No government English exists for any instrument in scope. Lex.uz does hold English text for some other acts (for example the Law on Copyright and Related Rights, https://lex.uz/en/docs/6123336), which is not an instrument in scope.
+
+### Link only
+
+None of the eight instruments in `register/UZ/scope.json` is link only. Sources that were looked at and gave no text:
+
+- https://lex.uz/ru/search/nat: the result list is filled by script for the full-text box, but `curl 'https://lex.uz/ru/search/nat?searchtitle=<words>'` returns the matching titles in the page, which is how the instruments were found.
+- National Agency of Perspective Projects (https://napp.uz/en, `200 135459 text/html`) and Tashkent Stock Exchange (https://uzse.uz, `200 290322 text/html`): no sustainability disclosure rule on the front pages read (no search of their rule lists was possible from curl); the only item found is an exchange news line on financial reporting and sustainability standards (27.10.2026). Cabinet Resolution No. 221 is the only disclosure instrument found. No row, no scope entry.
+- Ministry of Economy and Finance and Ministry of Ecology: https://gov.uz/en/imv and https://gov.uz/en/eco answered `200 text/html` (news pages only, no law text; the Lex.uz text is used). https://eco.gov.uz: `curl: (35) OpenSSL/3.0.13: error:0A000458:SSL routines::tlsv1 unrecognized name`. Blocked from the cloud address: https://eco.gov.uz . https://mf.uz: `curl: (56) CONNECT tunnel failed, response 502`. Blocked from the cloud address: https://mf.uz . https://cbu.uz: `curl: (35) Recv failure: Connection reset by peer`. Blocked from the cloud address: https://cbu.uz .
+- Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
+
+Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).

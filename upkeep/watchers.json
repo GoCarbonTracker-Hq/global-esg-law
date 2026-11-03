@@ -7659,5 +7659,77 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "uz-ghg-law-lexuz-page",
+  "source_id": "UZ-LEXUZ-CONSOLIDATED",
+  "iso2": "UZ",
+  "instrument": "uz-ghg-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/7618153"
+ },
+ {
+  "id": "uz-decree-up110-carbon-units-lexuz-page",
+  "source_id": "UZ-LEXUZ-ADOPTED",
+  "iso2": "UZ",
+  "instrument": "uz-decree-up110-carbon-units",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/7616216"
+ },
+ {
+  "id": "uz-pp213-transparency-system-lexuz-page",
+  "source_id": "UZ-LEXUZ-ADOPTED",
+  "iso2": "UZ",
+  "instrument": "uz-pp213-transparency-system",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/6956104"
+ },
+ {
+  "id": "uz-nature-protection-law-lexuz-page",
+  "source_id": "UZ-LEXUZ-CONSOLIDATED",
+  "iso2": "UZ",
+  "instrument": "uz-nature-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/7065"
+ },
+ {
+  "id": "uz-eco-expertise-law-lexuz-page",
+  "source_id": "UZ-LEXUZ-ADOPTED",
+  "iso2": "UZ",
+  "instrument": "uz-eco-expertise-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/7397289"
+ },
+ {
+  "id": "uz-esg-resolution-221-lexuz-page",
+  "source_id": "UZ-LEXUZ-ADOPTED",
+  "iso2": "UZ",
+  "instrument": "uz-esg-resolution-221",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/docs/8171367"
+ },
+ {
+  "id": "uz-consumer-rights-law-lexuz-page",
+  "source_id": "UZ-LEXUZ-CONSOLIDATED",
+  "iso2": "UZ",
+  "instrument": "uz-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/14643"
+ },
+ {
+  "id": "uz-advertising-law-lexuz-page",
+  "source_id": "UZ-LEXUZ-CONSOLIDATED",
+  "iso2": "UZ",
+  "instrument": "uz-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lex.uz/ru/docs/6052633"
  }
 ]
