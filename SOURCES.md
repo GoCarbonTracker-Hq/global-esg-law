@@ -5316,3 +5316,65 @@ None of the ten scope instruments is link only. Not stored and not in scope: the
 - `https://parliament.ge/en/media/news/garemos-datsvisa-da-bunebrivi-resursebis-komitetma-sakartvelos-klimatis-tsvlilebis-kanonis-tetri-tsigni-sajaro-konsultatsiebistvis-tsaradgina`: HTTP 403, Cloudflare "Attention Required" page.
 - `https://mepa.gov.ge/` answered `307` to `/ka` and then `200` with a browser user agent; curl without `--http1.1` failed with `curl: (92) Invalid HTTP header field was received`. Nothing was needed from it.
 - `https://matsne.gov.ge/` answers curl's default user agent with the Access Denied page (above); the watchers in `upkeep/watchers.json` use the watcher's own user agent, which answered 200 on 2026-11-03.
+
+## Sri Lanka
+
+Run on 2026-11-03 (GEL-09-10). Both rows pass on a statute: `LK-GOVPRINT-ADOPTED` and `LK-GOVPRINT-TRANSLATION` (Department of Government Printing, `documents.gov.lk`; Intellectual Property Act, No. 36 of 2003, s. 8(b): no protection "to any official text of a legislative, administrative or legal nature, as well as any official translation thereof", read in the English PDF of the Act on the same site). The site has no terms page (`/terms`, `/copyright`, `/about` answer 404); its footer says "© 2025 All Right Reserved. Solution by LankaCom", read as the web vendor's line. Four instruments are stored, each as one English translation record; the rest are link only. No Sinhala or Tamil text is stored (see Languages). No record was fetched with a browser.
+
+**The site.** `documents.gov.lk` is a Next.js application. The Acts and Gazette lists are filled by a server action, not by a URL you can GET (the first page of ten is in the HTML of `/web/acts` and `/web/extra_gazettes`). The action answers `curl` and returns every item with its file paths. The file is then fetched from `/api/content-file-proxy?file=/<path>`. The action id (`40dd03742cae2465a031936880def365fdd014c22b`, from `createServerReference(..., "TableDataAction")` in the site's JavaScript chunks) belongs to one build of the site; read it again from the chunk when the request stops answering.
+
+List request (Acts whose title contains "Environmental"; `q` and `search` carry the term, `limit` up to 100 worked, `page` counts from 1):
+
+```
+curl -sS -A 'Mozilla/5.0' -X POST https://documents.gov.lk/web/acts -H 'Next-Action: 40dd03742cae2465a031936880def365fdd014c22b' -H 'Content-Type: text/plain;charset=UTF-8' -H 'Accept: text/x-component' --data '[{"apiEndpoint":"http://gvp-api:4500/website-data/act/get-all","page":1,"limit":100,"q":"Environmental","search":"Environmental"}]' -o list_act.txt -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 2898 text/x-component`; line 2 of the body (`1:{...}`) is JSON with `data[]` (`actNoText`, `date` as the certification date, `descriptionEnglish`, `contents[]` of `language` and `uploadedFile`) and `pagination.total`. With no `q` the Acts endpoint reports 1738 items over 18 pages of 100. The same request with `act/get-all` replaced by `extra-gazette/get-all` and the URL `https://documents.gov.lk/web/extra_gazettes` (`q` "2393") returned `200 57735 text/x-component` and lists Gazette Extraordinary No. 2393/31; `bill/get-all` lists Bills. The Gazettes (non-extra) endpoint was not used.
+
+Row `LK-GOVPRINT-ADOPTED`, Gazette Extraordinary No. 2393/31 (SLFRS S1 and S2), English:
+
+```
+curl -sS -A 'Mozilla/5.0' -o g2393.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://documents.gov.lk/api/content-file-proxy?file=/extra-gazette-content/2393-31_E_1784566044.pdf'
+```
+
+Returned `200 843279 application/pdf` (sha256 `9fb86955025b64acb0918562499495569a2ea3aff432ffeb3719de1f73a07eb7`, 71 pages). It is not stored (link only, below). Row `LK-GOVPRINT-TRANSLATION`, National Environmental (Amendment) Act, No. 15 of 2026, English:
+
+```
+curl -sS -A 'Mozilla/5.0' -o act15_2026_E.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://documents.gov.lk/api/content-file-proxy?file=/act-content/15-2026_E_1786337298.pdf'
+```
+
+Returned `200 523861 application/pdf` (sha256 `a8ee4b5d515899e778cf...`, the full hash is in the record; 60 pages). Two fetches of each stored PDF on 2026-11-03 gave the same bytes, so `fetched_sha256` reproduces. The other four stored files: `act-content/35-2018_E_1784553147.pdf` `200 162667`, `act-content/21-2019_E_1784553007.pdf` `200 130841`, `act-content/09-2003_E_1784552867.pdf` `200 145314`, `act-content/20-2021_E_1784552998.pdf` `200 131525`, all `application/pdf`. The proxy answers HEAD with `200` and no `Content-Length` or `Last-Modified`, so the watchers are `page_hash` on the PDF, not `http_head`. File names with spaces (the Sri Lanka Electricity Act, `PL 013620 (E) Electricity  (Act)_1786421592.pdf`) need the path percent-encoded.
+
+**Text.** `pdftotext -layout file.pdf -`, form feeds turned into line breaks, each line's runs of whitespace collapsed to one space (`' '.join(line.split())`), blank lines dropped, so the line breaks are the PDF's line wraps. Page furniture (running titles, page numbers, the printer's footer) stays, as printed. `fetched_sha256` is the hash of the PDF bytes.
+
+### Languages
+
+Acts are printed in Sinhala, Tamil and English; each Act says the Sinhala text prevails over the Tamil text (No. 9 of 2003 s. 76, No. 20 of 2021 s. 4, No. 15 of 2026 s. 42) and names no prevailing English text, so every stored English record has `kind` translation under `LK-GOVPRINT-TRANSLATION` (judged on s. 8(b) "any official translation"; Constitution art. 23 was not opened). The Sinhala and Tamil PDFs were tested and not stored:
+
+- No. 15 of 2026, Sinhala (`act-content/15-2026_S_1786337276.pdf`, `200 471494 application/pdf`, 70 pages, Unicode font Iskoola Pota): `pdftotext` doubles vowel signs (the title line prints `ශ්‍රී ලංංකාා`) and emits 2642 U+FFFD replacement characters.
+- No. 15 of 2026, Tamil (`act-content/15-2026_T_1786337288.pdf`, `200 310922 application/pdf`, 84 pages): vowel signs come out in the wrong order and some are missing (`இலங்ைகச்`, `ைல` for the month).
+- No. 20 of 2021, Sinhala and Tamil (`20-2021_S_1784552997.pdf`, `20-2021_T_1784552998.pdf`): legacy non-Unicode fonts; the text prints as Latin letters (`iy;slh igyka`, `nrj;njk;gh;`).
+- No. 9 of 2003, Sinhala (59 pages), No. 47 of 1980 (19 pages) and No. 53 of 2000 (5 pages), English: scans; `pdftotext` returns no characters. 60 of the 238 English Acts dated 2019 to 2026 are scans too.
+
+No OCR (`tesseract`), `mutool`, `fitz` or `pdfminer` is installed in the cloud session; `pdftoppm` renders pages to PNG, which was used to read the commencement clauses of the three scanned Acts and page 1A of the Gazette, not to produce stored text. Sinhala and Tamil are therefore recorded as served by the site and not stored; an OCR step or a font-aware extractor would let them be added under `LK-GOVPRINT-ADOPTED`.
+
+Gazette PDFs: the running header of every page is in a legacy Sinhala font (`I fldgi ( ^I& fcoh -› ,xld m%cd;dka;%sl ...`), page numbers come out as control characters, and the operative notice on pages 1 and 2 of No. 2393/31 uses fonts with no Unicode map (`The first` prints as `7KH¿UVW`, digits as control characters). The body of the 71 pages extracts cleanly. Dropping or decoding the corrupt lines would be editing the text, so Gazettes are link only.
+
+### Link-only instruments
+
+- lk-slfrs-s1-s2 (Gazette Extraordinary No. 2393/31): row passes; no storable text (corrupt header lines and operative notice, above). English only is served; the N.B. on page 1 says the Sinhala and Tamil versions are published separately and none is listed under "SLFRS".
+- lk-finance-carbon-tax-regulations-2019 (Gazette Extraordinary No. 2105/47, one page): row passes; the first line is the corrupt legacy-font header.
+- lk-national-environmental-act (No. 47 of 1980, English only on the site), lk-national-environmental-amendment-2000 (No. 53 of 2000, Sinhala and English): row passes; scans with no text layer.
+
+Stored (English translation record each): lk-national-environmental-amendment-2026, lk-finance-act-2018, lk-finance-act-2019, lk-caa-act-2003, lk-caa-amendment-2021. The Finance Act records are the whole Acts, not cut to Part XI.
+
+### Not opened or not reachable from the cloud address
+
+- `https://www.lawnet.gov.lk/`: `curl: (60) SSL: no alternative certificate subject name matches target host name 'www.lawnet.gov.lk'` (certificate check not bypassed); `http://www.lawnet.gov.lk/` and `http://lawnet.gov.lk/` return `200 163 text/html`, a hosting placeholder (`/cgi-sys/defaultwebpage.cgi`). Blocked from the cloud address; no consolidated Legislative Enactments were read, so no consolidated row exists.
+- `https://www.caa.gov.lk/` (Consumer Affairs Authority): `curl: (35) Recv failure: Connection reset by peer`; `https://www.sec.gov.lk/` reset once and answered `200 366352 text/html; charset=UTF-8` on retry but was not read further. Blocked from the cloud address (caa.gov.lk).
+- `https://www.parliament.lk/en/business-of-parliament/acts` answers `404` (`application/json`); `https://www.cse.lk/pages/listing-rules/listing-rules.component.html` answers `404` (`200 25072 text/html` for the home page); `https://casrilanka.com/` answers `301` to `/casl/` (`200 47487 text/html`); `https://env.gov.lk/` answers `200 8599 text/html`. None was read for law text or terms, so there is no row for the Parliament, SEC, CSE, CA Sri Lanka or Ministry of Environment sites.
+- The old request `https://documents.gov.lk/view/egz/2024/7/2393-31_E.pdf` (used by the earlier register row) answers `404 21659 text/html; charset=utf-8` since the site was rebuilt.
+
+### No ETS, no climate law
+
+The Acts, Bills and Gazette Extraordinary lists were searched for "Climate": no Climate Change Act or Bill (two 2021 Presidential Secretariat task-force Gazettes only). No emissions trading system was found. The carbon tax was found: Finance Act, No. 35 of 2018 Part XI (levied from 2019-01-01 on motor vehicles), limited to 2019-01-01 to 2019-11-30 by Finance Act, No. 21 of 2019 s. 3. The brief named Finance Act No. 11 of 2019 and a 2020 repeal; neither was found on the official pages read.
