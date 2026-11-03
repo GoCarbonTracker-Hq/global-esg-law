@@ -10288,6 +10288,66 @@
   "url": "https://journal-officiel.ga/10003-14-98/"
  },
  {
+  "id": "mu-climate-change-act-2020-proclamations-page",
+  "source_id": "MU-AGO-CONSOLIDATED",
+  "iso2": "MU",
+  "instrument": "mu-climate-change-act-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lawsofmauritius.govmu.org/portal/proclamations",
+  "params": {
+   "second_route": "https://lawsofmauritius.govmu.org/portal/proclamations (browser; no challenge seen, the list is the only GET page that changes when a proclamation is added, the Act PDFs differ on every request)"
+  }
+ },
+ {
+  "id": "mu-environment-act-2024-acts-page",
+  "source_id": "MU-AGO-CONSOLIDATED",
+  "iso2": "MU",
+  "instrument": "mu-environment-act-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lawsofmauritius.govmu.org/portal/acts",
+  "params": {
+   "second_route": "https://lawsofmauritius.govmu.org/portal/acts (browser; search the title box for 'environment' to see amending Acts)"
+  }
+ },
+ {
+  "id": "mu-financial-reporting-act-2004-reprints-page",
+  "source_id": "MU-AGO-CONSOLIDATED",
+  "iso2": "MU",
+  "instrument": "mu-financial-reporting-act-2004",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lawsofmauritius.govmu.org/portal/reprints",
+  "params": {
+   "second_route": "https://lawsofmauritius.govmu.org/portal/acts (browser; search the title box for 'financial reporting' to see amending Acts)"
+  }
+ },
+ {
+  "id": "mu-bom-climate-risk-guideline-2022-bom-pdf",
+  "source_id": "MU-BOM-ADOPTED",
+  "iso2": "MU",
+  "instrument": "mu-bom-climate-risk-guideline-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bom.mu/sites/default/files/guideline_on_climate-related_and_environmental_financial_risk_management_01.04.2022.pdf",
+  "params": {
+   "second_route": "https://www.bom.mu/ (browser; www.bom.mu failed TLS verification from the cloud address on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mu-fsc-esg-funds-guidelines-fsc-pdf",
+  "source_id": "MU-FSC-ADOPTED",
+  "iso2": "MU",
+  "instrument": "mu-fsc-esg-funds-guidelines",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.fscmauritius.org/media/198694/disclosure-and-reporting-guidelines-for-esg-funds.pdf",
+  "params": {
+   "second_route": "https://www.fscmauritius.org/en (browser; Incapsula answers scripts with HTTP 403)"
+  }
+ },
+ {
   "id": "gy-epa-1996-pdf-head",
   "source_id": "GY-PARLIAMENT-ADOPTED",
   "iso2": "GY",
