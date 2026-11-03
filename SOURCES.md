@@ -6799,3 +6799,43 @@ All instruments in `register/GY/scope.json` are `link only`, reason: the row the
 
 - https://www.gsc.gov.gy/ and https://gsc.gov.gy/ (Guyana Securities Council): `curl` ended with no HTTP answer; the egress proxy reported `connect_rejected` for both hosts. Blocked from the cloud address, for the orchestrator to read from the laptop.
 - https://www.bankofguyana.org.gy/ redirects to https://bankofguyana.org.gy/ and answers 200 (11928 bytes); no climate or sustainability rule was seen.
+
+## Bahamas
+
+Run on 2026-11-03 (GEL-15-02). No row passes. The one row added, `BS-LAWS-ADOPTED` (Bahamas Laws On-line, laws.bahamas.gov.bs), is `permission requested`: the site's copyright page says the legislation "is subject to Government of The Bahamas Copyright protection" and "may only be used for informational non-commercial purposes", and the Copyright Act, 2024 s. 9 gives copyright in works made by or under the direction or control of the Government without excluding Acts or official texts (the word legislation does not occur in it). So no Bahamian text is stored and there is no proven fetch for a `pass` row. Every scope instrument is `link only`. The requests below are what was run to read the instruments and the terms.
+
+### laws.bahamas.gov.bs (row `BS-LAWS-ADOPTED`, permission requested)
+
+A plain curl works from the cloud address, no challenge. The PDF is served as published (the Gazette issue as scanned or typeset):
+
+```
+curl -sS -A 'Mozilla/5.0' -o a.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2025/2025-0024/2025-0024_1.pdf
+```
+
+Returned `200 481577 application/pdf` (Emissions Reduction Initiatives and Incentives Regulations, 2025), sha256 `d2be3e17f4e702a1416deea85c6b30e8d53ee1627d7ea1620f239d31bf163589`. Same host, `.../PRINCIPAL/2022/2022-0015/2022-0015_1.pdf` (Climate Change and Carbon Market Initiatives Act, 2022) returned `200 2531612 application/pdf`. Path pattern: `/cms/images/LEGISLATION/{PRINCIPAL|SUBORDINATE|AMENDING}/{YYYY}/{YYYY-NNNN}/{file}.pdf`; a guessed `_2.pdf` suffix answers `403` with a 75193-byte HTML page, so only the links on the listing pages work. `HEAD` on a PDF returns `200` with `content-length`, `last-modified` and `etag` (used by the `http_head` watchers).
+
+Listings by year (acts and subsidiary legislation) are POST forms and carry the Date Commenced field with its notes; this is how in-force dates and appointed-day notices were found:
+
+```
+curl -sS -A 'Mozilla/5.0' -e https://laws.bahamas.gov.bs/cms/legislation/acts_only/acts-by-year.html -d 'year=2022&yearSub=2022&submit4=A&catid=5&statusid=' https://laws.bahamas.gov.bs/cms/legislation/acts_only/acts-by-year.html
+```
+
+Returned `200` and about 132 KB of HTML for 2022 (the same call on `.../subsidiary/subsidiary-by-year.html` lists subsidiary legislation). The alphabetical listing of Acts stops after the letter A (123 PDF links), so it was not used. Terms: `https://laws.bahamas.gov.bs/cms/?view=article&id=115:copyright&catid=14:general-articles` returned `200 42854 text/html; charset=utf-8`; the Disclaimer page (`id=116`) says the texts are for information and points to the printed Revised Edition and Official Gazettes.
+
+PDF text: poppler `pdftotext -layout`. Three Acts in scope are scans with no text layer (Climate Change and Carbon Market Initiatives Act 2022: 1228 characters from 38 pages; Carbon Credit Trading Act 2022: 926 characters from 60 pages; Consumer Protection Act 2023: 246 characters from 37 pages). They were read with `tesseract` 5.3.4 (apt `tesseract-ocr`, installed in the session; `ocrmypdf` was not needed) to find section numbers and commencement clauses, and nothing from that OCR was stored. The Environmental Planning and Protection Act 2019 and the Copyright Act 2024 extract with dropped letters (a legacy font encoding), so quotations from them were read from clean lines only. Because nothing is stored, no record carries the `extraction` field.
+
+### Languages
+
+English is the only official language of Bahamian legislation. No government translation exists or is needed. No translation row was added.
+
+### Link only
+
+All nine instruments in `register/BS/scope.json` are `link only` because row `BS-LAWS-ADOPTED` is `permission requested`: `bs-climate-change-carbon-market-act`, `bs-climate-change-carbon-market-act-amendment-2026`, `bs-emissions-reduction-initiatives-regulations-2025`, `bs-carbon-credit-trading-act`, `bs-environmental-planning-protection-act`, `bs-environmental-planning-protection-act-amendment-2024`, `bs-environmental-planning-protection-spot-fines-regulations-2024`, `bs-consumer-protection-act-2023`, `bs-climate-change-environmental-advisory-unit-act-2026`.
+
+Looked for and not found: Carbon Credit Trading regulations (nothing on the site's 2022 to 2026 subsidiary lists; the press reported a Government draft); the appointing notice for the Carbon Credit Trading Act (the site's own commencement field says 19 August 2022); a Central Bank of The Bahamas circular on climate-related risk (the guidelines, general notices and public notices pages on centralbankbahamas.com showed no climate or ESG item, and a web search found none); a Securities Commission ESG disclosure guideline (scb.gov.bs home page and web search found none). Their terms were read to decide whether a row would be needed: `https://scb.gov.bs/privacy-and-usage-policy/` (200) bars reproducing, modifying or reusing the site's text beyond brief attributed excerpts; `https://www.bisxbahamas.com/legal-disclaimer` (200) allows personal non-commercial viewing or printing only and bars any use without written permission of the exchange; the Central Bank privacy-policy page (200) holds a disclaimer and no copyright grant. No row was added for these three because no instrument was taken from them.
+
+### Blocked (from the cloud address)
+
+- `https://www.bahamas.gov.bs/`: curl `403`, 118 bytes, `text/html`. Not retried with a browser; the same laws are on laws.bahamas.gov.bs.
+
+Everything else used answered curl: laws.bahamas.gov.bs, scb.gov.bs (`www.scb.gov.bs` answers a 301 to it), www.centralbankbahamas.com, www.bisxbahamas.com (`bisxbahamas.com` answers a 301 to it).
