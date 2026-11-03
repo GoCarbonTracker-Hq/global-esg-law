@@ -10073,5 +10073,113 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "bs-climate-change-carbon-market-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-carbon-market-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2022/2022-0015/2022-0015_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-climate-change-carbon-market-act-amendment-2026-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-carbon-market-act-amendment-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/AMENDING/2026/2026-0002A/2026-0002A.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-emissions-reduction-initiatives-regulations-2025-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-emissions-reduction-initiatives-regulations-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2025/2025-0024/2025-0024_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-carbon-credit-trading-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-carbon-credit-trading-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2022/2022-0036/2022-0036_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-act-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0040/2019-0040_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-act-amendment-2024-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-act-amendment-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/AMENDING/2024/2024-0006A/2024-0006A.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-environmental-planning-protection-spot-fines-regulations-2024-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-environmental-planning-protection-spot-fines-regulations-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2024/2024-0078/2024-0078_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-consumer-protection-act-2023-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-consumer-protection-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2023/2023-0049/2023-0049_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
+ },
+ {
+  "id": "bs-climate-change-environmental-advisory-unit-act-2026-pdf-head",
+  "source_id": "BS-LAWS-ADOPTED",
+  "iso2": "BS",
+  "instrument": "bs-climate-change-environmental-advisory-unit-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2026/2026-0003/2026-0003_1.pdf",
+  "params": {
+   "second_route": "https://laws.bahamas.gov.bs/cms/ (browser; answers curl with 200 today; the listing pages by year are POST forms and list amending acts and appointed-day notices)"
+  }
  }
 ]

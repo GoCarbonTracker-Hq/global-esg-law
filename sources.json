@@ -8987,5 +8987,27 @@
     "trailer_source_url": "https://www.brvm.org/fr/node/315",
     "trailer_licence": "Permission requested (BRVM terms)",
     "notes": "fingerprint: curl -sSL https://www.brvm.org/fr/node/405, scripts and styles removed, tags replaced by spaces, entities decoded, whitespace collapsed, cut from 'Conditions générales d’utilisation du site internet' to the end of the page, sha256 of the result plus a newline. The page includes live market tickers before the cut and site navigation after the legal text, so the hash can drift. The same row serves the AMF-UMOA instruments in the other UEMOA places. The AMF-UMOA own site https://www.amf-umoa.org is a JavaScript application (curl returns a 1685-byte shell) and its terms were not read. Permission request not sent."
+  },
+  {
+    "id": "BS-LAWS-ADOPTED",
+    "jurisdiction": "BS",
+    "publisher": "Office of the Attorney General, The Bahamas (site managed by the Law Reform and Revision Commission; Gazettes by the Government Printing Department)",
+    "source_name": "Bahamas Laws On-line (laws.bahamas.gov.bs), Acts and subsidiary legislation as published PDFs",
+    "form": "adopted",
+    "fetch_url": "none stored (no text stored); a plain curl works: https://laws.bahamas.gov.bs/cms/images/LEGISLATION/{PRINCIPAL|SUBORDINATE|AMENDING}/{YYYY}/{YYYY-NNNN}/{file}.pdf",
+    "pinned_version": "not pinned: no fetch until permission is granted",
+    "content_hash": "",
+    "terms_url": "https://laws.bahamas.gov.bs/cms/?view=article&id=115:copyright&catid=14:general-articles",
+    "terms_quote": "The legislation contained on this website is subject to Government of The Bahamas Copyright protection. [...] The website may only be used for informational non-commercial purposes and must not be used in a derogatory or defamatory manner.",
+    "terms_fingerprint": "3b39d8e27183c3192ee4f7d6f8edf710be0a1cca53b36fdc4974aaab2e610977",
+    "verdict": "permission requested",
+    "statute_exception": "none found: Copyright Act, 2024 (legislation no. 2024-0046, commenced 2025-02-01 per the site, S.I. No. 2 of 2025; it replaced the 1998 Act) s. 9 'Bahamas Government works': \"Copyright protection under this Act shall subsist in every work which is eligible for copyright and which is made by or under the direction or control of the Government.\" The Act has no provision removing copyright from Acts or official texts (the word legislation does not occur in it); s. 79 only frees acts done for Parliamentary or judicial proceedings. Opened as PDF from https://laws.bahamas.gov.bs/cms/images/LEGISLATION/PRINCIPAL/2024/2024-0046/2024-0046_1.pdf on 2026-11-03 (sha256 not recorded: poppler text of this PDF drops some letters, the quoted section was read from the extract and its table of contents)",
+    "verdict_basis": "terms",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Bahamas Act or subsidiary legislation as published (title and number set per instrument)",
+    "trailer_source_url": "https://laws.bahamas.gov.bs/cms/",
+    "trailer_licence": "Permission requested (Government of The Bahamas copyright, non-commercial use only)",
+    "notes": "fingerprint: curl -sS -A 'Mozilla/5.0' 'https://laws.bahamas.gov.bs/cms/?view=article&id=115:copyright&catid=14:general-articles', scripts and styles removed, tags replaced by spaces, entities decoded, whitespace collapsed, cut from after 'PLAYBACK STOP --> PLAY › NEXT »' to before 'Recent Bills' (the sidebar of recent Bills changes, the article does not); recomputed twice 2026-11-03, identical. The article is the three sentences quoted. The Disclaimer page (id=116) says the texts are information only and points to the printed Revised Edition and Official Gazettes. The site's HTML meta rights tag says legislation can be downloaded and printed for private use and commercial entities must obtain permission (it names the Isle of Man Attorney General's Chambers, a copied template). Commercial reuse and modification are not granted, so the verdict is permission requested. No request sent. The Gazette PDFs served by the same site fall under the same notice."
   }
 ]
