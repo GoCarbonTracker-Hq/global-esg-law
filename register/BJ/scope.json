@@ -10,8 +10,8 @@
     "duty_on": "private_sector",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Duty on project promoters (Art. 3) to register carbon projects with the registration authority. Implemented through the authority created by bj-aepc-decree. Link only: the PDF served at the official URL is a scan (200, 2289098 bytes, application/pdf) with no text layer (pdftotext returns nothing), so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only"
+    "notes": "Duty on project promoters (Art. 3) to register carbon projects with the registration authority. Implemented through the authority created by bj-aepc-decree. The text is uncorrected OCR output of a scanned official PDF (200, 2289098 bytes, application/pdf, sha256 6afb7c282b921a9a009b0479bebeaa84fb76cd6c6b6508afc5b8092725dd1eda): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 20 of 20 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored"
   },
   {
     "id": "bj-aepc-decree",
@@ -24,8 +24,8 @@
     "duty_on": "government",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Creates the registration authority (AEPC) and the national register of carbon projects (Art. 8); companion of bj-carbon-project-registration-decree. Link only: the PDF served at the official URL is a scan (200, 760251 bytes, application/pdf) with no text layer (pdftotext returns 7 bytes), so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only"
+    "notes": "Creates the registration authority (AEPC) and the national register of carbon projects (Art. 8); companion of bj-carbon-project-registration-decree. The text is uncorrected OCR output of a scanned official PDF (200, 760251 bytes, application/pdf, sha256 d2def15cf65241f6e886f0c5393d2dc900abbbd685c9bfcec85499c9c9800e34): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 7 of 7 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored"
   },
   {
     "id": "bj-climate-change-act-2018",
@@ -38,8 +38,8 @@
     "duty_on": "unknown",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Climate framework act. in_force is null because no official page states a commencement date; the date of the act is 2018-08-06. Link only: the PDF served at the official URL is a scan (200, 15201418 bytes, application/pdf) whose embedded OCR layer is too garbled to store (for example \"chongements cllmotiques\", \"Io loi dont Io teneur\"), so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only"
+    "notes": "Climate framework act. in_force is null because no official page states a commencement date; the date of the act is 2018-08-06. The text is uncorrected OCR output of a scanned official PDF (200, 15201418 bytes, application/pdf, sha256 49ed0b778968d7342a7ac14250c202a9df0f875b7e7b3d4dde984143bb3a4ef6): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 35 of 35 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored"
   },
   {
     "id": "bj-environment-framework-act-1998",
@@ -52,8 +52,8 @@
     "duty_on": "unknown",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Environmental framework act, including environmental impact assessment. in_force is null because no official page states a commencement date. Abrogated by Art. 138 of Loi n° 2026-15 (bj-environment-act-2026). Link only: the PDF served at the official URL is a scan (200, 1462789 bytes, application/pdf) whose embedded OCR layer is garbled, so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only",
+    "notes": "Environmental framework act, including environmental impact assessment. in_force is null because no official page states a commencement date. Abrogated by Art. 138 of Loi n° 2026-15 (bj-environment-act-2026). The text is uncorrected OCR output of a scanned official PDF (200, 1462789 bytes, application/pdf, sha256 0f49f9202af77c6afc1f8bf129d0f608dce5337a0107f33f135fa158f26814eb): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 30 of 30 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored",
     "status_note": "Abrogated by Art. 138 of Loi n° 2026-15 du 23 juillet 2026 (bj-environment-act-2026); that law states no commencement date, so the date the abrogation takes effect is not recorded and no repeal record is written."
   },
   {
@@ -67,8 +67,8 @@
     "duty_on": "unknown",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "New environment act, found on the sgg.gouv.bj home page; not in the brief. Replaces the 1999 framework act. in_force is null because the pages read state no commencement date (only the promulgation date, 2026-07-23). Only the last two pages and the penal provisions were read; the full text was not read for any ESG duty. Link only: the PDF served at the official URL is a scan (200, 11746870 bytes, application/pdf) with no text layer (pdftotext returns 31 bytes), so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only"
+    "notes": "New environment act, found on the sgg.gouv.bj home page; not in the brief. Replaces the 1999 framework act. in_force is null because the pages read state no commencement date (only the promulgation date, 2026-07-23). Only the last two pages and the penal provisions were read; the full text was not read for any ESG duty. The text is uncorrected OCR output of a scanned official PDF (200, 11746870 bytes, application/pdf, sha256 9df54f396f21be9bca9ea89050f78738895cd4f93f7a006ffb5bd2cf328113bc): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 31 of 31 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored"
   },
   {
     "id": "bj-consumer-protection-act-2007",
@@ -81,7 +81,7 @@
     "duty_on": "private_sector",
     "source_row": "BJ-SGG-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Umbrella consumer law. Art. 20: \"Est interdite toute publicite comportant, sous quelque forme que ce soit, des allegations, indications ou presentations fausses ou de nature a induire en erreur.\" It does not mention environmental claims; it is the general misleading-advertising ban a green claim would fall under. in_force is null because no official page states a commencement date. Link only: the PDF served at the official URL is a scan (200, 629311 bytes, application/pdf) whose embedded OCR layer is partly garbled, so no text is stored. The page was read as page images on 2026-11-03. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
-    "status": "link only"
+    "notes": "Umbrella consumer law. Art. 20: \"Est interdite toute publicite comportant, sous quelque forme que ce soit, des allegations, indications ou presentations fausses ou de nature a induire en erreur.\" It does not mention environmental claims; it is the general misleading-advertising ban a green claim would fall under. in_force is null because no official page states a commencement date. The text is uncorrected OCR output of a scanned official PDF (200, 629311 bytes, application/pdf, sha256 091a4d0dd54eab7fd2ff94cc9e204e695777766163289fcac321b9d44de02ccf): pdftoppm -r 200, tesseract --psm 4 -l fra per page (tesseract 5.3.4, language pack fra (tesseract-ocr-fra 1:4.1.0-2)), pages 1 to 14 of 14 joined in order, the whole file being the act with its annexes and signatures. Misreads are left as they are. No government English translation was found: the sgg.gouv.bj site and its documentheque are French only and list no translation. French is the only official language of legislation.",
+    "status": "stored"
   }
 ]
