@@ -10073,5 +10073,41 @@
   "params": {
    "second_route": "https://new.jo.gouv.tg/texte/loi-n11-du-28-decembre-1999-portant-organisation-de-la-concurrence-au-togo (browser; the portal is an Angular application, the gazette PDF is also linked from this page)"
   }
+ },
+ {
+  "id": "gt-ley-marco-cambio-climatico-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-marco-cambio-climatico",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
+ },
+ {
+  "id": "gt-ley-proteccion-mejoramiento-medio-ambiente-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-proteccion-mejoramiento-medio-ambiente",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/1986/gtdcx00681986.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
+ },
+ {
+  "id": "gt-ley-proteccion-consumidor-usuario-congreso-pdf",
+  "source_id": "GT-CONGRESO-ADOPTED",
+  "iso2": "GT",
+  "instrument": "gt-ley-proteccion-consumidor-usuario",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2003/gtdcx06-2003.pdf",
+  "params": {
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+  }
  }
 ]
