@@ -7685,3 +7685,62 @@ No scope instrument is link only; all eight are stored. Candidates and hosts tha
 - minjust.gov.tm: `200`, 30485 bytes on `/`, a Next.js application; the "Hukuk maglumatlar merkezi" (legal information centre) entry describes a fee-based information service, no law database or law texts found on the pages opened; no row.
 - cbt.tm: `200`, 30158 bytes; the pages `tm/laws/laws.html` and `tm/duzumler.html` and the `ru` and `en` home pages contain no sustainability, climate or green-finance string; no instrument.
 - mep.gov.tm, www.mep.gov.tm and tse.gov.tm: the proxy answered `curl: (56) CONNECT tunnel failed, response 502` (no route found; the brief says mep.gov.tm has no DNS record). The Ashgabat Stock Exchange host was not found (tse.gov.tm is the only one tried).
+
+## Papua New Guinea
+
+Checked 2026-11-03 from the cloud address. Three publisher sites answer `curl` and carry law text: CCDA (ccda.gov.pg), SCPNG (www.scpng.gov.pg) and ICCC (iccc.gov.pg). Every PDF used for a stored record is a scan with no text layer, so `pdftotext` returns nothing and the stored text is OCR output (see below). No browser recipe was needed for the stored records.
+
+### PG-CCDA-ADOPTED (pass, statute: PNG Copyright and Neighbouring Rights Act 2000 s. 5(b))
+
+```
+curl -sS -A 'Mozilla/5.0' -o NDC-Regulations-2022.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ccda.gov.pg/wp-content/uploads/2026/02/NDC-Regulations-2022.pdf
+```
+Returned `200 338581 application/pdf` for pg-ndc-regulation-2022, sha256 `d255a9f0a0a7569f...` (full value in the record), reproduced on a second fetch. The Carbon Markets Regulation is the same request with `Carbon-Market-Regulation.pdf` (`200 876202 application/pdf`). The file URLs come from the WordPress media list `https://ccda.gov.pg/wp-json/wp/v2/media?search=regulation` and from the pages `https://ccda.gov.pg/eywa-resources/<slug>/`.
+
+`pdftotext -layout NDC-Regulations-2022.pdf -` returns 8 characters (empty); `pdfimages -list` shows one CCITT image per page. OCR: `pdftoppm -r 300 -gray -png file.pdf p` then `tesseract p-N.png p-N -l eng` for each page (tesseract 5.3.4 from apt, `apt-get install tesseract-ocr`; ocrmypdf was installed with pip and not used). Page texts are joined in page order, blank lines dropped, trailing spaces trimmed; nothing else is changed. The record carries `"extraction": "ocr"`, `fetched_url` and `fetched_sha256` of the original PDF. `tools/check_corpus.py` and `tools/publish_gate.py` both accepted the extra key (2738 records checked, gate exit 0). Handwritten dates are garbled in the OCR text; the in-force dates in scope.json were read from the page images.
+
+### PG-CCDA-CONSOLIDATED (pass, statute; link only, no record)
+
+```
+curl -sS -A 'Mozilla/5.0' -o act.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://ccda.gov.pg/wp-content/uploads/2026/02/Climate-Change-Management-Act-2015_consolidated.pdf
+```
+Returned `200 869318 application/pdf` (72 pages, Word-generated, text layer present, `pdftotext -layout` gives 183,283 characters without mojibake). Not stored: the file has no dates and no official page states the gazette commencement date.
+
+### PG-SCPNG-ADOPTED (pass, statute)
+
+```
+curl -sS -A 'Mozilla/5.0' -o g1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.scpng.gov.pg/wp-content/uploads/2026/07/GUIDELINES-2026_001-GREEN-BOND-GUIDELINES.pdf
+```
+Returned `200 698169 application/pdf` for pg-scpng-green-bond-guidelines-2026 (Social `200 703046`, Sustainability `200 610735`, both `application/pdf`). The list page is `https://www.scpng.gov.pg/laws/guidelines/`. Same scanned-PDF OCR recipe as above (`pdftotext` returns 8 to 10 characters, empty).
+
+### PG-ICCC-CONSOLIDATED (pass, statute; link only, no record)
+
+```
+curl -sS -A 'Mozilla/5.0' -o ad.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://iccc.gov.pg/wp-content/uploads/2023/07/Commercial-Advertisement-Protection-of-the-Public-Act-1976.pdf
+```
+Returned `200 20071 application/pdf` (text layer present). Listed on `https://iccc.gov.pg/about-us-2/`.
+
+### Languages
+
+English is the only language of the Acts and instruments found. Tok Pisin and Hiri Motu are official languages, but no Tok Pisin or Hiri Motu text of any instrument was found on CCDA, SCPNG, ICCC, Parliament or CEPA pages, and Tok Pisin has no ISO 639-1 code, so none could be stored. No government English translation is needed. No translation row exists.
+
+### Statute exception source
+
+```
+curl -sS -A 'Mozilla/5.0' -o act-detail.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.wipo.int/wipolex/en/legislation/details/3427
+```
+Returned `200 87813 text/html`; the page holds a signed link to the Act PDF (`wipolex-res.wipo.int/.../pg006en_1.pdf`, signed URL, `200 105678 application/pdf` on 2026-11-03; sha256 `f8fbd679619938222c3ccc39fa2a551ef14264a342178e8759805b3cb9a33fef`). s. 5(b) read in `pdftotext -layout` output. PacLII and the AustLII mirror could not be opened.
+
+### Link only
+
+- pg-climate-change-management-act-2015: row PG-CCDA-CONSOLIDATED passes; no date to put on a record (no official page states the commencement notice or the 2021 and 2023 amendment dates).
+- pg-commercial-advertisement-act-1976: row PG-ICCC-CONSOLIDATED passes; commencement not stated, certification date blank in the PDF.
+- Not in scope: Independent Consumer and Competition Commission Act 2002 (read in full, no misleading-conduct provision), Environment Act 2000 (no official text found: cepa.gov.pg is an empty JavaScript shell), Bank of PNG rules (site blocked), PNGX listing rules (company, terms not read).
+
+### Blocked from the cloud address
+
+- `http://www.paclii.org/` and `/pg/legis/consol_act/caara2000402/`: HTTP 403, `cf-mitigated: challenge`, 5.3 KB; headless Chromium never reached networkidle in 45 s.
+- `https://www.bankpng.gov.pg/`: HTTP 403, Cloudflare challenge, 5.4 KB; Chromium timed out the same way.
+- `https://pacliirms.austlii.edu.au/pg/legis/num_act/canra2000341.pdf`: curl connection reset, Chromium 502.
+- `https://www.parliament.gov.pg/uploads/acts/15A-19.pdf`: 404 after redirect to parliament.gov.pg.
+- `https://cepa.gov.pg/` (any path) and `https://www.pngx.com.pg/`: HTTP 200 but only a JavaScript shell, no law or terms text for curl.
