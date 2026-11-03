@@ -9620,6 +9620,220 @@
   }
  },
  {
+  "id": "sn-loi-2023-15-code-environnement-page",
+  "source_id": "SN-SGG-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2023-15-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement",
+  "params": {
+   "second_route": "https://primature.sn/publications/lois-et-reglements/codes (browser listing of the codes); the attached PDF answers a JavaScript challenge to scripts"
+  }
+ },
+ {
+  "id": "sn-decret-2025-227-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-decret-2025-227",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "sn-loi-2021-25-consommateur-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2021-25-consommateur",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "mr-loi-2025-019-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2025-019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=%C3%A9valuation+environnementale&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2000-045-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2000-045",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=code+de+l%27environnement&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2004-094-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2004-094",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2004&field_numeroNN=94&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2007-105-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2007-105",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2007&field_numeroNN=105&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2020-007-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2020-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=protection+du+consommateur&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2024-027-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2024-027",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2024&field_numeroNN=27&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2018-017-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2018-017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=relative+%C3%A0+la+publicit%C3%A9&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "terms-mr-msgg-adopted",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://msgg.gov.mr/mentions-legales.html",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "zw-si-134-2019-secz-page",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "zw-si-134-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/",
+  "params": {}
+ },
+ {
+  "id": "zw-zse-practice-note-16-pdf",
+  "source_id": "ZW-ZSE-RULES",
+  "iso2": "ZW",
+  "instrument": "zw-zse-practice-note-16",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ds88jcmqc11je.cloudfront.net/api/docs/42/download",
+  "params": {}
+ },
+ {
+  "id": "zw-ema-pdf",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "zw-ema",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-ema-consolidated",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-secz-adopted",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "et-nbe-bank-cg-directive-sbb-91-2024-pdf-head",
+  "source_id": "ET-NBE-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-nbe-bank-cg-directive-sbb-91-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://nbe.gov.et/wp-content/uploads/2024/06/SBB912024-BANK-CORPORATE-GOVERNANCE-.pdf"
+ },
+ {
+  "id": "et-esia-proclamation-1371-2025-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-esia-proclamation-1371-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/PDF/Proc%20No.1371-2025-Environmental%20and%20Social%20Impact%20Assessment.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406 and a request with no User-Agent with a tunnel failure, so use a plain curl User-Agent or Playwright)"
+  }
+ },
+ {
+  "id": "et-pollution-control-proclamation-300-2002-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-pollution-control-proclamation-300-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/Proclamation/Proc%20No.%20300-2002%20Environmental%20Pollution%20Control.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406)"
+  }
+ },
+ {
+  "id": "et-ecosystem-services-payment-proclamation-1401-2026-pdf-head",
+  "source_id": "ET-EPA-ADOPTED",
+  "iso2": "ET",
+  "instrument": "et-ecosystem-services-payment-proclamation-1401-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.epa.gov.et/images/PDF/proclamation-for-ecosytem-service-paymeny-1401.pdf",
+  "params": {
+   "second_route": "https://www.epa.gov.et/downloads/proclamations.html (browser; the host answers a Mozilla User-Agent with HTTP 406)"
+  }
+ },
+ {
   "id": "zm-gecc-act-2024-official-page",
   "source_id": "ZM-NAZ-ADOPTED",
   "iso2": "ZM",
