@@ -5671,3 +5671,32 @@ French is the language of every text found. justice.gouv.km has `/ar/` and `/en/
 - Journal Officiel de l’Union des Comores: no online edition located.
 
 Blocked from the cloud address (the egress proxy refused the connection, `curl: (56) CONNECT tunnel failed, response 502`): https://www.environnement.gouv.km/ , https://environnement.gouv.km/ , https://www.journal-officiel.km/ , https://journal-officiel.gouv.km/ , https://www.gouvernement.km/ . The orchestrator can read them from the laptop.
+
+## Mozambique
+
+Run on 2026-11-03 (GEL-13-05). One row passes: `MZ-BANCOMOC-ADOPTED`, on the statute alone (Lei n.º 9/2022 Art. 7 n.º 1 a), official texts of a legislative, administrative or judicial nature and their official translations are excluded from copyright). The site terms of bancomoc.mz allow private or internal use only and bar commercial use, so they are not a pass. One row, `MZ-IMPRENSANAC-ADOPTED`, is permission requested because the Imprensa Nacional site refused the cloud address. The brief named Lei n.º 4/2001 for the exclusion; that law was repealed by Lei n.º 9/2022 (Boletim da República I Série n.º 124, 29 June 2022, in force 90 days after publication), whose Art. 7 was read from the gazette PDF served by WIPO Lex, with the article number confirmed on a rendered image of page 1048.
+
+Row `MZ-BANCOMOC-ADOPTED`, Aviso n.º 6/GBM/2025 (the PDF is the whole Boletim da República I Série n.º 201 of 2025-10-21, 6 pages, holding Avisos 5, 6 and 7):
+
+```
+curl -sS -A 'Mozilla/5.0' -o aviso6.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf'
+```
+
+Returned `200 339544 application/pdf`; a second fetch gave the same size and the same sha256 (`cd2097653a76598b10bed3cd108db129c2c8924340a9ee340747f14637929265`), so `fetched_sha256` reproduces. Headers: `last-modified: Thu, 13 Nov 2025 09:55:44 GMT`, `etag: "1DC5483AD58D000"`. The gazette is set in two columns, and `pdftotext -layout` over a whole page and plain `pdftotext` both interleave the columns. The recipe is `pdftotext -layout -f P -l P -x X -y 58 -W 262 -H 772 aviso6.pdf -` for P = 2 to 6 and X = 30 (left column) then X = 303 (right column), which drops the page header (y below 58), then the text from the line `Aviso n.º 6/GBM/2025` up to, not including, `Aviso n.º 7/GBM/2025`, runs of spaces collapsed and blank lines dropped; hard line wraps of the PDF are kept. Mojibake check: the only non-ASCII characters in the output are Portuguese letters and quotation marks, no U+FFFD. Articles 1 to 15 and the Anexo follow in order.
+
+### Languages
+
+Portuguese is the only language: the Banco de Moçambique serves the Aviso in Portuguese, and no English translation is linked from https://www.bancomoc.mz/en/the-bank/normatives/ (it lists the same Portuguese PDFs). No translation row exists.
+
+### Link only
+
+- `mz-lei-20-97-ambiente`, `mz-lei-22-2009-consumidor`, `mz-decreto-23-2018-redd` (row `MZ-IMPRENSANAC-ADOPTED`, permission requested). Tried on 2026-11-03: `curl -sS -m 40 -A 'Mozilla/5.0' -L https://www.imprensanac.gov.mz` gave `curl: (35) Recv failure: Connection reset by peer` (the proxy status lists the tunnel closed after about 3 s); `http://www.imprensanac.gov.mz` gave `HTTP/1.1 503 Service Unavailable` with body `upstream connect error or disconnect/reset before headers`; `imprensanac.gov.mz`, `imprensanac.co.mz`, `www.imprensanac.co.mz` and `boletim.imprensanac.gov.mz` gave no response. No browser recipe was tried because the same proxy path carries it. `https://portaldogoverno.gov.mz` answered `200 72442 text/html` but serves news and institutional pages; its WordPress search for "Lei do Ambiente", "Defesa do Consumidor", "REDD" and "Boletim da República" returned only news posts, so it holds no law text for these instruments.
+- Copies of these laws exist on FAOLEX, a law-firm PDF (DLA Piper Africa) and a UNEP LEAP summary. They are third-party copies or translations and get no row.
+
+### Blocked
+
+Refused the cloud address on 2026-11-03: `https://www.imprensanac.gov.mz` (curl 35 connection reset; HTTP 503 over HTTP), `https://www.maap.gov.mz` and `https://www.mta.gov.mz` (curl 35 connection reset; no other host for the ministry was found), `https://www.mef.gov.mz` (403), `https://www.parlamento.org.mz` (no response). `https://www.bvm.co.mz` answered `curl: (60) SSL certificate problem: unable to get local issuer certificate` (the server does not send its intermediate certificate; verification was not disabled), so no page was read; no BVM ESG disclosure rule was found in search results, which describe ESG reporting on the exchange as not mandatory, and no row was added. `https://www.aripo.org/storage/resources-member-state-laws/1730134792_mz028pt.pdf` gave a TLS handshake alert to curl (used only to look for Lei n.º 9/2022; the WIPO Lex copy was read instead). Read these from the laptop.
+
+### Browser
+
+Headless Chromium (Playwright) was used only to read Lei n.º 9/2022 from WIPO Lex (curl got an HTML wrapper page for the PDF address); no record comes from it. The Aviso record comes from plain curl.

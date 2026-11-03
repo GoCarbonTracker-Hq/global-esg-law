@@ -9573,5 +9573,50 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
+  "id": "mz-aviso-6-gbm-2025-bancomoc-pdf",
+  "source_id": "MZ-BANCOMOC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-aviso-6-gbm-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf"
+ },
+ {
+  "id": "mz-lei-20-97-ambiente-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-20-97-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-lei-22-2009-consumidor-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-22-2009-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-decreto-23-2018-redd-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-decreto-23-2018-redd",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
  }
 ]
