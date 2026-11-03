@@ -12618,5 +12618,53 @@
   "tier": "regulator_page",
   "url": "https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf",
   "params": {}
+ },
+ {
+  "id": "ye-environment-protection-law-26-1995-agoye-page",
+  "source_id": "YE-AGO-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-environment-protection-law-26-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://agoye.gov.ye/page.php?lng=arabic&pprint=323",
+  "params": {
+   "second_route": "https://agoye.gov.ye/page.php?lng=arabic&id=323 (browser; curl with the default User-Agent gets 403 from agoye.gov.ye, a browser User-Agent gets 200)"
+  }
+ },
+ {
+  "id": "ye-marine-environment-protection-law-11-1993-agoye-page",
+  "source_id": "YE-AGO-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-marine-environment-protection-law-11-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://agoye.gov.ye/page.php?lng=arabic&pprint=322",
+  "params": {
+   "second_route": "https://agoye.gov.ye/page.php?lng=arabic&id=322 (browser; curl with the default User-Agent gets 403 from agoye.gov.ye, a browser User-Agent gets 200)"
+  }
+ },
+ {
+  "id": "ye-consumer-protection-law-46-2008-moit-pdf",
+  "source_id": "YE-MOIT-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-consumer-protection-law-46-2008",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moit.gov.ye/sites/default/files/2026-02/%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+  "params": {
+   "second_route": "https://moit.gov.ye/legislations/laws (browser; the PDF is linked from this list)"
+  }
+ },
+ {
+  "id": "ye-consumer-protection-regulation-2010-moit-pdf",
+  "source_id": "YE-MOIT-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-consumer-protection-regulation-2010",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moit.gov.ye/sites/default/files/2026-02/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83_0.pdf",
+  "params": {
+   "second_route": "https://moit.gov.ye/node/175 (browser; the PDF is linked from this page)"
+  }
  }
 ]
