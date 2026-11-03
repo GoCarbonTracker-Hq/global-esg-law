@@ -9575,6 +9575,220 @@
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
  },
  {
+  "id": "mz-aviso-6-gbm-2025-bancomoc-pdf",
+  "source_id": "MZ-BANCOMOC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-aviso-6-gbm-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf"
+ },
+ {
+  "id": "mz-lei-20-97-ambiente-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-20-97-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-lei-22-2009-consumidor-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-lei-22-2009-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "mz-decreto-23-2018-redd-imprensanac-page",
+  "source_id": "MZ-IMPRENSANAC-ADOPTED",
+  "iso2": "MZ",
+  "instrument": "mz-decreto-23-2018-redd",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.imprensanac.gov.mz",
+  "params": {
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sn-loi-2023-15-code-environnement-page",
+  "source_id": "SN-SGG-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2023-15-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://primature.sn/publications/lois-et-reglements/code-de-lenvironnement",
+  "params": {
+   "second_route": "https://primature.sn/publications/lois-et-reglements/codes (browser listing of the codes); the attached PDF answers a JavaScript challenge to scripts"
+  }
+ },
+ {
+  "id": "sn-decret-2025-227-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-decret-2025-227",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "sn-loi-2021-25-consommateur-jo",
+  "source_id": "SN-JO-ADOPTED",
+  "iso2": "SN",
+  "instrument": "sn-loi-2021-25-consommateur",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.jo.gouv.sn",
+  "params": {
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+  }
+ },
+ {
+  "id": "mr-loi-2025-019-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2025-019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=%C3%A9valuation+environnementale&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2000-045-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2000-045",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=code+de+l%27environnement&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2004-094-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2004-094",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2004&field_numeroNN=94&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2007-105-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2007-105",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2007&field_numeroNN=105&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2020-007-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2020-007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=protection+du+consommateur&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-decret-2024-027-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-decret-2024-027",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_numeroAAAA=2024&field_numeroNN=27&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "mr-loi-2018-017-portal-search",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "mr-loi-2018-017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://msgg.gov.mr/fr/droit-mauritanien/recherche.html?field_titre=relative+%C3%A0+la+publicit%C3%A9&action=Rechercher",
+  "params": {}
+ },
+ {
+  "id": "terms-mr-msgg-adopted",
+  "source_id": "MR-MSGG-ADOPTED",
+  "iso2": "MR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://msgg.gov.mr/mentions-legales.html",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "zw-si-134-2019-secz-page",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "zw-si-134-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/",
+  "params": {}
+ },
+ {
+  "id": "zw-zse-practice-note-16-pdf",
+  "source_id": "ZW-ZSE-RULES",
+  "iso2": "ZW",
+  "instrument": "zw-zse-practice-note-16",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ds88jcmqc11je.cloudfront.net/api/docs/42/download",
+  "params": {}
+ },
+ {
+  "id": "zw-ema-pdf",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "zw-ema",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ema.co.zw/wp-content/uploads/2026/03/EMA-ACT.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-ema-consolidated",
+  "source_id": "ZW-EMA-CONSOLIDATED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-zw-secz-adopted",
+  "source_id": "ZW-SECZ-ADOPTED",
+  "iso2": "ZW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/en/text/214697",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
   "id": "et-nbe-bank-cg-directive-sbb-91-2024-pdf-head",
   "source_id": "ET-NBE-ADOPTED",
   "iso2": "ET",
