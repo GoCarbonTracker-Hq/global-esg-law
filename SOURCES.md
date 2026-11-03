@@ -6158,6 +6158,82 @@ None of the nine. Not in `scope.json`:
 - `https://www.cosumaf.org`: `curl -sS -i -A 'Mozilla/5.0' https://www.cosumaf.org` gave `HTTP/2 403`, `cf-mitigated: challenge`, `403 5331 text/html; charset=UTF-8`; Playwright chromium timed out after 45 s on `networkidle`.
 - `https://eauxforets.gouv.ga`: `CONNECT tunnel failed, response 502`; `https://environnement.gouv.ga`: no answer. `https://www.eauxforets.gouv.ga`, `https://eauxforets.ga`, `https://www.environnement.gouv.ga`, `https://mefe.gouv.ga` and `https://www.ministere-eauxforets.ga` returned no answer either. The live host of the ministry that took over environment and climate was not found (press reports on its structure disagree), so there is no ministry row; the orchestrator can look from the laptop.
 
+## Mauritius
+
+Run on 2026-11-03 (GEL-13-07). One row passes: `MU-AGO-CONSOLIDATED` (Laws of Mauritius portal, Attorney-General's Office), on the statute basis: Copyright Act 2014 s. 5(b), "any official text of a legislative, administrative or legal nature, as well as any official translation thereof". The portal terms and the old site's terms both forbid reuse (see the row notes), so the pass rests on the statute alone; Varun to confirm. Rows `MU-BOM-ADOPTED`, `MU-FSC-ADOPTED` and `MU-SEM-ADOPTED` are `permission requested`. Language: English only; the portal serves no French text and no translation. The old site `attorneygeneral.govmu.org` holds the Revised Laws only as at 2017 and Acts only to 2021, so it is not used.
+
+Row `MU-AGO-CONSOLIDATED`, Environment Act 2024. The URL carries the Act title as listed on the portal, base64-encoded then URL-encoded; plain GET, no login, no cookie needed:
+
+```
+curl -sS -L -o env_act.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://lawsofmauritius.govmu.org/portal/viewlegislationdocument/web/?doctitle=RW52aXJvbm1lbnQgQWN0IDIwMjQ%3D&docnumber=&doctype=act'
+```
+
+Returned `200 887904 application/pdf`. Climate Change Act 2020 (`doctitle=Q2xpbWF0ZSBDaGFuZ2UgQWN0IDIwMjA%3D`) returned `200 252248 application/pdf`; Financial Reporting Act (`doctitle=RmluYW5jaWFsIFJlcG9ydGluZyBBY3Q%3D`) returned `200 439638 application/pdf`. The exact titles come from the portal list: `curl -sS -L -X POST --data-urlencode 'docTitle=environment' -d 'startsWith=ALL&pageNumber=0' https://lawsofmauritius.govmu.org/portal/acts` returned `200 34563 text/html; charset=UTF-8`, with the matching titles in `data-doctitle="..."` attributes (ten per page; `pageNumber` pages through). A title search covers Acts only; the regulations and proclamations pages did not answer the same search field, and the portal says subsidiary legislation is updated only as at 2019, so no regulation is stored.
+
+Each PDF is digitally signed per request, so its bytes differ on every fetch (three fetches of the Climate Change Act gave three different sha256 values, all 252248 bytes). `fetched_sha256` is the hash of the PDF as received and a second fetch does not reproduce it; the extracted text is identical. The portal serves the current text only: earlier versions need a MauPass login, so one record per instrument is stored, dated by the last amendment in force named in the PDF header (`cio` dates), and the history before that date is not stored.
+
+Text extraction: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed, blank lines dropped, form feeds removed, so line breaks are the PDF's line wraps and the "Revised Laws"-style running headers of the PDF stay in the text. The three PDFs gave clean text (no `\x03`, no replacement characters). The Assembly site copy of the Climate Change Act (`mauritiusassembly.govmu.org/.../act112020.pdf`) and the old AG site copy are not used: both use a font whose `pdftotext` output is shifted (72 garbled lines, for example `FRDVWDO` for "coastal"), and neither has a licence row.
+
+### Languages
+
+Only English is served for these Acts. French is the language of the Assembly debates, not of the Acts, and the portal has no French text or translation for the three stored Acts; looked for on the Acts list, the Act PDFs and the FAQ page. No translation row exists and none is needed.
+
+### Link only
+
+- `mu-bom-climate-risk-guideline-2022`: row `MU-BOM-ADOPTED` is `permission requested`. Blocked from the cloud address: `curl -sS https://www.bom.mu` gave `curl: (60) SSL certificate problem: unable to get local issuer certificate`; headless Chromium (Playwright, `networkidle`) through the proxy gave HTTP 502 (174 bytes, text/plain). The guideline PDF URL gave `000` the same way.
+- `mu-fsc-esg-funds-guidelines`: row `MU-FSC-ADOPTED` is `permission requested`. Blocked from the cloud address: `curl -sS -A 'Mozilla/5.0' https://www.fscmauritius.org` gave `403 887 text/html` (Incapsula, `/_Incapsula_Resource` script); headless Chromium on `https://www.fscmauritius.org/en` gave `403 809 text/html`. The guideline PDF and the corporate governance circular (`/media/115772/circular-letter-corporate-governance.pdf`) gave `403 782 text/html`.
+- The Stock Exchange of Mauritius site answered `200 125030 text/html` and its disclaimer says the Exchange owns the copyright, so row `MU-SEM-ADOPTED` is `permission requested`; no SEM instrument is in scope.
+- Not in scope, for the PR report: National Code of Corporate Governance for Mauritius (2016), no government page that opened; Consumer Protection Act 1991 and Consumer Protection (Price and Supplies Control) Act 1998, which were read on the portal and have no provision on environmental claims (the second has s. 9 on misleading price indications only); Securities Act 2005, no ESG provision found; carbon pricing, none found (portal Acts search for "carbon" and "greenhouse" returned no title).
+
+## Mali
+
+Run on 2026-11-03 (GEL-12-04). Row `ML-SGG-ADOPTED` is `pass` on the statute basis: Art. 12 of the Ordonnance n°2026-015/PT-RM du 10 avril 2026 (JO n°2026-07 du 17/04/2026, ratified by Loi n°2026-018 du 13 juillet 2026) says copyright "ne s’étend pas aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles". The Loi n°08-024 du 23 juillet 2008 named in the brief (Art. 10 a, same wording) was repealed by Loi n°2017-012 du 1er juin 2017, which Art. 214 of the 2026 Ordonnance repeals in turn. The sgg-mali.ml legal notice taken alone forbids reproduction without the Secrétariat Général's express permission, so the verdict depends on the statute, not on the site terms (see the row notes; this is flagged for Varun in the PR). Row `ML-BRVM-ADOPTED` is `permission requested` (BRVM terms), nothing is stored under it. Language: French only (the Journal Officiel serves no Bambara or other national-language text, and no government English was found).
+
+Step 1, find the Journal Officiel issue of an instrument: the site search is a POST form, title search by default. For `contenu local` (the Loi n°2023-041):
+
+```
+curl -sS -m 60 -L -X POST https://sgg-mali.ml/fr/recherche.html --data-urlencode 'form=mini-search' --data-urlencode 'field_titre=contenu local' -o q.html -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 31473 text/html; charset=UTF-8`; each hit is a link `https://sgg-mali.ml/JO/<year>/mali-jo-<year>-<issue>.pdf` with the instrument title as its text. The "extend to full text" option (`injo=1`) returned unrelated old issues and was not used as a filter.
+
+Step 2, row `ML-SGG-ADOPTED`, the issue as published, for the Loi n°2023-041 (JO n°2023-22 du 01 Septembre 2023):
+
+```
+curl -sS -m 60 -o mali-jo-2023-22.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg-mali.ml/JO/2023/mali-jo-2023-22.pdf
+```
+
+Returned `200 972893 application/pdf` (40 pages, text layer present). No `User-Agent` or cookie is needed. A second fetch gave the same sha256 (`fd779a51...`), as it did for the other five issues stored, so `fetched_sha256` reproduces. A HEAD request answers `200` with `Content-Length` and `Last-Modified`, which is what the `ml-*-sgg-pdf-head` watchers read.
+
+Text extraction. The Journal Officiel is set in two columns, so `pdftotext -layout` interleaves the columns line by line and was not used. Each page was cut into a left and a right half with poppler `pdftotext` (not stdlib; `tools/update.py` cannot refresh these records): `pdftotext -f N -l N -x 0 -y 45 -W 298 -H 800 file.pdf -` for the left column and `-x 298` for the right one, the top 45 points (running header and page number) dropped, the halves read in page order (left, then right), each instrument cut out of the stream from its title line to its signature line, soft hyphens removed, lines stripped, runs of spaces collapsed, empty lines dropped. Line breaks are those of the PDF (a paragraph wraps over several lines). Checked for mojibake: no replacement or private-use characters, article numbers run in sequence in every record. The Annexe to the Loi n°2023-041 (tables of minimum percentages, JO pp. 895 to 897) is not in its record. `fetched_sha256` is that of the whole issue PDF; one issue holds many acts, so the record text is the one instrument cut from it.
+
+Stored (all `adopted`, `fr`, dated the Journal Officiel date, because none of the acts has a commencement clause; the `in_force` of each scope entry is null):
+
+| Instrument | Issue | File fetched | Record `in_force` |
+|---|---|---|---|
+| `ml-loi-2023-041` | JO n°2023-22 du 01/09/2023 | `/JO/2023/mali-jo-2023-22.pdf` (200, 972893 bytes) | 2023-09-01 |
+| `ml-decret-2024-0397` | JO n°2024-16 du 19/07/2024 | `/JO/2024/mali-jo-2024-16.pdf` (200, 1119475 bytes) | 2024-07-19 |
+| `ml-loi-2021-032` | JO n°2021-16 du 28/05/2021 | `/JO/2021/mali-jo-2021-16.pdf` (200, 436086 bytes) | 2021-05-28 |
+| `ml-ordonnance-2025-018` | JO n°2025-11 (supplément) du 04/04/2025 | `/JO/2025/mali-jo-2025-11-2.pdf` (200, 1016796 bytes) | 2025-04-04 |
+| `ml-decret-2018-0991` | JO n°2018-51 | `/JO/2018/mali-jo-2018-51.pdf` (200, 387968 bytes) | 2018-12-31 (the décret date; the issue header says 28 Décembre 2018, earlier than the signature) |
+| `ml-loi-2015-036` | JO n°2015-35 du 7 août 2015 | `/JO/2015/mali-jo-2015-35.pdf` (200, 219414 bytes) | 2015-08-07 |
+
+The site lists "codes consolidés" and "textes version consolidée" compiled by its contractor; none covers these instruments, so there is no consolidated record, and the amendment of the Loi n°2021-032 is the separate record of the Ordonnance n°2025-018. The ratification laws (Loi n°2025-028 in JO n°2025-20) are named in `notes` and not stored.
+
+### Languages
+
+French only for every stored instrument. No translation row: no government English text was found (sgg-mali.ml serves French only; the Ministry of Mines host answered 403; the environment ministry host did not open). A text from NATLEX, a law firm or a news site is not stored.
+
+### Link only
+
+No scope instrument is link only. Not stored and not in scope (register rows, family F7): Circulaire n° 01/CREPMF/2020 and Circulaire n° 001/AMF-UMOA/2024, regional instruments of the CREPMF and the AMF-UMOA, published on brvm.org under terms that need written permission (row `ML-BRVM-ADOPTED`, `permission requested`); both PDFs are scans with no text layer. The BRVM pages were opened with plain `curl` (`https://www.brvm.org/fr/crepmf-circulaire-relative-la-mise-en-place-dun-guide-pour-les-emissions-dobligations-vertes` 200; the 2020 PDF `200 8501118 application/pdf`). www.amf-umoa.org is a JavaScript application: `curl -sS https://www.amf-umoa.org` returns `200 1685 text/html` (an empty shell). The brief's Circulaire date for 2020 is 27 March; the stamp on the scan reads 02 MAR 2020 and the BRVM page says 26 March 2020.
+
+### Blocked from the cloud address
+
+- `https://www.mines.gouv.ml`: `403 5226 text/html`.
+- `https://natlex.ilo.org/dyn/natlex2/natlex2/files/download/115722/MLI-115722.pdf`: `403 4543 text/html`.
+- `https://www.environnement.gouv.ml`: `curl: (60) SSL certificate problem: certificate has expired`, then `curl: (35) Recv failure: Connection reset by peer`; `https://environnement.gouv.ml`: `curl: (60) SSL certificate problem: certificate has expired`. TLS verification was not disabled.
+
 ## Grenada
 
 Run on 2026-11-03 (GEL-15-05). One row passes: `GD-PARLIAMENT-ADOPTED` (statute: Copyright Act 2011, Act No. 21 of 2011, s. 7(1)(b), which withholds protection from "any official text of a legislative, administrative or legal nature"; the Parliament site has no terms page of its own). Two rows are `permission requested` and store nothing: `GD-LAWSGOVGD-ADOPTED` (laws.gov.gd cannot be opened from the cloud address) and `GD-ECCB-ADOPTED` (eccb-centralbank.org answers 403). English is the official language of legislation in Grenada and no government translation exists, so there is no `### Languages` source row; the subsection is below.
