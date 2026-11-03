@@ -5379,6 +5379,35 @@ Stored (English translation record each): lk-national-environmental-amendment-20
 
 The Acts, Bills and Gazette Extraordinary lists were searched for "Climate": no Climate Change Act or Bill (two 2021 Presidential Secretariat task-force Gazettes only). No emissions trading system was found. The carbon tax was found: Finance Act, No. 35 of 2018 Part XI (levied from 2019-01-01 on motor vehicles), limited to 2019-01-01 to 2019-11-30 by Finance Act, No. 21 of 2019 s. 3. The brief named Finance Act No. 11 of 2019 and a 2020 repeal; neither was found on the official pages read.
 
+### OCR pass 2026-11-03
+
+Run on 2026-11-03 (GEL-04-12), after OCR was allowed at 08:20Z. No licence row or verdict changed; both rows pass. `apt-get update` was needed first in the cloud session; then:
+
+```
+apt-get install -y tesseract-ocr tesseract-ocr-sin tesseract-ocr-tam
+tesseract --version        # tesseract 5.3.4 (package tesseract-ocr 5.3.4-1build5; packs tesseract-ocr-sin and tesseract-ocr-tam 1:4.1.0-2)
+tesseract --list-langs     # eng osd sin tam
+```
+
+Download, same request as above with the file path from the TableDataAction list (second fetch `cmp`-identical to the first for every file, and the five English hashes stored earlier reproduced):
+
+```
+curl -sS -A 'Mozilla/5.0' -o 35-2018_S_1784553147.pdf 'https://documents.gov.lk/api/content-file-proxy?file=/act-content/35-2018_S_1784553147.pdf'
+```
+
+Per file (`<pdf>`, `<lang>` is `sin`, `tam` or `eng`, `<out>` a new directory):
+
+```
+pdftoppm -r 200 -png <pdf> <out>/p
+ls <out>/p-*.png | OMP_THREAD_LIMIT=1 xargs -P 4 -I{} sh -c 'tesseract "$1" "${1%.png}" -l <lang> >/dev/null 2>&1' _ {}
+```
+
+`OMP_THREAD_LIMIT=1` matters: with tesseract's own threads four parallel runs made no progress on four cores. The text layer was ignored for every file (legacy fonts or no layer). No page needed 300 dpi: no output was empty or mostly garbage; blank pages (no dark pixel in the image) give empty output. Page texts are joined in page order with a line break, form feeds and trailing whitespace of each page removed, empty pages skipped; nothing else is changed. All files are single column.
+
+Files (sha256 of the PDF is `fetched_sha256` in the record): Acts No. 35 of 2018 (S 25 pages, T 29), No. 21 of 2019 (S 11, T 14), No. 15 of 2026 (S 70, T 84), No. 20 of 2021 (S 4, T 5), No. 9 of 2003 (S 59), No. 53 of 2000 (S 5, E 5); Gazette Extraordinary No. 2105/47 (S 1, T 2, E 1) and No. 2393/31 (E 71 pages). Whole files are stored; each page range is in the scope notes.
+
+Not stored: lk-national-environmental-act (No. 47 of 1980; English only on the site; OCR readable, but the scope entry has no in-force date, so no record can be dated). No Sinhala or Tamil file exists on the site for No. 47 of 1980 or Gazette Extraordinary No. 2393/31. Nothing was fetched for rows that are not `pass` (none in Sri Lanka).
+
 ## Moldova
 
 Run on 2026-11-03 (GEL-11-05). Rows `MD-MONITORUL-ADOPTED` (acts as first published), `MD-MONITORUL-CONSOLIDATED` (a republished text) and `MD-MONITORUL-TRANSLATION` (the Russian edition) are `pass` on the statute basis: Law No. 230/2022 on Copyright and Related Rights, Art. 8 lit. b, withholds copyright from "actele normative, actele cu caracter administrativ, politic sau judiciar și nici traducerile oficiale ale acestora" (read in Monitorul Oficial 278-282 of 9 September 2022, page 9; the text now in force on legis.md was not reachable). The Monitorul's own footer reserves all rights ("© 2026 Monitorul Oficial. Toate drepturile rezervate."); the rows say so and rest on the statute only. Row `MD-LEGIS-CONSOLIDATED` is `permission requested`: legis.md could not be opened. Nothing is stored under it.
