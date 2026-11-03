@@ -6277,6 +6277,959 @@ Not entered: Loi L/2011/006/CNT (Code minier) with Loi L/2013/053/CNT, and Loi L
 - `https://journal-officiel.sgg.gov.gn/JO/...` with curl's default User-Agent: HTTP 403 text/html, 14304 bytes; answered with `-A 'Mozilla/5.0'`.
 - No URL needed a browser; no record is browser-fetched.
 
+## Cape Verde
+
+Run on 2026-11-03 (GEL-13-10). One row passes: `CV-BOE-ADOPTED` (Imprensa Nacional de Cabo Verde, portal https://boe.incv.cv). The pass rests on the statute, Decreto-Legislativo n.º 1/2009 art. 10 b ("As leis e decisões dos órgãos judiciais e administrativos" are not protected), because the portal terms (https://boe.incv.cv/Documents/Index/7, item 6) forbid copying any content or digital format of the site without INCV authorisation. Varun to confirm that reading and the conflict with item 6. No other row was added: no regulator instrument was found (see the lists below).
+
+Row `CV-BOE-ADOPTED`, Decreto-Lei n.º 35/2026 (act id 101440, read from the `View?id=` page of the act):
+
+```
+curl -sS -L -o dl35_2026.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://boe.incv.cv/Bulletins/DownloadAct?id=101440'
+```
+
+Returned `200 670005 application/pdf`; the same bytes came back on a second request (sha256 `100d5ae0fb6547b31e187261f3d68811316d25da73e2c6c06c93e7c044f043c0`), so `fetched_sha256` reproduces. Other acts with the same request: id 89468 (Lei n.º 71/X/2026) `200 253095 application/pdf`; id 101316 (Decreto-Lei n.º 31/2026) `200 298589 application/pdf`; id 88603 (Portaria Conjunta n.º 39/2025) `200 203665 application/pdf`; id 100537 (Portaria n.º 30/2026) `200 162725 application/pdf`. Text extraction: `pdftotext -layout file.pdf -` (poppler), runs of spaces and tabs collapsed to one space, each line stripped, runs of blank lines reduced to one, page breaks as line breaks. poppler prints "Bad block header in flate stream" for an embedded image stream; the text layer is unaffected, and no mojibake or replacement characters were found (only typographic quotes and dashes). The page header and footer lines of the gazette ("I Série | nº 60 21 de maio de 2026 | Pág. 70", "A2026/S1/BO60/34039 | Decreto-Lei n.º 35/2026") stay in the text. The act id is the number in `https://boe.incv.cv/Bulletins/View?id=<id>`; acts are found with `https://boe.incv.cv/Bulletins?Query=<text>&Year=<yyyy>&Series=1&page=<n>&rows=15` (HTML; each result card links to the View page). The portal serves no consolidated texts, so every record is the act as published (`adopted`), Portuguese.
+
+Limits of the request: `DownloadAct?id=` returns the portal's 404 page (`404 852737 text/html; charset=utf-8`) for acts the portal indexes without a file, for example id 58853 (Lei n.º 23/X/2023) and id 73215 (Lei n.º 45/X/2024, the 2025 budget). Those acts, and Lei n.º 44/X/2024 (not indexed at all), exist only in the whole-bulletin PDF `https://boe.incv.cv/Bulletins/Download/<bulletin id>` (for example `Download/6143`, `200 363910 application/pdf`, Boletim Oficial I Série n.º 123 of 2024-12-23). The old bulletins are two-column pages; `pdftotext` (with and without `-layout`) interleaves the columns and the running heads, so the article order is wrong. Cropping columns with `-x/-y/-W/-H` reads them in order but keeps the running heads inside the columns. Nothing was stored from them.
+
+### Languages
+
+Cape Verde's legislation is published in Portuguese only (Cape Verdean Creole has no gazette edition and no ISO 639-1 code). English was looked for once: the portal pages (home, terms, act pages) and https://www.governo.cv (`200 67584 text/html; charset=UTF-8`) show Portuguese only and no translation of any scope instrument. No translation row was added. A statute exception could not cover a translation anyway: art. 8 a of Decreto-Legislativo n.º 1/2009 protects translations even of unprotected works.
+
+Decreto-Legislativo n.º 1/2009 (Lei dos Direitos de Autor) was read from the Boletim Oficial I Série n.º 17 Suplemento of 2009-04-27 as served by WIPO Lex (`https://www.wipo.int/wipolex/en/legislation/details/8227`, link to `cv022pt.pdf`, sha256 `36a0f6722ffdb76f383e35832086e8c521063bffe4ff62af621f0600d55fc21e`), since the 2009 supplement is not in the BOE index. Art. 10 was amended by Decreto-Legislativo n.º 2/2017 (Boletim Oficial I Série n.º 67 of 2017-11-16, p. 1381), which prints only the new heading "Exclusão de proteção" and "[…]" for the body.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Lei n.º 44/X/2024 (Fundo Climático e Ambiental) | https://boe.incv.cv/Bulletins/Details/A2024/S1/BO123/6143 | No per-act file; whole-bulletin PDF is two-column and reads out of order. |
+| Lei n.º 23/X/2023 (amends the environment framework law) | https://boe.incv.cv/Bulletins/View?id=58853 | `DownloadAct?id=58853` returns 404; whole-bulletin PDF `Download/4750` reads out of order. |
+| Lei n.º 86/IV/93 (Lei de Bases da Política do Ambiente) | https://boe.incv.cv/Bulletins/View?id=58853 | The 1993 gazette text is not on the portal (one bulletin of 1993-12-31); URL is the amending act's page. |
+
+Looked at and not turned into entries: Lei n.º 88/V/98 (consumer protection) and Decreto-Legislativo n.º 14/97 (not found in the portal's 1997 and 1998 bulletins; the 1998 PDFs are scanned with unusable OCR, for example `Download/11895` returned `200 14807252` bytes of garbled text); Lei n.º 45/X/2024 art. 80 (creates the carbon charges; budget law without a per-act file, cited by the Portaria); Lei n.º 22/X/2023 and Lei n.º 43/X/2024 (single-use plastics, not climate); Decreto-Lei n.º 23/2023 (strategic environmental assessment) and Decreto-Lei n.º 15/2024 (Basel Convention), environmental but outside the climate and disclosure families sought; Resoluções of the Council of Ministers (climate governance framework, climate and environment action programme, NDC 3.0), which are policy plans, not instruments with duties.
+
+Regulators: https://agmvm.cv (`200 134995 text/html`) has only a news item of 2025-02-03 saying the AGMVM is preparing an ESG taxonomy with consultants; no rule or duty was found, so no row. https://bvc.cv (`200`) shows training sessions on sustainable finance, no listing rule; the exchange is a company and no row was added. Banco de Cabo Verde: no climate-risk or sustainability aviso was found among the 2023 to 2026 I Série acts (the register row for Decreto-Lei n.º 35/2026 cites a bank news item only).
+
+### Blocked from the cloud address
+
+- `https://www.bcv.cv/` answered `403 35007 text/html` to a plain `curl`; with a `Mozilla/5.0` user agent it answered `302` to `https://www.bcv.cv/Pages/VariationRoot.aspx`, not followed. The orchestrator can read it from the laptop.
+- `https://www.bvc.cv` (with www) ended with `curl: (35) Recv failure: Connection reset by peer`; `https://bvc.cv` answered 200.
+
+## Côte d'Ivoire
+
+Run on 2026-11-03 (GEL-12-06). Two rows pass: `CI-MINETE-ADOPTED` (terms: the gouv.ci mentions légales put the site content under a licence ouverte that allows copying, modifying and exploiting with the source named) and `CI-PNCC-ADOPTED` (statute: Loi 2016-555 art. 10 excludes official legislative and administrative texts; pncc.ci has no terms page). `CI-BRVM-ADOPTED`, `CI-AMF-UMOA-ADOPTED`, `CI-DGTCP-ADOPTED` and `CI-SGG-ADOPTED` are `permission requested`. The brief's Ministry host `www.environnement.gouv.ci` redirects to `environnement.gouv.ci` and opens from the cloud address. The one gazette publisher, `sgg.gouv.ci`, did not open (see Blocked below). Language: French only (the official language of legislation).
+
+Text extraction: `pdftotext file.pdf -` (default reading order, not `-layout`: the Code de l'environnement PDF has two columns and `-layout` interleaves them line by line), form feeds dropped, runs of spaces collapsed to one, blank lines dropped. Both stored PDFs carry a text layer (the Code is a typeset PDF, the Décret 2024-658 scan carries its own OCR layer, whose slips such as "DECRET W" are kept). `fetched_sha256` is the hash of the PDF as received; a second fetch gave the same hash for both files.
+
+Row `CI-MINETE-ADOPTED`, Décret n° 2024-658 (the file name comes from the list `https://environnement.gouv.ci/publications/sous-categorie/36`; Lois et Ordonnances is `34`, Arrêtés `35`):
+
+```
+curl -sS -L -o d658.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://environnement.gouv.ci/uploads/publications/177332351911.pdf
+```
+
+Returned `403 199 text/html; charset=iso-8859-1`: the Ministry's server refuses a script without a browser User-Agent. With the header:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d658.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://environnement.gouv.ci/uploads/publications/177332351911.pdf
+```
+
+Returned `200 1984522 application/pdf`. Code de l'environnement (`.../177332357270.pdf`): `200 11682393 application/pdf`. `upkeep/watchers.json` uses `tools/watch.py`'s own User-Agent, which the server accepts (HEAD and GET both 200), so no browser recipe is needed. The list pages ignore a `?page=` value.
+
+Row `CI-PNCC-ADOPTED`, Loi n° 2025-528 (file names come from `https://pncc.ci/page/textes-juridiques?page=1` to `4`, 31 documents):
+
+```
+curl -sS -L -o loi528.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf
+```
+
+Returned `200 7248237 application/pdf`. `pdftotext loi528.pdf -` returns 20 bytes: the 20 pages are JPEG images, so nothing is stored from this row. Décret 2025-345 (`.../VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf`, `200 9043739 application/pdf`) is the same. The text was read from page images and the OCR (tesseract) was used only to read, never stored.
+
+### Languages
+
+French only. English was looked for on 2026-11-03 in the Ministry lists (Lois et Ordonnances, Arrêtés, Décrets, publications categories 33 to 57), the PNCC list (four pages) and the language links of both sites: no English or other-language text of any law. No translation row was added.
+
+### Regional rules (AMF-UMOA, BRVM)
+
+Both bodies sit in Abidjan, so the terms read here serve the other UEMOA places (BJ BF GW ML NE SN TG).
+
+`https://www.amf-umoa.org/` is an Angular single-page app: `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.amf-umoa.org/` returned `200 1685 text/html`, an empty shell. Headless Chromium (Playwright, `chromium.launch()`, `goto(url, {waitUntil:'networkidle'})` then a 4 s wait, `document.body.innerText`) renders the menu and footer; the Circulaires & Avis, Instructions and Décisions pages render with no list, so the instruments are not readable on that site. The only rights statement is the footer, "Copyright © 2023 AMF-UMOA, Tous droits réservés" (row `CI-AMF-UMOA-ADOPTED`, permission requested). Rendered pages are not stored, so no `fetched_sha256` applies.
+
+The BRVM site serves the instruments as plain pages with PDFs (row `CI-BRVM-ADOPTED`, permission requested: reproduction and modification need written permission). Proven for the AMF-UMOA taxonomy circular:
+
+```
+curl -sS -L -o taxo.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_ndeg001-amf-umoa-2024_-_mise_en_place_dune_taxonomie_des_projets_faisant_lobjet_demissions_dobligations_vertes_sociales_et_durable.pdf
+```
+
+Returned `200 4237687 application/pdf`; the PDF is 39 page images with no text layer. Instrument pages are found with `https://www.brvm.org/fr/search/node?keys=<words>` (for example `keys=taxonomie`). The 2020 guide circular PDF is `.../sites/default/files/3._-_circulaire_ndeg01-crepmf-2020.pdf` (`200`, 8501118 bytes, `application/pdf`, 28 page images); Instruction 63/2020 is `.../1._-_instruction_ndeg63-crepmf-2020_0.pdf` and Instruction 47/2011 revised is `.../2._-_instruction_ndeg47-2011-crepmf-revisee.pdf`. Instruction 36/2009 (appel public à l'épargne) was not found on the BRVM site. Nothing from these is stored.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ci-loi-2025-528 (F2) | https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf | Row `CI-PNCC-ADOPTED` passes, but the PDF has no text layer (pdftotext 20 bytes). The gazette on sgg.gouv.ci did not open. |
+| ci-decret-2025-345 (F1) | https://pncc.ci/assets/documentation//VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf | Same: scan, no text layer. |
+| ci-decret-2024-595 (F2) | https://environnement.gouv.ci/uploads/publications/177332342290.pdf | Row `CI-MINETE-ADOPTED` passes, but the 47-page PDF (36 MB) is a scan with no text layer. |
+| Décret 2024-594, Décret 2024-957, the AMF-UMOA circulars and instructions (F7) | see `register/register.csv` | F7: register row only, no scope entry. The Décret 2024-594 PDF is a 10-page scan. |
+| Côte d'Ivoire Sustainable Framework (F6, existing row) | https://tresor.gouv.ci/tres/wp-content/uploads/2021/07/Co%CC%82te-dIvoire-Sustainable-Framework-July-2021-vF.cleaned-1.pdf | Opens (`200 769840 application/pdf`) but is a voluntary bond framework: no scope entry. Row `CI-DGTCP-ADOPTED` is permission requested (all rights reserved). |
+
+Dropped from the brief's candidates: Loi n° 2016-412 (consommation): the text was on no official page that opened (sgg.gouv.ci blocked; commerce.gouv.ci lists no consumer law in its publications), so it has no entry. Décret n° 2025-346 (said to amend Décret 2024-594): on no official list.
+
+Stored by GEL-12-06: `ci-code-environnement` (2023-11-23, fr) and `ci-decret-2024-658` (2024-08-01, fr). Both dates are signature dates: neither text has a commencement clause and no page opened states the Journal officiel date, so `in_force` is null in the scope entries.
+
+Blocked from the cloud address:
+
+- `https://www.sgg.gouv.ci/`, `https://sgg.gouv.ci/`: `curl: (60) SSL certificate problem: certificate has expired`; `http://www.sgg.gouv.ci/` answers `301` to the https address. Certificate verification was not disabled. The web.archive.org copy and `https://www.jo.gouv.ci/` return `CONNECT tunnel failed, response 502`.
+- `https://agp.africanlii.org/` and `https://civlii.laws.africa/...source`: proxy 502 or 404 (not official publishers; tried only to read Loi 2016-555 art. 10, which was read in the Journal officiel no 84 of 20 October 2016 hosted at `https://www.droitci.info/files/231.07.16-Loi-du-26-juillet-2016_Droit-d-auteur.pdf`).
+
+## Tanzania
+
+Run on 2026-11-03 (GEL-13-02). Rows `TZ-OAG-CONSOLIDATED`, `TZ-OAG-ADOPTED`, `TZ-OAG-TRANSLATION` (Office of the Attorney General, OAG-MIS) and `TZ-CMSA-ADOPTED` (Capital Markets and Securities Authority) pass on the statute basis: Copyright and Neighbouring Rights Act (Cap. 218 R.E. 2023) s. 7(a), "protection shall not extend to- (a) laws and decisions of courts and administrative bodies as well as to official translations thereof". Rows `TZ-BOT-ADOPTED` and `TZ-TANZLII-CONSOLIDATED` are `permission requested`. Two conflicts are left to Varun in the PR: the Revised Edition PDFs carry a watermark "All rights reserved. No part of this book may be reproduced or distributed without permission of OAG", and the CMSA site says "All rights reserved"; the rows pass because the statute removes protection from laws. The host in the brief, `oagmis.agctz.go.tz`, is blocked from the cloud address; the same catalogue is served at `oagmis.oag.go.tz`, which answers. Tanzania mainland only; Zanzibar is not in scope.
+
+Step 1, list the catalogue (a DataTables server-side endpoint; the `search[value]` parameter is ignored, so read every page and filter by title). Revised Edition 2023, 541 rows:
+
+```
+curl -sS -A 'Mozilla/5.0' -H 'X-Requested-With: XMLHttpRequest' -o revised.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://oagmis.oag.go.tz/portal/revised-acts-ajax?draw=1&start=0&length=100'
+```
+
+Returned `200 62034 application/json` (`start` 0, 100, ... 500 for the rest). The other lists work the same way: `acts-ajax` (321 Acts as passed, earliest enacted 2003), `legislation-ajax` (4653 Government Notices and other subsidiary legislation), `annual-supplements-ajax`, `guidelines-ajax`. Each row has `id`, title, dates and `documentPath`.
+
+Step 2, row `TZ-OAG-CONSOLIDATED`, the Environmental Management Act (Cap. 191 R.E. 2023, id 295):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cap191.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/acts/revised/295/download
+```
+
+Returned `200 1267357 application/pdf` (sha256 `12a73786a078b645e593b9a3734d4bd0b99321b12e2001b7c9b29bb9ab8c1ff8`; a second fetch gave the same hash). The Fair Competition Act (Cap. 285, id 389) returned `200 991466 application/pdf`.
+
+Row `TZ-OAG-ADOPTED`, Environmental Management (Amendment) Act, 2025 (Act No. 5 of 2025, id 327) and the Kiswahili carbon trading notices GN 637 of 2022 (id 934) and GN 716 of 2023 (id 2566):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o act5.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/acts/327/download
+curl -sS -L -A 'Mozilla/5.0' -o gn637.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/legislation/934/download
+```
+
+Returned `200 210481 application/pdf` and `200 596711 application/pdf` (GN 716: `200 568762 application/pdf`).
+
+Row `TZ-OAG-TRANSLATION`, the English notices GN 636 of 2022 (id 933) and GN 721 of 2023 (id 2571):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gn636.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/legislation/933/download
+```
+
+Returned `200 731603 application/pdf` (GN 721: `200 564678 application/pdf`; GN 636 fetched twice, same sha256 `2d4b8217...`).
+
+Row `TZ-CMSA-ADOPTED`, Government Notice No. 302 of 2025:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gn302.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cmsa.go.tz/uploads/publications/en-1748586307-CMSA%20CORPORATE%20AND%20SUBNATIONAL%20SUSTAINABILITY%20BONDS%20REGULATIONS.pdf'
+```
+
+Returned `200 536291 application/pdf`.
+
+Text extraction. Every page of the Revised Edition PDFs carries a 45-degree watermark. `pdftotext -raw` spells it out as one-character lines but also fuses words in justified lines (`supplyofgoodsorservices`), and `pdftotext -layout` and the default mode scatter watermark fragments through the text. The Revised Edition texts (Cap. 191, Cap. 285) were therefore read with pdfplumber 0.11.10 (not poppler), dropping every character whose text matrix is rotated, then collapsing runs of spaces and keeping line breaks:
+
+```
+python3 -c "import pdfplumber,re;pdf=pdfplumber.open('cap191.pdf');t='\n'.join((p.filter(lambda o:o.get('object_type')!='char' or (abs(o['matrix'][1])<0.01 and abs(o['matrix'][2])<0.01)).extract_text() or '') for p in pdf.pages);print(re.sub(r'\n{3,}','\n\n','\n'.join(re.sub(r'[ \t]+',' ',l).strip() for l in t.split('\n'))).strip())"
+```
+
+Output checked: no watermark fragments, no replacement characters. The Act and the Government Notices carry no watermark and were read with poppler `pdftotext -layout file.pdf -`, runs of spaces collapsed, form feeds as line breaks; no mojibake (Kiswahili text included). Page headers of the notices (for example "GN. NO. 636 (Contd.)") stay in the text. `fetched_sha256` is the hash of the PDF as received.
+
+Stored (fetched 2026-11-03):
+
+| Instrument | Row | Versions stored (`in_force`, language) |
+|---|---|---|
+| `tz-ema-cap191` | consolidated | 2025-04-25 en (Revised Edition 2023, OAG publication date) |
+| `tz-ema-amendment-2025` | adopted | 2025-03-14 en |
+| `tz-carbon-trading-regs-2022` | adopted, translation | 2022-10-28 sw (GN 637), 2022-10-28 en (GN 636) |
+| `tz-carbon-trading-amendment-2023` | adopted, translation | 2023-10-06 sw (GN 716), 2023-10-06 en (GN 721) |
+| `tz-fca-cap285` | consolidated | 2025-04-25 en (Revised Edition 2023) |
+| `tz-cmsa-sustainability-bonds-regs-2025` | adopted | 2025-05-23 en |
+
+### Languages
+
+Cap. 1 (Interpretation of Laws Act) R.E. 2023 s. 85 (the brief said s. 84, the section moved in the Revised Edition): "(1) The language of enactment of the laws of the United Republic shall be Kiswahili. (2) Laws of the United Republic that were enacted in the English language shall be translated into Kiswahili. ... (5) Where a written law is translated and there occurs a conflict or doubt as to the meaning of any word or expression, the language of the enacting version shall take precedence." The Kiswahili text of a Government Notice is the official text and the English notice is stored as the translation under `TZ-OAG-TRANSLATION` (statute, s. 7(a) "official translations thereof"). Neither notice labels itself; this reading is Varun's to confirm. Kiswahili texts found: GN 637 of 2022, GN 716 of 2023 (also Kiswahili-only Acts after 2021, none in scope). Not found: a Kiswahili edition of any English revised chapter (the catalogue lists 5 Kiswahili titles among 541 revised acts, all post-2021 Acts), a Kiswahili text of Act No. 5 of 2025 (OAG and Parliament serve one English PDF), a Kiswahili text of the CMSA notice (CMSA regulations page lists English files), and an English translation of the Bank of Tanzania guidelines. Looked for in the OAG lists above and the Parliament Acts list (`https://polis.bunge.go.tz/api/acts/async`, 1177 rows).
+
+### Link only
+
+- `tz-bot-sustainability-reporting-guidelines-2025` and `tz-bot-climate-risk-guidelines-2025`: row `TZ-BOT-ADOPTED`, `permission requested` (bot.go.tz Disclaimer grants no reuse; s. 7(a) not applied to guidelines issued under s. 71 of the Banking and Financial Institutions Act). Both PDFs opened: `200 4207809 application/pdf` and `200 447050 application/pdf`. The existing register URL `.../2025011015075199.pdf` is an earlier upload (PDF created 2025-01-07); the Bank now lists `.../2025013119524653.pdf`. The Bank server answers HEAD with 404 and GET with 200.
+- TanzLII (`TZ-TANZLII-CONSOLIDATED`): `permission requested` (CC BY-NC 4.0, "Scraping and bulk downloading ... strictly prohibited"); about page: operated by the Judiciary and the Office of the Attorney General, Chief Parliamentary Draftsman. No instrument is stored from it.
+- Not stored although the row passes: the adopted Environmental Management Act, 2004 (not in the OAG Acts catalogue, which has 2004 Acts numbers 1 to 8 only, nor on the Parliament list), the adopted Fair Competition Act, 2003 (OAG id 172, `200 25014119 application/pdf`, image-only, no text layer, no OCR in the recipe), Act No. 13 of 2024 (Fair Competition Amendment, not an entry).
+- Not in scope: Environmental Management (Environmental Performance Bond) Regulations, 2024 (GN 369, Kiswahili GN 388) and the other Environmental Management regulations on OAG-MIS (fees, coastal zone, plastic bags, ozone), which fit none of F1 to F6; the National Climate Change Response Strategy 2021 to 2026 (policy, register row F7, official page not opened); no climate framework act exists on the Parliament or OAG lists. No ESG disclosure rule of the Dar es Salaam Stock Exchange or CMSA (beyond the sustainability bonds notice) was found; the DSE pages show a Sustainability overview and Green Bonds & Sukuk only, so there is no DSE row.
+
+### Blocked from the cloud address
+
+- `https://oagmis.agctz.go.tz/public`, `https://agctz.go.tz`, `https://www.agctz.go.tz`: proxy answered `502` to the CONNECT (curl `(56) CONNECT tunnel failed, response 502`). The catalogue is reachable at `oagmis.oag.go.tz`.
+- `https://www.vpo.go.tz` (Vice President's Office, Division of Environment), `https://www.agc.go.tz`, `https://www.sheria.go.tz`, `https://www.fcctz.go.tz`: `502` on CONNECT or empty answer (`000`). `https://www.tic.go.tz`: tunnel closed mid-exchange.
+- TanzLII Act pages, for example `https://tanzlii.org/en/akn/tz/act/1999/7/eng`: `403`, a Cloudflare "Just a moment..." challenge (`403 5399 text/html`); the listing, about and terms pages answered `200`.
+- `https://polis.bunge.go.tz` (the Parliament Acts list and files behind `www.parliament.go.tz/acts`): TLS fails with curl `(60) unable to get local issuer certificate` because the server omits its intermediate certificate (DigiCert Global G2 TLS RSA SHA256 2020 CA1). Fetched with `--cacert` set to the proxy CA bundle plus that intermediate, downloaded from `http://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt`; verification stayed on. `www.parliament.go.tz` reset the connection on the first request of some runs and answered on retry. Its Disclaimer page (`/pages/disclaimer`) carries hidden gambling spam keywords in the page body, which suggests the site was tampered with.
+
+## Cuba
+
+Row `CU-GACETA-ADOPTED`, `permission requested`. No row passes, so no record is stored and both instruments in `register/CU/scope.json` are `link only`. Run on 2026-11-03. No proven fetch recipe is listed for a `pass` row because there is none; what was tried follows.
+
+### Blocked from the cloud address
+
+Every Cuban host reset the TLS connection before any answer. DNS resolved (www.gacetaoficial.gob.cu 190.92.115.173, www.citma.gob.cu 169.158.144.68, www.bc.gob.cu 190.6.81.134), so the host exists; the connection is cut mid-handshake.
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.gacetaoficial.gob.cu/
+```
+
+Answer: `curl: (35) Recv failure: Connection reset by peer`, code `000`. Plain `http://www.gacetaoficial.gob.cu/` answered `503 114 text/plain` from the proxy ("upstream connect error ... connection timeout"). Headless Chromium (Playwright `page.goto`, 30 s) returned `502` for the Gaceta, CITMA and Banco Central de Cuba home pages. Same `000` for: https://gacetaoficial.gob.cu/, https://www.gacetaoficial.gob.cu/es/gaceta-oficial-no-77-ordinaria-de-2025, https://www.citma.gob.cu/, https://www.bc.gob.cu/, https://www.mincin.gob.cu/, https://www.mep.gob.cu/, https://www.parlamentocubano.gob.cu/, https://www.minjus.gob.cu/, https://www.cubadebate.cu/. The orchestrator can read them from the laptop.
+
+No terms page was read, so no row passes. The reading of Ley 154 de 2022 art. 9 (exclusions from copyright) is open: the article was not opened and is not applied.
+
+### Languages
+
+Spanish is the only official language of legislation. No government English translation was found: no Cuban site opened, so none was looked for beyond the home pages above. No translation row.
+
+### Link only
+
+- `cu-res-106-2025-carbon-market` (CITMA Resolución 106/2025, GOC-2025-426-O77): row `CU-GACETA-ADOPTED`, `permission requested`; the Gaceta issue page is unknown, `official_url` holds the site root.
+- `cu-ley-150-2022-environment` (Ley 150 de 2022, GOC-2023-771-O87 of 2023-09-13): same row and reason.
+
+Not in scope, with reason: a climate framework act (none found; Tarea Vida is a state plan, F7, not confirmed on any official page, so no register row); a Banco Central de Cuba sustainability instruction (bc.gob.cu not opened; no stock exchange exists); MINCIN Resolución 54/2018 and a possible Decreto 167 of 2026 (mincin.gob.cu not opened, enactment unconfirmed); Ley 154 de 2022 copyright act (not an ESG instrument, read only for art. 9). Secondary copies (uclv.edu.cu, ampeid.org, leap.unep.org, climate-laws.org) were seen in web search results only and are never a source.
+
+## El Salvador
+
+Rows `SV-ASAMBLEA-CONSOLIDATED` (`permission requested`, site cannot be opened from the cloud address), `SV-DIARIOOFICIAL-ADOPTED` (`permission requested`, no terms, PDFs marked for consultation only) and `SV-BCR-ADOPTED` (`permission requested`, terms bar commercial reproduction). No row passes, so nothing is stored and all four scope instruments are link only. Run on 2026-11-03 (GEL-14-03).
+
+The statute: Art. 50 of the Ley de Propiedad Intelectual (Decreto Legislativo 66 de 2024, Diario Oficial 153, tomo 444, 2024-08-15, printed page 30) says laws, regulations, agreements and other provisions of the organs of the Government may be republished by private parties after the Government has published them, faithfully to the official text, without authorisation. It is a republication limitation, not an exclusion of official texts from copyright, and it does not mention translations; it was not applied (Varun to decide). The text was read from the scanned issue (see below), page images under a watermark layer.
+
+Row `SV-BCR-ADOPTED`, NRP-53 (a text PDF, works with or without a browser User-Agent):
+
+```
+curl -sS -o nrp53.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.bcr.gob.sv/regulaciones/upload/NRP-53.pdf
+```
+
+Returned `200 2067690 application/pdf` (16 pages, sha256 3c2f02cb1adc27d58f0ee4d263197ff599201e4f1940402ee8593519767e743c). Text extraction for the case a row passes: `pdftotext -layout nrp53.pdf -` with runs of spaces collapsed. The output is readable Spanish, with spurious spaces inside some words ("proh ibiendo") that the layout mode inserts; the page header and footer repeat on every page. The PDF header states `Aprobación: 31/01/2024`, `Vigencia: 15/02/2024`. The PDF links come from the list page `https://www.bcr.gob.sv/regulaciones/normas.php?...&pagina=6` (`upload/NRP-53.pdf` and `upload/NRP-53.docx`); the list page itself answers `200 100119 text/html` and the "Ver detalles" button calls `myFunction(878)`.
+
+Row `SV-DIARIOOFICIAL-ADOPTED`. The issue list is a JSON API (no browser needed); the issue PDF is `seleccion/<Id>`:
+
+```
+curl -sS -X POST -d 'year=1998&month=5' -w '\n%{http_code}\n' https://www.diariooficial.gob.sv/api/v1/diarios-disponibles
+curl -sS -L -o do_2005-09-08.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.diariooficial.gob.sv/seleccion/26733
+```
+
+The first returned `200` and JSON `{"data":[{"Id":"24985","FechaInicio":"1998-05-04","FechaInexacta":"0","NombreArchivo":"04-05-1998.pdf"},...]}` (`/api/v1/meses-disponibles` with `year=` lists the months). The second returned `200 7791836 application/pdf` (Diario Oficial 166, tomo 368, 2005-09-08, 208 pages, sha256 61a7ecb2b7a29a4e11811dd18a6e7e216c6871015d55f28e05a3ec1a07ae6523). Other issues fetched: `seleccion/24985` (1998-05-04, `200 13361731`), `seleccion/25452` (2000-04-12, `200 14569844`), `seleccion/31330` (2024-08-15, `200 16325431`). Whether a page has text depends on the issue: the 2005-09-08 issue gives readable text with `pdftotext -layout` (Ley de Protección al Consumidor, pages 5 to 34), while the 1998, 2000 and 2024 issues are scans for the legislative pages (`pdftotext` returns only the letters of the diagonal watermark "DIARIO OFICIAL SOLO PARA CONSULTA, NO TIENE VALIDEZ LEGAL"; `pdfimages -list` shows one JPX image per page). No OCR step is allowed, so those are link only for that reason as well. The home page lists no terms (`/terminos-y-condiciones`, `/terminos`, `/politica-de-privacidad`, `/aviso-legal` answer 404).
+
+Row `SV-ASAMBLEA-CONSOLIDATED`, blocked from the cloud address:
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download}\n' https://www.asamblea.gob.sv/
+```
+
+Returned `curl: (60) SSL certificate problem: unable to get local issuer certificate` and `000 0` (the egress gateway cannot verify the origin; `--cacert /root/.ccr/ca-bundle.crt` gives the same; `curl -x '' -I` gives `HTTP/2 503` "upstream connect error or disconnect/reset before headers"). Playwright chromium `page.goto('https://www.asamblea.gob.sv/')` returned HTTP 502 with a 174-byte body. `transparencia.asamblea.gob.sv` fails the same way. Blocked from the cloud address, so the orchestrator can read it from the laptop. No Asamblea consolidated text, amendment history or terms were read.
+
+### Languages
+
+Spanish (`es`) only; no other official language applies. No government English translation was found for any instrument: looked for on bcr.gob.sv/regulaciones, ssf.gob.sv, diariooficial.gob.sv and bolsadevalores.com.sv (none lists English texts); ambiente.gob.sv answers a Cloudflare challenge (403) to curl, so the MARN site was not read. No translation row exists.
+
+### Link only
+
+- `sv-nrp-53`: row `SV-BCR-ADOPTED` is permission requested (BCR Carta de derecho, https://www.bcr.gob.sv/carta-de-derecho/: "Se prohíbe la reproducción total o parcial de los contenidos de este sitio web con fines comerciales ... sin la previa autorización expresa del Banco Central de Reserva"; copying is allowed only non-commercially and unaltered). A norma técnica of the Comité de Normas is a state regulation, but Art. 50 of the Ley de Propiedad Intelectual is not an exclusion and does not clearly reach the central bank; not applied. The fetch above works if Varun decides otherwise.
+- `sv-lma-233`, `sv-lma-reglamento-general`: row `SV-DIARIOOFICIAL-ADOPTED` is permission requested, and the 1998 and 2000 issues are scans. The Asamblea consolidated texts were not reachable.
+- `sv-lpc-776`: row `SV-DIARIOOFICIAL-ADOPTED` is permission requested; the 2005-09-08 issue has a text layer, so the text could be stored if Art. 50 is accepted.
+- Not in scope, no instrument found: Superintendencia del Sistema Financiero (https://ssf.gob.sv, marco legal y normativo page opened) and Bolsa de Valores de El Salvador (https://www.bolsadevalores.com.sv, Leyes, Normativas, Instructivos and Reglamentos pages opened; terms de uso page says nothing on reuse and the exchange is a company) list no ESG disclosure rule. The Taxonomía Verde de El Salvador (SSF, 2025-12-02 news item) is a voluntary national reference framework. https://www.ambiente.gob.sv answers `403` with a Cloudflare "Attention Required" page.
+- A Ley de Cambio Climático and a carbon pricing instrument: none found enacted (web search; the Asamblea site could not be opened); register rows with `law_family` F7.
+
+## Venezuela
+
+Checked 2026-11-03 from the cloud address. Nothing is stored: every official copy found is a scan or a whole-gazette OCR file, so both scope instruments are link only. Venezuelan law texts are covered by the Ley sobre el Derecho de Autor (1993) art. 4; the two `pass` rows rest on that statute, not on site terms.
+
+### VE-ASAMBLEA-ADOPTED (pass, statute)
+
+Law page: `curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o ley-organica-del-ambiente.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/leyes/sancionadas/ley-organica-del-ambiente` returned `200 46975 text/html` (page shows Nº Gaceta 5833 Ext., 22/12/2006). PDF: `curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o a.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf` returned `200 759657 application/pdf`; `pdftotext -layout a.pdf -` gives 11 bytes (a scan, no text layer). The Ley Penal del Ambiente page (`.../leyes/sancionadas/ley-penal-del-ambiente`, `200 47894 text/html`) and PDF (`.../ley-penal--20211109143642.pdf`, `200 1103231 application/pdf`) give 9 bytes. Only slugs that exist answer; a slug that does not exist and every query string (`?page=2`, `?titulo=ambiente`) answer `403 239/370`, with curl and with headless Chromium, so the Leyes Vigentes list can be read only on its first page (10 laws, 49 pages) and the Ley Orgánica de Precios Justos and the Plan de la Patria law could not be located.
+
+### VE-MINEC-ADOPTED (pass, statute)
+
+`curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o m979.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.minec.gob.ve/download/979/` returned `200 3871044 application/pdf` (Ley Orgánica del Ambiente, Gaceta 5.833 Extraordinario). `pdfinfo` says 32 pages, producer ABBYY FineReader 8.0; `pdftotext` (plain and `-layout`) returns text, but it is the whole gazette with four laws interleaved by column and with recognition errors ('Arto', 'interacrúan', 'Dada,firmaday'). `https://www.minec.gob.ve/download/1031/` (Ley Penal del Ambiente) returned `200 9464271 application/pdf`, 96 pages of Gaceta 39.913 with many unrelated acts, same defect ('tran~formación'). The host reset the connection on some requests; a retry worked. This is not counted as a proven fetch for storing text, because no clean per-law text can be cut from it without rewording.
+
+### Languages
+
+Spanish is the only language of Venezuelan gazette legislation; indigenous languages have no gazette edition and no ISO 639-1 code applies. English: no government translation found on asambleanacional.gob.ve, minec.gob.ve or imprentanacional.gob.ve, so no translation row.
+
+### Link only
+
+- ve-organic-environment-law: both rows pass; Asamblea PDF is a scan (11 bytes from pdftotext), MINEC copy is whole-gazette OCR with column interleaving and errors. No OCR step is allowed.
+- ve-penal-environment-law: same reasons (9 bytes; 96-page mixed gazette).
+- Not in scope, no row passes: TSJ, Imprenta Nacional, SUNAVAL, Bolsa de Valores de Caracas (see Blocked).
+
+### Blocked
+
+- http://www.tsj.gob.ve: `503 114 text/plain`, `upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout`.
+- https://www.sunaval.gob.ve: `403 5192 text/html`, Cloudflare 'Attention Required!' page.
+- https://www.gacetaoficial.gob.ve: connection reset by peer (curl error 35).
+- https://www.minec.gob.ve/derechos-de-autor/: connection reset; one of two download requests also reset once.
+- https://www.asambleanacional.gob.ve/leyes/vigentes?page=2 and any `?titulo=` query: `403 239 text/html`.
+- http://www.imprentanacional.gob.ve/sus_digital.php: `404`; the host answers `200` but offers only a paid subscription catalogue.
+
+## Guatemala
+
+Checked on 2026-11-03 from the cloud address. No instrument is stored: every row is `permission requested` and the only official texts are scans. All five Guatemala instruments of the scope are link only.
+
+Rows: `GT-CONGRESO-ADOPTED`, `GT-DCA-ADOPTED`, `GT-MARN-ADOPTED`, `GT-SIB-ADOPTED`, `GT-BVN-ADOPTED`. None is `pass`, so there is no proven fetch recipe for a stored record. The requests below are what was tried.
+
+### Congreso de la República (`GT-CONGRESO-ADOPTED`)
+
+Plain `curl` meets an Incapsula challenge on pages and intermittently on PDFs:
+
+```
+curl -sS -m 25 -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.congreso.gob.gt/
+200 212 text/html
+```
+
+The 212-byte body is a script tag pointing at `/_Incapsula_Resource`. Playwright chromium (`goto` with `waitUntil: 'domcontentloaded'`, then an 8 s wait) returned the home page (200 text/html, 761012 bytes). The decree listing `https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos` gave the challenge to a fresh session and answered (200 text/html, 20736549 bytes, 4538 decree cards) only after the home page and `/consulta_legislativa` were opened in the same browser context. The page carries a per-request session, so a second fetch will not reproduce the hash; no `fetched_sha256` was recorded because nothing is stored.
+
+PDFs, fetched with curl (retried until the challenge cleared):
+
+```
+curl -sS -A 'Mozilla/5.0' -o d7.pdf -w '%{http_code} %{content_type} %{size_download}\n' https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf
+200 application/pdf 1162782
+```
+
+`pdftotext -layout d7.pdf -` returns 66962 bytes, but the file is a whole Diario de Centro América page set (4 October 2013) scanned and OCR'd: Decreto 7-2013 shares each page with Ministerio de Gobernación acuerdos in interleaved columns and the text is full of OCR errors ("Rep(¡blica", "ocho dias", "Articulo"). That is garbled, so no record. `gtdcx00681986.pdf` (Decreto 68-86, 200 application/pdf 755984), `gtdcx06-2003.pdf` (Decreto 6-2003, 200 application/pdf 1409737) and `gtdcx33-98.pdf` (Decreto 33-98, 200 application/pdf 1591994) are image scans: pdftotext output is 3, 8 and 9 bytes. No OCR step is allowed yet.
+
+Terms: the only sentence is the footer "© 2026 Todos los derechos reservados Congreso de la República de Guatemala." Acuerdo 12-2018, linked as the site's disclaimer, is an internal access-to-information rule. Decreto 33-98 art. 68 was not applied as a statute basis (see the row).
+
+### Languages
+
+Spanish is the only official language of legislation. No English translation was found on the Congreso, MARN or DCA sites.
+
+### Other publishers
+
+- `https://dca.gob.gt/`: curl `200 1132896 text/html; charset=UTF-8`. A news site; the current issue is an Issuu link, no archive of back issues. `https://dca.gob.gt/m1download/1120046/` answers `403 text/html 5404` with `cf-mitigated: challenge`. `https://www.tipografianacional.gob.gt` answered `CONNECT tunnel failed, response 502`.
+- `https://marn.gob.gt/`: curl `200 text/html; charset=UTF-8 275439`; hosts no law text; `/wpfd_file/ley-marco-de-cambio-climatico-decreto-7-2013/` answers 404.
+- `https://www.sib.gob.gt/`: blocked from the cloud address, `403 text/html 16828`.
+- `https://www.bvnsa.com.gt/`: curl exit 60 (certificate chain not verifiable); not retried with verification off for any text.
+- `https://www.maga.gob.gt/` and `https://www.cc.gob.gt/`: `403` to curl.
+
+### Link-only instruments
+
+- `gt-ley-marco-cambio-climatico`: row permission requested; the official PDF is a garbled gazette scan.
+- `gt-ley-proteccion-mejoramiento-medio-ambiente`: row permission requested; PDF is an image scan.
+- `gt-ley-proteccion-consumidor-usuario`: row permission requested; PDF is an image scan.
+
+Not in scope, with the reason: Acuerdo Gubernativo 109-2022 and 135-2026 (Fondo Nacional de Cambio Climático) could not be confirmed on any official page opened (the gazette is not reachable, and MARN's news item of 2025-12-11 says the regulation was still awaiting approval); no carbon-market regulation, and no SIB or BVN disclosure rule, could be confirmed.
+
+## Antigua and Barbuda
+
+Run on 2026-11-03 (GEL-15-01). One row passes: `AG-LAWSGOV-ADOPTED` (statute: Copyright Act 2003 s 6(9)(b); laws.gov.ag publishes no terms). `AG-ECCB-ADOPTED` is `permission requested` (ECCB Disclaimer Policy: personal, noncommercial use only, no derivative works). Text extraction: `pdftotext -layout file.pdf -` (poppler), each line stripped and runs of spaces or tabs collapsed to one space, form feeds turned into line breaks, three or more line breaks reduced to two. The 2019 and 2025 gazette PDFs have a real text layer (TrueType fonts, no mojibake found: no U+FFFD, no `ã`/`â€` sequences); no OCR was run and no `extraction` field is used. Page headers and footers stay in the text. English is the only language of legislation and no government translation exists, so there is no translation row.
+
+Row `AG-LAWSGOV-ADOPTED`, Environmental Protection and Management Act, 2019 (No. 10 of 2019):
+
+```
+curl -sS -L -o epma2019.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laws.gov.ag/wp-content/uploads/2025/03/No.-10-of-2019-Environmental-Protection-and-Management-2019.pdf'
+```
+
+Returned `200 1464862 application/pdf`. Consumer Protection Act, 2025: `curl -sS -L -o cpa2025.pdf ... 'https://laws.gov.ag/wp-content/uploads/2025/11/No.-7-of-2025-Consumer-Protection-Act-2025.pdf'` returned `200 1270809 application/pdf`. A second fetch of each gave the same size and the same sha256, so `fetched_sha256` reproduces. Plain `curl` with no browser headers works on laws.gov.ag; no WAF challenge was seen.
+
+How to find a file: the lists are `https://laws.gov.ag/laws/alphabetical/?letter=<A-Z>` (Acts), `/annual/?variable=<year>` (Acts by year) and `/statutory/?variable=<year>` (statutory instruments and commencement notices); each row is `<a href='.../wp-content/uploads/<year>/<month>/<file>.pdf'>`. The file URL carries the upload month, not the Gazette date, so it must be read from the list. Commencement notices are in the statutory list of the year they were made, titled "Notice by the Minister Under Section 1 of the ... Act" (S.I. 2019 No. 34 for the EPMA 2019: in force 2019-04-30; S.I. 2025 No. 36 for the Consumer Protection Act: in force 2025-10-30). The site serves one PDF per Act as published, with amending Acts as separate PDFs; no point-in-time consolidation is exposed, and legislation of the current year is not online (sold at the Government Printery), so a 2026 Act will not be found.
+
+### Languages
+
+English only. laws.gov.ag serves no other language and no translation. No `AG-` translation row exists. The Copyright Act 2003 (statute basis of the pass) was read from `https://laws.gov.ag/wp-content/uploads/2018/08/a2003-22.pdf` (`200 824939 application/pdf`, 110 pages, scanned pages with an OCR text layer of poor quality, used only to read s 6(9)(b), not stored). Its s 1(2) says the Act comes into force on a day appointed by notice, and no commencement notice was found on laws.gov.ag (statutory lists 2003 to 2006); the Act's heading carries "[ 31st December, 2003 ]". Varun to decide whether the pass stands on that.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `ag-eccb-climate-risk-standard` (ECCB Prudential Standard on Climate-Related and Environmental Risks, in force 2024-03-01) | https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf | Row `AG-ECCB-ADOPTED` is permission requested. The PDF was opened (`200 294880 application/octet-stream`, with a Chrome-style User-Agent) only to read the commencement sentence. |
+| Finance Administration (Climate Resilience and Development Fund) Regulations 2023 (F7) | https://laws.gov.ag/wp-content/uploads/2024/02/No.-45-of-2023-Finance-Administration-Climate-Resilence-and-Development-Fund-Regulation.pdf | F7: register row only, no scope entry (a public fund, no duty on companies). |
+| Renewable Energy Act, 2015 (F7) | https://laws.gov.ag/wp-content/uploads/2019/02/a2015-6.pdf | F7: register row only. |
+
+The ECCB standard is regional: the same instrument applies in AI, DM, GD, KN, LC, MS and VC; those places should list it with the same URL and row.
+
+Blocked from the cloud address: `https://www.eccb-centralbank.org/` answers plain `curl` with `403 118 text/html`, and `tools/watch.py --dry-run --source AG-ECCB-ADOPTED` therefore reports `HTTP 403` for both ECCB watchers. The same URLs answer `200` when the request carries `-A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'`. Playwright chromium got 403 too. `https://www.ecsrc.com` (`200 60104`) and `https://www.ecseonline.com` (`200 101003`) opened with that User-Agent; no climate instrument of theirs was looked for. https://environment.gov.ag opened (`200 214230`) but its legislation was not used because laws.gov.ag has the text.
+
+Stored by GEL-15-01: `ag-epma-2019` (adopted, 2019-04-30), `ag-consumer-protection-act-2025` (adopted, 2025-10-30). No carbon pricing instrument was found: the Environmental Protection Levy Act 2002 and its 2023 amendment are import levies and were not opened for content.
+
+## Dominican Republic
+
+Run on 2026-11-03 (GEL-14-06). One row passes: `DO-CJPE-ADOPTED` (Consultoría Jurídica del Poder Ejecutivo, terms: "Los textos legales, decretos, resoluciones y gacetas publicadas en este portal son documentos de dominio público."; Ley 65-00 art. 41 quoted as support). Spanish is the only official language. Text extraction: `pdftotext -layout file.pdf -`, runs of spaces collapsed, blank lines dropped, then cut at the instrument's own heading line and at the next instrument's heading line, because the CJPE PDFs are page excerpts of the gazette volume and carry the neighbouring instrument at either end. Nothing inside the instrument is edited (page-number lines and rules stay).
+
+Row `DO-CJPE-ADOPTED`. Step 1, the document id (the search endpoint answers scripts that lack `Origin` and `Referer` with a Cloudflare challenge):
+
+```
+curl -s -A 'Mozilla/5.0' -H 'Content-Type: application/json' -H 'Origin: https://consultoria.gov.do' -H 'Referer: https://consultoria.gov.do/consultas/legislacion' -d '{"DocumentNumber":"541-20","GacetaOficial":"","FullText":"","Name":"","LastName":"","Identification":"","Charge":"","Institution":0,"President":0,"Consultor":0,"Career":0,"Guild":0,"PensionType":0,"PublicationYear":""}' -w '%{http_code} %{size_download} %{content_type}\n' https://consultoria.gov.do/api/consultas/search
+```
+
+Returned `201 1059 application/json; charset=utf-8` (JSON list; fields `DocId`, `Tipo`, `Numero`, `Titulo`, `Gaceta`, `FechaPromulgacion`, `FechaPublicacion`; publication date is the placeholder 2000-01-01 for the older instruments). The same POST without `Origin`/`Referer` (`-A curl/8`) returned 403 and the "Just a moment..." challenge page. Step 2, the text, Decreto 541-20:
+
+```
+curl -s -A 'Mozilla/5.0' -o d541.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://consultoria.gov.do/api/document/3397369
+```
+
+Returned `200 414278 application/pdf` (12 pages, text layer clean); a second fetch gave the same sha256 (7d97ab565e92...), so `fetched_sha256` reproduces. The GET needs no `Referer`; one request in the session returned `404` (24 bytes, text/plain) and an immediate repeat returned the PDF. It is the same file as the presidencia URL in the register (`https://presidencia.gob.do//sites/default/files/decree/2021-12/EXP_00114313.pdf`, `200 414278 application/pdf`). Other ids used: 3398204 (Decreto 348-21, `200 147805`), 3397471 (Ley 225-20, `200 570087`), 3404074 (Ley 98-25, `200 2457826`), 3406027 (Ley 36-26, `200 500002`), 3378290 (Ley 115-15, `200 34603`), all `application/pdf`. The searchable fields come from the site's own script (`/_next/static/chunks/app/consultas/.../page-*.js`, which posts to `/api/consultas/search`); the terms ask for no scraping that degrades the service, so one request per instrument was made. Browser fetches were not needed; no record is browser-fetched.
+
+### Languages
+
+Spanish only; one record per instrument, language `es`. English was looked for on `consultoria.gov.do/en` (404), `presidencia.gob.do/en` (200, Spanish site), `ambiente.gob.do/en/` (redirects to a Spanish news post), `cambioclimatico.gob.do/en/` (404) and `sb.gob.do/en/` (404): no government English, no translation row.
+
+### Link-only instruments and other sources
+
+| Instrument | Why link only or not stored |
+|---|---|
+| do-ley-64-00, do-decreto-601-08, do-ley-358-05, do-ley-57-07 | Row `DO-CJPE-ADOPTED` passes, but the CJPE PDFs (`https://consultoria.gov.do/api/document/3334621`, `3354746`, `3339542`, `3347058`; 2.9 MB, 345 KB, 3.4 MB, 1.5 MB) are scans with an OCR text layer: pdftotext output exists but misreads characters (los as `10s`, `CLIMATIC0`, `Dorninicana`; 724, 65, 591 and 338 digit-mixed tokens). Scan, no OCR step allowed yet; Varun decides. |
+| Ley 65-00 (Derecho de Autor) | Not in scope; read (id 3334622, same OCR quality) only for art. 41. |
+| F7 rows: SIMV C-SIMV-2020-02-MV, SB CCI-REG-2026000010, Decreto 269-15 | Register rows only, no scope entry. |
+
+Sources opened and not used: `https://ambiente.gob.do/terminos-de-uso/` and `https://cambioclimatico.gob.do/terminos-de-uso/` (both 200) say all content is protected by intellectual property rights owned by the body, no reuse grant; the Ley 64-00 copy on ambiente.gob.do was not opened. `https://sb.gob.do/regulacion/normativas-sb/carta-circular-cci-reg-2026000010/` (200, 81955 bytes) opened as a page only. No climate framework act and no carbon pricing instrument were found in the CJPE index (searches on cambio climático, gases de efecto invernadero, carbono, emisiones, mercado de carbono); no register row was added for them.
+
+Blocked from the cloud address: `https://simv.gob.do/` and `https://bvrd.com.do/` answer 403 (5306 and 5284 bytes, HTML) to curl, and 403 to headless Chromium (Playwright `page.goto`, 44576 and 44745 bytes). `https://www.gacetaoficial.gob.do` did not connect (curl status 000).
+
+Stored by GEL-14-06: `do-decreto-541-20` (2020-10-09), `do-decreto-348-21` (2021-05-31), `do-ley-225-20` (2020-10-02), `do-ley-98-25` (2025-12-16), `do-ley-36-26` (2026-07-11), `do-ley-115-15` (2015-06-08), all `adopted`, `es`. The watchers are `page_hash` on the PDF URL (a HEAD request returns neither Last-Modified nor Content-Length); `tools/watch.py --dry-run --source DO-CJPE-ADOPTED` ran 10 watchers, 0 failures.
+
+## Belize
+
+Rows `BZ-NATIONALASSEMBLY-ADOPTED`, `BZ-AGM-CONSOLIDATED` and `BZ-NATIONALASSEMBLY-GOV-ADOPTED`, all `permission requested`. Run on 2026-11-03. No row passes, so no text is stored and no record exists under `records/BZ/`. The fetches below were proven to read the official PDFs for the scope entries and the Copyright Act; they are not record recipes.
+
+Why no row passes: the Copyright Act (Cap. 252, Revised Edition 2020) s. 25(4) and (5) vest copyright in works made or first published by or under the Government in the State, and no section excludes Acts or other official texts (s. 71 excuses acts done for parliamentary or judicial proceedings; s. 72 covers copies of public records made by the Keeper). The sites carry "Copyright © 2026 National Assembly of Belize" (https://belizeparliament.bz/) and "All Rights Reserved" (https://agm.gov.bz/), with no licence or reuse grant. doc.belizeparliament.bz has no terms page (`/terms` answers 404).
+
+### National Assembly (doc.belizeparliament.bz), Acts as passed
+
+The Public Records page is a JavaScript app over a JSON API. The list, 406 Acts of Parliament:
+
+```
+curl -sS -m 60 -A 'Mozilla/5.0' -o docs.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://doc.belizeparliament.bz/api/docs?pagination%5BpageSize%5D=500&populate=PDF&sort%5B0%5D=Date%3Adesc&filters%5BAccess%5D%5B%24eq%5D=Public&filters%5BType%5D%5B%24containsi%5D=Act'
+```
+
+Returned `200 462376 application/json; charset=utf-8`. Each entry has `Title`, `Date`, `IsLatest` and `PDF.url`. The PDF path as listed (`/uploads/<file>.pdf`) answers `401 87 application/json` ("Authentication required") to curl. The page itself fetches the file through `/api/uploads?p=<path>` (found by logging the browser's requests in headless Chromium), and that works with plain curl:
+
+```
+curl -sS -m 90 -A 'Mozilla/5.0' -o act13.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://doc.belizeparliament.bz/api/uploads?p=%2Fuploads%2FAct_No_13_of_2026_Climate_Change_and_Carbon_Market_Initiatives_Act_2026_f0709b709a.pdf'
+```
+
+Returned `200 690889 application/pdf`, Act No. 13 of 2026, sha256 `e77de93a6704f4966ae585e43e7a4c24b3b808a106756818d612ed3e99bb7a22`. `pdftotext -layout act13.pdf act13.txt` gave 1752 lines of clean text with no replacement characters (section 42 read from it). The list holds only Acts as passed (no amended versions, no statutory instruments).
+
+### Attorney General's Ministry (agm.gov.bz), Laws of Belize Revised Edition 2020
+
+The Judiciary site (https://www.belizejudiciary.org/laws-of-belize/) has an empty page body; its menu links "Laws of Belize" to https://www.agm.gov.bz/laws/. The chapter lists are a POST API (gzip answers even without a request for it):
+
+```
+curl -sS --compressed -m 60 -A 'Mozilla/5.0' -d 'action=1000&volume=18' https://agm.gov.bz/api-laws/
+```
+
+Returned `200` JSON, `{"rc":"1","data":[["<a href=\"/uploads/laws/<file>.pdf\">Cap ...</a>"],...]}`. Volumes 1 to 18 hold 412 chapters in all. The Environmental Protection Act (Chapter 328):
+
+```
+curl -sS -m 120 -A 'Mozilla/5.0' -o cap328.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://agm.gov.bz/uploads/laws/639770eec0ac4_Cap_328_Environmental_Protection_Act.pdf
+```
+
+Returned `200 453294 application/pdf`, sha256 `7ca23cffd50a90b302c07baae8af9cc2690fa0c5941dc930401f65e44d34cf81`; `pdftotext -layout` gave 3002 lines with no replacement characters. The Copyright Act (`.../63976ff31bd42_Cap_252_Copyright_Act.pdf`) returned `200 714118 application/pdf`, sha256 `0852ad0921eeaede71d12869b6a8102779798c90add6479b8fdcd83d33616a56`. No OCR was needed for any file.
+
+### Languages
+
+English only. Belize legislates in English; no government translation exists to look for.
+
+### Link only
+
+- `bz-climate-change-carbon-market-act-2026`: row `BZ-NATIONALASSEMBLY-ADOPTED`, permission requested. No in-force date (s. 42: by Ministerial Order; none found).
+- `bz-environmental-protection-act`: row `BZ-AGM-CONSOLIDATED`, permission requested.
+
+### Not used
+
+- https://www.nationalassembly.gov.bz/ : blocked from the cloud address. `curl -sS -L -A 'Mozilla/5.0' https://www.nationalassembly.gov.bz/wp-content/uploads/2026/06/` answers `406 226 text/html; charset=iso-8859-1`; headless Chromium loads a page reading "Account Suspended". The orchestrator can try from the laptop. Row `BZ-NATIONALASSEMBLY-GOV-ADOPTED`.
+- https://doe.gov.bz/ : lists regulations under the Environmental Protection Act (pollution, effluent, hazardous waste, plastics, medical waste) as PDFs; footer "All Rights Reserved"; no climate rule; not in scope, no row.
+- https://www.belizefsc.org.bz/ : Terms of Use (last updated 2021-09-01): "You may not print or otherwise make copies of any such content without our express prior permission." No climate or sustainability rule on its regulatory-framework or laws pages. https://www.centralbank.org.bz/ lists 11 Acts, none on climate. No rows, no instruments (register.csv F7 row).
+
+## Suriname
+
+Run on 2026-11-03 (GEL-15-07). One row passes: `SR-DNA-ADOPTED` (De Nationale Assemblée, Staatsblad PDFs on www.dna.sr). It passes on a statute, not on the site terms: Wet Auteursrecht 1913 Art. 11, "Er bestaat geen auteursrecht op algemene verordeningen als bedoeld bij artikel 2 van de Surinaamse Staatsregeling, door de openbare macht uitgevaardigd, noch op rechterlijke uitspraken en administratieve beslissingen", read in the DNA PDF of the act. The dna.sr copyright page reserves copyright and allows reuse of parts with source mention, and the disclaimer allows copying "voor eigen gebruik"; that is not a commercial-and-modification licence. Varun to confirm the reading of Art. 11 (it still names the Staatsregeling Art. 2, repealed by G.B. 1975 no. 170). The DNA site serves one PDF per act and no consolidated texts of the Milieu Raamwet, so the only form is `adopted`; the 2024 amendment is stored as its own act.
+
+Text extraction: poppler `pdftotext -layout file.pdf -`, each line stripped and runs of spaces or tabs collapsed to one space, blank lines dropped, form feeds as line breaks (the `## Brazil` method). Checked for mojibake: no private-use or replacement characters; four stray characters (an em dash and backticks) in the 2020 text. The 2020 and 2018 PDFs are scans with the publisher's own embedded text layer (OmniPage), which carries some OCR slips ('haffvaste', 'gebruilçt' in S.B. 2020 no. 97); they are stored as extracted, not corrected, and no OCR was run by this repo, so no record has an `extraction` field. The 2024 PDF is a Word export with clean text. tesseract 5.3.4 with the Dutch pack was installed in the session only to read the scanned S.B. 2015 no. 83 (the act amending the Auteursrecht Act, to confirm it leaves Art. 11 alone); nothing from it is stored.
+
+Row `SR-DNA-ADOPTED`, Milieu Raamwet (S.B. 2020 no. 97), plain curl works, no WAF, no browser needed:
+
+```
+curl -sS -L -o sb_2020_97.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/bkih12kt/sb_2020___97.pdf
+```
+
+Returned `200 12519385 application/pdf` (74 pages, sha256 e41dbb46690014898f068967517de574c140f23fbc03bf41fadccecb3c6a37a3; a second fetch gave the same hash). The amendment, S.B. 2024 no. 56: `curl -sS -L -o sb_2024_56.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf'` returned `200 311880 application/pdf` (43 pages). The Paris Agreement act, S.B. 2018 no. 70: `curl -sS -L -o sb_2018_70.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/keoita2c/sb_2018___70.pdf` returned `200 237036 application/pdf` (4 pages). The `/media/<id>/<file>.pdf` link is read from the law page, for example `https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/milieu-raamwet/` (the lists are `wetten-na-2005`, `wijzigingen-na-2005`, `geldende-teksten-t-m-2005`, `overeenkomsten-verdragen`). The 2024 amendment is not on those lists; its URL was found by web search. Statute page: `curl -sS -L -o auteursrecht1913.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/qzclps2u/wet_auteursrecht_1913.pdf` returned `200 88714 application/pdf`.
+
+### Languages
+
+Suriname legislates in Dutch only, so every record is `nl`. English was looked for at dna.sr (every law page and PDF is Dutch), gov.sr (Dutch pages; the search for a Milieu Raamwet English text found only Dutch news items) and nimos.org (see Blocked). No government English translation was found, so no translation row exists and no English record is stored.
+
+Link-only instruments: none. All three scope instruments are stored.
+
+Not listed, with the reason:
+
+| Candidate | Finding |
+|---|---|
+| Climate framework act, carbon-market act | None enacted. The Ontwerpwet Wet Duurzaam Natuurbeheer is on the dna.sr "in behandeling" list (a bill, not law). No register row: nothing enacted to register. |
+| Central bank directive on climate risk or sustainability | `https://www.cbvs.sr/` answered the cloud address with a Cloudflare challenge (HTTP 403, "Just a moment...", also in headless Chromium); no directive found through search. Nothing listed. |
+| Consumentenbeschermingswet | The 2020 initiative bill PDF is on dna.sr, but no Consumentenbeschermingswet appears on the Wetten na 2005 list or the goedgekeurd and in-behandeling bill lists. Treated as not enacted. |
+| Milieu fine decision of 4 March 2026 (Justice ministerie beschikking amending the 2007 beschikking, litter and fire fines) | Seen only in a gov.sr news item (https://gov.sr/afkondiging-boetebesluit-geeft-milieu-inspecteurs-meer-armslag/); the Staatsblad text was not found, and it is a ministerial decision on fines, not an implementing order of the Milieu Raamwet as read. Not listed. |
+| Wet Energie Autoriteit Suriname (S.B. 2016 no. 41), Wet Bosbeheer, Decreet Mijnbouw 1986, Wet op de jaarrekening | Not climate, disclosure, carbon, due diligence or consumer instruments in families F1 to F6 as read from their titles; not opened. Not listed. |
+
+Blocked from the cloud address: `https://www.cbvs.sr/` and `https://www.cbvs.sr/en/` (Cloudflare "Just a moment..." page, HTTP 403, 5284 bytes to curl, 44766 bytes in Chromium after 8 seconds); `https://nimos.org/` (curl: `SSL certificate problem: certificate has expired`, code 60; Chromium: HTTP 502, 174 bytes; TLS verification was not disabled). The orchestrator can read both from the laptop. `https://gov.sr` opened (200, 453248 bytes) but holds no law texts.
+
+## Guyana
+
+Rows `GY-PARLIAMENT-ADOPTED`, `GY-MOLA-CONSOLIDATED` and `GY-GAZETTE-ADOPTED`, all `permission requested` (checked 2026-11-03). No row passes, so nothing is stored and there is no proven fetch for a `pass` row. The requests below were run on 2026-11-03 from the cloud address to show that the official files are reachable; their text was read, not stored.
+
+Why no row passes: the three sites publish no reuse terms (Parliament's footer links "Copyright Information" and "Disclaimer" point to `#`; MOLA has only an accuracy disclaimer; the E-Gazette says "All rights reserved"). The only statute found, the Copyright Act 1956 as applied to Guyana (s. 39(1), read on WIPO Lex), vests copyright in works made by or under the direction of the Crown or a Government department in the Crown; it is not an exclusion of official texts. The brief's "Chapter 22:01" is not the Copyright Act in the Laws of Guyana index on mola.gov.gy (Cap. 022:01 there is the Fire Prevention Act); WIPO Lex calls the Act "Cap. 74", which is the UK chapter number of the 1956 Act.
+
+Parliament, Act as passed (Environmental Protection Act 1996):
+
+```
+curl -sS -L -o epa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.parliament.gov.gy/documents/acts/6032-11_of_1996_environmental_protection_act_1996.pdf
+```
+
+Returned `200 3371117 application/pdf`, sha256 `3c544fb7139b1c9a18c434aa81ee25cd739b1265eb443b1f95a7a28fe44fcaa7`. `pdftotext -layout epa.pdf -` gives a text layer with OCR-style noise ("Tl>i.s", "En vironmental"), so it would need the OCR route or a cleaner file before any record. The path in the existing register row (`/new2/documents/acts/...`, and the `parliament.gov.gy` host without `www`) answers `404 72 text/html`; the working path has no `new2`. The Local Content Act (`22943-act_no._18_of_2021.pdf`, `200 3450052 application/pdf`) and Oil Pollution Act (`24368-24494-act_no._6_of_2025.pdf`, `200 3853172`) are scanned images: `pdftotext` returns only the page headers. No OCR tool could be installed (`tesseract` and `ocrmypdf` are not available; apt has no `tesseract-ocr`). The Consumer Affairs Act (`3634-act_13_of_2011.pdf`) returned `200 2180310 application/pdf` with a text layer. The Acts list is `https://parliament.gov.gy/publications/acts-of-parliament/P<offset>` with offset in steps of 10 (1836 PDF links in all).
+
+MOLA, Laws of Guyana revised edition (L.R.O. 1/2012):
+
+```
+curl -sS -L -o vol6.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://mola.gov.gy/laws/Volume%206%20Cap.%2018.01%20-%2023.011696964321.pdf'
+```
+
+Returned `200 6969984 application/pdf`, 197 pages, sha256 `a86117aa8bd0961d03854d58f3c6cdf1e047dba7a04dc0d652f23efe7f7c1d41`; `pdftotext -layout vol6.pdf -` is clean text. It holds the Environmental Protection Act (Cap. 20:05, amended by Act No. 17 of 2005) and its five regulations. The index of volumes is `https://mola.gov.gy/laws-of-guyana?page=1` to `52` (461 chapters, Cap. 001:01 to 099:10; the file name carries a counter, so it is read from the page). One version per chapter (laws as at 31 December 2012); the 2022 Revised Edition was presented to the National Assembly on 2026-06-19 (https://mola.gov.gy/post/nandlall-presents-2022-revised-edition-of-guyanas-laws-to-parliament) and was not on the site on 2026-11-03.
+
+Official E-Gazette: `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://officialegazette.gov.gy/` returned `200 35685 text/html; charset=utf-8`; the publications list is loaded by script, so no publication file was fetched.
+
+### Languages
+
+English only (the language of legislation); no official second language and no government translation exist, so no translation row was added.
+
+### Link only
+
+All instruments in `register/GY/scope.json` are `link only`, reason: the row they depend on is `permission requested` (see above). Those whose text is a scanned image (`gy-local-content-act-2021`, `gy-oil-pollution-act-2025`) would also need OCR.
+
+### Blocked
+
+- https://www.gsc.gov.gy/ and https://gsc.gov.gy/ (Guyana Securities Council): `curl` ended with no HTTP answer; the egress proxy reported `connect_rejected` for both hosts. Blocked from the cloud address, for the orchestrator to read from the laptop.
+- https://www.bankofguyana.org.gy/ redirects to https://bankofguyana.org.gy/ and answers 200 (11928 bytes); no climate or sustainability rule was seen.
+
+## Bahamas
+
+Run on 2026-11-03 (GEL-15-02). No row passes. The one row added, `BS-LAWS-ADOPTED` (Bahamas Laws On-line, laws.bahamas.gov.bs), is `permission requested`: the site's copyright page says the legislation "is subject to Government of The Bahamas Copyright protection" and "may only be used for informational non-commercial purposes", and the Copyright Act, 2024 s. 9 gives copyright in works made by or under the direction or control of the Government without excluding Acts or official texts (the word legislation does not occur in it). So no Bahamian text is stored and there is no proven fetch for a `pass` row. Every scope instrument is `link only`. The requests below are what was run to read the instruments and the terms.
+
+### laws.bahamas.gov.bs (row `BS-LAWS-ADOPTED`, permission requested)
+
+A plain curl works from the cloud address, no challenge. The PDF is served as published (the Gazette issue as scanned or typeset):
+
+```
+curl -sS -A 'Mozilla/5.0' -o a.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://laws.bahamas.gov.bs/cms/images/LEGISLATION/SUBORDINATE/2025/2025-0024/2025-0024_1.pdf
+```
+
+Returned `200 481577 application/pdf` (Emissions Reduction Initiatives and Incentives Regulations, 2025), sha256 `d2be3e17f4e702a1416deea85c6b30e8d53ee1627d7ea1620f239d31bf163589`. Same host, `.../PRINCIPAL/2022/2022-0015/2022-0015_1.pdf` (Climate Change and Carbon Market Initiatives Act, 2022) returned `200 2531612 application/pdf`. Path pattern: `/cms/images/LEGISLATION/{PRINCIPAL|SUBORDINATE|AMENDING}/{YYYY}/{YYYY-NNNN}/{file}.pdf`; a guessed `_2.pdf` suffix answers `403` with a 75193-byte HTML page, so only the links on the listing pages work. `HEAD` on a PDF returns `200` with `content-length`, `last-modified` and `etag` (used by the `http_head` watchers).
+
+Listings by year (acts and subsidiary legislation) are POST forms and carry the Date Commenced field with its notes; this is how in-force dates and appointed-day notices were found:
+
+```
+curl -sS -A 'Mozilla/5.0' -e https://laws.bahamas.gov.bs/cms/legislation/acts_only/acts-by-year.html -d 'year=2022&yearSub=2022&submit4=A&catid=5&statusid=' https://laws.bahamas.gov.bs/cms/legislation/acts_only/acts-by-year.html
+```
+
+Returned `200` and about 132 KB of HTML for 2022 (the same call on `.../subsidiary/subsidiary-by-year.html` lists subsidiary legislation). The alphabetical listing of Acts stops after the letter A (123 PDF links), so it was not used. Terms: `https://laws.bahamas.gov.bs/cms/?view=article&id=115:copyright&catid=14:general-articles` returned `200 42854 text/html; charset=utf-8`; the Disclaimer page (`id=116`) says the texts are for information and points to the printed Revised Edition and Official Gazettes.
+
+PDF text: poppler `pdftotext -layout`. Three Acts in scope are scans with no text layer (Climate Change and Carbon Market Initiatives Act 2022: 1228 characters from 38 pages; Carbon Credit Trading Act 2022: 926 characters from 60 pages; Consumer Protection Act 2023: 246 characters from 37 pages). They were read with `tesseract` 5.3.4 (apt `tesseract-ocr`, installed in the session; `ocrmypdf` was not needed) to find section numbers and commencement clauses, and nothing from that OCR was stored. The Environmental Planning and Protection Act 2019 and the Copyright Act 2024 extract with dropped letters (a legacy font encoding), so quotations from them were read from clean lines only. Because nothing is stored, no record carries the `extraction` field.
+
+### Languages
+
+English is the only official language of Bahamian legislation. No government translation exists or is needed. No translation row was added.
+
+### Link only
+
+All nine instruments in `register/BS/scope.json` are `link only` because row `BS-LAWS-ADOPTED` is `permission requested`: `bs-climate-change-carbon-market-act`, `bs-climate-change-carbon-market-act-amendment-2026`, `bs-emissions-reduction-initiatives-regulations-2025`, `bs-carbon-credit-trading-act`, `bs-environmental-planning-protection-act`, `bs-environmental-planning-protection-act-amendment-2024`, `bs-environmental-planning-protection-spot-fines-regulations-2024`, `bs-consumer-protection-act-2023`, `bs-climate-change-environmental-advisory-unit-act-2026`.
+
+Looked for and not found: Carbon Credit Trading regulations (nothing on the site's 2022 to 2026 subsidiary lists; the press reported a Government draft); the appointing notice for the Carbon Credit Trading Act (the site's own commencement field says 19 August 2022); a Central Bank of The Bahamas circular on climate-related risk (the guidelines, general notices and public notices pages on centralbankbahamas.com showed no climate or ESG item, and a web search found none); a Securities Commission ESG disclosure guideline (scb.gov.bs home page and web search found none). Their terms were read to decide whether a row would be needed: `https://scb.gov.bs/privacy-and-usage-policy/` (200) bars reproducing, modifying or reusing the site's text beyond brief attributed excerpts; `https://www.bisxbahamas.com/legal-disclaimer` (200) allows personal non-commercial viewing or printing only and bars any use without written permission of the exchange; the Central Bank privacy-policy page (200) holds a disclaimer and no copyright grant. No row was added for these three because no instrument was taken from them.
+
+### Blocked (from the cloud address)
+
+- `https://www.bahamas.gov.bs/`: curl `403`, 118 bytes, `text/html`. Not retried with a browser; the same laws are on laws.bahamas.gov.bs.
+
+Everything else used answered curl: laws.bahamas.gov.bs, scb.gov.bs (`www.scb.gov.bs` answers a 301 to it), www.centralbankbahamas.com, www.bisxbahamas.com (`bisxbahamas.com` answers a 301 to it).
+
+## Sierra Leone
+
+Run on 2026-11-03 (GEL-15-10). One row passes: `SL-EPA-ADOPTED` (statute: Copyright Act 2011 (No. 8 of 2011) s.7(b), no protection for "any official text of a legislative, administrative or legal nature or any of its official translations"; the Act was read in the scanned WIPO Lex copy with tesseract OCR, nothing from it is stored). `SL-SIERRALII-ADOPTED` and `SL-PARLIAMENT-ADOPTED` are permission requested. Sierra Leone has one official legislative language, English, so no `### Languages` source is needed beyond the note below. No browser recipe was needed for the pass row.
+
+Row `SL-EPA-ADOPTED`, Statutory Instrument 4 of 2025 (Protection of the Ozone Layer and Substances Covered in the Montreal Protocol Regulations, 2025), Gazette supplement of 3 April 2025:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ods2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://epa.gov.sl/wp-content/uploads/2025/11/ODS-REGULATION-2025.pdf
+```
+
+Returned `200 320384 application/pdf` (sha256 `c8b5b84081a6474550170f60c25371d197a3d354c092bd79de0ee3797978f6ce`, identical on a second fetch and on `https://epa.gov.sl/download/3901/`). The PDF is six landscape sheets, each carrying two printed pages, and the sheet order is not the page order. Text extraction, with poppler `pdftotext -layout` run on each half-sheet and runs of spaces collapsed (the page-order list was read from the printed page numbers: cover, ii, 1 to 9, then 10):
+
+```
+for ph in "1 0" "1 396" "2 396" "3 0" "3 396" "4 0" "4 396" "5 0" "5 396" "6 0" "6 396" "2 0"; do set -- $ph; pdftotext -f $1 -l $1 -x $2 -y 0 -W 396 -H 612 -layout ods2025.pdf - | sed -E 's/ +/ /g;s/^ //;/^$/d'; done
+```
+
+Output 16979 bytes; the only non-ASCII character is an en dash, no mojibake. The marginal side notes of the print sit between the lines of the sections they belong to, because the text layer cannot separate them; nothing was reworded. The regulations carry no commencement clause ("MADE this day of February, 2025"), so the record is dated 2025-04-03, the gazette publication date. EPA lists the instrument on https://epa.gov.sl/laws-regulations/ (HTTP 200, 82408 bytes, text/html).
+
+### Languages
+
+English is the only official legislative language. No government translation was looked for beyond the EPA, SierraLII and Bank of Sierra Leone sites; none was seen. No translation row was added.
+
+Not stored, both read only: SierraLII (https://sierralii.gov.sl, row `SL-SIERRALII-ADOPTED`). Plain curl works: `curl -sS -L -A 'Mozilla/5.0' -o epa_act.html -w '%{http_code} %{size_download} %{content_type}\n' https://sierralii.gov.sl/akn/sl/act/2022/15/eng@2022-09-15` returned `200 495261 text/html; charset=utf-8` (sha256 of the HTML `92af77c0e0dbe55f3e7327182f4a8bb9078c9990de59098cfb0318da953e40de`, reproduced on a second fetch); the Consumer Protection Act Gazette PDF at `https://sierralii.gov.sl/akn/sl/act/2020/7/eng@2020-09-03/source.pdf` returned `200 352255 application/pdf`. The site terms (https://sierralii.gov.sl/terms-of-use/, notice of 8 October 2025) give CC BY-NC 4.0, prohibit scraping and bulk downloading, and robots.txt carries `Content-Signal: ai-train=no, search=yes, ai-input=no`. The about page describes a non-profit company limited by guarantee, with no state body named as publisher. Not Judiciary-run on the evidence read: the Judiciary and Parliament sit on its board, nothing more.
+
+Blocked from the cloud address: `https://www.parliament.gov.sl` (curl exit 60, self-signed certificate; `https://parliament.gov.sl` the same; `http://www.parliament.gov.sl` HTTP 404; headless Chromium via Playwright HTTP 502 from the agent proxy). TLS verification was not disabled. The orchestrator can read it from the laptop. `https://bsl.gov.sl` and `https://epa.gov.sl` opened with plain curl (200).
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Environmental Protection Agency Act, 2022 (Act 15 of 2022) | https://sierralii.gov.sl/akn/sl/act/2022/15/eng%402022-09-15 | Row `SL-SIERRALII-ADOPTED` is permission requested (CC BY-NC 4.0, bulk copying prohibited). The EPA site carries only a 31-page abridged summary (https://epa.gov.sl/download/3886/), which is not law text. |
+| Consumer Protection Act, 2020 (Act 7 of 2020) | https://sierralii.gov.sl/akn/sl/act/2020/7/eng%402020-09-03 | Same row, same reason; the Gazette PDF served by SierraLII is the only copy found. |
+| Carbon market framework; climate framework act | none | No enacted instrument found on EPA, SierraLII or Bank of Sierra Leone pages; register rows with F7 only. |
+| Bank of Sierra Leone climate or sustainability guideline | none | `https://bsl.gov.sl/Legislation.html` and the supervision and publications pages list no climate or sustainability guideline; nothing added. |
+
+Stored by GEL-15-10: `sl-ods-regulations-2025` (adopted 2025-04-03, English).
+
+## Paraguay
+
+Run on 2026-11-03 (GEL-14-09). Two rows pass: `PY-BACN-ADOPTED` (Biblioteca y Archivo Central del Congreso Nacional) and `PY-MADES-ADOPTED` (Ministerio del Ambiente y Desarrollo Sostenible), both on the statute, Ley 1328/1998 art. 8 numeral 2 ("los textos oficiales de carácter legislativo, administrativo o judicial, ni sus traducciones, sin perjuicio de la obligación de respetar los textos y citar la fuente"). Neither site has a terms page, so the pass rests on the statute alone. `PY-BCP-ADOPTED`, `PY-GACETA-ADOPTED` and `PY-BOLSA-ADOPTED` are `permission requested` because the sites could not be opened. Text extraction for BACN: the law page's text block (from the download line to the end of the article element) with tags stripped, block elements as line breaks, whitespace collapsed per line, blank lines dropped, and the trailing "Archivos adjuntos" and "Tags" blocks cut. A page is not strictly UTF-8 (a stray byte in a side widget), so only the cut-out text block is decoded.
+
+Row `PY-BACN-ADOPTED`, Ley 7190/2023 as published (the number and slug come from the law's page address; the bare number without the slug returns the "Página no encontrada" page):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ley7190.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono
+```
+
+Returned `200 109874 text/html; charset=UTF-8`. The same request for Ley 5875 (`.../8712/ley-n-5875-nacional-de-cambio-climatico`) returned `200 114588`, Ley 294 (`.../2374/ley-n-294-evaluacion-de-impacto-ambiental`) `200 94728`, Ley 1334 (`.../897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario`) `200 129348`, all `text/html; charset=UTF-8`. `fetched_sha256` is the hash of the HTML as received. A second fetch does not reproduce it (the page carries a view counter and lists the newest laws in a side widget; the sizes above differ from the sizes of the first fetches), but the extracted text was identical on a second fetch for all five laws. The law page also links a PDF (`https://www.bacn.gov.py/descarga/11986/LEY7190.pdf`); a script request for it returns `200 49682 text/html` (an HTML page, not a PDF, with or without a Referer), so the HTML text block is the stored source. The law page states the promulgation and publication dates as "Fecha de Promulgación" and "Fecha de Publicación" (dd-mm-yyyy). BACN serves the text of the law as published; amending laws are separate laws on separate pages, so each law has one dated version and no point-in-time consolidation. How to find a page: `https://www.bacn.gov.py/buscar/buscar?s=<terms>` lists matching pages (spaces as `%20`), or a web search restricted to `bacn.gov.py`.
+
+Row `PY-MADES-ADOPTED`, Decreto 453/2013:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o decreto453.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf
+```
+
+Returned `200 538343 application/pdf`. `pdftotext -layout decreto453.pdf -` returns 68927 characters of OCR noise over a scan (the decree number reads "Ífb :3" and the date "ock~e"), so the decree is not stored. Decreto 954/2013 (`.../Decreto-954-modifica-algunos-articulos-decreto-453.pdf`): `200 271207 application/pdf`, same defect. The Ley 5875 PDF that MADES re-hosts (`.../2025/09/LEY-N°-5875-NACIONAL-DE-CAMBIO-CLIMATICO.pdf`, percent-encoded) is the Gaceta scan and `pdftotext -layout` returns only the page headers. MADES lists its documents at `https://www.mades.gov.py/leyes`, `/decretos` and `/resoluciones` (HTML tables with a "Ver Archivo" link per row). The PDF command for a stored text would be `pdftotext -layout file.pdf -` with runs of spaces collapsed, as in `## Brazil`; no Paraguayan PDF passed the garble check.
+
+### Languages
+
+Spanish is the language of publication and the only language BACN and MADES serve; every stored record is `es`. Guaraní (`gn`) is co-official, but no Guaraní text of any of the five laws was found on the BACN law pages or the MADES lists, so no `gn` record exists. No government English text was found on the BACN law pages or the MADES laws and decrees lists, so no translation row was written. The Guaraní and English routes elsewhere (Gaceta Oficial, Presidency, BCP) could not be reached; see the blocked list.
+
+Blocked from the cloud address, recorded for the orchestrator to read from the laptop:
+
+- `https://www.bcp.gov.py/` and `https://www.bcp.gov.py/marco-normativo-siv`: first `curl -sS -A 'Mozilla/5.0' -o bcp.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.bcp.gov.py` answered `403 5330 text/html; charset=UTF-8`, a Cloudflare "Just a moment..." challenge; `https://www.bcp.gov.py/documents/20117/0/` answered `403 5405`. Later requests were reset (`curl: (35) Recv failure: Connection reset by peer`). Headless Chromium through Playwright (`chromium.launch()`, `page.goto(url, {waitUntil: 'networkidle', timeout: 60000})` with a desktop Chrome User-Agent) timed out at 60 s for the home page, `/marco-normativo-siv` and a news page. Row `PY-BCP-ADOPTED` is `permission requested`; nothing from the BCP or the Superintendencia de Valores is stored.
+- `https://www.gacetaoficial.gov.py/` (https and http): no HTTP answer (curl status `000`; the agent proxy logged the tunnel closing mid-exchange).
+- `https://www.bolsadeasuncion.com.py/`: the agent proxy answered CONNECT with `502`.
+- `https://www.presidencia.gov.py`, `https://edicion.presidencia.gov.py/...`, `https://www.silpy.congreso.gov.py`, `https://www.cnv.gov.py`, `https://sv.bcp.gov.py`: no HTTP answer (status `000` or connection reset).
+
+Link-only instruments:
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Decreto 3369/2025 (py-decreto-3369-2025) | https://www.mades.gov.py/2025/02/18/paraguay-moderniza-legislacion-de-credito-carbono-y-muestra-al-mundo-potencial-como-pulmon-verde/ | No opened official page serves the decree text: not in the MADES decree list, Gaceta and Presidency not reachable. Third-party copies were not used. in_force is null. |
+| Decreto 453/2013 (py-decreto-453-2013) | https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-453-reglamenta-la-ley-294-y-ley-345.pdf | Scan with OCR-noise text layer; no OCR step is allowed yet. |
+| Decreto 954/2013 (py-decreto-954-2013) | https://www.mades.gov.py/wp-content/uploads/2025/03/Decreto-954-modifica-algunos-articulos-decreto-453.pdf | Scan with OCR-noise text layer; no OCR step is allowed yet. |
+| BCP Resolución 8/2018, Resolución 31/2025, Resolución CNV CG 09/20 | none opened | `PY-BCP-ADOPTED` is permission requested (Cloudflare 403); register rows only. |
+| Ley 7572/2025 (F7) | https://www.bacn.gov.py/leyes-paraguayas/12910/ley-n-7572-2025-mercado-de-valores-y-productos | F7: register row only, no scope entry. |
+
+Stored by GEL-14-09 (adopted, `es`, source `PY-BACN-ADOPTED`): `py-ley-7190-2023` (2023-10-13), `py-ley-5875-2017` (2017-09-28), `py-ley-294-1993` (1994-01-01), `py-ley-1561-2000` (2000-07-25), `py-ley-1334-1998` (1999-04-25). Dates are the day after publication (Código Civil art. 1) except Ley 1334, whose art. 53 sets 180 days after promulgation.
+
+## Grenada
+
+Run on 2026-11-03 (GEL-15-05). One row passes: `GD-PARLIAMENT-ADOPTED` (statute: Copyright Act 2011, Act No. 21 of 2011, s. 7(1)(b), which withholds protection from "any official text of a legislative, administrative or legal nature"; the Parliament site has no terms page of its own). Two rows are `permission requested` and store nothing: `GD-LAWSGOVGD-ADOPTED` (laws.gov.gd cannot be opened from the cloud address) and `GD-ECCB-ADOPTED` (eccb-centralbank.org answers 403). English is the official language of legislation in Grenada and no government translation exists, so there is no `### Languages` source row; the subsection is below.
+
+Text extraction: `pdftotext -layout file.pdf -`, then runs of spaces and tabs collapsed to one space, each line stripped, blank lines dropped (the `## Brazil` recipe). The output was checked for mojibake: the only non-ASCII characters are punctuation (dashes, curly quotes, the É of the Governor-General's name) and two soft hyphens in S.R.O. 30 of 2019. The line breaks are the PDF's line wraps and the margin notes of the printed page (the right-hand "Short title." style side headings) are interleaved with the text by `-layout`. No PDF needed OCR; no record carries `extraction`.
+
+Row `GD-PARLIAMENT-ADOPTED`, Consumer Protection Act, 2018 (Act No. 2 of 2018) as passed:
+
+```
+curl -sS -L -o cpa2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://grenadaparliament.gd/wp-content/uploads/2021/08/Act-2-of-2018-Consumer-Protection-Act.pdf
+```
+
+Returned `200 930897 application/pdf`; `sha256sum` of the file equals `fetched_sha256` in the record (the file is static, so a second fetch reproduces it). A plain `curl` with no cookie and no special headers works. The file URL is read from the instrument page `https://grenadaparliament.gd/ova_doc/<slug>/` (for example `https://grenadaparliament.gd/ova_doc/acts-2018/`, `200 241439 text/html; charset=UTF-8`), which is linked from `https://grenadaparliament.gd/cat_doc/laws-of-grenada/` (Acts by year `acts-2011` to `acts-2021`, the revised-edition volumes `volume-a` to `volume-y`, 2 pages) and from `https://grenadaparliament.gd/cat_doc/sros/` (S.R.O.s). The category pages for 2022 to 2026 (`https://grenadaparliament.gd/cat_doc/2022/` to `2026/`) were not searched for Acts; the Acts index in this run is `laws-of-grenada` and `sros`. `wp-json/wp/v2/media` does not list these files (search returns `[]`), so the pages above are the only index. The Copyright Act itself: `curl -sS -L -o copyright.pdf ... https://grenadaparliament.gd/wp-content/uploads/2021/07/Act-No.-21-of-2011-Copyright-Act.pdf` returned `200 180211 application/pdf`.
+
+The site serves each Act or S.R.O. once, as passed or gazetted. The revised-edition `Cap<n>` PDFs are consolidations as at the revision, but the 2016 Physical Planning Act and the 2018 Acts are too recent to be in them (Cap. 241A is the repealed 2002 Act). So each instrument has one record, and an amendment is its own record (`gd-ppdca-amendment-2017`, `gd-consumer-protection-amendment-2020`). The record `in_force` is the commencement date: from the commencement notice or order where one exists (S.R.O. 39 of 2016, S.R.O. 44 of 2020); from the bracketed date line under the long title where the Act has no commencement clause (the principal 2016 Act prints "[ By Notice ]" in the same place); from the gazette date for an Order with no commencement clause.
+
+Stored (fetched 2026-11-03), all `GD-PARLIAMENT-ADOPTED`, `adopted`, `en`:
+
+| Instrument | Record `in_force` | Bytes |
+|---|---|---|
+| `gd-ppdca-2016` | 2016-08-01 | 643930 |
+| `gd-ppdca-amendment-2017` | 2017-10-06 | 377393 |
+| `gd-consumer-protection-act-2018` | 2020-07-01 | 930897 |
+| `gd-consumer-protection-amendment-2020` | 2020-09-04 | 381442 |
+| `gd-nbwc-act-2018` | 2018-08-10 | 373350 |
+| `gd-nbwc-eps-order-2018` | 2018-09-14 | 218336 |
+| `gd-nbwc-plastic-bags-order-2018` | 2018-09-14 | 215312 |
+| `gd-nbwc-plastic-food-products-order-2019` | 2019-11-08 | 248228 |
+
+### Languages
+
+None. English is the only language the publisher serves and the official language of legislation; no government translation exists, and none is looked for. Nothing is stored under a translation row.
+
+### Link only
+
+- `gd-eccb-climate-risk-standard` (row `GD-ECCB-ADOPTED`, permission requested). Blocked from the cloud address: https://www.eccb-centralbank.org/enforced answers `403 118` to `curl -sS -o /dev/null -w '%{http_code} %{size_download}\n' https://www.eccb-centralbank.org/enforced` and to headless Chromium (Playwright, same 403). No ECCB PDF address was found, so the register row's `official_source_url` (the Enforced page) is unchanged. The standard is regional: the same instrument applies to every institution licensed under the Banking Act, 2015 in the ECCU and sits in the scope of AG, DM, KN, LC, VC and the territories AI and MS.
+- Row `GD-LAWSGOVGD-ADOPTED` (permission requested; no scope instrument uses it). Blocked from the cloud address: `curl -sS -L -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.gd/` returned `500 0 text/html; charset=UTF-8`; `https://laws.gov.gd/index.php` returned `409 83 text/html; charset=iso-8859-1` with a script that sets the cookie `humans_21909=1` and reloads; repeating the requests with `-b 'humans_21909=1'` gave `500 0` again, and headless Chromium (Playwright `page.goto`, 5 s wait, second load after the cookie) got HTTP 500 and an empty page for `/` and for `/index.php/acts/1353-2018` (the Consumer Protection Act 2018 listing a search engine returned). The orchestrator can try the same URLs from the laptop. The Acts are served from the Parliament site instead.
+
+Not reached or not in scope, with the reason: https://www.garfin.gd fails TLS verification from the cloud (`curl: (60) SSL certificate problem: certificate has expired`; the certificate check was not disabled) and headless Chromium got `502 upstream request failed`, so whether GARFIN has a climate-risk rule is unknown (blocked from the cloud address). https://www.ecsrc.com and https://www.ecseonline.com answered `200` to `curl`; they were not searched for climate or ESG rules, so none is recorded. `https://climateresilience.gov.gd` opened (`200`): its policies and legislation page lists only the Abatement of Litter Act and policies and plans; the Water Resources Management and Regulation Act No. 1 of 2025 (`https://climateresilience.gov.gd/docs/water-resource-management-and-regulation-act/`) is enacted and was not taken into scope in this run; the draft National Climate Change Policy and the draft Consumer Protection (Water Efficiency) Regulations 2025 are F7 register rows only.
+
+## Dominica
+
+Run on 2026-11-03 (GEL-15-04). One row passes: `DM-GOV-ADOPTED` (Laws of Dominica portal, https://dominica.gov.dm/laws-of-dominica), on a statute: Copyright Act 2003 (Act 5 of 2003) section 21, "no copyright shall subsist in any official text of a legislative, administrative or legal nature, or any translation thereof", in force 2003-11-15 by SRO 47 of 2003. The portal's own terms are narrower (personal, non-commercial, unaltered use only), so the pass rests on the statute alone; the portal disclaimer calls the web versions unofficial, and whether that keeps a portal PDF outside "official text" is for Varun to confirm (see the row notes). Two rows are `permission requested`: `DM-PRINTERY-ADOPTED` (Government Printery, same terms as the portal, paid documents, nothing stored) and `DM-ECCB-ADOPTED` (ECCB site, HTTP 403 from the cloud address). The brief expected the portal to hold only the Revised Laws 1990 and Acts 1991 to 2009; it also serves Acts and SROs up to 2025, including the Climate Resilience Act 2018, so that Act is stored, not link only.
+
+The text of each stored instrument is one PDF. Text extraction: poppler `pdftotext -layout file.pdf -`, then each line stripped, runs of spaces or tabs collapsed to one space, form feeds turned into line breaks and blank lines dropped. The output was checked for mojibake: the only non-ASCII characters are typographic quotes, dashes and apostrophes. The PDFs carry the page header of the printed volume (for example `2018 CLIMATE RESILIENCE ACT 16 267`) and side headings of the sections, which `-layout` puts on the same line as the section text; nothing was removed.
+
+Row `DM-GOV-ADOPTED`, finding the file: the Laws page is a form that POSTs `searchname` (a word of the title) and `s=title` (or `s=year`) to the same address and answers with `<li><a href='...pdf'>Title, Act n of year</a></li>` links:
+
+```
+curl -sS -L -o s.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://dominica.gov.dm/laws-of-dominica?page=1' --data-urlencode 'searchname=climate' -d 's=title&searchbtn=Search'
+```
+
+Returned `200 28540 text/html; charset=utf-8` (three links: the Act, SRO 3 of 2019, SRO 44 of 2021). A plain GET with `keyword=` returns the empty form, not results.
+
+Row `DM-GOV-ADOPTED`, Climate Resilience Act 2018 (Act 16 of 2018), the exact request behind `records/DM/dm-climate-resilience-act-2018/2019-01-01-adopted-en.json`:
+
+```
+curl -sS -L -o act16-2018.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://dominica.gov.dm/laws/2018/Climate%20Resilience%20Act%202018.pdf'
+```
+
+Returned `200 54694 application/pdf`, sha256 `137e4f7fec3e3a555e3958a6c0228fb6c5ab6ba98f541ded633e551d6c978da2`, identical on a second run. The same pattern for the other stored instruments (all `200`, `application/pdf`, hash identical on a second run, text identical on a second run):
+
+- SRO 44 of 2021, `https://dominica.gov.dm/laws/2021/Climate%20Resilience%20%28Extension%20of%20duration%29%20Order%2C%202021%20sro%2044%20of%202021.pdf`: 64654 bytes, sha256 `881db3a08c3277637b997db423c7406db11c4ce28a7d20ddba39cf6ab5513a4a`.
+- Physical Planning Act 2002, `https://dominica.gov.dm/laws/2002/act5-2002.pdf`: 234180 bytes.
+- Environmental Health Services Act 1997, `https://dominica.gov.dm/laws/1997/act08-1997.pdf`: 777700 bytes, 38 pages of scanned images with no text layer (`pdftotext` gives 38 bytes), so OCR (below).
+- Copyright Act 2003 (the statute behind the row), `https://dominica.gov.dm/laws/2003/act5-2003.pdf`: 178698 bytes, sha256 `e81ed7dfc6065ebfdf53dc93d3bf49a903ec5f715d517d262519bdf5e353efad`. Commencement: `https://dominica.gov.dm/laws/2003/sro47-2003.pdf`, 4499 bytes.
+
+HEAD requests on these PDFs answer `200` with `Last-Modified` and `Content-Length`, which is what the `http_head` watchers read. Python's urllib with a browser agent and curl with the default agent were both accepted; no site in this section answered a script with a challenge except the ECCB.
+
+OCR. `records/DM/dm-environmental-health-services-act-1997/1997-10-16-adopted-en.json` is the first record here with `extraction: ocr`. Tools installed in the session: `apt-get install tesseract-ocr tesseract-ocr-eng` (tesseract 5.3.4) and `pip install ocrmypdf`. Command: `ocrmypdf --force-ocr -l eng --sidecar out.txt act08-1997.pdf out.pdf`, the sidecar text then given the same whitespace normalisation as the other records (blank lines dropped). A second OCR run gave an identical record. The text is uncorrected: the arrangement of sections has stray marks (for example `AAPL`, `oe`, `lL.`) and one `§` in the body, and nothing was corrected, reflowed or reworded. `tools/check_corpus.py` and `tools/publish_gate.py` accept the extra key (they do not reject unknown record keys); results are in the PR report. `tools/build.py` was not run.
+
+### Languages
+
+English is the only official language of Dominican legislation, and the portal and Printery serve English only, so there is no second-language record and no translation row. No government translation exists to look for (the official language is English); the Copyright Act 2003 s. 21 words "or any translation thereof" are quoted in the row for completeness.
+
+### Link only
+
+- `dm-eccb-climate-risk-standard`: row `DM-ECCB-ADOPTED` is `permission requested` (the ECCB site could not be opened, so no terms were read). `curl -sS -L -o e.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.eccb-centralbank.org/` returned `403 118 text/html` (server `awselb/2.0`). Browser recipe tried: Playwright chromium, `page.goto('https://www.eccb-centralbank.org/', {waitUntil:'networkidle'})`, returned status `403`, 117 bytes of HTML, body text `403 Forbidden`; so no browser recipe works from the cloud address. The standard (August 2023, effective 2024-03-01 by section 1.0) was read in a PDF copy on data.sbfnetwork.org, which is not an ECCB host and is not stored. The same standard sits in the other ECCU places (AG, GD, KN, LC, VC and the territories AI, MS); the Grenada register row already lists it.
+
+### Not in scope
+
+- Printery (https://printery.dominica.gov.dm): paid documents, free preview PDFs (`curl -sS -L https://printery.dominica.gov.dm/ProductDocuments/DownloadPreview/2408 -o p.pdf` returned `200 6941 application/pdf`, SRO 18 of 2023). Used only to look for a later extension of the Climate Resilience Act: list requests `https://printery.dominica.gov.dm/Search/Index?searchString=SRO&ProductTypeIdFk=&yearpicker=2023` returned `200` HTML with 19 SRO items; title search finds a publication by its number only, not by subject. No later extension found. Row `DM-PRINTERY-ADOPTED`, nothing stored.
+- Consumer protection: no Dominican consumer protection act found on the portal (title search `consumer`) or by web search, so no F6 entry. Carbon pricing: nothing found, F7 row in `register/register.csv`.
+- Other environmental instruments left out (Next): Solid Waste Management Act 2002 and 2008 with the 2021 amendment, the Forestry and Wildlife Act (Ch. 60:02) and 2021 amendment, the National Parks and Protected Areas Act (Ch. 42:02), the Environmental Health Services regulations of 2003 to 2022.
+
+### Blocked
+
+- https://www.eccb-centralbank.org/ and https://www.eccb-centralbank.org/enforced: `403` from curl and from headless Chromium (HTTP 403 Forbidden, 117 to 118 bytes, server awselb/2.0). The orchestrator can read the ECCB terms page and the standards page from the laptop.
+- Nothing else refused the cloud address: dominica.gov.dm, printery.dominica.gov.dm, www.ecsrc.com (`200 60104 text/html; charset=UTF-8`) and www.ecseonline.com (`200 101003 text/html; charset=UTF-8`) answered. The ECSRC and ECSE pages show no ESG or climate rule by title; no row for them since nothing was taken.
+
+## Honduras
+
+Run on 2026-11-03 (GEL-14-02). Three rows: `HN-TSC-ADOPTED` (Tribunal Superior de Cuentas library) and `HN-JUNTEC-ADOPTED` pass on a statute, `HN-CNBS-ADOPTED` is `permission requested`. None of the three sites states reuse terms (footers: "© 2026 Tribunal Superior de Cuentas", "Copyright© Juntec :: 2021", nothing on cnbs.gob.hn). The statute is the Ley del Derecho de Autor y de los Derechos Conexos (Decreto 4-99-E), art. 54, read in the TSC copy `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Derecho%20de%20Autor%20y%20Derechos%20Conexos%20D%20%204-99%20E.pdf` (`200 223285 application/pdf`, sha256 `91c87d4d463b47e31d4637efc57e0dc6ea717af97d284991e71417fe6f7c231d` on two fetches): "las Leyes, reglamentos, acuerdos y demás disposiciones emanadas de los órganos correspondientes del Estado, podrán ser publicadas sueltas o en colección por los particulares, después que lo hayan sido en el Diario Oficial La Gaceta, respetando su texto oficial completo". It is a permission to publish and not an exclusion of official texts, so the rows rest on two conditions: prior publication in La Gaceta shown on the file itself, and the full official text kept. TSC and JUNTEC files show their La Gaceta publication; no CNBS page does, so CNBS is `permission requested`. The brief names Decreto 16-2006 as the amendment; the TSC copy's only footnote reform is Decreto 211-2006 (art. 175), and art. 54 is unamended there.
+
+### Row `HN-TSC-ADOPTED`: PDF files on tsc.gob.hn
+
+The directory page `https://www.tsc.gob.hn/web/leyes/` is refused. The failing line first:
+
+```
+curl -sS -A 'Mozilla/5.0' -o x.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/
+```
+
+Returned `403 1233 text/html` (IIS "403 - Forbidden: Access is denied"; Chromium via Playwright `page.goto` also got 403). Individual PDFs answer. The file names come from the item pages of the library (`https://www.tsc.gob.hn/biblioteca/index.php/leyes/18-ley-general-del-ambiente`, `.../reglamentos/83-reglamento-general-de-la-ley-del-ambiente`, `.../leyes/1258-ley-especial-de-las-transacciones-de-carbono-forestal-para-la-justicia-climatica`, each `200 text/html; charset=utf-8`), whose `Descargar` links point to `/web/leyes/<file>`. The item pages carry a view counter, so they change on every request; the watchers read the PDF headers instead. Ley General del Ambiente (Decreto 104-93):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o lga.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Ley_general_del_ambiente.pdf
+```
+
+Returned `200 196631 application/pdf` (single column text layer, 912 lines kept); a second request returned the same bytes, sha256 `d7f90959d58eaa9a4c14cbb56f6f1f0006056312d7bdb19a04312f29ced6106c`, which is `fetched_sha256` of `records/HN/hn-lga/1993-07-20-adopted-es.json`. Text: `pdftotext -layout lga.pdf -`, runs of spaces collapsed to one, empty lines removed, nothing else (no page furniture is in this file). The file name was found as `Ley_General_del_Ambiente.pdf` as well (IIS is case-insensitive, same bytes).
+
+Gaceta files (Acuerdo Ejecutivo 016-2017, Decreto 54-2023) are single Gaceta pages in two columns with a masthead and a summary box on page 1, so `pdftotext -layout` interleaves the columns and default `pdftotext` mixes them at headings. They are read with `pdftotext -bbox-layout` (lines with coordinates): per page, lines whose left edge is left of the page middle are the left column and are read top to bottom, then the right column; lines on one row are joined; on page 1 the masthead lines and the right-column summary box (down to its line `Desprendible para su comodidad`) are dropped; running heads, page numbers (`A.`, `No. 36,370`, `La Gaceta`), the Empresa Nacional de Artes Gráficas address box and the names of its manager and supervisor are dropped. The decree text, the issuing-body line (`Poder Legislativo`) and the signatures are kept. Line breaks stay where the PDF has them, hyphenation stays. The script (stdlib plus poppler):
+
+```
+import re,subprocess,sys,html
+def lines(pdf):
+    out=subprocess.run(['pdftotext','-bbox-layout',pdf,'-'],capture_output=True,text=True).stdout
+    pages=re.split(r'<page ',out)[1:]
+    res=[]
+    for p in pages:
+        W=float(re.match(r'width="([\d.]+)"',p).group(1))
+        ls=[]
+        for m in re.finditer(r'<line xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</line>',p,re.S):
+            x0,y0,x1,y1,b=m.groups()
+            w=' '.join(html.unescape(x) for x in re.findall(r'>([^<]+)</word>',b))
+            ls.append((float(x0),float(y0),float(x1),w))
+        res.append((W,ls))
+    return res
+FURN=re.compile(r'^(Sección [AB] ?(Acuerdos y Leyes|Avisos Legales)?|REPÚB?LICA DE HONDURAS.*|No\. ?\d+,? ?\d* ?La ?Gaceta|No\. ?[\d,. ]+|La ?Gaceta|LaGaceta|A\.|B\.|\d{1,2}|A\. ?\d+|B\. ?\d+|EMPRESA NACIONAL DE ARTES GRÁFICAS|E\.N\.A\.G\.|DIARIO OFICIAL DE LA REPÚBLICA DE HONDURAS|DECANO DE LA PRENSA HONDUREÑA|PARA MEJOR SEGURIDAD DE SUS PUBLICACIONES|Colonia Mira.*|Teléfono/Fax.*|Administración: .*|Planta: .*|CENTRO CÍVICO GUBERNAMENTAL|Gerente General|Coordinador y Supervisor|Desprendible para su comodidad|\d+ +A\.|A\. +\d+)$')
+def text(pdf,page1_cut=None):
+    out=[]
+    for i,(W,ls) in enumerate(lines(pdf)):
+        mid=W/2-10
+        L=sorted([l for l in ls if l[0]<mid],key=lambda l:l[1])
+        R=sorted([l for l in ls if l[0]>=mid],key=lambda l:l[1])
+        for col in (L,R):
+            merged=[]
+            for l in sorted(col,key=lambda l:(l[1],l[0])):
+                if merged and abs(merged[-1][1]-l[1])<3 and not FURN.match(l[3].strip()) and not FURN.match(merged[-1][3].strip()):
+                    a=merged[-1]; merged[-1]=(a[0],a[1],l[2],a[3]+' '+l[3]) if a[0]<=l[0] else (l[0],l[1],a[2],l[3]+' '+a[3])
+                else: merged.append(l)
+            col=merged
+            for x0,y0,x1,w in col:
+                if i==0 and page1_cut and page1_cut(x0,y0,w): continue
+                if FURN.match(w.strip()): continue
+                out.append(w.strip())
+    return out
+if __name__=='__main__':
+    print('\n'.join(text(sys.argv[1])))
+
+# --- second file: page-1 cuts and entry point ---
+import re,sys
+sys.path.insert(0,'.')
+import gaceta
+MAST=re.compile(r'^(E ?MPRESA N ?ACIONAL.*|AÑO CX.*|(LUNES|MARTES|MIÉRCOLES|JUEVES|VIERNES|SÁBADO|DOMINGO) \d+ DE .*|NUM\. ?[\d,. ]+|NUM\. ?|SUMARIO|Sección [AB]|Decretos y Acuerdos)$')
+def run(pdf,extra_drop=()):
+    pages=gaceta.lines(pdf)
+    W,ls=pages[0]; mid=W/2-10
+    yend=max([l[1] for l in ls if l[0]>=mid and re.search(r'Desprendible|Avisos Legales|^B\. ?\d',l[3])] or [0])
+    def cut(x0,y0,w):
+        if MAST.match(w.strip()): return True
+        if x0>=mid and y0<=yend+15: return True
+        return any(re.search(p,w) for p in extra_drop)
+    return gaceta.text(pdf,cut)
+if __name__=='__main__':
+    print('\n'.join(run(sys.argv[1],sys.argv[2:])))
+```
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d54.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Decreto-54-2023.pdf
+curl -sS -L -A 'Mozilla/5.0' -o ac016.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.tsc.gob.hn/web/leyes/Reforma__regl-ley_general_del_ambiente.pdf
+```
+
+Returned `200 1119508 application/pdf` (16 pages, La Gaceta No. 36,370 of 2023-10-30; sha256 `b436a2ab092f71737a94109128015e11a68ab5298c492f5b78a477f35508d9bb` on two fetches; 774 lines, 26114 characters) and `200 212740 application/pdf` (2 pages, La Gaceta No. 34,554 of 2018-01-29; sha256 `ab6b18d6edf59f0eb41524ad1bb4e34ee7334d7ec96b10bc804bc9b7d4437955` on two fetches; 91 lines, 4221 characters). Both are static uploads (the `Last-Modified` of the first is 2023-11-29, of the Ley General del Ambiente 2012-03-01).
+
+Stored (fetched 2026-11-03):
+
+| Instrument | Row | Versions stored (`in_force`) |
+|---|---|---|
+| `hn-lga` | adopted | 1993-07-20 (computed: art. 111, twenty days after the publication of 1993-06-30) |
+| `hn-lga-reglamento-art112` | adopted | 2018-01-29 |
+| `hn-carbono-forestal` | adopted | 2023-10-30 |
+
+### Row `HN-CNBS-ADOPTED`: opened, nothing stored (`permission requested`)
+
+The circulars register is an application whose lists are plain HTML fragments. Search, year list and PDF all answered `curl` from the cloud address:
+
+```
+curl -sS -A 'Mozilla/5.0' -o s.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://circulares.cnbs.gob.hn/Home/Search?text=riesgo%20ambiental'
+curl -sS -L -A 'Mozilla/5.0' -o c028.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://circulares.cnbs.gob.hn/Archivo/Viewer/109/028-2020.pdf'
+```
+
+Returned `200 6900 text/html; charset=utf-8` (three results: Circular CNBS 028/2020, 021/2023, 008/2024) and `200 503741 application/pdf` (13 pages, clean text layer; sha256 `b0bc7730e92214147ac7c2223b74fccf3c424916e2b515cdf745c065b11c21bd`). The other two files: `Viewer/2603/021-2023%20REFORMA%20ARTICULA%20NORMA%20RIESGO.pdf` `200 773763 application/pdf` (3 pages) and `Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf` `200 796556 application/pdf` (3 pages). `HEAD` on these PDFs answers 405, so the watchers hash the file instead. Year lists come from `Home/CircularesYear?year=<yyyy>` (first 20 only). Resolución GRI No. 949/13-12-2021 is not in the register (the 2021 list has no circular on it). La Gaceta publication of the three resolutions is not shown by any page opened, so the row is `permission requested`; the three texts would be storable (clean layer) if the row is flipped.
+
+### Row `HN-JUNTEC-ADOPTED`: opened, nothing stored
+
+`juntec.org.hn` answers `406 226 text/html` to `-A 'Mozilla/5.0'` on the root and on `/en/`, and `200 100047 text/html; charset=UTF-8` to curl's default User-Agent. The PDF answers both:
+
+```
+curl -sS -o j.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf'
+```
+
+Returned `200 1851050 application/pdf` (3 pages, Adobe Scan for Android; sha256 `7f40cbca94def12401cbb3f93ff89c294bc15a714a673027c0ccb90508338a64`). The text layer is OCR output (`pdftotext -layout` 12,703 characters: "Oue", "COmo", "CONSIDERAND0", "NIIF SI" for S1, two columns interleaved), so it fails the garble check and the instrument is link only.
+
+### Languages
+
+Spanish is the only official language of legislation; every record has `language` es and no row was added for a second language. English was looked for and no government translation was found, at: `https://www.tsc.gob.hn/en/` (`404 138625 text/html`), `https://www.cnbs.gob.hn/en/` (`200 161986`, redirected to a Spanish survey page), `https://juntec.org.hn/en/` (`406 226`), `https://circulares.cnbs.gob.hn/en` (`405 0`), `https://congresonacional.hn/en/` (`404 74419`) and `https://serna.gob.hn/en/` (`406 226`). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| `hn-juntec-res-006-01-2025` | https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf | Row passes; the file is a scan with a garbled OCR layer (see above). |
+| `hn-ley-cambio-climatico` | https://www.tsc.gob.hn/biblioteca/index.php/leyes/595-ley-de-cambio-climatico | Row passes; `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Cambio%20Climatico.pdf` (`200 1197058 application/pdf`, 9 pages) is an image scan, `pdftotext` returns 9 characters; no OCR step. |
+| `hn-lga-reglamento` | https://www.tsc.gob.hn/biblioteca/index.php/reglamentos/83-reglamento-general-de-la-ley-del-ambiente | Row passes; `https://www.tsc.gob.hn/web/leyes/Reglamento_General_de_la_Ley_del_Ambiente.pdf` (`200 1453810 application/pdf`, 43 pages) has a legacy font encoding, `pdftotext` returns 88,680 characters of mojibake (`2 !"#$ %88`). |
+| `hn-ley-proteccion-consumidor` | https://www.tsc.gob.hn/biblioteca/index.php/leyes/68-ley-de-proteccion-al-consumidor | Row passes; `https://www.tsc.gob.hn/web/leyes/Ley%20de%20Protecci%C3%B3n%20al%20Consumidor.pdf` (`200 16219438 application/pdf`, 22 pages) is an image scan, `pdftotext` returns 22 characters. |
+| `hn-cnbs-norma-ras`, `hn-cnbs-norma-ras-art15`, `hn-cnbs-circ-008-2024` | https://circulares.cnbs.gob.hn/ (PDF links in the scope entries) | Row `HN-CNBS-ADOPTED` is `permission requested` (La Gaceta publication not shown). |
+
+Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page scan), Decreto 80-2020 (interpretation on lead-acid batteries, sanction line blank, waste imports), Decreto 75-2024 (telecom contracts, an amendment of the consumer law), Decreto 61-2024 (Ley de Conciencia y Acción Climática Comunitaria, TSC `https://www.tsc.gob.hn/web/leyes/Decreto%2061-2024.pdf`, 5 pages, begins inside the previous decree's signature block, so the Gaceta page layout is not column-orderly) and Decreto 36-2024 (Ley para Uso Racional y Eficiente de la Energía): the last two are enacted climate and energy laws on the TSC library that were not read to the end and are on the `## Next` list of the PR.
+
+### Blocked from the cloud address
+
+- `https://www.tsc.gob.hn/web/leyes/` (the directory index): `403 1233 text/html` to curl and to Chromium (IIS "Access is denied"). Its PDFs answer.
+- `https://www.miambiente.gob.hn/`, `https://miambiente.gob.hn`, `https://enag.hn`: `CONNECT tunnel failed, response 502` (Chromium `ERR_TUNNEL_CONNECTION_FAILED`). `https://serna.gob.hn/` answers 200 `56735` to curl's default User-Agent (title "SERNA") and `406` to `Mozilla/5.0`; it links no laws.
+- `https://www.congresonacional.hn/`: curl `SSL: no alternative certificate subject name matches target host name 'www.congresonacional.hn'`; Chromium `502 text/plain`. `https://congresonacional.hn/` answers `200 111281`; its only legislative pages are the dashboard and the bill list, no decree text.
+- `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
+- `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
+- Browser recipe: none needed; no record is browser-fetched.
+
+## Nicaragua
+
+Run on 2026-11-03 (GEL-14-04). One row passes, on a statute and not on site terms: `NI-LAGACETA-ADOPTED` (La Gaceta, Diario Oficial, https://www.lagaceta.gob.ni, run by the Secretaría Jurídica de la Presidencia). The statute is Ley 312 (Derecho de Autor y Derechos Conexos), Artículo 16, read in the consolidated text La Gaceta No. 232 of 2020-12-16: "No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores." (The brief says Ley 963 art. 16; the article is in Ley 312 as consolidated under Ley 1032, which Ley 963 orders published.) The site has no terms or copyright page. No row was added for the Asamblea Nacional portal, MARENA, SIBOIF or the Bolsa de Valores de Nicaragua (reasons below).
+
+An issue page of lagaceta.gob.ni is a PDF.js viewer whose PDF sits inside the HTML as one base64 string, `const pdfData = atob('JVBERi0x...')`. The slug comes from a title search of the issue list, `https://www.lagaceta.gob.ni/ediciones?page=1&search=<words of the title>` (title only, not content; slugs differ by year: `la-gaceta-n-120-miércoles-30-junio-de-2021`, `la-gaceta-nº-217-viernes-18-de-noviembre-de-2022`, `la-gaceta-no-217-lunes-25-de-noviembre-de-2024`). Proven fetch, Decreto 15-2021 (La Gaceta No. 120 of 2021-06-30):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o g120.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.lagaceta.gob.ni/la-gaceta-n-120-mi%C3%A9rcoles-30-junio-de-2021/'
+python3 -c "import re,base64;t=open('g120.html',encoding='utf8').read();open('g120.pdf','wb').write(base64.b64decode(re.search(r\"atob\('([A-Za-z0-9+/=]+)'\)\",t).group(1)))"
+```
+
+Returned `200 1330946 text/html; charset=utf-8`; the PDF is 611043 bytes, sha256 `57c19b1b8298dee5f1b722c454a1a907c740520abb75c44d563b9eff214900dc`, which is `fetched_sha256`. The page carries a per-request antiforgery token (the HTML hash changed between two requests, 4665f0dc... and 7c498f3c...), so the hash is of the decoded PDF, which a second fetch reproduced for all four issues below. Other issues fetched the same way: No. 62 of 2008-04-03 (`200 692329`, PDF 132120 bytes, sha256 `0bbde994dfb8aaafd42c4e8e2afa4df2bde97ae971eac9822f7cd027c66783ec`), No. 129 of 2013-07-11 (`200 805315`, PDF 216855, `59f8c2526c52a3cacdaef2db8b6a1bed8083bb4493203fbb6014bd9319424d1c`), No. 232 of 2020-12-16 (`200 2815825`, PDF 1724677, `96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe`, the statute copy), No. 105 of 1996-06-06 (`200 5771509`, PDF 3941486).
+
+Text extraction: poppler `pdftotext`. Decreto 15-2021 (single column) with `pdftotext -layout`, runs of spaces collapsed, empty lines dropped, from `DECRETO PRESIDENCIAL No. 15-2021` to the signature line after Art. 14; the running head (`30-06-2021 LA GACETA - DIARIO OFICIAL 120`), the page numbers (5847 to 5850) and the rule lines are dropped. Ley 647 and Ley 842 are two-column pages (the gazette head at the top, the page number centred at the foot), read per page as a left half then a right half: `pdftotext -f N -l N -x 0 -y 55 -W 306 -H 715 file.pdf -` then `-x 306`, joined page by page (default reading order mixes the columns); the centred page number is split by the crop, so lines made only of digits are dropped (54 of them for Ley 842, exactly two per page); line breaks stay where the PDF has them. Ley 647: pages 2 to 7 of the issue, from `ASAMBLEA NACIONAL DE LA` to `PRESIDENTE DE LA REPUBLICA DE NICARAGUA.`; articles 1 to 27. Ley 842: pages 2 to 28, from `ASAMBLEA NACIONAL` to `Saavedra, Presidente de la República de Nicaragua.`; articles 1 to 138 checked as an unbroken sequence. No U+FFFD in any record; the PDFs of 2008, 2013 and 2021 carry real text layers (TrueType fonts), no scan.
+
+### Languages
+
+Spanish is the official language of legislation; the Caribbean coast languages have no gazette edition. Every record has `language` es and no row of its own. English was looked for, no government translation found: `https://www.lagaceta.gob.ni/` (`200 81688 text/html`, Spanish only, no English page), `https://www.siboif.gob.ni/` (`200 214940 text/html; charset=utf-8`, Spanish only), `https://www.bolsanic.com/` (`200 143989 text/html; charset=UTF-8`, Spanish only). There is no translation row.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ni-ley-217 (Ley 217, Ley General del Medio Ambiente) | https://www.lagaceta.gob.ni/la-gaceta-n-105-jueves-06-de-junio-de-1996/ | Row passes, but the issue PDF is a 300 ppi bitonal scan with a machine OCR text layer with wrong words (`Arto. I.-`, `Marea Colectiva`); no OCR step is allowed yet, Varun decides. The consolidated text (Digesto Ley 1163, La Gaceta No. 217 of 2023-11-29) is a `descargables` file that needs a login (`Inicia sesión para poder visualizar este archivo`); no account was made. |
+
+Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 2023-09-27) and the Digesto consolidations of Ley 217 and Ley 842: same login wall on https://www.lagaceta.gob.ni/descargables (Gaceta 217 of 2023-11-29 is not in `/ediciones` either; issues 216 and 218 are). Gazettes 172 to 176 of September 2023 were read for an amending decree of 15-2021 (no hit on `15-2021`).
+
+### Blocked from the cloud address
+
+- `https://legislacion.asamblea.gob.ni/` and `/gacetas/2021/6/g120.pdf` (the Asamblea portal named in the brief): `curl: (35) Recv failure: Connection reset by peer`, the proxy logs `ws_closed_mid_exchange`; Chromium through the same proxy got `502 text/plain` (174 bytes). Three tries each. `http://legislacion.asamblea.gob.ni/` answered `404 215`.
+- `https://www.asamblea.gob.ni/` and `https://digesto.asamblea.gob.ni`: `403 text/html` (5665 and 5993 bytes) to `curl -A 'Mozilla/5.0'` and to Chromium.
+- `https://www.marena.gob.ni/` and `https://marena.gob.ni`: `curl: (60) SSL certificate problem: unable to get local issuer certificate`; the egress gateway issues its own certificate for the host and the upstream chain is not accepted; verification was not disabled. `http://www.marena.gob.ni` answers `301`. Chromium: `502`.
+- `https://www.presidencia.gob.ni`, `https://www.mhcp.gob.ni`, `https://www.nicaragua.gob.ni`, `https://www.cc.gob.ni`, `https://cambioclimatico.gob.ni`, `https://www.inetter.gob.ni`: `CONNECT tunnel failed, response 502`. `https://www.ineter.gob.ni`: certificate error as MARENA. `https://www.poderjudicial.gob.ni`: `SSL_ERROR_SYSCALL`.
+
+### Regulator and exchange pages
+
+`https://www.siboif.gob.ni/` opened (`200 214940`; the first request in the session was reset, later ones answered). Its marco jurídico pages (bancos, valores, seguros) have a title filter, `.../intendencia-bancos/marco-juridico?combine=<word>`: `ambiental`, `social`, `sostenible`, `clim`, `verde` return 0 rows each, so no SIBOIF norm on environmental and social risk or ESG was found; the page lists Ley 1061, the 2021 reform of Ley 842. No terms page was read, so no row. `https://www.bolsanic.com/` (a company): `/condiciones-de-uso` reserves all rights ("Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de dichos contenidos sin la autorización previa y por escrito de BVN"), and `/regulaciones/` and `/reglametos-y-circulares-de-bvn/` have no ESG text; no row.
+
+### Watchers
+
+`page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
+
+## Bolivia
+
+Run on 2026-11-03 from the cloud address (GEL-14-08). Every licence row for Bolivia is `permission requested` (BO-GACETA-ADOPTED, BO-ASFI-ADOPTED, BO-APMT-ADOPTED, BO-MMAYA-ADOPTED, BO-BBV-ADOPTED), so no row passes, no text is stored and there is no `records/BO/`. The requests below are the ones that work, recorded for the watcher and for a later permission; they are not `fetched_url` of any record. Spanish is the only language any source serves; no indigenous-language or English text exists on any page opened.
+
+### Proven requests (no row passes)
+
+Gaceta Oficial, plain HTTP only. `curl https://www.gacetaoficialdebolivia.gob.bo` fails from the cloud address with `curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`, and headless Chromium on the HTTPS URL answers HTTP 502 from the proxy. The HTTP site answers:
+
+- `curl -sS -A 'Mozilla/5.0' -L 'http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300'` returns 302 to `/normas/buscar/300`, then HTTP 200, 49953 bytes, `text/html`. The result lists Ley 300 of 15 October 2012 (edition 431NEC, Fecha de Publicación 2012-10-15) with the view path `/normas/verGratis_gob/141327`.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/verGratis_gob/141327'` returns HTTP 200, 228012 bytes, `text/html` (Ley 300 as HTML, footer "TEXTO DE CONSULTA"). The server is Apache/2.2.4 on PHP 5.2.3 and sets a `CAKEPHP` cookie; no challenge.
+- `curl -sS -A 'Mozilla/5.0' 'http://www.gacetaoficialdebolivia.gob.bo/normas/descargarPdf/141327'` returns HTTP 200, 945 bytes, `text/html`: a PHP fatal error from DOMPDF ("Requested HTML document contains no data"). The PDF route does not work; the Word route `/normas/verGratis_gob1/{id}` was not fetched.
+- Date search for an old norm: `curl -sS -A 'Mozilla/5.0' -c cj -b cj -L -d 'data[Gobierno][id_gobierno]=&data[TipoNorma][id_tipo_norma]=1&dc1=27-04-1992&dc2=31-12-1992&q=' 'http://www.gacetaoficialdebolivia.gob.bo/normas/busquedaFecha'` returns HTTP 200, 75339 bytes, `text/html`, 331 Leyes. Paging (`/normas/busquedag1/page:N`) depends on the session cookie and returned a different result set without it.
+- Title search: `.../normas/busquedag1?q=cambio+clim` returns HTTP 200, `text/html`, 19 norms (title and summary only; it does not search the text).
+
+ASFI (`www.asfi.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' -L 'https://www.asfi.gob.bo/sites/default/files/2025-08/Bolet%C3%ADn%2020%20-%20Junio%202013.pdf'` returns HTTP 200, 126856 bytes, `application/pdf`; `pdftotext -layout` gives clean text. It carries "ASFI-170 220/2013 19 de abril de 2013.- Aprueba y pone en vigencia el Reglamento de Responsabilidad Social Empresarial para las Entidades de Intermediación Financiera". The quarterly bulletins 58 (Dec 2022), 59 to 73 (Mar 2023 to Sep 2026) were read the same way (index pages `https://www.asfi.gob.bo/node/417` to `/node/433`). They are summaries of changes to the Recopilación, not the regulation text. Bulletins 1 to 73 were searched with `grep -i 'ambiental\|sostenib\|clim[aá]tic\|verde\|taxonom\|ESG\|riesgo social'`: the only hits are the green, social and sustainable bond rules (bulletin 58, 61), the Fondo de Inversión Sostenible (bulletin 73) and the RSE reglamento; no reglamento on environmental and social risk management exists in the Recopilación as of Boletín 73.
+
+APMT (`madretierra.gob.bo`, HTTPS works). `curl -sS -A 'Mozilla/5.0' 'https://madretierra.gob.bo/wp-content/uploads/2025/09/3.-LEY-300.pdf'` returns HTTP 200, 293824 bytes, `application/pdf` (sha256 8d6a6b2bfca8455825fb195fc4f50cfae12216dc9e2f390ec65f09fcc49e5826); `pdftotext -layout` gives clean text. Same folder: `4.-DS-1696.pdf`, `5.-DS-2389.pdf`, `Ley071.pdf`, `1.-CPE.pdf`. Its terms page is `https://madretierra.gob.bo/index.php/terminos-y-condiciones/` (200, 70842 bytes).
+
+### Languages
+
+Spanish (es) only. The Gaceta, ASFI and APMT serve Spanish; Bolivia's 36 indigenous languages are official but no gazette edition or page in them was found. No government English translation was found: looked for on the Gaceta (no language switch), ASFI and APMT; no translation row exists. Records stored: 0.
+
+### Link only
+
+- bo-asfi-rse-reglamento, bo-asfi-rmv-green-bonds, bo-asfi-revision-externa, bo-asfi-fondo-inversion-sostenible: BO-ASFI-ADOPTED is `permission requested` (the footer link `/terminos-y-condiciones` answers 404 on every ASFI page, so no terms exist to quote; an ASFI resolución is a state regulation but Ley 1322 has no exclusion of official texts). The regulation text sits on `servdmzw.asfi.gob.bo` and `wiki-normativa.asfi.gob.bo`, blocked from the cloud address.
+- bo-ley-300, bo-ds-1696, bo-ds-3549, bo-ds-5264, bo-ley-835, bo-ley-453: BO-GACETA-ADOPTED is `permission requested`. Resolución Ministerial 039/11 (terms_url) requires the Gaceta's prior authorisation to publish official legal texts, charges an arancel and refuses publications that generate profit; the footer reads "Derechos Reservados ©". APMT hosts Ley 300 and DS 1696 as PDF but its terms allow personal, non-commercial use only (BO-APMT-ADOPTED).
+- bo-ley-1333, bo-ds-24176: not served by the Gaceta archive (Ley 1333 of 1992 is missing between Leyes 1332 and 1334 of April and May 1992; the number search for DS 24176 returns 0 norms). The MMAyA site (BO-MMAYA-ADOPTED) is blocked from the cloud address. The scope `official_url` is the Gaceta page of a later decree that cites each one; it is not the text.
+- BO-BBV-ADOPTED: no BBV rule is in scope; the host is blocked.
+
+### Blocked from the cloud address
+
+- `https://www.gacetaoficialdebolivia.gob.bo/` (all paths): curl 35 SSL_ERROR_SYSCALL; Chromium 502. Plain HTTP works.
+- `https://www.bbv.com.bo`: curl 35 connection reset; Chromium 502.
+- `https://www.mmaya.gob.bo`: curl 35 connection reset; Chromium 502.
+- `https://servdmzw.asfi.gob.bo/circular/Textos/Indice.pdf` (also `/circular/Textos/`, `/`): curl 35 connection reset; Chromium 502.
+- `https://wiki-normativa.asfi.gob.bo/es/normativa/RNSF`: curl 56 CONNECT tunnel failed, response 502; Chromium ERR_TUNNEL_CONNECTION_FAILED.
+- `https://chuquisaca.oep.org.bo/wp-content/uploads/2018/06/Ley_1333.pdf` and `https://web.senado.gob.bo`: curl 55 / 000 through the proxy.
+
+No browser-fetched record exists. Watchers: `python3 tools/watch.py --dry-run --source BO-GACETA-ADOPTED` ran 8 watchers, 0 failures; `--source BO-ASFI-ADOPTED` ran 4, 0 failures; the APMT, MMAYA and BBV rows have no watcher (0 run).
+
 ## Liberia
 
 Run on 2026-11-03 (GEL-15-09). Two rows pass, both on the statute: `LR-EXECMANSION-ADOPTED` and `LR-EPA-ADOPTED`. The statute is the Liberia Intellectual Property Act, 2016, section 9.4 "Subject Matter Not Protected": "no protection shall extend under this Part to: ... b) any official legislative, judicial, or administrative text, including the Laws of the Government of Liberia, as well as any official translation thereof". It was read from the ARIPO copy (the WIPO Lex file link redirects to an HTML page from the cloud address):
