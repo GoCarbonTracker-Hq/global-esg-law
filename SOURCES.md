@@ -6062,3 +6062,38 @@ Arabic is the authentic language and the French edition is an official translati
 ### Blocked from the cloud address
 
 - `https://www.me.gov.dz`, `https://me.gov.dz`, `https://www.mem.gov.dz`: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer. The current ministry host was not confirmed. No law text is taken from a ministry site.
+
+## Madagascar
+
+GEL-13-06, run on 2026-11-03. No row passes, so nothing is stored. `MG-CNLEGIS-ADOPTED`, `MG-MEDD-ADOPTED` and `MG-CSBF-ADOPTED` are all `permission requested`: cnlegis.gov.mg shows only "© 2018 DIRCNLEGIS" and no terms page, environnement.mg shows no rights notice at all, and csbf.mg cannot be reached. The statute route is closed too: Loi n° 94-036 du 18 septembre 1995 on literary and artistic property (French text from WIPO Lex, `mg008fr_1.pdf`, sha256 `a3656e32...c69c4`) has no article excluding laws or official texts or their official translations. Article 4 protects "toutes les œuvres de l'esprit", Article 5 lists the protected works and none of its 15 items is an official-text exclusion, and the words "textes officiels", "actes officiels" and "textes législatifs" do not occur in the text. The Assemblée nationale copy (`assemblee-nationale.mg/wp-content/uploads/2020/11/Loi-n°-94-036-...pdf`) answers 403 to curl and to headless Chromium.
+
+Fetch routes proven for CNLEGIS (not used to store anything). The site is a session-based search: the first POST sets the query in the PHP session, the second returns it as JSON. Both calls must share one cookie jar.
+
+```
+curl -sS -c jar -b jar -A 'Mozilla/5.0' -X POST https://cnlegis.gov.mg/page_find_direct_mots_texte/ --data-urlencode 'txt_recherche=carbone forestier' -o /dev/null
+curl -sS -c jar -b jar -A 'Mozilla/5.0' -X POST https://cnlegis.gov.mg/page_data_result_direct_mots_texte -d 'var_pg_limit=0,50' -o s.json
+```
+
+The first returned `200 35278 text/html; charset=UTF-8`; the second `200 629357 application/json` with 12 rows, among them Décret 2025-626 (record id 56350). Each row has `date_txt`, `type_txt`, `num_txt`, `num_jo`, `date_jo`, `page_jo`, `etat_txt`, `html_fichier_fr`, `html_fichier_mg` (HTML of the text, or a stub with the link to the PDF), `version_pdf_fr`, `version_pdf_mg`. `var_pg_limit` is `offset,count`. PDFs:
+
+```
+curl -sS -A 'Mozilla/5.0' -o D2025-626-VF.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cnlegis.gov.mg/uploads/D2025-626-VF.pdf
+```
+
+Returned `200 803763 application/pdf` (sha256 `e054ad98d9f08fa42d0fc22db44e99a835400ebd3171a9993ca2cfc91260411b`). `pdftotext -layout` gives clean text (no mojibake). Loi 2015-003 and Loi 2015-014 exist only as HTML in `html_fichier_fr`; Décret 2024-1354 (`D2024-1354-VF%20(1).pdf`, `200 960207 application/pdf`) is a 3-page scan with no text layer (`pdftotext -layout` returns 78 bytes). No browser recipe was needed.
+
+### Languages
+
+Malagasy (mg) and French (fr) are the official languages. CNLEGIS serves both: `D2025-626-VM.pdf` returned `200 513753 application/pdf` (sha256 `0b14bdcc...6085`), `L2023-002-VM.pdf` and `D2024-1354-VM.pdf` exist; for Loi 2015-003 and Loi 2015-014 the Malagasy field is empty. Both would share the `MG-CNLEGIS-ADOPTED` row. The ministry copy of Décret 2025-626 (`https://www.environnement.mg/wp-content/uploads/2025/06/DRMCF-portant-sur-le-Decret-2025-626-relatif-a-la-regulation-de-l-acces-au-marche-du-carbone-forestier.pdf`) returned `200 1135050 application/pdf`. No government English translation was found for any of the five instruments (cnlegis search answers and the environnement.mg Textes et Loi page carry no English), so there is no translation row.
+
+### Link only
+
+| Instrument | Why |
+|---|---|
+| mg-investment-law-2023-002 | `MG-CNLEGIS-ADOPTED` permission requested (no terms, no statute exception). French and Malagasy PDFs open. |
+| mg-decret-2024-1354 | Same row; the PDF is a scan, so the content was not read. |
+| mg-charte-environnement-2015-003 | Same row; HTML only, no per-act URL. |
+| mg-decret-2025-626 | `MG-CNLEGIS-ADOPTED` and `MG-MEDD-ADOPTED` permission requested. |
+| mg-loi-2015-014 | Same row as the Charte; the brief's date 19 août 2015 is wrong, the official text says 10 août 2015. |
+
+Not in scope: the RSE manual (voluntary guidance, register row kept, `MG-MEDD-ADOPTED`), Décret 2021-1113 (repealed by Art. 103 of Décret 2025-626), the ratification acts for the Paris Agreement (Loi 2016-019, Décret 2016-1188) and Kyoto/Doha. The Décret 2014-1588 on the national climate committee is an F7 register row only; no climate framework act exists on CNLEGIS. Blocked from the cloud address: `https://www.csbf.mg` (`CONNECT tunnel failed, response 502` from curl, `getaddrinfo ENOTFOUND` from Chromium) and the Assemblée nationale PDF uploads (403). No CSBF sustainability instruction was found by web search.
