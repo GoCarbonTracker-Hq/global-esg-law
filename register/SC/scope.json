@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sc-cbs-climate-disclosure-guidelines",
+    "title": "Guidelines on Climate-related Financial Risks Disclosure (Central Bank of Seychelles)",
+    "official_url": "https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Climate-related_Financial_Risks_Disclosure.pdf",
+    "citation": "Central Bank of Seychelles, Guidelines on Climate-related Financial Risks Disclosures, Version 1.0, issued under section 4A(2)(b) of the Central Bank of Seychelles Act 2004",
+    "in_force": "2025-12-10",
+    "evidence": "Cover table of the PDF: \"Effective Date 10/12/2025 | 21:25 MUT\"; section 2.2: \"The Guidelines is applicable as of its date of publication.\" The PDF metadata gives CreationDate 2025-12-10 08:56:59 UTC (DocuSign), which fixes 10/12/2025 as 10 December; the file is served with Last-Modified 17 Dec 2025. Opened https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Climate-related_Financial_Risks_Disclosure.pdf on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "SC-CBS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The earlier register row said the publication date is not stated in the text; the cover table states it. Applies to the 'regulated institutions' (commercial banks, credit unions, non-bank credit institutions per the register row); requires climate disclosure in annual reports and reporting to CBS (sections 6 and 7). Companion guideline: sc-cbs-climate-risk-management-guidelines. Row SC-CBS-ADOPTED is permission requested (CBS Disclaimer allows short extracts only, rights reserved; the Copyright Act 2014 s.6 has no official-text exclusion), so no text is stored and the entry is link only. The PDF has a text layer (pdftotext -layout returns clean English); it is English only. French and Seychellois Creole are official languages of Seychelles but the Central Bank publishes no French or Creole version on the page opened (https://www.cbs.sc/Legislations.html). A guideline under the Central Bank Act is a state regulation, but the Copyright Act 2014 s.6 lists only ideas and data, news items and political or court speeches as unprotected, so the statute exclusion that applies in Switzerland has no Seychelles counterpart.",
+    "status": "link only"
+  },
+  {
+    "id": "sc-cbs-climate-risk-management-guidelines",
+    "title": "Guidelines on the Effective Risk Management of Climate-related Financial Risks (Central Bank of Seychelles)",
+    "official_url": "https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Effective_Risk_Management_of_Climate-related_Financial_Risks.pdf",
+    "citation": "Central Bank of Seychelles, Guidelines on the Effective Risk Management of Climate-related Financial Risks, Version 1.0, issued under section 4A(2)(b) of the Central Bank of Seychelles Act 2004",
+    "in_force": "2025-12-10",
+    "evidence": "Cover table of the PDF: \"Effective Date 10/12/2025 | 21:25 MUT\"; section 2.2: \"The Guidelines is applicable as of its date of publication.\" PDF CreationDate 2025-12-10 08:57:41 UTC; Last-Modified of the served file 17 Dec 2025. Opened https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Effective_Risk_Management_of_Climate-related_Financial_Risks.pdf on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "SC-CBS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Not in the brief or the register; found because the disclosure guideline says it 'shall be considered alongside' it. The cover table's Document Type reads 'Guidelines - Draft' while the same table gives an effective date and section 2.2 says it applies from publication; treated as issued, to be confirmed with CBS. Family F6 follows the register's other financial-sector climate-risk guidelines (Mauritius); F1 is the alternative. Companion: sc-cbs-climate-disclosure-guidelines. Row SC-CBS-ADOPTED is permission requested (CBS Disclaimer allows short extracts only, rights reserved; the Copyright Act 2014 s.6 has no official-text exclusion), so no text is stored and the entry is link only. The PDF has a text layer (pdftotext -layout returns clean English); it is English only. French and Seychellois Creole are official languages of Seychelles but the Central Bank publishes no French or Creole version on the page opened (https://www.cbs.sc/Legislations.html).",
+    "status": "link only"
+  },
+  {
+    "id": "sc-environment-protection-act",
+    "title": "Environment Protection Act (Cap 71)",
+    "official_url": "https://attorneygeneraloffice.gov.sc/index.php/resources/online-publications/laws-of-seychelles",
+    "citation": "Environment Protection Act, Act 9 of 1994 (S.I. 73 of 1994), Cap 71 of the Laws of Seychelles, 2010 Edition",
+    "in_force": "1995-03-01",
+    "evidence": "Footnote on page 447 of the 2010 Edition text of Cap 71: \"This Act has been brought into operation on 1st of March, 1995 (S.I. 73 of 1994)\". Read from the scanned PDF linked on the Attorney General's Laws of Seychelles page (Google Drive id 0B6eGHNJ2dbIdS3QtRWlZN184WkE, 95 pages, page images) on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SC-AGO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "The brief named 'Environment Protection Act, 2016 (Act 18 of 2016)'. The official 2010 Edition shows the Act is Act 9 of 1994, Cap 71; no 2016 Act of that name was found on the Attorney General page or on gazette.sc (which starts in 2020). The 2010 Edition text predates later amendments: the page lists update years 2011 to 2017 but the update files were not opened, and gazette.sc (2020 onward) lists no amending Act but lists subsidiary instruments under it (for example SI 38 of 2026, Environment Protection (La Digue Waste Disposal Sites) Notice 2026). Contents (arrangement of sections): standards, air, ozone protection, waste, hazardous substances, environmental impact assessment (s.15), enforcement, information to the Authority (ss.36-37). It sets no climate or GHG disclosure duty on the pages read. Family F2 follows the brief; the register treats other general environmental framework acts as F7, so the family is a call for Varun. Row SC-AGO-CONSOLIDATED is permission requested (footer 'Copyright © 2011 Attorney General Office'; the Copyright Act 2014 s.6 has no official-text exclusion), the text is scanned page images, and the page offers English texts only; so no text is stored and the entry is link only.",
+    "status": "link only"
+  },
+  {
+    "id": "sc-consumer-protection-act",
+    "title": "Consumer Protection Act, 2010 (Cap 257)",
+    "official_url": "https://attorneygeneraloffice.gov.sc/index.php/resources/online-publications/laws-of-seychelles",
+    "citation": "Consumer Protection Act, 2010, Act 30 of 2010, Cap 257 of the Laws of Seychelles, 2010 Edition",
+    "in_force": "2010-11-29",
+    "evidence": "Heading of Cap 257 in the 2010 Edition: \"CONSUMER PROTECTION ACT, 2010 [29th November, 2010]\", Act 30 of 2010. Read from the scanned PDF linked on the Attorney General's Laws of Seychelles page (Google Drive id 0B6eGHNJ2dbIdRl8teWxhN2R5bjQ, 122 pages, page images) on 2026-11-03.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SC-AGO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "The brief said Act 2 of 2010; the 2010 Edition says Act 30 of 2010. The bracketed date under the title is read as the commencement date by the convention of the Laws of Seychelles; no separate commencement notice was seen, so the date is one reading, not a stated sentence. Part IV (Unfair trade practices) contains s.30 misleading or deceptive conduct, s.31 misleading or deceptive conduct in relation to goods and services, s.32 false representations (arrangement of sections page 670); the Act has no environmental-claims provision, so it is the umbrella for green claims only. Part II sets up the Fair Trading Commission; ss.72 to 76 cover compliance notices, undertakings and orders. The text is the 2010 Edition; later amendments were not read. Row SC-AGO-CONSOLIDATED is permission requested and the text is scanned page images, so no text is stored and the entry is link only.",
+    "status": "link only"
+  }
+]
