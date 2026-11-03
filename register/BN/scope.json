@@ -1,0 +1,67 @@
+[
+  {
+    "id": "bn-ghg-directive-2023",
+    "title": "Directive on the Mandatory Reporting on Greenhouse Gas",
+    "official_url": "https://climatechange.gov.bn/Press%20Release/Press%20Release%20-%20Launching%20of%20the%20Directive%20on%20the%20Mandatory%20Reporting%20on%20Greenhouse%20Gas.pdf",
+    "citation": "Directive on the Mandatory Reporting on Greenhouse Gas, Brunei Climate Change Secretariat, Prime Minister's Office (launched 2023-04-27 per the existing register row; dated 2023-04-19 per the dispatch brief; neither date re-read on 2026-11-03)",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": "BN-CCS-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Not opened on 2026-11-03: climatechange.gov.bn fails TLS verification (certificate has expired) and answers plain http with 403; a fetch agent got 503. The earlier register row (read with curl -k in an earlier session) says all facilities that emit or remove GHG, government departments and private companies, report quarterly and annually from 2023, and that the press release says they 'are required to report'; the Directive text itself and its legal basis (the Secretariat's Mandate and Authority pages) were not read, so it is not confirmed that this is an enacted instrument rather than a council directive without statutory force. The brief asked for official_url to be replaced by the Secretariat's own PDF of the Directive under Shared Documents; that URL could not be found because the site would not open, so the press release URL stays. Row BN-CCS-ADOPTED is permission requested (terms unread), so no text is stored. English only expected; no Malay text looked for because the site did not open. No government English translation applies (the text is published in English).",
+    "status": "link only"
+  },
+  {
+    "id": "bn-epmo-2016",
+    "title": "Environmental Protection and Management Order, 2016 (S 63/2016); in the Laws of Brunei as the Environmental Protection and Management Act, Cap. 240",
+    "official_url": "https://www.agc.gov.bn/documents/environmental-protection-and-management-act/",
+    "citation": "Environmental Protection and Management Order, 2016 (S 63/2016), made under Art. 83(3) of the Constitution on 19 September 2016 and published in the Government Gazette of 12 October 2016; Laws of Brunei Cap. 240, Revised Edition 2022 (B.L.R.O. 7/2022)",
+    "in_force": null,
+    "evidence": "The Order (https://www.agc.gov.bn/wp-content/uploads/2026/07/S-63-2016-E-ENVIRONMENTAL-PROTECTION-AND-MANAGEMENT-ORDER-2016.pdf, opened 2026-11-03) has no commencement clause: s. 1 reads 'This Order may be cited as the Environmental Protection and Management Order, 2016. (2) This Order shall apply to the territory of Brunei Darussalam.' and the closing line reads 'Made this 17th. day of Zulhijjah, 1437 Hijriah corresponding to the 19th. day of September, 2016'. The AGC page https://www.agc.gov.bn/documents/environmental-protection-and-management-act/ lists '19 September 2016' in its Commencement Date column against the row 'Notification of appointment of Authority, GN 1004/2021', not against the Order, so no official page states the Order's own in-force date.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "BN-AGC-ADOPTED",
+      "BN-AGC-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework law: s. 7 general duty of every person to protect and manage the environment, s. 9 written notification of prescribed activities (Schedules 1 and 2), environmental impact assessment and audit provisions. It has no greenhouse gas, emissions reporting or sustainability disclosure duty (the word greenhouse does not occur; 'climate' occurs only in the definition of environment and 'carbon' only in 'carbonised' in Schedule 1). Binds the Government (s. 2). Link only: rows BN-AGC-ADOPTED and BN-AGC-CONSOLIDATED are permission requested (Government copyright, Emergency (Copyright) Order, 1999 s. 168, and no reuse grant on www.agc.gov.bn). Versions served by AGC: the Order as gazetted (S 63/2016) and Cap. 240 Revised Edition 2022; both are English only, and no Malay text was found on the AGC document page, in its wp-json record or by a guessed -M file name (404). The S 63/2016 PDF mixes text pages with scanned image pages (pages 2 and 4, which carry s. 1 to 3, are images with no text layer), so a pass would need OCR for those pages. The Authority is appointed by notification (GN 1004/2021); see also the Safety, Health and Environment National Authority Order, 2018 (S 56/2018), not in scope (an authority-establishing instrument). No implementing regulation is listed on the AGC page.",
+    "status": "link only"
+  },
+  {
+    "id": "bn-cpfto-2011",
+    "title": "Consumer Protection (Fair Trading) Order, 2011 (S 64/2011); in the Laws of Brunei as the Consumer Protection (Fair Trading) Act, Cap. 261",
+    "official_url": "https://www.agc.gov.bn/documents/consumer-protection-fair-trading-act/",
+    "citation": "Consumer Protection (Fair Trading) Order, 2011 (S 64/2011), made under Art. 83(3) of the Constitution; Laws of Brunei Cap. 261, Revised Edition 2023 (B.L.R.O. 5/2023)",
+    "in_force": "2012-01-01",
+    "evidence": "S 64/2011 s. 1(1): \"This Order may be cited as the Consumer Protection (Fair Trading) Order, 2011 and shall commence on 1st. day of January, 2012.\" (https://www.agc.gov.bn/wp-content/uploads/2026/07/S-64-2011-CONSUMER-PROTECTION-FAIR-TRADING-ORDER.-2011.pdf, opened 2026-11-03; the Gazette is dated 10 November 2011). The AGC page lists 1 January 2012 as the commencement of the Cancellation of Contracts and Opt-Out Practices Regulations.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BN-AGC-ADOPTED",
+      "BN-AGC-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "General unfair-practice rule, not an environmental claims rule. s. 4: it is an unfair practice for a supplier, in relation to a consumer transaction, '(a) to do or say anything, or omit to do or say anything, if as a result a consumer might reasonably be deceived or misled; (b) to make a false claim'; enforcement is by the consumer's civil action (s. 6), not a regulator. The words environment, green and sustainable do not occur in the Order. Umbrella for environmental claims only by general application. Subsidiary legislation on the AGC page: Cancellation of Contracts Regulations (Rg 1) and Opt-Out Practices Regulations (Rg 2), not in scope (no claims content). Amended by the Consumer Protection (Fair Trading) (Amendment) Order, 2015 (S 52/2015). Link only: rows BN-AGC-ADOPTED and BN-AGC-CONSOLIDATED are permission requested. Versions served by AGC: S 64/2011 and Cap. 261 Revised Edition 2023, English only; no Malay text found.",
+    "status": "link only"
+  },
+  {
+    "id": "bn-eesl-order-2021",
+    "title": "Energy Efficiency (Standards and Labelling) Order, 2021 (S 43/2021); in the Laws of Brunei as the Energy Efficiency (Standards and Labelling) Act, Cap. 233",
+    "official_url": "https://www.agc.gov.bn/documents/energy-efficiency-standards-and-labelling-act/",
+    "citation": "Energy Efficiency (Standards and Labelling) Order, 2021 (S 43/2021), Gazette of 30 October 2021, made under Art. 83(3) of the Constitution; Laws of Brunei Cap. 233, Revised Edition 2026 (1/2026)",
+    "in_force": null,
+    "evidence": "S 43/2021 s. 1(1): \"This Order may be cited as the Energy Efficiency (Standards and Labelling) Order, 2021 and shall commence on a date to be appointed by the Minister, with the consent of His Majesty the Sultan and Yang Di-Pertuan, by notification published in the Gazette.\" (https://www.agc.gov.bn/wp-content/uploads/2026/07/S-43-2021-E-ENERGY-EFFICIENCY-STANDARDS-AND-LABELLING-ORDER-2021.pdf, opened 2026-11-03). The appointing notification was not found; the AGC page lists 14 January 2023 as the commencement of the Amendment Order S 40/2023, the Minimum Energy Efficiency Standards and Energy Labelling Regulations S 37/2023 and the Registrable Goods Order S 38/2023, but states no date for S 43/2021 itself.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "BN-AGC-ADOPTED",
+      "BN-AGC-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Energy efficiency standards and labelling duties on suppliers of registrable goods (registration, minimum standards, labels). No greenhouse gas or disclosure duty (no occurrence of carbon, greenhouse, climate or emission in the Order). Subsidiary instruments on the AGC page (S 37/2023 Regulations, S 38/2023 Registrable Goods Order, S 40/2023 Amendment Order) are not separate entries: the Regulations and the Registrable Goods Order carry the operative standards and could be added as entries if wanted. Link only: rows BN-AGC-ADOPTED and BN-AGC-CONSOLIDATED are permission requested. Versions served by AGC: S 43/2021, Cap. 233 Revised Edition 2022 and Revised Edition 2026, English only; no Malay text found.",
+    "status": "link only"
+  }
+]
