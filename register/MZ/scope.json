@@ -1,0 +1,58 @@
+[
+  {
+    "id": "mz-aviso-6-gbm-2025",
+    "title": "Aviso n.º 6/GBM/2025, Directrizes de Gestão dos Riscos Climáticos (Climate Risk Management Guidelines)",
+    "official_url": "https://www.bancomoc.mz/media/clkjvoa5/aviso-n-%C2%BA-06-gbm-2025-directrizes-de-gesta-o-dos-riscos-clima-ticos.pdf",
+    "citation": "Banco de Moçambique Aviso n.º 6/GBM/2025 de 21 de Outubro, Boletim da República I Série n.º 201, pp. 1451-1452 (issued under Lei n.º 20/2020 Art. 90 n.º 2)",
+    "in_force": "2026-04-19",
+    "evidence": "Aviso n.º 6/GBM/2025 n.º 3: \"O presente Aviso entra em vigor 180 dias após a data da sua publicação.\" The gazette issue is dated \"Terça-feira, 21 de Outubro de 2025\" (I SÉRIE, Número 201). 2025-10-21 plus 180 days is 2026-04-19; the date is computed, no official page prints it. Opened the PDF on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "MZ-BANCOMOC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Credit institutions, financial companies and other institutions supervised by the Banco de Moçambique must integrate physical and transition climate risk into risk management (Arts. 3 to 13) and disclose governance, strategy, risk management and metrics in their market-discipline reports (Arts. 14 and 15, a TCFD-shaped list). Breach is a contravenção under Lei n.º 20/2020. The in_force date is computed from the 180-day clause (counting convention not stated in the text; the day after is possible) and is flagged for Varun's decision. The PDF is the whole Boletim issue (it also holds Aviso n.º 5 and n.º 7/GBM/2025, not in scope); the record is the Aviso only, cut from the PDF with pdftotext -layout on each of the two columns of pages 2 to 6, because the gazette is set in two columns and whole-page extraction interleaves them. Languages stored on 2026-11-03: pt. No government English translation found: looked for on the Banco de Moçambique English normatives page (https://www.bancomoc.mz/en/the-bank/normatives/, which links the same Portuguese PDFs) on 2026-11-03.",
+    "status": "stored"
+  },
+  {
+    "id": "mz-lei-20-97-ambiente",
+    "title": "Lei n.º 20/97 de 1 de Outubro, Lei do Ambiente (Environment Act)",
+    "official_url": "https://www.imprensanac.gov.mz",
+    "citation": "Lei n.º 20/97 de 1 de Outubro, Boletim da República I Série",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MZ-IMPRENSANAC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Link only: the Imprensa Nacional site refused the cloud address on 2026-11-03 (row MZ-IMPRENSANAC-ADOPTED is permission requested), so the text, its commencement clause and the page address were not read; official_url is the publisher's front page, not a page for this act. Citation and the instrument's existence rest on search results and on a gazette citing it (Decreto n.º 25/2011 invokes it). Environmental framework act; the Aviso n.º 6/GBM/2025 is not derived from it. Not stored: a copy on FAOLEX is an unofficial translation by a third party and gets no row. Looked for an official English translation: none found on an official page.",
+    "status": "link only"
+  },
+  {
+    "id": "mz-lei-22-2009-consumidor",
+    "title": "Lei n.º 22/2009 de 28 de Setembro, Lei de Defesa do Consumidor (Consumer Protection Act)",
+    "official_url": "https://www.imprensanac.gov.mz",
+    "citation": "Lei n.º 22/2009 de 28 de Setembro, Boletim da República I Série n.º 38 (Suplemento); regulated by Decreto n.º 27/2016 de 18 de Julho",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MZ-IMPRENSANAC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Link only: the Imprensa Nacional site refused the cloud address on 2026-11-03, so the text, the commencement clause and the publicidade enganosa provisions were not read; official_url is the publisher's front page. Named in the brief as the umbrella for environmental claims; whether it has an environmental-claims provision is unchecked. Publication data come from a search summary, not an official page. Not stored: the DLA Piper Africa PDF of the law is a law firm copy and gets no row. No government English translation found on an official page.",
+    "status": "link only"
+  },
+  {
+    "id": "mz-decreto-23-2018-redd",
+    "title": "Decreto n.º 23/2018 de 3 de Maio, Regulamento para a Implementação de Projectos de Redução de Emissões por Desmatamento e Degradação Florestal, Conservação e Aumento de Reservas de Carbono (REDD+ Regulation)",
+    "official_url": "https://www.imprensanac.gov.mz",
+    "citation": "Decreto n.º 23/2018 de 3 de Maio, Boletim da República I Série n.º 87 (approved by the Council of Ministers on 2018-04-10)",
+    "in_force": null,
+    "evidence": null,
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MZ-IMPRENSANAC-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Link only: the Imprensa Nacional site refused the cloud address on 2026-11-03, so no commencement clause was read; a UNEP LEAP summary says it takes effect on the day of publication, which is not an official page, so in_force stays null. The decree regulates REDD+ projects and is the enacted carbon instrument; the general Regulamento dos Mercados de Carbono is still a proposal (see register.csv, F7). A 2024 ministry presentation said the decree was still in force; whether a revised version has replaced it is unchecked. No government English translation found on an official page.",
+    "status": "link only"
+  }
+]
