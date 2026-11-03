@@ -6292,6 +6292,26 @@ Not entered: Loi L/2011/006/CNT (Code minier) with Loi L/2013/053/CNT, and Loi L
 - `https://journal-officiel.sgg.gov.gn/JO/...` with curl's default User-Agent: HTTP 403 text/html, 14304 bytes; answered with `-A 'Mozilla/5.0'`.
 - No URL needed a browser; no record is browser-fetched.
 
+### OCR pass 2026-11-03
+
+OCR allowed by Varun at 08:20Z on 2026-11-03 (GEL-04-12). The three link-only Guinea instruments all sit on rows that pass (`GN-MEDD-ADOPTED`, `GN-SGG-JO-ADOPTED`), so all three are stored; no row, verdict, instrument or watcher was added or changed. Setup and commands, run in a scratch directory:
+
+```
+apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-fra      # tesseract 5.3.4, tesseract-ocr-fra 1:4.1.0-2
+curl -sS -A 'Mozilla/5.0' -o code.pdf 'https://medd.gov.gn/file/2022/12/Code-de-lEnvironnement-du-04-juillet-2019-1.pdf'      # 200 16843143; sha256 4cb8255e5a30c4afe311e88b0b96e47b36e13730d6034d762017ec265bdd5f11 (reproduces the hash above)
+curl -sS -A 'Mozilla/5.0' -o loi94.pdf 'https://journal-officiel.sgg.gov.gn/textes-officiels/lois/1994/Guinee-Loi-1994-03.pdf'      # 200 2004653; sha256 47026be17dbff290bd3d9371221ff95f87ba3a60446f1182ffead7551e87491d
+curl -sS -A 'Mozilla/5.0' -o jo0723sp.pdf 'https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-07-sp.pdf'      # 200 15803332; sha256 3a5f71cf73e193400f42e224e9a4831184ac20421b8ed239394eb3b917e61fdb
+curl -sS -A 'Mozilla/5.0' -o jo0723.pdf 'https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-07.pdf'      # 200 10032382; sha256 46b0dc082fd203ec5a175a4b0bcd4205fb19fc2388d3864601ac3bb915facaac
+export OMP_THREAD_LIMIT=1      # without it three tesseract jobs on 4 cores did not finish a page in 5 minutes
+pdftoppm -r 200 -gray -png code.pdf c/p ; for f in c/p-*.png; do tesseract $f ${f%.png} -l fra; done      # same for loi94.pdf and jo0723sp.pdf
+```
+
+Each page text file was joined in page order with one line break (trailing line breaks of a page dropped, nothing else changed), and the result is the record `text`. The sha256 of the Code reproduces the one recorded earlier in this section; the other three PDFs had only their sizes recorded earlier, and the sizes match. The 200 dpi pass read every page, so no 300 dpi pass was needed.
+
+- `gn-code-environnement-2019`: all 45 pages (page 1 is the promulgation decree, pages 2 to 45 the Code, ending at Article 212 and the signature block). OCR text is clean French with occasional misreads (for example "aéroncef" for "aéronef"), kept as read.
+- `gn-loi-94-003-protection-consommateurs`: all 5 pages. The paper copy has damaged patches, so some words lose letters (for example "Redresseme t" for "Redressement"), kept as read.
+- `gn-arrete-2023-3256-comite-national-changements-climatiques`: the OCR of `guinee-jo-2023-07-sp.pdf` showed that this special issue (28 pages) holds the AMCG and KEBO decrees, an erratum and a message, and not this order; the earlier note that pages 4 to 23 hold it was wrong (they are the AMCG decree annex of coordinates). The SGG index links this order to the -sp issue, but the order is printed in the ordinary issue `guinee-jo-2023-07.pdf` (116 pages, born-digital, with a text layer; sommaire entry 765-767). It is stored from the text layer, not OCR, so the record has no `extraction` field. Pages 53 to 55 of the PDF, read one column at a time: `pdftotext -f 53 -l 53 -x 300 -y 45 -W 285 -H 760 jo0723.pdf -` from the line "ARRETE A/2023/3256" to the end of the column; `-f 54 -l 54` with `-x 20` then `-x 300`; `-f 55 -l 55 -x 20` up to the signature line "Madame Safiatou DIALLO" (the next order, A/2023/3257, follows on the same column and is cut). Runs of spaces collapsed to one and blank lines dropped, as in the earlier recipe. `in_force` is 2023-07-12 from Article 22 ("prend effet à compter de sa date de signature", "Conakry, le 12 juillet 2023"). The scope `official_url` and the register row URL now name the ordinary issue.
+
 ## Cape Verde
 
 Run on 2026-11-03 (GEL-13-10). One row passes: `CV-BOE-ADOPTED` (Imprensa Nacional de Cabo Verde, portal https://boe.incv.cv). The pass rests on the statute, Decreto-Legislativo n.º 1/2009 art. 10 b ("As leis e decisões dos órgãos judiciais e administrativos" are not protected), because the portal terms (https://boe.incv.cv/Documents/Index/7, item 6) forbid copying any content or digital format of the site without INCV authorisation. Varun to confirm that reading and the conflict with item 6. No other row was added: no regulator instrument was found (see the lists below).
