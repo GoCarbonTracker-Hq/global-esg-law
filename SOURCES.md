@@ -4294,3 +4294,44 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Russia
+
+Rows `RU-PRAVO-ADOPTED` (`pass`, statute basis: Civil Code Art. 1259 para. 6 item 1) and `RU-CBR-ADOPTED` (`permission requested`: cbr.ru says its information "cannot be considered an object for commercial use"). Run on 2026-11-03 (GEL-11-10). Nothing is stored for Russia: every instrument is link only. The reason is the form of the official text, not the licence. The publication portal serves each act as a scanned image PDF (CCITT, 300 dpi, no text layer), the repo has no OCR, and the portal's text-bearing consolidated section is not reachable from the cloud address. Language: Russian only (state language); Civil Code Art. 1259 para. 6 item 1 is the statute basis for law text on a state host, read at the ConsultantPlus copy of the Code because no official page carrying the Code could be opened.
+
+Step 1, row `RU-PRAVO-ADOPTED`: look up the publication number (`eoNumber`) of an act. Run for Federal Law No. 296-FZ:
+
+```
+curl -sS -G --data-urlencode 'Name=Об ограничении выбросов парниковых газов' --data-urlencode 'PageSize=30' -o q.json -w '%{http_code} %{size_download} %{content_type}\n' http://publication.pravo.gov.ru/api/Documents
+```
+
+Returned `200 925 application/json; charset=utf-8` (one item, `eoNumber` 0001202107020031, `pagesCount` 20). Parameters are documented at http://publication.pravo.gov.ru/help (`Name`, `Number`, `NumberSearchType`, `PublishDateFrom`, `PageSize`, `SortedBy`). Record metadata: `curl -sS -o d.json -w '%{http_code} %{size_download} %{content_type}\n' 'http://publication.pravo.gov.ru/api/Document?eoNumber=0001202107020031'` returned `200 1123 application/json; charset=utf-8`.
+
+Step 2, the act as published, Federal Law No. 296-FZ:
+
+```
+curl -sS -o fz296.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'http://publication.pravo.gov.ru/file/pdf?eoNumber=0001202107020031'
+```
+
+Returned `200 1063016 application/octet-stream` (PDF, 20 pages, sha256 `8feaa5a5fc5713a2ffbe387725b6f0ddc89398393ff659a8538984e5a0adb626`). Text check: `pdftotext -layout fz296.pdf - | tr -d '\f\n ' | wc -c` printed `0`, and `pdfimages -list fz296.pdf` shows one CCITT image per page at 300 dpi, so there is no text to extract. The same was found for 34-FZ (24 pages), Decrees 707 (36), 790 (16), 355 (10) and 1580 (12), and for Federal Law 330-FZ (2). The in-force clauses in the scope entries were read by rendering the PDF pages to images (`pdftoppm -r 75`) and reading them; they are quoted in each entry's `evidence`, not stored as records. No browser recipe was needed: the portal answers plain `curl` over http. `https://pravo.gov.ru/` and `https://publication.pravo.gov.ru/` (https) reset the connection through the proxy; use `http://`.
+
+Row `RU-CBR-ADOPTED` was not used for storage. Requests proven for reading only: `curl -sS -A 'Mozilla/5.0' -o in49.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.cbr.ru/StaticHtml/File/117620/20210712_in-06-28_49.pdf` returned `200 390999 application/pdf` (Information Letter IN-06-28/49 of 2021-07-12; sha256 `5305ded51ad38d2ca680d9e931ed4756a911598a7de882a8ab65dd4aa460e89b`; `pdftotext -layout` gives readable Cyrillic). Without the `-A` header www.cbr.ru answers a script with 403 (902 bytes). `curl -sS -A 'Mozilla/5.0' -o code.bin -w '%{http_code} %{size_download} %{content_type}\n' https://www.cbr.ru/Crosscut/LawActs/File/1249` returned `302 154 text/html; charset=utf-8` (a `server: ddos-guard` challenge). The headless Chromium request that works: a Playwright context opens `https://www.cbr.ru/`, waits 2 s, then `context.request.get('https://www.cbr.ru/Crosscut/LawActs/File/1249')` returned `200 318942 application/pdf` (Code of 2014, 10 pages, sha256 `98e02e14ed06a45fac6eb77474c601bbda87e4a36b7484635da9ebb25862acc8`). The Code PDF's text layer has legacy-font mojibake in headings (`pdftotext` prints `ÀÏÐÅËß` for `АПРЕЛЯ`), so it would need care before any storage. No browser-fetched record exists, so nothing here depends on the open decision on the New Zealand recipe.
+
+### Languages
+
+Russian is the state language and the only language the publication portal serves; no English page was opened there. The Bank of Russia English site search (`https://www.cbr.ru/eng/search/?text=corporate+governance+code` and a second one for non-financial disclosure, run in Chromium on 2026-11-03) returned no result for the letters. No translation row was made and no translation record exists. A translation by a law firm, an exchange or an NGO would never be stored.
+
+### Link only
+
+- `ru-fz-296-2021`, `ru-fz-34-2022`, `ru-gov-decree-707-2022`, `ru-gov-decree-790-2022`, `ru-gov-decree-355-2022`, `ru-gov-decree-1580-2025`: row `RU-PRAVO-ADOPTED` is `pass`, but the official PDF is a scan with no text layer and no OCR is available. Consolidated texts: `http://actual.pravo.gov.ru/` (section "Тексты правовых актов с внесенными изменениями", from 2022-07-01, labelled "provided for information") loads text from `http://actual.pravo.gov.ru:8000/api/ebpi/`, which timed out after 30 s with curl and with Chromium; no row was made for it.
+- `ru-cbr-in-06-28-49-2021`, `ru-cbr-cgc-2014`: row `RU-CBR-ADOPTED` is `permission requested`.
+- Not in scope, no official page opened from the cloud address: Federal Law No. 7-FZ of 2002 on Environmental Protection, Law No. 2300-1 of 1992 on Protection of Consumer Rights and Federal Law No. 38-FZ of 2006 on Advertising. The publication portal holds no act of those dates (search by number returned none), and pravo.gov.ru, kremlin.ru and government.ru were unreachable. Moscow Exchange listing rules: `https://www.moex.com/` answered 200 but no listing rule was opened, so no row and no entry. Carbon registry and climate project methodology on economy.gov.ru: unreachable (below); the portal copies are in scope instead (Decree 790).
+
+### Blocked from the cloud address
+
+- `https://pravo.gov.ru/` and `https://publication.pravo.gov.ru/`: connection reset by peer (curl 35); `http://publication.pravo.gov.ru/` works.
+- `http://actual.pravo.gov.ru:8000/api/ebpi/` and `https://actual.pravo.gov.ru:8000/...`: timeout (curl 28; Chromium navigation timeout 25 s).
+- `https://economy.gov.ru/`, `https://www.economy.gov.ru/`: curl 000; Chromium 502 "upstream request failed".
+- `http://kremlin.ru/`, `http://government.ru/`, `https://sozd.duma.gov.ru/`, `http://duma.gov.ru/`, `http://council.gov.ru/`, `https://minprirody.gov.ru/`, `https://regulation.gov.ru/`, `https://rosstat.gov.ru/`, `https://pravo-search.minjust.ru/bigs/portal.html`: curl 000 (connection fails).
+- `https://epp.genproc.gov.ru/ru/proc_16/activity/legal-education/explain/e5628393/` (the old register URL for 296-FZ): HTTP 400, 157 bytes.
+- `https://www.cbr.ru/` without a browser User-Agent: HTTP 403, 902 bytes. `https://www.cbr.ru/Crosscut/LawActs/File/{N}`: 302 DDoS-Guard challenge to curl; a browser request works.
