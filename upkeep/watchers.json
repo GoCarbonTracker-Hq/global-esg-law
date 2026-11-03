@@ -12510,5 +12510,45 @@
   "params": {
    "second_route": "https://ago.gov.to/cms/about/using-this-website.html (browser; the pass rests on Copyright Act 2002 s. 5(b), so a change here is a prompt to reread, not a failure; the footer carries the year, so the hash changes every January)"
   }
+ },
+ {
+  "id": "np-environment-protection-act-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-environment-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/9.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%90%E0%A4%A8%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AC_d91zo4v.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-environment-protection-rules-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-environment-protection-rules",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/8.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AD_jahaoua.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-carbon-trading-rules-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-carbon-trading-rules",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/Final%20%20Opmc%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AC%E0%A4%A8%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80-%E0%A5%A8%E0%A5%A6%E0%A5%AE%E0%A5%A8%208-11_2w5ukgo.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-consumer-protection-act-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/app/public/275/posts/1719394748_73.pdf",
+  "params": {}
  }
 ]

@@ -7922,3 +7922,37 @@ Returned `200 518913 application/pdf` (sha256 `c0a82553b0b9538550e54d9e944583ba5
 
 - https://meidecc.gov.to: `curl -sS https://meidecc.gov.to` fails with `curl: (60) SSL: no alternative certificate subject name matches target host name 'meidecc.gov.to'` (the server presents a certificate for `mail.pmg.gov.to`). TLS verification was not disabled. https://www.meidecc.gov.to: `curl: (56) CONNECT tunnel failed, response 502` (no DNS record from the cloud). The orchestrator can open both from the laptop, and look for the Climate Change Fund operational manual and the JNAP 2 file.
 - Nothing else refused the cloud address. No browser recipe was needed and no record is browser-fetched.
+
+## Nepal
+
+Fetched 2026-11-03 (GEL-16-05). Both licence rows, `NP-LAWCOMMISSION-CONSOLIDATED` and `NP-LAWCOMMISSION-TRANSLATION`, are `permission requested`, so there is no `pass` row, no record under `records/NP/` and no proven fetch for storing text. The requests below are the ones that answered, run only to read the instruments and to give the watchers a signal.
+
+### Reading the Law Commission
+
+- Terms: `curl -sS -L -o /dev/null -w "%{http_code} %{size_download} %{content_type}" https://lawcommission.gov.np/pages/terms-of-use/` returns `200 139557 text/html; charset=utf-8`. `/pages/disclaimer/` returns the same page text. The page holds the site navigation and footer only. `/copyright`, `/privacy-policy`, `/terms-and-conditions` return 404 and `/terms` returns no answer. The fingerprint recipe is in the row's `notes`.
+- Instrument pages (each links the PDFs): `curl -sS -L https://lawcommission.gov.np/content/12571/12571-the-environment-protection-act/` returns `200 138059 text/html; charset=utf-8`; `https://lawcommission.gov.np/content/12941/12941-environment-protection-regulat/` returns `200 135237 text/html; charset=utf-8`; `https://lawcommission.gov.np/content/13554/carbon-trading-rules--2082/` returns `200 135178 text/html; charset=utf-8`; `https://lawcommission.gov.np/content/12167/12167-the-consumer-protection-act-2/` returns `200 137840 text/html; charset=utf-8`.
+- Nepali PDFs (plain `curl -sS -L -o file.pdf URL`, no headers needed, all `200 application/pdf`): Environment Protection Act `https://giwmscdnone.gov.np/media/pdf_upload/9.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%90%E0%A4%A8%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AC_d91zo4v.pdf` (979902 bytes); Environment Protection Rules `https://giwmscdnone.gov.np/media/pdf_upload/8.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AD_jahaoua.pdf` (2801400 bytes); Carbon Trading Rules `https://giwmscdnone.gov.np/media/pdf_upload/Final%20%20Opmc%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AC%E0%A4%A8%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80-%E0%A5%A8%E0%A5%A6%E0%A5%AE%E0%A5%A8%208-11_2w5ukgo.pdf` (1555393 bytes); Consumer Protection Act `https://giwmscdnone.gov.np/media/app/public/275/posts/1719394748_73.pdf` (950134 bytes).
+- Copyright Act 2059 (for the statute check): `https://giwmscdnone.gov.np/media/app/public/275/posts/1720430485_41.pdf`, `200 812341 application/pdf`; section 4 is on page 6 and was read by OCR.
+- Text extraction tried: `pdftotext -layout file.pdf -` with runs of spaces collapsed. English PDFs extract cleanly. Nepali PDFs extract with wrong letters in part of the text (the Carbon Trading Rules give `ननयमावली` for `नियमावली`, the Environment Protection Act gives `मममत` for `मिति`). OCR is available: `apt-get install tesseract-ocr tesseract-ocr-nep` worked in the session and `pdftoppm -r 300 -f 6 -l 6 -png` followed by `tesseract p6-06.png p6 -l nep` read Copyright Act s. 4 correctly. `ocrmypdf` was not installed. No OCR record was made because no row passes.
+- Date conversion: Bikram Sambat dates were converted with the `nepali-datetime` Python package; it gives 2076.06.24 = 2019-10-11 and 2075.06.02 = 2018-09-18, the two dates the English PDFs state in Gregorian form.
+
+### Languages
+
+- English translations (Law Commission, second PDF on the instrument page, plain `curl`, `200 application/pdf`): Environment Protection Act `https://giwmscdnone.gov.np/media/app/public/275/posts/1721034076_86.pdf` (759076 bytes), Consumer Protection Act `https://giwmscdnone.gov.np/media/app/public/275/posts/1721033312_37.pdf` (584085 bytes). They state the date of authentication only and no amendment. The Environment Protection Rules and the Carbon Trading Rules pages link a Nepali PDF only.
+- Nepali is the only other language the Law Commission serves; there is no second official language on the site. Row `NP-LAWCOMMISSION-TRANSLATION` covers the English PDFs and is `permission requested` for the same reason.
+
+### Link only
+
+- `np-environment-protection-act`, `np-environment-protection-rules`, `np-carbon-trading-rules`, `np-consumer-protection-act`: row verdict `permission requested` (no published terms; Copyright Act 2059 s. 4 excludes court judgments and administrative decisions but names no Acts or rules).
+- Not in scope: NFRS S1 and S2 exposure drafts (kept proposed, register row only) and the Nepal Rastra Bank environmental and social risk guideline (F7 register row only); both publishers refused the cloud address.
+
+### Blocked from the cloud address
+
+- `https://www.nrb.org.np/`, `https://nrb.org.np`, `https://www.nrb.gov.np`: curl `(35) Recv failure: Connection reset by peer`; headless Chromium `502`.
+- `https://asbnepal.gov.np/`, `https://www.asbnepal.gov.np`: same reset; Chromium `502`; `http://asbnepal.gov.np` returns `503 114 text/plain` ("upstream connect error ... connection timeout").
+- `https://www.climatenepal.org.np/` and `https://www.climatenepal.org.np/resources/carbon-trading-regulation-2082-2025`: reset; Chromium `502`.
+- `https://repository.lawcommission.gov.np/`, `https://old.lawcommission.gov.np`: reset.
+- `https://www.nepalstock.com`, `https://nepalstock.com`: reset. `https://www.nepalstock.com.np` returns `200 2830 text/html` (an app shell with no law text).
+- `http://rajpatra.dop.gov.np/` (the Nepal Gazette): `503 114 text/plain`; `https://rajpatra.dop.gov.np/`: reset.
+- Browser recipe: Chromium was tried for the four blocked hosts above and gave the proxy's 502; no record is browser-fetched.
+- Watchers: `http_head` on the Nepali PDF of each instrument (`Last-Modified` is present). `giwmscdnone.gov.np` answers 403 on its root path but 200 on file paths, so no `second_route` was needed.
