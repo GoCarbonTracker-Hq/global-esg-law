@@ -7147,3 +7147,83 @@ Not scoped: Decreto 181-2007 (reform of the Ley General del Ambiente, a 4-page s
 - `https://consulta.enag.gob.hn/RegistroGacetaConsulta/` (the Empresa Nacional de Artes Gráficas gazette register): `200 3564 text/html`, a WaveMaker JavaScript shell; no request that returns a gazette issue was found, so whether La Gaceta issues are free online is not confirmed. `https://lagaceta.hn/` is a newspaper, not the gazette.
 - `https://www.pgr.gob.hn/`: `406 226` to `Mozilla/5.0` on the first try and `200 20095` on a later one with a longer Chrome User-Agent; not used.
 - Browser recipe: none needed; no record is browser-fetched.
+
+## Maldives
+
+Rows `MV-MVLAW-ADOPTED`, `MV-MVLAW-CONSOLIDATED`, `MV-AGO-TRANSLATION` and `MV-GAZETTE-ADOPTED` (`pass`, statute: Copyright and Related Rights Act 23/2010 s. 6(b), opened on mvlaw.gov.mv) and `MV-CMDA-ADOPTED` (`permission requested`). Run on 2026-11-03. None of the sites has a terms page: mvlaw.gov.mv, old.mvlaw.gov.mv, gazette.gov.mv and cmda.gov.mv carry only a copyright footer, so the first four rows rest on the statute alone. The statute reads "translations of such documents" without naming a translator; the translation row says so and Varun may overrule it. Stock exchange (stockexchange.mv, HTTP 200, footer "© 2026 Maldives Stock Exchange", no terms page) and the Maldives Monetary Authority (mma.gov.mv, an Angular shell; the rendered laws page lists no sustainability or climate item) serve no instrument in scope, so they get no row.
+
+### mvlaw.gov.mv (Dhivehi, rows `MV-MVLAW-ADOPTED` and `MV-MVLAW-CONSOLIDATED`)
+
+The portal is an Inertia application: the page HTML carries the whole law as JSON in its `data-page` attribute. Plain `curl` works from the cloud address; no browser is needed.
+
+```
+curl -sL -A 'Mozilla/5.0' -o page.html -w '%{http_code} %{size_download} %{content_type}\n' https://mvlaw.gov.mv/dv/legislations/156/consolidations/185
+```
+
+Returned `200 619618 text/html; charset=UTF-8` for the Climate Emergency Act (Law 9/2021, consolidation 185, number 0, row `MV-MVLAW-ADOPTED`). The consolidated row was proven on `https://mvlaw.gov.mv/dv/legislations/82/consolidations/815` (Environment Protection and Preservation Act after its 3rd amendment): `200 256710 text/html; charset=UTF-8`. Law 12/2020 (`/dv/legislations/147/consolidations/177`): `200 1038900 text/html; charset=UTF-8`.
+
+The record text is built from `props.sections` in that JSON with this stdlib script: the title of the law, then each section depth first as `<number> <title>` followed by its `content` with tags removed; `<br>` and closing block tags are line breaks, every other run of whitespace (the source hard-wraps its paragraphs) is one space; a subsection with no title gets its number (for example `(ހ)`) at the start of its first paragraph. Nothing is reworded.
+
+```
+import re,html,json
+def page(b): return json.loads(html.unescape(re.search(r'data-page="([^"]*)"',b.decode()).group(1)))
+def clean(s):
+    s=re.sub(r'(?i)<br\s*/?>','\0',s or ''); s=re.sub(r'(?i)</(p|div|li|tr|h\d)>','\0',s); s=html.unescape(re.sub(r'<[^>]+>','',s))
+    return [x for x in (re.sub(r'[\s ]+',' ',l).strip() for l in s.split('\0')) if x]
+def walk(secs,out):
+    for x in secs:
+        num=' '.join(clean(x.get('number'))); title=' '.join(clean(x.get('title'))); body=clean(x.get('content') or x.get('html') or '')
+        if title: out.append((num+' '+title).strip())
+        elif num and body: body[0]=num+' '+body[0]
+        elif num: out.append(num)
+        out.extend(body); walk(x.get('children') or [],out)
+    return out
+p=page(open('page.html','rb').read())['props']
+text='\n'.join([' '.join(clean(p['legislation']['title']))]+walk(p['sections'],[]))
+```
+
+`related_consolidations` in the same JSON lists every consolidation with its number (0 is the law as published, `kind` adopted; 1 and up are the amendments, `kind` consolidated), id and `implemented_at` (UTC; the record `in_force` is that instant plus five hours, the Maldives date). `fetched_url` is the consolidation page and `fetched_sha256` is the hash of the HTML as received. The HTML carries a per-request CSRF token, so a second fetch of the same URL (also `200 619618`) gave a different hash: the hashes do not reproduce, as with `## New Zealand`. The original gazette PDF of each law is linked as `original_document_url` (for Law 9/2021: `https://mvlaw.gov.mv/storage/uploads/Z76dOWlJ/ky7nw59m.pdf`, `200 613536 application/pdf`) and the portal's generated PDF at `/dv/legislations/<id>/consolidations/<id>/pdf` (`200 15756511 application/pdf` for Law 9/2021); `pdftotext` on the generated PDF returns one character and on the gazette PDF the Thaana order is broken, which is why the JSON is the source. The legislation list is `https://mvlaw.gov.mv/dv/legislations?page=<n>` (Inertia JSON with the header `X-Inertia: true`; 261 laws, 20 per page, the `search` parameter does not filter); regulations are only 10 entries under `/dv/categories/2`.
+
+### Languages
+
+Dhivehi (`dv`) is the only language the portal serves: `https://mvlaw.gov.mv/en/legislations/156/consolidations/185` returned `200 585386 text/html; charset=UTF-8` with the same Dhivehi sections and the JSON flag `enable_en` is `false`. English: the Attorney General's legacy site lists English translations of 15 Acts, none after 2006, at `https://old.mvlaw.gov.mv/ActEng.php` (`200 14569 text/html; charset=UTF-8`). The one used is Law 4/1993:
+
+```
+curl -sL -A 'Mozilla/5.0' -o Environment.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://old.mvlaw.gov.mv/pdf/translation/Environment.pdf
+pdftotext -layout Environment.pdf -
+```
+
+Returned `200 42177 application/pdf`; the text has runs of spaces collapsed to one and blank lines dropped (row `MV-AGO-TRANSLATION`; the PDF opens with "Act No: 4/1993 27-10-1413 AH 19-04-1993 AD", so it translates the as-published text and is stored at 1993-04-19, not against the three amended versions). `fetched_sha256` is the hash of the PDF and reproduces. No government English exists on the portal for Laws 9/2021 and 12/2020 (the English list holds only the repealed Law 1/1996 consumer act) and the ministry list `https://environment.gov.mv/en/legislation` links Dhivehi gazette PDFs only.
+
+### Government Gazette (row `MV-GAZETTE-ADOPTED`)
+
+```
+curl -sL -A 'Mozilla/5.0' -o ghg.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://storage.googleapis.com/gazette.gov.mv/docs/gazette/7772.pdf
+```
+
+Returned `200 466211 application/octet-stream` for Regulation 2026/R-58 (greenhouse gas data collection), byte-identical to the ministry copy (`https://media.environment.gov.mv/Regulation%20on%20Greenhouse%20Gas%20Data%20Collection.pdf`, `200 466211 application/pdf`, sha256 `2267a78574bdf41f694e1dfadccfa29be1f8c3f72f4df95057f006ebb5a70260`). Search: `https://www.gazette.gov.mv/gazette?type=gavaaidhu&q=<Dhivehi word>&page=<n>` (`200 81520 text/html; charset=UTF-8`, regulations; `type=usoolu` rules, `type=garaaru` decisions); the result links carry the item id. `https://www.gazette.gov.mv/gazette/7772` and `https://gazette.gov.mv/gazette/7772` answer `404`, so the PDF URL is the item.
+
+The text is not stored. `pdftotext ghg.pdf -` and `-layout` return Thaana with vowel signs displaced or dropped (the contents page prints މައުލޫމާތު as މައުލމާތު and ވޮލިއުމް as ވލިއުމް, with the signs alone on separate lines; 62 to 100 of about 400 to 600 non-empty lines are such fragments); `-raw` returns reversed character runs; `pdftoppm -r 300` plus `tesseract -l div --psm 6` (tesseract 5.3.4, language pack `tesseract-ocr-div`, installed with apt in the session) read the cover page as noise ("ގަވާޙދް ނަންބަރު 58¬¥/2026" and rows of isolated letters). The same garbling shows in `https://media.environment.gov.mv/EIA%20Regulation%202012.pdf` (`200 1699242 application/pdf`). No OCR record is stored, so the `extraction` field is not used and `check_corpus.py` / `publish_gate.py` were not exercised on it.
+
+### CMDA (row `MV-CMDA-ADOPTED`, `permission requested`)
+
+```
+curl -sL -A 'Mozilla/5.0' -o srf.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cmda.gov.mv/storage/uploads/QoQQQ1ov/hqr955hx.pdf
+```
+
+Returned `200 1344139 application/pdf` (Maldives Sustainability Reporting Framework, English). The Corporate Governance Code PDF `https://cmda.gov.mv/storage/uploads/24YE1Yey/4zzu4vft.pdf` returned `200 312775 application/pdf`. Both opened with `pdftotext -layout` for the scope entries; nothing is stored.
+
+### Link-only instruments
+
+| Instrument | Reason |
+|---|---|
+| `mv-srf` | Row `MV-CMDA-ADOPTED` is `permission requested` (copyright notice only); the statute exclusion is not applied to a CMDA framework. |
+| `mv-cmda-cg-code` | Same row. |
+| `mv-ghg-data-collection-regulation` | Row passes; the gazette PDF cannot be turned into text (see above). |
+| `mv-eia-regulation-2012` | Row passes; the PDF cannot be turned into text (see above). |
+
+### Blocked from the cloud address
+
+- `https://majlis.gov.mv/`: `403 5329 text/html; charset=UTF-8`, a Cloudflare "Just a moment..." challenge; headless Chromium timed out after 45 s on it and on `/dv/secretariate/regulations`.
+- `https://tourism.gov.mv/`: `403 5223 text/html; charset=UTF-8` to curl; Chromium timed out after 45 s.
+- `https://www.environment.gov.mv/`: curl error 35 (connection reset by peer) once, then `301` to `https://environment.gov.mv/en`, which answers `200` to curl; the legislation page `https://environment.gov.mv/en/legislation` is a JavaScript application and was read with headless Chromium (Playwright, `waitUntil: 'networkidle'` plus 2 s) as well as curl.
