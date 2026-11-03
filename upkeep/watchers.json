@@ -10075,6 +10075,219 @@
   }
  },
  {
+  "id": "dz-cosob-reg-25-04-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-ADOPTED",
+  "iso2": "DZ",
+  "instrument": "dz-cosob-reg-25-04",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/JO-ARABE/2026/A2026012.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-03-10-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-03-10",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2003/F2003043.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-04-09-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-04-09",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2004/F2004052.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-04-02-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-04-02",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2004/F2004041.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-loi-09-03-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-loi-09-03",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/2009/F2009015.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "dz-lf-1992-art117-joradp-issue-pdf",
+  "source_id": "DZ-JORADP-TRANSLATION",
+  "iso2": "DZ",
+  "instrument": "dz-lf-1992-art117",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.joradp.dz/FTP/jo-francais/1991/F1991065.pdf",
+  "params": {
+   "second_route": "none needed: joradp.dz answered scripts with 200 and no challenge; the issue PDF is static, so a change here means the gazette file was replaced. Amendments appear only in later issues: search the Journal Officiel at https://www.joradp.dz/HFR/Index.htm (browser, frame set, menu /SCRIPTS/Jo_Con.dll/Fr)"
+  }
+ },
+ {
+  "id": "mg-investment-law-2023-002-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-investment-law-2023-002",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/L2023-002-VF.pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03; the Last-Modified of the PDF moved to 2026-11-02, so it reflects file handling and not necessarily a text change"
+  }
+ },
+ {
+  "id": "mg-decret-2024-1354-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-decret-2024-1354",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/D2024-1354-VF%20(1).pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03"
+  }
+ },
+ {
+  "id": "mg-charte-environnement-2015-003-cnlegis-home",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-charte-environnement-2015-003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/",
+  "params": {
+   "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), which this watcher cannot send, so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43641"
+  }
+ },
+ {
+  "id": "mg-decret-2025-626-cnlegis-pdf",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-decret-2025-626",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/uploads/D2025-626-VF.pdf",
+  "params": {
+   "second_route": "none needed: curl answered 200 on 2026-11-03; the ministry copy is https://www.environnement.mg/wp-content/uploads/2025/06/DRMCF-portant-sur-le-Decret-2025-626-relatif-a-la-regulation-de-l-acces-au-marche-du-carbone-forestier.pdf"
+  }
+ },
+ {
+  "id": "mg-loi-2015-014-cnlegis-home",
+  "source_id": "MG-CNLEGIS-ADOPTED",
+  "iso2": "MG",
+  "instrument": "mg-loi-2015-014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cnlegis.gov.mg/",
+  "params": {
+   "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43919"
+  }
+ },
+ {
+  "id": "ga-ordonnance-019-2021-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-ordonnance-019-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/17690-019-2021/"
+ },
+ {
+  "id": "ga-loi-018-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-018-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19432-018-2022-/"
+ },
+ {
+  "id": "ga-decret-00291-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-00291-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19372-00291-pr-mefmepcpat-mer-/"
+ },
+ {
+  "id": "ga-decret-0054-2025-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-0054-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/21565-0054-pr-mecchf-/"
+ },
+ {
+  "id": "ga-loi-041-2025-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-041-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/22265-041-2025-/"
+ },
+ {
+  "id": "ga-loi-002-2026-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-002-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/22595-002-2026/"
+ },
+ {
+  "id": "ga-loi-007-2014-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-007-2014",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/6186-007-2014/"
+ },
+ {
+  "id": "ga-decret-0020-2022-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-decret-0020-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/19525-0020-pr-mefmepcpat-/"
+ },
+ {
+  "id": "ga-loi-14-98-jo-page",
+  "source_id": "GA-JO-ADOPTED",
+  "iso2": "GA",
+  "instrument": "ga-loi-14-98",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://journal-officiel.ga/10003-14-98/"
+ },
+ {
   "id": "gt-ley-marco-cambio-climatico-congreso-pdf",
   "source_id": "GT-CONGRESO-ADOPTED",
   "iso2": "GT",
