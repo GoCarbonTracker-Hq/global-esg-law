@@ -1,0 +1,114 @@
+[
+  {
+    "id": "mv-srf",
+    "title": "Maldives Sustainability Reporting Framework",
+    "official_url": "https://cmda.gov.mv/storage/uploads/QoQQQ1ov/hqr955hx.pdf",
+    "citation": "Capital Market Development Authority, Maldives Sustainability Reporting Framework, download page dated 10 October 2024 (https://cmda.gov.mv/en/downloads/maldives-sustainability-reporting-framework)",
+    "in_force": null,
+    "evidence": "Not stated as a date on an official page. The PDF (opened 2026-11-03, HTTP 200, application/pdf, 1344139 bytes) says: \"The framework is mandatory for listed companies in the Maldives Stock Exchange (MSE)\" and sets a pilot reporting phase from 2025 and mandatory metrics from 2026; the CMDA download page is dated 10 October 2024.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MV-CMDA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the CMDA row is permission requested (copyright notice, no reuse terms; the statute exclusion for official legal documents is not applied to a framework document). The legal hook is the Corporate Governance Code section 10 (mv-cmda-cg-code); the framework text itself says it was developed under the revised CMDA Corporate Governance Code of 2021. The Dhivehi regulation text the brief asked for was looked for in the Government Gazette (regulation, rule and decision types, queries for sustainability, governance, capital market and securities terms, 2026-11-03) and no gazetted sustainability reporting regulation exists in the results; CMDA's own regulation list https://cmda.gov.mv/en/regulations was not found to hold one either. English is the language of the CMDA PDF itself (language en in the register row); no Dhivehi version found on cmda.gov.mv/dv downloads.",
+    "status": "link only",
+    "status_note": "CMDA copyright notice, no reuse terms (permission requested)."
+  },
+  {
+    "id": "mv-cmda-cg-code",
+    "title": "CMDA Corporate Governance Code (CG Code), section 10 Sustainability Reporting",
+    "official_url": "https://cmda.gov.mv/en/downloads/corporate-governance-code",
+    "citation": "Capital Market Development Authority, Corporate Governance Code, revised on 28 September 2021; PDF https://cmda.gov.mv/storage/uploads/24YE1Yey/4zzu4vft.pdf",
+    "in_force": "2023-01-01",
+    "evidence": "Section 10 of the Code (PDF opened 2026-11-03, HTTP 200, application/pdf): \"Sustainability Reporting requirements will be mandatory effective from 1st January 2023.\" The Code's table of contents carries \"(ii) Sustainability Reporting (Mandatory effective 1st January 2023)\". The cover says \"Revised on 28th September 2021\".",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "MV-CMDA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: CMDA row is permission requested. The register row for the Sustainability Reporting Framework says the Code makes the framework mandatory for listed companies; the Code's own section 10 sets 2023 as the mandatory date, while the framework (mv-srf) schedules pilot reporting from 2025 and mandatory metrics from 2026. The download page says the Code was first published in 2008 and its applicability field is empty. Whether the Code is a regulation under the Securities Act is not stated on any page read; it was not found in the Government Gazette. English is the Code's only language on cmda.gov.mv.",
+    "status": "link only",
+    "status_note": "CMDA copyright notice, no reuse terms (permission requested)."
+  },
+  {
+    "id": "mv-climate-emergency-act",
+    "title": "Climate Emergency Act (Law No. 9/2021)",
+    "official_url": "https://mvlaw.gov.mv/dv/legislations/156/consolidations/185",
+    "citation": "Law No. 9/2021 (Climate Emergency Act), Government Gazette volume 50, issue 166, 18 May 2021",
+    "in_force": "2021-05-18",
+    "evidence": "Section 26 (Dhivehi): \"މި ޤާނޫނަށް ޢަމަލުކުރަން ފަށާނީ، މި ޤާނޫނު ފާސްވެ، ތަޞްދީޤުކޮށް، ދިވެހިސަރުކާރުގެ ގެޒެޓުގައި ޝާއިޢުކުރާ ތާރީޚުން ފެށިގެންނެވެ.\" (the Act takes effect from the date it is published in the Government Gazette). The gazette cover (original PDF https://mvlaw.gov.mv/storage/uploads/Z76dOWlJ/ky7nw59m.pdf, opened 2026-11-03) is dated Tuesday 18 May 2021 and the mvlaw page shows \"18 މޭ 2021\" as the implemented date.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "MV-MVLAW-ADOPTED",
+      "MV-MVLAW-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "One record, the text as published; the portal lists one consolidation (no amendments). The Act sets the 2030 carbon-neutral target in s. 4 and its reporting and carbon provisions are F3 content, which is why the implementing regulation (mv-ghg-data-collection-regulation) is a separate entry. The portal names the Ministry of Climate Change, Environment and Energy as the related institution. Languages stored on 2026-11-03: dv (the official language of legislation). English: looked for on 2026-11-03 at mvlaw.gov.mv/en (serves the same Dhivehi sections, enable_en false) and in the Attorney General's Office English list https://old.mvlaw.gov.mv/ActEng.php (Acts to 2006 only), and on the ministry page https://environment.gov.mv/en/legislation (its PDFs are the Dhivehi gazette copies); no government English text found. Ministry check: the environment portfolio sits in the Ministry of Climate Change, Environment and Energy (https://environment.gov.mv, opened with Chromium on 2026-11-03; curl gets a connection reset), so the brief's April 2026 re-establishment of a climate ministry is confirmed.",
+    "status": "stored"
+  },
+  {
+    "id": "mv-ghg-data-collection-regulation",
+    "title": "Regulation on Greenhouse Gas Data Collection (Regulation No. 2026/R-58)",
+    "official_url": "https://storage.googleapis.com/gazette.gov.mv/docs/gazette/7772.pdf",
+    "citation": "Regulation No. 2026/R-58, Government Gazette volume 55, issue 100, 25 June 2026 (gazette item 7772); under the Climate Emergency Act",
+    "in_force": "2026-06-25",
+    "evidence": "Section 20 (Dhivehi, PDF text opened 2026-11-03): \"މި ގަވާއިދަށް ޢަމަލުކުރަން ފަށާނީ، ދިވެހި ސަރުކާރުގެ ގެޒެޓުގައި މި ގަވާއިދު ޝާއިޢުކުރާ ތާރީޚުން ފެށިގެންނެވެ.\" (effective from the date it is published in the Government Gazette); the gazette cover is dated Thursday 25 June 2026 (10 Muharram 1448). The Ministry of Climate Change, Environment and Energy lists it as \"Regulation on Greenhouse Gas Data Collection, 2026/R-58, June 25, 2026\" (https://environment.gov.mv/en/legislation) and hosts the same file (byte-identical sha256 2267a785...).",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": "MV-GAZETTE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only although the Gazette row passes: pdftotext on the gazette PDF drops or displaces Thaana vowel signs (the table of contents prints މައުލޫމާތު as މައުލމާތު), and tesseract 5.3.4 with the div language pack read page 1 as noise, so no usable text exists to store and nothing is stored. The table of contents shows the Regulation covers the Ministry and sectoral working groups, stakeholders, the information to be provided and deadlines. Implements the Climate Emergency Act (mv-climate-emergency-act). The brief asked whether a carbon-credit regulation was gazetted: none found (Gazette queries ކާބަން, ކްލައިމެޓް and ވިހަ, 2026-11-03; ministry legislation list); only this data-collection regulation exists. English: looked for at environment.gov.mv/en/legislation and mvlaw.gov.mv/en; the ministry's file is the Dhivehi gazette copy.",
+    "status": "link only",
+    "status_note": "Gazette PDF text layer garbled (Thaana vowel signs displaced) and OCR unusable; no storable text."
+  },
+  {
+    "id": "mv-eppa",
+    "title": "Environment Protection and Preservation Act (Law No. 4/93), as amended",
+    "official_url": "https://mvlaw.gov.mv/dv/legislations/82/consolidations/815",
+    "citation": "Law No. 4/93, in force 19 April 1993; amended by Law 12/2014 (24 April 2014), Law 19/2021 (10 November 2021) and Law 23/2021 (28 November 2021)",
+    "in_force": "1993-04-19",
+    "evidence": "mvlaw.gov.mv shows the law as implemented \"19 އޭޕްރީލު 1993\" (consolidation 90, opened 2026-11-03), and the Attorney General's English translation (https://old.mvlaw.gov.mv/pdf/translation/Environment.pdf) opens with \"Act No: 4/1993 27-10-1413 AH 19-04-1993 AD\". The Dhivehi text carries no commencement section.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "MV-MVLAW-ADOPTED",
+      "MV-MVLAW-CONSOLIDATED",
+      "MV-AGO-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Four Dhivehi records, one per consolidation the portal exposes: 1993-04-19 (as published), 2014-04-24 (after the 1st amendment), 2021-11-10 (2nd), 2021-11-28 (3rd); the dates are the portal's implemented dates converted from UTC to Maldives time (UTC+5). English: one translation record under MV-AGO-TRANSLATION dated 1993-04-19: the Attorney General's translation states Act No. 4/1993 and 19-04-1993 AD and mentions no amendment, so it matches the as-published version only; no English of the three amended versions was found (looked for at mvlaw.gov.mv/en, old.mvlaw.gov.mv/ActEng.php and environment.gov.mv/en/legislation, whose PDFs are Dhivehi). The English row passes on the statute reading described in its notes (translations of official legal documents); Varun may overrule. The EIA Regulation is a separate entry (mv-eia-regulation-2012). Languages stored on 2026-11-03: dv, en.",
+    "status": "stored"
+  },
+  {
+    "id": "mv-eia-regulation-2012",
+    "title": "Environmental Impact Assessment Regulation (Regulation No. 2012/R-27), as amended",
+    "official_url": "https://media.environment.gov.mv/EIA%20Regulation%202012.pdf",
+    "citation": "Regulation No. 2012/R-27, Government Gazette volume 41, issue 81, 8 May 2012; amended eight times to 30 April 2026 (2013/R-18, 2015/R-174, 2016/R-66, 2017/R-7, 2018/R-131, 2025/R-81, 2026/R-14, 2026/R-30)",
+    "in_force": null,
+    "evidence": "Not read as a sentence: the gazette cover of the PDF (opened 2026-11-03) reads as scrambled Thaana in pdftotext, so no commencement clause could be quoted. The ministry list at https://environment.gov.mv/en/legislation gives \"EIA Regulation 2012, Regulation 2012/R-27, May 8, 2012\" as the date of the regulation, which is not stated to be the commencement date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MV-GAZETTE-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: the PDF text layer is scrambled (letters separated by spaces, vowel signs displaced), so no text could be stored, and the amended versions are gazetted amendments, not consolidations. Made under the Environment Protection and Preservation Act (mv-eppa). The Gazette row itself passes on the statute. English: looked for at environment.gov.mv/en/legislation and the Attorney General's list old.mvlaw.gov.mv/ActEng.php; none found.",
+    "status": "link only",
+    "status_note": "Gazette PDF text layer garbled; no storable text."
+  },
+  {
+    "id": "mv-consumer-protection-act",
+    "title": "Consumer Protection Act (Law No. 12/2020)",
+    "official_url": "https://mvlaw.gov.mv/dv/legislations/147/consolidations/177",
+    "citation": "Law No. 12/2020 (Consumer Protection Act), ratified 31 August 2020, replacing Law No. 1/96",
+    "in_force": "2021-02-28",
+    "evidence": "Section 88 (Dhivehi): \"މި ޤާނޫނަށް ޢަމަލުކުރަން ފަށާނީ، މި ޤާނޫނު ފާސްވެ ތަޞްދީޤުކޮށް، ދިވެހިސަރުކާރުގެ ގެޒެޓުގައި ޝާއިޢުކުރާތާ 6 (ހައެއް) މަސްދުވަސް ހަމަވާ ތާރީޚުން ފެށިގެންނެވެ.\" (six months after gazette publication); the portal shows the implemented date as \"28 ފެބްރުއަރީ 2021\" and the published date as \"31 އޯގަސްޓު 2020\" (opened 2026-11-03).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "MV-MVLAW-ADOPTED",
+      "MV-MVLAW-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "One record, the text as published; the portal lists one consolidation. The portal's implemented date is 2021-02-28, one day before the 2021-03-01 in the brief; the entry follows the portal. The Act is the umbrella for misleading claims; no environmental-claims rule is read out of it here. Languages stored on 2026-11-03: dv. English: the Attorney General's English list holds the repealed Consumer Protection Act of 1996 (Law 1/1996) only, not Law 12/2020; also looked for at mvlaw.gov.mv/en. No government English of Law 12/2020 found.",
+    "status": "stored"
+  }
+]

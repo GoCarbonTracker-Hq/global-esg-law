@@ -1,0 +1,48 @@
+[
+  {
+    "id": "kh-serc-prakas-034",
+    "title": "Prakas No. 034 on Sustainability Information Disclosure (ប្រកាសលេខ ០៣៤ អ.ស.ហ.ប្រក ស្តីពី ការបង្ហាញព័ត៌មានចីរភាព), Non-Bank Financial Services Authority",
+    "official_url": "https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=read&no=92",
+    "citation": "Prakas No. 034 (អ.ស.ហ.ប្រក) of the Non-Bank Financial Services Authority, made in Phnom Penh on 10 May 2024, on sustainability information disclosure (environmental, social and governance) by securities registrants",
+    "in_force": "2024-05-10",
+    "evidence": "Art. 11 (read on the page image of the scanned PDF, 2026-11-03): \"... ត្រូវទទួលបន្ទុកអនុវត្តប្រកាសនេះតាមភារកិច្ចរៀងៗខ្លួន គិតចាប់ពីថ្ងៃចុះហត្ថលេខាតទៅ\" (the officials named are responsible for implementing this Prakas, each in their duty, from the date of signature onward); the signature block reads \"ធ្វើនៅរាជធានីភ្នំពេញថ្ងៃទី ១០ ខែឧសភា ឆ្នាំ២០២៤\" (made in Phnom Penh on 10 May 2024), and the SERC entry title reads \"ចុះថ្ងៃទី១០ ខែឧសភា ឆ្នាំ២០២៤\". Art. 9 (OCR): registrants \"ត្រូវអនុវត្តប្រកាសនេះបន្ទាប់ពីរយៈពេល ២៤ (ម្ភៃបួន) ខែ គិតចាប់ពីកាលបរិច្ឆេទចុះហត្ថលេខាលើប្រកាសនេះ\" (must apply this Prakas after 24 months from the date of signature, so from 2026-05-10), with voluntary earlier application. Opened https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=download&no=92&file=2 on 2026-11-03.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "KH-SERC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Deviations from the brief: the PDF is a single prakas of the Non-Bank Financial Services Authority (NBFSA), signed by the Deputy Prime Minister and Minister of Economy and Finance as Chairman of the NBFSA council, not a joint prakas; no copy was found on mef.gov.kh (403 Cloudflare challenge) or nbfsa.gov.kh (proxy 502). The number is handwritten on the first page and reads ០៣៤ on the image (OCR returns noise there); the SERC entry title prints ០៤, so that title carries a typo or a different reading. The title in the PDF is ការបង្ហាញព័ត៌មានចីរភាព, sustainability information disclosure. in_force is the signature date (Art. 11); the duty to apply starts 2026-05-10 (Art. 9, 24 months from signature); Art. 2 lets registrants on the growth market apply it voluntarily; Art. 6 puts the Table ក information in an annex of the annual report and Table ខ items are optional (Art. 5). Not read in detail: the contents of Tables ក and ខ, so no claim is made here about which GHG scopes the tables require. One record, Khmer, 2024-05-10: the SERC PDF is a 12-page scan with no text layer (pdftotext returns noise), so the text is uncorrected OCR output of a scanned official PDF (tesseract 5.3.4, language khm, 300 dpi, page segmentation mode 6); errors in the OCR text (dropped or swapped Khmer letters, noise in the letterhead and tables) are stored as produced. No English version: the SERC English prakas board (30 entries, opened 2026-11-03) has no sustainability prakas,. Implementing guidance 61/25 (24 October 2025) is a register row with law_family F7. Amendments: none seen on the SERC prakas board.",
+    "status": "stored"
+  },
+  {
+    "id": "kh-enr-code",
+    "title": "Environment and Natural Resources Code (ក្រមបរិស្ថាន និងធនធានធម្មជាតិ), Royal Kram promulgated 29 June 2023",
+    "official_url": "https://moe.gov.kh/index/50787",
+    "citation": "Code on Environment and Natural Resources (12 books, 865 articles), adopted by the National Assembly on 30 May 2023, approved by the Senate on 13 June 2023, promulgated at the Royal Palace on 29 June 2023 (Royal Kram; the number is not printed in the English text read)",
+    "in_force": null,
+    "evidence": "Art. 865 (English PDF, https://www.moe.gov.kh/wp-content/uploads/2024/07/Code-on-Environment-and-Natural-Resources.pdf, opened 2026-11-03): \"This Code shall be applicable one (1) year after its entry into force.\" The same file ends \"Roya Palace, 29 June 2023\" and states no entry-into-force date; Art. 864 abrogates the 1996 Law on Environmental Protection and Natural Resource Management, the 2008 Law on Protected Areas and the 2008 Law on Biosafety \"from the date of the application of this Code\". No official page opened gives the entry-into-force or application date, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "KH-MOE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only. The Khmer PDF at https://www.moe.gov.kh/wp-content/uploads/2024/07/%E1%9E%80%E1%9F%92%E1%9E%9A%E1%9E%98%E1%9E%94%E1%9E%9A%E1%9E%B7%E1%9E%9F%E1%9F%92%E1%9E%90%E1%9E%B6%E1%9E%93%E1%9E%93%E1%9E%B7%E1%9E%84%E1%9E%92%E1%9E%93%E1%9E%92%E1%9E%B6%E1%9E%93%E1%9E%92%E1%9E%98%E1%9F%92%E1%9E%98%E1%9E%87%E1%9E%B6%E1%9E%8F%E1%9E%B7_%E1%9E%86%E1%9F%92%E1%9E%93%E1%9E%B6%E1%9F%86%E1%9F%A2%E1%9F%A0%E1%9F%A2%E1%9F%A3.pdf (200, 17645744 bytes, application/pdf, 228 pages) is a scan: pdftotext returns 228 characters for 228 pages. OCR was not run because a record needs a dated in_force and no official page gives one; a record dated 2023-06-29 (promulgation) is possible if Varun accepts that date for a code whose entry-into-force date is unstated. The English PDF (320 pages, text layer, sha256 eb4c2ca51e2bd747458e3aa91d9d652e6f14640c41e5de67746b3cc841f89dfe) says \"English translation supported by the United Nations Environment Programme (UNEP) under supervision by the Ministry of Environment\"; its row KH-MOE-TRANSLATION is permission requested, so no English is stored. Contains a climate change section (the Code is the only climate-related instrument above prakas level found; no climate framework act exists on the pages read, see register row for the Climate Change Strategic Plan 2024-2033). Implementing sub-decrees and prakas under the Code were not read.",
+    "status": "link only",
+    "status_note": "Applicable one year after entry into force (Art. 865); the entry-into-force date is not stated on the official pages opened."
+  },
+  {
+    "id": "kh-consumer-protection-law",
+    "title": "Law on Consumer Protection (ច្បាប់ស្តីពីកិច្ចការពារអ្នកប្រើប្រាស់), Royal Kram NS/RKM/1119/016",
+    "official_url": "https://www.ccfdg.gov.kh/wp-content/uploads/2021/02/Khmer_Law-on-Consumer-Protection.pdf",
+    "citation": "Law on Consumer Protection, Royal Kram No. NS/RKM/1119/016, made in the Royal Palace on 2 November 2019 (adopted by the National Assembly 8 October 2019, reviewed by the Senate 18 October 2019)",
+    "in_force": "2019-11-02",
+    "evidence": "English PDF published by CCF (https://www.ccfdg.gov.kh/wp-content/uploads/2021/01/1-20191102_Law-on-Consumer-Protection.pdf, opened 2026-11-03): \"Article 51: This law shall be declared as urgent.\" and \"Made in the Royal Palace, 02 November 2019\". The law has no other commencement clause, so the promulgation date is read as the first in-force date (a law declared urgent takes effect on promulgation).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "KH-CCF-ADOPTED",
+      "KH-CCF-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Umbrella for misleading claims (Arts. 9 to 12 and 18: false or misleading representation; Art. 12 leaves further misleading representations to a prakas of the Minister of Commerce, none read). The law has no provision on environmental or green claims (the only 'environment' in the English text is 'business environment' in the objectives). Languages stored on 2026-11-03: km (adopted, uncorrected OCR output of a 17-page scanned official PDF: tesseract 5.3.4, language khm, 300 dpi, page segmentation mode 6, errors stored as produced) and en (translation record under KH-CCF-TRANSLATION: the English PDF CCF publishes on its English law page; it states no amendment state, so the message says so). The date rests on the urgency clause, not on an 'in force on' sentence; Varun to confirm. No later consolidation or amendment was seen on the CCF law pages.",
+    "status": "stored"
+  }
+]
