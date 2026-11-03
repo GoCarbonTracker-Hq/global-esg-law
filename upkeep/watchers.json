@@ -12750,5 +12750,504 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.mongolbank.mn/en/p/1601"
+ },
+ {
+  "id": "kh-serc-prakas-034-serc-prakas-board",
+  "source_id": "KH-SERC-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-serc-prakas-034",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=list&no=0"
+ },
+ {
+  "id": "kh-enr-code-moe-code-page",
+  "source_id": "KH-MOE-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-enr-code",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moe.gov.kh/index/50787"
+ },
+ {
+  "id": "kh-consumer-protection-law-ccf-laws-page",
+  "source_id": "KH-CCF-ADOPTED",
+  "iso2": "KH",
+  "instrument": "kh-consumer-protection-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ccfdg.gov.kh/en/laws-regulations/laws/"
+ },
+ {
+  "id": "la-decree-climate-change-321-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-climate-change-321",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/321%E0%BA%A5%E0%BA%9A2019.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=1544 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-decree-carbon-credits-292-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-carbon-credits-292",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/292.%2028.5.2025.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2380 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-agreement-forest-carbon-4565-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-agreement-forest-carbon-4565",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/4565.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2272 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-law-environmental-protection-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-law-environmental-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/53%20%E0%BA%81%E0%BA%BB%E0%BA%94%E0%BB%9D%E0%BA%B2%E0%BA%8D%20%E0%BA%A7%E0%BB%88%E0%BA%B2%E0%BA%94%E0%BB%89%E0%BA%A7%E0%BA%8D%E0%BA%81%E0%BA%B2%E0%BA%99%E0%BA%9B%E0%BA%BB%E0%BA%81%E0%BA%9B%E0%BA%B1%E0%BA%81%E0%BA%AE%E0%BA%B1%E0%BA%81%E0%BA%AA%E0%BA%B2%E0%BA%AA%E0%BA%B4%E0%BB%88%E0%BA%87%E0%BB%81%E0%BA%A7%E0%BA%94%E0%BA%A5%E0%BB%89%E0%BA%AD%E0%BA%A1%20%28%E0%BA%AA%E0%BA%B0%E0%BA%9A%E0%BA%B1%E0%BA%9A%E0%BA%9B%E0%BA%B1%E0%BA%9A%E0%BA%9B%E0%BA%B8%E0%BA%87%2928-6-2024.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2312 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-decree-eia-389-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-decree-eia-389",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/389%E0%BA%A5%E0%BA%9A20.10.2022.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2008 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-law-consumer-protection-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-law-consumer-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/Protecting%20consumers%20Law%20.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=545 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-agreement-green-label-1888-gazette-pdf-head",
+  "source_id": "LA-GAZETTE-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-agreement-green-label-1888",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://laoofficialgazette.gov.la/kcfinder/upload/files/1888.pdf",
+  "params": {
+   "second_route": "https://laoofficialgazette.gov.la/index.php?r=site/display&id=2277 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "la-lsc-guideline-gss-bonds-06-lsc-pdf-head",
+  "source_id": "LA-LSC-ADOPTED",
+  "iso2": "LA",
+  "instrument": "la-lsc-guideline-gss-bonds-06",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.lsc.gov.la/Doc_legal/Scan2024-08-20_06%20(1).pdf",
+  "params": {
+   "second_route": "https://www.lsc.gov.la/legislation/guideline.php?page=1 (browser; the site resets some requests during the TLS handshake from the cloud address, a retry succeeds; the page lists the instrument and its PDF)"
+  }
+ },
+ {
+  "id": "mv-srf-watch",
+  "source_id": "MV-CMDA-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-srf",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cmda.gov.mv/storage/uploads/QoQQQ1ov/hqr955hx.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-cmda-cg-code-watch",
+  "source_id": "MV-CMDA-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-cmda-cg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cmda.gov.mv/storage/uploads/24YE1Yey/4zzu4vft.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-climate-emergency-act-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-climate-emergency-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/156/consolidations/185",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "mv-ghg-data-collection-regulation-watch",
+  "source_id": "MV-GAZETTE-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-ghg-data-collection-regulation",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://storage.googleapis.com/gazette.gov.mv/docs/gazette/7772.pdf",
+  "params": {}
+ },
+ {
+  "id": "mv-eppa-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-eppa",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/82/consolidations/815",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "mv-eia-regulation-2012-watch",
+  "source_id": "MV-GAZETTE-ADOPTED",
+  "iso2": "MV",
+  "instrument": "mv-eia-regulation-2012",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://media.environment.gov.mv/EIA%20Regulation%202012.pdf",
+  "params": {
+   "second_route": "https://environment.gov.mv/en/legislation (browser; the ministry page answers curl with a connection reset, and it lists the eight EIA Regulation amendments that this PDF watcher cannot see)"
+  }
+ },
+ {
+  "id": "mv-consumer-protection-act-watch",
+  "source_id": "MV-MVLAW-CONSOLIDATED",
+  "iso2": "MV",
+  "instrument": "mv-consumer-protection-act",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://mvlaw.gov.mv/dv/legislations/147/consolidations/177",
+  "params": {
+   "regex": "&quot;implemented_at&quot;:&quot;(\\d{4}-\\d{2}-\\d{2})T"
+  }
+ },
+ {
+  "id": "bt-environmental-assessment-act-2000-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-environmental-assessment-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/8aaa.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-national-environment-protection-act-2007-pdf",
+  "source_id": "BT-MOENR-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-national-environment-protection-act-2007",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.moenr.gov.bt/wp-content/uploads/2017/07/National-Environment-Protection-Act-of-Bhutan-2007-EN.pdf",
+  "params": {
+   "second_route": "https://www.moenr.gov.bt/?page_id=941 (browser; the Acts, Rules and Regulations, Policies, Guidelines page lists the PDF)"
+  }
+ },
+ {
+  "id": "bt-waste-prevention-management-act-2009-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-prevention-management-act-2009",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/5cec.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-waste-regulation-2012-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-regulation-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/272",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-waste-amendment-regulation-2016-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-waste-amendment-regulation-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/271",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-carbon-markets-rules-2023-pdf",
+  "source_id": "BT-MOENR-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-carbon-markets-rules-2023",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.moenr.gov.bt/wp-content/uploads/2017/07/Carbon-Market-Rules_FINAL.pdf",
+  "params": {
+   "second_route": "https://www.moenr.gov.bt/?page_id=941 (browser; the page lists the PDF); https://www.nec.gov.bt/ did not answer the cloud address (connection reset) on 2026-11-03"
+  }
+ },
+ {
+  "id": "bt-green-tax-rules-2024-item",
+  "source_id": "BT-OAG-CONSOLIDATED",
+  "iso2": "BT",
+  "instrument": "bt-green-tax-rules-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/241",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-corporate-governance-csr-regulations-item",
+  "source_id": "BT-OAG-CONSOLIDATED",
+  "iso2": "BT",
+  "instrument": "bt-corporate-governance-csr-regulations",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/238",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-act-2012-pdf",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-act-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/storage/documentcopies/7e68.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-rules-2015-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-rules-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/83",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "bt-consumer-protection-revision-regulations-2022-item",
+  "source_id": "BT-OAG-ADOPTED",
+  "iso2": "BT",
+  "instrument": "bt-consumer-protection-revision-regulations-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.bt/api/p/delegated-legislation/87",
+  "params": {
+   "second_route": "https://legislation.gov.bt/ (browser; hash-routed Angular app, open Legislations or Delegated Legislations and search the title)"
+  }
+ },
+ {
+  "id": "kg-climate-law-104-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-climate-law-104",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230050082",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/230050082/edition/57539/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-ghg-emission-law-71-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-ghg-emission-law-71",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-3550",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-3550/edition/725202/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-env-protection-law-53-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-env-protection-law-53",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-205",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-205/edition/11538/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-air-protection-law-51-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-air-protection-law-51",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-203",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-203/edition/10665/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-res-133-2026-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-res-133-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=7-52416",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/7-52416/edition/48613/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-res-133-regulation-2026-cbd-document",
+  "source_id": "KG-MINJUST-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-res-133-regulation-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=230042004",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/230042004/edition/48624/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-consumer-rights-law-90-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-consumer-rights-law-90",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-556",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-556/edition/44233/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-advertising-law-155-cbd-document",
+  "source_id": "KG-MINJUST-CONSOLIDATED",
+  "iso2": "KG",
+  "instrument": "kg-advertising-law-155",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cbd.minjust.gov.kg/api/v1/GetDocument?DocumentCode=4-150",
+  "params": {
+   "second_route": "https://cbd.minjust.gov.kg/4-150/edition/40301/kg (browser; cbd.minjust.gov.kg closes the connection without an answer to the watcher User-Agent and to curl and urllib User-Agents, and answers the same API URL with 200 to User-Agent \"Mozilla/5.0\"; it also answered one request with 403 \"Forbidden / Transaction ID\")"
+  }
+ },
+ {
+  "id": "kg-kse-esg-guide-kse-pdf-head",
+  "source_id": "KG-KSE-ADOPTED",
+  "iso2": "KG",
+  "instrument": "kg-kse-esg-guide",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.kse.kg/files/files/ESG_Guide_KSE_ru.pdf",
+  "params": {}
+ },
+ {
+  "id": "tj-green-taxonomy-res-170-nbt-ru-pdf",
+  "source_id": "TJ-NBT-ADOPTED",
+  "iso2": "TJ",
+  "instrument": "tj-green-taxonomy-res-170",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://nbt.tj/files/suboti-moliyavi/2026/4.%20%D0%A2%D0%90%D0%9A%D0%A1%D0%9E%D0%9D%D0%9E%D0%9C%D0%98%D0%AF%20-%D0%94%D0%98%D0%9F%2020.02.26-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9.pdf",
+  "params": {
+   "second_route": "https://nbt.tj/ru/suboti-moliyavi/stable-financing/index.php (browser; the page links the Russian and Tajik PDFs, and the Adlia record https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=173098 shows the resolution)"
+  }
+ },
+ {
+  "id": "tj-env-code-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-env-code",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=174541",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=174541 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-env-protection-2011-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-env-protection-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=167018",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=167018 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-consumer-rights-2004-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-consumer-rights-2004",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=25626",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=25626 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
+ },
+ {
+  "id": "tj-law-advertising-2003-adlia-page",
+  "source_id": "TJ-ADLIA-CONSOLIDATED",
+  "iso2": "TJ",
+  "instrument": "tj-law-advertising-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585",
+  "params": {
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+  }
  }
 ]

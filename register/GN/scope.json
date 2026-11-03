@@ -10,9 +10,8 @@
     "duty_on": "private_sector",
     "source_row": "GN-MEDD-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Environmental framework act, family F2 (the register row carried F4 and is now F2). Article 211 repeals Ordonnance N° 045/PRG/87 du 28 mai 1987 portant Code de l'environnement. Link only: the MEDD PDF is a 45-page image scan (HTTP 200, 16843143 bytes, pdftotext returns only the 45 page-break characters) and no OCR tool is installed in the cloud session and OCR output would not be the file's own text. The gazette text was not found: the SGG instrument index lists the Code as published in JO 2019-12-27-sp, but the PDF served at that address (8 pages) does not contain it, and the JO 2019-07 ordinary issue is a scan. The in_force date is the promulgation date, not the 04 juillet 2019 adoption date the register carried. Implemented by gn-arrete-2022-1646-evaluations-environnementales and gn-arrete-2023-1595-evaluations-environnementales. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
-    "status": "link only",
-    "status_note": "Image-only scan on the MEDD site; no text layer and no OCR used (none installed in the cloud session). Gazette copy not found."
+    "notes": "Environmental framework act, family F2 (the register row carried F4 and is now F2). Article 211 repeals Ordonnance N° 045/PRG/87 du 28 mai 1987 portant Code de l'environnement. Stored from the MEDD scan (HTTP 200, 16843143 bytes, no text layer). The text is uncorrected OCR output of a scanned official PDF (tesseract 5.3.4, language pack fra from tesseract-ocr-fra 1:4.1.0-2, pdftoppm at 200 dpi, all 45 pages, page 1 the promulgation decree then the Code, pages in order), stored as read with no correction. The gazette text was not found: the SGG instrument index lists the Code as published in JO 2019-12-27-sp, but the PDF served at that address (8 pages) does not contain it, and the JO 2019-07 ordinary issue is a scan. The in_force date is the promulgation date, not the 04 juillet 2019 adoption date the register carried. Implemented by gn-arrete-2022-1646-evaluations-environnementales and gn-arrete-2023-1595-evaluations-environnementales. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
+    "status": "stored"
   },
   {
     "id": "gn-arrete-2022-1646-evaluations-environnementales",
@@ -46,17 +45,16 @@
   {
     "id": "gn-arrete-2023-3256-comite-national-changements-climatiques",
     "title": "Arrêté A/2023/3256/MEDD/CAB/SGG du 12 juillet 2023 portant attributions, organisation et fonctionnement du Comité National sur les changements climatiques",
-    "official_url": "https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-07-sp.pdf",
+    "official_url": "https://journal-officiel.sgg.gov.gn/JO/2023/guinee-jo-2023-07.pdf",
     "citation": "Arrêté A/2023/3256/MEDD/CAB/SGG du 12 juillet 2023 (Journal officiel 2023-07)",
-    "in_force": null,
-    "evidence": "SGG instrument index entry (opened 2026-11-03): \"Arrêté A/2023/3256/MEDD/CAB/SGG du 12 juillet 2023 portant attributions, organisation et fonctionnement du Comité National sur les changements climatiques (Publié au JO 2023-07)\". The JO 2023-07-sp PDF is image-only on pages 4 to 23, so no commencement clause was read and in_force is null.",
+    "in_force": "2023-07-12",
+    "evidence": "Article 22 as printed in JO 2023-07 (116-page ordinary issue, opened 2026-11-03): \"Le Présent Arrêté qui prend effet à compter de sa date de signature, sera enregistré et publié au Journal Officiel de la République.\" followed by \"Conakry, le 12 juillet 2023\"; the signature date is the in-force date.",
     "law_family": "F2",
     "duty_on": "state_only",
     "source_row": "GN-SGG-JO-ADOPTED",
-    "verification": "official_page_seen",
-    "notes": "Institutional order for the national climate committee; the closest thing to a climate framework instrument found (no climate framework act exists on the official pages searched). The SGG index lists an earlier Arrêté A/2021/187/MEEF/CAB/SGG du 01 mars 2021 on the same committee (JO 2021-03); whether A/2023/3256 replaces it was not read. Link only: scan without text layer, no OCR used (none installed in the cloud session). No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
-    "status": "link only",
-    "status_note": "Pages are an image scan in the gazette issue; no text layer and no OCR used (none installed in the cloud session)."
+    "verification": "official_text_seen",
+    "notes": "Institutional order for the national climate committee; the closest thing to a climate framework instrument found (no climate framework act exists on the official pages searched). The SGG index lists an earlier Arrêté A/2021/187/MEEF/CAB/SGG du 01 mars 2021 on the same committee (JO 2021-03); whether A/2023/3256 replaces it was not read. Record text is the order's own text in pages 53 to 55 of the PDF of the ordinary issue JO 2023-07 (gazette pages 765 to 767), read column by column from the heading to the signature line; this PDF has a text layer, so no OCR was used (the PDF listed earlier, guinee-jo-2023-07-sp.pdf, which the SGG index links, is a special issue of 28 scanned pages that holds only decrees and does not contain this order, so it was OCRed at 200 dpi to check and not used). The printed article 21 says 'Décret' for 'Arrêté' and the preamble misspells 'Enviroonement'; both are stored as printed. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
+    "status": "stored"
   },
   {
     "id": "gn-loi-2024-002-publicite",
@@ -83,8 +81,7 @@
     "duty_on": "private_sector",
     "source_row": "GN-SGG-JO-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Consumer protection act (chapter I: economic freedoms, consumer rights and duties of economic operators; Article 4 duties of operators who put a product or service on the market). Article 3 (last paragraph, partly damaged) says products and services must meet a general duty of fairness so as not to mislead the consumer or distort competition. It does not name environmental claims. The SGG index search result for it shows no 'Abrogé par' line, and the index lists Décret D/94/015 of 14 février 1994 (Conseil national de la consommation) as its implementing decree (the decree cites it as L/93/003/CTRN) and Loi L/94/040/CTRN du 28 décembre 1994 on competition and price freedom (not in scope). Link only: scan with no text layer and no OCR used (none installed in the cloud session). The brief's 'Loi L/2016/?' consumer law was not found; the SGG index searches for 'consommateurs' and 'concurrence' returned no later consumer law. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
-    "status": "link only",
-    "status_note": "Image-only scan; no text layer and no OCR used (none installed in the cloud session)."
+    "notes": "Consumer protection act (chapter I: economic freedoms, consumer rights and duties of economic operators; Article 4 duties of operators who put a product or service on the market). Article 3 (last paragraph, partly damaged) says products and services must meet a general duty of fairness so as not to mislead the consumer or distort competition. It does not name environmental claims. The SGG index search result for it shows no 'Abrogé par' line, and the index lists Décret D/94/015 of 14 février 1994 (Conseil national de la consommation) as its implementing decree (the decree cites it as L/93/003/CTRN) and Loi L/94/040/CTRN du 28 décembre 1994 on competition and price freedom (not in scope). Stored from the scan (5 pages, no text layer, parts of the page damaged so the OCR has gaps and misreads). The text is uncorrected OCR output of a scanned official PDF (tesseract 5.3.4, language pack fra from tesseract-ocr-fra 1:4.1.0-2, pdftoppm at 200 dpi, all 5 pages, in order), stored as read with no correction. The brief's 'Loi L/2016/?' consumer law was not found; the SGG index searches for 'consommateurs' and 'concurrence' returned no later consumer law. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
+    "status": "stored"
   }
 ]
