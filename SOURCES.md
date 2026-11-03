@@ -5595,3 +5595,68 @@ None of the eight instruments in `register/UZ/scope.json` is link only. Sources 
 - Lex.uz itself reset the connection now and then when requests came faster than about one per second (`curl: (35) ... Connection reset by peer`); the fetches ran at one request per 1.2 s with retries.
 
 Candidates dropped or not reached: Resolution of the President No. PP-436 of 2 December 2022 (green economy programme, 11 editions, amended by PP-213), Cabinet Resolution No. 800 of 30 November 2024 (Concept of the transparency system, a plan) and Resolution No. PP-343 of 18 November 2025 (National Committee on Ecology and Climate Change) are on Lex.uz and were not added; the Law of 25 May 2000 No. 73-II On Environmental Expertise is out of force from 2025-08-25 (replaced by ZRU-1036).
+
+## Côte d'Ivoire
+
+Run on 2026-11-03 (GEL-12-06). Two rows pass: `CI-MINETE-ADOPTED` (terms: the gouv.ci mentions légales put the site content under a licence ouverte that allows copying, modifying and exploiting with the source named) and `CI-PNCC-ADOPTED` (statute: Loi 2016-555 art. 10 excludes official legislative and administrative texts; pncc.ci has no terms page). `CI-BRVM-ADOPTED`, `CI-AMF-UMOA-ADOPTED`, `CI-DGTCP-ADOPTED` and `CI-SGG-ADOPTED` are `permission requested`. The brief's Ministry host `www.environnement.gouv.ci` redirects to `environnement.gouv.ci` and opens from the cloud address. The one gazette publisher, `sgg.gouv.ci`, did not open (see Blocked below). Language: French only (the official language of legislation).
+
+Text extraction: `pdftotext file.pdf -` (default reading order, not `-layout`: the Code de l'environnement PDF has two columns and `-layout` interleaves them line by line), form feeds dropped, runs of spaces collapsed to one, blank lines dropped. Both stored PDFs carry a text layer (the Code is a typeset PDF, the Décret 2024-658 scan carries its own OCR layer, whose slips such as "DECRET W" are kept). `fetched_sha256` is the hash of the PDF as received; a second fetch gave the same hash for both files.
+
+Row `CI-MINETE-ADOPTED`, Décret n° 2024-658 (the file name comes from the list `https://environnement.gouv.ci/publications/sous-categorie/36`; Lois et Ordonnances is `34`, Arrêtés `35`):
+
+```
+curl -sS -L -o d658.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://environnement.gouv.ci/uploads/publications/177332351911.pdf
+```
+
+Returned `403 199 text/html; charset=iso-8859-1`: the Ministry's server refuses a script without a browser User-Agent. With the header:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o d658.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://environnement.gouv.ci/uploads/publications/177332351911.pdf
+```
+
+Returned `200 1984522 application/pdf`. Code de l'environnement (`.../177332357270.pdf`): `200 11682393 application/pdf`. `upkeep/watchers.json` uses `tools/watch.py`'s own User-Agent, which the server accepts (HEAD and GET both 200), so no browser recipe is needed. The list pages ignore a `?page=` value.
+
+Row `CI-PNCC-ADOPTED`, Loi n° 2025-528 (file names come from `https://pncc.ci/page/textes-juridiques?page=1` to `4`, 31 documents):
+
+```
+curl -sS -L -o loi528.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf
+```
+
+Returned `200 7248237 application/pdf`. `pdftotext loi528.pdf -` returns 20 bytes: the 20 pages are JPEG images, so nothing is stored from this row. Décret 2025-345 (`.../VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf`, `200 9043739 application/pdf`) is the same. The text was read from page images and the OCR (tesseract) was used only to read, never stored.
+
+### Languages
+
+French only. English was looked for on 2026-11-03 in the Ministry lists (Lois et Ordonnances, Arrêtés, Décrets, publications categories 33 to 57), the PNCC list (four pages) and the language links of both sites: no English or other-language text of any law. No translation row was added.
+
+### Regional rules (AMF-UMOA, BRVM)
+
+Both bodies sit in Abidjan, so the terms read here serve the other UEMOA places (BJ BF GW ML NE SN TG).
+
+`https://www.amf-umoa.org/` is an Angular single-page app: `curl -sS -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.amf-umoa.org/` returned `200 1685 text/html`, an empty shell. Headless Chromium (Playwright, `chromium.launch()`, `goto(url, {waitUntil:'networkidle'})` then a 4 s wait, `document.body.innerText`) renders the menu and footer; the Circulaires & Avis, Instructions and Décisions pages render with no list, so the instruments are not readable on that site. The only rights statement is the footer, "Copyright © 2023 AMF-UMOA, Tous droits réservés" (row `CI-AMF-UMOA-ADOPTED`, permission requested). Rendered pages are not stored, so no `fetched_sha256` applies.
+
+The BRVM site serves the instruments as plain pages with PDFs (row `CI-BRVM-ADOPTED`, permission requested: reproduction and modification need written permission). Proven for the AMF-UMOA taxonomy circular:
+
+```
+curl -sS -L -o taxo.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.brvm.org/sites/default/files/circulaire_ndeg001-amf-umoa-2024_-_mise_en_place_dune_taxonomie_des_projets_faisant_lobjet_demissions_dobligations_vertes_sociales_et_durable.pdf
+```
+
+Returned `200 4237687 application/pdf`; the PDF is 39 page images with no text layer. Instrument pages are found with `https://www.brvm.org/fr/search/node?keys=<words>` (for example `keys=taxonomie`). The 2020 guide circular PDF is `.../sites/default/files/3._-_circulaire_ndeg01-crepmf-2020.pdf` (`200`, 8501118 bytes, `application/pdf`, 28 page images); Instruction 63/2020 is `.../1._-_instruction_ndeg63-crepmf-2020_0.pdf` and Instruction 47/2011 revised is `.../2._-_instruction_ndeg47-2011-crepmf-revisee.pdf`. Instruction 36/2009 (appel public à l'épargne) was not found on the BRVM site. Nothing from these is stored.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| ci-loi-2025-528 (F2) | https://pncc.ci/assets/documentation//4A73qhxyKa4ErjAspWudfX3CjEZt30OT6I0SAz6h.pdf | Row `CI-PNCC-ADOPTED` passes, but the PDF has no text layer (pdftotext 20 bytes). The gazette on sgg.gouv.ci did not open. |
+| ci-decret-2025-345 (F1) | https://pncc.ci/assets/documentation//VpzoaeCIrz29J1Tx6lY2tYLLZvlgBoFry1NMfIBc.pdf | Same: scan, no text layer. |
+| ci-decret-2024-595 (F2) | https://environnement.gouv.ci/uploads/publications/177332342290.pdf | Row `CI-MINETE-ADOPTED` passes, but the 47-page PDF (36 MB) is a scan with no text layer. |
+| Décret 2024-594, Décret 2024-957, the AMF-UMOA circulars and instructions (F7) | see `register/register.csv` | F7: register row only, no scope entry. The Décret 2024-594 PDF is a 10-page scan. |
+| Côte d'Ivoire Sustainable Framework (F6, existing row) | https://tresor.gouv.ci/tres/wp-content/uploads/2021/07/Co%CC%82te-dIvoire-Sustainable-Framework-July-2021-vF.cleaned-1.pdf | Opens (`200 769840 application/pdf`) but is a voluntary bond framework: no scope entry. Row `CI-DGTCP-ADOPTED` is permission requested (all rights reserved). |
+
+Dropped from the brief's candidates: Loi n° 2016-412 (consommation): the text was on no official page that opened (sgg.gouv.ci blocked; commerce.gouv.ci lists no consumer law in its publications), so it has no entry. Décret n° 2025-346 (said to amend Décret 2024-594): on no official list.
+
+Stored by GEL-12-06: `ci-code-environnement` (2023-11-23, fr) and `ci-decret-2024-658` (2024-08-01, fr). Both dates are signature dates: neither text has a commencement clause and no page opened states the Journal officiel date, so `in_force` is null in the scope entries.
+
+Blocked from the cloud address:
+
+- `https://www.sgg.gouv.ci/`, `https://sgg.gouv.ci/`: `curl: (60) SSL certificate problem: certificate has expired`; `http://www.sgg.gouv.ci/` answers `301` to the https address. Certificate verification was not disabled. The web.archive.org copy and `https://www.jo.gouv.ci/` return `CONNECT tunnel failed, response 502`.
+- `https://agp.africanlii.org/` and `https://civlii.laws.africa/...source`: proxy 502 or 404 (not official publishers; tried only to read Loi 2016-555 art. 10, which was read in the Journal officiel no 84 of 20 October 2016 hosted at `https://www.droitci.info/files/231.07.16-Loi-du-26-juillet-2016_Droit-d-auteur.pdf`).
