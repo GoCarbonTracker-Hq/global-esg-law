@@ -9573,5 +9573,66 @@
   "kind": "page_hash",
   "tier": "consolidation_site",
   "url": "https://justice.gouv.km/texte/decret-n01-052-ce-du-19-avril-2001-relatif-aux-etudes-dimpact-sur-lenvironnement/"
+ },
+ {
+  "id": "sc-cbs-climate-disclosure-guidelines-head",
+  "source_id": "SC-CBS-ADOPTED",
+  "iso2": "SC",
+  "instrument": "sc-cbs-climate-disclosure-guidelines",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Climate-related_Financial_Risks_Disclosure.pdf",
+  "params": {
+   "second_route": "https://www.cbs.sc/Legislations.html (browser; the CBS legislation page; HEAD on the PDF answered 200 with Last-Modified on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sc-cbs-climate-risk-management-guidelines-head",
+  "source_id": "SC-CBS-ADOPTED",
+  "iso2": "SC",
+  "instrument": "sc-cbs-climate-risk-management-guidelines",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cbs.sc/Downloads/legislations/Guidelines_iro_Effective_Risk_Management_of_Climate-related_Financial_Risks.pdf",
+  "params": {
+   "second_route": "https://www.cbs.sc/Legislations.html (browser; the CBS legislation page; HEAD on the PDF answered 200 with Last-Modified on 2026-11-03)"
+  }
+ },
+ {
+  "id": "sc-environment-protection-act-gazette-acts",
+  "source_id": "SC-AGO-CONSOLIDATED",
+  "iso2": "SC",
+  "instrument": "sc-environment-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gazette.sc/v/act/2026",
+  "params": {
+   "second_route": "https://www.gazette.sc/v/act/2026 (browser; the Gazette answers some scripted User-Agents with HTTP 406 or 403 from mod_security, the watcher's own User-Agent and a Chrome one get 200; the Acts list of the year, new Acts and amending Acts appear at the top)"
+  }
+ },
+ {
+  "id": "sc-consumer-protection-act-gazette-acts",
+  "source_id": "SC-AGO-CONSOLIDATED",
+  "iso2": "SC",
+  "instrument": "sc-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gazette.sc/v/act/2026",
+  "params": {
+   "second_route": "https://www.gazette.sc/v/act/2026 (browser; the Gazette answers some scripted User-Agents with HTTP 406 or 403 from mod_security, the watcher's own User-Agent and a Chrome one get 200; the Acts list of the year, new Acts and amending Acts appear at the top)"
+  }
+ },
+ {
+  "id": "terms-sc-gazette-adopted",
+  "source_id": "SC-GAZETTE-ADOPTED",
+  "iso2": "SC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gazette.sc/about-official-gazette",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.gazette.sc/about-official-gazette (browser; the page carries the copyright footer that decides the row; some scripted User-Agents get HTTP 406 or 403 from mod_security)"
+  }
  }
 ]
