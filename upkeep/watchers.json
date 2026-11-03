@@ -12126,5 +12126,17 @@
   "params": {
    "second_route": "https://www.paclii.org/vu/legis/num_act/pmacaa2023360.html (browser; paclii.org answers scripts and headless Chromium with a Cloudflare 403 challenge from the cloud address)"
   }
+ },
+ {
+  "id": "ps-pma-circular-87-2025-pdf",
+  "source_id": "PS-PMA-ADOPTED",
+  "iso2": "PS",
+  "instrument": "ps-pma-circular-87-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf",
+  "params": {
+   "second_route": "https://www.pma.ps/banking-circulars (browser; a JavaScript application, the 2025 filter lists the circulars and their PDF links; curl gets a 6300-byte shell)"
+  }
  }
 ]
