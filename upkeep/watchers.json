@@ -7754,6 +7754,189 @@
   "url": "https://www.sluzbenilist.ba/search/searchresult?naziv=Zakon+o+za%C5%A1titi+potro%C5%A1a%C4%8Da"
  },
  {
+  "id": "sm-codice-ambientale-testi-coordinati-page",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-codice-ambientale",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/testi-coordinati/docCat.17003115.1.150.20.html",
+  "params": {}
+ },
+ {
+  "id": "sm-dd-160-2024-consumo-document",
+  "source_id": "SM-CGG-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-dd-160-2024-consumo",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17148431.html",
+  "params": {}
+ },
+ {
+  "id": "sm-l-101-2025-eudr-document",
+  "source_id": "SM-CGG-ADOPTED",
+  "iso2": "SM",
+  "instrument": "sm-l-101-2025-eudr",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17153669.html",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-05-regolamenti-page",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-05",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti",
+  "params": {}
+ },
+ {
+  "id": "sm-bcsm-reg-2024-02-regulations-page-en",
+  "source_id": "SM-BCSM-CONSOLIDATED",
+  "iso2": "SM",
+  "instrument": "sm-bcsm-reg-2024-02",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations",
+  "params": {}
+ },
+ {
+  "id": "mk-nbrm-bank-disclosure-decision-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-nbrm-bank-disclosure-decision",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "mk-law-environment-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-law-environment",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/ACF1AC118E6F81438BE8DD53D5A613F0.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "mk-law-consumer-protection-gazette-pdf",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "mk-law-consumer-protection",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://slvesnik.com.mk/Issues/c4ef6c06718f4fe18ff615a5877f73f4.pdf",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/besplaten-pristap-do-izdanija.nspx (browser; free issue archive by year, lists the same PDFs). The host omits its Sectigo intermediate certificate, so curl without that certificate fails verification"
+  }
+ },
+ {
+  "id": "terms-mk-slvesnik-adopted",
+  "source_id": "MK-SLVESNIK-ADOPTED",
+  "iso2": "MK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://slvesnik.com.mk/uslovi-za-koristenje.nspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://slvesnik.com.mk/uslovi-za-koristenje.nspx (browser; the terms text is a CMS block rendered by script). The host omits its Sectigo intermediate certificate"
+  }
+ },
+ {
+  "id": "lb-law-444-2002-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-444-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=244662&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=244662&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-78-2018-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-78-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decision-99-2013-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decision-99-2013",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=235027&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=235027&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-659-2005-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-659-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=245560&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=245560&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-law-115-2019-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-law-115-2019",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=280624&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=280624&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-8471-2012-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-8471-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=232573&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=232573&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
+  "id": "lb-decree-14459-2024-legallaw-page",
+  "source_id": "LB-LEGALLAW-CONSOLIDATED",
+  "iso2": "LB",
+  "instrument": "lb-decree-14459-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=331656&TYPE=PRINT&language=ar",
+  "params": {
+   "second_route": "https://legallaw.ul.edu.lb/Law.aspx?lawId=331656&language=ar (browser; the database page with the Gazette issue and date)"
+  }
+ },
+ {
   "id": "kw-cma-circular-4-2025-pdf-head",
   "source_id": "KW-CMA-ADOPTED",
   "iso2": "KW",
