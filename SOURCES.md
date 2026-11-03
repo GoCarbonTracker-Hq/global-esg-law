@@ -5462,3 +5462,95 @@ English: no government translation was found for any instrument. Looked for on m
 - https://moldse.md/, https://mediu.gov.md/, https://www.justice.gov.md/: `curl: (35) Recv failure: Connection reset by peer`.
 - https://lex.justice.md/, https://www.anre.md/, https://www.cc.gov.md/, https://www.ceccomoldova.md/: no answer (`000`, no HTTP status).
 - Answered: monitorul.gov.md, www.bnm.md, www.agepi.gov.md (`200 58280`), www.ansa.gov.md (`200 67648`), gov.md (`301`).
+
+## Costa Rica
+
+Run on 2026-11-03 (GEL-09-07). Three rows pass: `CR-SINALEVI-ADOPTED` and `CR-SINALEVI-CONSOLIDATED` (statute: Ley 6683 art. 75, which allows free reproduction of laws, decrees and regulations on condition of following the official edition) and `CR-IMPRENTA-ADOPTED` (terms: the Imprenta Nacional site notice, Creative Commons Reconocimiento 4.0). Three rows are `permission requested`: `CR-CCPA-ADOPTED`, `CR-SUGEVAL-ADOPTED`, `CR-CONASSIF-ADOPTED`. The SINALEVI passes are the soft ones (art. 75 permits reproduction but does not remove copyright; SINALEVI is a PGR compilation, not the official edition; see the row notes); Varun to confirm.
+
+SCIJ moved: `http://www.pgrweb.go.cr/scij/` answers `307` to `https://www.pgrweb.go.cr/scij/`, which answers `302` to `https://sinalevi.go.cr/`. SINALEVI (Sistema Nacional de Legislación Vigente, Procuraduría General de la República) is the legislation database behind SCIJ. It is an ASP.NET page that fills itself with POST/GET JSON calls; no browser is needed. It answers the default curl user agent with `403` (35 kB HTML block page), so every request below sends `-A 'Mozilla/5.0'`.
+
+Row `CR-SINALEVI-ADOPTED`, Ley 7554 Orgánica del Ambiente, version 1 (the id of version n comes from `_BuscarVersionNorma`; the norm id 27738 comes from the search below):
+
+```
+curl -sS -A 'Mozilla/5.0' -X POST -d 'idFichaNorma=27738&numeroVersion=1' https://sinalevi.go.cr/ResultadosNormativa/_BuscarVersionNorma
+curl -sS -A 'Mozilla/5.0' -o ley7554_v1.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=27738&version=29341&busqueda='
+```
+
+The first returned `200 2087 application/json; charset=utf-8` with `"idVersionNorma":29341` and the ficha as HTML (`Versión de la Norma: 1 de 14 del 04/10/1995`, `Fecha de vigencia desde: 13/11/1995`, `N° Gaceta: 215 del 13/11/1995`). The second returned `200 208971 application/json; charset=utf-8` (sha256 `b3d902ad...c05e422`, the `fetched_sha256` of `records/CR/cr-ley-7554/1995-11-13-adopted-es.json`). The JSON has one key, `html`.
+
+Row `CR-SINALEVI-CONSOLIDATED`, same Act, version 14 (the newest on the run date):
+
+```
+curl -sS -A 'Mozilla/5.0' -X POST -d 'idFichaNorma=27738&numeroVersion=14' https://sinalevi.go.cr/ResultadosNormativa/_BuscarVersionNorma
+curl -sS -A 'Mozilla/5.0' -o ley7554_v14.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://sinalevi.go.cr/ResultadosNormativa/_CargarTextoCompleto?idFichaNorma=27738&version=152294&busqueda='
+```
+
+Returned `200 2089 application/json; charset=utf-8` (`"idVersionNorma":152294`) and `200 561781 application/json; charset=utf-8` (sha256 `98da39cc...c4def`). A second fetch of the same URL on the same day gave the same bytes and hash, so `fetched_sha256` reproduces (the response has no per-request token). Old version ids stay served, so a record's `fetched_url` can be fetched again later.
+
+Finding a norm: the search form is a GET and the result list is embedded in the page as JSON (Kendo `"Data":[{"IdFichaNorma":27738,"NumeroNormativa":7554,...,"NombreTipoNorma":"Ley","EstadoNorma":"Vigente"}]`):
+
+```
+curl -sS -A 'Mozilla/5.0' -G -o search.html -w '%{http_code} %{size_download} %{content_type}\n' --data-urlencode 'pagina=1' --data-urlencode 'radioBtnGroup=1' --data-urlencode 'opcionSelected=1' --data-urlencode 'textBuscar=7554' --data-urlencode 'textAnnio=' --data-urlencode 'selectedBuscarEn=F' --data-urlencode 'TipoNorma=' --data-urlencode 'cantidadResultados=-1' https://sinalevi.go.cr/BusquedaSimple/Resultados
+```
+
+Returned `200 39572 text/html; charset=utf-8`. `textBuscar` accepts a norm number or title words; `TipoNorma=8` restricts to Ley, `5` to Decreto Ejecutivo. The number of versions is in `Versión de la Norma: n de N` of the newest text. `version=-1` on `_CargarTextoCompleto` answers `{"redireccionar":true,"direccion":"/ResultadosNormativa/Informacion?param1=27738&param2=152294&param3=1"}` (`200 115 application/json`), the id of the newest version; the watchers hash that answer.
+
+`in_force` of a version. SINALEVI's version date (`Versión de la Norma: n de N del dd/mm/yyyy`, from `_CargarFicha` or `_BuscarVersionNorma`) is the date of the amending norm, not the date it took effect. The amending norms come from `curl -sS -A 'Mozilla/5.0' -X POST -d 'idFichaNorma=27738&version=152294' https://sinalevi.go.cr/ViewAfectacion/_CargarVistaNormaQueLaAfecto` (`200 102640 application/json`: every norm that affected this one, with its `IdFichaNorma` and date); the version is matched to the affecting norm of the same date, and that norm's own ficha (`_BuscarVersionNorma`, `numeroVersion=1`) gives `Fecha de vigencia desde`, which is the record's `in_force`. Version 1 takes the Act's own `Fecha de vigencia desde`, checked against its commencement clause. Where no affecting norm has the version's date (a court annulment, for example) the version date is used and the record has a `message`. Where SINALEVI's order puts a later-numbered version before an earlier one in time, the later version takes the earlier one's date and the version it overtakes is not stored.
+
+`text` is built from the `html` value. SINALEVI serves one block per article (a Word-exported fragment, then a link `Ficha Artículo n`); the header (version navigation, `Usted está en la última versión`, `Anterior`, `Siguiente`), the `Ficha Artículo` links and the trailing script are cut, `<style>` and `<script>` are dropped, block elements (`p`, `div`, `br`, `h1` to `h6`, `li`, `tr`) become line breaks, the hard line wraps that Word left inside a paragraph become spaces, runs of spaces are collapsed and empty lines are dropped. Nothing is reworded; the `Nota de Sinalevi` and `(Así reformado ...)` notes inside article bodies are kept as served. Where only some articles are stored (`cr-ley-8114-art1-5`, `cr-ley-7472-art34-37`) the blocks are picked by article number (`handleArticuloClick(n, ...)`, excluding `bis`, `ter` and `Transitorio` blocks) or, for Ley 7472, whose articles were renumbered in 2002, by the article title. A record is stored for a version only when its text differs from the version before it. No mojibake: the JSON is UTF-8 and no `Ã`, `Â` or `U+FFFD` occurs in any record.
+
+Row `CR-IMPRENTA-ADOPTED`, La Gaceta (Alcance 118 of 2026-09-07, which publishes Ley 10970, the Act that created version 14 of Ley 7554; no record is stored from this row, see the row notes):
+
+```
+curl -sS -L -o ALCA118_07_09_2026.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.imprentanacional.go.cr/pub/2026/09/07/ALCA118_07_09_2026.pdf
+pdftotext -layout ALCA118_07_09_2026.pdf - | tr -s ' '
+```
+
+Returned `200 11480815 application/pdf` (sha256 `acc418d7...b51a7ab`, identical on a second fetch); the text has no mojibake and shows the act ("DECRETO LEGISLATIVO N.º 10970", "LEY PARA GARANTIZAR PASOS DE FAUNA EN INFRAESTRUCTURAS") and the line "Certificación de publicación oficial: La presente edición del Diario Oficial La Gaceta ha sido emitida electrónicamente por la Imprenta Nacional". The ordinary issue of the same day, `.../pub/2026/09/07/COMP_07_09_2026.pdf`, returned `200 8518605 application/pdf`. The pattern for 1995 (`.../pub/1995/11/13/COMP_13_11_1995.pdf`) returned `404 1245 text/html`, so older issues are not at that path. The issue PDFs hold many acts, so an instrument would be cut by its heading; none is stored.
+
+Rows `CR-CCPA-ADOPTED`, `CR-SUGEVAL-ADOPTED`, `CR-CONASSIF-ADOPTED` (permission requested, nothing stored):
+
+```
+curl -sS -L -o circ33.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://ccpa.or.cr/wp-content/themes/maximus/pdf/normativa-vigente/circulares-vigentes/Circular%2033-2023.pdf'
+curl -sS -L -A 'Mozilla/5.0' -o sug_terms.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sugeval.fi.cr/cr/es/terminos-de-uso.html
+curl -sS -A 'Mozilla/5.0' -o conassif.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.conassif.fi.cr/
+```
+
+Returned `200 566304 application/pdf`, `200 80256 text/html;charset=utf-8` and `200 3334 text/html`. The CONASSIF page is an empty JavaScript shell for curl. Headless Chromium renders its menu but every data panel reads "Ocurrió un error de conexión" (acuerdos, comunicados, anuncios), so no acuerdo list and no terms text could be read:
+
+```
+node pw.js https://www.conassif.fi.cr/
+```
+
+with `pw.js`: `const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage();const r=await p.goto(process.argv[2],{timeout:60000,waitUntil:'networkidle'});await p.waitForTimeout(3000);console.log(r.status(),(await p.content()).length);console.log(await p.evaluate(()=>document.body.innerText));await b.close()})()`. It returned `200 33342` and the text above. No record comes from CONASSIF, so there is no browser-fetched record and no open question on the New Zealand recipe from this section.
+
+### Languages
+
+Run on 2026-11-03 (GEL-09-07). Costa Rica has one official language, Spanish; every record is `es` under the same SINALEVI rows as above, so no second-language request exists. English was looked for on every official page opened: `https://sinalevi.go.cr/en` and `https://sinalevi.go.cr/Home/SetLanguage?culture=en` answered `404 0`, the norm pages have no language switch; `https://www.imprentanacional.go.cr/en/` answered `404 1245 text/html`; `https://www.pgr.go.cr/` answered `200 248623 text/html; charset=UTF-8` with no English marker (`english`, `inglés`, `/en/`, `lang="en"`). No government English translation of any scope instrument was found, so no translation row exists. The Colegio's circular is available in Spanish only.
+
+### Link only
+
+None of the five scope instruments is link only: all are stored. Not in scope, no text stored:
+
+| Item | Official URL | Why |
+|---|---|---|
+| Circular 33-2023 CCPA (F7 in the register) | https://ccpa.or.cr/wp-content/themes/maximus/pdf/normativa-vigente/circulares-vigentes/Circular%2033-2023.pdf | Row `CR-CCPA-ADOPTED` is permission requested (all rights reserved); the circular is the work of a public non-state corporation, and the PGR copy on SINALEVI (ficha 101172) is not treated as a state text. No CONASSIF or SUGEVAL acuerdo adopting NIIF S1/S2 was found. |
+| Taxonomía de Finanzas Sostenibles de Costa Rica | https://www.sugeval.fi.cr/cr/es/informacion-inversionistas/taxonomia-finanzas-sostenibles.html | A voluntary classification document with no enacting decree or acuerdo found; SUGEVAL terms forbid redistribution. Register row only. |
+| Ley 9518, Ley 8839, Ley 9786, Decreto 41581 (F7) | https://sinalevi.go.cr/ | F7: register rows only, no scope entry. |
+
+### Blocked
+
+- https://minae.go.cr/ and https://www.mideplan.go.cr/: `403` with the Cloudflare "Just a moment..." page (5199 and 5248 bytes, `text/html; charset=UTF-8`). Blocked from the cloud address; the orchestrator can read them from the laptop.
+- https://www.hacienda.go.cr/ (and `/ContenidoWeb.aspx`): `400`, 1133 bytes.
+- https://www.conassif.fi.cr/ data panels: the page loads, its backend calls fail with "Ocurrió un error de conexión" from the cloud address; read the acuerdo lists from the laptop.
+- https://sinalevi.go.cr/ with the default curl user agent: `403` (35 kB block page); `-A 'Mozilla/5.0'` is enough.
+
+### Stored (fetched 2026-11-03)
+
+| Instrument | Rows | Records (es) |
+|---|---|---|
+| `cr-ley-7554` | adopted, consolidated | 13: 1995-11-13 (adopted and consolidated) to 2026-09-07 |
+| `cr-ley-8114-art1-5` | adopted, consolidated | 100: 2001-08-01 (adopted and consolidated) to 2026-08-01 |
+| `cr-ley-7472-art34-37` | adopted, consolidated | 9: 1995-01-19 to 2016-05-18 |
+| `cr-dec-37899` | adopted, consolidated | 12: 2013-09-23 to 2024-07-12 |
+| `cr-dec-42961` | adopted | 1: 2021-05-14 |
