@@ -1,0 +1,80 @@
+[
+  {
+    "id": "sm-codice-ambientale",
+    "title": "Decreto Delegato 27 aprile 2012 n.44, Codice Ambientale (testo coordinato)",
+    "official_url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17050172.html",
+    "citation": "Decreto Delegato 27 aprile 2012 n.44 (Codice Ambientale), as amended by DD 12 luglio 2016 n.84 (ratified by DD 31 gennaio 2017 n.16), DD 22 febbraio 2021 n.25 (ratified by DD 20 maggio 2021 n.91) and the other amendments named in the brief",
+    "in_force": null,
+    "evidence": "No commencement date read. The Consiglio PDF of the coordinated text (opened 2026-11-03, 11342674 bytes) starts \"DECRETO DELEGATO 27 aprile 2012 n.44 ... Promulghiamo e mandiamo a pubblicare il seguente decreto delegato\" and has no article that fixes its entry into force (the only uses of \"entrata in vigore del presente Codice\" are time limits for later acts). The Consiglio page for the subject (docCat.17003115) dates the coordinated text only as \"aggiornato al 7 agosto 2017\". The ratification date 2012-05-25 given in the dispatch was not found on any page opened.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "SM-CGG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act (waste, water, air, environmental impact assessment, among others). Link only: row SM-CGG-CONSOLIDATED is permission requested. The coordinated text on the site stops at 7 August 2017, so the amendments of DD 25/2021 (archive document 17123066, ratified by 17125092) are separate archive documents and are not folded in. Amending acts are not separate entries. No government English text: the Consiglio English index (section VI) was opened and does not list the Code. Looked for the English text at consigliograndeegenerale.sm/on-line/home/legislative-texts-in-english/docCat.17004462.1.150.20.html.",
+    "status": "link only",
+    "status_note": "Row SM-CGG-CONSOLIDATED is permission requested; nothing stored."
+  },
+  {
+    "id": "sm-dd-160-2024-consumo",
+    "title": "Decreto Delegato 29 ottobre 2024 n.160 (ratifica DD 23 agosto 2024 n.134), Disposizioni in materia di consumo: Art. 8 unfair commercial practices and misleading advertising",
+    "official_url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17148431.html",
+    "citation": "Decreto Delegato 29 ottobre 2024 n.160, final text of Decreto Delegato 23 agosto 2024 n.134, Arts. 7 and 8 (pubblicità e pratiche commerciali scorrette); replaces DD 8 febbraio 2024 n.20; amended by DD 22 gennaio 2026 n.8 and DD 29 ottobre 2026 n.168",
+    "in_force": "2025-01-01",
+    "evidence": "Art.35 para. 1 of the ratified text: \"Fatta eccezione per gli articoli 25, 27 e 34, comma 1, lettera b), le disposizioni di cui agli articoli precedenti si applicano a decorrere dal 1° gennaio 2025.\" Opened 2026-11-03 at the Consiglio archive document 17148431 (352287 bytes, application/pdf). Arts. 25, 27 and 34(1)(b) apply from an earlier date that the text does not state.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SM-CGG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Umbrella consumer law. Art. 8 para. 1: \"Le pratiche commerciali scorrette ed aggressive, le azioni ed i comportamenti ingannevoli, nonché, le omissioni ingannevoli, sono vietate.\" It does not mention environmental or green claims; it is the general rule such claims fall under. Framework law: Legge 28 ottobre 2005 n.144 (archive document 17023258), not scoped separately. Authority decree: DD 20 dicembre 2024 n.206 (Autorità di vigilanza dei consumatori), not scoped. DD 29 ottobre 2026 n.168 (archive document 17161267) amends this decree; its commencement was not read. Link only: row SM-CGG-CONSOLIDATED is permission requested. No government English text: the Consiglio English index sections III, VI and VII were opened and do not list it.",
+    "status": "link only",
+    "status_note": "Row SM-CGG-CONSOLIDATED is permission requested; nothing stored."
+  },
+  {
+    "id": "sm-l-101-2025-eudr",
+    "title": "Legge 25 luglio 2025 n.101, Recepimento e attuazione del Regolamento (UE) 2023/1115 (EUDR) on deforestation-free commodities and products",
+    "official_url": "https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17153669.html",
+    "citation": "Legge 25 luglio 2025 n.101 (Arts. 1 to 15); applies from 2025-12-30, and from 2026-06-30 to micro and small enterprises (Art. 15 paras. 2 and 3)",
+    "in_force": null,
+    "evidence": "Art.15 para. 1: \"La presente legge entra in vigore il quindicesimo giorno successivo a quello della sua legale pubblicazione.\" The Consiglio PDF (opened 2026-11-03, 194653 bytes, application/pdf) gives no publication date, and the Bollettino Ufficiale search returned no result list to a script, so the date of legal publication was not read. Art.15 para. 2: \"Le disposizioni della presente legge si applicano a decorrere dal 30 dicembre 2025.\"",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "SM-CGG-ADOPTED",
+      "SM-CGG-TRANSLATION"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Link only: both rows are permission requested. The Consiglio English index (section VI) lists the English text as \"LAW N. 101 of 25 July 2025\" (archive document 17153924, opened 2026-11-03, 201956 bytes, application/pdf); it is not stored and its amendment state was not compared with an Italian version. Its header reads \"July 2025 Official Bulletin of the Republic of San Marino - Official Part Doc. III.10\", so the law was published in the July 2025 issue, but the day is not stated. Implementing delegated decrees under Art. 15 para. 4 were not searched for.",
+    "status": "link only",
+    "status_note": "Rows SM-CGG-ADOPTED and SM-CGG-TRANSLATION are permission requested; nothing stored."
+  },
+  {
+    "id": "sm-bcsm-reg-2024-05",
+    "title": "BCSM Regolamento n. 2024-05 in materia di servizi e attività di investimento (includes sustainability risk and sustainability preference provisions)",
+    "official_url": "https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-05/Reg.2024-05_Agg.03.pdf",
+    "citation": "Banca Centrale della Repubblica di San Marino, Regolamento n. 2024-05, consolidated text of 2026-01-29 (Aggiornamento III)",
+    "in_force": "2025-01-01",
+    "evidence": "BCSM Regolamenti page (https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti, opened 2026-11-03) under \"Regolamento n. 2024-05 — Regolamento in materia di servizi e attività di investimento\": \"Testo in vigore dal 01/01/2025 al 27/01/2025\" is the earliest listed text. The PDF (opened 2026-11-03, 2196869 bytes, application/pdf) defines \"fattori di sostenibilità\" and \"rischio di sostenibilità\" and requires investment firms to take sustainability risks into account (Art. VII.VI.1 para. 4). Whether the sustainability wording was in the 2025-01-01 text was not checked.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "SM-BCSM-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Identified from the BCSM sustainability page (https://www.bcsm.sm/bcsm.sm/sostenibilit%C3%A0/impegno-della-banca): \"sono già state recepite le disposizioni dell'UE in materia di ESG nel regolamento sui servizi finanziari (di adozione della Direttiva MIFID II) e in quello di distribuzione assicurativa (Direttiva IDD)\". Companion: sm-bcsm-reg-2024-02. Four dated texts are listed (from 2025-01-01, 2025-01-28, 2025-09-25, 2026-01-29). Link only: row SM-BCSM-CONSOLIDATED is permission requested. No English text: the English Regolamenti page links the same Italian PDFs.",
+    "status": "link only",
+    "status_note": "Row SM-BCSM-CONSOLIDATED is permission requested; nothing stored."
+  },
+  {
+    "id": "sm-bcsm-reg-2024-02",
+    "title": "BCSM Regolamento n. 2024-02 in materia di distribuzione assicurativa e riassicurativa (includes sustainability preference provisions)",
+    "official_url": "https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-02/Reg.2024-02_Agg.02_2.pdf",
+    "citation": "Banca Centrale della Repubblica di San Marino, Regolamento n. 2024-02, consolidated text of 2026-01-29 (Aggiornamento II)",
+    "in_force": "2024-07-01",
+    "evidence": "BCSM Regolamenti page (opened 2026-11-03) under \"Regolamento n. 2024-02 — Regolamento in materia di distribuzione assicurativa e riassicurativa\": \"Testo in vigore dal 01/07/2024 al 27/01/2025\" is the earliest listed text. The PDF (opened 2026-11-03, 886550 bytes, application/pdf) defines \"fattori di sostenibilità\" and \"preferenze di sostenibilità\" and refers to Regulations (EU) 2019/2088 and 2020/852. Whether the sustainability wording was in the 2024-07-01 text was not checked.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "SM-BCSM-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Insurance-distribution counterpart of sm-bcsm-reg-2024-05 (the Directive IDD regulation named on the BCSM sustainability page). Three dated texts are listed (from 2024-07-01, 2025-01-28, 2026-01-29). Link only: row SM-BCSM-CONSOLIDATED is permission requested. No English text: the English Regolamenti page links the same Italian PDFs.",
+    "status": "link only",
+    "status_note": "Row SM-BCSM-CONSOLIDATED is permission requested; nothing stored."
+  }
+]
