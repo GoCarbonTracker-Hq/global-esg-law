@@ -9097,5 +9097,42 @@
     "trailer_source_url": "https://www.csbf.mg",
     "trailer_licence": "none granted; site not opened",
     "notes": "curl -sS https://www.csbf.mg returned 'CONNECT tunnel failed, response 502' and csbf.mg gave no HTTP answer; Playwright chromium returned getaddrinfo ENOTFOUND on 2026-11-03. A web search for a CSBF sustainability or climate instruction for banks returned only UNDP and press items about climate risk insurance training (CSBF staff took part) and no CSBF instruction. No CSBF instrument is in scope. Blocked from the cloud address: the orchestrator can read it from the laptop."
+  },
+  {
+    "id": "SR-DNA-ADOPTED",
+    "jurisdiction": "SR",
+    "publisher": "De Nationale Assemblée (Suriname National Assembly)",
+    "source_name": "Staatsblad van de Republiek Suriname, laws as PDF (www.dna.sr, Wetgeving, Surinaamse wetten)",
+    "form": "adopted",
+    "fetch_url": "https://www.dna.sr/media/{id}/{file}.pdf (the PDF link on the law page https://www.dna.sr/wetgeving/surinaamse-wetten/{list}/{slug}/)",
+    "pinned_version": "Staatsblad text as published (one PDF per act)",
+    "content_hash": "",
+    "terms_url": "https://www.dna.sr/media/qzclps2u/wet_auteursrecht_1913.pdf",
+    "terms_quote": "Artikel 11: Er bestaat geen auteursrecht op algemene verordeningen als bedoeld bij artikel 2 van de Surinaamse Staatsregeling, door de openbare macht uitgevaardigd, noch op rechterlijke uitspraken en administratieve beslissingen.",
+    "terms_fingerprint": "c3f6a3f34ef10e5a0bb8821dfceebe8867652e71ac407f870e513beecc11acc4",
+    "verdict": "pass",
+    "statute_exception": "Wet Auteursrecht 1913 (G.B. 1913 no. 15, as amended; text on dna.sr, \"gelijk zij luidt na de daarin aangebrachte wijzigingen bij ... S.B. 1981 no. 23\") Artikel 11: \"Er bestaat geen auteursrecht op algemene verordeningen als bedoeld bij artikel 2 van de Surinaamse Staatsregeling, door de openbare macht uitgevaardigd, noch op rechterlijke uitspraken en administratieve beslissingen.\" Opened https://www.dna.sr/media/qzclps2u/wet_auteursrecht_1913.pdf on 2026-11-03 (200, 88714 bytes, application/pdf, sha256 a6d8551e802793f29bf99cd40411f54c3f503ea1302a119a3985ef20e2012ca9). The 2015 amending act (S.B. 2015 no. 83, scanned PDF, OCR read) concerns music copyright mediation and does not touch Artikel 11. A law (wet) enacted by the President and the National Assembly and published in the Staatsblad is a general regulation issued by the public authority.",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "Staatsblad (S.B.) act as published by De Nationale Assemblée (title, year and number set per instrument)",
+    "trailer_source_url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/{slug}/",
+    "trailer_licence": "No copyright in general regulations issued by the public authority (Wet Auteursrecht 1913, Art. 11)",
+    "notes": "fingerprint: curl -sL https://www.dna.sr/media/qzclps2u/wet_auteursrecht_1913.pdf | pdftotext -layout - - | python3 -c \"import sys,re;print(re.sub(r'\\s+',' ',sys.stdin.read()).strip())\" | shasum -a 256 (the statute PDF; recomputed 2026-11-03). Site terms read 2026-11-03 and not relied on: https://www.dna.sr/copyright/auteursrechten/ says \"Het auteursrecht op de website wordt uitdrukkelijk voorbehouden door De Nationale Assemblee. Onder voorwaarde dat (een link naar) de bron wordt vermeld, mogen onderdelen van de inhoud van dna.sr worden overgenomen.\" and https://www.dna.sr/copyright/disclaimer/ allows copying with source mention \"voor eigen gebruik\" (own use). That does not clearly allow commercial reuse and modification, so the pass rests on Art. 11 only, not on the site terms. Fingerprint of the copyright page text (three requests gave the same value on 2026-11-03): curl -sL https://www.dna.sr/copyright/auteursrechten/ | python3 -c import sys",
+    "null": [
+      "re",
+      "html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>'",
+      "''",
+      "t);t=re.sub(r'<[^>]+>'",
+      "' '",
+      "t);print(re.sub(r'\\s+'",
+      "' '",
+      "html.unescape(t)).strip())\" | shasum -a 256 = d7738978c750cb65e86cbb5540a4ff363a87a4a115bb65e4b49986782ac90c83. Art. 11 still names the Surinaamse Staatsregeling Art. 2 (repealed by G.B. 1975 no. 170",
+      " footnote in the PDF); read as general regulations of the public authority. Not a legal opinion: Varun to confirm. The DNA Staatsblad PDFs are scans with an embedded text layer (OmniPage",
+      " 2018 and 2020) or Word exports (2024). Rows for NIMOS (nimos.org",
+      " expired TLS certificate) and the Centrale Bank van Suriname (www.cbvs.sr",
+      " Cloudflare challenge",
+      " HTTP 403) were not added: no terms page could be opened and no instrument of theirs is in scope.\""
+    ]
   }
 ]

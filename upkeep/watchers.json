@@ -10205,5 +10205,35 @@
   "params": {
    "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43919"
   }
+ },
+ {
+  "id": "sr-milieu-raamwet-dna-page",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-milieu-raamwet",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/milieu-raamwet/",
+  "params": {}
+ },
+ {
+  "id": "sr-milieu-raamwet-wijziging-2024-dna-pdf",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-milieu-raamwet-wijziging-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf",
+  "params": {}
+ },
+ {
+  "id": "sr-paris-agreement-act-2018-dna-page",
+  "source_id": "SR-DNA-ADOPTED",
+  "iso2": "SR",
+  "instrument": "sr-paris-agreement-act-2018",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.dna.sr/wetgeving/surinaamse-wetten/overeenkomsten-verdragen/paris-agreement/",
+  "params": {}
  }
 ]

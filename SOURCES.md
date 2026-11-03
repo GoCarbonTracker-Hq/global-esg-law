@@ -6097,3 +6097,35 @@ Malagasy (mg) and French (fr) are the official languages. CNLEGIS serves both: `
 | mg-loi-2015-014 | Same row as the Charte; the brief's date 19 août 2015 is wrong, the official text says 10 août 2015. |
 
 Not in scope: the RSE manual (voluntary guidance, register row kept, `MG-MEDD-ADOPTED`), Décret 2021-1113 (repealed by Art. 103 of Décret 2025-626), the ratification acts for the Paris Agreement (Loi 2016-019, Décret 2016-1188) and Kyoto/Doha. The Décret 2014-1588 on the national climate committee is an F7 register row only; no climate framework act exists on CNLEGIS. Blocked from the cloud address: `https://www.csbf.mg` (`CONNECT tunnel failed, response 502` from curl, `getaddrinfo ENOTFOUND` from Chromium) and the Assemblée nationale PDF uploads (403). No CSBF sustainability instruction was found by web search.
+
+## Suriname
+
+Run on 2026-11-03 (GEL-15-07). One row passes: `SR-DNA-ADOPTED` (De Nationale Assemblée, Staatsblad PDFs on www.dna.sr). It passes on a statute, not on the site terms: Wet Auteursrecht 1913 Art. 11, "Er bestaat geen auteursrecht op algemene verordeningen als bedoeld bij artikel 2 van de Surinaamse Staatsregeling, door de openbare macht uitgevaardigd, noch op rechterlijke uitspraken en administratieve beslissingen", read in the DNA PDF of the act. The dna.sr copyright page reserves copyright and allows reuse of parts with source mention, and the disclaimer allows copying "voor eigen gebruik"; that is not a commercial-and-modification licence. Varun to confirm the reading of Art. 11 (it still names the Staatsregeling Art. 2, repealed by G.B. 1975 no. 170). The DNA site serves one PDF per act and no consolidated texts of the Milieu Raamwet, so the only form is `adopted`; the 2024 amendment is stored as its own act.
+
+Text extraction: poppler `pdftotext -layout file.pdf -`, each line stripped and runs of spaces or tabs collapsed to one space, blank lines dropped, form feeds as line breaks (the `## Brazil` method). Checked for mojibake: no private-use or replacement characters; four stray characters (an em dash and backticks) in the 2020 text. The 2020 and 2018 PDFs are scans with the publisher's own embedded text layer (OmniPage), which carries some OCR slips ('haffvaste', 'gebruilçt' in S.B. 2020 no. 97); they are stored as extracted, not corrected, and no OCR was run by this repo, so no record has an `extraction` field. The 2024 PDF is a Word export with clean text. tesseract 5.3.4 with the Dutch pack was installed in the session only to read the scanned S.B. 2015 no. 83 (the act amending the Auteursrecht Act, to confirm it leaves Art. 11 alone); nothing from it is stored.
+
+Row `SR-DNA-ADOPTED`, Milieu Raamwet (S.B. 2020 no. 97), plain curl works, no WAF, no browser needed:
+
+```
+curl -sS -L -o sb_2020_97.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/bkih12kt/sb_2020___97.pdf
+```
+
+Returned `200 12519385 application/pdf` (74 pages, sha256 e41dbb46690014898f068967517de574c140f23fbc03bf41fadccecb3c6a37a3; a second fetch gave the same hash). The amendment, S.B. 2024 no. 56: `curl -sS -L -o sb_2024_56.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf'` returned `200 311880 application/pdf` (43 pages). The Paris Agreement act, S.B. 2018 no. 70: `curl -sS -L -o sb_2018_70.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/keoita2c/sb_2018___70.pdf` returned `200 237036 application/pdf` (4 pages). The `/media/<id>/<file>.pdf` link is read from the law page, for example `https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/milieu-raamwet/` (the lists are `wetten-na-2005`, `wijzigingen-na-2005`, `geldende-teksten-t-m-2005`, `overeenkomsten-verdragen`). The 2024 amendment is not on those lists; its URL was found by web search. Statute page: `curl -sS -L -o auteursrecht1913.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.dna.sr/media/qzclps2u/wet_auteursrecht_1913.pdf` returned `200 88714 application/pdf`.
+
+### Languages
+
+Suriname legislates in Dutch only, so every record is `nl`. English was looked for at dna.sr (every law page and PDF is Dutch), gov.sr (Dutch pages; the search for a Milieu Raamwet English text found only Dutch news items) and nimos.org (see Blocked). No government English translation was found, so no translation row exists and no English record is stored.
+
+Link-only instruments: none. All three scope instruments are stored.
+
+Not listed, with the reason:
+
+| Candidate | Finding |
+|---|---|
+| Climate framework act, carbon-market act | None enacted. The Ontwerpwet Wet Duurzaam Natuurbeheer is on the dna.sr "in behandeling" list (a bill, not law). No register row: nothing enacted to register. |
+| Central bank directive on climate risk or sustainability | `https://www.cbvs.sr/` answered the cloud address with a Cloudflare challenge (HTTP 403, "Just a moment...", also in headless Chromium); no directive found through search. Nothing listed. |
+| Consumentenbeschermingswet | The 2020 initiative bill PDF is on dna.sr, but no Consumentenbeschermingswet appears on the Wetten na 2005 list or the goedgekeurd and in-behandeling bill lists. Treated as not enacted. |
+| Milieu fine decision of 4 March 2026 (Justice ministerie beschikking amending the 2007 beschikking, litter and fire fines) | Seen only in a gov.sr news item (https://gov.sr/afkondiging-boetebesluit-geeft-milieu-inspecteurs-meer-armslag/); the Staatsblad text was not found, and it is a ministerial decision on fines, not an implementing order of the Milieu Raamwet as read. Not listed. |
+| Wet Energie Autoriteit Suriname (S.B. 2016 no. 41), Wet Bosbeheer, Decreet Mijnbouw 1986, Wet op de jaarrekening | Not climate, disclosure, carbon, due diligence or consumer instruments in families F1 to F6 as read from their titles; not opened. Not listed. |
+
+Blocked from the cloud address: `https://www.cbvs.sr/` and `https://www.cbvs.sr/en/` (Cloudflare "Just a moment..." page, HTTP 403, 5284 bytes to curl, 44766 bytes in Chromium after 8 seconds); `https://nimos.org/` (curl: `SSL certificate problem: certificate has expired`, code 60; Chromium: HTTP 502, 174 bytes; TLS verification was not disabled). The orchestrator can read both from the laptop. `https://gov.sr` opened (200, 453248 bytes) but holds no law texts.
