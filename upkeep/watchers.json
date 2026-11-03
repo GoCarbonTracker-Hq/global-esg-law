@@ -12032,6 +12032,642 @@
   "params": {}
  },
  {
+  "id": "mm-investment-rules-2017-dica-page",
+  "source_id": "MM-DICA-TRANSLATION",
+  "iso2": "MM",
+  "instrument": "mm-investment-rules-2017",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf",
+  "params": {
+   "second_route": "https://www.dica.gov.mm/wp-content/uploads/2024/12/myanmar_investment_rules_official_translation.pdf (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-law-2012-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-law-2012",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-environmental-conservation-rules-2014-monrec-page",
+  "source_id": "MM-MONREC-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-environmental-conservation-rules-2014",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.monrec.gov.mm/",
+  "params": {
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "mm-consumer-protection-law-2019-mlis-page",
+  "source_id": "MM-MLIS-ADOPTED",
+  "iso2": "MM",
+  "instrument": "mm-consumer-protection-law-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mlis.gov.mm/",
+  "params": {
+   "second_route": "https://www.mlis.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+  }
+ },
+ {
+  "id": "vu-meteorology-geohazards-climate-change-act-mocca-head",
+  "source_id": "VU-MOCCA-ADOPTED",
+  "iso2": "VU",
+  "instrument": "vu-meteorology-geohazards-climate-change-act",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mocca.gov.vu/images/publications/legislation/VMGD/Meteorology%2C%20Geological%20Hazards%20and%20Climate%20Change%20Act%202016.pdf",
+  "params": {
+   "second_route": "https://mocca.gov.vu/index.php/resources/legislation (browser; the Legislation page links the PDF)"
+  }
+ },
+ {
+  "id": "vu-environmental-protection-conservation-act-mocca-head",
+  "source_id": "VU-DEPC-CONSOLIDATED",
+  "iso2": "VU",
+  "instrument": "vu-environmental-protection-conservation-act",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mocca.gov.vu/images/publications/legislation/DEPC/Legislation/Environmental%20Protection%20and%20Conservation%20Act%20PC_Act_2002_%28consolidated_version_incl_2011_amends%29.pdf",
+  "params": {
+   "second_route": "https://environment.gov.vu/index.php/environment-conventions-and-agreements/laws/laws-depc/epc-act (browser; the DEPC page for the Act)"
+  }
+ },
+ {
+  "id": "vu-eia-regulations-mocca-head",
+  "source_id": "VU-DEPC-CONSOLIDATED",
+  "iso2": "VU",
+  "instrument": "vu-eia-regulations",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://mocca.gov.vu/images/publications/legislation/DEPC/Subsidiary%20Legislations/Environmental%20Impact%20Assessment%20%28EIA%29%20Regulations%20%28Consolidated%29.pdf",
+  "params": {
+   "second_route": "https://environment.gov.vu/index.php/environment-conventions-and-agreements/laws/laws-depc/eia-regualation (browser; the DEPC page for the Regulations)"
+  }
+ },
+ {
+  "id": "vu-price-monitoring-consumer-affairs-act-paclii-hash",
+  "source_id": "VU-PACLII-ADOPTED",
+  "iso2": "VU",
+  "instrument": "vu-price-monitoring-consumer-affairs-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://rms.paclii.org/vu/legis/num_act/pmacaa2023360",
+  "params": {
+   "second_route": "https://www.paclii.org/vu/legis/num_act/pmacaa2023360.html (browser; paclii.org answers scripts and headless Chromium with a Cloudflare 403 challenge from the cloud address)"
+  }
+ },
+ {
+  "id": "ps-pma-circular-87-2025-pdf",
+  "source_id": "PS-PMA-ADOPTED",
+  "iso2": "PS",
+  "instrument": "ps-pma-circular-87-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf",
+  "params": {
+   "second_route": "https://www.pma.ps/banking-circulars (browser; a JavaScript application, the 2025 filter lists the circulars and their PDF links; curl gets a 6300-byte shell)"
+  }
+ },
+ {
+  "id": "tm-air-protection-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-air-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/92?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-nature-protection-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-nature-protection-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/154?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-audit-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-audit-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/41?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-expertise-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-expertise-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/167?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-safety-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-safety-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/73?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-ecological-information-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-ecological-information-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/32?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-consumer-rights-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-consumer-rights-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/176?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-advertising-law-mejlis-page",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "tm-advertising-law",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://mejlis.gov.tm/single-law/99?lang=ru",
+  "params": {}
+ },
+ {
+  "id": "tm-terms-mejlis-consolidated",
+  "source_id": "TM-MEJLIS-CONSOLIDATED",
+  "iso2": "TM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mejlis.gov.tm/single-law/209?lang=ru",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "pg-climate-change-management-act-2015-pdf-head",
+  "source_id": "PG-CCDA-CONSOLIDATED",
+  "iso2": "PG",
+  "instrument": "pg-climate-change-management-act-2015",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://ccda.gov.pg/wp-content/uploads/2026/02/Climate-Change-Management-Act-2015_consolidated.pdf",
+  "params": {
+   "second_route": "https://ccda.gov.pg/eywa-resources/climate-change-management-act-2015/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-ndc-regulation-2022-pdf-head",
+  "source_id": "PG-CCDA-ADOPTED",
+  "iso2": "PG",
+  "instrument": "pg-ndc-regulation-2022",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://ccda.gov.pg/wp-content/uploads/2026/02/NDC-Regulations-2022.pdf",
+  "params": {
+   "second_route": "https://ccda.gov.pg/eywa-resources/national-determined-contributionndc-regulation-2022/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-carbon-markets-regulation-2025-pdf-head",
+  "source_id": "PG-CCDA-ADOPTED",
+  "iso2": "PG",
+  "instrument": "pg-carbon-markets-regulation-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://ccda.gov.pg/wp-content/uploads/2026/02/Carbon-Market-Regulation.pdf",
+  "params": {
+   "second_route": "https://ccda.gov.pg/eywa-resources/carbon-markets-regulaiton-2025/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-scpng-green-bond-guidelines-2026-pdf-head",
+  "source_id": "PG-SCPNG-ADOPTED",
+  "iso2": "PG",
+  "instrument": "pg-scpng-green-bond-guidelines-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.scpng.gov.pg/wp-content/uploads/2026/07/GUIDELINES-2026_001-GREEN-BOND-GUIDELINES.pdf",
+  "params": {
+   "second_route": "https://www.scpng.gov.pg/laws/guidelines/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-scpng-social-bond-guidelines-2026-pdf-head",
+  "source_id": "PG-SCPNG-ADOPTED",
+  "iso2": "PG",
+  "instrument": "pg-scpng-social-bond-guidelines-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.scpng.gov.pg/wp-content/uploads/2026/07/GUIDELINES-2026_002-SOCIAL-BOND-GUIDELINES.pdf",
+  "params": {
+   "second_route": "https://www.scpng.gov.pg/laws/guidelines/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-scpng-sustainability-bond-guidelines-2026-pdf-head",
+  "source_id": "PG-SCPNG-ADOPTED",
+  "iso2": "PG",
+  "instrument": "pg-scpng-sustainability-bond-guidelines-2026",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.scpng.gov.pg/wp-content/uploads/2026/07/GUIDELINES-2026_003-SUSTAINABILITY-BOND-GUIDELINES.pdf",
+  "params": {
+   "second_route": "https://www.scpng.gov.pg/laws/guidelines/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "pg-commercial-advertisement-act-1976-pdf-head",
+  "source_id": "PG-ICCC-CONSOLIDATED",
+  "iso2": "PG",
+  "instrument": "pg-commercial-advertisement-act-1976",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://iccc.gov.pg/wp-content/uploads/2023/07/Commercial-Advertisement-Protection-of-the-Public-Act-1976.pdf",
+  "params": {
+   "second_route": "https://iccc.gov.pg/about-us-2/ (browser; the PDF answered curl with 200 and a Last-Modified header on 2026-11-03, so no challenge was seen; this page links the file)"
+  }
+ },
+ {
+  "id": "bn-ghg-directive-2023-press-release",
+  "source_id": "BN-CCS-ADOPTED",
+  "iso2": "BN",
+  "instrument": "bn-ghg-directive-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://climatechange.gov.bn/Press%20Release/Press%20Release%20-%20Launching%20of%20the%20Directive%20on%20the%20Mandatory%20Reporting%20on%20Greenhouse%20Gas.pdf",
+  "params": {
+   "second_route": "https://climatechange.gov.bn/ (browser from a laptop; the https certificate has expired and plain http answers 403 to scripts on 2026-11-03; the Directive PDF is under Shared Documents)"
+  }
+ },
+ {
+  "id": "bn-epmo-2016-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-epmo-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20272"
+ },
+ {
+  "id": "bn-cpfto-2011-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-cpfto-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20247"
+ },
+ {
+  "id": "bn-eesl-order-2021-agc-record",
+  "source_id": "BN-AGC-CONSOLIDATED",
+  "iso2": "BN",
+  "instrument": "bn-eesl-order-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.agc.gov.bn/wp-json/wp/v2/agc_document/20278"
+ },
+ {
+  "id": "fj-climate-change-act-2021-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF.CAP106B.CCAFJ21.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/3290 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-environment-management-act-2005-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-environment-management-act-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EMAFJ05.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2576 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-ema-amendment-act-2025-laws-published",
+  "source_id": "FJ-LAWS-ADOPTED",
+  "iso2": "FJ",
+  "instrument": "fj-ema-amendment-act-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/show_pdf_lawsaspublished/1841",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/law-as-published (browser; Laws as Published list)"
+  }
+ },
+ {
+  "id": "fj-ema-eia-regulations-2007-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-ema-eia-regulations-2007",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF_LOF.VOL19.SGM_LOF.CAP141B.EPRFJ07.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2576 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "fj-fccc-act-2010-laws-page",
+  "source_id": "FJ-LAWS-CONSOLIDATED",
+  "iso2": "FJ",
+  "instrument": "fj-fccc-act-2010",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.laws.gov.fj/api/retrieve_html/LOF.CAP235F.CCAFJ10.BODY",
+  "params": {
+   "second_route": "https://www.laws.gov.fj/#/acts/DisplayAct/2733 (browser; laws.gov.fj is a JavaScript application with hash routes, the API answered plain curl on 2026-11-03; the node is the Table of Amendments, which carries the commencement dates and the Last Updated date)"
+  }
+ },
+ {
+  "id": "to-environment-management-act-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-environment-management-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2010/2010-0027/EnvironmentManagementAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-act-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-eia-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2003/2003-0016/EnvironmentalImpactAssessmentAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-regulations-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-eia-regulations",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/4704/4704-0001/EnvironmentalImpactAssessmentRegulations_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-eia-consultants-regulations-2021-ago-pdf",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "to-eia-consultants-regulations-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/SUBORDINATE/2021/2021-0069/RegistrationofEnvironmentalImpactAssessmentConsultantsRegulations2021_1.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-consumer-protection-act-2000-ago-pdf",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "to-consumer-protection-act-2000",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/2000/2000-0015/ConsumerProtectionAct_3.pdf",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/current-revised-edition/by-category.html (browser; the Legislation History Tables sit on a POST form, choose the category, a script cannot GET it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "to-consumer-protection-act-2025-not-in-force-page",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "to-consumer-protection-act-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://ago.gov.to/cms/legislation/not-in-force.html",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/legislation/not-in-force.html (browser; the list of Acts not yet in force, a change may be the proclamation of the Consumer Protection Act 2025; also read its row in the Legislation History Table, whose commencement note changes when Cabinet proclaims it; the site answered scripts with HTTP 200 on 2026-11-03)"
+  }
+ },
+ {
+  "id": "terms-to-ago-adopted",
+  "source_id": "TO-AGO-ADOPTED",
+  "iso2": "TO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ago.gov.to/cms/about/using-this-website.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/about/using-this-website.html (browser; the pass rests on Copyright Act 2002 s. 5(b), so a change here is a prompt to reread, not a failure; the footer carries the year, so the hash changes every January)"
+  }
+ },
+ {
+  "id": "terms-to-ago-consolidated",
+  "source_id": "TO-AGO-CONSOLIDATED",
+  "iso2": "TO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ago.gov.to/cms/about/using-this-website.html",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://ago.gov.to/cms/about/using-this-website.html (browser; the pass rests on Copyright Act 2002 s. 5(b), so a change here is a prompt to reread, not a failure; the footer carries the year, so the hash changes every January)"
+  }
+ },
+ {
+  "id": "np-environment-protection-act-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-environment-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/9.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%90%E0%A4%A8%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AC_d91zo4v.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-environment-protection-rules-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-environment-protection-rules",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/8.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AD_jahaoua.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-carbon-trading-rules-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-carbon-trading-rules",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/pdf_upload/Final%20%20Opmc%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AC%E0%A4%A8%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80-%E0%A5%A8%E0%A5%A6%E0%A5%AE%E0%A5%A8%208-11_2w5ukgo.pdf",
+  "params": {}
+ },
+ {
+  "id": "np-consumer-protection-act-lawcommission-pdf-head",
+  "source_id": "NP-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "NP",
+  "instrument": "np-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://giwmscdnone.gov.np/media/app/public/275/posts/1719394748_73.pdf",
+  "params": {}
+ },
+ {
+  "id": "iq-isc-esg-guide-edition-2-head",
+  "source_id": "IQ-ISC-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-isc-esg-guide",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://uploads.isc.gov.iq/upload/2026/06/17//6a32dc6fcd9df.pdf",
+  "params": {
+   "note": "2nd edition PDF of the ESG guide (effective 2026-05-13); the server sends Content-Length only, no Last-Modified. A 3rd edition would be a new upload path on https://isc.gov.iq/pages/43"
+  }
+ },
+ {
+  "id": "iq-cbi-esg-code-2025-head",
+  "source_id": "IQ-CBI-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-cbi-esg-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbi.iq/static/uploads/up/file-175396251558377.pdf",
+  "params": {
+   "note": "2025 Arabic edition; a new edition would be a new file on https://cbi.iq/page/99"
+  }
+ },
+ {
+  "id": "iq-env-protection-law-27-2009-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-env-protection-law-27-2009",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/4142.pdf",
+  "params": {}
+ },
+ {
+  "id": "iq-emission-limits-instructions-3-2012-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-emission-limits-instructions-3-2012",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/4242.pdf",
+  "params": {
+   "note": "the first amendment sits in Gazette 4434 (https://moen.gov.iq/files/TableFiles/4434.pdf), seen through the MOEN list watcher"
+  }
+ },
+ {
+  "id": "iq-environmental-approval-instructions-3-2011-moen-list",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-environmental-approval-instructions-3-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/moe-backend/api/tbm-post/ar/legislation?table_page=2",
+  "params": {
+   "note": "JSON behind https://moen.gov.iq/ar/legislation, page 2 of 5 (rows 11 to 20: the 2011 instructions and the 2012 emission limits); the page itself is an Angular app that curl sees as an empty shell"
+  }
+ },
+ {
+  "id": "iq-carbon-economics-company-statement-2025-pdf-head",
+  "source_id": "IQ-MOEN-ADOPTED",
+  "iso2": "IQ",
+  "instrument": "iq-carbon-economics-company-statement-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moen.gov.iq/files/TableFiles/%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86_%D8%A7%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%D9%8A_%D8%A7%D9%84%D9%85%D8%B9%D8%AF%D9%84.pdf",
+  "params": {}
+ },
+ {
+  "id": "ye-environment-protection-law-26-1995-agoye-page",
+  "source_id": "YE-AGO-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-environment-protection-law-26-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://agoye.gov.ye/page.php?lng=arabic&pprint=323",
+  "params": {
+   "second_route": "https://agoye.gov.ye/page.php?lng=arabic&id=323 (browser; curl with the default User-Agent gets 403 from agoye.gov.ye, a browser User-Agent gets 200)"
+  }
+ },
+ {
+  "id": "ye-marine-environment-protection-law-11-1993-agoye-page",
+  "source_id": "YE-AGO-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-marine-environment-protection-law-11-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://agoye.gov.ye/page.php?lng=arabic&pprint=322",
+  "params": {
+   "second_route": "https://agoye.gov.ye/page.php?lng=arabic&id=322 (browser; curl with the default User-Agent gets 403 from agoye.gov.ye, a browser User-Agent gets 200)"
+  }
+ },
+ {
+  "id": "ye-consumer-protection-law-46-2008-moit-pdf",
+  "source_id": "YE-MOIT-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-consumer-protection-law-46-2008",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moit.gov.ye/sites/default/files/2026-02/%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83.pdf",
+  "params": {
+   "second_route": "https://moit.gov.ye/legislations/laws (browser; the PDF is linked from this list)"
+  }
+ },
+ {
+  "id": "ye-consumer-protection-regulation-2010-moit-pdf",
+  "source_id": "YE-MOIT-ADOPTED",
+  "iso2": "YE",
+  "instrument": "ye-consumer-protection-regulation-2010",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moit.gov.ye/sites/default/files/2026-02/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D8%AD%D9%85%D8%A7%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%87%D9%84%D9%83_0.pdf",
+  "params": {
+   "second_route": "https://moit.gov.ye/node/175 (browser; the PDF is linked from this page)"
+  }
+ },
+ {
   "id": "mn-corporate-governance-code-legalinfo-page",
   "source_id": "MN-LEGALINFO-CONSOLIDATED",
   "iso2": "MN",
