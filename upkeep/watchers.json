@@ -10608,5 +10608,101 @@
   "params": {
    "second_route": "https://pncc.ci/page/textes-juridiques (browser; list page of the PDF)"
   }
+ },
+ {
+  "id": "tz-bot-sustainability-reporting-guidelines-2025-pdf-hash",
+  "source_id": "TZ-BOT-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-bot-sustainability-reporting-guidelines-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bot.go.tz/Publications/Acts%2C%20Regulations%2C%20Circulars%2C%20Guidelines/Guidelines/en/2025013119524653.pdf",
+  "params": {
+   "second_route": "https://www.bot.go.tz/BankSupervision/Regulations (browser; the Bank server answers HEAD with 404, so the watcher hashes the GET body of the PDF, and the listing page changes on every request)"
+  }
+ },
+ {
+  "id": "tz-bot-climate-risk-guidelines-2025-pdf-hash",
+  "source_id": "TZ-BOT-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-bot-climate-risk-guidelines-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bot.go.tz/Publications/Acts%2C%20Regulations%2C%20Circulars%2C%20Guidelines/Guidelines/en/2025013119505259.pdf",
+  "params": {
+   "second_route": "https://www.bot.go.tz/BankSupervision/Regulations (browser; the Bank server answers HEAD with 404, so the watcher hashes the GET body of the PDF)"
+  }
+ },
+ {
+  "id": "tz-ema-cap191-oag-page",
+  "source_id": "TZ-OAG-CONSOLIDATED",
+  "iso2": "TZ",
+  "instrument": "tz-ema-cap191",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/295",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/revised-acts (browser; DataTables list of revised acts, the page lists amending legislation when OAG adds it)"
+  }
+ },
+ {
+  "id": "tz-ema-amendment-2025-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-ema-amendment-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/acts/327",
+  "params": {
+   "second_route": "https://www.parliament.go.tz/acts (browser; Parliament list of Acts, the file is also served at polis.bunge.go.tz, whose server omits its intermediate certificate)"
+  }
+ },
+ {
+  "id": "tz-carbon-trading-regs-2022-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-carbon-trading-regs-2022",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/legislation/934",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/legislation (browser; DataTables list of subsidiary legislation, 4653 rows on 2026-11-03)"
+  }
+ },
+ {
+  "id": "tz-carbon-trading-amendment-2023-oag-page",
+  "source_id": "TZ-OAG-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-carbon-trading-amendment-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/legislation/2566",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/legislation (browser; look for further amendments of GN 636 of 2022)"
+  }
+ },
+ {
+  "id": "tz-fca-cap285-oag-page",
+  "source_id": "TZ-OAG-CONSOLIDATED",
+  "iso2": "TZ",
+  "instrument": "tz-fca-cap285",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://oagmis.oag.go.tz/portal/revised-acts/revised/389",
+  "params": {
+   "second_route": "https://oagmis.oag.go.tz/portal/acts/269 (browser; the Fair Competition (Amendment) Act, 2024 page, the first act after the Revised Edition)"
+  }
+ },
+ {
+  "id": "tz-cmsa-sustainability-bonds-regs-2025-pdf-head",
+  "source_id": "TZ-CMSA-ADOPTED",
+  "iso2": "TZ",
+  "instrument": "tz-cmsa-sustainability-bonds-regs-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cmsa.go.tz/uploads/publications/en-1748586307-CMSA%20CORPORATE%20AND%20SUBNATIONAL%20SUSTAINABILITY%20BONDS%20REGULATIONS.pdf",
+  "params": {
+   "second_route": "https://www.cmsa.go.tz/publications/12 (browser; list of CMSA regulations)"
+  }
  }
 ]

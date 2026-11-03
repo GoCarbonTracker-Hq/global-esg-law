@@ -6378,3 +6378,85 @@ Blocked from the cloud address:
 
 - `https://www.sgg.gouv.ci/`, `https://sgg.gouv.ci/`: `curl: (60) SSL certificate problem: certificate has expired`; `http://www.sgg.gouv.ci/` answers `301` to the https address. Certificate verification was not disabled. The web.archive.org copy and `https://www.jo.gouv.ci/` return `CONNECT tunnel failed, response 502`.
 - `https://agp.africanlii.org/` and `https://civlii.laws.africa/...source`: proxy 502 or 404 (not official publishers; tried only to read Loi 2016-555 art. 10, which was read in the Journal officiel no 84 of 20 October 2016 hosted at `https://www.droitci.info/files/231.07.16-Loi-du-26-juillet-2016_Droit-d-auteur.pdf`).
+
+## Tanzania
+
+Run on 2026-11-03 (GEL-13-02). Rows `TZ-OAG-CONSOLIDATED`, `TZ-OAG-ADOPTED`, `TZ-OAG-TRANSLATION` (Office of the Attorney General, OAG-MIS) and `TZ-CMSA-ADOPTED` (Capital Markets and Securities Authority) pass on the statute basis: Copyright and Neighbouring Rights Act (Cap. 218 R.E. 2023) s. 7(a), "protection shall not extend to- (a) laws and decisions of courts and administrative bodies as well as to official translations thereof". Rows `TZ-BOT-ADOPTED` and `TZ-TANZLII-CONSOLIDATED` are `permission requested`. Two conflicts are left to Varun in the PR: the Revised Edition PDFs carry a watermark "All rights reserved. No part of this book may be reproduced or distributed without permission of OAG", and the CMSA site says "All rights reserved"; the rows pass because the statute removes protection from laws. The host in the brief, `oagmis.agctz.go.tz`, is blocked from the cloud address; the same catalogue is served at `oagmis.oag.go.tz`, which answers. Tanzania mainland only; Zanzibar is not in scope.
+
+Step 1, list the catalogue (a DataTables server-side endpoint; the `search[value]` parameter is ignored, so read every page and filter by title). Revised Edition 2023, 541 rows:
+
+```
+curl -sS -A 'Mozilla/5.0' -H 'X-Requested-With: XMLHttpRequest' -o revised.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://oagmis.oag.go.tz/portal/revised-acts-ajax?draw=1&start=0&length=100'
+```
+
+Returned `200 62034 application/json` (`start` 0, 100, ... 500 for the rest). The other lists work the same way: `acts-ajax` (321 Acts as passed, earliest enacted 2003), `legislation-ajax` (4653 Government Notices and other subsidiary legislation), `annual-supplements-ajax`, `guidelines-ajax`. Each row has `id`, title, dates and `documentPath`.
+
+Step 2, row `TZ-OAG-CONSOLIDATED`, the Environmental Management Act (Cap. 191 R.E. 2023, id 295):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cap191.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/acts/revised/295/download
+```
+
+Returned `200 1267357 application/pdf` (sha256 `12a73786a078b645e593b9a3734d4bd0b99321b12e2001b7c9b29bb9ab8c1ff8`; a second fetch gave the same hash). The Fair Competition Act (Cap. 285, id 389) returned `200 991466 application/pdf`.
+
+Row `TZ-OAG-ADOPTED`, Environmental Management (Amendment) Act, 2025 (Act No. 5 of 2025, id 327) and the Kiswahili carbon trading notices GN 637 of 2022 (id 934) and GN 716 of 2023 (id 2566):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o act5.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/acts/327/download
+curl -sS -L -A 'Mozilla/5.0' -o gn637.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/legislation/934/download
+```
+
+Returned `200 210481 application/pdf` and `200 596711 application/pdf` (GN 716: `200 568762 application/pdf`).
+
+Row `TZ-OAG-TRANSLATION`, the English notices GN 636 of 2022 (id 933) and GN 721 of 2023 (id 2571):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gn636.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://oagmis.oag.go.tz/portal/legislation/933/download
+```
+
+Returned `200 731603 application/pdf` (GN 721: `200 564678 application/pdf`; GN 636 fetched twice, same sha256 `2d4b8217...`).
+
+Row `TZ-CMSA-ADOPTED`, Government Notice No. 302 of 2025:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gn302.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cmsa.go.tz/uploads/publications/en-1748586307-CMSA%20CORPORATE%20AND%20SUBNATIONAL%20SUSTAINABILITY%20BONDS%20REGULATIONS.pdf'
+```
+
+Returned `200 536291 application/pdf`.
+
+Text extraction. Every page of the Revised Edition PDFs carries a 45-degree watermark. `pdftotext -raw` spells it out as one-character lines but also fuses words in justified lines (`supplyofgoodsorservices`), and `pdftotext -layout` and the default mode scatter watermark fragments through the text. The Revised Edition texts (Cap. 191, Cap. 285) were therefore read with pdfplumber 0.11.10 (not poppler), dropping every character whose text matrix is rotated, then collapsing runs of spaces and keeping line breaks:
+
+```
+python3 -c "import pdfplumber,re;pdf=pdfplumber.open('cap191.pdf');t='\n'.join((p.filter(lambda o:o.get('object_type')!='char' or (abs(o['matrix'][1])<0.01 and abs(o['matrix'][2])<0.01)).extract_text() or '') for p in pdf.pages);print(re.sub(r'\n{3,}','\n\n','\n'.join(re.sub(r'[ \t]+',' ',l).strip() for l in t.split('\n'))).strip())"
+```
+
+Output checked: no watermark fragments, no replacement characters. The Act and the Government Notices carry no watermark and were read with poppler `pdftotext -layout file.pdf -`, runs of spaces collapsed, form feeds as line breaks; no mojibake (Kiswahili text included). Page headers of the notices (for example "GN. NO. 636 (Contd.)") stay in the text. `fetched_sha256` is the hash of the PDF as received.
+
+Stored (fetched 2026-11-03):
+
+| Instrument | Row | Versions stored (`in_force`, language) |
+|---|---|---|
+| `tz-ema-cap191` | consolidated | 2025-04-25 en (Revised Edition 2023, OAG publication date) |
+| `tz-ema-amendment-2025` | adopted | 2025-03-14 en |
+| `tz-carbon-trading-regs-2022` | adopted, translation | 2022-10-28 sw (GN 637), 2022-10-28 en (GN 636) |
+| `tz-carbon-trading-amendment-2023` | adopted, translation | 2023-10-06 sw (GN 716), 2023-10-06 en (GN 721) |
+| `tz-fca-cap285` | consolidated | 2025-04-25 en (Revised Edition 2023) |
+| `tz-cmsa-sustainability-bonds-regs-2025` | adopted | 2025-05-23 en |
+
+### Languages
+
+Cap. 1 (Interpretation of Laws Act) R.E. 2023 s. 85 (the brief said s. 84, the section moved in the Revised Edition): "(1) The language of enactment of the laws of the United Republic shall be Kiswahili. (2) Laws of the United Republic that were enacted in the English language shall be translated into Kiswahili. ... (5) Where a written law is translated and there occurs a conflict or doubt as to the meaning of any word or expression, the language of the enacting version shall take precedence." The Kiswahili text of a Government Notice is the official text and the English notice is stored as the translation under `TZ-OAG-TRANSLATION` (statute, s. 7(a) "official translations thereof"). Neither notice labels itself; this reading is Varun's to confirm. Kiswahili texts found: GN 637 of 2022, GN 716 of 2023 (also Kiswahili-only Acts after 2021, none in scope). Not found: a Kiswahili edition of any English revised chapter (the catalogue lists 5 Kiswahili titles among 541 revised acts, all post-2021 Acts), a Kiswahili text of Act No. 5 of 2025 (OAG and Parliament serve one English PDF), a Kiswahili text of the CMSA notice (CMSA regulations page lists English files), and an English translation of the Bank of Tanzania guidelines. Looked for in the OAG lists above and the Parliament Acts list (`https://polis.bunge.go.tz/api/acts/async`, 1177 rows).
+
+### Link only
+
+- `tz-bot-sustainability-reporting-guidelines-2025` and `tz-bot-climate-risk-guidelines-2025`: row `TZ-BOT-ADOPTED`, `permission requested` (bot.go.tz Disclaimer grants no reuse; s. 7(a) not applied to guidelines issued under s. 71 of the Banking and Financial Institutions Act). Both PDFs opened: `200 4207809 application/pdf` and `200 447050 application/pdf`. The existing register URL `.../2025011015075199.pdf` is an earlier upload (PDF created 2025-01-07); the Bank now lists `.../2025013119524653.pdf`. The Bank server answers HEAD with 404 and GET with 200.
+- TanzLII (`TZ-TANZLII-CONSOLIDATED`): `permission requested` (CC BY-NC 4.0, "Scraping and bulk downloading ... strictly prohibited"); about page: operated by the Judiciary and the Office of the Attorney General, Chief Parliamentary Draftsman. No instrument is stored from it.
+- Not stored although the row passes: the adopted Environmental Management Act, 2004 (not in the OAG Acts catalogue, which has 2004 Acts numbers 1 to 8 only, nor on the Parliament list), the adopted Fair Competition Act, 2003 (OAG id 172, `200 25014119 application/pdf`, image-only, no text layer, no OCR in the recipe), Act No. 13 of 2024 (Fair Competition Amendment, not an entry).
+- Not in scope: Environmental Management (Environmental Performance Bond) Regulations, 2024 (GN 369, Kiswahili GN 388) and the other Environmental Management regulations on OAG-MIS (fees, coastal zone, plastic bags, ozone), which fit none of F1 to F6; the National Climate Change Response Strategy 2021 to 2026 (policy, register row F7, official page not opened); no climate framework act exists on the Parliament or OAG lists. No ESG disclosure rule of the Dar es Salaam Stock Exchange or CMSA (beyond the sustainability bonds notice) was found; the DSE pages show a Sustainability overview and Green Bonds & Sukuk only, so there is no DSE row.
+
+### Blocked from the cloud address
+
+- `https://oagmis.agctz.go.tz/public`, `https://agctz.go.tz`, `https://www.agctz.go.tz`: proxy answered `502` to the CONNECT (curl `(56) CONNECT tunnel failed, response 502`). The catalogue is reachable at `oagmis.oag.go.tz`.
+- `https://www.vpo.go.tz` (Vice President's Office, Division of Environment), `https://www.agc.go.tz`, `https://www.sheria.go.tz`, `https://www.fcctz.go.tz`: `502` on CONNECT or empty answer (`000`). `https://www.tic.go.tz`: tunnel closed mid-exchange.
+- TanzLII Act pages, for example `https://tanzlii.org/en/akn/tz/act/1999/7/eng`: `403`, a Cloudflare "Just a moment..." challenge (`403 5399 text/html`); the listing, about and terms pages answered `200`.
+- `https://polis.bunge.go.tz` (the Parliament Acts list and files behind `www.parliament.go.tz/acts`): TLS fails with curl `(60) unable to get local issuer certificate` because the server omits its intermediate certificate (DigiCert Global G2 TLS RSA SHA256 2020 CA1). Fetched with `--cacert` set to the proxy CA bundle plus that intermediate, downloaded from `http://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt`; verification stayed on. `www.parliament.go.tz` reset the connection on the first request of some runs and answered on retry. Its Disclaimer page (`/pages/disclaimer`) carries hidden gambling spam keywords in the page body, which suggests the site was tampered with.
