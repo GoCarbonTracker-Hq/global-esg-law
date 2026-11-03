@@ -7009,3 +7009,48 @@ English is the only official language of Dominican legislation, and the portal a
 
 - https://www.eccb-centralbank.org/ and https://www.eccb-centralbank.org/enforced: `403` from curl and from headless Chromium (HTTP 403 Forbidden, 117 to 118 bytes, server awselb/2.0). The orchestrator can read the ECCB terms page and the standards page from the laptop.
 - Nothing else refused the cloud address: dominica.gov.dm, printery.dominica.gov.dm, www.ecsrc.com (`200 60104 text/html; charset=UTF-8`) and www.ecseonline.com (`200 101003 text/html; charset=UTF-8`) answered. The ECSRC and ECSE pages show no ESG or climate rule by title; no row for them since nothing was taken.
+
+## Palestine
+
+Checked 2026-11-03 from the cloud address. No Palestine row passes, so nothing is stored and no fetch recipe for a `pass` row exists. The PMA circular below is the one request proven for a scope instrument (it is link only).
+
+### Requests proven (link only, nothing stored)
+
+PMA circular list (row `PS-PMA-ADOPTED`, permission requested). `curl` gets a JavaScript shell for every path:
+
+```
+curl -sS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://www.pma.ps/banking-circulars
+200 6300 text/html; charset=utf-8
+```
+
+The same 6300 bytes come back for `/circulars`, `/ar/circulars` and `/terms-of-use`. Browser recipe (Playwright, headless Chromium, `waitUntil: 'domcontentloaded'`, then a 12 s wait for the list to render; `networkidle` never settles on this site): the rendered page shows 497 files and one link per circular to a PDF in the site's storage bucket. Clicking the year `2025` lists the 2025 circulars. Circular 87/2025 is `رقم (87) مخرجات الاجتماع الأول لفريق عمل التمويل المستدام`. The terms page `https://www.pma.ps/terms-of-use` renders the same way and its text is the fingerprint source for the row.
+
+The PDF itself is served to `curl`:
+
+```
+curl -sS -o 87.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf
+200 534388 application/pdf
+```
+
+sha256 of the PDF as received: `b97299978bb2a255215895ac6a5a5f5157d96fc0409f8b1ed9a3eeba66073b48`. `pdftotext -layout` returns mojibake for it (legacy font encoding, scanned page with an invisible text layer), so it fails the mojibake check; OCR would be needed. `tesseract` and `ocrmypdf` are not installed in the session. The circular was read by rendering page 1 with `pdftoppm -r 80`.
+
+### Languages
+
+Arabic is the language of every Palestinian instrument found. No government English text was found: the PMA circulars page has an English switch that was not opened, and no English gazette exists. Nothing is stored in any language.
+
+### Link-only instruments and why
+
+- `ps-pma-circular-87-2025`: row `PS-PMA-ADOPTED` is permission requested (terms: all content owned by the Authority, reuse needs prior permission, information may be used for non-commercial purposes with the source named).
+
+### Rows that are not pass
+
+- `PS-MUQTAFI-ADOPTED` (Al-Muqtafi, Birzeit University Institute of Law): university host. `http://muqtafi.birzeit.edu/terms.aspx` gives a personal licence for registered users only, no derived products; https resets the connection, http answers 200. Its terms add that the legislative texts are not in themselves the Institute's property, but that does not release the database.
+- `PS-OGB-ADOPTED` (gazette): see Blocked.
+
+### Blocked from the cloud address
+
+- `https://ogb.gov.ps/` and `https://www.ogb.gov.ps/`: curl exit 35 (connection reset by peer); Chromium `upstream request failed`. `http://ogb.gov.ps` and `http://www.ogb.gov.ps`: 503, 114 bytes, text/plain.
+- `https://www.lab.pna.ps/`: 301 to `https://ogb.gov.ps/`. `http://www.lab.pna.ps/`: 200, 11.8 KB, a 5-second self-reloading JavaScript loader ("One moment, please...").
+- `http://www.environment.pna.ps` and `http://www.palestinecabinet.gov.ps`: 503, 114 bytes, text/plain (upstream connect error, connection timeout). `https://www.moj.pna.ps`: curl exit 35.
+- No DNS or connection for: dft.pna.ps, dft.gov.ps, alwaqa.ps, gazette.ps, diwan.pna.ps, eqa.ps, environment.gov.ps, moj.gov.ps.
+- `https://www.pex.ps`: 200, 434 bytes, a JavaScript shell; not rendered.

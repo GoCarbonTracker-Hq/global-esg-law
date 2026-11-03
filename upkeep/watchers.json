@@ -11516,5 +11516,17 @@
   "params": {
    "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
   }
+ },
+ {
+  "id": "ps-pma-circular-87-2025-pdf",
+  "source_id": "PS-PMA-ADOPTED",
+  "iso2": "PS",
+  "instrument": "ps-pma-circular-87-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://fayupjvyvxedvgathafk.supabase.co/storage/v1/object/public/cms-uploads/documents/1770113685632-6f08y949ikp.pdf",
+  "params": {
+   "second_route": "https://www.pma.ps/banking-circulars (browser; a JavaScript application, the 2025 filter lists the circulars and their PDF links; curl gets a 6300-byte shell)"
+  }
  }
 ]
