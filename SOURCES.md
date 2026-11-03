@@ -4391,6 +4391,167 @@ Bosnian (bs): the three Federation acts. Serbian (sr, Latin script): the Republi
 - https://www.slglasnik.org/cyr/stranice/pretplata answered 404 (guessed path).
 - https://www.vijeceministara.gov.ba answered 307 with an empty body; not followed.
 
+## San Marino
+
+Run on 2026-11-03 (GEL-11-09). No row passes, so nothing is stored and there is no `records/SM/`. Rows added: `SM-CGG-ADOPTED`, `SM-CGG-CONSOLIDATED`, `SM-CGG-TRANSLATION` (Consiglio Grande e Generale, consigliograndeegenerale.sm), `SM-BU-ADOPTED` (Bollettino Ufficiale, bollettinoufficiale.sm) and `SM-BCSM-CONSOLIDATED` (Banca Centrale, bcsm.sm). All five are `permission requested` on the terms basis: the Consiglio and Bollettino footers carry a copyright line and no reuse licence, the BCSM legal notice says the site content is "protetti quali opera dell'ingegno", and the Bollettino says consulting the Parte Ufficiale is "libera e gratuita", which is access, not reuse. The statute route was read and not applied: Legge 25 gennaio 1991 n.8 Art.98 lett. f) makes the reproduction of acts of the State or of the Pubbliche Amministrazioni a free use, it does not remove copyright, and Art.32 (as replaced by Legge n.43/1998 art.2) keeps adaptation and translation as exclusive rights (quoted in the `statute_exception` of each row). Varun's decision is listed in the PR. gov.sm (Dipartimento Territorio e Ambiente) was not used as a source, so it has no row: the environmental law text is on the Consiglio site, and `https://www.gov.sm/pub1/GovSM/Note-legali.html` answered 404.
+
+No `pass` row, so there is no stored-text recipe. The requests below are the ones that worked for the link-only instruments, so a row that later passes can be fetched without a new search. Every request below answered from the cloud address with a plain `curl` (default or `Mozilla/5.0` user agent, no challenge, no 403); no browser recipe is needed and no site was blocked.
+
+Consiglio archive search (GET form; `P0_numero` and `P0_anno` find a document, `P0_title` searches titles). The result page lists `documento<id>.html` links:
+
+```
+curl -sS -L -G -o search.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti.html' --data-urlencode 'P0_numero=44' --data-urlencode 'P0_anno=2012' -d 'channel=17000022&hitsPerPage=5&instance=18&node=17001320&P0_path=/home/tomcat/indicizzazione/indexleggi&P0_paginazione=50&P0_pagina=1&P0_orderBy=index_lucene,data_ordered,numero&P0_order=asc,desc,desc&P0_operatorMustBe=yes'
+```
+
+Returned `200 25502 text/html;charset=ISO-8859-1`; it lists `documento17050172` (Decreto Delegato 27 aprile 2012 n.44, TESTI COORDINATI). Row `SM-CGG-CONSOLIDATED`, the document itself (a PDF whatever the `.html` suffix says):
+
+```
+curl -sS -L -o codice.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/home/archivio-leggi-decreti-e-regolamenti/documento17050172.html
+```
+
+Returned `200 11342674 application/pdf`, sha256 `e34f60a63fba4d94853d29c6989776064a48c83d1baabfff7c4db6a215639768`; a second fetch gave the same hash. Row `SM-CGG-CONSOLIDATED`, Decreto Delegato 29 ottobre 2024 n.160 (`documento17148431`): `200 352287 application/pdf`, sha256 `5e2024bfda7ba0f622355c69a258db83c80ffcc929c7b42441da512c7363b517`. Row `SM-CGG-ADOPTED`, Legge 25 luglio 2025 n.101 (`documento17153669`): `200 194653 application/pdf`, sha256 `fc408122b7399030d77153312fc0728a2ad2094a4d12d4a4a38ea132980198df`. The subject pages of the coordinated texts are `/on-line/home/testi-coordinati/docCat.<n>.1.150.20.html` (environment: `docCat.17003115`, which shows "Testo Coordinato in materia di Codice Ambientale (aggiornato al 7 agosto 2017)"); `HEAD` on a document answers `Content-Length` only, no `Last-Modified`.
+
+Text extraction, for a row that later passes: `pdftotext -layout file.pdf -` (poppler), runs of spaces collapsed. Checked on the day for the Code (first 3000 characters), Reg. 2024-05 and Law 101/2025: no U+FFFD in the output, so no legacy-font mojibake in these three; the other PDFs were not checked.
+
+### Languages
+
+Italian is the only official language. `SM-CGG-TRANSLATION`: the Consiglio publishes an index of English texts (`/on-line/home/legislative-texts-in-english.html`, sections I to X, the files at `/on-line/documento<id>.html`). Among the instruments in scope only Law 101/2025 is listed (Italian section VI); its English text:
+
+```
+curl -sS -L -o l101en.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.consigliograndeegenerale.sm/on-line/documento17153924.html
+```
+
+Returned `200 201956 application/pdf`, sha256 `b0299ece5a70e8765a2a6b5ea757c8e9ab74c603f35ef576634a24479b37dad2`. Its header reads "July 2025 Official Bulletin of the Republic of San Marino - Official Part Doc. III.10". The English index does not list the Codice Ambientale or the consumer decree (sections III, VI and VII were read). For the BCSM regulations the English Regolamenti page (`https://www.bcsm.sm/en/laws-and-regulations/cbsm-provisions/regulations`, `200 200600`) translates titles and links the same Italian PDFs, so there is no English text and no row.
+
+BCSM texts (row `SM-BCSM-CONSOLIDATED`; the file names are listed on `https://www.bcsm.sm/normativa/provvedimenti-di-banca-centrale/regolamenti`, `200 200103 text/html`):
+
+```
+curl -sS -L -o r2405.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-05/Reg.2024-05_Agg.03.pdf'
+curl -sS -L -o r2402.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bcsm.sm/hubfs/Regolamenti/Regolamento%20n.%202024-02/Reg.2024-02_Agg.02_2.pdf'
+```
+
+Returned `200 2196869 application/pdf` (sha256 `f42be3b20f4a2242ec4223e2cd09b799813bbf986eecbfa1e35fb60cd9ac48ca`) and `200 886550 application/pdf` (sha256 `9c7d3948ee8458c015ca03b4889dc71f32a5b2e81b246b42fc232082727b5c2b`). Each regulation has several dated texts (2024-05: from 2025-01-01, 2025-01-28, 2025-09-25, 2026-01-29; 2024-02: from 2024-07-01, 2025-01-28, 2026-01-29) under separate file names.
+
+Bollettino Ufficiale: the pages answer (`https://www.bollettinoufficiale.sm/on-line/home/parte-ufficiale/ricerca.html?ricerca=yes` returned `200 10113 text/html;charset=ISO-8859-1`), but the search form, called as a GET with year, month and keyword (`...ricerca.html` with `showfeed=yes&ricerca=yes&risultati=yes&P0_anno=2025&annosup=2025&annoinf=2025&P0_keyword=EUDR`), returned `200 8888 text/html;charset=ISO-8859-1` with no result list. No request that lists or serves an act was found, so no fetch recipe for `SM-BU-ADOPTED`. The clock in the page header (`<div class="current-date">`) changes by the minute, so a hash of a Bollettino page needs it removed.
+
+### Link only
+
+All five scope instruments are link only; none has a record, none has `pass` rows.
+
+- `sm-codice-ambientale`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-dd-160-2024-consumo`: `SM-CGG-CONSOLIDATED` is `permission requested`. Request above works.
+- `sm-l-101-2025-eudr`: `SM-CGG-ADOPTED` and `SM-CGG-TRANSLATION` are `permission requested`. Italian and English requests above work.
+- `sm-bcsm-reg-2024-05`, `sm-bcsm-reg-2024-02`: `SM-BCSM-CONSOLIDATED` is `permission requested`. Requests above work.
+- No carbon pricing instrument was found. Title searches in the Consiglio archive for emissioni and cambiamento climatico returned only postal, debt-issue and name-change acts, and carbon returned nothing; full-text searches for gas serra and quote di emissione returned hundreds of unrelated documents and were not read through. There is no F3 or F7 entry, because there is no instrument to describe.
+- Not in scope: energy-efficiency acts (Legge 7 maggio 2008 n.72, DD 24 maggio 2017 n.51 and the energy collection `docCat.17005070`), which the dispatch did not list and which fit none of F1 to F6 on a plain reading.
+
+## North Macedonia
+
+Run on 2026-11-03 (GEL-11-02). One row passes: `MK-SLVESNIK-ADOPTED` (JP Sluzben vesnik, free issue archive; statute basis, Law on Copyright and Related Rights Art. 16 item 2, quoted in the row; the publisher's terms page grants no licence and claims database rights over its paid database, so Varun to confirm). One row is `permission requested`: `MK-NBRM-TRANSLATION` (nbrm.mk is behind a Cloudflare challenge, nothing read). No browser recipe was needed for anything stored; no browser-fetched records.
+
+Three instruments are stored, each in Macedonian (`mk`) and Albanian (`sq`), kind `adopted`, six records. Both languages are official texts printed in the same Gazette issue, so they share the one row. No English record exists.
+
+### Cloud address and the certificate
+
+`https://www.slvesnik.com.mk/` redirects to `https://slvesnik.com.mk/`. The host does not send its Sectigo intermediate certificate, so curl, Python and the watcher fail verification (`curl: (60) SSL certificate problem: unable to get local issuer certificate`; Python `CERTIFICATE_VERIFY_FAILED`). Verification stays on. The intermediate is named in the leaf's authority information access field, so fetch it and add it to a private bundle:
+
+```
+curl -sS -o int.crt http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt
+openssl x509 -inform DER -in int.crt -out int.pem
+cat /root/.ccr/ca-bundle.crt int.pem > bundle.pem
+```
+
+(`int.crt` returned `200 1616`.) Every request below uses `--cacert bundle.pem`. Headless Chromium through the cloud proxy answers `502 upstream request failed` for this host, so the archive is read with curl only.
+
+### Row MK-SLVESNIK-ADOPTED
+
+The free archive is a script-driven page (`/besplaten-pristap-do-izdanija.nspx`); the script posts JSON to two endpoints, found in `/Scripts/FreeIssue/FreeIssue/freeIssue.js`. Requests proven on 2026-11-03:
+
+```
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{}' https://slvesnik.com.mk/FreeIssue/GetIssueYears
+curl -sS --cacert bundle.pem -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'FROM-ANGULAR: true' --data '{"year":2023}' https://slvesnik.com.mk/FreeIssue/GetIssuesByYear
+```
+
+The first returned `[{"Year":"2025"},...,{"Year":"1944"}]` (82 years); the second 12 months with 287 issues, each `{IssueNumber, FileName, Title}` (`IssueDate` is empty, so the issue date is read from the PDF header). The PDF of Gazette issue 36 of 2023 (Decision on disclosure by banks):
+
+```
+curl -sS --cacert bundle.pem -o 2023-36.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://slvesnik.com.mk/Issues/75a2a79bf50f4420a995d414a3bb73f1.pdf
+```
+
+Returned `200 3614653 application/pdf`; sha256 `c689ca8cbe3d773ee0c8f87770c7a46726a1dece1afe97c528805057c4cdd730`, reproduced by a second fetch. The other two issues the same way: 53/2005 (`ACF1AC118E6F81438BE8DD53D5A613F0`, `200 3109468 application/pdf`, sha256 `ebd048d9dee1b967ef3b2b608e5ec367f835a14fa34db3f95f65042a5fb2d046`) and 236/2022 (`c4ef6c06718f4fe18ff615a5877f73f4`, `200 2518059 application/pdf`, sha256 `223262e119704e03d84272655f994d8422cb861979738e810534743c24cbf4ef`). `fetched_sha256` is the hash of the whole-issue PDF; the record text is one instrument cut out of it.
+
+Which issues are free: `GetIssueYears` lists 1944 to 2025; `GetIssuesByYear` with 2026 lists 257 issues, but only issues 1 to 23 of 2026 (to 2026-02-05) return a PDF (200), issues 24 to 257 return 404. The terms page says the public page serves regulations up to the previous year and the database and current-year issues are paid.
+
+Text extraction: `pdftotext file.pdf out.txt` (reading-order mode, not `-layout`: the Gazette is set in two columns and `-layout` interleaves them line by line, which was tried first and rejected). Then, per instrument, the line range of the Macedonian text and of the Albanian text is cut by its first and last line (the act's title or enacting formula to its last article or signature), form feeds removed, blank lines dropped, and page furniture lines dropped (`Стр. N - Бр. N`, `Бр. N - Стр. N`, a bare issue date line such as `17 февруари 2023`, the bare running head `СЛУЖБЕН ВЕСНИК НА РЕПУБЛИКА МАКЕДОНИЈА`). Nothing reworded. Reading order follows the PDF text layer, which is not always the printed order: in the 2005 and 2022 issues the Albanian text is partly shuffled near its end, and the Art. 3 heading of the 2005 Law sits after part of its list. Checked before storing: no U+FFFD in any record, Cyrillic is 99.8 to 99.9 percent of the letters in the `mk` records and 0.0 to 0.1 percent in the `sq` records (the Albanian text keeps a Cyrillic signature line).
+
+| Instrument | `in_force` | Gazette issue | `mk` / `sq` line ranges in the pdftotext output |
+|---|---|---|---|
+| `mk-nbrm-bank-disclosure-decision` | 2023-02-25 | 36/2023 | 1305-1962 / 1964-2850 |
+| `mk-law-environment` | 2005-07-13 | 53/2005 | 78-5937 / 5939-11762 |
+| `mk-law-consumer-protection` | 2022-11-15 | 236/2022 | 240-5417 / 5423-12626 |
+
+`in_force` is the entry into force computed from the clause "the eighth day from the day of publication" and the issue date (the Gazette states the rule, not the date). The Law on Environment applies from 2005-09-01 and the Decision on bank disclosure from 2025-01-01 (point 28 from 2026-01-01).
+
+Statute text read from the archive itself: Law on Copyright and Related Rights, Gazette issue 115 of 2010 (`https://slvesnik.com.mk/Issues/F469FDB63C32AB429150D203B1E3C9C7.pdf`, `200 2097618 application/pdf`), Art. 16 item 2: "службените текстови од политичка, законодавна, административна и судска природа и нивните службени преводи".
+
+### Languages
+
+Macedonian is the language of legislation; the Gazette prints the Albanian version of each act in the same issue (Law on the Use of Languages), so no second request is needed and the one row serves both. Verified for the three stored acts. English: the National Bank's English PDF named in the register and `nbrm.mk` return a Cloudflare challenge (below), so the translation row is `permission requested` and nothing is stored. No government English text was found elsewhere (slvesnik.com.mk, sobranie.mk searched; moepp.gov.mk unreachable). The Gazette sells a Macedonian-English Constitution (price list on `/izdanija.nspx`), not the acts in scope.
+
+### Link only and not in scope
+
+- Law on Climate Action: not enacted on the day, so no scope entry; the register row stays proposed with family F7. Ministry of European Affairs page dated 2026-02-13 (`https://mep.gov.mk/en-GB/transparentnost/novosti/ministerot-sali-na-ministerski-sostanok-na-ek-za-sproveduvanje-na-cbam`, `200`): "in January 2026, the Government adopted the draft Law on Climate Action". Gazette issues 1 to 23 of 2026 (grep for климатск and стаклен in the first two pages of each) hold no such law; later 2026 issues are not served.
+- Law on Trade Companies: no article on non-financial statements was found. A web search pointed to the accounting law (Directive 2013/34/EU) as the home of that duty, not to the Law on Trade Companies. Dropped, no row.
+- Law on Environment implementing rules (GHG monitoring and reporting), Law on Accounting, Securities Law, Law on Energy: not searched in the Gazette within the time box; listed under Next.
+- Securities and Exchange Commission and Macedonian Stock Exchange: `https://sec.gov.mk` `200 41834 text/html`, `https://www.mse.mk` `200 152409 text/html`; no instrument in scope depends on them, so no row was written.
+
+### Blocked from the cloud address
+
+- `https://www.nbrm.mk/` and `https://www.nbrm.mk/content/Regulativa/Decision%20on%20disclosure%20by%20banks.pdf`: HTTP 403, 5327 and 5598 bytes, text/html, `cf-mitigated: challenge`; headless Chromium waited 24 s and stayed on "Performing security verification".
+- `https://moepp.gov.mk`, `https://www.moepp.gov.mk`, `https://arhiva.moepp.gov.mk`, `https://www.sec.gov.mk`, `https://economy.gov.mk`: tunnel closed by the egress proxy (curl exit 000, `ws_closed_mid_exchange`). `https://www.pravo.org.mk`: gateway answered 502 to CONNECT.
+- `https://www.slvesnik.com.mk` through Chromium: `502 upstream request failed`; curl works with the intermediate certificate (above).
+
+## Lebanon
+
+Checked on 2026-11-03 from the cloud address. No Lebanese publisher row is `pass`, so no record is stored and every scope instrument in `register/LB/scope.json` is `link only`. The requests below were run to read the terms and to find out whether a usable text exists; none of them is a recipe for storage.
+
+Rows added: `LB-LEGALLAW-CONSOLIDATED` (Lebanese University legal database), `LB-JO-ADOPTED` (Official Gazette, jo.pcm.gov.lb), `LB-LP-ADOPTED` (Parliament), `LB-MOE-ADOPTED` (Ministry of Environment), all `permission requested`. Law No. 75 of 1999 Art. 4 removes laws, decrees and decisions of state bodies and their official translations from copyright (quoted in the statute column of the legal database row), but each site claims rights or restricts use, the database is not the authentic text, and the Gazette and ministry texts could not be read, so no row rests on it. Whether to rely on Art. 4 is open (see the PR).
+
+### Requests run (not stored)
+
+Legal database, text of one named instrument (Law No. 78 of 2018, lawId 275522), HTML print view that returns the full text with the Gazette header:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o f.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://legallaw.ul.edu.lb/LawView.aspx?opt&LawID=275522&TYPE=PRINT&language=ar'
+200 122226 text/html; charset=utf-8
+```
+
+The page `https://legallaw.ul.edu.lb/Law.aspx?lawId=275522&language=ar` answers `200 65631 text/html; charset=utf-8` and carries the Gazette issue, date and pages. The search form (`LegisltaionSearch.aspx`) is an ASP.NET postback: POST the hidden fields with `ctl00$MainContent$txtLawNumber`, `ctl00$MainContent$ddlLawYear`, `ddlStatus=100`, `drp_clasification=0`, `drpOption=100`, `payment=rdand` and `__EVENTTARGET=ctl00$MainContent$btnSearch`, with an explicit Content-Length (curl -X POST was answered 411 through the proxy; python urllib worked). The print-view body reproduced byte for byte on a second request (sha256 `68d57590...` for lawId 244662), which is why the watchers use `page_hash` on it. Terms page: `https://legallaw.ul.edu.lb/CustomPage.aspx?id=3&language=ar`, `200 40883 text/html; charset=utf-8`.
+
+Official Gazette: `curl -sS -L -A 'Mozilla/5.0' 'https://jo.pcm.gov.lb/page/22/'` returns `200 12185 text/html; charset=UTF-8` and says the electronic Gazette is a prepaid-card subscription with a login; the terms page `/page/25/` has no terms text. `https://www.pcm.gov.lb/` fails the TLS handshake (curl exit 35 / no answer).
+
+Parliament: `https://www.lp.gov.lb/ViewLawYears.aspx` `200 183830 text/html; charset=utf-8` (list of laws passed; footer "All rights reserved"). No law text fetched.
+
+Ministry of Environment: `https://www.moe.gov.lb/الوزارة/القوانين-والانظمة/القوانين.aspx` `200 76945 text/html; charset=utf-8`; the PDF of Law 78 at `https://www.moe.gov.lb/getattachment/dc69b6e9-50dd-417c-95b7-aa1308cd4027/قانون-رقم-78-قانون-حماية-نوعية-الهواء.aspx` `200 2684848 application/pdf`. Command used on the PDF: `pdftotext -layout file.pdf - | tr -s ' '`. Output is mojibake (a scan with a broken text layer, for example the first line `'I'.' A/ i/ ' '\ _ ~ A J~l _~_)I`), so it would not be stored even under a pass row.
+
+Capital Markets Authority: `https://www.cma.gov.lb/terms-of-use/` `200 35804 text/html; charset=UTF-8`: content is "for personal, educational or informational purposes only. Commercial use for financial gain of such content is not permitted without the express prior written permission of CMA" (not a pass; no row, because no CMA instrument is in scope). The laws page (`/laws-and-regulations/?impl=1`, 200, 170933 bytes) has no match for ESG, sustainability, climate, environment or governance-of-sustainability terms in Arabic or English.
+
+### Languages
+
+Arabic only. The legal database returns the same Arabic page for `language=fr` and `language=en`; the Gazette site is Arabic; the Ministry of Environment English interface (`?lang=en-us`) lists no English law texts. No government English or French translation was found, and no translation row exists. Law No. 75 of 1999 Art. 4 names "ترجماتها الرسمية" (official translations), but no official translation of any scope instrument was found. Translations by law firms, NGOs or news sites are never stored.
+
+### Link only (all seven scope instruments)
+
+All: row `LB-LEGALLAW-CONSOLIDATED` is `permission requested` (personal non-commercial use only), and the official-publisher alternatives do not give a usable text. Instruments: lb-law-444-2002, lb-law-78-2018, lb-decision-99-2013, lb-law-659-2005, lb-law-115-2019, lb-decree-8471-2012, lb-decree-14459-2024.
+
+### Blocked from the cloud address
+
+- https://www.bdl.gov.lb/ : HTTP 403, 5330 bytes, a Cloudflare "Just a moment..." challenge; headless Chromium (Playwright, networkidle) timed out after 45 s. No Banque du Liban circular could be read, so whether a sustainability circular exists is not established.
+- https://www.bse.com.lb/ : TLS handshake fails with curl (`SSL_ERROR_SYSCALL`); Chromium gets `502 upstream request failed`.
+- https://www.pcm.gov.lb/ : TLS handshake fails.
+
+No exchange or securities-regulator ESG disclosure rule was found: a web search for CMA, Beirut Stock Exchange and Banque du Liban sustainability disclosure rules returned commentary saying Lebanon has no enforced ESG disclosure requirement, and the CMA laws page shows none. No F7 register row is added.
+
 ## Andorra
 
 Run on 2026-11-03 (GEL-11-07). One row, `AD-BOPA-ADOPTED` (Butlletí Oficial del Principat d'Andorra, `pass`, basis terms: the BOPA legal notice permits copying, adaptation and transformation in any form and format; Llei sobre drets d'autor i drets veïns art. 4 para. 2 is quoted in the row as support). No consolidation row and no translation row: BOPA serves each act as published and nothing else, and no official English was found. Catalan is the only official language.
