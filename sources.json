@@ -10630,5 +10630,27 @@
     "trailer_source_url": "https://juntec.org.hn/marcolegal/",
     "trailer_licence": "Honduran Copyright Act (Decreto 4-99-E) art. 54: regulations may be published by private persons after publication in La Gaceta, respecting the full official text",
     "notes": "fingerprint: sha256 of the statute PDF exactly as returned by `curl -sL -A 'Mozilla/5.0' 'https://www.tsc.gob.hn/web/leyes/Ley%20de%20Derecho%20de%20Autor%20y%20Derechos%20Conexos%20D%20%204-99%20E.pdf' | shasum -a 256` (223285 bytes, application/pdf, 51 pages); recomputed 2026-11-03, identical on two fetches. The row passes, but the only file (https://juntec.org.hn/wp-content/uploads/2025/09/2025-01-31-Resolucion-JTNCA-006-01-2025-Adopcion-NIIF-S1-y-NIIF-S2-La-Gaceta.pdf-2025.pdf, 200, 1851050 bytes, application/pdf, sha256 7f40cbca94def12401cbb3f93ff89c294bc15a714a673027c0ccb90508338a64) is an Adobe Scan photograph with a machine text layer that reads 'Oue', 'COmo', 'CONSIDERAND0', 'S1' as 'SI' and interleaves its two columns, so nothing is stored: the fidelity condition of art. 54 cannot be met from it. The instrument is link only."
+  },
+  {
+    "id": "NI-LAGACETA-ADOPTED",
+    "jurisdiction": "NI",
+    "publisher": "La Gaceta, Diario Oficial de Nicaragua (Secretaría Jurídica de la Presidencia de la República)",
+    "source_name": "La Gaceta Diario Oficial issues (PDF embedded in the issue page), www.lagaceta.gob.ni/ediciones",
+    "form": "adopted",
+    "fetch_url": "https://www.lagaceta.gob.ni/{slug}/ (slug from https://www.lagaceta.gob.ni/ediciones?page=1&search={title words}); the issue PDF is the base64 string in the page's atob('...') call",
+    "pinned_version": "La Gaceta issue number and date",
+    "content_hash": "",
+    "terms_url": "https://www.lagaceta.gob.ni/la-gaceta-n-232-mi%C3%A9rcoles-16-diciembre-de-2020/",
+    "terms_quote": "Artículo 16 No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores.",
+    "terms_fingerprint": "96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe",
+    "verdict": "pass",
+    "statute_exception": "Ley No. 312, Ley de Derecho de Autor y Derechos Conexos, Artículo 16: \"No son objeto de protección las leyes, las disposiciones gubernativas, proyectos de ley, actas, acuerdos, deliberaciones y dictámenes de los órganos y organismos públicos y traducciones oficiales de los textos anteriores.\" Read on 2026-11-03 in the consolidated text published by the Asamblea Nacional in La Gaceta No. 232 of 2020-12-16 (\"Digesto Jurídico Nicaragüense de la Materia de Cultura\", consolidated to 2020-06-25, ordered published under Ley No. 963 and Ley No. 1032), https://www.lagaceta.gob.ni/la-gaceta-n-232-mi%C3%A9rcoles-16-diciembre-de-2020/ (decoded PDF 1724677 bytes, sha256 96e0740809d537be42b6be5a307ad58acce4af5d8f0af7ff2ad940e970cc01fe).",
+    "verdict_basis": "statute",
+    "checked_by": "claude",
+    "checked_on": "2026-11-03",
+    "trailer_instrument": "La Gaceta, Diario Oficial as published (issue number and date set per instrument)",
+    "trailer_source_url": "https://www.lagaceta.gob.ni/ediciones",
+    "trailer_licence": "Not protected by copyright (Nicaragua Ley 312 art. 16: laws and government provisions); La Gaceta is the official publication",
+    "notes": "fingerprint: sha256 of the PDF embedded in the La Gaceta No. 232 issue page, decoded from the base64 string in the page's `atob('...')` call (the page itself carries a per-request token, so the HTML hash changes; the PDF bytes did not: two fetches on 2026-11-03 gave the same hash). Command in SOURCES.md ## Nicaragua. www.lagaceta.gob.ni (Secretaría Jurídica de la Presidencia, the Diario Oficial) has no terms, licence or copyright page: the home page, /historia, /contacto and the issue pages link none, so the deciding text is the statute. Statute caveats: (1) the brief names Ley 963 art. 16; art. 16 is in Ley 312 as consolidated under Ley 1032 (Digesto Materia de Cultura), which Ley 963 (Digesto framework) orders published; (2) the statute names 'leyes' and 'disposiciones gubernativas' (decrees, acuerdos), so presidential decrees and acts of the Asamblea are covered; a gazette issue also holds private notices (trademarks, edicts, tenders) that are not official acts and are never stored: only the act is cut from the issue; (3) no official translation exists on the site, so no translation row. Coverage: /ediciones lists issues from 1980s to 2026 (about 1269 pages of 9). Issues before about 2000 are scans with a machine OCR text layer (Gaceta 105 of 1996-06-06: 'Arto. I.-', 'Marea Colectiva'), so those are link only. The 'descargables' consolidated Digesto laws (for example Gaceta 217 of 2023-11-29, Ley 1163 Medio Ambiente y Recursos Naturales) need a registered login ('Inicia sesión para poder visualizar este archivo'); no account was made, so no consolidated text is stored. Not every daily issue is listed (Gaceta 217 of 2023-11-29 is missing from /ediciones). Varun to confirm: the pass rests on one statute and the site's own gazette role; the Asamblea portal legislacion.asamblea.gob.ni, the older host of the same texts, is blocked from the cloud address (no row)."
   }
 ]

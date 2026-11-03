@@ -11618,5 +11618,53 @@
   "tier": "regulator_page",
   "url": "https://circulares.cnbs.gob.hn/Archivo/Viewer/3616/008-2024%20MODIFICACION%20CAPTURADOR%20DATOS%20CIC.pdf",
   "params": {}
+ },
+ {
+  "id": "ni-decreto-15-2021-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-decreto-15-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-217-lagaceta-descargables",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-217",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
+  "params": {
+   "note": "Digesto consolidation (Ley 1163) listing; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-647-lagaceta-ediciones",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-647",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/ediciones?page=1&search=",
+  "params": {
+   "note": "latest gazette issues list; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
+  "id": "ni-ley-842-siboif-marco-juridico",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-842",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.siboif.gob.ni/supervision/intendencia-bancos/marco-juridico?combine=842",
+  "params": {
+   "note": "SIBOIF legal framework table filtered on '842' (lists Ley 1061, the 2021 reform of Ley 842); stable between requests"
+  }
  }
 ]
