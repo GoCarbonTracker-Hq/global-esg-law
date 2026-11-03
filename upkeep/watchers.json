@@ -7661,6 +7661,45 @@
   }
  },
  {
+  "id": "al-accounting-law-25-2018-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-accounting-law-25-2018",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-law-87-2026-kkk-law-page",
+  "source_id": "AL-KKK-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-law-87-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://kkk.gov.al/ligji-per-kontabilitetin/"
+ },
+ {
+  "id": "al-climate-law-155-2020-mjedisi-page",
+  "source_id": "AL-MJEDISI-ADOPTED",
+  "iso2": "AL",
+  "instrument": "al-climate-law-155-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mjedisi.gov.al/ndryshimet-klimatike/"
+ },
+ {
+  "id": "al-environmental-protection-law-10431-2011-akm-page",
+  "source_id": "AL-QBZ-CONSOLIDATED",
+  "iso2": "AL",
+  "instrument": "al-environmental-protection-law-10431-2011",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://akm.gov.al/",
+  "params": {
+   "second_route": "https://akm.gov.al/ (browser; the agency site answered some script requests with an empty reply on 2026-11-03; qbz.gov.al, where the consolidated text is expected, is blocked from the cloud address: https://qbz.gov.al/ in a browser)"
+  }
+ },
+ {
   "id": "ba-fbih-law-banks-2025-amend-parliament-pdf",
   "source_id": "BA-PARLAMENTFBIH-ADOPTED",
   "iso2": "BA",
