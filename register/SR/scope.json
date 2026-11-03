@@ -1,0 +1,45 @@
+[
+  {
+    "id": "sr-milieu-raamwet",
+    "title": "Milieu Raamwet (Environmental Framework Act), Wet van 7 mei 2020, houdende regels voor duurzaam milieumanagement",
+    "official_url": "https://www.dna.sr/media/bkih12kt/sb_2020___97.pdf",
+    "citation": "S.B. 2020 no. 97 (Wet van 7 mei 2020, uitgegeven 14 mei 2020), as amended by S.B. 2024 no. 56",
+    "in_force": "2020-05-15",
+    "evidence": "Artikel III para 2: \"Zij treedt in werking met ingang van de dag volgende op die van haar afkondiging.\" The act is signed \"Gegeven te Paramaribo, de 7 mei 2020\" and \"Uitgegeven te Paramaribo, de 14 mei 2020\" (the DNA law page lists it as 14-05-2020, Staatsblad 2020, no 97). Opened https://www.dna.sr/media/bkih12kt/sb_2020___97.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SR-DNA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Law page: https://www.dna.sr/wetgeving/surinaamse-wetten/wetten-na-2005/milieu-raamwet/. Environmental framework act: sets the duty of care, the National Environment Authority (NMA), environmental assessment, permits and contaminant notices. The register row carried F7; it is mapped to F2 here as the environmental framework act. It is not a climate act and has no disclosure duty. The 2024 amendment is its own entry (sr-milieu-raamwet-wijziging-2024); dna.sr serves no consolidated text, so the record is the act as published in 2020 and the amended wording is only in the amending act. Languages stored on 2026-11-03: nl (the only official language of legislation). The text is the PDF's embedded text layer (pdftotext), which carries some character errors from the publisher's own OCR (for example 'haffvaste', 'gebruilçt'); nothing was corrected by hand and no OCR was run by this repo. English looked for on 2026-11-03 at dna.sr (Dutch only), gov.sr (Dutch only) and nimos.org (https://nimos.org answers with an expired TLS certificate, not opened): no government English text found.",
+    "status": "stored"
+  },
+  {
+    "id": "sr-milieu-raamwet-wijziging-2024",
+    "title": "Wet van 21 mei 2024, houdende wijziging van de Milieu Raamwet (S.B. 2020 no. 97)",
+    "official_url": "https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf",
+    "citation": "S.B. 2024 no. 56 (Wet van 21 mei 2024, uitgegeven 28 mei 2024)",
+    "in_force": "2024-05-29",
+    "evidence": "Artikel III para 2: \"Zij treedt in werking met ingang van de dag volgende op die van haar afkondiging.\" The act is signed \"Gegeven te Paramaribo, de 21ste mei 2024\" and \"Uitgegeven te Paramaribo, de 28ste mei 2024\", so the day after is 2024-05-29. Opened the PDF at the official_url on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SR-DNA-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "sr-milieu-raamwet",
+    "notes": "Replaces Art. 1 (definitions) and amends many articles of the Milieu Raamwet, among them the NMA council and the Milieufonds; also corrects the explanatory memorandum (Artikel II). The in-force date is read from the Uitgegeven date, as the act itself says 'afkondiging'; Artikel III para 2 gives no later date. The DNA site lists the act only as a PDF link found by search, not on its Wetten na 2005 list (the Milieu Raamwet page links only the 2020 PDF). Languages stored on 2026-11-03: nl. English looked for at dna.sr, gov.sr and nimos.org (unreachable, expired TLS certificate): none found.",
+    "status": "stored"
+  },
+  {
+    "id": "sr-paris-agreement-act-2018",
+    "title": "Wet van 10 juli 2018, houdende goedkeuring van de \"Paris Agreement\"",
+    "official_url": "https://www.dna.sr/wetgeving/surinaamse-wetten/overeenkomsten-verdragen/paris-agreement/",
+    "citation": "S.B. 2018 no. 70 (Wet van 10 juli 2018, uitgegeven 18 juli 2018)",
+    "in_force": "2018-07-19",
+    "evidence": "Artikel 2 para 2: \"Zij treedt inwerking met ingang van de dag volgende op die van haar afkondiging.\" The act is signed \"Gegeven te Paramaribo, de 10e juli 2018\" and \"Uitgegeven te Paramaribo, de 18e juli 2018\". Opened https://www.dna.sr/media/keoita2c/sb_2018___70.pdf on 2026-11-03.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "SR-DNA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Approval act for the Paris Agreement; one article, plus an explanatory memorandum in the same PDF. It imposes no duty on companies. Added beyond the brief's candidates because it is the only enacted climate instrument on dna.sr (the same treatment as lb-law-115-2019). The Paris Agreement text is not part of the PDF. Languages stored on 2026-11-03: nl. English looked for at dna.sr (Dutch only): none found.",
+    "status": "stored"
+  }
+]
