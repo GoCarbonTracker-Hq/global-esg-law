@@ -4294,3 +4294,71 @@ None of the twelve instruments in `register/KZ/scope.json` is link only. Sources
 - https://www.gov.kz/memleket/entities/ecogeo (Ministry of Ecology): `429 18 text/plain` to curl. Blocked from the cloud address: https://www.gov.kz/memleket/entities/ecogeo . The orders are on Adilet.
 
 Candidates dropped: the Law on Joint Stock Companies (`Z030000415_`) holds no sustainability reporting duty (see the KASE F7 row), and the Government resolutions on the quota allocation plans for 2013 to 2021 (for example `P2100000006`) belong to the repealed 2007 Code and are not in scope. The Ministry's quota plan for 2026 onward was not found on Adilet. The Әділет user agreement (https://adilet.zan.kz/terms) is a JavaScript page; its fingerprint was read with Playwright chromium (`main` element, locale ru-RU, networkidle plus 2 s).
+
+## Monaco
+
+Rows `MC-LEGIMONACO-CONSOLIDATED` (Legimonaco, the Government of Monaco's legislation site) and `MC-JDM-ADOPTED` (Journal de Monaco, the official gazette), both `pass` on the statute basis and not on the sites' terms. Both sites claim copyright and limit reuse (Legimonaco CGU: reuse "à titre gratuit uniquement"; Journal de Monaco legal notice: private electronic copy only, no modification). The pass rests on Loi n° 491 du 24 novembre 1948, article 38: "Les lois, ordonnances, arrêtés, décisions et publications administratives, judiciaires ou officielles ne bénéficient pas de la protection instituée par la présente loi." Whether the statute overrides those site terms, and whether a Legimonaco consolidation (made by LexisNexis SA for the Direction des Affaires Juridiques, "sans valeur officielle" per its CGU) is an "administrative publication", is Varun's decision; both are written out in the row notes. Run on 2026-11-03. Language: French only. No browser was needed: every request below is a plain `curl` GET and no site refused the cloud address.
+
+Request 1, row `MC-LEGIMONACO-CONSOLIDATED`, list the dated versions of a text (JSON, the same call the site's version bar makes). Run for Sovereign Ordinance n° 11.515 of 13 October 2025:
+
+```
+curl -sS -o versions.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/?versions'
+```
+
+Returned `200 181 application/json;charset=utf-8`: `{"path":"/tnc/ordonnance/2025/10-13-11.515/","prefixPath":"/tnc/ordonnance/2025/10-13-11.515","suffixPath":"/","currentVersion":"2025.10.18","previousVersions":[],"nextVersions":[]}`. The versions are `previousVersions` plus `currentVersion`; for a code, `https://legimonaco.mc/code/code-environnement/?versions` lists 14 (2017.12.23 to 2026.05.30). The text path is the one in the page URL (`code/...` for codes, `tnc/<nature>/<year>/<month-day-number>` for laws, ordinances and orders). The `?versions` answer is also what the `mc-*-legimonaco-versions` watchers hash.
+
+Request 2, row `MC-LEGIMONACO-CONSOLIDATED`, one dated version as HTML:
+
+```
+curl -sS -o os11515.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515@2025.10.18/'
+```
+
+Returned `200 21069 text/html`. The Code de l'environnement as in force on 2026-05-30: `curl -sS -o code.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://legimonaco.mc/code/code-environnement@2026.05.30/'` returned `200 688124 text/html`. The bare path (`https://legimonaco.mc/code/code-environnement`) answers `302` to the same path with a trailing slash. The version label is the date the version took effect: the page reads "Version en vigueur au 18 octobre 2025" (read with Playwright chromium, which fills that line from `?versions`), and `in_force` in each record is that label.
+
+Request 3, row `MC-JDM-ADOPTED`, the as-published article page of the same Ordinance (Journal de Monaco n° 8.769 of 17 October 2025). The issue number and slug come from the "Publication" link on the Legimonaco page of the text, and the issue page `https://journaldemonaco.gouv.mc/Journaux/2025/Journal-8769` lists every article URL:
+
+```
+curl -sS -o jdm_os11515.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://journaldemonaco.gouv.mc/Journaux/2025/Journal-8769/Ordonnance-Souveraine-n-11.515-du-13-octobre-2025-fixant-les-objectifs-de-reduction-de-gaz-a-effet-de-serre-a-horizon-2035'
+```
+
+Returned `200 123140 text/html; charset=utf-8`.
+
+Text extraction. Legimonaco: the `div#content` block of the page, tags removed, block elements as line breaks; the toolbar, the `documentInfo` header (type, nature, dates), the table of contents, buttons, the "🔗" link glyphs, the note markers and the "Notes de la rédaction" editorial notes are left out. Nothing reworded. Journal de Monaco: the `h1` title and the `div.body` of the article page. `fetched_sha256` is the hash of the HTML as received. Both sites put a per-request script (`/TSbd/...?type=2`, plus an obfuscated block on the Journal de Monaco) into every page, so a second fetch of the same URL gives a different hash (checked on 2026-11-03: two Legimonaco fetches of the 11.515 page differ in that script only) while the extracted text is identical. The hash proves what was received, not that a later fetch will match it, as with `## New Zealand`.
+
+Legimonaco shows an ordinance that inserts or replaces a Code article ("Il est inséré dans le Code ... une disposition ainsi rédigée") with a link, "Voir l'article O. 210-1 du Code de l'environnement", in place of the new wording. The operative text is only in the Journal de Monaco page, which is why the small instruments carry both an `adopted` record and a `consolidated` one on the same date.
+
+Stored (fetched 2026-11-03), all `fr`:
+
+| Instrument | Versions stored (`in_force`) |
+|---|---|
+| `mc-loi-1456-code-environnement` | adopted 2017-12-23 (Journal de Monaco n° 8.361, the Loi with the legislative part of the Code); consolidated 2017-12-23, 2018-12-22, 2019-01-01, 2021-01-02, 2021-03-05, 2021-05-08, 2021-06-12, 2022-08-13, 2023-05-13, 2023-06-26, 2025-04-05, 2025-10-18, 2026-03-21, 2026-05-30 (every version Legimonaco lists) |
+| `mc-os-8449-ghg-2030` | adopted and consolidated 2021-01-02 (one version) |
+| `mc-os-11515-ghg-2035` | adopted and consolidated 2025-10-18 (one version) |
+| `mc-am-2020-916-ghg-inventories` | adopted and consolidated 2021-01-02 (one version) |
+| `mc-os-1284-2007-financial-activities` | consolidated 2023-02-11 only: the five earlier versions (2007-09-15 to 2022-08-01) do not contain the word ESG, which Ordonnance n° 9.737 introduced; the whole Ordonnance is stored, not only articles 9-3 to 9-6 |
+| `mc-os-9737-esg-certification` | adopted and consolidated 2023-02-11 (one version) |
+| `mc-code-penal-art-362` | consolidated 2003-11-29: article 362 alone, cut from the Code pénal page at the next article heading; the 38 consolidations (2003-11-29 to 2025-11-22) were fetched and the cut text is identical in all of them, so one record |
+
+### Languages
+
+French is the only official language. Both rows serve it under the same row, so there is no second row. No official English text was found, so there is no translation row and no English record. Where it was looked for: Legimonaco (`curl -sS -o /dev/null -w '%{http_code} %{size_download}\n' https://legimonaco.mc/en/` returned `404 0`, and no text page offers another language), the Journal de Monaco (its English switch `/en/switchlanguage/to/jdm_eng` changes the interface; the article page of Ordonnance 11.515 requested afterwards is still French, and the legal notice says contents are translated "à titre indicatif", only the French text being authoritative), and the Mission pour la Transition Énergétique site (`https://transition-energetique.gouv.mc/` returned `200 333193 text/html; charset=UTF-8`; it has an English interface and links no law text). Translations by law firms, exchanges or news sites were not looked for and would not get a row.
+
+### Terms read
+
+- Legimonaco, `curl -sS -o cgu.html -w '%{http_code} %{size_download} %{content_type}\n' https://legimonaco.mc/CGU.html` returned `200 28234 text/html`; the legal notice `https://legimonaco.mc/Mentions_legales.html` (publisher, hosting, LexisNexis SA as consolidator) and the About page `https://legimonaco.mc/about.html` are linked from the page contents (the footer links About, Contact and Aide).
+- Journal de Monaco, `https://journaldemonaco.gouv.mc/Mentions-legales` returned `200 116386 text/html; charset=utf-8`.
+- Loi n° 491, `https://legimonaco.mc/tnc/loi/1948/11-24-491@2022.07.16/` returned `200 88916 text/html`; article 38 is the statute exception. The Loi has two earlier versions (2000-07-15, 2006-07-01) besides the current 2022-07-16; the current one was read.
+
+The terms fingerprints are the sha256 of the whitespace-collapsed visible text of the two terms pages (recipe in each row), stable across two runs. Both sites' terms pages carry the per-request script in their HTML, so a `page_hash` watcher on the raw page would fire on every run; no terms watcher was added. The watchers hash the `?versions` JSON instead, which has no such token.
+
+### Link only
+
+None: every scope instrument is stored.
+
+### Not in scope, and what was checked
+
+- No Monaco carbon price, emissions trading system or company greenhouse gas reporting instrument was found. Article L. 220-2 of the Code de l'environnement requires public authorities and economic actors to draw up a greenhouse gas bilan and says a Sovereign Ordinance will name the persons covered and the conditions; Legimonaco title searches (`gaz à effet de serre`, `climat*`, `carbone`) and full-text searches (`bilans des émissions de gaz à effet de serre`, `personnes et organismes assujettis`) found only the Code, the 2017 bill, Ordonnances 8.449 and 11.515 and Arrêté 2020-916, no implementing Ordonnance. The search endpoint used is `POST https://legimonaco.mc/~~search/depot/_search` with an Elasticsearch `query_string` body.
+- No sustainability disclosure rule for supervised financial entities was found. `https://www.ccaf.mc` answered `301` and then `https://ccaf.mc/` `200 89386 text/html; charset=UTF-8`; the two regulation pages opened (`/reglementation/la-reglementation-applicable/`, `/reglementation/les-fonds/`) contain no sustainability, climate or ESG disclosure text; the only ESG item is the professional certification, mapped to `mc-os-1284-2007-financial-activities` and `mc-os-9737-esg-certification`. No CCAF row: nothing was stored from it and its terms were not read.
+- `https://transition-energetique.gouv.mc` (Mission pour la Transition Énergétique): guidance and voluntary programme pages (PACTE coach carbone), no enacted text; the targets are in the Code and Ordonnances above. No row.
+- Consumer protection: no Code de la consommation or advertising-claims statute is on Legimonaco. Mapped to F6 only Code pénal article 362 (deception of the contractor on goods); Loi n° 1.383 du 2 août 2011 article 12 (online advertising must be identifiable) was read and not mapped. Treaty ratification acts (Kyoto, Paris Agreement, UNFCCC) and the Ordonnance Souveraine of 27 June 1907 on frauds in the sale of goods were seen as titles and not mapped.
+- Blocked from the cloud address: none. legimonaco.mc, journaldemonaco.gouv.mc, ccaf.mc and transition-energetique.gouv.mc all answered scripts.

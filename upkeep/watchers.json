@@ -7659,5 +7659,89 @@
    "regex": "\"revision_date\":\"(\\d{4}-\\d{2}-\\d{2})",
    "second_route": "https://adilet.zan.kz/rus/docs/Z030000508_ (browser; Adilet is a JavaScript application, the \u0418\u0441\u0442\u043e\u0440\u0438\u044f \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 tab lists the editions; the JSON API answered curl without a challenge on 2026-11-02, and the API dates are 18:00 UTC of the day before the edition date)"
   }
+ },
+ {
+  "id": "mc-loi-1456-code-environnement-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-loi-1456-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/code/code-environnement/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/code/code-environnement/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-8449-ghg-2030-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-8449-ghg-2030",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2020/12-24-8.449/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-11515-ghg-2035-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-11515-ghg-2035",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2025/10-13-11.515/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-am-2020-916-ghg-inventories-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-am-2020-916-ghg-inventories",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/arrete-ministeriel/2020/12-24-2020-916/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-1284-2007-financial-activities-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-1284-2007-financial-activities",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2007/09-10-1.284/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-os-9737-esg-certification-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-os-9737-esg-certification",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/tnc/ordonnance/2023/02-02-9.737/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
+ },
+ {
+  "id": "mc-code-penal-art-362-legimonaco-versions",
+  "source_id": "MC-LEGIMONACO-CONSOLIDATED",
+  "iso2": "MC",
+  "instrument": "mc-code-penal-art-362",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legimonaco.mc/code/code-penal/?versions",
+  "params": {
+   "second_route": "https://legimonaco.mc/code/code-penal/ (browser; the version bar and the Historique panel list the dated versions; the ?versions JSON is what that panel loads)"
+  }
  }
 ]
