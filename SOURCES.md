@@ -6674,6 +6674,33 @@ Spanish is the only official language of legislation. No English translation was
 
 Not in scope, with the reason: Acuerdo Gubernativo 109-2022 and 135-2026 (Fondo Nacional de Cambio Climático) could not be confirmed on any official page opened (the gazette is not reachable, and MARN's news item of 2025-12-11 says the regulation was still awaiting approval); no carbon-market regulation, and no SIB or BVN disclosure rule, could be confirmed.
 
+### OCR pass 2026-11-03
+
+GEL-04-12. Varun allowed OCR at 08:20Z on 2026-11-03 and ruled that `GT-CONGRESO-ADOPTED` is `pass` (statute basis, Decreto 33-98 art. 68; conditioned republication, faithful to the official publication, is a pass). The three Congreso decrees are stored from the official PDFs, which are scans. `GT-DCA-ADOPTED`, `GT-MARN-ADOPTED`, `GT-SIB-ADOPTED` and `GT-BVN-ADOPTED` stay `permission requested`; no instrument of theirs is in scope. Language: Spanish only.
+
+Install: `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-spa` (tesseract 5.3.4, tesseract-ocr-spa 1:4.1.0-2; the first install attempt without `apt-get update` found no package).
+
+Download (the sizes equal those recorded earlier on the same day; the earlier session recorded no hash):
+
+```
+for p in 2013/07-2013.pdf 1986/gtdcx00681986.pdf 2003/gtdcx06-2003.pdf; do curl -sS -m 60 -A 'Mozilla/5.0' -o $(basename $p) -w "$p %{http_code} %{content_type} %{size_download}\n" https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/$p; done
+2013/07-2013.pdf 200 application/pdf 1162782
+1986/gtdcx00681986.pdf 200 application/pdf 755984
+2003/gtdcx06-2003.pdf 200 application/pdf 1409737
+```
+
+sha256: `07-2013.pdf` `f9060da018c23d3e4d77e2fef39b9cdc2c47dd416229ab1c41e25a7ff0848d8a`; `gtdcx00681986.pdf` `e83e364958cee1a704db67a619544398b7bfd2a55384c8d604b7f74a58259878`; `gtdcx06-2003.pdf` `d0748b3da850d84122e91b9a7040cce10509f0f609ecc340d0a997fa9edf1176`.
+
+OCR: `pdftoppm -r 200 -png 07-2013.pdf g7` (Decreto 68-86 and 6-2003: `-r 300`), the page images were cut into one crop per column with a script (PIL `crop`, 40 px white border added for 68-86 and 6-2003, the page headers, the gazette's other acts and the vertical column rule left out), then `tesseract crop.png crop -l spa` per crop (default page segmentation), and the crops were joined in reading order with one blank line between them. The PDF text layer was not used: Decreto 7-2013's layer is garbled (`pdftotext` 40068 bytes of misread text) and the other two have none (3 and 8 bytes). Nothing was corrected by hand; the first line of the Decreto 7-2013 text (the bold heading) is misread, and a stamp on the last column of page 4 adds a few stray characters.
+
+| instrument | PDF | pages | dpi | commencement |
+|---|---|---|---|---|
+| `gt-ley-marco-cambio-climatico` (Decreto 7-2013) | `07-2013.pdf`, 5 pages (gazette of 2013-10-04) | 1-5, law only | 200 | art. 28, 8 days after publication: 2013-10-12 (computed) |
+| `gt-ley-proteccion-mejoramiento-medio-ambiente` (Decreto 68-86) | `gtdcx00681986.pdf`, 3 pages (gazette No. 27 of 1986-12-19) | 1-3 | 300 | art. 42, 8 days after publication: 1986-12-27 (computed) |
+| `gt-ley-proteccion-consumidor-usuario` (Decreto 6-2003) | `gtdcx06-2003.pdf`, 8 pages (gazette No. 24 of 2003-03-11) | 1-8 | 300 | art. 113, 15 days after publication: 2003-03-26 (computed) |
+
+Commencement dates were read on the OCR text and the page images; scope `in_force` for the second and third instrument was null before and now holds the computed date, which is also the date in the record's file name. No instrument was left link only for OCR quality. The row `GT-CONGRESO-ADOPTED` columns `fetch_url` and `pinned_version` still read "none proven for text"; they were not part of the ruling and were left as they are.
+
 ## Antigua and Barbuda
 
 Run on 2026-11-03 (GEL-15-01). One row passes: `AG-LAWSGOV-ADOPTED` (statute: Copyright Act 2003 s 6(9)(b); laws.gov.ag publishes no terms). `AG-ECCB-ADOPTED` is `permission requested` (ECCB Disclaimer Policy: personal, noncommercial use only, no derivative works). Text extraction: `pdftotext -layout file.pdf -` (poppler), each line stripped and runs of spaces or tabs collapsed to one space, form feeds turned into line breaks, three or more line breaks reduced to two. The 2019 and 2025 gazette PDFs have a real text layer (TrueType fonts, no mojibake found: no U+FFFD, no `ã`/`â€` sequences); no OCR was run and no `extraction` field is used. Page headers and footers stay in the text. English is the only language of legislation and no government translation exists, so there is no translation row.
