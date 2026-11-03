@@ -10205,5 +10205,25 @@
   "params": {
    "second_route": "the act has no PDF; CNLEGIS serves it only inside a session-based search answer (POST), so the home page hash is a coarse signal. Second route: the search described in SOURCES.md ## Madagascar, record id 43919"
   }
+ },
+ {
+  "id": "ve-organic-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-organic-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf",
+  "params": {}
+ },
+ {
+  "id": "ve-penal-environment-law-pdf-head",
+  "source_id": "VE-ASAMBLEA-ADOPTED",
+  "iso2": "VE",
+  "instrument": "ve-penal-environment-law",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf",
+  "params": {}
  }
 ]

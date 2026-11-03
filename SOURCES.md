@@ -6097,3 +6097,34 @@ Malagasy (mg) and French (fr) are the official languages. CNLEGIS serves both: `
 | mg-loi-2015-014 | Same row as the Charte; the brief's date 19 août 2015 is wrong, the official text says 10 août 2015. |
 
 Not in scope: the RSE manual (voluntary guidance, register row kept, `MG-MEDD-ADOPTED`), Décret 2021-1113 (repealed by Art. 103 of Décret 2025-626), the ratification acts for the Paris Agreement (Loi 2016-019, Décret 2016-1188) and Kyoto/Doha. The Décret 2014-1588 on the national climate committee is an F7 register row only; no climate framework act exists on CNLEGIS. Blocked from the cloud address: `https://www.csbf.mg` (`CONNECT tunnel failed, response 502` from curl, `getaddrinfo ENOTFOUND` from Chromium) and the Assemblée nationale PDF uploads (403). No CSBF sustainability instruction was found by web search.
+
+## Venezuela
+
+Checked 2026-11-03 from the cloud address. Nothing is stored: every official copy found is a scan or a whole-gazette OCR file, so both scope instruments are link only. Venezuelan law texts are covered by the Ley sobre el Derecho de Autor (1993) art. 4; the two `pass` rows rest on that statute, not on site terms.
+
+### VE-ASAMBLEA-ADOPTED (pass, statute)
+
+Law page: `curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o ley-organica-del-ambiente.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/leyes/sancionadas/ley-organica-del-ambiente` returned `200 46975 text/html` (page shows Nº Gaceta 5833 Ext., 22/12/2006). PDF: `curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o a.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf` returned `200 759657 application/pdf`; `pdftotext -layout a.pdf -` gives 11 bytes (a scan, no text layer). The Ley Penal del Ambiente page (`.../leyes/sancionadas/ley-penal-del-ambiente`, `200 47894 text/html`) and PDF (`.../ley-penal--20211109143642.pdf`, `200 1103231 application/pdf`) give 9 bytes. Only slugs that exist answer; a slug that does not exist and every query string (`?page=2`, `?titulo=ambiente`) answer `403 239/370`, with curl and with headless Chromium, so the Leyes Vigentes list can be read only on its first page (10 laws, 49 pages) and the Ley Orgánica de Precios Justos and the Plan de la Patria law could not be located.
+
+### VE-MINEC-ADOPTED (pass, statute)
+
+`curl -sS -L -A 'Mozilla/5.0 Chrome/120' -o m979.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.minec.gob.ve/download/979/` returned `200 3871044 application/pdf` (Ley Orgánica del Ambiente, Gaceta 5.833 Extraordinario). `pdfinfo` says 32 pages, producer ABBYY FineReader 8.0; `pdftotext` (plain and `-layout`) returns text, but it is the whole gazette with four laws interleaved by column and with recognition errors ('Arto', 'interacrúan', 'Dada,firmaday'). `https://www.minec.gob.ve/download/1031/` (Ley Penal del Ambiente) returned `200 9464271 application/pdf`, 96 pages of Gaceta 39.913 with many unrelated acts, same defect ('tran~formación'). The host reset the connection on some requests; a retry worked. This is not counted as a proven fetch for storing text, because no clean per-law text can be cut from it without rewording.
+
+### Languages
+
+Spanish is the only language of Venezuelan gazette legislation; indigenous languages have no gazette edition and no ISO 639-1 code applies. English: no government translation found on asambleanacional.gob.ve, minec.gob.ve or imprentanacional.gob.ve, so no translation row.
+
+### Link only
+
+- ve-organic-environment-law: both rows pass; Asamblea PDF is a scan (11 bytes from pdftotext), MINEC copy is whole-gazette OCR with column interleaving and errors. No OCR step is allowed.
+- ve-penal-environment-law: same reasons (9 bytes; 96-page mixed gazette).
+- Not in scope, no row passes: TSJ, Imprenta Nacional, SUNAVAL, Bolsa de Valores de Caracas (see Blocked).
+
+### Blocked
+
+- http://www.tsj.gob.ve: `503 114 text/plain`, `upstream connect error or disconnect/reset before headers. retried and the latest reset reason: connection timeout`.
+- https://www.sunaval.gob.ve: `403 5192 text/html`, Cloudflare 'Attention Required!' page.
+- https://www.gacetaoficial.gob.ve: connection reset by peer (curl error 35).
+- https://www.minec.gob.ve/derechos-de-autor/: connection reset; one of two download requests also reset once.
+- https://www.asambleanacional.gob.ve/leyes/vigentes?page=2 and any `?titulo=` query: `403 239 text/html`.
+- http://www.imprentanacional.gob.ve/sus_digital.php: `404`; the host answers `200` but offers only a paid subscription catalogue.
