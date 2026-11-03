@@ -7189,3 +7189,80 @@ Not stored although in scope: the consolidated Decreto 15-2021 (amendments to 20
 ### Watchers
 
 `page_hash` on La Gaceta's `descargables` and `ediciones` listings changes on every run (antiforgery token in the body; `http_head` gets neither Last-Modified nor Content-Length, `date_list` needs ISO dates and the listing shows dd/mm/yyyy), so those three watchers over-report. The Ley 842 watcher hashes the SIBOIF filtered page, which was identical on two requests.
+
+## Turkmenistan
+
+GEL-17-05, run 2026-11-03. One row passes, `TM-MEJLIS-CONSOLIDATED` (Mejlis of Turkmenistan, https://mejlis.gov.tm, statute basis: Law on Copyright and Related Rights Art. 7 removes official legislative texts and their official translations from copyright; the site has no terms page, so the pass rests on the statute alone and the footer line "all rights reserved" is read as a general notice). Eight instruments are stored, each in Turkmen (`tk`) and Russian (`ru`), 16 records. No government English text was found, so there is no translation row. Records are plain `curl` fetches, no browser recipe.
+
+### Row TM-MEJLIS-CONSOLIDATED
+
+The law pages are `https://mejlis.gov.tm/single-law/<n>?lang=<ru|tm|en>`; `<n>` is the Mejlis law number (the Laws list at `https://mejlis.gov.tm/laws?lang=ru` shows nine laws per page and its paging is JavaScript, so the numbers were found by requesting `single-law/1` to `single-law/399` and reading the title on each page). Use HTTP/1.1. With the default HTTP/2, curl intermittently ends a transfer early and the page arrives truncated (the first of these answers came back as `curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR` with a short body):
+
+```
+curl -sS -A 'Mozilla/5.0' -o h2.html -w '%{http_code} %{size_download}\n' 'https://mejlis.gov.tm/single-law/154?lang=ru'
+```
+
+Four runs returned `200 80880` (with the curl 92 error), `200 142312` (with the curl 92 error), `200 262500`, `200 262500`; the complete page is 262500 bytes. Over HTTP/1.1 a cold request can also arrive short (`200 64214` on the first request for `single-law/209` and on first requests for several others); a short body does not end with `</html>`, so repeat the request until it does. The watcher turns the same cut into an `IncompleteRead` failure, not a changed page.
+
+Proven request, Law on Protection of Atmospheric Air (`tm-air-protection-law`), Russian:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-ru.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=ru'
+```
+
+Returned `200 179430 text/html; charset=UTF-8`, sha256 `08b3f47787b7628f29a7cb379141b95150417e2406c7bc934222a83a4df53c30`. A second fetch of every stored page gave the same bytes (all 16 hashes identical on two fetches), so `fetched_sha256` reproduces; no per-request token is in the pages. `Mozilla/5.0` and `global-esg-law-watch/1` as `User-Agent` both answered 200.
+
+Text extraction (every record): the law text is the `<div class="text_content">` element, taken whole. `<script>` and `<style>` dropped, `p`, `div`, `br`, headings, list items and table rows turned into line breaks, non-breaking spaces and runs of spaces collapsed to one space, empty lines dropped, nothing reworded. The text starts at the "ЗАКОН ТУРКМЕНИСТАНА" (ru) or "TÜRKMENISTANYŇ KANUNY" (tk) heading and ends with the signing place, date and number. No mojibake: both pages are UTF-8 and Cyrillic, Turkmen letters such as ň, ý, ü and ş read correctly in the output sampled.
+
+Each law has one record per language, `kind` consolidated, `source_id` `TM-MEJLIS-CONSOLIDATED`. The site serves only the current text, headed "with amendments" through the last amending law, and no earlier versions, so there is no second version to store. `in_force` of each record is the signing date of that last amending law; the page states no publication or commencement date (the laws enter into force on official publication). File name `<in_force>-consolidated-<lang>.json`.
+
+| Instrument | Mejlis n | `in_force` | `fetched_sha256` ru | `fetched_sha256` tk |
+|---|---|---|---|---|
+| `tm-air-protection-law` | 92 | 2021-11-13 | `08b3f47787b7628f29a7cb379141b95150417e2406c7bc934222a83a4df53c30` | `0589fba7314fa2555e7f167209c4ef9c4ddc569da6f24cd368dd826e4bfa7961` |
+| `tm-nature-protection-law` | 154 | 2017-03-20 | `2f7f380aaf08755ac436d5be066e878f6a325beb915584989faa5f69ddee31f8` | `b010051f23dabb85ae228aaa81f85b668c437f6d0075b20578f59da99cb086f1` |
+| `tm-ecological-audit-law` | 41 | 2023-11-25 | `9e40f22941257b11fd2e1fa9705c6d3b214b26a265efff02c80237e8082ffafb` | `e1304de4b45f1632562f82a682fdcbf5cd65c836f4b482e6bdb57116e13e7874` |
+| `tm-ecological-expertise-law` | 167 | 2023-11-25 | `2d02744e4ec33ff565316cb6eea936433f1ecf36730e4185064f76859f1635a1` | `b821c307ae452b19dcf9fa839bb49cced083fd07534179ad323f09b6ab1837fd` |
+| `tm-ecological-safety-law` | 73 | 2023-11-25 | `0fd80a1f2196972f43c609490dc4489df6c8ce4825cad1f1aeb34c188c4c8b75` | `3de8421a77b2881ef1c24ee9f0335d127cd4149c4bc4fb8a3087692819880cdf` |
+| `tm-ecological-information-law` | 32 | 2023-11-25 | `23d407394ae56c20a52b01b4f377a2618e7bd8b41ed20b0d53531108dabd28bf` | `9fefe70a6d120f99a76c83300becc5b33c695367bb42c9b39e937ecd1a287fb3` |
+| `tm-consumer-rights-law` | 176 | 2018-12-01 | `342a1a9de4a520edd6f6d1f7aa7b13463187e31e273d6c4cdaf39e7540650a92` | `715f8cf78d0a60bb7a868fbc662bc56e9cd855390d9a1588536cb0e0d6fe94d8` |
+| `tm-advertising-law` | 99 | 2018-06-09 | `e133acf11c73b9d8548f8be707bcde94b36e498b196a6653c34434ed3ba50fbf` | `ad17b2457d3b9a4b36e0ab610b8846ca6c9cd1bbd12d60b470cf23aab0a918f3` |
+
+### Languages
+
+Turkmen is the state language; the Mejlis edition in Russian is marked "*Перевод с государственного языка Туркменистана" and is stored under the same row. Turkmen request (same law):
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-tm.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=tm'
+```
+
+Returned `200 131401 text/html; charset=UTF-8`, sha256 `0589fba7314fa2555e7f167209c4ef9c4ddc569da6f24cd368dd826e4bfa7961`. The URL language code is `tm`; the record `language` is the ISO 639-1 code `tk`.
+
+English: the same URL with `lang=en`:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 92-en.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/92?lang=en'
+```
+
+Returned `200 45474 text/html; charset=UTF-8` and the page has no `text_content` element: it is the empty site shell. The same holds for the 13 law pages opened in English on 2026-11-03. No English translation is stored, no translation row exists. English was also looked for on cbt.tm (`en/index.html`, a bank page, no laws) and minjust.gov.tm (`/en`, 6625 bytes, no laws); nothing found.
+
+Terms source (statute): the Mejlis edition of the Law on Copyright and Related Rights:
+
+```
+curl -sS --http1.1 -A 'Mozilla/5.0' -o 209-ru.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://mejlis.gov.tm/single-law/209?lang=ru'
+```
+
+Returned `200 224188 text/html; charset=UTF-8`, sha256 `b738d7e3ad67a139e1a124a0823f267716f5c84653d0047571ea67a1120e33f3` (the `terms_fingerprint`). That page holds Article 7.
+
+### Watchers
+
+One `page_hash` watcher per instrument on the Russian page (`tm-<instrument>-mejlis-page`, tier `consolidation_site`) and one terms watcher on the copyright-law page (`tm-terms-mejlis-consolidated`, change `terms_changed`, tier `regulator_page`). `page_hash` is used because the Mejlis pages list no version dates. A page hash changes when the Mejlis site changes anything on the page, not only the law text. The `tools/watch.py --dry-run --source TM-MEJLIS-CONSOLIDATED` run baselined the eight instrument pages and failed on the terms page with `IncompleteRead(125936 bytes read)` (the short transfer above); the terms watcher failed in each of four dry runs. No `second_route` is set: no page answered with a challenge or a 403.
+
+### Link only and not used
+
+No scope instrument is link only; all eight are stored. Candidates and hosts that gave no instrument:
+
+- Climate framework act: none among the Mejlis law titles (single-law 1 to 399); register row F7.
+- National Strategy of Turkmenistan on Climate Change: `https://www.mfa.gov.tm/ru/news/1615` answered `200` (39736 bytes) and is a news item dated 24 September 2019 that links no document; F7 register row only, no scope entry.
+- minjust.gov.tm: `200`, 30485 bytes on `/`, a Next.js application; the "Hukuk maglumatlar merkezi" (legal information centre) entry describes a fee-based information service, no law database or law texts found on the pages opened; no row.
+- cbt.tm: `200`, 30158 bytes; the pages `tm/laws/laws.html` and `tm/duzumler.html` and the `ru` and `en` home pages contain no sustainability, climate or green-finance string; no instrument.
+- mep.gov.tm, www.mep.gov.tm and tse.gov.tm: the proxy answered `curl: (56) CONNECT tunnel failed, response 502` (no route found; the brief says mep.gov.tm has no DNS record). The Ashgabat Stock Exchange host was not found (tse.gov.tm is the only one tried).
