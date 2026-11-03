@@ -44,7 +44,8 @@ def build(repo=ROOT, branch=None):
         record = json.loads(path.read_text())
         row_id = record["source_id"]
         row = rows[row_id]
-        effective = date.fromisoformat(record["in_force"])
+        # A record with in_force null is ordered by the YYYY-MM-DD at the start of its file name.
+        effective = date.fromisoformat(record["in_force"] or path.name[:10])
         iso2, instrument_id = path.relative_to(repo / "records").parts[:2]
         scope = json.loads((repo / "register" / iso2 / "scope.json").read_text())
         entry = next(e for e in scope if e["id"] == instrument_id)
