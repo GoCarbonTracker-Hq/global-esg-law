@@ -6212,6 +6212,90 @@ Arabic is the authentic language and the French edition is an official translati
 
 - `https://www.me.gov.dz`, `https://me.gov.dz`, `https://www.mem.gov.dz`: `curl: (35) Recv failure: Connection reset by peer`, no HTTP answer. The current ministry host was not confirmed. No law text is taken from a ministry site.
 
+### OCR pass 2026-11-03
+
+Varun allowed OCR at 08:20Z on 2026-11-03 (GEL-04-12). Both rows (`DZ-JORADP-ADOPTED`, `DZ-JORADP-TRANSLATION`) are `pass`; no verdict was changed. Tool: Tesseract 5.3.4 with `tesseract-ocr-ara` 4.1.0 and `tesseract-ocr-fra` 4.1.0, installed with `apt-get update && apt-get install -y tesseract-ocr tesseract-ocr-ara tesseract-ocr-fra`. The Arabic PDFs of 2003 to 2009 have a text layer in a legacy font; it was ignored and the page images were read.
+
+Downloads, each fetched twice with the same sha256 (`curl -sS -L -o <file> https://www.joradp.dz/FTP/<dir>/<year>/<file>`):
+
+```
+JO-ARABE/2003/A2003043.pdf  1a6090806268f4bb7c3c8384e37036fb2d0f2d238a39e6a2cf3e6438d28fe6b3  (288797 bytes, 38 pages)
+JO-ARABE/2004/A2004052.pdf  a4754fafd494d7e96751dc34316435e76879153ffe5f653a26b62afefc966364  (260208 bytes, 32 pages)
+JO-ARABE/2004/A2004041.pdf  d854b7f09d791a723ef14dfd08f8c8eab476a424c66b6abda5d0299733987da7  (256993 bytes, 32 pages)
+JO-ARABE/2009/A2009015.pdf  fe1439da73d31e85a472b0688c82809967fb8f46334fae4394397f74ea1ed4b4  (398014 bytes, 28 pages)
+JO-ARABE/1991/A1991065.pdf  eefba9b5c36ec4d51811c3fbdc58c6f0d482f3f7a640566e7f75c8294e2a52a6  (3405343 bytes, 99 pages, image only)
+jo-francais/1991/F1991065.pdf  3b6f781f07c41bf0e69b2f7a81625298588030a930bfa0eb23238e789d419a68  (4620638 bytes, 78 pages, image only)
+```
+
+Pages of each law were found by reading the first pass of OCR at 200 dpi for the law title and the closing "ينشر هذا القانون" article: Loi 03-10 pages 6 to 22; Loi 04-09 pages 9 to 12; Loi 04-02 pages 3 to 11; Loi 09-03 pages 12 to 23 (first and last page also hold neighbouring instruments, kept whole). Loi 91-25 is Arabic PDF pages 2 to 93 (printed 2440 to 2531, next law starts on page 94) and French PDF pages 2 to 73 (printed 1998 to 2069, next law starts on page 74).
+
+2003 to 2009 Arabic pages (two columns with a vertical rule; the plain page read interleaved the columns, so each column is read alone, right column first). 200 dpi was readable, so 300 dpi was not needed:
+
+```
+pdftoppm -r 200 -png A2003043.pdf img/A2003043      # likewise A2004052, A2004041, A2009015
+python3 -I crop.py img/A2003043-06.png col/A2003043-06   # writes -1right.png and -2left.png
+tesseract col/A2003043-06-1right.png col/A2003043-06-1right -l ara
+tesseract col/A2003043-06-2left.png  col/A2003043-06-2left  -l ara
+```
+
+`crop.py`:
+
+```python
+import sys
+from PIL import Image
+import numpy as np
+src,outprefix=sys.argv[1],sys.argv[2]
+img=Image.open(src); g=np.array(img.convert('L')); h,w=g.shape
+band=g[int(h*.15):int(h*.9), int(w*.4):int(w*.6)]
+rx=int(w*.4)+int((band<128).mean(axis=0).argmax())
+col=(g[:, rx-1:rx+2]<128).any(axis=1)
+runs=[];st=None
+for i,v in enumerate(list(col)+[False]):
+    if v and st is None: st=i
+    if not v and st is not None: runs.append((i-st,st,i)); st=None
+_,y0,y1=max(runs)
+y0+=3;y1-=3
+img.crop((rx+4,y0,w-60,y1)).save(outprefix+'-1right.png')
+img.crop((60,y0,rx-4,y1)).save(outprefix+'-2left.png')
+print(src,rx,y0,y1)
+```
+
+Loi 91-25, Arabic (two columns without a rule, so columns are cut at the ink gap near the middle; the top 5% running header is dropped; pages 19 to 21, 23, 25, 28, 29, 76 to 78, 84, 85, 88, 91, 93 are full-width annex tables, whose column reads came out empty or under 40% Arabic letters, so they were read whole-page with `tesseract img.png out -l ara`):
+
+```
+pdftoppm -r 200 -f N -l N -png A1991065.pdf a91/pNN
+python3 -I crop91.py a91/pNN-NN.png a91/cNN
+tesseract a91/cNN-1right.png a91/cNN-1right -l ara
+tesseract a91/cNN-2left.png  a91/cNN-2left  -l ara
+```
+
+`crop91.py`:
+
+```python
+import sys
+from PIL import Image
+import numpy as np
+src,out=sys.argv[1],sys.argv[2]
+img=Image.open(src); g=np.array(img.convert('L')); h,w=g.shape
+y0,y1=int(h*.05),int(h*.985)
+ink=(g[y0:y1]<128).sum(axis=0).astype(float)
+lo,hi=int(w*.40),int(w*.60)
+k=np.ones(15)/15; sm=np.convolve(ink,k,mode='same')
+gx=lo+int(sm[lo:hi].argmin())
+img.crop((gx,y0,w,y1)).save(out+'-1right.png')
+img.crop((0,y0,gx,y1)).save(out+'-2left.png')
+print(src,gx,w)
+```
+
+Loi 91-25, French (whole page, default page segmentation):
+
+```
+pdftoppm -r 200 -f N -l N -png F1991065.pdf f91/pNN
+tesseract f91/pNN-NN.png f91/cNN -l fra
+```
+
+Records: pages in order, for two-column pages the right column text then the left column text (Arabic), joined with one blank line; the only change to tesseract output is the removal of the form-feed character and of leading and trailing newlines of each page. No misread was corrected. Check: the French record holds Art. 117 (`Il est institué une taxe sur les activités polluantes ou dangereuses pour l'environnement`) on printed page 2046. `register/register.csv` is unchanged (official URLs unchanged). Left alone: the two French records with the bracketed oath line (dz-loi-03-10, dz-loi-09-03); the Arabic oath is now in their Arabic records.
+
 ## Madagascar
 
 GEL-13-06, run on 2026-11-03. No row passes, so nothing is stored. `MG-CNLEGIS-ADOPTED`, `MG-MEDD-ADOPTED` and `MG-CSBF-ADOPTED` are all `permission requested`: cnlegis.gov.mg shows only "© 2018 DIRCNLEGIS" and no terms page, environnement.mg shows no rights notice at all, and csbf.mg cannot be reached. The statute route is closed too: Loi n° 94-036 du 18 septembre 1995 on literary and artistic property (French text from WIPO Lex, `mg008fr_1.pdf`, sha256 `a3656e32...c69c4`) has no article excluding laws or official texts or their official translations. Article 4 protects "toutes les œuvres de l'esprit", Article 5 lists the protected works and none of its 15 items is an official-text exclusion, and the words "textes officiels", "actes officiels" and "textes législatifs" do not occur in the text. The Assemblée nationale copy (`assemblee-nationale.mg/wp-content/uploads/2020/11/Loi-n°-94-036-...pdf`) answers 403 to curl and to headless Chromium.
