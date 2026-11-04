@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cd-loi-11-009",
+    "title": "Loi n° 11/009 du 9 juillet 2011 portant principes fondamentaux relatifs à la protection de l'environnement",
+    "official_url": "https://medd.gouv.cd/wp-content/uploads/2020/07/attachment1.pdf",
+    "citation": "Loi n° 11/009 du 9 juillet 2011, Journal officiel, numéro spécial du 16 juillet 2011 (52e année)",
+    "in_force": "2011-07-09",
+    "evidence": "Art. 89: \"La présente Loi entre en vigueur à la date de sa promulgation.\" Signed \"Fait à Kisangani, le 09 juillet 2011\". Opened https://medd.gouv.cd/wp-content/uploads/2020/07/attachment1.pdf (PDF titled \"J.O. n° spécial du 16 juillet 2011\") on 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CD-MEDD-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act amended by Ordonnance-loi 23/007 (cd-ordonnance-loi-23-007). One record, French, adopted text, from the Ministère de l'Environnement's copy of the Journal officiel numéro spécial of 16 July 2011 (text PDF, pdftotext -layout, runs of spaces collapsed, blank lines dropped; the page headers and footers of the gazette are kept). The Journal officiel itself (journalofficiel.cd) sells issues and its sitemap does not list this law, so the gazette copy was not used. UNEP LEAP gives 2009 in the title of its record; the Journal officiel text reads 9 July 2011. No amended consolidation is published by the ministry: the 2023 amendment is a separate instrument. No government English text found (looked for on medd.gouv.cd, the Journal officiel site and WIPO Lex).",
+    "status": "stored"
+  },
+  {
+    "id": "cd-ordonnance-loi-23-007",
+    "title": "Ordonnance-loi n° 23/007 du 3 mars 2023 modifiant et complétant la loi n° 11/009 du 9 juillet 2011 portant principes fondamentaux relatifs à la protection de l'environnement",
+    "official_url": "https://medd.gouv.cd/wp-content/uploads/2023/05/Loi-sur-lenvironnement.pdf",
+    "citation": "Ordonnance-loi n° 23/007 du 3 mars 2023 (Cabinet du Président de la République)",
+    "in_force": "2023-03-03",
+    "evidence": "Final article of the scan: \"Sont abrogées toutes les dispositions antérieures contraires à la présente loi qui entre en vigueur à la date de sa promulgation.\" \"Fait à Kinshasa, le 03 mars 2023\" (OCR of the 13-page scan, read 2026-11-05 from https://medd.gouv.cd/wp-content/uploads/2023/05/Loi-sur-lenvironnement.pdf).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CD-MEDD-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "amends": "cd-loi-11-009",
+    "notes": "Amending act with carbon content: it adds the definition of the carbon tax (a tax on any person whose activities emit greenhouse gases above a threshold to be set by interministerial order; the order of the Ministers of Environment and Finance fixes the rate and collection, per the final operative article), art. 17 bis (creates the Autorité de Régulation du Marché de Carbone, ARMCA, organisation by decree of the Prime Minister) and art. 17 ter (ARMCA resources, including a share of the carbon tax). No interministerial order setting the threshold or rate was found on medd.gouv.cd or the Journal officiel site. UNDP names a different text for ARMCA (Ordonnance-loi 23/22 of 14 June 2023); not found in any official page. Link only: the only free official copy is a phone scan (PDF titled CamScanner, 13 pages, images only) of the Cabinet copy, whose text is cut at the page edge in the image itself (for example the carbon-tax definition reads \"au-delà d'\" and stops), so OCR would store an incomplete law, and the Journal officiel copy is paywalled. Uncorrected OCR was read for the evidence only and not stored. fetched sha256 of the scan: f0f2d2cb8983f34a3c5beb88221b35da10947096c6f5952356538c4572300e67 (11624923 bytes).",
+    "status": "link only"
+  },
+  {
+    "id": "cd-ordonnance-loi-26-016",
+    "title": "Ordonnance-loi n° 26/016 du 7 septembre 2026 portant régime juridique du marché du carbone en République démocratique du Congo",
+    "official_url": "https://medd.gouv.cd/rdc-la-promulgation-de-lordonnance-loi-sur-le-marche-du-carbone-consacre-le-statut-du-pays-comme-pays-solution-souverain-et-regule/",
+    "citation": "Ordonnance-loi n° 26/016 du 7 septembre 2026",
+    "in_force": null,
+    "evidence": "Ministry page of 13 September 2026: \"Le Président de la République ... a promulgué l'Ordonnance-loi n° 26/016 du 7 septembre 2026 portant régime juridique du marché du carbone en République Démocratique du Congo.\" The page states promulgation, not an in-force date. Opened 2026-11-05.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CD-MEDD-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Carbon market framework: national carbon registry, project cycle, Article 6 transfers (ITMOs), 6 titles, 67 articles, 9 annexes (ministry page of 2026-10-17). Adopted by the Government on 2026-08-28. Ratification bill examined by the Senate in plenary on 2026-10-16 (ministry page of 2026-10-17); ratification not confirmed. Not the same as the \"projet de loi d'habilitation\" put to the National Assembly on 2026-07-28. The text was not found on any free official page: the ministry publishes press pages about it, and the Journal officiel site lists no issue after 2025 for this title. Link only; in_force null because no official page states it.",
+    "status": "link only"
+  }
+]
