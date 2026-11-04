@@ -13249,5 +13249,689 @@
   "params": {
    "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
   }
+ },
+ {
+  "id": "bw-pula-code-pdf",
+  "source_id": "BW-BAOA-ADOPTED",
+  "iso2": "BW",
+  "instrument": "bw-pula-code",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.baoa.org.bw/wp-content/uploads/2022/12/Botswana-Code-of-Corporate-Governance.pdf",
+  "params": {
+   "second_route": "https://www.baoa.org.bw/standard-setting-codes/ (browser; lists the codes)"
+  }
+ },
+ {
+  "id": "bw-consumer-protection-act-2018-pdf",
+  "source_id": "BW-CCA-ADOPTED",
+  "iso2": "BW",
+  "instrument": "bw-consumer-protection-act-2018",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.cca.co.bw/sites/default/files/05%20Act%2020%EF%80%A204%EF%80%A22018%20CONSUMER%20PROTECTION_0.pdf",
+  "params": {
+   "second_route": "https://www.cca.co.bw/consumer-protection-act-2018 (page that links the PDF)"
+  }
+ },
+ {
+  "id": "bw-environmental-assessment-act-2011-page",
+  "source_id": "BW-GOVBW-ADOPTED",
+  "iso2": "BW",
+  "instrument": "bw-environmental-assessment-act-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.botswanalaws.com/principal-legislation/",
+  "params": {
+   "second_route": "https://cms2.gov.bw/sites/default/files/2020-02/Environmental%20Assessment%20Act%202011.pdf (browser; government PDF, certificate expired for curl)"
+  }
+ },
+ {
+  "id": "bw-environmental-assessment-regulations-2012-page",
+  "source_id": "BW-GOVBW-ADOPTED",
+  "iso2": "BW",
+  "instrument": "bw-environmental-assessment-regulations-2012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.botswanalaws.com/subsidiary-legislation/",
+  "params": {
+   "second_route": "https://www.gov.bw/sites/default/files/2019-12/Environmental Assessment Regulations 2012 (002).pdf (browser; certificate expired for curl)"
+  }
+ },
+ {
+  "id": "terms-bw-baoa-adopted",
+  "source_id": "BW-BAOA-ADOPTED",
+  "iso2": "BW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.baoa.org.bw/legal/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-bw-cca-adopted",
+  "source_id": "BW-CCA-ADOPTED",
+  "iso2": "BW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cca.co.bw/consumer-protection-act-2018",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-bw-blackhall-consolidated",
+  "source_id": "BW-BLACKHALL-CONSOLIDATED",
+  "iso2": "BW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.botswanalaws.com/terms-conditions-2/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-bw-bse-adopted",
+  "source_id": "BW-BSE-ADOPTED",
+  "iso2": "BW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bse.co.bw/terms-of-use/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "na-bon-big-5-2025-circular-pdf",
+  "source_id": "NA-BON-ADOPTED",
+  "iso2": "NA",
+  "instrument": "na-bon-big-5-2025",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/9d/9d35678d-17c4-4348-8b11-6189f00864d6.pdf",
+  "params": {
+   "second_route": "https://www.bon.com.na/Bank/Banking-Supervision/Legal-Frameworks/Circulars.aspx (browser; lists circulars and guidelines, check BIG-5/2025 for a replacement)"
+  }
+ },
+ {
+  "id": "na-ema-2007-namiblii-versions",
+  "source_id": "NA-GAZETTE-ADOPTED",
+  "iso2": "NA",
+  "instrument": "na-ema-2007",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://namiblii.org/en/akn/na/act/2007/7/eng@2007-12-27",
+  "params": {
+   "regex": "eng@(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://namiblii.org/en/akn/na/act/2007/7/eng@2007-12-27 (browser; the bare /akn/ path without /en/ answers a Cloudflare challenge to scripts)"
+  }
+ },
+ {
+  "id": "na-ema-2012-notices-meft-pdf",
+  "source_id": "NA-GAZETTE-ADOPTED",
+  "iso2": "NA",
+  "instrument": "na-ema-2012-notices",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.meft.gov.na/files/downloads/12e_dd7_Environmental%20Management%20Act%20regulations%202012.pdf",
+  "params": {
+   "second_route": "https://www.meft.gov.na/policies-legislation/acts/191/ (browser; MEFT Environmental Management Act page, lists the gazette PDFs)"
+  }
+ },
+ {
+  "id": "mw-rbm-climate-risk-guidelines-2024-rbm-pdf",
+  "source_id": "MW-RBM-ADOPTED",
+  "iso2": "MW",
+  "instrument": "mw-rbm-climate-risk-guidelines-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.rbm.mw/FinancialSectorRegulation/GetContentFile/?ContentID=61489",
+  "params": {
+   "second_route": "https://www.rbm.mw/FinancialSectorRegulation/BankRegulation/?activeTab=DirectivesForBanks (browser or curl with a browser User-Agent; lists the Guidelines with their upload date)"
+  }
+ },
+ {
+  "id": "mw-mse-listings-requirements-7-42-mse-pdf",
+  "source_id": "MW-MSE-ADOPTED",
+  "iso2": "MW",
+  "instrument": "mw-mse-listings-requirements-7-42",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mse.co.mw/upload/22",
+  "params": {
+   "second_route": "https://mse.co.mw/members/legal (browser or curl; lists MSE Listings Requirements)"
+  }
+ },
+ {
+  "id": "mw-mse-sustainable-bonds-guidelines-2023-mse-pdf",
+  "source_id": "MW-MSE-ADOPTED",
+  "iso2": "MW",
+  "instrument": "mw-mse-sustainable-bonds-guidelines-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mse.co.mw/upload/25",
+  "params": {
+   "second_route": "https://mse.co.mw/members/legal (browser or curl; lists Guidelines for Issuance of Sustainable Bonds)"
+  }
+ },
+ {
+  "id": "mw-ema-2016-commons-page",
+  "source_id": "MW-MALAWILII-ADOPTED",
+  "iso2": "MW",
+  "instrument": "mw-ema-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://commons.laws.africa/akn/mw/act/2017/19",
+  "params": {
+   "second_route": "Browser: https://malawilii.org/akn/mw/act/2017/19/eng@2017-05-05 (curl gets a Cloudflare 403 challenge; Playwright chromium may pass); the Commons page in url answered curl 200 on 2026-11-05"
+  }
+ },
+ {
+  "id": "mw-consumer-protection-act-2003-commons-page",
+  "source_id": "MW-MALAWILII-CONSOLIDATED",
+  "iso2": "MW",
+  "instrument": "mw-consumer-protection-act-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://commons.laws.africa/akn/mw/act/2003/14",
+  "params": {
+   "second_route": "Browser: https://malawilii.org/akn/mw/act/2003/14/eng@2014-12-31 (curl gets a Cloudflare 403 challenge; Playwright chromium may pass); the Commons page in url answered curl 200 on 2026-11-05"
+  }
+ },
+ {
+  "id": "mw-competition-fair-trading-act-1998-commons-page",
+  "source_id": "MW-MALAWILII-CONSOLIDATED",
+  "iso2": "MW",
+  "instrument": "mw-competition-fair-trading-act-1998",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://commons.laws.africa/akn/mw/act/1998/43",
+  "params": {
+   "second_route": "Browser: https://malawilii.org/akn/mw/act/1998/43/eng@2014-12-31 (curl gets a Cloudflare 403 challenge; Playwright chromium may pass); the Commons page in url answered curl 200 on 2026-11-05"
+  }
+ },
+ {
+  "id": "terms-mw-malawilii",
+  "source_id": "MW-MALAWILII-CONSOLIDATED",
+  "iso2": "MW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://malawilii.org/terms-of-use/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://malawilii.org/terms-of-use/ (browser; curl answered 200 on 2026-11-05)"
+  }
+ },
+ {
+  "id": "bb-consumer-protection-act-pdf",
+  "source_id": "BB-LAWCOURTS-CONSOLIDATED",
+  "iso2": "BB",
+  "instrument": "bb-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.barbadoslawcourts.gov.bb/assets/content/pdfs/consolidatedlaws/actsofbarbados/ConsumerProtectionCAP326D.pdf"
+ },
+ {
+  "id": "bb-marine-pollution-control-act-pdf",
+  "source_id": "BB-LAWCOURTS-CONSOLIDATED",
+  "iso2": "BB",
+  "instrument": "bb-marine-pollution-control-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.barbadoslawcourts.gov.bb/assets/content/pdfs/consolidatedlaws/actsofbarbados/MarinePollutionControlCAP392A.pdf"
+ },
+ {
+  "id": "bb-coastal-zone-management-act-pdf",
+  "source_id": "BB-LAWCOURTS-CONSOLIDATED",
+  "iso2": "BB",
+  "instrument": "bb-coastal-zone-management-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.barbadoslawcourts.gov.bb/assets/content/pdfs/consolidatedlaws/actsofbarbados/CoastalZoneManagementCAP394.pdf"
+ },
+ {
+  "id": "bb-control-of-disposable-plastics-act-2019-pdf",
+  "source_id": "BB-PARLIAMENT-ADOPTED",
+  "iso2": "BB",
+  "instrument": "bb-control-of-disposable-plastics-act-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://barbadosparliament-laws.com/uploads/Barbados-act/Act%202019%20-%2011.pdf"
+ },
+ {
+  "id": "bb-marine-transport-emissions-control-act-2024-pdf",
+  "source_id": "BB-PARLIAMENT-ADOPTED",
+  "iso2": "BB",
+  "instrument": "bb-marine-transport-emissions-control-act-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://barbadosparliament-laws.com/uploads/Barbados-act/Act%202024-25.pdf"
+ },
+ {
+  "id": "bb-marine-transport-cold-ironing-regulations-2025-pdf",
+  "source_id": "BB-PARLIAMENT-ADOPTED",
+  "iso2": "BB",
+  "instrument": "bb-marine-transport-cold-ironing-regulations-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://barbadosparliament-laws.com/uploads/statutory_instruments/Marine%20Transport%20%28Emissions%20Control%29%20%28Cold%20Ironing%29%20Regulations%2C%202025%20No%2070.pdf"
+ },
+ {
+  "id": "terms-bb-lawcourts-consolidated",
+  "source_id": "BB-LAWCOURTS-CONSOLIDATED",
+  "iso2": "BB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.barbadoslawcourts.gov.bb/laws/consolidated-laws",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-bb-parliament-adopted",
+  "source_id": "BB-PARLIAMENT-ADOPTED",
+  "iso2": "BB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://barbadosparliament-laws.com/en/StatutesOnline/AnnualActs",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-bb-fsc-adopted",
+  "source_id": "BB-FSC-ADOPTED",
+  "iso2": "BB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.fsc.gov.bb/terms-conditions",
+  "change": "terms_changed"
+ },
+ {
+  "id": "tt-icaap-guideline-2020-pdf-head",
+  "source_id": "TT-CBTT-ADOPTED",
+  "iso2": "TT",
+  "instrument": "tt-icaap-guideline-2020",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.central-bank.org.tt/cbtt_storage/2025/05/INTERN1.pdf",
+  "params": {
+   "second_route": "https://www.central-bank.org.tt/resources/internal-capital-adequacy-assessment-process-icaap-guideline/ (the Bank page for the guideline; answered 200 to curl)"
+  }
+ },
+ {
+  "id": "tt-ema-2000-versions-page",
+  "source_id": "TT-LAWS-CONSOLIDATED",
+  "iso2": "TT",
+  "instrument": "tt-ema-2000",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930",
+  "params": {
+   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Environmental Management, open Chap. 35:05, Versions tab)"
+  }
+ },
+ {
+  "id": "tt-cpsa-1985-versions-page",
+  "source_id": "TT-LAWS-CONSOLIDATED",
+  "iso2": "TT",
+  "instrument": "tt-cpsa-1985",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=consumer&currentid=652",
+  "params": {
+   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Consumer Protection and Safety, Versions tab)"
+  }
+ },
+ {
+  "id": "tt-tda-1984-versions-page",
+  "source_id": "TT-LAWS-CONSOLIDATED",
+  "iso2": "TT",
+  "instrument": "tt-tda-1984",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=trade%20descriptions&currentid=640",
+  "params": {
+   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Trade Descriptions, Versions tab)"
+  }
+ },
+ {
+  "id": "terms-tt-cbtt-adopted",
+  "source_id": "TT-CBTT-ADOPTED",
+  "iso2": "TT",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.central-bank.org.tt/disclaimer/",
+  "params": {
+   "second_route": "https://www.central-bank.org.tt/disclaimer/ (live page, same URL in a browser)"
+  }
+ },
+ {
+  "id": "terms-tt-laws-consolidated",
+  "source_id": "TT-LAWS-CONSOLIDATED",
+  "iso2": "TT",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://laws.gov.tt/",
+  "params": {
+   "second_route": "https://laws.gov.tt/ (live page, same URL in a browser)"
+  }
+ },
+ {
+  "id": "cd-loi-11-009-pdf",
+  "source_id": "CD-MEDD-ADOPTED",
+  "iso2": "CD",
+  "instrument": "cd-loi-11-009",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://medd.gouv.cd/wp-content/uploads/2020/07/attachment1.pdf",
+  "params": {
+   "second_route": "https://medd.gouv.cd/loi-n-11-009-du-09-juillet-2011-portant-principes-fondamentaux-relatifs-a-la-protection-de-lenvironnement/ (the ministry page that links the PDF)"
+  }
+ },
+ {
+  "id": "cd-ordonnance-loi-23-007-pdf",
+  "source_id": "CD-MEDD-ADOPTED",
+  "iso2": "CD",
+  "instrument": "cd-ordonnance-loi-23-007",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://medd.gouv.cd/wp-content/uploads/2023/05/Loi-sur-lenvironnement.pdf",
+  "params": {
+   "second_route": "https://medd.gouv.cd/lois-et-reglementations/ (browser; the brief recorded a 403 to a direct request on another day, curl answered 200 on 2026-11-05)"
+  }
+ },
+ {
+  "id": "cd-ordonnance-loi-26-016-page",
+  "source_id": "CD-MEDD-ADOPTED",
+  "iso2": "CD",
+  "instrument": "cd-ordonnance-loi-26-016",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://medd.gouv.cd/rdc-la-promulgation-de-lordonnance-loi-sur-le-marche-du-carbone-consacre-le-statut-du-pays-comme-pays-solution-souverain-et-regule/",
+  "params": {
+   "second_route": "https://medd.gouv.cd/?s=26%2F016 (ministry search; a Journal officiel issue is not free)"
+  }
+ },
+ {
+  "id": "terms-cd-medd-adopted",
+  "source_id": "CD-MEDD-ADOPTED",
+  "iso2": "CD",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wipo.int/wipolex/ar/text/492193",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.wipo.int/wipolex/en/legislation/details/7511 (WIPO Lex record of the copyright ordonnance-loi, art. 7; a revision commission was set up in August 2024)"
+  }
+ },
+ {
+  "id": "terms-cd-jordc-adopted",
+  "source_id": "CD-JORDC-ADOPTED",
+  "iso2": "CD",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://journalofficiel.cd/build/assets/publication-detail-6oLZLjZs.js",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://journalofficiel.cd/publication/019ee244-ca80-70fb-a61a-a74fe4727326/apercu (browser; the paywall sentence is in this script, whose file name changes with each site build)"
+  }
+ },
+ {
+  "id": "gm-climate-change-act-2026-meccnar-acts-page",
+  "source_id": "GM-ASSEMBLY-ADOPTED",
+  "iso2": "GM",
+  "instrument": "gm-climate-change-act-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://meccnar.gov.gm/acts-regulations",
+  "params": {
+   "second_route": "https://meccnar.gov.gm/acts-regulations (same URL in a browser or `curl` on macOS (SecureTransport fetches the missing intermediate certificate; Python urllib fails with CERTIFICATE_VERIFY_FAILED because meccnar.gov.gm sends only the *.gov.gm leaf certificate))"
+  }
+ },
+ {
+  "id": "gm-nema-1994-pdf-head",
+  "source_id": "GM-MECCNAR-ADOPTED",
+  "iso2": "GM",
+  "instrument": "gm-nema-1994",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://meccnar.gov.gm/sites/default/files/2021-04/National%20Evironment%20Act%201994.pdf",
+  "params": {
+   "second_route": "https://meccnar.gov.gm/sites/default/files/2021-04/National%20Evironment%20Act%201994.pdf (same URL in a browser or `curl` on macOS (SecureTransport fetches the missing intermediate certificate; Python urllib fails with CERTIFICATE_VERIFY_FAILED because meccnar.gov.gm sends only the *.gov.gm leaf certificate))"
+  }
+ },
+ {
+  "id": "gm-consumer-protection-act-2014-pdf-head",
+  "source_id": "GM-ASSEMBLY-ADOPTED",
+  "iso2": "GM",
+  "instrument": "gm-consumer-protection-act-2014",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://assembly.gm/documents/138/download",
+  "params": {}
+ },
+ {
+  "id": "jm-nrca-act-1991-record",
+  "source_id": "JM-LIPJ-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-nrca-act-1991",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lipj.gov.jm/cms/api/records/75192?fields[0]=updatedAt&fields[1]=versionNumber&fields[2]=publishedAt",
+  "params": {
+   "second_route": "https://lipj.gov.jm/library (browser; Legal Information Portal, search \"Natural Resources Conservation Authority Act\", category Revised Laws). The JSON answers curl; the /uploads/ file path times out, /cms/uploads/ works."
+  }
+ },
+ {
+  "id": "jm-nrca-permits-licences-regs-1996-head",
+  "source_id": "JM-NEPA-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-nrca-permits-licences-regs-1996",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NRC-Permits-and-Licences-Regulations-1996.pdf",
+  "params": {
+   "second_route": "https://www.nepa.gov.jm/index.php/legislation/regulations (browser; the list page links the PDF)"
+  }
+ },
+ {
+  "id": "jm-nrca-prohibition-order-1996-head",
+  "source_id": "JM-NEPA-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-nrca-prohibition-order-1996",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NR-Prohibition-CatofEnterprise-Construction-Dvlpmnt-Order-1996.pdf",
+  "params": {
+   "second_route": "https://www.nepa.gov.jm/index.php/legislation/orders (browser; the list page links the PDF)"
+  }
+ },
+ {
+  "id": "jm-nrca-ambient-air-quality-regs-1996-head",
+  "source_id": "JM-NEPA-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-nrca-ambient-air-quality-regs-1996",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NRC-Ambient-Air-Quality-Standards-Regulations-1996.pdf",
+  "params": {
+   "second_route": "https://www.nepa.gov.jm/index.php/legislation/regulations (browser; the list page links the PDF and the 2024 amendment)"
+  }
+ },
+ {
+  "id": "jm-nrca-plastic-packaging-order-2024-head",
+  "source_id": "JM-NEPA-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-nrca-plastic-packaging-order-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.nepa.gov.jm/sites/default/files/2024-10/Plastic_Pkging_Mtrls_Prohibition_Order_2024.pdf",
+  "params": {
+   "second_route": "https://www.nepa.gov.jm/index.php/legislation/orders (browser; the list page links the PDF)"
+  }
+ },
+ {
+  "id": "jm-consumer-protection-act-2005-record",
+  "source_id": "JM-LIPJ-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-consumer-protection-act-2005",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lipj.gov.jm/cms/api/records/75623?fields[0]=updatedAt&fields[1]=versionNumber&fields[2]=publishedAt",
+  "params": {
+   "second_route": "https://lipj.gov.jm/library (browser; search \"Consumer Protection Act\", category Revised Laws)"
+  }
+ },
+ {
+  "id": "jm-fair-competition-act-1993-record",
+  "source_id": "JM-LIPJ-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "jm-fair-competition-act-1993",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lipj.gov.jm/cms/api/records/75014?fields[0]=updatedAt&fields[1]=versionNumber&fields[2]=publishedAt",
+  "params": {
+   "second_route": "https://lipj.gov.jm/library (browser; search \"Fair Competition Act\", category Revised Laws)"
+  }
+ },
+ {
+  "id": "terms-jm-nepa",
+  "source_id": "JM-NEPA-CONSOLIDATED",
+  "iso2": "JM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.nepa.gov.jm/terms-and-conditions",
+  "params": {
+   "second_route": "https://www.nepa.gov.jm/terms-and-conditions (live page; answers curl)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-jm-boj",
+  "source_id": "JM-BOJ-ADOPTED",
+  "iso2": "JM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://boj.org.jm/disclaimer/",
+  "params": {
+   "second_route": "https://boj.org.jm/disclaimer/ (live page; answers curl)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "ug-cma-esg-guidelines-2026-cma-page",
+  "source_id": "UG-CMA-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-cma-esg-guidelines-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://cmauganda.co.ug/guidelines/",
+  "params": {
+   "second_route": "https://cmauganda.co.ug/guidelines/ (browser or curl; lists the guidelines under the CMA file list; curl answered 200 on 2026-11-05)"
+  }
+ },
+ {
+  "id": "ug-climate-mechanisms-regs-2025-mwe-pdf",
+  "source_id": "UG-MWE-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-climate-mechanisms-regs-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mwe.go.ug/publications/194/download",
+  "params": {
+   "second_route": "https://www.nema.go.ug/en/wp-content/uploads/2025/05/The-National-Climate-Change-Climate-Change-Mechanisms-Regulations-2025.pdf (same regulations on NEMA)"
+  }
+ },
+ {
+  "id": "ug-esa-regs-2020-nema-pdf",
+  "source_id": "UG-NEMA-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-esa-regs-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.nema.go.ug/en/wp-content/uploads/2025/01/National-Environment-Environmental-and-Social-Assessment-Regulations-S.I.-No.-143-of-2020.pdf",
+  "params": {
+   "second_route": "https://www.nema.go.ug/en/regulations/ (browser; list page)"
+  }
+ },
+ {
+  "id": "ug-national-climate-change-act-2021-mwe-pdf",
+  "source_id": "UG-MWE-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-national-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mwe.go.ug/publications/192/download",
+  "params": {
+   "second_route": "https://mwe.go.ug/publications/laws_policies/national-climate-change-act-2021 (browser; MWE page)"
+  }
+ },
+ {
+  "id": "ug-national-environment-act-2019-nema-pdf",
+  "source_id": "UG-NEMA-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-national-environment-act-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nema.go.ug/sites/all/themes/nema/docs/National%20Environment%20Act,%20No.%205%20of%202019.pdf",
+  "params": {
+   "second_route": "https://www.nema.go.ug/en/laws/ (browser; list page)"
+  }
+ },
+ {
+  "id": "ug-bou-climate-risk-guidelines-2025-bou-page",
+  "source_id": "UG-BOU-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-bou-climate-risk-guidelines-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://bou.or.ug/bouwebsite/bouwebsitecontent/acts/supervision_acts_regulations/FI_Regulations/BOU-Guidelines-to-Supervised-Financial-Institutions-for-the-Management-of-Climate-related-Financial-Risks-2025.pdf",
+  "params": {
+   "second_route": "https://www.bou.or.ug/ (browser; single-page app: curl gets a 7578-byte HTML shell for this PDF URL, so the hash is of the shell until the file is reachable)"
+  }
+ },
+ {
+  "id": "ug-ira-esg-guidelines-2026-ira-page",
+  "source_id": "UG-IRA-ADOPTED",
+  "iso2": "UG",
+  "instrument": "ug-ira-esg-guidelines-2026",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ira.go.ug/download/esg-guidelines/",
+  "params": {
+   "second_route": "https://ira.go.ug/download/esg-guidelines/ (browser or curl with a browser User-Agent; the default curl agent gets 406 on the download link)"
+  }
+ },
+ {
+  "id": "terms-ug-mwe",
+  "source_id": "UG-MWE-ADOPTED",
+  "iso2": "UG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mwe.go.ug/terms-conditions",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-ug-ulii",
+  "source_id": "UG-ULII-CONSOLIDATED",
+  "iso2": "UG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://ulii.org/en/terms-of-use/",
+  "params": {},
+  "change": "terms_changed"
  }
 ]

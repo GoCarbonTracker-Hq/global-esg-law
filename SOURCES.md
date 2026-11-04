@@ -9004,3 +9004,355 @@ All answered from the cloud address on 2026-11-03 as follows (nothing retried th
 - `https://mmk.tj/`, `https://www.mmk.tj/` (National Legislation Centre under the President, linked from nbt.tj): `Connection reset by peer`.
 - `https://moj.tj/`, `https://admin.adlia.tj`, `https://adlia.tj`: connection failed. The Agency for Securities Market host was not found (`sec.tj`, `amcb.tj`, `tse.tj` failed); Tajikistan has no active exchange of note, so no exchange site was tried.
 - Opened without trouble: `https://mmih.adlia.tj/`, `https://nbt.tj/en/` (`nbt.tj/` answers `302` with an empty body), `https://www.wipo.int/`, `https://president.tj/`.
+
+## Botswana
+
+Run on 2026-11-05 (GEL-18-03). Two rows pass, both on the statute: `BW-BAOA-ADOPTED` and `BW-CCA-ADOPTED` (Copyright and Neighbouring Rights Act, Cap. 68:02, s. 6(2)(b): no protection for "any official text of a legislative, administrative or legal nature, as well as any official translation thereof"). Both sites claim copyright and say nothing about reuse, so Varun is asked to confirm that the Pula Code and the CCA copy of the Act count as official texts. Text extraction for both: `pdftotext -layout file.pdf -`, runs of spaces collapsed, blank lines dropped (as `## Brazil`); output checked, no mojibake. Both are plain `curl`, no browser fetch.
+
+Row `BW-BAOA-ADOPTED`, The Pula Code of Corporate Governance:
+
+```
+curl -sS -L -o pula.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.baoa.org.bw/wp-content/uploads/2022/12/Botswana-Code-of-Corporate-Governance.pdf
+```
+
+Returned `200 848945 application/pdf`. The code states no commencement date, so its record is dated 2022-12-07, the PDF creation date.
+
+Row `BW-CCA-ADOPTED`, Consumer Protection Act, 2018 (the file name carries private-use characters, so the URL is percent-encoded):
+
+```
+curl -sS -L -o cpa.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.cca.co.bw/sites/default/files/05%20Act%2020%EF%80%A204%EF%80%A22018%20CONSUMER%20PROTECTION_0.pdf'
+```
+
+Returned `200 333706 application/pdf`. The Act says "Date of Commencement: ON NOTICE", so its record is dated the assent date 2018-03-27.
+
+### Languages
+
+English only: Acts and the Pula Code are published in English, the language of legislation. Setswana (tn) is the national language and no Setswana text of either instrument was found. No government English translation is needed or exists.
+
+### Link only
+
+- `bw-environmental-assessment-act-2011` and `bw-environmental-assessment-regulations-2012` (row `BW-GOVBW-ADOPTED`): `curl -sS -L https://www.gov.bw/` answers `curl: (60) SSL certificate problem: certificate has expired`, and `https://cms2.gov.bw/...Environmental%20Assessment%20Act%202011.pdf` answers `000` (no connection). The certificate check was not bypassed. The only readable copy is Blackhall's (`BW-BLACKHALL-CONSOLIDATED`, permission requested: "Users may not republish any part of the data ... without the prior written permission of Blackhall").
+- BSE Sustainability Disclosure Guidance (August 2024): not in scope. Not found on bse.co.bw; BSE terms prohibit reproduction (`BW-BSE-ADOPTED`, permission requested).
+- Not reached: NBFIRA (`https://www.nbfira.org.bw/` answers `406` to curl, 226 bytes) and Bank of Botswana (home page opened, no climate rule found).
+
+## Namibia
+
+Run on 2026-11-05 (GEL-18-01). Rows `NA-GAZETTE-ADOPTED` and `NA-BON-ADOPTED` are `pass` on the statute basis (Copyright and Neighbouring Rights Protection Act 6 of 1994 s. 15(8)(a): "No copyright shall subsist in - (a) the official text of any work of a legislative, administrative or legal nature, or an official translation thereof"). `NA-NAMIBLII-CONSOLIDATED` is `fail` (CC BY-NC 4.0; bulk downloading prohibited), so nothing is read from it into a record. Language: English only, the sole official language. Varun to confirm the Bank of Namibia pass (the bank's footer claims all rights reserved) and the third-party hosting of the gazette PDFs.
+
+Text extraction for both rows: `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, each line stripped, blank lines dropped (as `## Brazil`); output checked, no non-printable characters. `fetched_sha256` is the hash of the PDF as returned; a second fetch reproduced it for all three files.
+
+Row `NA-GAZETTE-ADOPTED`, Environmental Management Act 7 of 2007 as gazetted (Government Gazette 3966, 27 December 2007):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ema_gazette_3966.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://commons.laws.africa/akn/na/act/2007/7/media/publication/na-act-2007-7-publication-document.pdf
+```
+
+Returned `200 110544 application/pdf` (32 pages). The URL pattern is `/akn/na/act/{year}/{number}/media/publication/na-act-{year}-{number}-publication-document.pdf`, found as the "publication document" link on the NamibLII Act page.
+
+Same row, Government Gazette 4878 (6 February 2012: GN 28 commencement, GN 29 list of activities, GN 30 EIA Regulations), from the Ministry of Environment, Forestry and Tourism:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gazette_4878.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.meft.gov.na/files/downloads/12e_dd7_Environmental%20Management%20Act%20regulations%202012.pdf'
+```
+
+Returned `200 490075 application/pdf` (29 pages).
+
+Row `NA-BON-ADOPTED`, Bank of Namibia circular BIG-5/2025 (issued 31 March 2025):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o big5_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/9d/9d35678d-17c4-4348-8b11-6189f00864d6.pdf
+```
+
+Returned `200 272064 application/pdf` (14 pages). The `/getattachment/9d35678d-17c4-4348-8b11-6189f00864d6/.aspx` link on the Circulars page returns the same 272064 bytes.
+
+### Languages
+
+English only. Acts are enacted and gazetted in English; Afrikaans, German and the Namibian languages are national languages with no gazetted Acts. No translation source, so no translation row.
+
+### NamibLII (not a source for records)
+
+`curl https://namiblii.org/akn/na/act/1994/6` returned `403 5379 text/html` (a Cloudflare "Just a moment" challenge), as did every `/akn/` path without a language prefix. With the `/en/` prefix curl is answered: `curl -sS -L -A 'Mozilla/5.0' https://namiblii.org/en/akn/na/act/1994/6/eng@2017-01-16` returned `200 500452 text/html; charset=utf-8`. This was used to read the Copyright Act (s. 15(8)(a)) and the terms (`/en/terms-of-use/`, 200). The Act pages show one version of the Environmental Management Act (2007-12-27); the watcher `na-ema-2007-namiblii-versions` reads that page's version dates.
+
+### Link only
+
+None of the three scope instruments is link only; all are stored.
+
+- Not in scope, F7 register rows only: NSX sustainability reporting / NamCode (voluntary; no binding rule found), the national carbon market framework and policy (draft; nothing gazetted), the Consumer Protection Bill 2024 (a bill). No Namibian climate change act and no carbon tax were found on 2026-11-05.
+- Environmental Management Act PDF on the Ministry page (`/files/downloads/d87_Environmental%20Management%20Act%207%20of%202007.pdf`) answered `404 796 text/html`; the gazette PDF from Laws.Africa Commons is used instead.
+- Blocked from the laptop address: `https://nsx.com.na` answered `403 5326 text/html` (challenge page) to curl.
+
+## Malawi
+
+Run on 2026-11-05 (GEL-18-07). No row passes, so nothing is stored. `records/MW/` does not exist; every scope instrument is link only. No `pass` row means no proven fetch for a stored record; the requests below show what each host answered and why each row is `permission requested`.
+
+### Rows
+
+- `MW-MALAWILII-ADOPTED`, `MW-MALAWILII-CONSOLIDATED` (https://malawilii.org/terms-of-use/): CC BY-NC 4.0 on primary law, "Scraping and bulk downloading from this website is strictly prohibited", NGO reproduction (Gender and Justice Unit with Laws.Africa) of the Government Gazette. `permission requested`, basis terms. Copyright Act 2016 (Cap. 49:03) s. 28(1)(a), "written laws and decisions of courts and administrative bodies and to official translations thereof", Part III in force since 13 March 2017 (Government Notice 21 of 2017), was read but is not applied to a private reproduction. If Varun rules that the Gazette scan hosted by Laws.Africa is the state-published text, a statute row can be added (see the report).
+- `MW-RBM-ADOPTED` (https://www.rbm.mw/): footer "Copyright 2026 Reserve Bank of Malawi. All Rights Reserved.", no terms page. `permission requested`.
+- `MW-MSE-ADOPTED` (https://www.mse.co.mw/): "Unless otherwise stated, the Website and Data is the copyright of the Malawi Stock Exchange. Access to and use of the Website and the Data is for personal and non-commercial use only." `permission requested`.
+
+### Requests run (curl 2026-11-05, laptop address)
+
+```
+curl -sS -m 25 -A "Mozilla/5.0" -o /dev/null -w "%{http_code} %{size_download} %{content_type}" https://malawilii.org
+  -> 200 58581 text/html; charset=utf-8
+curl -sS -m 30 -A "Mozilla/5.0" https://malawilii.org/terms-of-use/            -> 200 26292 text/html
+curl -sS -m 30 -A "Mozilla/5.0" https://malawilii.org/legislation/?page=N      -> 200 (pages 1 to 14, 563 instrument links)
+curl -sS -A "Mozilla/5.0" https://malawilii.org/akn/mw/officialGazette/government-gazette/2026-08-07/40/eng@2026-08-07
+  -> 403 5470 text/html; charset=UTF-8, cf-mitigated: challenge ("Just a moment...")
+curl -sS -A "Mozilla/5.0" https://malawilii.org/akn/mw/act/2017/19/eng@2017-05-05
+  -> 403 5470 text/html; charset=UTF-8 (Cloudflare challenge)
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/2016/26/eng@2017-12-31.pdf
+  -> 200 631672 application/pdf (Copyright Act, s. 28(1)(a) read with pdftotext -layout)
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/2017/19/eng@2017-05-05.pdf
+  -> 200 145335 application/pdf (Environment Management Act, 2016: a stub that points to the publication document)
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/2017/19/media/publication/mw-act-2017-19-publication-document.pdf
+  -> 200 4393078 application/pdf (scan of Gazette Supplement 5C of 5 May 2017 with a text layer; not stored)
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/2003/14/eng@2014-12-31.pdf  -> 200 356426 application/pdf
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/1998/43/eng@2014-12-31.pdf  -> 200 319898 application/pdf
+curl -sS -A "Mozilla/5.0" https://commons.laws.africa/akn/mw/act/2024/20/eng@2024-05-31.pdf  -> 200 161747 application/pdf (stub)
+curl -sS -L -A "Mozilla/5.0" "https://www.rbm.mw/FinancialSectorRegulation/GetContentFile/?ContentID=61489"
+  -> 200 268929 application/octet-stream (content-disposition attachment, 14-page PDF, sha256 c3e24e5f1d1d56f0742e1bab3b1484277e40ac38609097660cd7975d50501223)
+curl -sS -L -A "Mozilla/5.0" https://mse.co.mw/upload/22  -> 200 2458773 application/octet-stream (260-page PDF, sha256 dc69d1191bdfe17a9114317d0dd79427fc8d20c576bb8bb1f88c55cc81c85f37)
+curl -sS -L -A "Mozilla/5.0" https://mse.co.mw/upload/25  -> 200 160601 application/octet-stream (PDF, sha256 d570ad8eeb3d0337d0f265c67ed87f8ee7025a3426428afe5942763e5bacb251)
+```
+
+The brief's note that WebFetch got 403 from malawilii.org and the Laws.Africa copy served the PDF holds for curl too: the home page, terms page and legislation list answer 200, document pages answer a Cloudflare 403 challenge, and the Commons PDFs answer 200. No browser recipe was run, because no row passes. The brief's remark that Part III of the Copyright Act is excluded from commencement is not what the Act's commencements table says: Parts I to XII and XIV to XV, including Part III (ss. 25 to 35), commenced on 13 March 2017.
+
+### Languages
+
+English only. Malawi's Acts are in English; Chichewa (ny) is the national language and no Act is published in it on MalawiLII (the site's configuration lists `"languages": ["en"]`). No government English translation question arises.
+
+### Link-only instruments and why
+
+- `mw-rbm-climate-risk-guidelines-2024`: `MW-RBM-ADOPTED` is permission requested.
+- `mw-mse-listings-requirements-7-42`, `mw-mse-sustainable-bonds-guidelines-2023`: `MW-MSE-ADOPTED` is permission requested.
+- `mw-ema-2016`, `mw-consumer-protection-act-2003`, `mw-competition-fair-trading-act-1998`: MalawiLII rows are permission requested; no state host serves the Gazette or the Acts (`parliament.mw` does not resolve, `www.parliament.gov.mw` answers 403 with `cf-mitigated: challenge`, `https://www.malawi.gov.mw/index.php/resources/publications/acts` answered `200 29932 text/html; charset=utf-8` and lists six downloads, none of them the Environment Management Act, the Consumer Protection Act or the Competition and Fair Trading Act (the Data Protection Act 2024, Liquid Fuels and Gas Act, a land amendments bundle and NGO papers); the Policies page `.../resources/publications/candis` answered `200 23983 text/html` and lists the land, disability and ICT policies, not the climate policy).
+
+### Not in scope.json
+
+- Climate Change Management Act or Bill: none on the MalawiLII list of 563 instruments; National Climate Change Management Policy (2016) is a `register.csv` row with family F7.
+- National carbon market framework (2025-08-22): no Gazette notice or legal text found; `register.csv` row with family F7.
+- Competition and Fair Trading Act, 2024 (Act 20 of 2024): noted in the 1998 Act's entry; commencement not established.
+- Reserve Bank of Malawi's other pages and the Financial Services (Disclosure of Information by Banks) Directive, 2018: not examined for ESG content.
+
+## Barbados
+
+No row passes. The Supreme Court Registry, the Parliament and the Financial Services Commission all carry an "All Rights Reserved" footer, none has a terms page with text, and the Copyright Act, Cap. 300 has no section that removes copyright from laws (see `statute_exception` of BB-LAWCOURTS-CONSOLIDATED). Verdict is `permission requested` on all three rows, so there is no proven fetch for storage and no record. The requests below were run on 2026-11-05 from the laptop address only to read and date the instruments in scope; nothing was stored.
+
+### Requests that answered
+
+```
+curl -sS -A "Mozilla/5.0" "https://www.barbadoslawcourts.gov.bb/assets/content/pdfs/consolidatedlaws/actsofbarbados/"
+```
+200, 58775 bytes, text/html;charset=ISO-8859-1 (Apache directory index, 545 PDFs; names are `<Title><Cap>.pdf`, files dated 2021-09-14).
+
+```
+curl -sS -A "Mozilla/5.0" -o cp.pdf "https://www.barbadoslawcourts.gov.bb/assets/content/pdfs/consolidatedlaws/actsofbarbados/ConsumerProtectionCAP326D.pdf"
+pdftotext -layout cp.pdf - | sed 's/  */ /g'
+```
+200, 92514 bytes, application/pdf, sha256 31b5d8540f2633902ce6c289cb3ab132f24bf49cd40dd4913dc9bbd6ff2d77ce (Consumer Protection Act, Cap. 326D). The same request shape answered 200 for Marine Pollution Control Cap. 392A (955962 bytes), Coastal Zone Management Cap. 394 (515732 bytes) and Copyright Cap. 300 (746803 bytes); `pdftotext -layout` gave clean text with no mojibake. HEAD answers 200 application/pdf.
+
+```
+curl -sS -A "Mozilla/5.0" -o act.pdf "https://barbadosparliament-laws.com/uploads/Barbados-act/Act%202024-25.pdf"
+```
+200, 3417143 bytes, application/pdf, sha256 0ad1c5089a7ca869d0a02d6f768972a356f4a441a8038a6ff041e77771fb6478 (Marine Transport (Emissions Control) Act, 2024-25). Also 200 for `Act%202019%20-%2011.pdf` (148856 bytes, Control of Disposable Plastics Act, 2019-11) and for the S.I. 2025 No. 70 PDF (411824 bytes, `uploads/statutory_instruments/`). Detail pages: https://barbadosparliament-laws.com/en/showdoc/act/517 (200, 144133 bytes, text/html; charset=utf-8), .../act/322 (200, 144111) and .../si/1883 (200, 144859).
+
+```
+curl -sS -A "Mozilla/5.0" -H "X-Requested-With: XMLHttpRequest" -H "Accept: application/json" "https://barbadosparliament-laws.com/en/StatutesOnline/AnnualActs?page=1&per_page=50"
+```
+200, 114347 bytes, application/json (key `view` holds an HTML fragment of 50 rows; pages 1 to 12 cover 2008 to 2026 Acts with their `Commencement:` line). The same call with `filter_text=<word>` searches; `StatutoryInstruments` and `SubsidiaryLegislation` in place of `AnnualActs` list the other two. Without the XHR headers the page is a JS shell with no rows.
+
+```
+curl -sS -A "Mozilla/5.0" -X POST -d "BILL_KEYWORD_S=Emission" https://www.barbadosparliament.com/bills/search/id/1
+```
+200, text/html (bills archive search; used to find bill detail pages such as https://www.barbadosparliament.com/bills/details/860, the Copyright Bill, 2025, 200, PDF 714216 bytes).
+
+### Languages
+
+English only (the language of legislation in Barbados). No second official language and no government translation exists, so there is no translation row.
+
+### Link-only instruments
+
+All six scope instruments, for the same reason (row `permission requested`, no statute exception):
+- bb-consumer-protection-act, bb-marine-pollution-control-act, bb-coastal-zone-management-act: BB-LAWCOURTS-CONSOLIDATED (Supreme Court Registry footer "All Rights Reserved"; Terms & Conditions link has an empty href and the obvious paths answer 404).
+- bb-control-of-disposable-plastics-act-2019, bb-marine-transport-emissions-control-act-2024, bb-marine-transport-cold-ironing-regulations-2025: BB-PARLIAMENT-ADOPTED (footer "Copyright © Barbados Parliament. All rights reserved.", no terms page).
+- Barbados ESG Consultation Paper (FSC): register row F7, not law, BB-FSC-ADOPTED is permission requested.
+
+## Trinidad & Tobago
+
+Run on 2026-11-05 (GEL-18-08). Two rows: `TT-CBTT-ADOPTED` passes on the statute basis (Copyright Act Chap. 82:80 s. 7(1)(b), "any official text of a legislative, administrative or legal nature"); `TT-LAWS-CONSOLIDATED` is permission requested. English is the only language of legislation, so there is no `### Languages` source beyond it and no translation row. Text extraction for the Central Bank PDF: `pdftotext -layout file.pdf -`, runs of spaces collapsed, blank lines dropped (as `## Brazil`); the output was checked for mojibake (no U+FFFD; the only non-ASCII characters are typographic dashes, quotes and an ellipsis).
+
+Row `TT-CBTT-ADOPTED`, ICAAP Guideline of November 2020 (the file name comes from the Bank's resource page `https://www.central-bank.org.tt/resources/internal-capital-adequacy-assessment-process-icaap-guideline/`, which says "Posted on November 19, 2020"):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o icaap.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.central-bank.org.tt/cbtt_storage/2025/05/INTERN1.pdf
+```
+
+Returned `200 1296767 application/pdf`; sha256 `487a36e00835888efc73ba16c5075868c1063d5d4a4fcd6fcb12eb7357d0dd0e`, identical on a second fetch. 51 pages. The `User-Agent` header is not needed for this file but costs nothing.
+
+### Languages
+
+Trinidad and Tobago legislates in English only. No official translation exists or is needed.
+
+### Not stored: the Digital Legislative Library (laws.gov.tt)
+
+Row `TT-LAWS-CONSOLIDATED` is permission requested, so nothing from the site is stored. The fetch itself works, which matters if permission is ever granted. The list page for one Act (environmental search, Environmental Management Act):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o em_list.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930'
+```
+
+Returned `200 236120 text/html;charset=UTF-8`. It lists the versions with their download ids. A version PDF (2006 Revised Edition updated to 31 December 2016):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ema_2016.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laws.gov.tt/ttdll-web2/revision/download/106087?type=act'
+```
+
+Returned `200 1442998 application/octet-stream;charset=utf-8` (a PDF). The `q` parameter picks the Act, `currentid` is its id on the site (Environmental Management 930, Consumer Protection and Safety 652, Trade Descriptions 640, Fair Trading 650, Copyright 1142). The `/revision/bytitle` list pages show only about 500 amending Acts, not the principal Acts. Why not stored: the site says it offers "the unofficial versions of the law" and "All Rights Reserved"; the 2016 edition PDF of the Consumer Protection and Safety Act is stamped "UNOFFICIAL VERSION L.R.O."; and Copyright Act s. 25(7) gives the State copyright in Government-made works where none would otherwise subsist.
+
+### Link-only instruments
+
+- `tt-ema-2000`, `tt-cpsa-1985`, `tt-tda-1984`: row `TT-LAWS-CONSOLIDATED` permission requested (reason above). Official URL is the site's list page for each Act.
+
+### Looked at and left out
+
+- Fair Trading Act, Chap. 81:13 (Commencement 26 Apr 2007): a competition statute; the 2016 edition has no provision on misleading or deceptive claims, so it is not in scope.
+- Parliament (`https://www.ttparliament.org`, answered 200): Terms of Use allow "personal, non-commercial use" only, so it would be permission requested; it was not needed for any instrument.
+- `https://ema.gov.tt` and `https://www.mpd.gov.tt`: host name did not resolve (curl exit 6) on 2026-11-05. The National Climate Change Policy was therefore not read on an official page and has no register row.
+
+## Congo - Kinshasa
+
+Run on 2026-11-05 (GEL-18-09). One row passes: `CD-MEDD-ADOPTED` (statute: Ordonnance-loi n° 86-033 du 5 avril 1986, art. 7, "Les actes officiels de l'autorité ne font naître aucun droit d'auteur"; Varun to confirm, because the host is the Ministère de l'Environnement and not the gazette). `CD-JORDC-ADOPTED` (the Journal officiel site, journalofficiel.cd) is `unknown`: every issue is sold, the full PDF is behind purchase or subscription and the site has no terms page. French is the only language of legislation; Lingala, Kikongo, Kiswahili and Tshiluba are national languages and are not used for acts. No government English text was found.
+
+Row `CD-MEDD-ADOPTED`, Loi n° 11/009 du 9 juillet 2011 (the PDF is the Journal officiel numéro spécial of 16 July 2011, 32 pages, text layer, no OCR):
+
+```
+curl -sS -L -o loi11009.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://medd.gouv.cd/wp-content/uploads/2020/07/attachment1.pdf
+```
+
+Returned `200 202395 application/pdf`. Text: `pdftotext -layout loi11009.pdf -`, runs of spaces collapsed, blank lines dropped (the gazette's page headers and footers stay in the text); no mojibake found. The file name comes from the instrument's page, here https://medd.gouv.cd/loi-n-11-009-du-09-juillet-2011-portant-principes-fondamentaux-relatifs-a-la-protection-de-lenvironnement/ (list: category "Textes Lég. & Régl.", `https://medd.gouv.cd/wp-json/wp/v2/posts?categories=111&_fields=date,link,title`). `fetched_sha256` is the hash of the PDF as returned.
+
+Same row, Ordonnance-loi n° 23/007 (scan, link only):
+
+```
+curl -sS -L -o ol23007.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://medd.gouv.cd/wp-content/uploads/2023/05/Loi-sur-lenvironnement.pdf
+```
+
+Returned `200 11624923 application/pdf` (13 pages of images, producer CamScanner, no text layer). `pdftoppm -r 300 -png` and `tesseract -l fra --psm 6` give readable text, but the scan is cut at the page edge (the carbon-tax definition stops at "au-delà d'"), so nothing is stored.
+
+Journal officiel site (not used for text): https://journalofficiel.cd answers curl with `200 21674 text/html; charset=utf-8`, an Inertia application whose HTML carries a `data-page` JSON. `https://journalofficiel.cd/sitemap.xml` (`200 2301438`) lists 10000 `/publication/<uuid>/apercu` pages (published 1984-01-15 to 2025-07-23); each page's `data-page` JSON gives title, `published_at`, `price` and `hasAccess` (false for all 10000), `free_preview_pages` 3. `/recherche` is disallowed in robots.txt and was not used. No browser recipe was needed.
+
+### Languages
+
+French only. No other official-language or English source exists for the instruments in scope.
+
+### Link-only instruments
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Ordonnance-loi 23/007 du 3 mars 2023 | https://medd.gouv.cd/wp-content/uploads/2023/05/Loi-sur-lenvironnement.pdf | Only a phone scan, cut at the page edge; the Journal officiel copy is paywalled. |
+| Ordonnance-loi 26/016 du 7 septembre 2026 (carbon market) | https://medd.gouv.cd/rdc-la-promulgation-de-lordonnance-loi-sur-le-marche-du-carbone-consacre-le-statut-du-pays-comme-pays-solution-souverain-et-regule/ | Only a ministry press page; no free text found. |
+| Loi 26/034 du 20 août 2026 (stock markets, F7) | none | Register row only; no official page found, no climate disclosure duty reported. |
+| Loi 18/020 du 9 juillet 2018 (prices and competition, F7) | none | Register row only; private mirrors only. |
+
+## Gambia
+
+Run on 2026-11-05 (GEL-18-05). Two rows pass, both on a statute: `GM-ASSEMBLY-ADOPTED` (National Assembly of The Gambia, assembly.gm) and `GM-MECCNAR-ADOPTED` (Ministry of Environment, Climate Change and Natural Resources, meccnar.gov.gm). Neither site has usable terms (assembly.gm reserves all rights and allows personal non-commercial use; meccnar.gov.gm has only a copyright footer), so both rest on the Copyright Act 2004 (Act No. 10 of 2004) s. 7(b): "no protection shall extend under this Act to ... (b) any official text of a legislative, administrative or legal nature or any of its official translation." The Act is a 37-page photograph of the printed book, so its text layer is empty and the section number was read from the page image:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o copyright2004.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://assembly.gm/documents/321/download
+```
+
+Returned `200 9961049 application/pdf` (sha256 2a3a3f205a2010a8621383228328b1260d2a09439025b4bc4d327f676ca01187). No account, cookie or browser was needed; the server sets session cookies, which curl ignores.
+
+Row `GM-MECCNAR-ADOPTED`, National Environment Management Act 1994 (the file name is spelled "Evironment" on the site):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o nema1994.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://meccnar.gov.gm/sites/default/files/2021-04/National%20Evironment%20Act%201994.pdf'
+```
+
+Returned `200 2564747 application/pdf`; a second download gave the same sha256 (5ac6eacd5746d429b82db4e907767c8e7d05c6f1bc71c2df6561aadfe6b4b30b). The default curl user agent works too; the Last-Modified header is 2021-04-20. The 83 pages have no text layer (`pdftotext -layout` returns 1232 bytes of fragments), so the record is OCR: `pdftoppm -r 300 -gray -png nema1994.pdf p`, then `tesseract p-NN.png p-NN -l eng` for each page (English pack, `-l eng`). The record text is the 83 page outputs in page order, each line stripped and runs of spaces collapsed to one, empty lines dropped, nothing corrected or reflowed; the record carries `"extraction": "ocr"` and the hash of the original PDF. A dictionary pass over the output found a handful of misread words (for example `anvironmental`), and the typewritten originals give the usual OCR slips; no page came out as garbage.
+
+Row `GM-ASSEMBLY-ADOPTED`, Gambia Consumer Protection Act 2014 (document 138):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cpa2014.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://assembly.gm/documents/138/download
+```
+
+Returned `200 648094 application/pdf`; a second download gave the same sha256 (63dd74eedee4b0b0fdc6a150be18e8f093c7ed3b28177d25a2a26f14ed139334); `pdftotext -layout` returns 56432 bytes of clean text. It is the Gazette print of the Bill and no text is stored (see below). Some documents on the Acts list are served as `application/msword` (the Votes and Proceedings of 1 April 2026, https://assembly.gm/documents/296/download), and the file extension is not in the URL, so `file` has to be used to tell them apart.
+
+### Blocked
+
+`meccnar.gov.gm` (the Acts & Regulations page and the PDF) answers `curl` on macOS with `200` but fails `python3 tools/watch.py` with `URLError: [SSL: CERTIFICATE_VERIFY_FAILED] unable to get local issuer certificate`: `openssl s_client -connect meccnar.gov.gm:443` shows the server sends only the `*.gov.gm` leaf certificate (issuer RapidSSL TLS RSA CA G1) without the intermediate, and verify return code 21. The two meccnar watchers carry a `second_route` saying so. The `curl` recipe above works on this laptop only because SecureTransport fetches the intermediate; a curl built on OpenSSL would need `-k` or the intermediate, and `-k` was not used.
+
+The Acts list is `https://assembly.gm/documents/type/acts?page=N` (N from 1 to 9 returned documents; 179 distinct documents); the site search `https://assembly.gm/documents?search=<words>` matches titles and descriptions only. The list pages carry a per-request CSRF token, so their hash changes on every fetch and no watcher hashes them.
+
+### Languages
+
+English is the only language of Gambian legislation (Mandinka, Wolof, Fula and the other national languages are not languages of enactment; Wolof and Fula have ISO 639-1 codes, Mandinka has none, and no Act was found in any of them). No government translation exists to store, so there is no translation row.
+
+### Link only
+
+- `gm-climate-change-act-2026`: row `GM-ASSEMBLY-ADOPTED` passes, but no text exists on an official page. The National Assembly passed the Bill at third reading on 2026-04-01 (https://assembly.gm/documents/296, answered `200`, `application/msword`); the Acts and Bills lists, the site search and the MECCNAR Acts & Regulations page hold no climate Bill or Act. Assent, Act number and commencement are not stated on any official page.
+- `gm-consumer-protection-act-2014`: row `GM-ASSEMBLY-ADOPTED` passes, but the only file is the Gazette print of the Bill (Supplement B No. 2 of 3 February 2014, headed "A BILL ENTITLED", date bracket blank, commencement "on such dare as the Minister may appoint by notice published in the Gazette"), so no record can be dated.
+
+Not in scope: the Central Bank of The Gambia (www.cbg.gm answered `200` for the home page and the Guidelines, Insurance Guidelines and Banking Supervision pages; none lists a climate, sustainability or ESG guideline), the Gambia Competition and Consumer Protection Commission (no environmental-claims rule found), the Waste Management Bill 2024 and the National Environment Management Bills 2025 and 2026 (Bills, not enacted, https://assembly.gm/documents/479, 363, 480), the Gambia Integrated Coastal Zone Management Bill 2026 (read a third time on 2026-04-01 with the Climate Bill; no text), the Biodiversity Act 2003 (on meccnar.gov.gm; not read for ESG duties), and the Climate Change Act General Implementing Regulations (draft). No stock exchange was found, so no listing rule exists.
+
+## Jamaica
+
+Checked 2026-11-05 (GEL-18-06). No row passes, so no text is stored and no fetch recipe is proven for storage. Every Jamaican Act and subsidiary instrument is Crown copyright under Copyright Act 1993 s. 13B(2)(b) (inserted by Act 13 of 2015: "Crown copyright shall subsist in a literary work consisting of any of the following works ... (b) an Act of Jamaica or any subsidiary legislation"), and s. 13B(3) frees only non-commercial use ("Crown copyright shall not be deemed to be infringed by non commercial use of work, if such use is not misleading, mischievous or otherwise derogatory"). The Legal Information Portal terms say "All official legal documents are public domain" in section 6 and limit use of its repository to "lawful, non-commercial purposes" in section 3. The stored text is tag-stripped, so a non-commercial licence is not a pass.
+
+Requests that worked, for reading and for the watchers (none stored):
+
+```
+curl -gsS -A 'Mozilla/5.0' 'https://lipj.gov.jm/cms/api/records/75192?populate[ocr][fields][0]=text&populate[sourceFile]=true'
+```
+HTTP 200, application/json, the Natural Resources Conservation Authority Act (Revised Laws) with the OCR text of its 36 pages and the file name. The portal is a React page over a Strapi API; `https://lipj.gov.jm/cms/api/records?filters[shortTitle][$containsi]=Copyright&pagination[pageSize]=40` lists records (17963 in total on the day).
+
+```
+curl -sS -A 'Mozilla/5.0' -r 0-100 -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' https://lipj.gov.jm/cms/uploads/The_Consumer_Protection_Act_0_d3804ddb0d.pdf
+```
+HTTP 206, 101 bytes, application/pdf (a full GET of the Natural Resources Conservation Authority Act file returned 200, 4346202 bytes). The path the API returns, `/uploads/...`, times out from the laptop with 0 bytes; `/cms/uploads/...` answers.
+
+```
+curl -sS -A 'Mozilla/5.0' -o act.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.nepa.gov.jm/sites/default/files/2019-11/Natural_Resources_Conservation_Authority_ActNRCA_1991.pdf
+```
+HTTP 200, 5408406 bytes, application/pdf, a scan with no text layer (`pdftotext -layout` returns 0 bytes). The NEPA regulations and orders PDFs answer the same way (200; 2329545, 218079, 105996 and 165171 bytes) and `pdftotext` returns 0 to 29 bytes; their dates were read with `pdftoppm -r 200 -png` and `tesseract` for this entry only, not stored.
+
+Terms pages: the Legal Information Portal terms render in JavaScript, so curl returns a 1991-byte shell. Headless Chrome read them: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --virtual-time-budget=20000 --dump-dom https://lipj.gov.jm/terms-of-use` returned HTTP 200, 87107 bytes of DOM; `terms_fingerprint` is the sha256 of its tag-stripped Terms of Use block (3124 bytes). The page text is not in the CMS API (`/cms/api/pages/319` carries the title only). No record is browser-fetched, so the New Zealand decision (GEL-03 retro C4) does not apply to Jamaica.
+
+### Languages
+
+English is the only language of Jamaican legislation. Jamaican Patois is spoken but is not a legislative language and has no ISO 639-1 code (ISO 639-3 jam). No government translation exists or is needed. Nothing is stored in any language.
+
+### Link only
+
+All seven scope instruments are link only. Reason for each: the serving rows have the verdict `permission requested` (JM-LIPJ-CONSOLIDATED: non-commercial terms plus Crown copyright; JM-NEPA-CONSOLIDATED: "You must not: Republish material from National Environment and Planning Agency"), and the NEPA sources are scans with no text layer.
+
+- JM-MOJ-CONSOLIDATED (https://laws.moj.gov.jm/): `curl -sS -A 'Mozilla/5.0' https://laws.moj.gov.jm/` answers HTTP 503, text/html, 107941 bytes, the "Website Maintenance Notice" that points to https://lipj.gov.jm/. Terms not read.
+- JM-PARLIAMENT-ADOPTED (https://japarliament.gov.jm/): HTTP 200, 30073 bytes; the only rights text is the footer "Copyright (c) 2008 Jamaica Houses of Parliament". No Climate Change Bill found by its site search.
+- JM-BOJ-ADOPTED, JM-FSC-ADOPTED, JM-JSE-ADOPTED, JM-MEGID-ADOPTED back the F7 register rows only (no climate or ESG rule found; the Updated Climate Change Policy Framework is a ministry policy). `https://www.jamstockex.com/` answers HTTP 403 from CloudFront (919 bytes); `https://www.fsc.gov.jm/` does not resolve (curl 6; the Commission is at https://www.fscjamaica.org/); `https://megjc.gov.jm/` fails certificate verification (curl 60) and with `-k` answers 301 to `https://megid.gov.jm/`.
+
+## Uganda
+
+Run on 2026-11-05 (GEL-18-04). Rows `UG-MWE-ADOPTED`, `UG-NEMA-ADOPTED` and `UG-CMA-ADOPTED` pass on the statute: Copyright and Neighbouring Rights Act 2006 (Act 19 of 2006) s. 7(1)(a) in the Act as published (s. 6(1)(a) in the numbering of the ULII 2023 consolidation, which the brief cited), read in the Judiciary of Uganda's copy: `curl -sL -A 'Mozilla/5.0' -o cr.pdf 'https://judiciary.go.ug/files/downloads/Act%20No.19%20of%202006%20Copyright%20and%20Neighbouring%20RightsAct.pdf'` returned `200 227910 application/pdf`, sha256 `78cda08dce35215f5998fca84d539eb45cf084f15fbb565bc9dd0790d3dcbb48`. The MWE site terms (written permission for commercial use, no alteration) and the CMA reading (guidelines as "other law made by an authorised body") are open questions for Varun; see the row notes. `UG-ULII-CONSOLIDATED` is `fail` (CC BY-NC, scraping prohibited, HTTP 403 to scripts and a Cloudflare challenge to headless Chrome). `UG-BOU-ADOPTED` and `UG-IRA-ADOPTED` are `permission requested`.
+
+Proven fetches, one named instrument per row:
+
+- `UG-MWE-ADOPTED`, National Climate Change (Climate Change Mechanisms) Regulations 2025: `curl -sL -A 'Mozilla/5.0' -o mwe194.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mwe.go.ug/publications/194/download` returned `200 568050 application/pdf`, sha256 `123fc03b61fb613570a763abbff251d1b6e66656a02ced9160233ecc377a4777`. Text: `pdftotext -layout mwe194.pdf -` with runs of spaces collapsed and blank lines dropped; the PDF has a text layer and the only non-ASCII characters are typographic quotes and dashes plus a private-use checkbox glyph (U+F06F) in the application forms, kept as extracted. The id comes from the link list on https://mwe.go.ug/publications/laws_policies (`200 249692 text/html`).
+- `UG-NEMA-ADOPTED`, National Environment (Environmental and Social Assessment) Regulations 2020, S.I. 143: `curl -sL -A 'Mozilla/5.0 (Macintosh) Chrome/130' -o esa.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.nema.go.ug/en/wp-content/uploads/2025/01/National-Environment-Environmental-and-Social-Assessment-Regulations-S.I.-No.-143-of-2020.pdf` returned `200 661693 application/pdf`, sha256 `13a3acc50b3f512bcd2d7ce90078ec1aeb154905d200cc881dedc0c948f83d79`. Same extraction command. The list pages are https://www.nema.go.ug/en/laws/ and /en/regulations/ (`200`, about 600 KB each). The National Environment Act PDF on the old host returned `200 859579 application/pdf` on a second request (the first transfer was cut at 81760 bytes and unreadable; re-run).
+- `UG-CMA-ADOPTED`, ESG Disclosures and Sustainability Reporting Guidelines 2026: the link is on https://cmauganda.co.ug/guidelines/ (`200 157905 text/html`); `curl -sL -A 'Mozilla/5.0' -o cma.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://cmauganda.co.ug/wp-content/plugins/download-attachments/includes/download.php?id=5BDMexMhp4hnG3-G5Vm_Dg,,'` returned `200 974718 application/download`, sha256 `1889d396aea00c99dc8a71a3a363674ddfef57f06f1237ab6933d8b6281aacf7` (14 pages, creator RICOH IM 550, no text layer: `pdftotext` gives form feeds only). OCR: `pdftoppm -r 300 -png cma.pdf pg/p`, then `tesseract pg/p-NN.png pg/p-NN -l eng` per page, text joined with blank lines dropped, uncorrected; the record carries `extraction` `ocr`. A first `curl` run on the same URL returned `000 0` once (no answer within the time limit) and succeeded on the next.
+
+### Languages
+
+English is the language of every instrument found; Kiswahili is official but no Kiswahili text of any instrument was found on mwe.go.ug, nema.go.ug, cmauganda.co.ug, bou.or.ug or ira.go.ug, and the Acts are enacted and gazetted in English. No government English translation row is needed.
+
+### Link only
+
+- `ug-national-climate-change-act-2021`: row passes, but the MWE PDF (https://mwe.go.ug/publications/192/download, `200 714716 application/pdf`) is an unsigned supplement with blank assent, gazette and commencement fields, and section 1 leaves commencement to a ministerial statutory instrument; no official date, so no dated record.
+- `ug-national-environment-act-2019`: row passes; commencement is by ministerial statutory instrument and none was found (assent 24 February 2019, gazette 7 March 2019 are not commencement).
+- `ug-bou-climate-risk-guidelines-2025`: `curl -sL -A 'Mozilla/5.0' -o bou.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://bou.or.ug/bouwebsite/bouwebsitecontent/acts/supervision_acts_regulations/FI_Regulations/BOU-Guidelines-to-Supervised-Financial-Institutions-for-the-Management-of-Climate-related-Financial-Risks-2025.pdf'` returned `200 7578 text/html` (the site's single-page-app shell, same with `www.`); headless Chrome through Playwright returned the same. Row is permission requested.
+- `ug-ira-esg-guidelines-2026`: the download link on https://ira.go.ug/download/esg-guidelines/ answers `406` to the default curl agent and `200 29451915 application/pdf` to a Chrome User-Agent with the page's cookie and referer (77 pages, image-only, sha256 `42c9b44f2825fcebf03aef81da68e7eed523ecaaf03497f1cd039355743fd014`); the link carries a per-request token. Row is permission requested and the text is soft guidance.
+
+Blocked from the laptop address: https://ulii.org/en/akn/ug/act/2006/19 (`403 text/html`, Cloudflare "Just a moment..." to headless Chrome); https://laws.go.ug and https://index.laws.go.ug (DNS does not resolve, named in the ULRC portal script); https://publications.ulrc.go.ug/laws-of-uganda/ (single-page app with a purchase cart; not read). https://www.parliament.go.ug/acts lists only five 2023 Acts under every year heading.
