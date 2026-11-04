@@ -9356,3 +9356,54 @@ English is the language of every instrument found; Kiswahili is official but no 
 - `ug-ira-esg-guidelines-2026`: the download link on https://ira.go.ug/download/esg-guidelines/ answers `406` to the default curl agent and `200 29451915 application/pdf` to a Chrome User-Agent with the page's cookie and referer (77 pages, image-only, sha256 `42c9b44f2825fcebf03aef81da68e7eed523ecaaf03497f1cd039355743fd014`); the link carries a per-request token. Row is permission requested and the text is soft guidance.
 
 Blocked from the laptop address: https://ulii.org/en/akn/ug/act/2006/19 (`403 text/html`, Cloudflare "Just a moment..." to headless Chrome); https://laws.go.ug and https://index.laws.go.ug (DNS does not resolve, named in the ULRC portal script); https://publications.ulrc.go.ug/laws-of-uganda/ (single-page app with a purchase cart; not read). https://www.parliament.go.ug/acts lists only five 2023 Acts under every year heading.
+
+## Rwanda
+
+Rows `RW-AMATEKO-ADOPTED` (`pass`, statute: Law No 055/2024 art. 282(a)), `RW-BNR-ADOPTED` (`pass`, statute, same article; Varun to confirm the reading for BNR) and `RW-RSE-ESG` (`permission requested`). Run on 2026-11-05 (GEL-18-02) from the laptop address; `curl` was not blocked by any Rwandan host, so no browser recipe is needed for fetching. The brief cited Law No 31/2009 art. 198; Law No 055/2024 of 20/06/2024 (Official Gazette Special of 31/07/2024, file 6202 on the portal) repeals it in art. 386 and carries the same exclusion in art. 282(a), so art. 282(a) is the quoted statute.
+
+### Gazette texts (row `RW-AMATEKO-ADOPTED`)
+
+The portal https://amategeko.gov.rw is a React app over a JSON API (found in the bundle `/static/js/main.f6690f69.js`: `REACT_APP_BACKEND_URL=https://apis.amategeko.gov.rw/`, base path `v1/site/`). Find an instrument, read its file record, download the PDF from the signed link in the record:
+
+```
+curl -sS -o search.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=5&search=48%2F2018'
+curl -sS -o meta.json -w '%{http_code} %{size_download} %{content_type}\n' 'https://apis.amategeko.gov.rw/v1/site/documents-files/4712'
+curl -sS -L -o 4712.pdf -w '%{http_code} %{size_download} %{content_type}\n' "$(python3 -c "import json;print(json.load(open('meta.json'))['data']['file_url'])")"
+```
+
+Returned `200 31802 application/json; charset=utf-8`, `200 3239 application/json; charset=utf-8` and `200 956836 application/octet-stream` (Law No 48/2018 on environment, Official Gazette Special of 21/09/2018, 53 pages, sha256 `27305b8d1dc73e58aec25f8795f8cbe0443f780a312b4809761e7675267d25bd`). The signed link (`files.amategeko.gov.rw/documents-<id>/...?X-Amz-...`) expires, so `fetched_url` in the records is the stable API URL `https://apis.amategeko.gov.rw/v1/site/documents-files/<file_id>`; `fetched_sha256` is the hash of the PDF the signed link returns. Two downloads, the second through a fresh signed link, were byte-identical (`cmp`), and the hash reproduced for every PDF in this section when the builder downloaded each twice. `file_id` is `file_id` in the search result (`_source.file_id`), `document_id` is `_source.document_id`; the public page is `https://amategeko.gov.rw/view/doc/<document_id>/<file_id>`. `document_date` on the portal is the gazette issue date, which is the commencement date of every instrument here (each act says it comes into force on publication in the Official Gazette).
+
+Text extraction: each PDF is landscape with Kinyarwanda, English and French side by side. `pdftotext -bbox-layout` gives word boxes; the two vertical white gaps of the page (about x=300 and x=535 of 841 pt) split the page into three columns, words are grouped into lines by baseline and joined with single spaces, the gazette page header ("Official Gazette ...") and the bare page number are dropped, and the portrait cover page (the issue summary) is left out. Pages whose tables or centred signature blocks run across the full width cannot be split by column; they are read in line order and copied unsplit into every language record (language-neutral tables and signature blocks), or into the one language that stopwords identify when the page is a single-language table (Ministerial Order 005/MoE/25 annex fee tables). The pages per PDF are in each scope entry's notes. Every record text was checked for U+FFFD and for font mojibake; two French headings extracted from the source font with a wrong letter (see the scope notes of `rw-mo-003-moe-25-esia` and `rw-mo-005-moe-25-air-emissions`) are kept as extracted.
+
+### Languages
+
+Kinyarwanda (`rw`), English (`en`) and French (`fr`) are served side by side in one gazette PDF, so one `adopted` row serves all three and each instrument has one record per language with the same `in_force`. Kiswahili is official but the gazette and the portal are not published in it. English is one column of the gazette (the acts say they were "drafted in English, considered and adopted in Ikinyarwanda"), not a separate translation, so there is no translation row. No consolidated versions exist on the portal (amendments are separate gazette documents), so no `consolidated` row.
+
+### Bank guidelines (row `RW-BNR-ADOPTED`)
+
+BNR lists its guidelines as JSON behind a React app:
+
+```
+curl -sS -o bnrlist.json -w '%{http_code} %{size_download} %{content_type}\n' https://www.bnr.rw/regulatoryframeworks
+curl -sS -L -o bnr040.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bnr.rw/documents/GUIDELINES_ON_THE_DISCLOSURE_AND_REPORTING_OF_SUSTAINABILITY_RELATED_FINANCIAL_SMeJ8E3.pdf'
+```
+
+Returned `200 1000 application/json; charset=utf-8` and `200 3913852 application/pdf` (Guidelines No 040/2024, 24 pages, sha256 `6dd12278864c8b3f7558e0fed77b7881e82efbd154e8a9200672e37274d03d04`, byte-identical on a second fetch). Guidelines No 2600/2023-00036 [616]: `https://www.bnr.rw/documents/Regulatory_framework_-_A_document_of_guidelines.pdf`, `200 5749656 application/pdf`, 32 pages, sha256 `7072cf751183f6371a73816112bb6602c75165698fb769e9375c2103233836d8`; the file listed under Banking guidelines (`https://www.bnr.rw/banking_laws`, `/documents/GUIDELINES_ON_CLIMATE-RELATED_AND_ENVIRONMENTAL_FINANCIAL_RISKS.pdf`) is the same bytes. The PDFs are scans: `pdftotext -layout` returns 4.6 kB for the 24 pages of 040/2024 (the "BNR RESTRICTED" page labels and two tables) and 9 kB for the 32 pages of the 2023 guidelines. OCR (allowed by Varun on 2026-11-03), English only because BNR publishes no other language:
+
+```
+pdftoppm -r 300 -png bnr040.pdf p
+tesseract p-NN.png p-NN -l eng        # tesseract 5, default page mode, one .txt per page
+```
+
+The record text is the page `.txt` files in page order with the form feed removed and pages joined by one newline; nothing was corrected, so letterhead and label noise stays (for example "BNR RESTRICTED" on every page). Records carry `"extraction": "ocr"`. The legal reading of art. 282(a) for BNR is in the row; Varun to confirm.
+
+### Link only
+
+- `rw-rse-esg-reporting-guidelines`: row `RW-RSE-ESG`, permission requested (Terms & Conditions section 4 and the manual's own notice forbid reproduction without written consent of the RSE). PDF fetched for reading: `curl -sL -o rse.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://rse.rw/uploads/reports/1762874102_848234ff5c87f7d360c3.pdf` returned `200 1197040 application/pdf` (49 pages).
+
+### Not used or not found
+
+- Ministry of Justice `https://www.minijust.gov.rw/laws` and `/official-gazette` answer `200 text/html` but list a handful of PDFs (budget laws, a few special issues); the full set is on amategeko.gov.rw, so no row was added.
+- Rwanda National Carbon Market Framework and Ministerial Instructions No. 001/MoE/26: no instrument found on amategeko.gov.rw (6858 files searched by title list), environment.gov.rw/laws, rema.gov.rw/resources/laws-and-regulations; REMA's carbon registry page describes the ITMO registry only. Recorded as an F7 register row.
+- The Capital Market Corporate Governance Code 2024 named in the brief was not found; the gazetted instrument is Regulations No 002/CMA/2026, whose art. 50 repeals the 2012 code.
+- The ICPAR IFRS S1/S2 adoption roadmap (May 2025) was not found on an official page.

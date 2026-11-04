@@ -13933,5 +13933,210 @@
   "url": "https://ulii.org/en/terms-of-use/",
   "params": {},
   "change": "terms_changed"
+ },
+ {
+  "id": "rw-law-48-2018-environment-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-law-48-2018-environment",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=48%2F2018",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 48/2018 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-mo-003-moe-25-esia-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-mo-003-moe-25-esia",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=003%2FMoE%2F25",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 003/MoE/25 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-mo-005-moe-25-air-emissions-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-mo-005-moe-25-air-emissions",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=005%2FMoE%2F25",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 005/MoE/25 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-law-18-2016-air-quality-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-law-18-2016-air-quality",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=18%2F2016",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 18/2016 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-law-17-2019-plastic-bags-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-law-17-2019-plastic-bags",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=17%2F2019",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 17/2019 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-mo-004-2021-controlled-substances-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-mo-004-2021-controlled-substances",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=004%2F2021",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 004/2021 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-mo-005-2021-national-climate-report-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-mo-005-2021-national-climate-report",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=005%2F2021",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 005/2021 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-reg-002-cma-2026-corporate-governance-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-reg-002-cma-2026-corporate-governance",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=002%2FCMA%2F2026",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 002/CMA/2026 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-law-011-2026-competition-consumer-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-law-011-2026-competition-consumer",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=011%2F2026",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 011/2026 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-law-36-2012-competition-consumer-amategeko-search",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-law-36-2012-competition-consumer",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://apis.amategeko.gov.rw/v1/site/documents/search?start=0&length=50&search=36%2F2012",
+  "params": {
+   "regex": "\"document_date\":\"(\\d{4}-\\d{2}-\\d{2})\"",
+   "second_route": "https://amategeko.gov.rw/search (browser; search the portal for 36/2012 and read the dates of the results; the portal is a React app over the JSON API used here)"
+  }
+ },
+ {
+  "id": "rw-bnr-guidelines-040-2024-regfw-hash",
+  "source_id": "RW-BNR-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-bnr-guidelines-040-2024",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bnr.rw/regulatoryframeworks",
+  "params": {
+   "second_route": "https://www.bnr.rw/regulatoryframework (browser; the page is a React app that lists the two guidelines from the JSON at the watcher URL)"
+  }
+ },
+ {
+  "id": "rw-bnr-guidelines-2600-2023-regfw-hash",
+  "source_id": "RW-BNR-ADOPTED",
+  "iso2": "RW",
+  "instrument": "rw-bnr-guidelines-2600-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bnr.rw/regulatoryframeworks",
+  "params": {
+   "second_route": "https://www.bnr.rw/regulatoryframework (browser; the page is a React app that lists the two guidelines from the JSON at the watcher URL)"
+  }
+ },
+ {
+  "id": "rw-rse-esg-reporting-guidelines-page-hash",
+  "source_id": "RW-RSE-ESG",
+  "iso2": "RW",
+  "instrument": "rw-rse-esg-reporting-guidelines",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://rse.rw/esg-guidelines",
+  "params": {
+   "second_route": "https://rse.rw/esg-guidelines (browser)"
+  }
+ },
+ {
+  "id": "terms-rw-amategeko-adopted",
+  "source_id": "RW-AMATEKO-ADOPTED",
+  "iso2": "RW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://amategeko.gov.rw/",
+  "params": {
+   "second_route": "https://amategeko.gov.rw/legal (browser; open Terms of Services). The terms text sits inside the JavaScript bundle, so this hash changes on any site deploy and the page must then be reread"
+  }
+ },
+ {
+  "id": "terms-rw-bnr-adopted",
+  "source_id": "RW-BNR-ADOPTED",
+  "iso2": "RW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.bnr.rw/",
+  "params": {
+   "second_route": "https://www.bnr.rw/statuse (browser; Terms of Use for Official Statistics). The page is a React app whose text sits in the bundle, so this hash changes on any site deploy and the page must then be reread"
+  }
+ },
+ {
+  "id": "terms-rw-rse-esg",
+  "source_id": "RW-RSE-ESG",
+  "iso2": "RW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://rse.rw/uploads/configs/1762105919_0d5bd1ab287713733e26.pdf",
+  "params": {
+   "second_route": "https://rse.rw/ (browser; footer link Terms & Conditions)"
+  }
  }
 ]
