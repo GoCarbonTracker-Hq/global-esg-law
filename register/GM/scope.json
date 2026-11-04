@@ -1,0 +1,46 @@
+[
+  {
+    "id": "gm-climate-change-act-2026",
+    "title": "The Gambia National Climate Change Act, 2026",
+    "official_url": "https://assembly.gm/documents/296",
+    "citation": "The Gambia National Climate Change Bill, 2026 (earlier titled the Gambia National Climate Change Bill, 2025): third reading 1 April 2026, National Assembly Record of Votes and Proceedings of that sitting",
+    "in_force": null,
+    "evidence": "Votes and Proceedings of Wednesday 1 April 2026 (https://assembly.gm/documents/296, opened 2026-11-05): \"the Hon. Minister for Environment, Climate Change and Natural Resources moved a motion for the National Climate Change Bill, 2026 to be read a Third Time and Passed ... The Assembly agreed that the Bill be read a Third Time and Passed.\" No official page found states the date of presidential assent, the Act number or commencement.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "GM-ASSEMBLY-ADOPTED",
+    "verification": "official_page_seen",
+    "notes": "Link only: the text of the Act is not published on assembly.gm (a title search of Bills and Acts finds no climate bill or Act; only the Votes and Proceedings record it) and meccnar.gov.gm (Acts & Regulations page) does not hold it. The MECCNAR news item of 24 June 2026 (https://meccnar.gov.gm/meccnar-validates-climate-change-act-general-implementing-regulations-2026) calls it the Climate Change Act and says the General Implementing Regulations were still a draft at validation; a press report of 18 May 2026 says the Act awaited presidential assent, which no official page confirms either way. Per the Votes and Proceedings of 16 March 2026 (https://assembly.gm/documents/298) the clause-by-clause stage covered the National Climate Change Council, the Department and the Climate Change Fund. The regulations are not enacted and have no entry.",
+    "status": "link only",
+    "status_note": "Passed by the National Assembly on 2026-04-01; assent, Act number, commencement and published text not confirmed on any official page as of 2026-11-05."
+  },
+  {
+    "id": "gm-nema-1994",
+    "title": "National Environment Management Act, 1994 (Act No. 13 of 1994)",
+    "official_url": "https://meccnar.gov.gm/sites/default/files/2021-04/National%20Evironment%20Act%201994.pdf",
+    "citation": "National Environment Management Act 1994 (Act No. 13 of 1994), assented to 24 May 1994",
+    "in_force": "1994-05-27",
+    "evidence": "Scanned Act (opened 2026-11-05): the first page of the Act reads \"No. 13 of 1994. Assented to by The President, this Twenty-Fourth day of May, 1994\"; the date line \"27th May, 1994\" is printed above Part I beside the enacting words (read on the page image), read here as the date of commencement because the Act has no commencement clause and no other date is printed; the reading is an inference, not a stated commencement.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "GM-MECCNAR-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Establishes the National Environment Management Council and the National Environment Agency; Part V covers environmental impact assessment (offences relating to impact assessments, s. 53) and the polluter-pays principle is in the preamble. The only copy found is the 83-page scan on meccnar.gov.gm, so the record is uncorrected OCR output of a scanned official PDF (extraction ocr); the typewritten original gives some misread words (for example \"Trenty-Fourth\"). No amending Act was found on assembly.gm or meccnar.gov.gm; the National Environment Management Bill 2025 and 2026 (https://assembly.gm/documents/363 and https://assembly.gm/documents/480) are Bills, not law. English is the only language of Gambian legislation, so there is no other language or translation to store.",
+    "status": "stored"
+  },
+  {
+    "id": "gm-consumer-protection-act-2014",
+    "title": "Gambia Consumer Protection Act, 2014",
+    "official_url": "https://assembly.gm/documents/138",
+    "citation": "Gambia Consumer Protection Act 2014, Supplement B to The Gambia Gazette No. 2 of 3 February 2014",
+    "in_force": null,
+    "evidence": "The PDF on assembly.gm (https://assembly.gm/documents/138/download, opened 2026-11-05) is headed \"A BILL ENTITLED\" with the enacting words and a blank date bracket; s. 1: \"shall come into force on such dare [date] as the Minister may appoint by notice published in the Gazette\". No official page found states assent or the commencement notice.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "GM-ASSEMBLY-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the only text found is the Gazette print of the Bill, which has no assent or commencement date, so a record cannot be dated. The brief gave assent as 12 May 2014; no official page read says so. s. 12(5)(e) lists \"Advertising infringing environmental values\" as abusive advertising; ss. 12(2) to 12(3) make false or misleading advertising subject to investigation and prosecution. Administered with the Gambia Competition and Consumer Protection Commission and a Consumer Tribunal.",
+    "status": "link only",
+    "status_note": "Only the Bill print was found; commencement is by ministerial notice in the Gazette, not located."
+  }
+]
