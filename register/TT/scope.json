@@ -1,0 +1,58 @@
+[
+  {
+    "id": "tt-icaap-guideline-2020",
+    "title": "Internal Capital Adequacy Assessment Process (ICAAP) Guideline, Central Bank of Trinidad and Tobago, November 2020",
+    "official_url": "https://www.central-bank.org.tt/cbtt_storage/2025/05/INTERN1.pdf",
+    "citation": "Central Bank of Trinidad and Tobago, ICAAP Guideline, November 2020, made under regulation 6 of the Financial Institutions (Capital Adequacy) Regulations, 2020",
+    "in_force": "2020-11-19",
+    "evidence": "The Bank's guideline page https://www.central-bank.org.tt/resources/internal-capital-adequacy-assessment-process-icaap-guideline/ reads 'Posted on November 19, 2020'; the guideline carries 'November 2020' on every page and paragraph 3.1 reads 'This Guideline is made pursuant to regulation 6 of the Financial Institutions (Capital Adequacy) Regulations, 2020.' No commencement clause; the posting date is taken as the issue date. The Bank's two circular letters on the guideline are dated 2020-11-16. Opened 2026-11-05.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "TT-CBTT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Prudential capital guideline, not a disclosure rule: section 2.5 defines climate risk and section 6.3 item E says institutions should embed climate risk in their risk management framework, incorporate a climate risk assessment in the ICAAP and use scenario analysis. It uses 'should'; no public disclosure duty, so F6, not F1. Applies on a consolidated basis to financial holding companies and licensees that are parent companies, and on an individual basis to licensees outside a group (section 3.3). The record is the whole 51-page guideline (table of contents, sections 1 to 11, Appendices 1.A to 1.C) as pdftotext -layout with runs of spaces collapsed and blank lines dropped; the PDF on the Bank's server was modified 2025-09-08 on the Bank page but is the November 2020 text. Row TT-CBTT-ADOPTED passes on Copyright Act Chap. 82:80 s. 7(1)(b) (official administrative text); that reading is for Varun to confirm. English only; no other official language and no translation.",
+    "status": "stored"
+  },
+  {
+    "id": "tt-ema-2000",
+    "title": "Environmental Management Act, Chap. 35:05 (Act No. 3 of 2000)",
+    "official_url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930",
+    "citation": "Environmental Management Act, Chap. 35:05, Act No. 3 of 2000",
+    "in_force": "2000-03-08",
+    "evidence": "Digital Legislative Library page for 'Environmental Management Chap. 35:05' reads 'Year - 2000, Act Number - 3, Commencement Date - Wed, 8 Mar 2000'. Opened 2026-11-05 at https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TT-LAWS-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "The environmental framework act, administered by the Environmental Management Authority (EMA); the page lists 9 versions (2006 Revised Edition consolidations from 31 December 2004 to 31 December 2016, one marked '*Unofficial Update' for 2015, and two Original Act PDFs) and 263 amendments. ema.gov.tt did not resolve (curl exit 6), so no EMA page was read. Link only (GEL-18-08, 2026-11-05): row TT-LAWS-CONSOLIDATED is permission requested (laws.gov.tt: 'unofficial versions of the law', All Rights Reserved; the 2016 edition PDF is stamped UNOFFICIAL VERSION L.R.O.). English is the only language of legislation; nothing to translate. The fetch itself works: curl with User-Agent Mozilla/5.0 returned 200 and a PDF for the 2006 Revised Edition updated to 31 December 2016.",
+    "status": "link only"
+  },
+  {
+    "id": "tt-cpsa-1985",
+    "title": "Consumer Protection and Safety Act, Chap. 82:34 (Act No. 30 of 1985)",
+    "official_url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=consumer&currentid=652",
+    "citation": "Consumer Protection and Safety Act, Chap. 82:34, Act No. 30 of 1985, amended by Act No. 22 of 1998",
+    "in_force": "1986-10-20",
+    "evidence": "Digital Legislative Library page for 'Consumer Protection and Safety Chap. 82:34' reads 'Year - 1985, Act Number - 30, Commencement Date - Mon, 20 Oct 1986'. Opened 2026-11-05 at https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=consumer&currentid=652.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TT-LAWS-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Read in the 2016 edition PDF on 2026-11-05: Part II, section 12 lets the Consumer Affairs Director refer a consumer trade practice that misleads or confuses consumers to the Consumer Guidance Council with a view to an Order; the Adverse Trade Practices Order (LN 125/2000) is listed in the Index of Subsidiary Legislation but is not in scope (not read as law on an official page). No environmental-claims provision found; the umbrella for green claims is thin. Link only (GEL-18-08, 2026-11-05): row TT-LAWS-CONSOLIDATED is permission requested (laws.gov.tt: 'unofficial versions of the law', All Rights Reserved; the 2016 edition PDF is stamped UNOFFICIAL VERSION L.R.O.). English is the only language of legislation; nothing to translate. The fetch itself works: curl with User-Agent Mozilla/5.0 returned 200 and a PDF for the 2006 Revised Edition updated to 31 December 2016.",
+    "status": "link only"
+  },
+  {
+    "id": "tt-tda-1984",
+    "title": "Trade Descriptions Act, Chap. 82:04 (Act No. 7 of 1984)",
+    "official_url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=trade%20descriptions&currentid=640",
+    "citation": "Trade Descriptions Act, Chap. 82:04, Act No. 7 of 1984",
+    "in_force": "1986-10-28",
+    "evidence": "Digital Legislative Library page for 'Trade Descriptions Chap. 82:04' reads 'Year - 1984, Act Number - 7, Commencement Date - Tue, 28 Oct 1986'. Opened 2026-11-05 at https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=trade%20descriptions&currentid=640.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TT-LAWS-CONSOLIDATED",
+    "verification": "official_page_seen",
+    "notes": "Read in the 2016 edition PDF on 2026-11-05: section 3 makes it an offence in the course of a trade or business to apply a false trade description to goods or to supply goods bearing one; section 16 makes a statement known or recklessly made false about services an offence. No environmental-claims provision found. Link only (GEL-18-08, 2026-11-05): row TT-LAWS-CONSOLIDATED is permission requested (laws.gov.tt: 'unofficial versions of the law', All Rights Reserved; the 2016 edition PDF is stamped UNOFFICIAL VERSION L.R.O.). English is the only language of legislation; nothing to translate. The fetch itself works: curl with User-Agent Mozilla/5.0 returned 200 and a PDF for the 2006 Revised Edition updated to 31 December 2016.",
+    "status": "link only"
+  }
+]
