@@ -1,0 +1,58 @@
+[
+  {
+    "id": "bw-pula-code",
+    "title": "The Pula Code of Corporate Governance",
+    "official_url": "https://www.baoa.org.bw/wp-content/uploads/2022/12/Botswana-Code-of-Corporate-Governance.pdf",
+    "citation": "Botswana Accountancy Oversight Authority, The Pula Code of Corporate Governance, issued under Financial Reporting Act 2010 s. 6(1)(f) and Financial Reporting Regulations 2021 reg. 19",
+    "in_force": null,
+    "evidence": "The code does not state its own commencement date. It says \"The Pula Code of Corporate Governance therefore gets its legitimacy from the following Sections of the Act: Section 6 (1) f and g\" and \"This Act makes the Pula Code of Corporate Governance a legal requirement for all eligible PIEs\"; it states the Financial Reporting (Amendment) Act, 2020 \"became effective on 1st April 2022\". Opened https://www.baoa.org.bw/wp-content/uploads/2022/12/Botswana-Code-of-Corporate-Governance.pdf on 2026-11-05 (PDF metadata creation date 2022-12-07).",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "BW-BAOA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Articles 22.1 to 22.3 (Sustainability Reporting and Integrated Reporting) cover sustainability and disclosure. The brief expected a 2022 draft; the text found has no draft marking, so it is stored as the BAOA copy and no other final version was found on baoa.org.bw (the /standard-setting-codes/ page links no PDF to scripts). One record, English only; the record is dated 2022-12-07, the PDF creation date, because no official page states a commencement date. Binding effect is as the code states it (legal requirement for eligible PIEs); BAOA's Financial Reporting Act and Regulations texts were not opened.",
+    "status": "stored"
+  },
+  {
+    "id": "bw-environmental-assessment-act-2011",
+    "title": "Environmental Assessment Act, 2011 (Act No. 10 of 2011)",
+    "official_url": "https://cms2.gov.bw/sites/default/files/2020-02/Environmental%20Assessment%20Act%202011.pdf",
+    "citation": "Environmental Assessment Act, 2011 (Act No. 10 of 2011), Government Gazette supplement of 30 June 2011; amended by Act No. 11 of 2020 and S.I. 33 of 2021 per botswanalaws.com",
+    "in_force": null,
+    "evidence": "Not read: www.gov.bw answers curl with an expired certificate and cms2.gov.bw with no connection on 2026-11-05. The Blackhall copy (testelaws.botswanalaws.com) says the Act comes into operation on a date the Minister appoints; no commencement notice was found.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "BW-GOVBW-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Environmental framework act. No Botswana climate change act or bill was found. Link only: the government PDF could not be opened from the laptop and the only readable copy is Blackhall's (permission requested, BW-BLACKHALL-CONSOLIDATED). Date and amendment state come from a web search result and are unverified.",
+    "status": "link only"
+  },
+  {
+    "id": "bw-environmental-assessment-regulations-2012",
+    "title": "Environmental Assessment Regulations, 2012 (S.I. No. 58 of 2012)",
+    "official_url": "https://www.gov.bw/sites/default/files/2019-12/Environmental Assessment Regulations 2012 (002).pdf",
+    "citation": "Environmental Assessment Regulations, 2012 (S.I. No. 58 of 2012), made under the Environmental Assessment Act 2011",
+    "in_force": null,
+    "evidence": "Not read: www.gov.bw answers curl with an expired certificate on 2026-11-05. No official page stating the commencement date was opened.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "BW-GOVBW-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Implementing regulations of bw-environmental-assessment-act-2011. The gov.bw file name ends (002) and a web search labelled it a draft, so the gazetted S.I. should be confirmed. Link only for the same reason as the Act.",
+    "status": "link only"
+  },
+  {
+    "id": "bw-consumer-protection-act-2018",
+    "title": "Consumer Protection Act, 2018 (Act No. 5 of 2018)",
+    "official_url": "https://www.cca.co.bw/consumer-protection-act-2018",
+    "citation": "Consumer Protection Act, 2018 (Act No. 5 of 2018), Gazette supplement pages A.227 onward",
+    "in_force": null,
+    "evidence": "The Act in the CCA PDF: \"Date of Assent: 27/03/2018\", \"Date of Commencement: ON NOTICE\", and section 1: \"shall come into operation on such date as the Minister may, by Order published in the Gazette, appoint\". Opened the PDF linked from https://www.cca.co.bw/consumer-protection-act-2018 on 2026-11-05. The brief cites S.I. 155 of 2019 for commencement; no official page that states it was opened.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "BW-CCA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Section 5 (Prohibition of false or misleading representations) is the umbrella for environmental claims; the Competition and Consumer Authority administers it. The record sits at the assent date 2018-03-27 because no official page states the commencement date. Enacted in English only (Setswana is the national language, not a language of legislation). One record; the CCA copy is the Act as first printed, with no consolidated version on the site.",
+    "status": "stored"
+  }
+]
