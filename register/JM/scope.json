@@ -1,0 +1,115 @@
+[
+  {
+    "id": "jm-nrca-act-1991",
+    "title": "Natural Resources Conservation Authority Act, 1991 (Act 9 of 1991)",
+    "official_url": "https://www.nepa.gov.jm/sites/default/files/2019-11/Natural_Resources_Conservation_Authority_ActNRCA_1991.pdf",
+    "citation": "Natural Resources Conservation Authority Act, Act 9 of 1991, as amended up to Act 36 of 2017 in the Laws of Jamaica edition",
+    "in_force": "1991-07-05",
+    "evidence": "Revised Laws text on the Legal Information Portal (record 75192, OCR): header \"Acts 9 of 1991, 36 of 2017 [5th July 1991.]\" and s. 2: \"\\\"appointed day\\\" means the 5th day of July, 1991\". Opened 2026-11-05 via https://lipj.gov.jm/cms/api/records/75192?populate[ocr][fields][0]=text.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-LIPJ-CONSOLIDATED",
+      "JM-NEPA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework Act: s. 9 requires a permit from the Authority for enterprises, construction and development in prescribed categories and areas, and s. 38 gives the Minister regulation power. Official copies: NEPA PDF (a scan with no text layer) and the Legal Information Portal PDF https://lipj.gov.jm/cms/uploads/The_Natural_Resources_Conservation_Authority_Act_1cce6e508c.pdf (HTTP 200, 4346202 bytes). The portal also lists a Natural Resources Conservation (Amendment) Act, 2025 (record 91687, No. 2 of 2025): its in-force date was not read, so no 2025 version is dated here. NEPA itself is an executive agency under the Executive Agencies Act, not a separate enabling Act, so no NEPA Act entry. Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-nrca-permits-licences-regs-1996",
+    "title": "Natural Resources Conservation (Permits and Licences) Regulations, 1996 (L.N. 190/1996)",
+    "official_url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NRC-Permits-and-Licences-Regulations-1996.pdf",
+    "citation": "Natural Resources Conservation (Permits and Licences) Regulations, 1996, Jamaica Gazette Supplement of 20 December 1996 (Vol. CXIX, No. 113, L.N. 190)",
+    "in_force": "1997-01-01",
+    "evidence": "Regulation 1 in the gazette scan on the NEPA site: \"These Regulations may be cited as the Natural Resources Conservation (Permits and Licences) Regulations, 1996 and shall come into operation on the 1st day of January, 1997.\" Read by tesseract OCR of page 1 of https://www.nepa.gov.jm/sites/default/files/2021-12/NRC-Permits-and-Licences-Regulations-1996.pdf on 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-NEPA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements jm-nrca-act-1991 (made under s. 38(1)). NEPA also lists an amendment (NRCA-Permits-Licences-amended-2015.pdf, not read). The Legal Information Portal has no copy of these regulations (title and file-name searches returned none). Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-nrca-prohibition-order-1996",
+    "title": "Natural Resources (Prescribed Areas) (Prohibition of Categories of Enterprise, Construction and Development) Order, 1996 (L.N. 191/1996)",
+    "official_url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NR-Prohibition-CatofEnterprise-Construction-Dvlpmnt-Order-1996.pdf",
+    "citation": "Natural Resources (Prescribed Areas) (Prohibition of Categories of Enterprise, Construction and Development) Order, 1996, made under s. 9(1) of the NRCA Act on 20 December 1996 (L.N. 191/96)",
+    "in_force": "1997-01-01",
+    "evidence": "Order text on the NEPA site: \"(Made by the Minister on the 20th day of December, 1996) [1st January, 1997.]\" and para. 2(1): \"no person shall, from and after the 1st day of January, 1997, undertake any of the categories of enterprise, construction or development specified in Column A of the Schedule within the area specified in Column B thereof\" except under a permit. Tesseract OCR of the scan, opened 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-NEPA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implements jm-nrca-act-1991 (s. 9(1)). NEPA also lists an amended list of prescribed categories (Prescribed-categories-amended-2015.pdf, not read). Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-nrca-ambient-air-quality-regs-1996",
+    "title": "Natural Resources Conservation (Ambient Air Quality Standards) Regulations, 1996",
+    "official_url": "https://www.nepa.gov.jm/sites/default/files/2021-12/NRC-Ambient-Air-Quality-Standards-Regulations-1996.pdf",
+    "citation": "Natural Resources Conservation (Ambient Air Quality Standards) Regulations, 1996, made under s. 38 of the NRCA Act on 1 August 1996; amended by the Ambient Air Quality Standards (Amendment) Regulations, 2024 (L.N. 59)",
+    "in_force": null,
+    "evidence": "Made by the Minister on the 1st day of August, 1996 (OCR of the scan on the NEPA site, opened 2026-11-05). The page states no commencement date, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-NEPA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Declares the ambient air quality standards (particulates, lead, sulphur dioxide and others) used in permit decisions under jm-nrca-act-1991. The OCR read the gazette number as \"898/96\"; not confirmed. The 2024 amendment (NEPA: NRCA_JAAQS_amendment_2024.pdf; portal record 93706, L.N. 59 of 4 March 2024) was not read for its commencement date. Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-nrca-plastic-packaging-order-2024",
+    "title": "Natural Resources Conservation Authority (Plastic Packaging Materials Prohibition) Order, 2024",
+    "official_url": "https://www.nepa.gov.jm/sites/default/files/2024-10/Plastic_Pkging_Mtrls_Prohibition_Order_2024.pdf",
+    "citation": "Natural Resources Conservation Authority (Plastic Packaging Materials Prohibition) Order, 2024, made under s. 32(1) of the NRCA Act by the Minister of Economic Growth and Job Creation in July 2024",
+    "in_force": null,
+    "evidence": "Tesseract OCR of the 4-page NEPA scan, opened 2026-11-05: para. 3 \"no person shall manufacture or use any single use plastic in commercial quantities\", para. 4(d) a manufacture exemption \"until the 11th day of July, 2024\", para. 7 revokes the 2018 Order, signed \"Dated this ?? day of July, 2024\" (day not legible). No commencement clause, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-NEPA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Product and packaging prohibition under the environmental framework Act, with staged exemptions to 9 January 2025 (use of plastic food containers) and 1 July 2025 (cosmetic and personal care products). Revokes the 2018 Order of the same title. Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-consumer-protection-act-2005",
+    "title": "Consumer Protection Act, 2005 (Act 9 of 2005)",
+    "official_url": "https://lipj.gov.jm/cms/uploads/The_Consumer_Protection_Act_0_d3804ddb0d.pdf",
+    "citation": "Consumer Protection Act, Act 9 of 2005, as amended by Acts 15 of 2006 and 13 of 2012 in the Laws of Jamaica edition (L.N. 128/2016); Part V, ss. 28 to 30",
+    "in_force": "2005-06-01",
+    "evidence": "Revised Laws text on the Legal Information Portal (record 75623, OCR): header \"Acts 9 of 2005, 15 of 2006, 13 of 2012 [1st June 2005.]\". Opened 2026-11-05 via https://lipj.gov.jm/cms/api/records/75623?populate[ocr][fields][0]=text.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-LIPJ-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Part V (Misleading and Deceptive Conduct) lists s. 28 misleading or deceptive conduct, s. 29 misleading the public as to the nature of goods or services, and s. 30 false or misleading representation; s. 30(1) reads: \"No person shall, in the course of trade or business, in connection with the supply or possible supply of goods or services or with the promotion by any means of the supply or use of goods or services (a) falsely represent that the goods or services are of a particular kind, standard, quality, grade, quantity ...\" and (b) bars a false or misleading representation about price, need, or a condition, warranty, guarantee, right or remedy. Read from the arrangement of sections and the OCR of s. 30 (the OCR of this edition is imperfect); no environmental-claims provision was found, so this is an umbrella for green claims only. Regulator: Consumer Affairs Commission. The portal also lists the 2012 and 2023 amending Acts. Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "jm-fair-competition-act-1993",
+    "title": "Fair Competition Act, 1993 (Act 9 of 1993)",
+    "official_url": "https://lipj.gov.jm/cms/uploads/The_Fair_Competition_Act_compressed_b323dc5be6.pdf",
+    "citation": "Fair Competition Act, Act 9 of 1993, as amended by Acts 22 of 2001 and 36 of 2017 in the Laws of Jamaica edition (L.N. 42/1995 pages); s. 37",
+    "in_force": "1993-03-09",
+    "evidence": "Revised Laws text on the Legal Information Portal (record 75014, OCR): header \"Acts 9 of 1993, 22 of 2001, 36 of 2017 [9th March, 1993.]\". Opened 2026-11-05 via https://lipj.gov.jm/cms/api/records/75014?populate[ocr][fields][0]=text.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JM-LIPJ-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "S. 37(1) reads, in the OCR: \"A person shall not, in pursuance of trade and for the purpose of promoting, directly or indirectly, any business interest, by any means, (a) make a representation to the public that is false or ...\" (the rest of (a) is garbled in the OCR and not quoted); (c) bars falsely representing to the public in a statement, warranty or guarantee that services are of a particular kind, standard, quality or quantity. Regulator: Fair Trading Commission, not the Consumer Affairs Commission. Strict liability is from commentary named in the brief and was not checked on an official page. Link only: every row that serves this text has the verdict permission requested (Crown copyright in Acts and subsidiary legislation, Copyright Act s. 13B(2)(b); reuse limited to non-commercial use, s. 13B(3)), so no text is stored.",
+    "status": "link only"
+  }
+]
