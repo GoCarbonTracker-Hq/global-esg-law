@@ -1,0 +1,44 @@
+[
+  {
+    "id": "na-bon-big-5-2025",
+    "title": "Bank of Namibia Guidelines on Climate-Related Financial Risks and Disclosure Requirements (circular BIG-5/2025)",
+    "official_url": "https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/9d/9d35678d-17c4-4348-8b11-6189f00864d6.pdf",
+    "citation": "Bank of Namibia circular BIG-5/2025, issued 31 March 2025 by the Director: Banking Supervision under Banking Institutions Act 2023 (Act No. 13 of 2023) s. 3(1)",
+    "in_force": "2025-07-01",
+    "evidence": "Para 4 of the guidelines: \"These Guidelines are effective from 01 July 2025.\" Para 3: \"These Guidelines apply to Domestically Systematically Important Banking Institutions on a comply or explain basis.\" Cover page signed 31 March 2025, Windhoek. Circulars page https://www.bon.com.na/Bank/Banking-Supervision/Legal-Frameworks/Circulars.aspx lists BIG-5/2025, 31 March 2025. Opened both on 2026-11-05.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "NA-BON-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Comply-or-explain, domestically systemically important banks only. Section 13 sets the disclosure requirements. Looked for an official English translation: not applicable, English is the sole official language. Fetched with curl as application/pdf, 14 pages; pdftotext -layout, no mojibake.",
+    "status": "stored"
+  },
+  {
+    "id": "na-ema-2007",
+    "title": "Environmental Management Act, 2007 (Act No. 7 of 2007)",
+    "official_url": "https://commons.laws.africa/akn/na/act/2007/7/media/publication/na-act-2007-7-publication-document.pdf",
+    "citation": "Act No. 7 of 2007, Government Gazette 3966, 27 December 2007 (GN 232 of 2007); commenced by GN 28 of 2012, Government Gazette 4878, 6 February 2012",
+    "in_force": "2012-02-06",
+    "evidence": "GN 28 of 2012: \"In terms of section 58 of the Environmental Management Act, 2007 (Act No. 7 of 2007), I determine that the Act comes into operation on the date of publication of this notice in the Gazette.\" Gazette 4878 is dated 6 February 2012. Opened https://www.meft.gov.na/files/downloads/12e_dd7_Environmental%20Management%20Act%20regulations%202012.pdf on 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "NA-GAZETTE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "The environmental framework act; Namibia has no standalone climate change act (searched 2026-11-05). Stored text is the Government Gazette 3966 PDF (Act as promulgated, unedited scan), dated by commencement. The MEFT page link for the Act PDF (/files/downloads/d87_...) answered 404 on 2026-11-05. NamibLII shows one version only (2007-12-27, amendments up to 2026-10-16 reported as none). Looked for an official English translation: not applicable, English is the sole official language. ",
+    "status": "stored"
+  },
+  {
+    "id": "na-ema-2012-notices",
+    "title": "Environmental Management Act, 2007: commencement (GN 28), list of activities requiring an environmental clearance certificate (GN 29) and Environmental Impact Assessment Regulations (GN 30), Government Gazette 4878 of 2012",
+    "official_url": "https://www.meft.gov.na/files/downloads/12e_dd7_Environmental%20Management%20Act%20regulations%202012.pdf",
+    "citation": "Government Notices 28, 29 and 30 of 2012, Government Gazette 4878, 6 February 2012, under Environmental Management Act 2007 ss. 27, 56 and 58",
+    "in_force": "2012-02-06",
+    "evidence": "Gazette 4878 is dated \"WINDHOEK - 6 February 2012\"; GN 28 brings the Act into operation on the date of publication. GN 29 and GN 30 carry no commencement clause that was found (grep of the text for \"come into operation\" matched only GN 28), so the gazette date is used. Opened 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "NA-GAZETTE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Three notices published in one gazette are one instrument here, stored as the whole gazette file (the brief asks for an act and its regulations as two entries; the three notices share one file). No amendment to the EIA Regulations or the list of activities was found on NamibLII or the MEFT acts page. Looked for an official English translation: not applicable, English is the sole official language. ",
+    "status": "stored"
+  }
+]
