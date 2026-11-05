@@ -12,23 +12,23 @@
   "gazette_feed": {
    "interval_days": 7,
    "watchers": 40,
-   "seconds_per_run": 42.55,
+   "seconds_per_run": 59.85,
    "bytes_per_run": 776728,
    "failures_per_run": 0
   },
   "consolidation_site": {
    "interval_days": 14,
    "watchers": 917,
-   "seconds_per_run": 1592.68,
-   "bytes_per_run": 131512457,
-   "failures_per_run": 138
+   "seconds_per_run": 1619.39,
+   "bytes_per_run": 133053831,
+   "failures_per_run": 154
   },
   "regulator_page": {
    "interval_days": 30,
    "watchers": 345,
-   "seconds_per_run": 642.69,
-   "bytes_per_run": 36932780,
-   "failures_per_run": 46
+   "seconds_per_run": 769.63,
+   "bytes_per_run": 45305240,
+   "failures_per_run": 55
   },
   "tracker_pointer": {
    "interval_days": 90,
@@ -79,6 +79,14 @@
    "seconds": 2277.9,
    "bytes": 169221965,
    "failures": 184
+  },
+  {
+   "on": "2026-11-05",
+   "source": "python3 tools/watch.py, laptop, GEL-04-11 after wave 17 (1302 watchers)",
+   "watchers": 1302,
+   "seconds": 2448.9,
+   "bytes": 179135799,
+   "failures": 209
   }
  ],
  "proposed_ceiling": {

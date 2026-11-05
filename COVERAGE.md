@@ -9,29 +9,29 @@ This is a map of what the repository holds and when it was last checked. It is n
 | Count | Value | As of | Command |
 |---|---|---|---|
 | Places in the register | 250 | 2026-11-05 | `python3 tools/coverage.py` |
-| Register rows | 1488 | 2026-11-05 | `python3 tools/coverage.py` |
-| Register rows with an instrument and a law family (shown in the grid) | 1426 | 2026-11-05 | `python3 tools/coverage.py` |
+| Register rows | 1546 | 2026-11-05 | `python3 tools/coverage.py` |
+| Register rows with an instrument and a law family (shown in the grid) | 1484 | 2026-11-05 | `python3 tools/coverage.py` |
 | Register rows with an instrument but no law family (not in the grid) | 3 | 2026-11-05 | `python3 tools/coverage.py` |
-| Register rows with a law family outside F1 to F7 | 0 | 2026-11-05 | `python3 tools/coverage.py` |
-| Register rows with no instrument (place listed, nothing found) | 59 | 2026-11-05 | `python3 tools/coverage.py` |
-| Pilot places with a scope file | 164 | 2026-11-05 | `python3 tools/coverage.py` |
-| Instruments in scope files | 1170 | 2026-11-05 | `python3 tools/coverage.py` |
-| Instruments with stored text | 746 | 2026-11-05 | `python3 tools/coverage.py` |
-| Instruments link only | 424 | 2026-11-05 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3117 | 2026-11-05 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 1241 | 2026-11-05 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 1241 | 2026-11-05 | `python3 tools/coverage.py` |
+| Register rows with a law family outside F1 to F7 | 1 | 2026-11-05 | `python3 tools/coverage.py` |
+| Register rows with no instrument (place listed, nothing found) | 58 | 2026-11-05 | `python3 tools/coverage.py` |
+| Pilot places with a scope file | 174 | 2026-11-05 | `python3 tools/coverage.py` |
+| Instruments in scope files | 1202 | 2026-11-05 | `python3 tools/coverage.py` |
+| Instruments with stored text | 766 | 2026-11-05 | `python3 tools/coverage.py` |
+| Instruments link only | 436 | 2026-11-05 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3138 | 2026-11-05 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 1302 | 2026-11-05 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 1302 | 2026-11-05 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-05 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-05 | `python3 tools/coverage.py` |
-| Places with no watcher | 86 | 2026-11-05 | `python3 tools/coverage.py` |
-| Places with instruments but no stored text (link only) | 78 | 2026-11-05 | `python3 tools/coverage.py` |
-| Places with stored text but no consolidated text (as published only) | 62 | 2026-11-05 | `python3 tools/coverage.py` |
+| Places with no watcher | 76 | 2026-11-05 | `python3 tools/coverage.py` |
+| Places with instruments but no stored text (link only) | 73 | 2026-11-05 | `python3 tools/coverage.py` |
+| Places with stored text but no consolidated text (as published only) | 68 | 2026-11-05 | `python3 tools/coverage.py` |
 
 ## Not covered
 
 Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 
-- Places with no watcher (86): AF, AI, AO, AQ, AS, AW, AX, BF, BI, BL, BM, BQ, BV, CC, CF, CG, CK, CM, CW, CX, DJ, EH, ER, FK, FM, FO, GF, GG, GI, GL, GP, GQ, GS, GU, GW, HM, IM, IO, IR, JE, KI, KN, KY, LC, LS, LY, MF, MH, MO, MP, MQ, MS, NC, NE, NF, NR, NU, PF, PM, PN, PR, PW, RE, SB, SD, SH, SJ, SO, SS, ST, SX, SZ, TC, TD, TF, TK, TL, TV, UM, VA, VC, VG, VI, WF, WS, YT.
+- Places with no watcher (76): AF, AI, AQ, AS, AW, AX, BF, BI, BL, BM, BQ, BV, CC, CF, CK, CW, CX, DJ, EH, ER, FK, FM, FO, GF, GG, GI, GL, GP, GQ, GS, GU, GW, HM, IM, IO, IR, JE, KI, KY, LY, MF, MH, MO, MP, MQ, MS, NC, NE, NF, NR, NU, PF, PM, PN, PR, PW, RE, SB, SD, SH, SJ, SO, SS, ST, SX, TC, TD, TF, TK, TV, UM, VA, VG, VI, WF, YT.
 - Families with no instrument anywhere in the register (0): none.
 - Families with no stored text in any place (1): F7.
 - AD: families with no instrument (4): F1, F4, F5, F7.
@@ -39,6 +39,7 @@ Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 - AG: families with no instrument (3): F3, F4, F5.
 - AL: families with no instrument (5): F3, F4, F5, F6, F7.
 - AM: families with no instrument (3): F1, F4, F5.
+- AO: families with no instrument (2): F1, F5.
 - AR: families with no instrument (3): F4, F5, F7.
 - AT: families with no instrument (3): F4, F5, F7.
 - AU: families with no instrument (2): F4, F6.
@@ -60,9 +61,11 @@ Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 - BZ: families with no instrument (5): F1, F3, F4, F5, F6.
 - CA: families with no instrument (3): F1, F4, F7.
 - CD: families with no instrument (4): F1, F4, F5, F6.
+- CG: families with no instrument (3): F1, F4, F5.
 - CH: families with no instrument (2): F4, F7.
 - CI: families with no instrument (2): F4, F5.
 - CL: families with no instrument (2): F4, F5.
+- CM: families with no instrument (2): F3, F5.
 - CN: families with no instrument (2): F4, F5.
 - CO: families with no instrument (3): F4, F5, F7.
 - CR: families with no instrument (3): F1, F4, F5.
@@ -113,15 +116,18 @@ Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 - KG: families with no instrument (2): F4, F5.
 - KH: families with no instrument (3): F3, F4, F5.
 - KM: families with no instrument (6): F1, F3, F4, F5, F6, F7.
+- KN: families with no instrument (4): F1, F3, F4, F5.
 - KP: families with no instrument (5): F1, F3, F4, F5, F6.
 - KR: families with no instrument (2): F5, F6.
 - KW: families with no instrument (4): F4, F5, F6, F7.
 - KZ: families with no instrument (4): F1, F2, F4, F5.
 - LA: families with no instrument (4): F1, F4, F5, F7.
 - LB: families with no instrument (4): F1, F4, F5, F7.
+- LC: families with no instrument (4): F1, F3, F4, F5.
 - LI: families with no instrument (2): F4, F5.
 - LK: families with no instrument (2): F4, F5.
 - LR: families with no instrument (4): F1, F4, F5, F6.
+- LS: families with no instrument (5): F1, F3, F4, F5, F6.
 - LT: families with no instrument (4): F3, F4, F5, F7.
 - LU: families with no instrument (2): F4, F5.
 - LV: families with no instrument (3): F4, F5, F7.
@@ -176,9 +182,11 @@ Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 - SR: families with no instrument (6): F1, F3, F4, F5, F6, F7.
 - SV: families with no instrument (3): F3, F4, F5.
 - SY: families with no instrument (5): F1, F3, F4, F5, F7.
+- SZ: families with no instrument (4): F1, F3, F4, F5.
 - TG: families with no instrument (3): F1, F4, F5.
 - TH: families with no instrument (5): F2, F3, F4, F5, F6.
 - TJ: families with no instrument (4): F1, F3, F4, F5.
+- TL: families with no instrument (4): F1, F3, F4, F5.
 - TM: families with no instrument (3): F1, F4, F5.
 - TN: families with no instrument (2): F3, F5.
 - TO: families with no instrument (4): F1, F3, F4, F5.
@@ -191,16 +199,18 @@ Counts as of 2026-11-05, from `python3 tools/coverage.py`.
 - US: families with no instrument (5): F2, F4, F5, F6, F7.
 - UY: families with no instrument (3): F1, F4, F5.
 - UZ: families with no instrument (3): F4, F5, F7.
+- VC: families with no instrument (4): F2, F3, F4, F5.
 - VE: families with no instrument (5): F1, F3, F4, F5, F6.
 - VN: families with no instrument (2): F4, F5.
 - VU: families with no instrument (4): F1, F3, F4, F5.
+- WS: families with no instrument (4): F1, F3, F4, F5.
 - YE: families with no instrument (4): F1, F3, F4, F5.
 - ZA: families with no instrument (2): F5, F7.
 - ZM: families with no instrument (4): F1, F4, F5, F7.
 - ZW: families with no instrument (4): F3, F4, F5, F6.
-- Places with instruments but no stored text, link only (78): AE, AO, BB, BD, BF, BI, BN, BO, BS, BZ, CF, CG, CU, CY, DJ, EG, EH, ER, ET, FM, GQ, GW, GY, HK, ID, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MW, MY, NE, NO, NP, NR, PK, PS, PW, RO, RU, SA, SB, SC, SD, SG, SM, SN, SO, SS, ST, SZ, TD, TG, TH, TL, TV, UA, VA, VC, VU, WS, ZM.
-- Places whose stored texts are the acts as published, no consolidated text (62): AD, AG, AL, AR, BA, BG, BH, BJ, BW, BY, CD, CI, CO, CV, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NG, NI, OM, PA, PE, PG, PH, PY, RS, RW, SL, SR, SV, SY, TJ, TN, TT, UG, UY, VE, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
-- Places listed with no instrument found (53): AF, AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CM, CW, CX, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, JE, KY, MF, MO, MP, MQ, MS, NC, NF, NU, PF, PM, PN, PR, RE, SH, SJ, SX, TC, TF, TK, UM, VG, VI, WF, YT.
+- Places with instruments but no stored text, link only (73): AE, BB, BD, BF, BI, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GQ, GW, GY, HK, ID, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MW, MY, NE, NO, NP, NR, PK, PS, PW, RO, RU, SA, SB, SC, SD, SG, SM, SN, SO, SS, ST, TD, TG, TH, TV, UA, VA, VC, VU, ZM.
+- Places whose stored texts are the acts as published, no consolidated text (68): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NG, NI, OM, PA, PE, PG, PH, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
+- Places listed with no instrument found (52): AF, AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CW, CX, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, JE, KY, MF, MO, MP, MQ, MS, NC, NF, NU, PF, PM, PN, PR, RE, SH, SJ, SX, TC, TF, TK, UM, VG, VI, WF, YT.
 - Register rows with an instrument but no law family (3), not shown in the grid: JP, KR, ZW.
 - Register rows with no scope entry have no check date in the files; their cells read `unchecked` and are not counted as stale, although their cadence tier is `tracker_pointer`.
 
@@ -228,7 +238,7 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | AI | Anguilla |  |  |  |  |  |  |  |
 | AL | Albania | A · official_text_seen · text 1, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2019-01-01 | A · official_page_seen/official_text_seen · link only · checked 2026-11-05 (1 unchecked) |  |  |  |  |  |
 | AM | Armenia |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2026-02-23 | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2026-02-23 |  |  | A/B · official_page_seen/official_text_seen · text 3, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2026-08-30 | B · official_page_seen · link only · unchecked |
-| AO | Angola |  |  | B · tracker_only · no link · unchecked |  |  |  |  |
+| AO | Angola |  | A · official_text_seen · text 2, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2022-01-13 | B · tracker_only · no link · unchecked | A · official_text_seen · link only · unchecked |  | A · official_page_seen · link only · checked 2026-11-05 | B · official_page_seen · link only · unchecked |
 | AQ | Antarctica |  |  |  |  |  |  |  |
 | AR | Argentina | A · official_text_seen · link only · unchecked | A/B · official_text_seen · text 2, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2020-12-19 | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2018-06-02 |  |  | A/B · official_page_seen/official_text_seen · text 2, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2019-04-22 |  |
 | AS | American Samoa |  |  |  |  |  |  |  |
@@ -262,12 +272,12 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | CC | Cocos Islands |  |  |  |  |  |  |  |
 | CD | Congo - Kinshasa |  | A · official_text_seen · text 1, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2011-07-09 | A · official_page_seen · link only · checked 2026-11-05 |  |  |  | C · tracker_only · no link · unchecked |
 | CF | Central African Republic |  |  | B · tracker_only · no link · unchecked |  |  |  |  |
-| CG | Congo - Brazzaville |  |  |  |  |  |  | B · official_text_seen · link only · unchecked |
+| CG | Congo - Brazzaville |  | B · official_text_seen · link only · unchecked | B · official_text_seen · link only · unchecked |  |  | B · official_text_seen · text 1 · checked 2026-11-05 · changed 2024-12-19 | C · not_checked · link only · unchecked |
 | CH | Switzerland | A · official_text_seen · text 10 · checked 2026-11-05 · changed 2024-01-01 | A · official_text_seen · text 19 · checked 2026-11-05 · changed 2026-11-01 | A · official_text_seen · text 68 · checked 2026-11-05 · changed 2027-01-01 |  | A · official_text_seen · text 12 · checked 2026-11-05 · changed 2024-01-01 | A · official_text_seen · link only · checked 2026-11-05 |  |
 | CI | Côte d’Ivoire | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2025-05-21 | A · official_page_seen/official_text_seen · text 3 · checked 2026-11-05 · changed 2025-06-25 | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2024-08-01 |  |  | B · official_text_seen · link only · unchecked | A/B · official_page_seen · link only · unchecked |
 | CK | Cook Islands |  |  |  |  |  |  |  |
 | CL | Chile | A · official_text_seen · link only · unchecked | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2025-07-11 | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked | A · official_page_seen · link only · unchecked |
-| CM | Cameroon |  |  |  |  |  |  |  |
+| CM | Cameroon | A · official_page_seen · link only · checked 2026-11-05 | A · official_text_seen · text 1, link only 1 · checked 2026-11-05 · changed 2021-12-28 |  | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2025-12-17 |  | A · official_page_seen · link only · checked 2026-11-05 | B · official_page_seen/tracker_only · link only · unchecked |
 | CN | China | A · official_page_seen/official_text_seen · text 3, link only 3 · checked 2026-11-05 (1 unchecked) · changed 2026-09-20 | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2026-08-15 | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2026-08-15 |  |  | A · official_text_seen · text 6 · checked 2026-11-05 · changed 2025-10-15 | A/B · official_page_seen/tracker_only · link only · unchecked |
 | CO | Colombia | A · official_text_seen · link only · unchecked | A · official_text_seen · text 1, link only 1 · checked 2026-11-05 · changed 2018-07-27 | A · official_text_seen · text 3, link only 1 · checked 2026-11-05 · changed 2026-08-05 |  |  | A · official_page_seen/official_text_seen · text 2, link only 3 · checked 2026-11-05 · changed 2022-04-28 |  |
 | CR | Costa Rica |  | A · official_text_seen · text 14 · checked 2026-11-05 · changed 2026-09-07 | A · official_text_seen · text 100 · checked 2026-11-05 · changed 2026-08-01 |  |  | A · official_page_seen/official_text_seen · text 21, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2024-07-12 | A/B · official_page_seen/official_text_seen · link only · unchecked |
@@ -341,7 +351,7 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | KH | Cambodia | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · checked 2026-11-05 |  |  |  | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2019-11-02 | B · official_page_seen/official_text_seen · link only · unchecked |
 | KI | Kiribati |  | B · tracker_only · no link · unchecked |  |  |  |  |  |
 | KM | Comoros |  | B · official_page_seen/official_text_seen · link only · checked 2026-11-05 (1 unchecked) |  |  |  |  |  |
-| KN | St. Kitts & Nevis |  | B · official_page_seen · link only · unchecked |  |  |  |  |  |
+| KN | St. Kitts & Nevis |  | A · official_text_seen · link only · checked 2026-11-05 |  |  |  | A · official_text_seen · link only · checked 2026-11-05 | B · not_checked/official_page_seen/official_text_seen · link only · unchecked |
 | KP | North Korea |  | B · tracker_only · link only · unchecked |  |  |  |  | B · tracker_only · link only · unchecked |
 | KR | South Korea | B · official_page_seen/tracker_only · link only · checked 2026-11-05 | A · official_text_seen · text 44 · checked 2026-11-05 · changed 2027-09-23 | A · official_text_seen · text 38 · checked 2026-11-05 · changed 2027-03-09 | A · official_text_seen · text 6 · checked 2026-11-05 · changed 2025-10-01 |  |  | C · official_page_seen · link only · unchecked |
 | KW | Kuwait | A/B · official_text_seen/tracker_only · text 1, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2025-02-12 | A · official_page_seen · link only · checked 2026-11-05 | A · official_text_seen · link only · checked 2026-11-05 |  |  |  |  |
@@ -349,11 +359,11 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | KZ | Kazakhstan |  |  | A · official_text_seen · text 139 · checked 2026-11-05 · changed 2026-10-24 |  |  | A · official_text_seen · text 240 · checked 2026-11-05 · changed 2026-08-20 | C · official_page_seen · link only · unchecked |
 | LA | Laos |  | A/B · official_text_seen · text 3 · checked 2026-11-05 · changed 2024-09-01 | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2025-08-01 |  |  | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2024-11-15 |  |
 | LB | Lebanon |  | A · official_text_seen · link only · unchecked | A/B · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked |  |
-| LC | St. Lucia |  | B · official_text_seen · link only · unchecked |  |  |  |  |  |
+| LC | St. Lucia |  | A · official_text_seen · link only · unchecked |  |  |  | A · official_text_seen · link only · checked 2026-11-05 | A · official_page_seen · link only · unchecked |
 | LI | Liechtenstein | A · official_text_seen · text 5 · checked 2026-11-05 · changed 2025-11-01 | A · official_text_seen · text 44 · checked 2026-11-05 · changed 2026-08-01 | A · official_text_seen · text 14 · checked 2026-11-05 · changed 2026-08-01 |  |  | A · official_text_seen · text 10 · checked 2026-11-05 · changed 2026-01-01 | A · official_page_seen · link only · unchecked |
 | LK | Sri Lanka | A · official_text_seen · link only · unchecked | A · official_text_seen · text 5, link only 1 · checked 2026-11-05 · changed 2026-07-21 | A · official_text_seen · text 9 · checked 2026-11-05 · changed 2019-10-31 |  |  | A · official_text_seen · text 5 · checked 2026-11-05 · changed 2021-09-22 | A · official_text_seen · link only · unchecked |
 | LR | Liberia |  | A/B · official_page_seen/official_text_seen · text 1, link only 1 · checked 2026-11-05 · changed 2002-11-26 | B · official_text_seen · text 1 · checked 2026-11-05 · changed 2025-10-31 |  |  |  | B · official_page_seen · link only · unchecked |
-| LS | Lesotho |  | B · tracker_only · link only · unchecked |  |  |  |  |  |
+| LS | Lesotho |  | A · official_text_seen · link only · unchecked |  |  |  |  | B/C · official_page_seen/tracker_only · link only · unchecked |
 | LT | Lithuania | A · official_page_seen/tracker_only · link only · checked 2026-11-05 | A · tracker_only · link only · checked 2026-11-05 |  |  |  | A · tracker_only · link only · checked 2026-11-05 |  |
 | LU | Luxembourg | A/B · official_page_seen/official_text_seen · text 1, link only 2 · checked 2026-11-05 (1 unchecked) · changed 2025-12-23 | A · official_text_seen · text 8 · checked 2026-11-05 · changed 2025-07-26 | A · official_text_seen · text 4 · checked 2026-11-05 · changed 2026-01-04 |  |  | A · official_text_seen · text 9 · checked 2026-11-05 · changed 2026-09-27 | B · official_page_seen · link only · unchecked |
 | LV | Latvia | A · official_text_seen · text 9 · checked 2026-11-05 · changed 2025-10-24 | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2027-01-01 | A · official_text_seen · text 49 · checked 2026-11-05 · changed 2031-01-01 |  |  | A · official_text_seen · text 8 · checked 2026-11-05 · changed 2027-01-01 |  |
@@ -434,7 +444,7 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | SV | El Salvador | A · official_text_seen · link only · checked 2026-11-05 | A · official_text_seen · text 2 · checked 2026-11-05 · changed 1998-05-12 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2005-10-08 | B · tracker_only · link only · unchecked |
 | SX | Sint Maarten |  |  |  |  |  |  |  |
 | SY | Syria |  | A · official_page_seen/official_text_seen · link only · unchecked |  |  |  | A · not_checked · no link · unchecked |  |
-| SZ | Eswatini |  |  |  |  |  | B · official_page_seen · link only · unchecked |  |
+| SZ | Eswatini |  | A · official_text_seen · text 4 · checked 2026-11-05 · changed 2022-12-30 |  |  |  | B · tracker_only · link only · checked 2026-11-05 | A/B · official_page_seen/official_text_seen/tracker_only · link only · unchecked |
 | TC | Turks & Caicos Islands |  |  |  |  |  |  |  |
 | TD | Chad |  |  |  |  |  |  | B · not_checked · no link · unchecked |
 | TF | French Southern Territories |  |  |  |  |  |  |  |
@@ -442,7 +452,7 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | TH | Thailand | A/B · official_text_seen/tracker_only · link only · unchecked |  |  |  |  |  | B · tracker_only · link only · unchecked |
 | TJ | Tajikistan |  | A · official_page_seen · link only · unchecked |  |  |  | A · official_page_seen/official_text_seen · link only · unchecked | A · official_page_seen · link only · unchecked |
 | TK | Tokelau |  |  |  |  |  |  |  |
-| TL | Timor-Leste |  | B · official_page_seen · link only · unchecked |  |  |  |  |  |
+| TL | Timor-Leste |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2012-07-05 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2016-07-09 | A/B · official_page_seen/tracker_only · link only · unchecked |
 | TM | Turkmenistan |  | A · official_text_seen · link only · unchecked | B · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked | B · official_page_seen/tracker_only · link only · unchecked |
 | TN | Tunisia | B · official_page_seen · link only · unchecked | A · official_text_seen · text 1 · checked 2026-11-05 · changed 1988-08-02 |  | A · official_text_seen · link only · unchecked |  | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2015-09-29 | A · official_text_seen · link only · unchecked |
 | TO | Tonga |  | A · official_text_seen · text 14, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2021-12-01 |  |  |  | A · official_text_seen · text 6, link only 1 · checked 2026-11-05 · changed 2020-12-04 | A/B · official_page_seen/official_text_seen · link only · unchecked |
@@ -458,14 +468,14 @@ One row per place in the register, one column per law family, as of 2026-11-05.
 | UY | Uruguay |  | A/B · official_text_seen · text 4 · checked 2026-11-05 · changed 2017-11-15 | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2022-01-01 |  |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2000-08-17 | B · not_checked · no link · unchecked |
 | UZ | Uzbekistan | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2026-07-01 | A · official_text_seen · text 60 · checked 2026-11-05 · changed 2026-08-05 | A · official_text_seen · text 6 · checked 2026-11-05 · changed 2027-01-01 |  |  | A · official_text_seen · text 54 · checked 2026-11-05 · changed 2026-02-02 |  |
 | VA | Vatican City |  | B · official_page_seen · link only · unchecked |  |  |  |  |  |
-| VC | St. Vincent & Grenadines |  | B · official_text_seen · link only · unchecked |  |  |  |  |  |
+| VC | St. Vincent & Grenadines | A · official_text_seen · link only · checked 2026-11-05 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-05 | B · official_page_seen/official_text_seen · link only · unchecked |
 | VE | Venezuela |  | A · official_page_seen · link only · unchecked |  |  |  |  | B/C · not_checked/tracker_only · no link · unchecked |
 | VG | British Virgin Islands |  |  |  |  |  |  |  |
 | VI | U.S. Virgin Islands |  |  |  |  |  |  |  |
 | VN | Vietnam | A · official_text_seen · link only · unchecked | A · official_text_seen · text 7 · checked 2026-11-05 · changed 2026-01-29 | A · official_text_seen · text 5, link only 1 · checked 2026-11-05 (1 unchecked) · changed 2026-07-15 |  |  | A · official_text_seen · text 9 · checked 2026-11-05 · changed 2026-07-01 | A · official_text_seen · link only · unchecked |
 | VU | Vanuatu |  | A/B · official_text_seen · link only · checked 2026-11-05 (1 unchecked) |  |  |  | A · not_checked · link only · checked 2026-11-05 | A · official_page_seen/official_text_seen · link only · unchecked |
 | WF | Wallis & Futuna |  |  |  |  |  |  |  |
-| WS | Samoa |  | B · official_text_seen · link only · unchecked |  |  |  |  |  |
+| WS | Samoa |  | A · official_text_seen · text 2 · checked 2026-11-05 · changed 2004-07-01 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2017-07-03 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | YE | Yemen |  | A/B · official_text_seen · link only · unchecked |  |  |  | A · official_text_seen · link only · unchecked | A · official_page_seen · link only · unchecked |
 | YT | Mayotte |  |  |  |  |  |  |  |
 | ZA | South Africa | A/B · tracker_only · link only · checked 2026-11-05 (1 unchecked) | A · official_text_seen · text 1 · checked 2026-11-05 · changed 2025-03-17 | A · official_text_seen · text 3 · checked 2026-11-05 · changed 2020-09-11 | A · official_page_seen/official_text_seen · text 1, link only 2 · checked 2026-11-05 · changed 2011-05-01 |  | A · official_text_seen · text 1, link only 2 · checked 2026-11-05 · changed 2011-07-01 |  |
@@ -523,6 +533,16 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | am-consumer-rights-law | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2026-07-01 | current |
 | am-consumer-rights-amendment-2026 | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2026-07-01 | current |
 | am-advertising-law | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2026-08-30 | current |
+
+### AO (Angola)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ao-lei-bases-ambiente-1998 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 1998-06-19 | current |
+| ao-eia-licensing-regulation-2020 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2020-04-22 | current |
+| ao-climate-mrv-system-2022 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2022-01-13 | current |
+| ao-single-use-plastics-regulation-2025 | F4 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2025-09-22 | current |
+| ao-consumer-protection-act-2003 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
 ### AR (Argentina)
 
@@ -798,6 +818,15 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | cd-ordonnance-loi-23-007 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | cd-ordonnance-loi-26-016 | F3 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
+### CG (Congo - Brazzaville)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| cg-loi-2023-33 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2023-11-30 | current |
+| cg-arrete-2024-13840 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2024-07-11 | current |
+| cg-decret-2022-1923 | F3 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2023-01-05 | current |
+| cg-loi-2024-36 | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2024-12-19 | current |
+
 ### CH (Switzerland)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -832,6 +861,17 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | cl-ley-20780-art8 | F3 | text 5 | 5 | 2026-11-05 | watcher | regulator_page | 2023-02-25 | current |
 | cl-ds-4-2023 | F3 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2023-09-29 | current |
 | cl-ley-19496-art28-33 | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 1997-03-07 | current |
+
+### CM (Cameroon)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| cm-loi-2025-013 | F4 | text 2 | 2 | 2026-11-05 | watcher | regulator_page | 2025-12-17 | current |
+| cm-decret-2021-747 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2021-12-28 | current |
+| cm-decret-2024-00176 | F4 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2024-02-26 | current |
+| cm-loi-96-12 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+| cm-bvmac-reglement-general | F1 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+| cm-loi-2011-012 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
 ### CN (China)
 
@@ -1471,6 +1511,13 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | km-loi-95-007 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | km-decret-01-052 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
+### KN (St. Kitts & Nevis)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| kn-ncepa-1987 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+| kn-consumer-protection-act-2023 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
 ### KP (North Korea)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1542,6 +1589,13 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | lb-decree-8471-2012 | F3 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | lb-decree-14459-2024 | F3 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
+### LC (St. Lucia)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| lc-climate-change-act-2024 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+| lc-consumer-protection-act | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
 ### LI (Liechtenstein)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1579,6 +1633,12 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | lr-eo-155-carbon-markets-authority | F3 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2025-10-31 | current |
 | lr-epa-act-2002 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2002-11-26 | current |
 | lr-epml-2002 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
+### LS (Lesotho)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ls-environment-act-2008 | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 
 ### LT (Lithuania)
 
@@ -2210,6 +2270,16 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 |---|---|---|---|---|---|---|---|---|
 | sy-environment-protection-law-12-2012 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2012-03-29 | current |
 
+### SZ (Eswatini)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| sz-environment-management-act-2002 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2002-11-13 | current |
+| sz-environment-assessment-regulations-2022 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2022-12-30 | current |
+| sz-control-of-plastic-bags-regulations-2021 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2021-05-21 | current |
+| sz-ozone-depleting-substances-regulations-2003 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2003-01-01 | current |
+| sz-fair-trading-act-2001 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
 ### TG (Togo)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2239,6 +2309,13 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | tj-green-taxonomy-res-170 | F6 | text 2 | 2 | 2026-11-05 | watcher | regulator_page | 2026-03-28 | current |
 | tj-law-consumer-rights-2004 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | tj-law-advertising-2003 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
+### TL (Timor-Leste)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| tl-decreto-lei-26-2012 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2012-07-05 | current |
+| tl-lei-8-2016 | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2016-07-09 | current |
 
 ### TM (Turkmenistan)
 
@@ -2385,6 +2462,13 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | uz-consumer-rights-law | F6 | text 44 | 44 | 2026-11-05 | watcher | regulator_page | 2026-02-02 | current |
 | uz-advertising-law | F6 | text 10 | 10 | 2026-11-05 | watcher | regulator_page | 2025-03-12 | current |
 
+### VC (St. Vincent & Grenadines)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| vc-eccb-climate-risk-standard | F1 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+| vc-consumer-protection-act-2020 | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
 ### VE (Venezuela)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2419,6 +2503,14 @@ As of 2026-11-05. `versions` is the number of record files; `checked from` says 
 | vu-environmental-protection-conservation-act | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | vu-eia-regulations | F2 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
 | vu-price-monitoring-consumer-affairs-act | F6 | link only | 0 | 2026-11-05 | watcher | regulator_page |  | current |
+
+### WS (Samoa)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ws-cca-2016 | F6 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2017-07-03 | current |
+| ws-puma-2004 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 2004-07-01 | current |
+| ws-lsea-1989 | F2 | text 1 | 1 | 2026-11-05 | watcher | regulator_page | 1990-03-05 | current |
 
 ### YE (Yemen)
 
