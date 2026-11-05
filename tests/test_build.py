@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import build
+from conftest import real_scope_paths
 
 
 def fixture(repo):
@@ -152,7 +153,7 @@ def test_scope_lists_match_sources_and_register():
     import csv
     rows = {r["id"]: r for r in json.loads((ROOT / "sources.json").read_text())}
     register = {(r["iso2"], r["official_source_url"], r["law_family"]) for r in csv.DictReader((ROOT / "register" / "register.csv").open(encoding="utf-8"))}
-    for scope_path in sorted((ROOT / "register").glob("*/scope.json")):
+    for scope_path in real_scope_paths(ROOT):
         iso2 = scope_path.parent.name
         entries = json.loads(scope_path.read_text())
         assert len({e["id"] for e in entries}) == len(entries)

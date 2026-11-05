@@ -2,8 +2,10 @@
 import csv
 from pathlib import Path
 
+from conftest import real_scope_paths
+
 ROOT = Path(__file__).resolve().parent.parent
-PILOT = tuple(sorted(p.parent.name for p in (ROOT / "register").glob("*/scope.json")))  # every place with a scope list
+PILOT = tuple(sorted(p.parent.name for p in real_scope_paths(ROOT)))  # every place with a scope list (GEL_ISO2: one place)
 PLACEHOLDER = "scope list entry"
 
 

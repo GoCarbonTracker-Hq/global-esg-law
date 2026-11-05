@@ -8,7 +8,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import watch
-
+from conftest import ISO2, real_scope_paths
 TODAY = date(2026, 11, 2)
 CELLAR = "https://example.invalid/sparql?q=cellar"
 UK = "https://example.invalid/section/data.xml"
@@ -354,11 +354,13 @@ def test_shipped_watchers_validate_against_real_repo():
     loaded = watch.load_watchers(repo)  # raises ValueError on any invalid entry
     assert [w["id"] for w in loaded] == [w["id"] for w in shipped] and len(shipped) >= 4
     scope = {}
-    for path in sorted((repo / "register").glob("*/scope.json")):
+    for path in real_scope_paths(repo):
         for entry in json.loads(path.read_text(encoding="utf-8")):
             scope[entry["id"]] = (path.parent.name, entry)
     assert set(scope) <= {w["instrument"] for w in shipped}, "every scope id has a watcher"
     assert {w["iso2"] for w in shipped if w["instrument"] != "*"} >= {iso2 for iso2, _ in scope.values()}
+    if ISO2:
+        shipped = [w for w in shipped if w["iso2"] == ISO2 or w["instrument"] == "*"]
     for w in shipped:
         if w["instrument"] != "*":
             assert w["id"].startswith(w["iso2"].lower() + "-"), w["id"]
