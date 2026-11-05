@@ -9407,3 +9407,479 @@ The record text is the page `.txt` files in page order with the form feed remove
 - Rwanda National Carbon Market Framework and Ministerial Instructions No. 001/MoE/26: no instrument found on amategeko.gov.rw (6858 files searched by title list), environment.gov.rw/laws, rema.gov.rw/resources/laws-and-regulations; REMA's carbon registry page describes the ITMO registry only. Recorded as an F7 register row.
 - The Capital Market Corporate Governance Code 2024 named in the brief was not found; the gazetted instrument is Regulations No 002/CMA/2026, whose art. 50 repeals the 2012 code.
 - The ICPAR IFRS S1/S2 adoption roadmap (May 2025) was not found on an official page.
+
+## Saint Lucia
+
+Rows `LC-NPC-ADOPTED` and `LC-AGC-CONSOLIDATED`, both `permission requested`. Run on 2026-11-05. No row passes, so no text is stored and no record exists under `records/LC/`. The fetches below were proven to read the official PDFs and HTML pages for the scope entries and the Copyright Act; they are not record recipes.
+
+Why no row passes: under the Copyright Act (Cap. 13.07, first enacted as Act No. 10 of 1995, as amended by Act No. 7 of 2000) s. 24(4) and (5), copyright in works made or first published by or under the direction or control of the Government vests in the Crown. Saint Lucia law contains no statutory exception removing copyright from Acts, statutory instruments, or other official legislative texts (s. 73 only excuses acts done for parliamentary or judicial proceedings; s. 74 only covers copies of public records supplied by the officer in charge of the record). The Revised Edition of the Laws Act s. 12 vests power over public distribution, sale price, and remote computer access to revised editions in the Attorney General and Cabinet. The official publisher portals carry copyright notices with no licence or reuse grant: "© Copyright 2026 NPC All Rights Reserved." (https://npc.govt.lc/) and "© Attorney General's Chambers Saint Lucia All Rights Reserved" (https://attorneygeneralchambers.com/). Dedicated terms pages (/terms, /terms-of-use, /disclaimer, /privacy-policy) on both hosts return HTTP 404.
+
+### National Printing Corporation (npc.govt.lc), Acts as gazetted
+
+The National Printing Corporation publishes Acts and Statutory Instruments as gazetted. The Climate Change Act, 2024 (Act No. 3 of 2024):
+
+```
+curl -sS -m 60 -A "Mozilla/5.0" -o act3_2024.pdf -w '%{http_code} %{size_download} %{content_type}\n' "https://npc.govt.lc/files/laws/acts/2024/Act%20No3%20of%202024%20Climate%20Change%20Act.pdf"
+```
+
+Returned `200 945641 application/pdf`. sha256 `5dce6d0469385efef1c04ed375463a515639d4b9ca2ca51fca14fd77e576361b`. `pdftotext -layout act3_2024.pdf act3_2024.txt` gave 3393 lines of clean text with no replacement characters (commencement section 1(2) read from it). The site also exposes a token download endpoint (`https://npc.govt.lc/laws/download/{token}`) which returns the same file.
+
+### Attorney General's Chambers (attorneygeneralchambers.com), Revised Laws
+
+The Attorney General's Chambers maintains the Revised Laws of Saint Lucia as structured HTML pages arranged by chapter, act, and section:
+
+```
+curl -sS -m 60 -A "Mozilla/5.0" -o consumer_protection_act.html -w '%{http_code} %{size_download} %{content_type}\n' "https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act/act"
+```
+
+Returned `200 138250 text/html; charset=utf-8`. sha256 `40603f3450e1f58e73125ada1f8c3acefabd0879ee320e9f4d325cda09de8211`. The page contains the arrangement of sections and legislative history of Act No. 9 of 2016 as amended by Act No. 14 of 2021 and Act No. 27 of 2023. Individual sections are accessible at `/laws-of-saint-lucia/consumer-protection-act/section-{n}` (e.g. section 84 disclosure of environmental facts, section 115 false or misleading representations).
+
+### Languages
+
+English only. Saint Lucia legislates in English; Saint Lucian Creole (Kwéyòl) is spoken but is not a language of legislation; no official translations exist to look for.
+
+### Link only
+
+- `lc-climate-change-act-2024`: row `LC-NPC-ADOPTED`, permission requested. In-force date null (s. 1(2): ministerial order in Gazette; none found in 2024, 2025, or 2026 Statutory Instruments).
+- `lc-consumer-protection-act`: row `LC-AGC-CONSOLIDATED`, permission requested. In force 2022-01-01 (S.I. No. 9 of 2022).
+
+### Blocked
+
+- `https://www.sustainabilitydevelopment.gov.lc` : Department of Sustainable Development website answered `HTTP/2 502 Bad Gateway` from outside.
+- `https://eccb-centralbank.org` : Eastern Caribbean Central Bank website answered `HTTP/2 502 Bad Gateway` from outside.
+
+### Not used
+
+- `https://www.govt.lc/legislation` : Government of Saint Lucia web portal answered HTTP 200, but the page displays placeholder text ("WARNING: This is place holder text. No Content Item has been written for the page with Identifier 'Legislation'").
+- `https://www.ecsrc.com` : Eastern Caribbean Securities Regulatory Commission answered HTTP 200. Its Legal & Privacy Statements page specifies: "ECSRC content may not be stored except for personal, non-commercial use. Republication and re-dissemination of ECSRC content is expressly prohibited without the prior written consent of ECSRC." No sustainability or ESG disclosure rules exist.
+- `https://www.ecseonline.com` : Eastern Caribbean Securities Exchange answered HTTP 200. Terms of Use state: "The reproduction, redistribution, alteration and transmission of any material or information contained in the website are strictly prohibited. You must not use the material for commercial purposes without first obtaining a licence to do so from us." No ESG rules exist.
+
+## Saint Kitts and Nevis
+
+No row passes. The Law Commission (Ministry of Justice and Legal Affairs) Terms of Use explicitly prohibit reproduction, copying, distribution, modification, and commercial exploitation of site content ("You agree not to:- (a) reproduce, copy, distribute, modify, publish, transmit, display, use, reuse, re-publicize, assign, sublicense, sell, or exploit for any public or commercial purpose, any portion of the Site, use of the Site, or access to the Site"). The Copyright Act, 2024 (Act No. 14 of 2024, repealing Cap. 18.08) contains no official-text exception excluding legislation from copyright protection, and Section 152 provides that the Act binds the Crown. The verdict is `permission requested` on both publisher rows (`KN-LAWCOMMISSION-CONSOLIDATED` and `KN-LAWCOMMISSION-ADOPTED`). There is no proven fetch for storage and no record. The requests below were run on 2026-11-05 from the laptop address only to read and date the instruments in scope; nothing was stored.
+
+### Requests that answered
+
+```
+curl -sS -L -A "Mozilla/5.0" -w "%{http_code} %{size_download} %{content_type}\n" -o ncepa.pdf "https://lawcommission.gov.kn/wp-content/documents/Act02and09TOC/Ch-11_03-National-Conservation-and-Environment-Protection-Act.pdf"
+```
+200, 525840 bytes, application/pdf, sha256 9eeeac7bcec685f7bef731a94a9fb95853094a1d76e739e6b2ed09d12f226d20 (National Conservation and Environment Protection Act, Cap. 11.03, Revised Edition as at 31 December 2009). HEAD answers 200 application/pdf with Last-Modified: Mon, 10 Feb 2020 15:58:18 GMT and Content-Length: 525840.
+
+```
+curl -sS -L -A "Mozilla/5.0" -w "%{http_code} %{size_download} %{content_type}\n" -o cpa.pdf "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2023/ACTs/Act-21-of-2023-Consumer-Protection-Act.pdf"
+```
+200, 1302589 bytes, application/pdf, sha256 4defd1933376d093e77f1be3be05db409565de67226e63849ee1e7502c4f9d59 (Consumer Protection Act, 2023, Act No. 21 of 2023). HEAD answers 200 application/pdf with Last-Modified: Sat, 13 Apr 2024 00:00:00 GMT and Content-Length: 1302589.
+
+```
+curl -sS -L -A "Mozilla/5.0" -w "%{http_code} %{size_download} %{content_type}\n" -o terms.html "https://lawcommission.gov.kn/home/terms-of-use/"
+```
+200, 73608 bytes, text/html; charset=UTF-8, sha256 0c3aff763c1f1f04b2106ebb46078911ee8c7b5005df640801b6ac5fcea0ae23 (terms fingerprint: b350fe8a7f4d61fe24d5ed51c327f004e0caf0e7515a59d293530d19f4928767).
+
+```
+curl -sS -L -A "Mozilla/5.0" -o ecse_rules.pdf "https://www.ecseonline.com/wp-content/uploads/2020/06/ECSE-Listing_Rules_Requirements_Procedures_Corporate_Securities.pdf"
+```
+200, 222129 bytes, application/pdf (Eastern Caribbean Securities Exchange Listing Rules; contains no sustainability or ESG disclosure requirement).
+
+### Languages
+
+English only (the language of legislation in Saint Christopher and Nevis). No second official language exists, and no government translation exists or is needed.
+
+### Link-only instruments
+
+Both scope instruments, because publisher rows are `permission requested` and Saint Kitts and Nevis statute does not exclude legislation from copyright protection:
+- `kn-ncepa-1987`: row `KN-LAWCOMMISSION-CONSOLIDATED` (Law Commission site terms forbid reproduction and commercial exploitation without permission; Copyright Act 2024 binds the Crown and has no official text exception).
+- `kn-consumer-protection-act-2023`: row `KN-LAWCOMMISSION-ADOPTED` (Law Commission site terms forbid reproduction and commercial exploitation without permission; Copyright Act 2024 binds the Crown and has no official text exception).
+
+### Blocked from the laptop address
+
+- `https://ipo.gov.kn`: HTTP/2 502 Bad Gateway from Sucuri Cloudproxy.
+- `https://eccb-centralbank.org`: HTTP/2 502 Bad Gateway from server.
+
+## Saint Vincent and the Grenadines
+
+Run on 2026-11-05 (GEL-19-03). No row passes. Both rows added, `VC-LEGAL-ADOPTED` (Ministry of Legal Affairs, Government of Saint Vincent and the Grenadines, legal.gov.vc) and `VC-ECCB-ADOPTED` (Eastern Caribbean Central Bank, eccb-centralbank.org), are `permission requested`.
+
+On `legal.gov.vc`, legislation and gazettes are subject to Crown copyright under the Copyright Act, Cap. 311 (Act No. 21 of 2003, commenced 2004-11-30) s. 21(4) and s. 21(5), which vest copyright in works made or first published by or under the direction or control of the Government in the Crown. Section 144 binds the Crown. Section 68 only permits acts done for parliamentary or judicial proceedings or reporting thereof. Section 69 permits reproduction of public records only by or under the direction of an officer in charge. No provision of the statute removes copyright from Acts of Parliament, official gazettes, or statutory instruments. The portal footer asserts copyright (`© 2026 Government of Saint Vincent and the Grenadines`) without terms permitting commercial republication or derivative works.
+
+On `eccb-centralbank.org`, the Disclaimer Policy explicitly restricts usage to personal, noncommercial use only and prohibits redistribution and the creation of derivative works. In addition, outside requests to `eccb-centralbank.org` returned HTTP 502 on 2026-11-05.
+
+Because no row passes, no law text is stored under `records/VC/`. Every scope instrument is `link only`. The requests below record what was run to verify the instruments and their terms.
+
+### legal.gov.vc (row `VC-LEGAL-ADOPTED`, permission requested)
+
+The Ministry of Legal Affairs hosts official gazettes under `https://legal.gov.vc/legal/index.php/publications/`. A browser user-agent retrieves the gazette PDF:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o gazette48_2020.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://legal.gov.vc/legal/images/PDF/2020Gazettes/Gazette_No48_2020.pdf
+```
+
+Returned `200 309823 application/pdf` (Gazette Vol. 153 No. 48 of 1 September 2020, containing Government Notice No. 109 assenting to the Consumer Protection Act, 2020, Act No. 12 of 2020).
+
+The terms and copyright statement were verified on the portal homepage:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o legal_home.html -w '%{http_code} %{size_download} %{content_type}\n' https://legal.gov.vc/legal/
+```
+
+Returned `200 17811 text/html; charset=utf-8` (footer confirms `© 2026 Government of Saint Vincent and the Grenadines`).
+
+### eccb-centralbank.org (row `VC-ECCB-ADOPTED`, permission requested)
+
+The ECCB Prudential Standard on Climate-Related and Environmental Risks for Institutions Licensed Under the Banking Act, 2015 is hosted on the ECCB CDN:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o eccb_standard.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf
+```
+
+Returned `200 294880 application/octet-stream` (section 1.0 establishes commencement on 2024-03-01).
+
+### Languages
+
+English (`en`) is the sole official language of legislation and administration in Saint Vincent and the Grenadines. No official translations into other languages are published by the Government of Saint Vincent and the Grenadines or the ECCB. No translation row is required.
+
+### Link-only instruments
+
+- `vc-eccb-climate-risk-standard`: row `VC-ECCB-ADOPTED` is `permission requested`. The ECCB Disclaimer Policy restricts use to personal, noncommercial purposes and prohibits redistribution or the creation of derivative works.
+- `vc-consumer-protection-act-2020`: row `VC-LEGAL-ADOPTED` is `permission requested`. Crown copyright applies under Copyright Act, Cap. 311, s 21(4)-(5). No statute removes copyright from legislation or official gazettes, and `legal.gov.vc` terms provide no commercial reuse licence. In addition, commencement remains unproclaimed under s 1(2).
+
+## Samoa
+
+Run on 2026-11-05 (GEL-19-04). Two rows pass on the statute basis: `WS-MCIL-ADOPTED` and `WS-MNRE-ADOPTED` (Samoa Copyright Act 1998, Act No. 25 of 1998, s. 5(b): no protection shall extend under this Act to "any official text of a legislative, administrative or legal nature, as well as any official translation thereof"). Text extraction for the official PDFs: `pdftotext -layout file.pdf -` with runs of spaces or tabs collapsed to a single space on each line and blank lines dropped (as `## Brazil`); the output was checked for mojibake (no U+FFFD; only standard mathematical and punctuation glyphs occur). Plain `curl`, no browser fetch needed.
+
+Row `WS-MCIL-ADOPTED`, Competition and Consumer Act 2016 (Act No. 10 of 2016):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cca_2016.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.mcil.gov.ws/node/37
+```
+
+Returned `200 570240 application/pdf`; sha256 `b8440e9b15ec54c5fd823b1d90a4f3923da9c3b587d9d8f504460b031e157a18`, identical on a second fetch. 116 pages. Assent date 9 February 2016, commencement date 3 July 2017 (`2017-07-03`). Part 5 Division 1 covers misleading or deceptive conduct generally (section 55) and in trade (section 56); section 63 covers misleading representations.
+
+Row `WS-MNRE-ADOPTED`, Planning and Urban Management Act 2004 (Act No. 5 of 2004):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o puma_2004.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.mnre.gov.ws/wp-content/uploads/2023/12/Planning-and-Urban-Management-Act-2004.pdf
+```
+
+Returned `200 327031 application/pdf`; sha256 `d31fdc68bd15b49bce97f9d043cace7f808873e2c18f1456697c743d3dbcb360`, identical on a second fetch. 70 pages. Assent date 21 January 2004, commencement date 1 July 2004 (`2004-07-01`). Statutory framework for sustainable management plans (Part IV) and environmental impact assessment / development consents (Part V).
+
+Row `WS-MNRE-ADOPTED`, Lands, Surveys and Environment Act 1989 (Act No. 33 of 1989):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o lsea_1989.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.mnre.gov.ws/wp-content/uploads/2023/12/lands-surveys-and-environment-act1989.pdf
+```
+
+Returned `200 209215 application/pdf`; sha256 `47fd1f5cf2f6b2bd7036a99fb6a830a1bff8dff4b0d308470d77a1f1e4d7da21`, identical on a second fetch. 110 pages. In force 5 March 1990 (`1990-03-05`). Principal statutory framework for conservation and protection of the environment (Part VIII).
+
+### Languages
+
+Samoan (`sm`) and English (`en`) are official languages in Samoa. Legislation is enacted and published in English, with Samoan texts published for some Acts by the Legislative Assembly. On the official ministry repositories (MCIL and MNRE), all legislation is published and served in English only; no official Samoan texts were served for the three in-scope acts. Because English is an official language and the original enacted text, no government translation is needed.
+
+### Link-only instruments
+
+- None among the enacted scope instruments: `ws-cca-2016`, `ws-puma-2004`, and `ws-lsea-1989` are all `stored`.
+- The Samoa Climate Change Policy 2020-2030 is an adopted policy document (F7) and is recorded in `register.csv` only (no text stored per F7 rules).
+- Standalone climate change framework act, emissions trading/carbon pricing regulations, and company sustainability disclosure rules: none confirmed in force in Samoa on 2026-11-05; recorded as F7 non-enacted register rows.
+
+### Blocked and unreached portals
+
+- `https://www.samoalaw.ws`: timed out after 5000 ms with 0 bytes received (`curl: (28) Operation timed out with 0 bytes received; 000 0`).
+- `https://palemene.ws`: returned HTTP 406 to `curl -A 'Mozilla/5.0'`, but returned HTTP 200 to bare `curl`. However, on `https://palemene.ws/bills-acts-and-regulations/`, Act download links point to `https://palemene.sharepoint.com/`, which redirects to Microsoft 365 SharePoint client-side Single Page App folder views rather than direct file downloads.
+- `https://www.ag.gov.ws`: returned HTTP 200 to `curl`, but its legislative drafting pages contain divisional descriptions rather than direct public Act downloads.
+
+## Timor-Leste
+
+Run on 2026-11-05 (GEL-19-05). Two rows pass on the statutory exclusion: `TL-JORNAL-ADOPTED` and `TL-PARLAMENTO-ADOPTED` (Lei n.º 14/2022 de 21 de Dezembro, Código do Direito de Autor e Direitos Conexos, Artigo 15.º n.º 1 alínea e): "Não constituem objeto de proteção: ... e) As decisões judiciais e os textos legislativos e regulamentares"; Artigo 16.º n.º 1: "Os textos compilados ou anotados a que se refere a alínea c) do n.º 1 do artigo 11.º, bem como as suas traduções oficiais, não beneficiam de proteção"). The statutory exclusion of official legislative and regulatory texts is unconditional. Row `TL-BCTL-ADOPTED` is permission requested (site claims copyright and Terms of Use link is empty).
+
+Official gazette portal: the domain `jornal.gov.tl` returned HTTP 502 Bad Gateway to automated and browser requests alike; the official Jornal da República portal is hosted and operated under the Ministry of Justice at `https://mj.gov.tl/jornal/`. Official gazette issue PDFs are served under `/public/docs/{year}/serie_1/` and listed on the index pages `?q=node/12` (Leis) and `?q=node/13` (Decretos-Leis). Direct HTML transcriptions exist for some decrees (e.g. `?q=node/1083`).
+
+Text extraction for official gazette PDFs: `pdftotext -layout file.pdf -`, two-column text extracted in reading order (left column then right column per page), runs of whitespace collapsed, running headers (`Jornal da República`) and page footers dropped, lines stripped (as `## Brazil`); output verified free of mojibake and non-printable characters. All records fetched via plain `curl`, no browser fetch needed.
+
+Row `TL-JORNAL-ADOPTED`, Decreto-Lei n.º 26/2012 de 4 de Julho (Lei de Bases do Ambiente), as published in Jornal da República Série I, N.° 24:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dl26_2012.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mj.gov.tl/jornal/public/docs/2012/serie_1/serie1_no24.pdf
+```
+
+Returned `200 376047 application/pdf`; sha256 `d5f629257f4d744287d212cbe267945e8ccb744f970f454e2bc336984ae9a09b`, confirmed identical on a second fetch. Text spans pages 16 to 30 (Páginas 6015-6029). Artigo 71.º provides: "O presente decreto-lei entra em vigor no dia seguinte ao da sua publicação", so in force 2012-07-05. A direct HTML version is also published at `https://mj.gov.tl/jornal/?q=node/1083`.
+
+Row `TL-JORNAL-ADOPTED`, Lei n.º 8/2016 de 8 de Julho (Lei de Proteção ao Consumidor), as published in Jornal da República Série I, N.° 26 A:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o lei8_2016.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://mj.gov.tl/jornal/public/docs/2016/serie_1/SERIE_I_NO_26A.pdf
+```
+
+Returned `200 567375 application/pdf`; sha256 `66ebbea5e4068d5ce2300fbfe6531a1852175a6e33af82cd8d96664f16dae854`, confirmed identical on a second fetch. Text spans pages 1 to 9. Artigo 33.º provides: "A presente lei entra em vigor no dia seguinte ao da sua publicação", so in force 2016-07-09.
+
+### Languages
+
+Portuguese (`pt`) is an official language of Timor-Leste and the primary language of legislation in the Jornal da República; stored records are in Portuguese. Tetum is a co-official and national language; Tetum translations are served for both instruments in the Jornal da República (`Traducao_Lei_de_Bases_do_Ambiente.pdf`, 693931 bytes, and `Lei_de_PRotecao_ao_Consumidor.pdf`, 192659 bytes). Because Tetum has no ISO 639-1 two-letter language code, Tetum versions cannot be stored as record files under corpus rules and are noted as link-only translations. No government English translation was found; English was looked for on the Jornal da República portal (`mj.gov.tl/jornal`), the National Parliament (`parlamento.tl`), and the Government portal (`timor-leste.gov.tl`).
+
+### Link only
+
+- Tetum translations of Decreto-Lei n.º 26/2012 and Lei n.º 8/2016: official government translations exist as PDFs on `https://mj.gov.tl/jornal/`, but Tetum lacks an ISO 639-1 two-letter code.
+- National Policy for Climate Change (Government Resolution No. 8/2022 of 2022-03-01): policy instrument mapped to F7 (register row only, no text stored per brief instructions).
+- Climate change framework act: none enacted; registered as F7 row.
+- Company sustainability or climate disclosure regulation: none issued by Banco Central de Timor-Leste as of 2026-11-05; registered as F7 row.
+- Emissions trading, carbon tax or mandatory GHG reporting rules: none enacted as of 2026-11-05; registered as F7 row.
+
+## Lesotho
+
+Run on 2026-11-05 (GEL-19-07). No row passes. The session filed `LS-DOE-ADOPTED` as a statute pass on the Lesotho Copyright Order, 1989 (Order No. 13 of 1989) s. 5(a), which excludes "rules or decisions of courts and administrative bodies, as well as to official translation thereof" and does not name Acts of Parliament. Varun ruled on 2026-11-05 that this is not a statute pass: the row is `unknown`, the Environment Act 2008 is link only, and no text is stored. The fetch recipe below is kept for when a basis is found.
+
+Text extraction for `LS-DOE-ADOPTED`: `pdftotext -layout file.pdf -` with runs of spaces collapsed to one and blank lines dropped (as `## Brazil`); output checked for mojibake (no invalid UTF-8 or replacement characters; clean typographic quotes and apostrophes). `fetched_sha256` is the sha256 of the PDF as returned; a second fetch reproduced the exact hash.
+
+Row `LS-DOE-ADOPTED`, Environment Act 2008 (Act No. 10 of 2008) as published in Gazette No. 80 of 5 December 2008:
+
+```
+curl -sS -L -A "Mozilla/5.0" -o env_act_2008.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://environment.gov.ls/download/environment-act-2008/?wpdmdl=805'
+```
+
+Returned `200 1255228 application/pdf`; sha256 `85071cf2094642b12c90d3872d3367bfab3091764b0dd37a9c831e9a7d758a65`, verified on a second fetch. 412 pages including Gazette No. 80 Supplement No. 1.
+
+### Languages
+
+English (`en`) and Sesotho (`st`) are the official languages of Lesotho (Constitution of Lesotho, s. 3(1)). Legislation in Lesotho is enacted and published in the Government Gazette in English. The Department of Environment serves the official text in English only. No official Sesotho text or government translation was found on official portals or published by the Government Printer.
+
+### Not stored: candidate publishers and portals
+
+- `LS-LESOTHOLII-ADOPTED` (`https://lesotholii.org/terms-of-use/`): not an official government publisher; terms are CC BY-NC 4.0 (non-commercial only) and bulk downloading is prohibited; Cloudflare returns HTTP 403 to automated scripts.
+- `LS-GOVLS-ADOPTED` (`https://www.gov.ls/`): official government portal answered HTTP 200, but hosts general policy overviews and speeches; claims copyright without open licensing terms.
+- `LS-CBL-ADOPTED` (`https://www.centralbank.org.ls/`): Central Bank portal returned HTTP 502 Bad Gateway to curl on 2026-11-05.
+- `LS-MSM-ADOPTED` (`https://msm.org.ls/`): Maseru Securities Market website answered HTTP 200; claims copyright to the Central Bank of Lesotho with no open reuse terms.
+
+## Eswatini
+
+Run on 2026-11-05 (GEL-19-06). One row passes on statute basis: `SZ-EEA-ADOPTED` (Eswatini Environment Authority, eea.org.sz). Eswatini Copyright and Neighbouring Rights Act, 2018 (Act No. 4 of 2018), Section 4(2)(a) and (d) explicitly excludes official texts and Gazette notices from copyright: "Notwithstanding the provisions of subsection (1), copyright protection shall not be extended to - (a) any official text of a legislative, administrative or legal nature, or to any official translation thereof; ... (d) notices and signs published in the Government Gazette;". Four official texts are stored from this source.
+
+Text extraction:
+- `sz-environment-management-act-2002` and `sz-ozone-depleting-substances-regulations-2003`: clean digital PDFs extracted with `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, blank lines normalized (as `## Brazil`); output verified free of mojibake.
+- `sz-control-of-plastic-bags-regulations-2021` and `sz-environment-assessment-regulations-2022`: scanned official Gazette notices with empty text layers. Page images rendered with `pdftoppm -r 300 -png` and OCR extracted with `tesseract -l eng` (163 packs installed). Extracted text stored verbatim with `"extraction": "ocr"` in the record JSON; notes in scope.json declare uncorrected OCR. Original PDF URLs and SHA-256 hashes preserved.
+
+Row `SZ-EEA-ADOPTED`, Environment Management Act, 2002 (Act No. 5 of 2002):
+
+```
+curl -sS -L -o EMA-2002.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://eea.org.sz/wp-content/uploads/2021/06/EMA-2002.pdf
+```
+
+Returned `200 371379 application/pdf` (81 pages). Section 1 states commencement upon publication in the Gazette; record dated assent date 2002-11-13.
+
+Row `SZ-EEA-ADOPTED`, The Ozone Depleting Substances Regulations, 2003 (Legal Notice 14 of 2003):
+
+```
+curl -sS -L -o The-ODS-Regulations-2003.pdf -w '%{http_code} %{size_download} %{content_type}\n' http://eea.org.sz/wp-content/uploads/2020/08/The-ODS-Regulations-2003.pdf
+```
+
+Returned `200 373158 application/pdf` (18 pages). Text date 2003-01-01.
+
+Row `SZ-EEA-ADOPTED`, The Environmental Assessment Regulations, 2022 (Legal Notice 465 of 2022, Gazette No. 189):
+
+```
+curl -sS -L -o The-Environment-Assessment-Regulations-2022.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://eea.org.sz/wp-content/uploads/2023/02/The-Environment-Assessment-Regulations-2022.pdf
+```
+
+Returned `200 6056457 application/pdf` (47 pages). In force 2022-12-30. Uncorrected OCR.
+
+Row `SZ-EEA-ADOPTED`, The Control of Plastic Bags Regulations, 2021 (Legal Notice 155 of 2021, Gazette No. 67):
+
+```
+curl -sS -L -o SEA-20210521-The-Control-of-Plastic-Bags-Regulations-of-2021.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://eea.org.sz/wp-content/uploads/2025/05/SEA-20210521-The-Control-of-Plastic-Bags-Regulations-of-2021.pdf
+```
+
+Returned `200 1214977 application/pdf` (8 pages). In force 2021-05-21. Uncorrected OCR.
+
+### Languages
+
+English only. Section 133 of the Constitution of the Kingdom of Eswatini stipulates that Bills and Acts are enacted in English. Official legislative enactments and Gazette notices are published exclusively in English. siSwati (ss) is recognized alongside English as an official language, but no official siSwati statutory text or official translation was gazetted or published for these instruments. No government translation row exists or is required.
+
+### Link only
+
+- `sz-fair-trading-act-2001` (row `SZ-COMPCO-ADOPTED`): Eswatini Competition Commission (compco.co.sz). The legislation portal lists Fair Trading Act, 2001 (Act No. 8 of 2001, commenced 2001-11-05, s. 4 prohibition against misleading or deceptive conduct), but PDF downloads require email requests to `info@compco.co.sz`. Retained as link only.
+
+### Blocked
+
+- `https://www.gov.sz/`: Eswatini Government central portal. TLS handshake completes but HTTP GET times out with 0 bytes received from external network (`curl: (28) Operation timed out after 10004 milliseconds with 0 bytes received`). Recorded under row `SZ-GOV-ADOPTED` (permission requested).
+
+### Non-scope candidates (F7 register rows only)
+
+- Eswatini Green Finance Taxonomy (Central Bank of Eswatini, 2024): draft guidelines undergoing stakeholder validation, not binding statutory law. Row `SZ-CBE-ADOPTED` (permission requested).
+- ESG Reporting Guide (Eswatini Stock Exchange, 2022): voluntary ESG guidance for listed entities, not enacted legislation. Row `SZ-ESE-ADOPTED` (permission requested).
+- Climate change act: no enacted national climate change statute found as of 2026-11-05.
+- Carbon market / GHG reporting rules: no enacted national regulations found as of 2026-11-05.
+
+## Congo (Brazzaville)
+
+Run on 2026-11-05 (GEL-19-09). Four rows added to `sources/licence-table.csv`: `CG-SGG-ADOPTED` (Secrétariat Général du Gouvernement, Journal officiel de la République du Congo, sgg.cg, `pass`, basis statute) and three `permission requested` rows with nothing stored under them: `CG-MEDDBC-ADOPTED` (developpement-durable.gouv.cg), `CG-COSUMAF-ADOPTED` (cosumaf.org), `CG-BVMAC-ADOPTED` (bvm-ac.org).
+
+Why `CG-SGG-ADOPTED` passes: sgg.cg is the official portal of the Secrétariat Général du Gouvernement of the Republic of the Congo, mandated with the publication of the Journal officiel de la République du Congo pursuant to Décret n° 2017-373 du 21 août 2017. The pass rests on Congolese statutory copyright law: Article 14 of Loi n° 24-82 du 7 juillet 1982 sur le droit d'auteur et les droits voisins states: « Nonobstant les dispositions des articles 6 et 7 ci-dessus, les lois, les décisions de justice, celles des autorités administratives ainsi que la traduction officielle de ces textes et les nouvelles du jour publiées, radiodiffusées ou communiquées au public, sont hors du champ d'application de la présente loi. » In addition, the Republic of the Congo is a member state of the Organisation Africaine de la Propriété Intellectuelle (OAPI), having ratified the revised Bangui Agreement of 24 February 1999 via Loi n° 32-2019 du 8 juillet 2019 and Décret n° 2019-291 du 18 octobre 2019; Annexe VII, Article 7(a) of the Bangui Agreement similarly excludes « les textes législatifs, administratifs ou judiciaires ainsi que leurs traductions officielles » from copyright protection. The legal notice on `https://sgg.cg/fr/mentions-legales.html` asserts general intellectual property rights over website presentation and design but does not and cannot override the statutory public domain exclusion for legislative and administrative acts.
+
+### Proven fetch (`CG-SGG-ADOPTED`, adopted, French)
+
+Official Journal issues are downloaded directly from the SGG repository:
+
+```
+curl -sS -A 'Mozilla/5.0' -o /tmp/congo-jo-2023-48.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.cg/JO/2023/congo-jo-2023-48.pdf
+```
+Returned `200 257413 application/pdf`. SHA256: `f300c736ca784f33b281f4f687714b9dd26911733da3063f1c39b0ba6b031596`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /tmp/congo-jo-2024-28.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.cg/JO/2024/congo-jo-2024-28.pdf
+```
+Returned `200 1000342 application/pdf`. SHA256: `eb05647642e0027094d50e96c20d6779d367e20bf4b35369ea11315496ea92b6`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /tmp/congo-jo-2023-01.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.cg/JO/2023/congo-jo-2023-01.pdf
+```
+Returned `200 434108 application/pdf`. SHA256: `db188e56a92ae6e9b1246b9fc33c0be73cdc937d539e16340d934034d0e7da45`.
+
+```
+curl -sS -A 'Mozilla/5.0' -o /tmp/congo-jo-2024-51.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://sgg.cg/JO/2024/congo-jo-2024-51.pdf
+```
+Returned `200 5887169 application/pdf`. SHA256: `90d98e38a4ff90316ce7f73cabc80fd51ecd2e7fb7071e737d012457a28d409f`.
+
+Text extraction (`text`): SGG Journal officiel pages use a two-column layout. Text is extracted per page using column boundary splitting (`pdftotext -layout` partitioned at the central gutter) to preserve reading order without column interleaving. Embedded font ligature artifacts in the 2024 gazette PDFs (`Þ` for `fi`/`ffi`, `ß` for `fl`/`ffl`) and private-use bullet glyphs are cleanly normalized to standard UTF-8 characters. All articles from first to last are verified present with zero missing articles.
+
+### Stored (fetched 2026-11-05), all kind `adopted`, language `fr`
+
+| Instrument | `in_force` | Official Journal / Source |
+|---|---|---|
+| `cg-loi-2023-33` | 2023-11-30 | JO n° 48-2023, pp. 1655-1671 |
+| `cg-arrete-2024-13840` | 2024-07-11 | JO n° 28-2024, pp. 870-881 (amends `cg-loi-2023-33`) |
+| `cg-decret-2022-1923` | 2023-01-05 | JO n° 1-2023, pp. 8-10 |
+| `cg-loi-2024-36` | 2024-12-19 | JO n° 51-2024, pp. 1541-1553 |
+
+### Languages
+
+French only. Under Article 6 of the Constitution of the Republic of the Congo of 25 October 2015, « La langue officielle est le français. » All legislation and regulations are enacted and published solely in French. Official government sources (sgg.cg, developpement-durable.gouv.cg) publish no English translations. No translation record was created.
+
+### Link only
+
+None stored as link only in `scope.json`.
+Candidate topics examined and status in `register.csv`:
+- Standalone climate change framework law: not enacted; climate change mitigation, adaptation and carbon market mechanisms are regulated under Title XIII of Loi n° 33-2023.
+- Corporate sustainability / ESG disclosure rule: regional securities regulator COSUMAF and regional stock exchange BVMAC have issued voluntary green bond guidelines but have not enacted mandatory corporate ESG disclosure rules as of November 2026.
+
+### Blocked from the cloud address
+
+- `https://www.cosumaf.org`: returned HTTP 403 `cf-mitigated: challenge` on automated requests. Mentions légales and regulatory texts inspected via web search cache and regional portals.
+
+## Angola
+
+Run on 2026-11-05 (GEL-19-10). Three rows pass on the statutory exclusion: `AO-MINAMB-ADOPTED`, `AO-INBAC-ADOPTED`, and `AO-DRON-ADOPTED` (Lei n.º 15/14, de 31 de Julho, Lei dos Direitos de Autor e Conexos, Artigo 24.º n.º 1 alínea a): "Não são protegidas pelo direito de autor: a) As leis, decisões de órgãos administrativos e judiciais publicados ou não em Diário da República;"). All official enactments and presidential decrees published in the Diário da República or by line ministries are excluded by statute from copyright protection. In addition, the government portal terms (https://governo.gov.ao/termos, fingerprint `a463847a64239d2660137f915bf86e5b3cf37db90d6a1e8efe07424d54d4a79f`) explicitly allow non-commercial use with citation.
+
+Text extraction:
+- `ao-lei-bases-ambiente-1998` and `ao-eia-licensing-regulation-2020`: extracted from official publisher PDFs using `pdftotext -layout` with text clean and complete.
+- `ao-climate-mrv-system-2022` and `ao-single-use-plastics-regulation-2025`: official scanned PDFs from MINAMB rendered at 300dpi using `pdftoppm -png -r 300` and OCR-processed using `tesseract -l por`, marked with `"extraction": "ocr"`.
+
+Row `AO-INBAC-ADOPTED`, Lei n.º 5/98 de 19 de Junho (Lei de Bases do Ambiente):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o lei5_98.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://inbac.gov.ao/assets_admin/images/documento/9aa168eabe659e1e9df1059a385a5ee1.pdf
+```
+
+Returned `200 119607 application/pdf`; sha256 `f698a01b1e57a3813386215c2d4c21930a9a30bbb7ebfddabe4c35b7f61a8358`, verified on repeated fetch. 7 pages. Published in Diário da República I Série n.º 27 on 19 June 1998, in force immediately per Art. 36. Environmental framework act establishing mandatory EIA (Art. 16), environmental audits (Art. 17), and environmental risk insurance (Art. 22).
+
+Row `AO-MINAMB-ADOPTED`, Decreto Presidencial n.º 117/20 de 22 de Abril (Regulamento Geral de AIA e Licenciamento Ambiental):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dp117_20.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://minamb.gov.ao/media/uploads/Decreto_117_PDF_1f88429fb8.pdf
+```
+
+Returned `200 11450505 application/pdf`; sha256 `d177cc55f1f458add14f52b8d8cdf85f2e18ecc676f61952b50d40a6131e127c`, verified on repeated fetch. 17 pages. Published in Diário da República I Série n.º 54 on 22 April 2020, in force immediately per Art. 4. Regulates environmental licensing across project categories A, B, C, and D, mandatory EIA studies, and environmental audits (Art. 28).
+
+Row `AO-MINAMB-ADOPTED`, Decreto Presidencial n.º 8/22 de 13 de Janeiro (SNMRV):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dp8_22.pdf -w '%{http_code} %{size_download} %{content_type}\n' http://minamb.gov.ao/media/uploads/Decreto_Presidencial_n_8_22_Institucionaliza_o_Sistema_Nacional_de_Monitoramento_Reporte_e_Verificacao_da_Politica_Climatica_bf9d6b17f4.pdf
+```
+
+Returned `200 430425 application/pdf`; sha256 `f5acec5c40a011b2b9f05b853139f86545c1e9be2b4180798e6e3b77be27a33b`, verified on repeated fetch. 3 pages. Published in Diário da República I Série n.º 8 on 13 January 2022, in force immediately per Art. 6. Institutionalises the national climate MRV system (SNMRV) and imposes sectoral data reporting obligations across emitting sectors (Art. 7).
+
+Row `AO-MINAMB-ADOPTED`, Decreto Presidencial n.º 170/25 de 22 de Setembro (Regulamento de Plásticos de Utilização Única):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o puu_170_25.pdf -w '%{http_code} %{size_download} %{content_type}\n' http://minamb.gov.ao/media/uploads/Decreto_Presidencial_que_aprova_o_Regulamento_do_banimento_de_PUU_ee46e871b7.pdf
+```
+
+Returned `200 1732526 application/pdf`; sha256 `31df6a98c0f8ca9a62cdcb48cb1b2981b98b214d51f8c1d17478098ac51918f6`, verified on repeated fetch. 11 pages. Published in Diário da República I Série n.º 179 on 22 September 2025, in force immediately per Art. 3. Regulates single-use plastics production, importation, and commercialisation, establishing phased restrictions, eco-design criteria, environmental contributions, and extended producer responsibility.
+
+Row `AO-DRON-ADOPTED`, Lei n.º 15/03 de 22 de Julho (Lei de Defesa do Consumidor):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o dron_home.html -w '%{http_code} %{size_download} %{content_type}\n' https://diariodarepublica.gov.ao/
+```
+
+Returned `200 30880 text/html; charset=UTF-8`; fingerprint `a47877b1c04e34dd3ae517865f53e050054258ee3008487f7b394c15bee87188`. Published in Diário da República I Série n.º 57 on 22 July 2003. Article 14 establishes prohibitions against misleading and abusive commercial claims. Link-only status retained because Diário da República Online historical gazette texts require authenticated paid subscription (JURISNET).
+
+### Languages
+
+Portuguese (`pt`) is the sole official language of Angola. All laws and presidential decrees are enacted and published exclusively in Portuguese. No official English translations are issued by INBAC, MINAMB, or Imprensa Nacional. Official publisher English translations were checked and confirmed absent.
+
+### Link-only instruments
+
+- `ao-consumer-protection-act-2003`: retained as `link only` because the official gazette repository requires subscription credentials for historical issues prior to August 2026.
+- `Draft framework law on greenhouse gas emissions management and carbon market`: retained from run2 as proposed draft law undergoing executive review; not enacted by National Assembly as of 2026-11-05.
+- `Estratégia Nacional para as Alterações Climáticas 2022-2035 (Decreto Presidencial n.º 154/22)`: F7 national strategy; no direct corporate compliance duty.
+- `Capital markets and banking sustainability or climate disclosure rules (CMC / BNA)`: F7; BNA issued non-binding Circulars 01/2025 and 02/2026 on sustainability principles; CMC 2026 regulatory agenda lists sandbox only; no binding corporate or bank ESG disclosure regulation enacted as of 2026-11-05.
+
+### Blocked and unreached portals
+
+- `https://diariodarepublica.gov.ao`: answers curl with HTTP 200 (30,880 bytes), but historical search and full-text downloads for issues before recent months require a subscription account via JURISNET.
+- `https://cmc.ao`: answered curl with HTTP 200 (23,059 bytes); regulatory agenda reviewed; no mandatory ESG reporting regulation enacted.
+- `https://www.bna.ao`: answered curl with HTTP 200; normative search reviewed; non-binding circulars on sustainability principles only.
+
+## Cameroon
+
+Run on 2026-11-05 (GEL-19-08). Five rows added to `sources/licence-table.csv`: `CM-PRC-ADOPTED` (Presidency of the Republic of Cameroon, prc.cm, `pass`, basis statute), `CM-SPM-ADOPTED` (Prime Minister's Office, spm.gov.cm, `pass`, basis statute), and three `permission requested` rows: `CM-BVMAC-ADOPTED` (bvm-ac.org), `CM-COSUMAF-ADOPTED` (cosumaf.org), and `CM-MINEPDED-ADOPTED` (minepded.gov.cm).
+
+### Statutory pass rationale
+Why `CM-PRC-ADOPTED` and `CM-SPM-ADOPTED` pass: Loi n° 2000/011 du 19 décembre 2000 relative au droit d'auteur et aux droits voisins en République du Cameroun, Article 3(4)(b) explicitly provides:
+« Ne sont pas protégés par le droit d'auteur : ... b) les lois, les décisions de justice et autres textes officiels, ainsi que leurs traductions officielles ; »
+English translation Section 3(4)(b):
+"Copyright shall not protect: ... (b) laws, court judgments and other official instruments, as well as their official translations;".
+Both the Presidency (prc.cm) and the Prime Minister's Office (spm.gov.cm) publish official signed promulgation texts and administrative decrees. By statute, official laws, decrees and their official translations are excluded from copyright protection.
+
+### Proven fetch requests
+
+- `CM-PRC-ADOPTED` (Loi n° 2025/013, French text):
+```bash
+curl -sS -L -A "Mozilla/5.0" -D - -o law_2025_013_fr.pdf "https://www.prc.cm/files/af/4f/1b/a98be43b8b63759d0e69260f784e841e.pdf"
+```
+HTTP/2 200, 8040495 bytes, Content-Type: `application/pdf`. SHA-256: `f16645d26b0fab5b3c0b4c1b58bcb4e317352b254650fe99a4c9dffb1a565143`.
+
+- `CM-PRC-ADOPTED` (Loi n° 2025/013, English text):
+```bash
+curl -sS -L -A "Mozilla/5.0" -D - -o law_2025_013_en.pdf "https://www.prc.cm/files/0f/41/67/68c1bc3ee5e0ad86ea4755fa003246db.pdf"
+```
+HTTP/2 200, 6942012 bytes, Content-Type: `application/pdf`. SHA-256: `10d356b6b7848602396ae60c4a23f170a48cba5a3716e4ec8f446969b5439aa0`.
+
+- `CM-PRC-ADOPTED` (Décret n° 2021/747, French text):
+```bash
+curl -sS -L -A "Mozilla/5.0" -D - -o decret_2021_747_fr.pdf "https://www.prc.cm/files/29/c3/88/e96d47b2692f6f04d13a2f5b96d0aa37.pdf"
+```
+HTTP/2 200, 464423 bytes, Content-Type: `application/pdf`. SHA-256: `a5731dfe504fcbdb89926d82a3970a4f60c976e403d7cb0987cd9f57ad164357`.
+
+- `CM-SPM-ADOPTED` (Décret n° 2024/00176/PM, French text):
+```bash
+curl -sS -L -A "Mozilla/5.0" -D - -o decret_2024_00176_fr.pdf "https://www.spm.gov.cm/site/sites/default/files/decret_ndeg_2024_00176.pdf"
+```
+HTTP/2 200, 1400194 bytes, Content-Type: `application/pdf`. SHA-256: `b6913e479f0e5b6f648d7734dba66da066a51cd21917d90e9907bcc1b4da9041`.
+
+### OCR processing recipe
+Official PDFs published by the Presidency and Prime Minister's Office are scanned signed physical copies with rubber stamps and certifications. `pdftotext` yields empty or garbled output on these scans.
+Per brief instructions and ruling (Varun, 2026-11-03), page images were rendered using `pdftoppm -r 300 -png file.pdf page` and OCR-extracted using `tesseract page-XX.png stdout -l fra` (for French) and `tesseract page-XX.png stdout -l eng` (for English). Records are stored with field `"extraction": "ocr"`, preserving original `fetched_url` and `fetched_sha256`.
+
+### Languages
+Under Article 1(3) of the Constitution of the Republic of Cameroon, English and French are official languages with equal status.
+- `cm-loi-2025-013`: Promulgated simultaneously in English and French (Section 62); both official texts are stored under `CM-PRC-ADOPTED`.
+- `cm-decret-2021-747`: Promulgated in French and English per Article 23; official digital text is published only in French on `prc.cm`. English was searched on `prc.cm/en` and not found.
+- `cm-decret-2024-00176`: Promulgated in French and English per Article 14; official digital text is published only in French on `spm.gov.cm`. English was searched on `spm.gov.cm` and not found.
+
+### Link-only instruments
+- `cm-loi-96-12`: Framework environmental law of 5 August 1996; official publisher `https://minepded.gov.cm` returned HTTP 502 Bad Gateway from laptop address on 2026-11-05. Source row `CM-MINEPDED-ADOPTED` has verdict `permission requested`.
+- `cm-bvmac-reglement-general`: BVMAC general regulation on CSR disclosure; `https://www.bvm-ac.org/mentions-legales-de-la-bvmac/` restricts reuse to personal non-commercial use with no redistribution. Source row `CM-BVMAC-ADOPTED` has verdict `permission requested`.
+- `cm-loi-2011-012`: Consumer protection framework act of 6 May 2011; full text not hosted on open official portal `prc.cm`.
+
+### Blocked hosts
+- `https://minepded.gov.cm`: returns HTTP 502 Bad Gateway to all requests from laptop address on 2026-11-05.
+- `https://www.imprimerienationale.cm`: connection timeout (0 bytes returned).
+- `https://www.cosumaf.org`: HTTP 403 Forbidden with Cloudflare challenge (`cf-mitigated: challenge`).

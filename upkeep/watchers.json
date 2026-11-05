@@ -14138,5 +14138,695 @@
   "params": {
    "second_route": "https://rse.rw/ (browser; footer link Terms & Conditions)"
   }
+ },
+ {
+  "id": "lc-climate-change-act-2024-npc-pdf",
+  "source_id": "LC-NPC-ADOPTED",
+  "iso2": "LC",
+  "instrument": "lc-climate-change-act-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://npc.govt.lc/files/laws/acts/2024/Act%20No3%20of%202024%20Climate%20Change%20Act.pdf",
+  "params": {
+   "second_route": "https://npc.govt.lc/laws/acts/2024 (browser; lists 2024 Acts published by the National Printing Corporation)"
+  }
+ },
+ {
+  "id": "lc-consumer-protection-act-agc-page",
+  "source_id": "LC-AGC-CONSOLIDATED",
+  "iso2": "LC",
+  "instrument": "lc-consumer-protection-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act/act",
+  "params": {
+   "second_route": "https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act (browser; Attorney General's Chambers portal Table of Contents page)"
+  }
+ },
+ {
+  "id": "terms-lc-npc-adopted",
+  "source_id": "LC-NPC-ADOPTED",
+  "iso2": "LC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://npc.govt.lc/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://npc.govt.lc/ (browser; home page carries the copyright notice in the footer)"
+  }
+ },
+ {
+  "id": "terms-lc-agc-consolidated",
+  "source_id": "LC-AGC-CONSOLIDATED",
+  "iso2": "LC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://attorneygeneralchambers.com/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://attorneygeneralchambers.com/ (browser; home page carries the All Rights Reserved notice in the footer)"
+  }
+ },
+ {
+  "id": "kn-ncepa-1987-pdf",
+  "source_id": "KN-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "KN",
+  "instrument": "kn-ncepa-1987",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://lawcommission.gov.kn/wp-content/documents/Act02and09TOC/Ch-11_03-National-Conservation-and-Environment-Protection-Act.pdf"
+ },
+ {
+  "id": "kn-consumer-protection-act-2023-pdf",
+  "source_id": "KN-LAWCOMMISSION-ADOPTED",
+  "iso2": "KN",
+  "instrument": "kn-consumer-protection-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://lawcommission.gov.kn/wp-content/documents/Annual-Laws/2023/ACTs/Act-21-of-2023-Consumer-Protection-Act.pdf"
+ },
+ {
+  "id": "terms-kn-lawcommission",
+  "source_id": "KN-LAWCOMMISSION-CONSOLIDATED",
+  "iso2": "KN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://lawcommission.gov.kn/home/terms-of-use/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "vc-eccb-climate-risk-standard-enforced-page",
+  "source_id": "VC-ECCB-ADOPTED",
+  "iso2": "VC",
+  "instrument": "vc-eccb-climate-risk-standard",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/enforced",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/enforced (browser; lists enforced prudential standards; HTTP 502 returned to outside requests on 2026-11-05)"
+  }
+ },
+ {
+  "id": "terms-vc-eccb-adopted",
+  "source_id": "VC-ECCB-ADOPTED",
+  "iso2": "VC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/disclaimer-policy",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/disclaimer-policy (browser; ECCB host returned 502 from outside on 2026-11-05; open from laptop browser to verify terms)"
+  }
+ },
+ {
+  "id": "vc-consumer-protection-act-2020-gazette",
+  "source_id": "VC-LEGAL-ADOPTED",
+  "iso2": "VC",
+  "instrument": "vc-consumer-protection-act-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://legal.gov.vc/legal/images/PDF/2020Gazettes/Gazette_No48_2020.pdf",
+  "params": {
+   "second_route": "https://legal.gov.vc/legal/index.php/publications/57-2020-gazettes (browser; official gazette publication page of the Ministry of Legal Affairs)"
+  }
+ },
+ {
+  "id": "terms-vc-legal-adopted",
+  "source_id": "VC-LEGAL-ADOPTED",
+  "iso2": "VC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://legal.gov.vc/legal/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://legal.gov.vc/legal/ (browser; copyright notice at footer of Ministry of Legal Affairs portal)"
+  }
+ },
+ {
+  "id": "ws-cca-2016-head",
+  "source_id": "WS-MCIL-ADOPTED",
+  "iso2": "WS",
+  "instrument": "ws-cca-2016",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mcil.gov.ws/node/37",
+  "params": {
+   "second_route": "https://www.mcil.gov.ws/about/legislation (browser; MCIL legislation page listing Competition and Consumer Act 2016)"
+  }
+ },
+ {
+  "id": "ws-puma-2004-head",
+  "source_id": "WS-MNRE-ADOPTED",
+  "iso2": "WS",
+  "instrument": "ws-puma-2004",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mnre.gov.ws/wp-content/uploads/2023/12/Planning-and-Urban-Management-Act-2004.pdf",
+  "params": {
+   "second_route": "https://www.mnre.gov.ws/?page_id=7955 (browser; MNRE legislation page)"
+  }
+ },
+ {
+  "id": "ws-lsea-1989-head",
+  "source_id": "WS-MNRE-ADOPTED",
+  "iso2": "WS",
+  "instrument": "ws-lsea-1989",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.mnre.gov.ws/wp-content/uploads/2023/12/lands-surveys-and-environment-act1989.pdf",
+  "params": {
+   "second_route": "https://www.mnre.gov.ws/?page_id=7955 (browser; MNRE legislation page)"
+  }
+ },
+ {
+  "id": "terms-ws-mcil-adopted",
+  "source_id": "WS-MCIL-ADOPTED",
+  "iso2": "WS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.mcil.gov.ws/disclaimer",
+  "params": {
+   "second_route": "https://www.mcil.gov.ws/disclaimer (live page in browser)"
+  }
+ },
+ {
+  "id": "terms-ws-mnre-adopted",
+  "source_id": "WS-MNRE-ADOPTED",
+  "iso2": "WS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.mnre.gov.ws/?page_id=7955",
+  "params": {
+   "second_route": "https://www.mnre.gov.ws/?page_id=7955 (live page in browser)"
+  }
+ },
+ {
+  "id": "tl-decreto-lei-26-2012-pdf",
+  "source_id": "TL-JORNAL-ADOPTED",
+  "iso2": "TL",
+  "instrument": "tl-decreto-lei-26-2012",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mj.gov.tl/jornal/public/docs/2012/serie_1/serie1_no24.pdf",
+  "params": {
+   "second_route": "https://mj.gov.tl/jornal/?q=node/1083 (direct HTML transcription of Decreto-Lei 26/2012)"
+  }
+ },
+ {
+  "id": "tl-lei-8-2016-pdf",
+  "source_id": "TL-JORNAL-ADOPTED",
+  "iso2": "TL",
+  "instrument": "tl-lei-8-2016",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://mj.gov.tl/jornal/public/docs/2016/serie_1/SERIE_I_NO_26A.pdf",
+  "params": {
+   "second_route": "https://mj.gov.tl/jornal/?q=node/12 (Leis do Parlamento Nacional table linking the PDF)"
+  }
+ },
+ {
+  "id": "terms-tl-jornal-adopted",
+  "source_id": "TL-JORNAL-ADOPTED",
+  "iso2": "TL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://mj.gov.tl/jornal/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-tl-parlamento-adopted",
+  "source_id": "TL-PARLAMENTO-ADOPTED",
+  "iso2": "TL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.parlamento.tl",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-tl-bctl-adopted",
+  "source_id": "TL-BCTL-ADOPTED",
+  "iso2": "TL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bancocentral.tl",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "ls-environment-act-2008-page",
+  "source_id": "LS-DOE-ADOPTED",
+  "iso2": "LS",
+  "instrument": "ls-environment-act-2008",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://environment.gov.ls/download/environment-act-2008/",
+  "params": {}
+ },
+ {
+  "id": "terms-ls-doe-adopted",
+  "source_id": "LS-DOE-ADOPTED",
+  "iso2": "LS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://wipolex.wipo.int/en/text/209919",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-ls-lesotholii-adopted",
+  "source_id": "LS-LESOTHOLII-ADOPTED",
+  "iso2": "LS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://lesotholii.org/terms-of-use/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://lesotholii.org/terms-of-use/ (browser; Cloudflare challenge returns HTTP 403 to automated scripts)"
+  }
+ },
+ {
+  "id": "terms-ls-govls-adopted",
+  "source_id": "LS-GOVLS-ADOPTED",
+  "iso2": "LS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.ls/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-ls-cbl-adopted",
+  "source_id": "LS-CBL-ADOPTED",
+  "iso2": "LS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.centralbank.org.ls/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.centralbank.org.ls/ (browser; server returned HTTP 502 Bad Gateway on 2026-11-05)"
+  }
+ },
+ {
+  "id": "terms-ls-msm-adopted",
+  "source_id": "LS-MSM-ADOPTED",
+  "iso2": "LS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://msm.org.ls/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "sz-ema-2002",
+  "source_id": "SZ-EEA-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "sz-environment-management-act-2002",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://eea.org.sz/wp-content/uploads/2021/06/EMA-2002.pdf",
+  "params": {
+   "second_route": "https://eea.org.sz/downloads/ (download link under General)"
+  }
+ },
+ {
+  "id": "sz-ear-2022",
+  "source_id": "SZ-EEA-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "sz-environment-assessment-regulations-2022",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://eea.org.sz/wp-content/uploads/2023/02/The-Environment-Assessment-Regulations-2022.pdf",
+  "params": {
+   "second_route": "https://eea.org.sz/downloads/ (download link under Environmental Assessment)"
+  }
+ },
+ {
+  "id": "sz-pb-2021",
+  "source_id": "SZ-EEA-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "sz-control-of-plastic-bags-regulations-2021",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://eea.org.sz/wp-content/uploads/2025/05/SEA-20210521-The-Control-of-Plastic-Bags-Regulations-of-2021.pdf",
+  "params": {
+   "second_route": "https://eea.org.sz/downloads/ (download link under Waste Management)"
+  }
+ },
+ {
+  "id": "sz-ods-2003",
+  "source_id": "SZ-EEA-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "sz-ozone-depleting-substances-regulations-2003",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "http://eea.org.sz/wp-content/uploads/2020/08/The-ODS-Regulations-2003.pdf",
+  "params": {
+   "second_route": "https://eea.org.sz/downloads/ (download link under Ozone Unit)"
+  }
+ },
+ {
+  "id": "sz-fta-2001",
+  "source_id": "SZ-COMPCO-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "sz-fair-trading-act-2001",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.compco.co.sz/legislation/",
+  "params": {
+   "second_route": "https://www.compco.co.sz/legislation/ (HTML legislation directory)"
+  }
+ },
+ {
+  "id": "terms-sz-eea",
+  "source_id": "SZ-EEA-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://eea.org.sz/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://eea.org.sz/ (portal footer terms)"
+  }
+ },
+ {
+  "id": "terms-sz-compco",
+  "source_id": "SZ-COMPCO-ADOPTED",
+  "iso2": "SZ",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.compco.co.sz/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.compco.co.sz/ (home page footer)"
+  }
+ },
+ {
+  "id": "cg-loi-2023-33-jo-head",
+  "source_id": "CG-SGG-ADOPTED",
+  "iso2": "CG",
+  "instrument": "cg-loi-2023-33",
+  "kind": "http_head",
+  "tier": "gazette_feed",
+  "url": "https://www.sgg.cg/JO/2023/congo-jo-2023-48.pdf",
+  "params": {
+   "second_route": "https://sgg.cg/textes-officiels/lois/2023/congo-loi-2023-33.pdf"
+  }
+ },
+ {
+  "id": "cg-arrete-2024-13840-jo-head",
+  "source_id": "CG-SGG-ADOPTED",
+  "iso2": "CG",
+  "instrument": "cg-arrete-2024-13840",
+  "kind": "http_head",
+  "tier": "gazette_feed",
+  "url": "https://www.sgg.cg/JO/2024/congo-jo-2024-28.pdf",
+  "params": {
+   "second_route": "https://sgg.cg/textes-officiels/arretes/2024/congo-arrete-2024-13840.pdf"
+  }
+ },
+ {
+  "id": "cg-decret-2022-1923-jo-head",
+  "source_id": "CG-SGG-ADOPTED",
+  "iso2": "CG",
+  "instrument": "cg-decret-2022-1923",
+  "kind": "http_head",
+  "tier": "gazette_feed",
+  "url": "https://www.sgg.cg/JO/2023/congo-jo-2023-01.pdf",
+  "params": {
+   "second_route": "https://sgg.cg/textes-officiels/decrets/2022/congo-decret-2022-1923.pdf"
+  }
+ },
+ {
+  "id": "cg-loi-2024-36-jo-head",
+  "source_id": "CG-SGG-ADOPTED",
+  "iso2": "CG",
+  "instrument": "cg-loi-2024-36",
+  "kind": "http_head",
+  "tier": "gazette_feed",
+  "url": "https://www.sgg.cg/JO/2024/congo-jo-2024-51.pdf",
+  "params": {
+   "second_route": "https://sgg.cg/textes-officiels/lois/2024/congo-loi-2024-36.pdf"
+  }
+ },
+ {
+  "id": "terms-cg-sgg",
+  "source_id": "CG-SGG-ADOPTED",
+  "iso2": "CG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://sgg.cg/fr/mentions-legales.html",
+  "params": {
+   "second_route": "https://sgg.cg (homepage footer link)"
+  }
+ },
+ {
+  "id": "terms-cg-meddbc",
+  "source_id": "CG-MEDDBC-ADOPTED",
+  "iso2": "CG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://developpement-durable.gouv.cg/mention-legale/",
+  "params": {
+   "second_route": "https://developpement-durable.gouv.cg"
+  }
+ },
+ {
+  "id": "terms-cg-cosumaf",
+  "source_id": "CG-COSUMAF-ADOPTED",
+  "iso2": "CG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.cosumaf.org",
+  "params": {
+   "second_route": "https://www.cosumaf.org/mentions-legales/ (Cloudflare challenge on bare scripts; open in a browser)"
+  }
+ },
+ {
+  "id": "terms-cg-bvmac",
+  "source_id": "CG-BVMAC-ADOPTED",
+  "iso2": "CG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/",
+  "params": {
+   "second_route": "https://www.bvm-ac.org"
+  }
+ },
+ {
+  "id": "ao-lei-bases-ambiente-1998",
+  "source_id": "AO-INBAC-ADOPTED",
+  "iso2": "AO",
+  "instrument": "ao-lei-bases-ambiente-1998",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://inbac.gov.ao/assets_admin/images/documento/9aa168eabe659e1e9df1059a385a5ee1.pdf"
+ },
+ {
+  "id": "ao-eia-licensing-regulation-2020",
+  "source_id": "AO-MINAMB-ADOPTED",
+  "iso2": "AO",
+  "instrument": "ao-eia-licensing-regulation-2020",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://minamb.gov.ao/documentos-e-legislacao"
+ },
+ {
+  "id": "ao-climate-mrv-system-2022",
+  "source_id": "AO-MINAMB-ADOPTED",
+  "iso2": "AO",
+  "instrument": "ao-climate-mrv-system-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://minamb.gov.ao/documentos-e-legislacao"
+ },
+ {
+  "id": "ao-single-use-plastics-regulation-2025",
+  "source_id": "AO-MINAMB-ADOPTED",
+  "iso2": "AO",
+  "instrument": "ao-single-use-plastics-regulation-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://minamb.gov.ao/documentos-e-legislacao"
+ },
+ {
+  "id": "ao-consumer-protection-act-2003",
+  "source_id": "AO-DRON-ADOPTED",
+  "iso2": "AO",
+  "instrument": "ao-consumer-protection-act-2003",
+  "kind": "http_head",
+  "tier": "gazette_feed",
+  "url": "https://diariodarepublica.gov.ao/"
+ },
+ {
+  "id": "terms-ao-minamb-adopted",
+  "source_id": "AO-MINAMB-ADOPTED",
+  "iso2": "AO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://governo.gov.ao/termos",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-ao-inbac-adopted",
+  "source_id": "AO-INBAC-ADOPTED",
+  "iso2": "AO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://governo.gov.ao/termos",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-ao-dron-adopted",
+  "source_id": "AO-DRON-ADOPTED",
+  "iso2": "AO",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://diariodarepublica.gov.ao/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "cm-loi-2025-013-prc",
+  "source_id": "CM-PRC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-loi-2025-013",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.prc.cm/files/af/4f/1b/a98be43b8b63759d0e69260f784e841e.pdf"
+ },
+ {
+  "id": "cm-decret-2021-747-prc",
+  "source_id": "CM-PRC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-decret-2021-747",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.prc.cm/files/29/c3/88/e96d47b2692f6f04d13a2f5b96d0aa37.pdf"
+ },
+ {
+  "id": "cm-decret-2024-00176-spm",
+  "source_id": "CM-SPM-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-decret-2024-00176",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.spm.gov.cm/site/sites/default/files/decret_ndeg_2024_00176.pdf"
+ },
+ {
+  "id": "cm-loi-96-12-minepded",
+  "source_id": "CM-MINEPDED-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-loi-96-12",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://minepded.gov.cm/loi-cadre-sur-la-gestion-de-lenvironnement/",
+  "params": {
+   "second_route": "https://minepded.gov.cm/loi-cadre-sur-la-gestion-de-lenvironnement/ (browser; minepded.gov.cm returned HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)"
+  }
+ },
+ {
+  "id": "cm-bvmac-reglement-general-bvmac",
+  "source_id": "CM-BVMAC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-bvmac-reglement-general",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bvm-ac.org/textes-reglementaires/"
+ },
+ {
+  "id": "cm-loi-2011-012-prc",
+  "source_id": "CM-PRC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "cm-loi-2011-012",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.prc.cm/fr/recherche?searchword=2011%2F012"
+ },
+ {
+  "id": "terms-cm-prc",
+  "source_id": "CM-PRC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.prc.cm/fr/regles-de-confidentialite"
+ },
+ {
+  "id": "terms-cm-spm",
+  "source_id": "CM-SPM-ADOPTED",
+  "iso2": "CM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.spm.gov.cm"
+ },
+ {
+  "id": "terms-cm-bvmac",
+  "source_id": "CM-BVMAC-ADOPTED",
+  "iso2": "CM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.bvm-ac.org/mentions-legales-de-la-bvmac/"
+ },
+ {
+  "id": "terms-cm-cosumaf",
+  "source_id": "CM-COSUMAF-ADOPTED",
+  "iso2": "CM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.cosumaf.org",
+  "params": {
+   "second_route": "https://www.cosumaf.org (Cloudflare challenge on bare scripts; open in a browser)"
+  }
+ },
+ {
+  "id": "terms-cm-minepded",
+  "source_id": "CM-MINEPDED-ADOPTED",
+  "iso2": "CM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://minepded.gov.cm",
+  "params": {
+   "second_route": "https://minepded.gov.cm (HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)"
+  }
  }
 ]
