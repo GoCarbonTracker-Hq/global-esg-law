@@ -1,0 +1,30 @@
+[
+  {
+    "id": "vc-eccb-climate-risk-standard",
+    "title": "ECCB Prudential Standard on Climate-Related and Environmental Risks for Institutions Licensed Under the Banking Act, 2015",
+    "official_url": "https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf",
+    "citation": "Eastern Caribbean Central Bank, Prudential Standard on Climate-Related and Environmental Risks (August 2023), issued under s 184 of the Banking Act, 2015 (Act No. 4 of 2015)",
+    "in_force": "2024-03-01",
+    "evidence": "Section 1.0 Commencement: \"This Prudential Standard shall come into effect on the 1st day of March, 2024.\" Listed on https://www.eccb-centralbank.org/enforced.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "VC-ECCB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regional standard of the Eastern Caribbean Central Bank (ECCB) issued under section 184 of the Banking Act, 2015 (Act No. 4 of 2015). Applies in Saint Vincent and the Grenadines and the other seven ECCU members. Governs climate and environmental risk governance, risk management, stress testing, disclosure requirements (section 5.5), and regulatory reporting (section 5.6). Staged under source row VC-ECCB-ADOPTED whose verdict is permission requested (ECCB terms restrict usage to personal noncommercial use without redistribution or derivative works), so the text is not stored.",
+    "status": "link only"
+  },
+  {
+    "id": "vc-consumer-protection-act-2020",
+    "title": "Consumer Protection Act, 2020 (Act No. 12 of 2020)",
+    "official_url": "https://legal.gov.vc/legal/images/PDF/2020Gazettes/Gazette_No48_2020.pdf",
+    "citation": "Act No. 12 of 2020",
+    "in_force": null,
+    "evidence": "Section 1(2) provides that the Act comes into operation on a date appointed by proclamation in the Gazette; assented to 2020-08-31 and gazetted in Government Gazette Vol. 153 No. 48 of 1 September 2020 (Government Notice No. 109). No proclamation of commencement found on official government portals as of 2026-11-05.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "VC-LEGAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Enacted by the House of Assembly on 2020-08-14, assented to 2020-08-31, and gazetted in Gazette No. 48 of 2020. Establishes consumer protection rights, prohibiting unfair trade practices and misleading representations, which provide the statutory umbrella for misleading environmental claims. Under s 1(2), commencement requires ministerial proclamation; no commencement order has been published. Source row VC-LEGAL-ADOPTED is permission requested under Crown copyright (Copyright Act, Cap. 311, s 21(4)-(5)), so no text is stored.",
+    "status": "link only"
+  }
+]
