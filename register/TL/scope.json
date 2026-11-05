@@ -1,0 +1,30 @@
+[
+  {
+    "id": "tl-decreto-lei-26-2012",
+    "title": "Decreto-Lei n.º 26/2012 de 4 de Julho: Lei de Bases do Ambiente",
+    "official_url": "https://mj.gov.tl/jornal/?q=node/1083",
+    "citation": "Decreto-Lei n.º 26/2012, Jornal da República Série I, N.° 24 de 4 de Julho de 2012, p. 6015",
+    "in_force": "2012-07-05",
+    "evidence": "Artigo 71.º: \"O presente decreto-lei entra em vigor no dia seguinte ao da sua publicação.\" Published in Jornal da República Série I, N.° 24, on 4 de Julho de 2012.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "TL-JORNAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Basic Environmental Law of Timor-Leste. Record text is the Portuguese as-published text extracted from the official Jornal da República gazette issue PDF (Série I, N.° 24, pp. 6015-6029; also transcribed at ?q=node/1083). A Tetum translation is served by Jornal da República (Traducao_Lei_de_Bases_do_Ambiente.pdf); Tetum has no ISO 639-1 two-letter code, so it is link only per corpus rules. English was looked for on the Jornal da República portal (mj.gov.tl/jornal), the National Parliament (parlamento.tl), and the Government portal (timor-leste.gov.tl); no official English version exists.",
+    "status": "stored"
+  },
+  {
+    "id": "tl-lei-8-2016",
+    "title": "Lei n.º 8/2016, de 8 de Julho: Lei de Proteção ao Consumidor",
+    "official_url": "https://mj.gov.tl/jornal/public/docs/2016/serie_1/SERIE_I_NO_26A.pdf",
+    "citation": "Lei n.º 8/2016, Jornal da República Série I, N.° 26 A de 8 de Julho de 2016, p. 1",
+    "in_force": "2016-07-09",
+    "evidence": "Artigo 33.º: \"A presente lei entra em vigor no dia seguinte ao da sua publicação.\" Published in Jornal da República Série I, N.° 26 A, on 8 de Julho de 2016.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "TL-JORNAL-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Consumer Protection Law of Timor-Leste; establishes the general legal framework for consumer rights, fair commercial practices, and protection against misleading or false advertising. Record text is the Portuguese as-published text extracted from Jornal da República Série I, N.° 26 A, pp. 1-9. A Tetum translation is published in the Jornal da República (Lei_de_PRotecao_ao_Consumidor.pdf); Tetum has no ISO 639-1 code, so it is link only per corpus rules. English was looked for on the Jornal da República portal (mj.gov.tl/jornal), the National Parliament (parlamento.tl), and the Government portal (timor-leste.gov.tl); no official English version exists.",
+    "status": "stored"
+  }
+]
