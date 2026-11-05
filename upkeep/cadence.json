@@ -6,34 +6,34 @@
   "tracker_pointer": 90
  },
  "measured": true,
- "measured_on": "2026-11-03",
+ "measured_on": "2026-11-05",
  "paid_tools": [],
  "per_tier": {
   "gazette_feed": {
    "interval_days": 7,
    "watchers": 35,
-   "seconds_per_run": 62.59,
-   "bytes_per_run": 776735,
+   "seconds_per_run": 42.55,
+   "bytes_per_run": 776728,
    "failures_per_run": 0
   },
   "consolidation_site": {
    "interval_days": 14,
    "watchers": 906,
-   "seconds_per_run": 1148.95,
-   "bytes_per_run": 127893700,
-   "failures_per_run": 134
+   "seconds_per_run": 1592.68,
+   "bytes_per_run": 131512457,
+   "failures_per_run": 138
   },
   "regulator_page": {
    "interval_days": 30,
    "watchers": 300,
-   "seconds_per_run": 613.37,
-   "bytes_per_run": 33871133,
+   "seconds_per_run": 642.69,
+   "bytes_per_run": 36932780,
    "failures_per_run": 46
   },
   "tracker_pointer": {
    "interval_days": 90,
    "watchers": 0,
-   "seconds_per_run": 0,
+   "seconds_per_run": 0.0,
    "bytes_per_run": 0,
    "failures_per_run": 0
   }
@@ -71,6 +71,14 @@
    "seconds": 1824.9,
    "bytes": 162541568,
    "failures": 180
+  },
+  {
+   "on": "2026-11-05",
+   "source": "python3 tools/watch.py, laptop, GEL-04-11 after wave 16 (1241 watchers)",
+   "watchers": 1241,
+   "seconds": 2277.9,
+   "bytes": 169221965,
+   "failures": 184
   }
  ],
  "proposed_ceiling": {
