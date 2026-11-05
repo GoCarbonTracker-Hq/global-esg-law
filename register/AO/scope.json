@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ao-lei-bases-ambiente-1998",
+    "title": "Lei n.º 5/98 de 19 de Junho (Lei de Bases do Ambiente)",
+    "official_url": "https://inbac.gov.ao/assets_admin/images/documento/9aa168eabe659e1e9df1059a385a5ee1.pdf",
+    "citation": "Lei n.º 5/98 de 19 de Junho, Diário da República I Série n.º 27",
+    "in_force": "1998-06-19",
+    "evidence": "Published in Diário da República I Série n.º 27 on 19 June 1998; Artigo 36.º (Entrada em vigor): A presente lei entra em vigor na data da sua publicação. Opened 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AO-INBAC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Angola's environmental framework law. Chapter IV covers environmental licensing, mandatory environmental impact assessment (Art. 16), environmental audits (Art. 17), and environmental insurance (Art. 22) for installations whose activities present high risk of environmental degradation. Official language of legislation is Portuguese; no official English translation published. Full adopted text stored under AO-INBAC-ADOPTED.",
+    "status": "stored"
+  },
+  {
+    "id": "ao-eia-licensing-regulation-2020",
+    "title": "Decreto Presidencial n.º 117/20 de 22 de Abril (Regulamento Geral sobre a Avaliação de Impacte Ambiental e Procedimento de Licenciamento Ambiental)",
+    "official_url": "https://minamb.gov.ao/media/uploads/Decreto_117_PDF_1f88429fb8.pdf",
+    "citation": "Decreto Presidencial n.º 117/20 de 22 de Abril, Diário da República I Série n.º 54",
+    "in_force": "2020-04-22",
+    "evidence": "Published in Diário da República I Série n.º 54 on 22 April 2020; Artigo 4.º: O presente Diploma entra em vigor na data da sua publicação. Opened 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AO-MINAMB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regulates environmental impact assessment (EIA) and environmental licensing procedures for public and private projects across categories A, B, C, and D (Art. 5). Imposes mandatory environmental audits (Art. 28) and monitoring requirements on project proponents. Replaces Decree 51/04 and Decree 59/07. Official language of legislation is Portuguese; no official English translation published. Full adopted text stored under AO-MINAMB-ADOPTED.",
+    "status": "stored"
+  },
+  {
+    "id": "ao-climate-mrv-system-2022",
+    "title": "Decreto Presidencial n.º 8/22 de 13 de Janeiro (Institucionaliza o Sistema Nacional de Monitoramento, Reporte e Verificação da Política Climática - SNMRV)",
+    "official_url": "http://minamb.gov.ao/media/uploads/Decreto_Presidencial_n_8_22_Institucionaliza_o_Sistema_Nacional_de_Monitoramento_Reporte_e_Verificacao_da_Politica_Climatica_bf9d6b17f4.pdf",
+    "citation": "Decreto Presidencial n.º 8/22 de 13 de Janeiro, Diário da República I Série n.º 8",
+    "in_force": "2022-01-13",
+    "evidence": "Published in Diário da República I Série n.º 8 on 13 January 2022; Artigo 6.º: O presente Decreto Presidencial entra em vigor na data da sua publicação. Opened 2026-11-05.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AO-MINAMB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Institucionaliza o Sistema Nacional de Monitoramento, Reporte e Verificação da Política Climática (SNMRV). Regulates national GHG emissions inventory, tracking of mitigation and adaptation actions, and emissions reporting across energy, industry, agriculture, forestry, and waste sectors. Imposes data provision obligations on sector entities (Art. 7). Official language of legislation is Portuguese; no official English translation published. Scanned official text processed via OCR and marked extraction: ocr under AO-MINAMB-ADOPTED.",
+    "status": "stored"
+  },
+  {
+    "id": "ao-single-use-plastics-regulation-2025",
+    "title": "Decreto Presidencial n.º 170/25 de 22 de Setembro (Regulamento sobre a Produção, Importação, Comercialização e Uso de Produtos e Materiais de Plástico de Utilização Única)",
+    "official_url": "http://minamb.gov.ao/media/uploads/Decreto_Presidencial_que_aprova_o_Regulamento_do_banimento_de_PUU_ee46e871b7.pdf",
+    "citation": "Decreto Presidencial n.º 170/25 de 22 de Setembro, Diário da República I Série n.º 179",
+    "in_force": "2025-09-22",
+    "evidence": "Published in Diário da República I Série n.º 179 on 22 September 2025; Artigo 3.º: O presente Decreto Presidencial entra em vigor na data da sua publicação. Opened 2026-11-05.",
+    "law_family": "F4",
+    "duty_on": "private_sector",
+    "source_row": "AO-MINAMB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regulates production, importation, commercialisation, and use of single-use plastic products (PUU) in Angola. Establishes phased ban, mandatory eco-design standards, environmental contribution fees, extended producer responsibility, and environmental labelling obligations for producers and importers. Official language of legislation is Portuguese; no official English translation published. Scanned official text processed via OCR and marked extraction: ocr under AO-MINAMB-ADOPTED.",
+    "status": "stored"
+  },
+  {
+    "id": "ao-consumer-protection-act-2003",
+    "title": "Lei n.º 15/03 de 22 de Julho (Lei de Defesa do Consumidor)",
+    "official_url": "https://diariodarepublica.gov.ao/",
+    "citation": "Lei n.º 15/03 de 22 de Julho, Diário da República I Série n.º 57",
+    "in_force": "2003-07-22",
+    "evidence": "Published in Diário da República I Série n.º 57 on 22 July 2003; Artigo 35.º: A presente lei entra em vigor na data da sua publicação. Opened 2026-11-05.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "AO-DRON-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Angola consumer protection act. Article 14 establishes general advertising principles prohibiting misleading, deceptive, or abusive advertising, serving as the statutory basis for misleading environmental and green claims. Diário da República Online historical issues before recent months require subscription access; link only status retained.",
+    "status": "link only"
+  }
+]
