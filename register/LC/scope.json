@@ -1,0 +1,30 @@
+[
+  {
+    "id": "lc-climate-change-act-2024",
+    "title": "Climate Change Act, 2024 (Act No. 3 of 2024)",
+    "official_url": "https://npc.govt.lc/files/laws/acts/2024/Act%20No3%20of%202024%20Climate%20Change%20Act.pdf",
+    "citation": "Act No. 3 of 2024 (assented 2024-03-18, published in Gazette 2024-04-15)",
+    "in_force": null,
+    "evidence": "Section 1(2): \"This Act shall come into force on a date to be fixed by the Minister by Order published in the Gazette.\" Assented 2024-03-18 and published in Gazette 2024-04-15 (date printed on official Act text: \"[ 15th April, 2024 ]\"). Opened https://npc.govt.lc/files/laws/acts/2024/Act%20No3%20of%202024%20Climate%20Change%20Act.pdf on 2026-11-05 (HTTP 200, 945641 bytes, sha256 5dce6d0469385efef1c04ed375463a515639d4b9ca2ca51fca14fd77e576361b). No commencement order was found in the Statutory Instruments lists for 2024, 2025, or 2026 on npc.govt.lc.",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": "LC-NPC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Saint Lucia climate framework act: establishes national focal point, Climate Change Committee (ss. 8-17), Climate Change Adaptation Policy and National Adaptation Plan (ss. 18-20), greenhouse gas inventory and emission reduction targets (ss. 21-22), and Nationally Determined Contribution (s. 23). Section 24 addresses climate research. Section 1(2) requires a ministerial commencement order published in the Gazette; no commencement order was found on npc.govt.lc. Stored as link only because publisher row LC-NPC-ADOPTED is permission requested (Crown copyright under Copyright Act Cap. 13.07 s. 24(4)-(5), with no statutory exclusion for legislation). English is the language of legislation; Saint Lucian Creole (Kwéyòl) is not a legislative language.",
+    "status": "link only"
+  },
+  {
+    "id": "lc-consumer-protection-act",
+    "title": "Consumer Protection Act (Act No. 9 of 2016, as amended by Act No. 14 of 2021 and Act No. 27 of 2023)",
+    "official_url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act",
+    "citation": "Act No. 9 of 2016, as amended by Act No. 14 of 2021 and Act No. 27 of 2023; Revised Laws of Saint Lucia (2023)",
+    "in_force": "2022-01-01",
+    "evidence": "Act 9 of 2016 in force 1 January 2022 by Consumer Protection Act (Commencement) Order, 2022 (S.I. No. 9 of 2022); Act 14 of 2021 in force 1 January 2022; Act 27 of 2023 in force 27 December 2023. Opened https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act/act on 2026-11-05.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "LC-AGC-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "General consumer protection umbrella governing environmental claims: section 84 (disclosure of environmental facts, energy requirements, and chemical/biological hazards), section 115 (prohibits false, misleading or deceptive representations regarding characteristics, ingredients, benefits, or standard of goods/services), and section 118 (misleading the public as to the nature of goods or services). Stored as link only because publisher row LC-AGC-CONSOLIDATED is permission requested (All Rights Reserved notice; Copyright Act Cap. 13.07 s. 24 vests copyright in the Crown, with no exception for official legislative texts; Revised Edition of the Laws Act s. 12 reserves remote computer access and commercial publishing arrangements to the Attorney General and Cabinet). English only.",
+    "status": "link only"
+  }
+]
