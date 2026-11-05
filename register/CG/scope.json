@@ -1,0 +1,59 @@
+[
+  {
+    "id": "cg-loi-2023-33",
+    "title": "Loi n° 33-2023 du 17 novembre 2023 portant gestion durable de l'environnement en République du Congo",
+    "official_url": "https://www.sgg.cg/JO/2023/congo-jo-2023-48.pdf",
+    "citation": "Journal officiel de la République du Congo, 65e année, n° 48-2023, 30 novembre 2023, pp. 1655-1671",
+    "in_force": "2023-11-30",
+    "evidence": "Article 155: \"La présente loi, qui abroge toutes dispositions antérieures contraires, notamment la loi n° 003/91 du 23 avril 1991 sur la protection de l'environnement, sera publiée au Journal officiel et exécutée comme loi de l'Etat.\" Promulgated on 17 November 2023; published in Journal officiel de la République du Congo n° 48-2023 on 30 November 2023.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "CG-SGG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework law of the Republic of the Congo, repealing Loi n° 003/91 du 23 avril 1991. Regulates sustainable environmental management, strategic and project environmental assessments (Art. 104) and five-yearly audits for classified installations (Art. 105), climate change mitigation and adaptation (Title XIII, Art. 100-102), and the environmental protection fund (Art. 108-110). Enacted and published in French only in Journal officiel n° 48-2023 on 2023-11-30. No official English translation was published by the government of the Republic of the Congo; looked for on sgg.cg and developpement-durable.gouv.cg.",
+    "status": "stored"
+  },
+  {
+    "id": "cg-arrete-2024-13840",
+    "title": "Arrêté n° 13840 du 3 juillet 2024 portant nomenclature des installations classées pour la protection de l'environnement",
+    "official_url": "https://www.sgg.cg/JO/2024/congo-jo-2024-28.pdf",
+    "citation": "Journal officiel de la République du Congo, 66e année, n° 28-2024, 11 juillet 2024, pp. 870-881",
+    "in_force": "2024-07-11",
+    "evidence": "Article 8: \"Le présent arrêté sera enregistré et publié au Journal officiel de la République du Congo.\" Signed 3 July 2024; published in Journal officiel de la République du Congo n° 28-2024 on 11 July 2024.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "CG-SGG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Implementing regulation under Articles 104 and 105 of Loi n° 33-2023, establishing the 124-category nomenclature of classified installations for environmental protection (ICPE) subject to authorization, declaration, environmental taxation and five-year audits. Published in French only in Journal officiel n° 28-2024 on 2024-07-11. No official English translation was published by the government; looked for on sgg.cg.",
+    "status": "stored",
+    "amends": "cg-loi-2023-33"
+  },
+  {
+    "id": "cg-decret-2022-1923",
+    "title": "Décret n° 2022-1923 du 26 décembre 2022 portant création, attributions, organisation et fonctionnement de l'organe national de régulation, de suivi et de contrôle du marché carbone dénommé task force carbone forestier",
+    "official_url": "https://www.sgg.cg/JO/2023/congo-jo-2023-01.pdf",
+    "citation": "Journal officiel de la République du Congo, 65e année, n° 1-2023, 5 janvier 2023, pp. 8-10",
+    "in_force": "2023-01-05",
+    "evidence": "Article 26: \"Le présent décret sera enregistré et publié au Journal officiel de la République du Congo.\" Signed 26 December 2022; published in Journal officiel de la République du Congo n° 1-2023 on 5 January 2023.",
+    "law_family": "F3",
+    "duty_on": "public_authorities",
+    "source_row": "CG-SGG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Carbon market regulatory decree establishing the national carbon committee (task force carbone forestier) under the Prime Minister, mandated to evaluate and approve carbon credit programs, projects and pricing (Art. 2). Published in French only in Journal officiel n° 1-2023 on 2023-01-05. No official English translation was published by the government; looked for on sgg.cg.",
+    "status": "stored"
+  },
+  {
+    "id": "cg-loi-2024-36",
+    "title": "Loi n° 36-2024 du 11 octobre 2024 portant protection du consommateur",
+    "official_url": "https://www.sgg.cg/JO/2024/congo-jo-2024-51.pdf",
+    "citation": "Journal officiel de la République du Congo, 66e année, n° 51-2024, 19 décembre 2024, pp. 1541-1553",
+    "in_force": "2024-12-19",
+    "evidence": "Article 116: \"La présente loi, qui abroge toutes dispositions antérieures contraires, sera publiée au Journal officiel et exécutée comme loi de l'Etat.\" Promulgated 11 October 2024; published in Journal officiel de la République du Congo n° 51-2024 on 19 December 2024.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "CG-SGG-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Consumer protection framework act of the Republic of the Congo. Establishes fundamental consumer rights including the right to a healthy environment and clear information on environmental consequences (Art. 3), prohibits misleading advertising (Art. 20-22), and defines sanctions for unfair and deceptive commercial practices. Published in French only in Journal officiel n° 51-2024 on 2024-12-19. No official English translation was published by the government; looked for on sgg.cg.",
+    "status": "stored"
+  }
+]
