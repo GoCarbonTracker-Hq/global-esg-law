@@ -1,0 +1,66 @@
+[
+  {
+    "id": "gw-lei-bases-ambiente-2011",
+    "title": "Lei n.º 1/2011, approving the Lei de Bases do Ambiente (basic environmental law)",
+    "official_url": "https://faolex.fao.org/docs/pdf/gbs118164.pdf",
+    "citation": "Lei n.º 1/2011, Boletim Oficial n.º 9, 2.º Suplemento, 2 de Março de 2011",
+    "in_force": null,
+    "evidence": "Boletim Oficial n.º 9, 2.º Suplemento, Quarta-feira 2 de Março de 2011 (FAOLEX copy opened 2026-11-09). Entry-into-force clause: \"A presente lei entra em vigor no prazo de noventa dias após a data da sua publicação no Boletim Oficial.\"",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "GW-FAOLEX-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "in_force left null: the clause gives 90 days after publication; no page states the date. Calculated 31 May 2011, not written. Copy taken from FAOLEX, not the Imprensa Nacional host (did not answer). Link only: FAO terms allow non-commercial use only.",
+    "status": "link only"
+  },
+  {
+    "id": "gw-decreto-b-2017-licenciamento",
+    "title": "Decreto B/2017, approving the Regulamento do Licenciamento Ambiental",
+    "official_url": "https://faolex.fao.org/docs/pdf/gbs181208.pdf",
+    "citation": "Decreto n.º B/2017 (FAOLEX title), Boletim Oficial n.º 26, 28 de Junho de 2017",
+    "in_force": "2017-06-29",
+    "evidence": "Boletim Oficial n.º 26, 28 de Junho de 2017 (FAOLEX copy opened 2026-11-09). Clause: \"O presente decreto entra em vigor no dia seguinte ao da sua publicação no Boletim Oficial.\"",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "GW-FAOLEX-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Number conflict: FAOLEX says Decreto n.º B/2017; NCEA/ESY-map report 2023 says Decreto n.º 8/2017. Check the Boletim before citing a number. Implements Lei 1/2011 (preamble). Link only.",
+    "status": "link only"
+  },
+  {
+    "id": "gw-crepmf-guia-obrigacoes-verdes-2020",
+    "title": "Circulaire n°001/CREPMF/2020, guide for green, social and sustainable bond issues on the UMOA regional market",
+    "official_url": "https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf",
+    "citation": "Circulaire n°001/CREPMF/2020 (regional, WAEMU market)",
+    "in_force": null,
+    "evidence": "Cover of the BRVM PDF reads \"Circulaire N° 1 / CREPMF / 2020\" (read in an earlier run, recorded in the existing register row); day and month not legible in the scan; not re-read on 2026-11-09.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "GW-BRVM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Regional guidance, issuer is the CREPMF, not Guinea-Bissau. BRVM is not the regulator; the AMF-UMOA or CREPMF page was not found, so the BRVM copy stays as official_url. Link only: BRVM terms need permission.",
+    "status": "link only"
+  },
+  {
+    "id": "gw-amf-umoa-taxonomia-2024",
+    "title": "Circulaire n°001/AMF-UMOA/2024, taxonomy of eligible projects for green, social and sustainable bonds",
+    "official_url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations",
+    "citation": "Circulaire n°001/AMF-UMOA/2024 (regional, WAEMU market)",
+    "in_force": null,
+    "evidence": "Not read on the GW side: the circular is on the BRVM page; the same circular is read under BJ (GEL-12-07, 2026-11-03), where pages 1 and 2 state the taxonomy. The 2024-02-28 date comes from a Lextenso note only.",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "GW-BRVM-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Same instrument as the BJ, BF, CI, ML, NE, SN, TG entries; one text, linked from each place. AMF-UMOA host not read (client-rendered app). Link only: BRVM terms need permission.",
+    "status": "link only"
+  }
+]
