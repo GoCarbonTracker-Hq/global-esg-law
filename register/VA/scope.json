@@ -1,0 +1,16 @@
+[
+  {
+    "id": "va-motu-proprio-fratello-sole",
+    "title": "Lettera Apostolica in forma di Motu Proprio \"Fratello Sole\" (agrivoltaic plant for the energy needs of Vatican City State)",
+    "official_url": "https://vaticanstate.va/phocadownload/leggi-decreti/normativa-generale/Lettera%20Apostolica%20Motu%20Proprio%20Fratello%20Sole.pdf",
+    "citation": "Apostolic Letter in the form of a Motu Proprio \"Fratello Sole\" of Pope Francis, Vatican, 21 June 2024",
+    "in_force": "2024-06-21",
+    "evidence": "Printed date at the end of the scanned PDF (OCR): \"Dal Vaticano, il 21 giugno 2024, dodicesimo di Pontificato.\" The text has no commencement clause, so the issue date is taken as in_force (lookup policy). Opened https://www.vaticanstate.va/it/stato-e-governo/legislazione-e-normativa/normativa-generale.html?download=274:motu-prorio-del-sommo-pontefice-fratello-sole (303 to the PDF above, 200 application/pdf, 844158 bytes, sha256 5b20ce55630e959c36285044e1e1da3c2449aa953e7bb94022ea3129c3d573cd) on 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "VA-VATICANSTATE-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "An act of the Pope, listed by the Governorate under Normativa generale. It names the Presidents of the Governorate and of the Administration of the Patrimony of the Apostolic See extraordinary commissioners to build an agrivoltaic plant at Santa Maria di Galeria, citing Vatican City State's 6 July 2022 accession to the UNFCCC and the aim of climate neutrality; it sets no duty on companies. Link only: the row VA-VATICANSTATE-ADOPTED is permission requested (Governorate footer 'Tutti i diritti riservati'; copyright law N. CXCVII Art. 2 applies copyright to official acts). No government English text found on vaticanstate.va or vatican.va search of the page. The other laws on the five Normativa pages (general, other matters, criminal and administrative, legal persons, fundamental laws) were read by title only: none is an environmental, climate-disclosure, carbon-market or consumer-claims law. The public-contracts implementing regulation N. DCCXI mentions 'indici di sostenibilità ambientale' once as an example of an award-criteria source; it is a procurement rule and is not in scope.",
+    "status": "link only"
+  }
+]
