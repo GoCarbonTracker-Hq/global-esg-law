@@ -1,0 +1,34 @@
+[
+  {
+    "id": "bi-env-code-2021",
+    "title": "Loi n° 1/09 du 25 mai 2021 portant modification du Code de l'Environnement",
+    "official_url": "https://leap.unep.org/en/countries/bi/national-legislation/loi-no-109-du-25-mai-2021-portant-modification-du-code-de",
+    "citation": "Loi n° 1/09 du 25 mai 2021 (Burundi)",
+    "in_force": null,
+    "evidence": "No official page states an in-force date. Scanned FAOLEX copy (http://faolex.fao.org/docs/pdf/bur223581.pdf, read 2026-11-09, OCR, not official): signature line 'Fait à Gitega, le 25 mai 2021' and a final article saying the law enters into force on the day of its promulgation (OCR text).",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "BI-PRESIDENCE-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only: no official copy read. The LEAP title says 'portant modification', but the FAOLEX scan is a complete environmental code of 244 articles (Art. 244 repeals earlier contrary provisions). The Presidency listing (presidence.gov.bi/category/lois-promulguees/) has no post for it. Official copy and in-force date to confirm from the Bulletin officiel du Burundi or a Presidency post before any record is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "bi-env-code-2000",
+    "title": "Loi n° 1/010 du 30 juin 2000 portant Code de l'Environnement de la République du Burundi",
+    "official_url": "https://leap.unep.org/en/countries/bi/national-legislation/loi-no-1010-portant-code-de-lenvironnement",
+    "citation": "Loi n° 1/010 du 30 juin 2000 (Burundi)",
+    "in_force": null,
+    "evidence": "No official page read. The 2000 date is in the title on the LEAP page and in the preamble of the 2021 code ('Revu la Loi n°1/010 du 30 juin 2000'). Repeal by the 2021 code's final articles is read from the FAOLEX scan (OCR), not confirmed.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "BI-PRESIDENCE-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only. Probably repealed in substance by Art. 244 of the 2021 code (the 2021 text repeals earlier provisions contrary to it; no 2000 article read as surviving). Status to confirm on an official copy. Not on the Presidency site (search for '1/010' returned no law post).",
+    "status": "link only"
+  }
+]
