@@ -9,21 +9,21 @@ This is a map of what the repository holds and when it was last checked. It is n
 | Count | Value | As of | Command |
 |---|---|---|---|
 | Places in the register | 250 | 2026-11-09 | `python3 tools/coverage.py` |
-| Register rows | 1611 | 2026-11-09 | `python3 tools/coverage.py` |
-| Register rows with an instrument and a law family (shown in the grid) | 1549 | 2026-11-09 | `python3 tools/coverage.py` |
+| Register rows | 1639 | 2026-11-09 | `python3 tools/coverage.py` |
+| Register rows with an instrument and a law family (shown in the grid) | 1578 | 2026-11-09 | `python3 tools/coverage.py` |
 | Register rows with an instrument but no law family (not in the grid) | 3 | 2026-11-09 | `python3 tools/coverage.py` |
 | Register rows with a law family outside F1 to F7 | 1 | 2026-11-09 | `python3 tools/coverage.py` |
-| Register rows with no instrument (place listed, nothing found) | 58 | 2026-11-09 | `python3 tools/coverage.py` |
-| Pilot places with a scope file | 191 | 2026-11-09 | `python3 tools/coverage.py` |
-| Instruments in scope files | 1248 | 2026-11-09 | `python3 tools/coverage.py` |
-| Instruments with stored text | 777 | 2026-11-09 | `python3 tools/coverage.py` |
-| Instruments link only | 471 | 2026-11-09 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3149 | 2026-11-09 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 1356 | 2026-11-09 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 1356 | 2026-11-09 | `python3 tools/coverage.py` |
+| Register rows with no instrument (place listed, nothing found) | 57 | 2026-11-09 | `python3 tools/coverage.py` |
+| Pilot places with a scope file | 198 | 2026-11-09 | `python3 tools/coverage.py` |
+| Instruments in scope files | 1265 | 2026-11-09 | `python3 tools/coverage.py` |
+| Instruments with stored text | 784 | 2026-11-09 | `python3 tools/coverage.py` |
+| Instruments link only | 481 | 2026-11-09 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3156 | 2026-11-09 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 1385 | 2026-11-09 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 1385 | 2026-11-09 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-09 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-09 | `python3 tools/coverage.py` |
-| Places with no watcher | 60 | 2026-11-09 | `python3 tools/coverage.py` |
+| Places with no watcher | 53 | 2026-11-09 | `python3 tools/coverage.py` |
 | Places with instruments but no stored text (link only) | 71 | 2026-11-09 | `python3 tools/coverage.py` |
 | Places with stored text but no consolidated text (as published only) | 69 | 2026-11-09 | `python3 tools/coverage.py` |
 
@@ -31,11 +31,12 @@ This is a map of what the repository holds and when it was last checked. It is n
 
 Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 
-- Places with no watcher (60): AF, AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CW, CX, EH, ER, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, IR, JE, KY, LY, MF, MO, MP, MQ, MS, NC, NE, NF, NU, PF, PM, PN, PR, RE, SD, SH, SJ, SO, SS, SX, TC, TF, TK, UM, VG, VI, WF, YT.
+- Places with no watcher (53): AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CW, CX, EH, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, JE, KY, MF, MO, MP, MQ, MS, NC, NE, NF, NU, PF, PM, PN, PR, RE, SH, SJ, SX, TC, TF, TK, UM, VG, VI, WF, YT.
 - Families with no instrument anywhere in the register (0): none.
 - Families with no stored text in any place (1): F7.
 - AD: families with no instrument (4): F1, F4, F5, F7.
 - AE: families with no instrument (4): F3, F4, F5, F7.
+- AF: families with no instrument (5): F1, F3, F4, F5, F6.
 - AG: families with no instrument (3): F3, F4, F5.
 - AL: families with no instrument (5): F3, F4, F5, F6, F7.
 - AM: families with no instrument (3): F1, F4, F5.
@@ -85,6 +86,7 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - EC: families with no instrument (3): F3, F4, F5.
 - EE: families with no instrument (3): F2, F4, F5.
 - EG: families with no instrument (4): F4, F5, F6, F7.
+- ER: families with no instrument (5): F1, F3, F4, F5, F6.
 - ES: families with no instrument (2): F4, F5.
 - ET: families with no instrument (4): F3, F4, F5, F6.
 - EU: families with no instrument (4): F2, F3, F4, F7.
@@ -114,6 +116,7 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - IL: families with no instrument (2): F4, F5.
 - IN: families with no instrument (5): F2, F3, F5, F6, F7.
 - IQ: families with no instrument (4): F4, F5, F6, F7.
+- IR: families with no instrument (6): F1, F2, F3, F4, F5, F6.
 - IS: families with no instrument (3): F4, F5, F7.
 - IT: families with no instrument (2): F4, F5.
 - JM: families with no instrument (4): F1, F3, F4, F5.
@@ -139,6 +142,7 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - LT: families with no instrument (4): F3, F4, F5, F7.
 - LU: families with no instrument (2): F4, F5.
 - LV: families with no instrument (3): F4, F5, F7.
+- LY: families with no instrument (6): F2, F3, F4, F5, F6, F7.
 - MA: families with no instrument (4): F3, F4, F5, F6.
 - MC: families with no instrument (3): F1, F5, F7.
 - MD: families with no instrument (3): F4, F5, F7.
@@ -185,6 +189,7 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - SA: families with no instrument (4): F1, F3, F4, F5.
 - SB: families with no instrument (4): F1, F3, F4, F5.
 - SC: families with no instrument (3): F3, F4, F5.
+- SD: families with no instrument (4): F1, F3, F4, F5.
 - SE: families with no instrument (3): F4, F5, F6.
 - SG: families with no instrument (3): F2, F4, F5.
 - SI: families with no instrument (3): F4, F5, F7.
@@ -192,7 +197,9 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - SL: families with no instrument (4): F1, F3, F4, F5.
 - SM: families with no instrument (4): F1, F3, F4, F7.
 - SN: families with no instrument (4): F1, F3, F4, F5.
+- SO: families with no instrument (5): F1, F3, F4, F5, F6.
 - SR: families with no instrument (6): F1, F3, F4, F5, F6, F7.
+- SS: families with no instrument (4): F2, F3, F4, F5.
 - ST: families with no instrument (5): F1, F3, F4, F5, F6.
 - SV: families with no instrument (3): F3, F4, F5.
 - SY: families with no instrument (5): F1, F3, F4, F5, F7.
@@ -225,9 +232,9 @@ Counts as of 2026-11-09, from `python3 tools/coverage.py`.
 - ZA: families with no instrument (2): F5, F7.
 - ZM: families with no instrument (4): F1, F4, F5, F7.
 - ZW: families with no instrument (4): F3, F4, F5, F6.
-- Places with instruments but no stored text, link only (71): AE, BB, BD, BF, BI, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GQ, GW, GY, HK, ID, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MW, MY, NE, NO, NP, PK, PS, RO, RU, SA, SB, SC, SD, SG, SM, SN, SO, SS, ST, TD, TG, TH, TV, UA, VA, VC, VU, ZM.
+- Places with instruments but no stored text, link only (71): AE, AF, BB, BD, BF, BI, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GQ, GW, GY, HK, ID, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MW, MY, NE, NO, NP, PK, PS, RO, RU, SA, SB, SC, SG, SM, SN, SO, SS, ST, TD, TG, TH, TV, UA, VA, VC, VU, ZM.
 - Places whose stored texts are the acts as published, no consolidated text (69): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NG, NI, OM, PA, PE, PG, PH, PW, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
-- Places listed with no instrument found (52): AF, AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CW, CX, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, JE, KY, MF, MO, MP, MQ, MS, NC, NF, NU, PF, PM, PN, PR, RE, SH, SJ, SX, TC, TF, TK, UM, VG, VI, WF, YT.
+- Places listed with no instrument found (51): AI, AQ, AS, AW, AX, BL, BM, BQ, BV, CC, CK, CW, CX, FK, FO, GF, GG, GI, GL, GP, GS, GU, HM, IM, IO, JE, KY, MF, MO, MP, MQ, MS, NC, NF, NU, PF, PM, PN, PR, RE, SH, SJ, SX, TC, TF, TK, UM, VG, VI, WF, YT.
 - Register rows with an instrument but no law family (3), not shown in the grid: JP, KR, ZW.
 - Register rows with no scope entry have no check date in the files; their cells read `unchecked` and are not counted as stale, although their cadence tier is `tracker_pointer`.
 
@@ -250,7 +257,7 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 |---|---|---|---|---|---|---|---|---|
 | AD | Andorra |  | B · official_text_seen · text 1 · checked 2026-11-09 · changed 2018-10-04 | A · official_text_seen · text 2 · checked 2026-11-09 · changed 2021-09-30 |  |  | A · official_text_seen · text 1 · checked 2026-11-09 · changed 2013-08-10 |  |
 | AE | United Arab Emirates | A · official_page_seen · link only · unchecked | A · official_page_seen/tracker_only · link only · unchecked |  |  |  | A · tracker_only · link only · unchecked |  |
-| AF | Afghanistan |  |  |  |  |  |  |  |
+| AF | Afghanistan |  | A · official_page_title_only · link only · checked 2026-11-09 |  |  |  |  | C · tracker_only · no link · unchecked |
 | AG | Antigua & Barbuda | A · official_text_seen · link only · checked 2026-11-09 | A · official_text_seen · text 1 · checked 2026-11-09 · changed 2019-04-30 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-09 · changed 2025-10-30 | A/B · official_text_seen · link only · unchecked |
 | AI | Anguilla |  |  |  |  |  |  |  |
 | AL | Albania | A · official_text_seen · text 1, link only 1 · checked 2026-11-09 (1 unchecked) · changed 2019-01-01 | A · official_page_seen/official_text_seen · link only · checked 2026-11-09 (1 unchecked) |  |  |  |  |  |
@@ -314,7 +321,7 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 | EE | Estonia | A · official_text_seen · link only · unchecked |  | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked | A · official_page_seen · link only · unchecked |
 | EG | Egypt | A · not_checked/official_text_seen · link only · checked 2026-11-09 (1 unchecked) | A · official_text_seen · link only · checked 2026-11-09 | A · official_text_seen · link only · checked 2026-11-09 |  |  |  |  |
 | EH | Western Sahara |  |  |  |  |  |  | B · official_text_seen · no link · unchecked |
-| ER | Eritrea |  |  |  |  |  |  | B · official_text_seen · no link · unchecked |
+| ER | Eritrea |  | B · official_page_seen/official_text_seen · link only · unchecked |  |  |  |  | C · none · no link · unchecked |
 | ES | Spain | A/B · official_page_seen/official_text_seen · text 4, link only 1 · checked 2026-11-09 (1 unchecked) · changed 2018-12-30 | A · official_text_seen · text 7 · checked 2026-11-09 · changed 2026-07-01 | A · official_text_seen · text 14 · checked 2026-11-09 · changed 2025-06-14 |  |  | A · official_text_seen · text 40 · checked 2026-11-09 · changed 2026-02-28 | A · official_text_seen · link only · unchecked |
 | ET | Ethiopia | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · checked 2026-11-09 |  |  |  |  | B · not_checked/official_page_seen · link only · unchecked |
 | EU | European Union | A · official_text_seen · text 10 · checked 2026-11-09 · changed 2026-11-10 |  |  |  | A · official_text_seen · text 3 · checked 2026-11-09 · changed 2026-03-18 | A · official_text_seen · text 22 · checked 2026-11-09 · changed 2026-07-02 |  |
@@ -356,7 +363,7 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 | IN | India | A · official_text_seen · link only · checked 2026-11-09 |  |  | A · tracker_only · link only · checked 2026-11-09 |  |  |  |
 | IO | British Indian Ocean Territory |  |  |  |  |  |  |  |
 | IQ | Iraq | A · official_text_seen · link only · checked 2026-11-09 (1 unchecked) | A · official_page_seen/official_text_seen · link only · checked 2026-11-09 (1 unchecked) | A · official_text_seen · link only · checked 2026-11-09 |  |  |  |  |
-| IR | Iran |  | B · tracker_only · link only · unchecked |  |  |  |  |  |
+| IR | Iran |  |  |  |  |  |  | B/C · tracker_only · link only, no link 2 · unchecked |
 | IS | Iceland | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · checked 2026-11-09 | A · official_text_seen · link only · checked 2026-11-09 |  |  | A · official_text_seen · link only · checked 2026-11-09 |  |
 | IT | Italy | A · official_text_seen · text 8 · checked 2026-11-09 · changed 2025-08-10 | A · official_text_seen · text 15 · checked 2026-11-09 · changed 2025-05-14 | A · official_text_seen · text 29 · checked 2026-11-09 · changed 2026-05-23 |  |  | A · official_text_seen · text 28 · checked 2026-11-09 · changed 2026-10-22 | A · official_page_seen · link only · unchecked |
 | JE | Jersey |  |  |  |  |  |  |  |
@@ -384,7 +391,7 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 | LT | Lithuania | A · official_page_seen/tracker_only · link only · checked 2026-11-09 | A · tracker_only · link only · checked 2026-11-09 |  |  |  | A · tracker_only · link only · checked 2026-11-09 |  |
 | LU | Luxembourg | A/B · official_page_seen/official_text_seen · text 1, link only 2 · checked 2026-11-09 (1 unchecked) · changed 2025-12-23 | A · official_text_seen · text 8 · checked 2026-11-09 · changed 2025-07-26 | A · official_text_seen · text 4 · checked 2026-11-09 · changed 2026-01-04 |  |  | A · official_text_seen · text 9 · checked 2026-11-09 · changed 2026-09-27 | B · official_page_seen · link only · unchecked |
 | LV | Latvia | A · official_text_seen · text 9 · checked 2026-11-09 · changed 2025-10-24 | A · official_text_seen · text 2 · checked 2026-11-09 · changed 2027-01-01 | A · official_text_seen · text 49 · checked 2026-11-09 · changed 2031-01-01 |  |  | A · official_text_seen · text 8 · checked 2026-11-09 · changed 2027-01-01 |  |
-| LY | Libya | B · official_page_seen · link only · unchecked |  |  |  |  |  |  |
+| LY | Libya | B · official_text_seen · link only · checked 2026-11-09 |  |  |  |  |  |  |
 | MA | Morocco | A · official_page_seen · link only · unchecked | B · official_page_seen · link only · unchecked |  |  |  |  | B · tracker_only · no link · unchecked |
 | MC | Monaco |  | A/B · official_text_seen · text 4, link only 1 · checked 2026-11-09 (1 unchecked) · changed 2025-10-18 | A · official_text_seen · text 2 · checked 2026-11-09 · changed 2021-01-02 | A · official_text_seen · link only · unchecked |  | A · official_text_seen · link only · unchecked |  |
 | MD | Moldova | A · official_text_seen · text 2 · checked 2026-11-09 · changed 2019-01-01 | A · official_page_seen/official_text_seen · text 2, link only 1 · checked 2026-11-09 · changed 2025-11-16 | A · official_text_seen · text 4, link only 3 · checked 2026-11-09 (1 unchecked) · changed 2026-05-28 |  |  | A · official_text_seen · text 2 · checked 2026-11-09 · changed 2011-10-21 |  |
@@ -444,7 +451,7 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 | SA | Saudi Arabia |  | A · official_page_seen · link only · unchecked |  |  |  | A · tracker_only · link only · unchecked | A/B/C · official_text_seen/tracker_only · link only, no link 1 · unchecked |
 | SB | Solomon Islands |  | A · official_text_seen · link only · checked 2026-11-09 |  |  |  | A · official_text_seen · link only · checked 2026-11-09 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | SC | Seychelles | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |  |  | A · official_text_seen · link only · checked 2026-11-09 (1 unchecked) | A · official_page_seen · link only · unchecked |
-| SD | Sudan |  |  |  |  |  | A · official_text_seen · link only · unchecked |  |
+| SD | Sudan |  | A · official_text_seen · text 6 · checked 2026-11-09 · changed 2015-03-30 |  |  |  | A · official_text_seen · text 1, link only 1 · checked 2026-11-09 (1 unchecked) · changed 2015-03-30 | B · official_page_seen · link only, no link 1 · unchecked |
 | SE | Sweden | A · official_page_seen/official_text_seen · text 4, link only 1 · checked 2026-11-09 · changed 2024-07-01 | A · official_text_seen · text 3 · checked 2026-11-09 · changed 2026-01-01 | A · official_text_seen · text 4 · checked 2026-11-09 · changed 2026-07-01 |  |  |  | A · official_page_seen · link only · unchecked |
 | SG | Singapore | A · official_page_seen · link only · checked 2026-11-09 |  | A · official_page_seen · link only · checked 2026-11-09 |  |  | A · tracker_only · link only · checked 2026-11-09 | A · tracker_only · link only · unchecked |
 | SH | St. Helena |  |  |  |  |  |  |  |
@@ -454,9 +461,9 @@ One row per place in the register, one column per law family, as of 2026-11-09.
 | SL | Sierra Leone |  | A/B · official_text_seen · text 1, link only 1 · checked 2026-11-09 · changed 2025-04-03 |  |  |  | A · official_text_seen · link only · checked 2026-11-09 | A · tracker_only · link only · unchecked |
 | SM | San Marino |  | A · official_text_seen · link only · checked 2026-11-09 |  |  | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |
 | SN | Senegal |  | B · official_text_seen/tracker_only · link only · checked 2026-11-09 |  |  |  | B · tracker_only · link only · checked 2026-11-09 | B/C · official_page_seen/official_text_seen · link only · unchecked |
-| SO | Somalia |  | B · tracker_only · link only · unchecked | A · official_text_seen · link only · unchecked |  |  |  |  |
+| SO | Somalia |  | A/B · official_text_seen · link only · checked 2026-11-09 (1 unchecked) |  |  |  |  | B/C · not_checked/official_page_seen/tracker_only · link only · unchecked |
 | SR | Suriname |  | B · official_text_seen · link only · unchecked |  |  |  |  |  |
-| SS | South Sudan |  | B · tracker_only · link only · unchecked |  |  |  |  |  |
+| SS | South Sudan | A · official_text_seen · link only · checked 2026-11-09 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-09 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | ST | São Tomé & Príncipe |  | B · official_text_seen · link only · checked 2026-11-09 |  |  |  |  | B · not_checked · no link · unchecked |
 | SV | El Salvador | A · official_text_seen · link only · checked 2026-11-09 | A · official_text_seen · text 2 · checked 2026-11-09 · changed 1998-05-12 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-09 · changed 2005-10-08 | B · tracker_only · link only · unchecked |
 | SX | Sint Maarten |  |  |  |  |  |  |  |
@@ -521,6 +528,15 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | ae-law-24-1999-environment | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | ae-law-15-2020-consumer-protection | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | ae-cr-66-2023-consumer-protection-regulation | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+
+### AF (Afghanistan)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| af-environment-law | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+| af-eia-regulation | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+| af-air-pollution-regulation | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+| af-air-pollution-regulation-amendment | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
 ### AG (Antigua & Barbuda)
 
@@ -1109,6 +1125,11 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | eg-pm-decree-4664-2022 | F3 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | eg-fra-bod-31-2024 | F3 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
+### ER (Eritrea)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+
 ### ES (Spain)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1479,6 +1500,11 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | iq-environmental-approval-instructions-3-2011 | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | iq-carbon-economics-company-statement-2025 | F3 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
+### IR (Iran)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+
 ### IS (Iceland)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1752,6 +1778,12 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | lv-par-piesarnojumu | F3 | text 42 | 42 | 2026-11-09 | watcher | regulator_page | 2031-01-01 | current |
 | lv-mk-769-ets-iekartas | F3 | text 7 | 7 | 2026-11-09 | watcher | regulator_page | 2021-04-08 | current |
 | lv-negodigas-komercprakses-likums | F6 | text 8 | 8 | 2026-11-09 | watcher | regulator_page | 2027-01-01 | current |
+
+### LY (Libya)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ly-cbl-circular-28-2023 | F1 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
 ### MA (Morocco)
 
@@ -2284,6 +2316,19 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | sc-environment-protection-act | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | sc-consumer-protection-act | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
+### SD (Sudan)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| sd-environment-protection-act-2001 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-forests-renewable-natural-resources-act-2002 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-wildlife-protection-national-parks-act-1986 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-desertification-control-act-2009 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-biosafety-act-2010 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-environmental-health-act-2009 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-competition-anti-monopoly-act-2009 | F6 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2015-03-30 | current |
+| sd-cbos-policies-2024 | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+
 ### SE (Sweden)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2369,6 +2414,13 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | sn-decret-2025-227 | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 | sn-loi-2021-25-consommateur | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
+### SO (Somalia)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| so-environmental-protection-and-management-act-2024 | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+| so-esia-regulations-2024 | F2 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+
 ### SR (Suriname)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2376,6 +2428,13 @@ As of 2026-11-09. `versions` is the number of record files; `checked from` says 
 | sr-milieu-raamwet | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2020-05-15 | current |
 | sr-milieu-raamwet-wijziging-2024 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2024-05-29 | current |
 | sr-paris-agreement-act-2018 | F2 | text 1 | 1 | 2026-11-09 | watcher | regulator_page | 2018-07-19 | current |
+
+### SS (South Sudan)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ss-companies-act-2012-table-e-part-iv | F1 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
+| ss-consumer-protection-act-2011 | F6 | link only | 0 | 2026-11-09 | watcher | regulator_page |  | current |
 
 ### ST (São Tomé & Príncipe)
 
