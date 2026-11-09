@@ -10170,3 +10170,231 @@ Link-only instruments and the reason:
 - French (fr): the only language of the instruments in scope. No English translation row exists in this wave. No government English text was looked for in the Assembly or Légiburkina pages (neither was reached in English).
 
 Blocked from the laptop address on 2026-11-09 (no HTTP reply): https://www.gouv.bf, https://sgg.gov.bf, https://www.sgg.gov.bf, https://jo.gov.bf, https://www.legiburkina.bf/, https://www.environnement.gov.bf, https://www.assemblee-nationale.bf (the Assembly answers at assembleenationale.bf).
+
+## Holy See (Vatican City State)
+
+Row `VA-VATICANSTATE-ADOPTED` is `permission requested`: nothing is stored, the one scope instrument is link only. The site has no terms page; every page carries the footer "Copyright © 2026 by “Governatorato dello Stato della Città del Vaticano" | Tutti i diritti riservati", and copyright law N. CXCVII of 1 September 2017 Art. 2 applies copyright to the texts of laws and official acts published by the Holy See and the State. No permission request has been sent. Language of the laws: Italian only; the site's other language versions carry menus, not the laws.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-09 (for the link-only entry and the watchers):
+
+```
+curl -sL -A "Mozilla/5.0" -o fs.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.vaticanstate.va/it/stato-e-governo/legislazione-e-normativa/normativa-generale.html?download=274:motu-prorio-del-sommo-pontefice-fratello-sole"
+```
+
+Returned `200 844158 application/pdf` after a 303 to `https://vaticanstate.va/phocadownload/leggi-decreti/normativa-generale/Lettera Apostolica Motu Proprio Fratello Sole.pdf` (sha256 5b20ce55630e959c36285044e1e1da3c2449aa953e7bb94022ea3129c3d573cd). The PDF is a scan with no text layer; `pdftoppm -r 200 -png` then `tesseract -l ita` read it. The copyright law PDF, `...?download=178:n-cxcvii-1-settembre-2017-...` on normativa-altre-materie.html, returned `200 350162 application/pdf` (sha256 9654273b114bf3cad2b8003b7b74c6f10f334f203788b9f8d48b88173baf8df7); `pdftotext -layout` gave Art. 2 without mojibake.
+
+### Languages
+
+Italian only. No government English text of the Motu Proprio was found on vaticanstate.va or vatican.va.
+
+### Link-only instruments
+
+- `va-motu-proprio-fratello-sole`: row `VA-VATICANSTATE-ADOPTED` is permission requested.
+- The First National Communication and the May 2023 NDC are reports to the UNFCCC, register rows with `law_family` F7, no scope entry.
+- No F1, F3 or F6 instrument exists on the five Normativa pages (general, other matters, criminal and administrative, legal persons, fundamental laws), read by title. The State has no securities regulator or stock exchange; asif.va home page answered 200 (5617 bytes) with no sustainability or climate text; IOR was not opened.
+
+## Tuvalu
+
+Rows `TV-LEGISLATION-ADOPTED` and `TV-LEGISLATION-CONSOLIDATED`, both `permission requested` on the terms basis: the Copyright page of tuvalu-legislation.tv says copyright is retained by the Government of Tuvalu, copying is allowed "in unaltered form only", and commercialising needs the Government's permission. The Copyright Act (Cap. 40.24) has no section on official texts. No row passes, so no text is stored and every Tuvalu instrument is link only. Run on 2026-11-09.
+
+The site is a Joomla application; plain `curl -L` on the bare host returns an empty page with a meta refresh to `/cms/`, so the working request goes to `/cms/` or straight to a PDF. PDFs are served to a plain client without a browser.
+
+Proven fetch requests (no text kept, hashes recorded in the row and scope notes):
+
+```
+curl -sL -A 'Mozilla/5.0' -o 2019-0009_2.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0009/2019-0009_2.pdf
+```
+
+Returned `200 283403 application/pdf` (Climate Change Resilience Act 2019, 2022 Revised Edition). The `_1.pdf` file of the same folder returned `200 420257 application/pdf` (the Act as enacted). Terms page: `curl -sL -A 'Mozilla/5.0' 'https://tuvalu-legislation.tv/cms/?view=article&id=115:copyright&catid=14:general-articles'` returned `200 33868 text/html; charset=utf-8`. The index of all laws, with the folder number of each, is `https://tuvalu-legislation.tv/cms/component/legislation/?view=index_all&Itemid=683` (`200 151174 text/html`). PDF folders follow `/cms/images/LEGISLATION/PRINCIPAL/<year>/<year>-<nnnn>/<year>-<nnnn>_<1|2>.pdf` (Acts) and `.../SUBORDINATE/...` (regulations); `_1` is the text as enacted and `_2` the later or revised edition.
+
+### Languages
+
+English only. Acts are enacted in English; no Tuvaluan text and no government translation was found on the site.
+
+### Link only
+
+All three scope instruments (`tv-climate-change-resilience-act`, `tv-environment-protection-act`, `tv-eia-regulations-2014`): row verdict `permission requested`.
+
+### Blocked
+
+- `https://paclii.org/tv/` returned `403 5314 text/html; charset=UTF-8` to `curl -A 'Mozilla/5.0'`; a university project, not the official publisher, not used.
+- `https://www.tuvaluclimatechange.gov.tv` did not answer on 2026-11-09 (per the brief; not retried).
+- WIPO Lex PDF of the Copyright Act not opened; the Act was read in full on tuvalu-legislation.tv instead.
+
+## Kiribati
+
+Checked 2026-11-09. No instrument of the scope sits on a row that passes, so no record is stored.
+
+### Rows
+
+- KI-GOV-ADOPTED (pass, statute): Government of Kiribati portal. Copyright Act 2018 s.7(2)(b), read on the WIPO Lex PDF (sha256 a09fecaee0d0f4c46cfebb14fbd014a8beaa2583e9e2868aa272be4305ea9c62), removes copyright from official legislative texts. The portal lists nine Acts and none is in scope. Proven request: `curl -sL -A 'Mozilla/5.0' https://www.kiribati.gov.ki/acts` answered HTTP 200, 31901 bytes, text/html; charset=utf-8. An Act PDF: `curl -sL -A 'Mozilla/5.0' 'https://www.kiribati.gov.ki/sites/default/files/Fisheries%20Act%202010.pdf'` is linked from https://www.kiribati.gov.ki/act/fisheries-act-2010 (page HTTP 200, 29785 bytes, text/html).
+- KI-PACLII-ADOPTED (permission requested): `curl -sL -A 'Mozilla/5.0' https://www.paclii.org/ki/` answered HTTP 403, 5339 bytes, text/html, a Cloudflare challenge ("Just a moment..."). `/ki/legis/`, `/ki/legis/num_act/` and `/ki/legis/consol_act/` answered 403 too. The mirror pacliirms.austlii.edu.au gave no reply. No browser recipe was tried from this session.
+- KI-FAOLEX-COPY (permission requested): FAO database terms; copy host, not the issuer.
+- KI-WIPOLEX-COPY (permission requested): no terms page found; copy host, not the issuer.
+
+### WIPO Lex route used to read the statute
+
+`curl -sL -A 'Mozilla/5.0' https://www.wipo.int/wipolex/en/legislation/details/19452` (HTTP 200), take the signed `wipolex-res.wipo.int/.../ki029en.pdf?...` link, unescape `&#x3D;` and `&amp;`, download with `curl -sL -A 'Mozilla/5.0'`: HTTP 200, 5280054 bytes, application/pdf. `pdftotext -layout` gave readable text with some scan noise; the quoted sentence matched exactly.
+
+### Languages
+
+Acts are enacted in English. No Gilbertese text and no government English translation was found on any host opened.
+
+### Link-only instruments
+
+- ki-drm-climate-change-act-2019: KI-FAOLEX-COPY is permission requested; PacLII blocked (HTTP 403).
+- ki-environment-act-2021: same reason. It repeals the Environment Act 1999 and the 2007 amendment (s.117).
+- ki-consumer-protection-act-2001: KI-WIPOLEX-COPY is permission requested.
+
+## Marshall Islands
+
+Row `MH-NITIJELA-MIRC`, verdict `permission requested` (terms basis). No row passes, so nothing is stored and there is no proven fetch for a stored record. The Nitijela site (https://rmiparliament.org) publishes every Act and amendment as a PDF but states only "© 2026 the Marshall Islands - All Rights Reserved" in the footer and has no terms page. The only intellectual property law WIPO Lex lists for the Marshall Islands, the Unauthorized Copies of Recorded Materials Act, 1991 (20 MIRC Ch. 2), covers sound recordings and audiovisual works and says nothing about official texts, so no statute removes protection from the Acts.
+
+Request that works, run 2026-11-09 (links only; used to read the headers and commencement dates, no text stored):
+
+```
+curl -sL -A "Mozilla/5.0" -o 1984-0031_2.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1984/1984-0031/1984-0031_2.pdf
+```
+
+Returned `200 759758 application/pdf` (National Environmental Protection Act 1984). `pdftotext -layout` gave clean text. The Act list is one HTML page, `curl -sL -A "Mozilla/5.0" https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html`, `200 1515246 text/html`, 306 principal Acts with their PDF links and a "Date Commenced" popover.
+
+### Languages
+
+English only. No Marshallese text of an Act is served.
+
+### Link only
+
+- `mh-moe-act-2018`, `mh-nepa-1984`, `mh-consumer-protection-act`, `mh-unfair-business-practices-act`, `mh-plastics-container-deposit-act-2016`, `mh-resilience-adaptation-trust-fund-act-2022`, `mh-national-energy-office-act-2018`: row verdict `permission requested`.
+- Blocked or unanswered: https://www.paclii.org/mh/ answered curl `403` (5339 bytes, HTML); https://www.rmiepa.org and https://www.rmibanking.org gave no reply (curl status `000`).
+
+## Micronesia (Federated States of)
+
+No licence row passes, so nothing is stored for the Federated States of Micronesia and every scope instrument is link only. The fetch requests below were run on 2026-11-09 from the laptop and prove that each source can be read, not that it may be stored.
+
+### Rows
+
+- `FM-CFSM-ADOPTED` (Congress of the FSM, signed Public Law PDFs): permission requested. The site footer reads "Copyright © 2026 CFSM. All rights reserved." and no open licence or copyright page was found. FSMC title 35 section 105 ("Copyright protection under this chapter is not available for any work of the Federated States of Micronesia Government ...") was read on the fsmlaw.org copy only; it names no laws or legislative texts, so it is not applied (same test as Lesotho s. 5(a)). Varun may rule on it.
+- `FM-FSMLAW-CONSOLIDATED` (FSM Supreme Court LIS Project, FSM Code by Title): permission requested. https://fsmlaw.org/disclaimer.htm says the documents "are within the public domain" but the copies "are not to be construed as an official publication", and that "All material made available over this web site is intended for personal, not commercial, uses."
+
+### Fetch requests proven (not stored)
+
+- Public Law PDF, `fm-climate-change-act`: `curl -sL -A "Mozilla/5.0" -o pl.pdf -w "%{http_code} %{size_download} %{content_type}\n" https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-18-34.pdf` returned `200 17502 application/pdf`, sha256 `44f2e9f95a8749238d8871e1c79e413401859e532cea085cd9da4fa097e2c139`. `pdftotext -layout pl.pdf -` gives clean text; the signature date was read from a page image. The same request for `PUBLIC-LAW-17-57.pdf` returned `200 35074 application/pdf`, sha256 `8786c0e7a2fa8bb07104a3f69a000cea45fdb67075dd66e051464d3400dfb923`.
+- Public Law list page: `curl -sL -A "Mozilla/5.0" -o list.html -w "%{http_code} %{size_download} %{content_type}\n" https://www.cfsm.gov.fm/18th-cfsm-public-laws/` returned `200 215978 text/html; charset=UTF-8` (once `503 23` on the same day, then 200 on retry). The list carries PDF links of the form `.../wp-content/uploads/2024/07/PUBLIC-LAW-18-34.pdf`. The Congress site has public law lists from the 10th Congress only.
+- FSM Code chapter, `fm-epa-title25`: `curl -sL -A "Mozilla/5.0" -o t25.html -w "%{http_code} %{size_download} %{content_type}\n" https://fsmlaw.org/fsm/code/title25/T25_Ch1_2014.html` returned `200 8823 text/html`, sha256 `ee04a120172a4c74a7553487dfafcb46bc64aef804a7874961536ca9f9b10192`. Pages are windows-1252, not UTF-8. `https://fsmlaw.org/fsm/code/title25/` is an open directory listing; the `_2014.html` files are the current chapters and the older `.htm` files hold the pre-2012 numbering.
+- FSM Code chapter, `fm-consumer-protection-act`: `curl -sL -A "Mozilla/5.0" ... https://fsmlaw.org/fsm/code/title34/T34_Ch01_2014.html` returned `200 24916 text/html`, sha256 `e6773f1f9026ab39214ee081ad38a128f691a0e28bcdcb01c6e52150376479ad`.
+- Terms pages: `https://fsmlaw.org/disclaimer.htm` returned `200 8064 text/html`; `https://www.cfsm.gov.fm/` returned `200 189002 text/html; charset=UTF-8`.
+
+### Languages
+
+English is the common and official language and the language of legislation; the Public Laws and the Code are English only. Chuukese, Pohnpeian, Kosraean and Yapese are local languages and are not used for national enactment. No translation row was needed.
+
+### Link-only instruments
+
+- `fm-epa-title25`: both rows permission requested. Text is at the LIS chapters T25_Ch1_2014, T25_Ch2_2014 and T25_Ch3_2014.
+- `fm-climate-change-act`: `FM-CFSM-ADOPTED` permission requested. Not in the LIS copy of the Code (no Chapter 8).
+- `fm-consumer-protection-act`: `FM-FSMLAW-CONSOLIDATED` permission requested.
+
+### Not law, or not found
+
+- NDC 3.0 is a plan (register row, F7). The FSM Government page is https://gov.fm/federated-states-of-micronesia-launches-its-enhanced-ndc-3-0-and-national-methane-reduction-roadmap-at-cop30/.
+- Title 36 Chapter 3 "Securities Regulation [RESERVED]", and no stock exchange or securities regulator found: no company disclosure rule (register row, F7).
+- No carbon market, carbon tax or GHG reporting rule found (register row, F7).
+- Title 38 Chapter 4, Deceptive Labeling of Imports Act, only bars imports that falsely suggest local manufacture; it is not an environmental or sustainability claims law and was left out of scope.
+
+### Blocked from the laptop address
+
+- https://www.paclii.org (consolidated Acts): HTTP 403 to curl per the brief; not retried, and PacLII is not an official publisher.
+- https://www.fsmgov.org/: `406 Not Acceptable`, "generated by Mod_Security".
+- https://www.fsmsupremecourt.org/: `403` Cloudflare "Just a moment..." challenge.
+- https://www.climatechange.fm: no HTTP reply (curl status 000).
+
+## Nauru
+
+Corpus status on 2026-11-09 (GEL-21-04, wave 19): eight scope instruments, all stored in English from one pass row, `NR-RONLAW-CONSOLIDATED` (verdict basis statute). Nauru enacts in English; RONLAW serves no Nauruan text.
+
+Statute relied on: Copyright Act 2019 (Act No. 17 of 2019, commenced 12 July 2019) s. 15(4), "The Republic has no copyright over nor there exists any copyright in the following works: ... (b) any Act as defined in the Interpretation Act 2011; (c) any regulations;", and s. 19(b), "any official text of a legislative, administrative or legal nature, as well as any official translation thereof". Read in the RONLAW compilation PDF of the Act itself (below), not from WIPO Lex (its S3 PDF answered 403 to curl) or PacLII (403).
+
+RONLAW (https://ronlaw.gov.nr) is a script-built Angular page. The shell answers curl (`200 6439 text/html`) and lists nothing. The list of documents comes from a public search API found in the site bundle (`main.<hash>.js`, class with `apiBaseUrl = https://ronlaw.gov.nr/api/pdf/`), and the PDFs are served from `/assets/<file_path>`. A request to `/docs/<file_path>` returns the app shell, not the PDF.
+
+Pass row `NR-RONLAW-CONSOLIDATED`. List the Acts (448 files in category acts on 2026-11-09; categories are acts, laws, bills, gazettes, court):
+
+```
+curl -sL -A "Mozilla/5.0" -H 'Content-Type: application/json' -d '{"_source":{"excludes":["pages"]},"query":{"bool":{"must":[{"term":{"category":"acts"}}]}},"size":1000}' https://ronlaw.gov.nr/api/pdf/search -o acts.json -w '%{http_code} %{size_download} %{content_type}\n'
+```
+
+Returned `200 228856 application/json`. Each hit has `_source.file_path` (for example `/docs/acts/2020/Environmental Management and Climate Change Act 2020_serv6.pdf`). Subsidiary legislation is category `laws`, the same search with `"category":"laws"` (300 files). Full-text search is the same request with a `nested` `match_phrase` on `pages.page_content`, as the site does. Fetch one named instrument, the Environmental Management and Climate Change Act 2020 (the PDF holds the Act and five sets of regulations):
+
+```
+curl -sL -A "Mozilla/5.0" -o emcca.pdf -w '%{http_code} %{size_download} %{content_type}\n' "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+```
+
+Returned `200 264626 application/pdf` (sha256 f4f4099a9a73f9b9906180b601bd14d24dc1f9f071424dac8460d4952fbc3e12; a second fetch minutes later gave the same hash). The Consumer Protection Act 2024 PDF returned `200 137478 application/pdf` (sha256 4b0f4d3d14703cb2176fe06f4bc7b1c0f80b07fd7a564b0c5e90207db22db649), the Ozone Layer Protection Act 2017 PDF `200 191609 application/pdf` (sha256 812a659b6983a2540f324507303e12670b04faa1e32620ea40d6523afb1d7ed9) and the Copyright Act 2019 PDF `200 116570 application/pdf` (sha256 ecfd1f9baaf67e51765a72cedabb6df8de1c672c4575864b749a4c21d7fcea03). Last-Modified on the EMCCA PDF: Wed, 21 Oct 2026.
+
+Text extraction: `pdftotext -layout file.pdf out.txt`, then split on form feed (one PDF page each); a record is the PDF pages of one instrument, cut by the page numbers in the volume's table of contents (`bwpageid` ids on each page); runs of spaces and tabs collapsed, three or more newlines reduced to two, nothing else changed. Page headers and the print-date footer ("Job: ... Page: n Date: 16/10/2026") stay in the text. Mojibake check: the only non-ASCII characters are curly quotes, the dash, the en dash, bullets, the box character in the penalty forms, and a dotless i that stands for the "fi" ligature in a few words ("offıcer", "suffıcient"); left uncorrected. RONLAW serves one version per law (the current compilation, "Service 6" of the Laws of the Republic of Naoero); each record is dated the commencement of the latest amendment the compilation reflects (2026-05-12, Constitution (Amendment) (No 2) Act 2026 s 5) or, when none is listed, the instrument's own commencement.
+
+Not pass: none. Not used: PacLII (https://www.paclii.org/nr/), the Government Gazette on pacliirms.austlii.edu.au and the Nauru Government site (naurugov.nr).
+
+### Languages
+
+English (en) only. Nauruan (na) is the national language, but Acts are enacted in English and RONLAW lists no Nauruan or other-language text. No translation row.
+
+### Link-only instruments
+
+None. Register rows without a scope entry: the Nauru NDC 3.0 (a plan, F7, official URL on unfccc.int, not opened because the address answered a browser challenge), and two "none found" rows (company disclosure rule, carbon market or GHG reporting rule). Nauru has no stock exchange and no securities regulator found; the Corporations Act 1972 and the Banking Act 1975 were not read for sustainability duties.
+
+Blocked from the laptop address on 2026-11-09: https://www.paclii.org/nr/ (HTTP 403, 5339 bytes text/html), https://naurugov.nr and https://www.naurugov.nr (no HTTP reply), https://unfccc.int/sites/default/files/2026-01/Nauru%20NDC%203.pdf (HTTP 200, 212 bytes text/html, challenge page).
+
+## Solomon Islands
+
+Row `SB-PARLIAMENT-ADOPTED` (`permission requested`: the Parliament site has no terms page, and the Copyright Act (Cap. 138) has no exception for Acts). Run on 2026-11-09. No row passes, so no request is proven for storage and nothing is stored. Requests that worked, for the link-only record (curl 8, `-A 'Mozilla/5.0'`):
+
+```
+curl -sL -A 'Mozilla/5.0' -o /dev/null -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.parliament.gov.sb/business/acts/get_acts.php?year=1998'
+```
+
+Returned a JSON list of the Acts of 1998 with `name`, `url` (`files/1998/...pdf`) and `filename`. The Acts page itself loads the list by script (`fetch('get_acts.php?year=...')`, years 1981 to 2026), so a plain page fetch shows no Act title.
+
+```
+curl -sL -A 'Mozilla/5.0' -o ea.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.parliament.gov.sb/business/acts/files/1998/The%20Environment%20Act%201998.pdf'
+```
+
+Returned `200 1646996 application/pdf` (40 pages, sha256 `0dfa0653b13ec7fb8d86f3b3e0a9fb8c7cb255e56aef890619f920894c8046a8`). `pdftotext` returns 40 bytes: the PDF is a scan. Read by `pdftoppm -r 200 -gray -png` and `tesseract <page> <page> -l eng`. The Consumer Protection Act 1995 PDF (`files/1995/The%20Consumer%20Protection%20Act%201995.pdf`, 20 pages, sha256 `17ad9ad70aa21e24ccfa778b10425754bad576469b0cf5e0c99372e769f715ab`) and the Companies Act 2009 PDF (`files/2009/Companies%20Act%202009.pdf`, 300 pages, sha256 `491925032865ce75e763121f55d8673ea89479f88c196a8d4fcfd5d2b40f31ff`) were read the same way. The host answers `https://www.parliament.gov.sb/...` and redirects some paths to `https://parliament.gov.sb/...`.
+
+### Languages
+
+English only. Acts are enacted in English; Solomon Islands Pijin and local languages are spoken, not legislated. No government English translation applies, so there is no translation row.
+
+### Link only
+
+- `sb-environment-act-1998`: row `SB-PARLIAMENT-ADOPTED` is permission requested. in_force null (s. 1: Minister appoints by Gazette notice; no notice found).
+- `sb-consumer-protection-act-1995`: same row, same reason. s. 24 and s. 25 are the misleading-conduct provisions.
+- Register-only (no scope entry): National Climate Change Policy 2023-2032 and Proposed Carbon Trading Policy (policies, F7); Companies Act 2009 (no sustainability duty found by keyword search of the whole OCR text).
+- Copyright Act (Cap. 138, 1996 Revised Edition): read from WIPO Lex on 2026-11-09 via the signed link in `https://www.wipo.int/wipolex/en/legislation/details/7754` (sha256 `d035e9c6a06bb1159579cf3abb7c42c038ad6225e2259cb7b20981c926336273`). The title, "Revised Edition 1996, Chapter 138", matches the row; no repeal clause was found in its text or on the details page. s. 31(2) vests copyright in Government-published works in the Government and nothing exempts Acts.
+- Blocked from the laptop address: https://www.mecdm.gov.sb/ (no HTTP reply), https://solomons.gov.sb/ (HTTP 307 to a Sucuri JavaScript challenge page, 1223 to 1439 bytes), https://www.paclii.org/sb/legis/consol_act/ (HTTP 403), https://www.cbsi.com.sb/financial-stability/guidelines/ (HTTP 404; two CBSI prudential guideline PDFs sampled, PG14 and PG11, open but are scans, and none of the guideline titles listed on the page is about climate or sustainability).
+
+## Palau
+
+Checked 2026-11-09 (GEL-21-05). One row passes on the statute basis: `PW-PALAUGOV-ADOPTED`, EQPB regulations published on PalauGov.pw. Statute: Republic of Palau Copyright Act of 2003 (RPPL No. 6-38) Section 3(b)(2): "In no case does copyright protection for an original work of authorship extend to the following: ... (2) official public legislative, administrative or legal texts, or any official translations thereof, and", read in the WIPO Lex English PDF (details page https://www.wipo.int/wipolex/en/legislation/details/8122, signed link, HTTP 200, 181194 bytes, application/pdf). The site has no terms page; its footer says only "© 2026 PalauGov.pw". Plain `curl` with a browser User-Agent works for every host and file below; no browser fetch was used.
+
+Row `PW-PALAUGOV-ADOPTED`, three EQPB regulations under the Environmental Quality Protection Act (RPPL 1-58, 24 PNC):
+
+- `pw-eqpb-air-2401-71`: `curl -sL -A "Mozilla/5.0" -o air.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.palaugov.pw/wp-content/uploads/2021/11/Chapter-2401-71_Air-Quality-Regulations.pdf"` returned `200 591164 application/pdf`, sha256 `54ecf69b04f625005a9077f55445a4ddca6801fcae93fc4a06bff4928e745c24`. Text: `pdftotext -layout air.pdf -`, each line stripped and runs of spaces or tabs collapsed to one space, blank lines dropped, form feeds as line breaks. The text layer has one garbled line from a scanned signature block (`Florencio Yamada, Vice Chairman_--1�!ffl@i�C___`), kept as extracted. Effective 2021-10-23.
+- `pw-eqpb-eaeis-2401-61`: `curl -sL -A "Mozilla/5.0" -o eaeis.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.palaugov.pw/wp-content/uploads/2021/06/Chapter-2401-61-EA-EIS-Regulations.pdf"` returned `200 4352331 application/pdf`, sha256 `69618557131cb6c7ab7e2dce879e19af7dc7bc0fc82397904063f1fad8bdd9a2`. The PDF is a scan; `pdftotext` returned 20 bytes. OCR: `pdftoppm -r 300 -png eaeis.pdf p`, then `tesseract p-NN.png out --psm 1 -l eng` per page (20 pages), concatenated in page order, then the same line normalisation as above. Record carries `"extraction": "ocr"`. Effective 2020-09-12.
+- `pw-eqpb-ozone-2401-81`: `curl -sL -A "Mozilla/5.0" -o oz.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.palaugov.pw/wp-content/uploads/Chapter-2401-81_Ozone-Layer-Protection-Regulations.pdf"` returned `200 1768128 application/pdf`, sha256 `97252500d2b0b76009a05428cc5f54b402abaeec003cd9d998f2ee394602dbce`. Scan, `pdftotext` returned 27 bytes; OCR as above (27 pages, `--psm 1` so the rotated appendix pages are turned upright; the first pass with the default page mode produced garbage on those pages and was discarded). Record carries `"extraction": "ocr"`. Effective 2026-06-06; it repeals the earlier Ozone Layer Protection Regulations, which the site does not serve.
+
+The OCR texts are uncorrected tesseract output; the appendix tables of the ozone text have recognition errors. They are not reflowed or corrected by hand.
+
+### Languages
+
+- English (`en`): the language of the Palau National Code, the RPPLs and the EQPB regulations. All three records are English.
+- Palauan: official, but no Palauan text is served and the language has no ISO 639-1 code, so nothing could be stored.
+- English translation: none needed or found; no translation row.
+
+### Link only
+
+- None in scope. The Environmental Quality Protection Act itself (RPPL 1-58, 24 PNC) is a register row only (F7): its text was not found on an official page. Other EQPB chapters listed on the EQPB page (2401-1 earthmoving, 2401-11 marine and fresh water quality, 2401-13 wastewater, 2401-31 solid waste, 2401-33 pesticide, 2401-51 drinking water) are not in scope this wave.
+- NDC 3.0 and the 2015 Climate Change Policy are F7 register rows (policies). The UNFCCC PDF answered curl with a 212-byte Incapsula challenge page (`200 212 text/html`), so it was not read here.
+
+### Not found
+
+- Company sustainability disclosure, carbon market, GHG reporting and consumer-claims instruments: none found on palaugov.pw (RPPLs category, documents list, EQPB, MAFE) or in the WIPO Lex Palau profile (three laws: Copyright Act, Constitution, Second Constitutional Convention). The Financial Institutions Commission and the Chamber of Commerce have no confirmed official host; the OEK host `https://oek.gov.pw` returned no response (`000 0`).

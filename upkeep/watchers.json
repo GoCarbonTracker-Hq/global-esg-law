@@ -14993,5 +14993,415 @@
   "tier": "regulator_page",
   "url": "https://www.bvm-ac.org/wp-content/uploads/2023/10/Reglement-COSUMAF-du-23-mai-2023.pdf",
   "params": {}
+ },
+ {
+  "id": "va-motu-proprio-fratello-sole-pdf",
+  "source_id": "VA-VATICANSTATE-ADOPTED",
+  "iso2": "VA",
+  "instrument": "va-motu-proprio-fratello-sole",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://vaticanstate.va/phocadownload/leggi-decreti/normativa-generale/Lettera%20Apostolica%20Motu%20Proprio%20Fratello%20Sole.pdf"
+ },
+ {
+  "id": "terms-va-vaticanstate-copyright-law",
+  "source_id": "VA-VATICANSTATE-ADOPTED",
+  "iso2": "VA",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://vaticanstate.va/phocadownload/leggi-decreti/normativa-altre-materie/Legge%20N.%20CXCVII%20All.%2025.pdf",
+  "change": "terms_changed"
+ },
+ {
+  "id": "tv-climate-change-resilience-act-pdf",
+  "source_id": "TV-LEGISLATION-CONSOLIDATED",
+  "iso2": "TV",
+  "instrument": "tv-climate-change-resilience-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0009/2019-0009_2.pdf",
+  "params": {}
+ },
+ {
+  "id": "tv-environment-protection-act-pdf",
+  "source_id": "TV-LEGISLATION-CONSOLIDATED",
+  "iso2": "TV",
+  "instrument": "tv-environment-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2008/2008-0002/2008-0002_2.pdf",
+  "params": {}
+ },
+ {
+  "id": "tv-eia-regulations-2014-pdf",
+  "source_id": "TV-LEGISLATION-CONSOLIDATED",
+  "iso2": "TV",
+  "instrument": "tv-eia-regulations-2014",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/SUBORDINATE/2014/2014-0001/2014-0001_2.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-tv-legislation-consolidated",
+  "source_id": "TV-LEGISLATION-CONSOLIDATED",
+  "iso2": "TV",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://tuvalu-legislation.tv/cms/?view=article&id=115:copyright&catid=14:general-articles",
+  "params": {}
+ },
+ {
+  "id": "ki-drm-climate-change-act-2019-faolex-head",
+  "source_id": "KI-FAOLEX-COPY",
+  "iso2": "KI",
+  "instrument": "ki-drm-climate-change-act-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://faolex.fao.org/docs/pdf/kir202936.pdf",
+  "params": {
+   "second_route": "https://www.ecolex.org/details/legislation/disaster-risk-management-and-climate-change-act-2019-lex-faoc202936/ (browser; page links the PDF)"
+  }
+ },
+ {
+  "id": "ki-environment-act-2021-faolex-head",
+  "source_id": "KI-FAOLEX-COPY",
+  "iso2": "KI",
+  "instrument": "ki-environment-act-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://faolex.fao.org/docs/pdf/kir219828.pdf",
+  "params": {
+   "second_route": "https://www.ecolex.org/details/legislation/environment-act-no-18-of-2021-lex-faoc219828/ (browser; page links the PDF)"
+  }
+ },
+ {
+  "id": "ki-consumer-protection-act-2001-wipo-page",
+  "source_id": "KI-WIPOLEX-COPY",
+  "iso2": "KI",
+  "instrument": "ki-consumer-protection-act-2001",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.wipo.int/wipolex/en/legislation/details/7586",
+  "params": {
+   "second_route": "https://www.wipo.int/wipolex/en/members/profile/KI (browser; lists the Act)"
+  }
+ },
+ {
+  "id": "terms-ki-gov-acts",
+  "source_id": "KI-GOV-ADOPTED",
+  "iso2": "KI",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.kiribati.gov.ki/acts",
+  "params": {
+   "second_route": "https://www.kiribati.gov.ki/acts (browser)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "mh-moe-act-2018-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-moe-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0108/2019-0108_1.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-nepa-1984-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-nepa-1984",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1984/1984-0031/1984-0031_2.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-consumer-protection-act-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1970/1970-0032/1970-0032_1.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-unfair-business-practices-act-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-unfair-business-practices-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1970/1970-0033/1970-0033_1.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-plastics-container-deposit-act-2016-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-plastics-container-deposit-act-2016",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/2016/2016-0017/2016-0017_2.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-resilience-adaptation-trust-fund-act-2022-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-resilience-adaptation-trust-fund-act-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/2022/2022-0056/2022-0056_2.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "mh-national-energy-office-act-2018-pdf-head",
+  "source_id": "MH-NITIJELA-MIRC",
+  "iso2": "MH",
+  "instrument": "mh-national-energy-office-act-2018",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/2018/2018-0093/2018-0093_1.pdf",
+  "params": {
+   "second_route": "https://rmiparliament.org/cms/legislation/acts-of-nitijela/by-title.html (browser; the list page links the current PDF version)"
+  }
+ },
+ {
+  "id": "fm-epa-title25-fsmlaw-page",
+  "source_id": "FM-FSMLAW-CONSOLIDATED",
+  "iso2": "FM",
+  "instrument": "fm-epa-title25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://fsmlaw.org/fsm/code/title25/T25_Ch1_2014.html",
+  "params": {}
+ },
+ {
+  "id": "fm-climate-change-act-cfsm-pdf-head",
+  "source_id": "FM-CFSM-ADOPTED",
+  "iso2": "FM",
+  "instrument": "fm-climate-change-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-18-34.pdf",
+  "params": {}
+ },
+ {
+  "id": "fm-consumer-protection-act-fsmlaw-page",
+  "source_id": "FM-FSMLAW-CONSOLIDATED",
+  "iso2": "FM",
+  "instrument": "fm-consumer-protection-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://fsmlaw.org/fsm/code/title34/T34_Ch01_2014.html",
+  "params": {}
+ },
+ {
+  "id": "terms-fm-cfsm-adopted",
+  "source_id": "FM-CFSM-ADOPTED",
+  "iso2": "FM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cfsm.gov.fm/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-fm-fsmlaw-consolidated",
+  "source_id": "FM-FSMLAW-CONSOLIDATED",
+  "iso2": "FM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fsmlaw.org/disclaimer.htm",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "nr-emcca-2020-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-emcca-plastic-bags-regs-2021-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-plastic-bags-regs-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-emcca-notices-regs-2021-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-notices-regs-2021",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-emcca-asbestos-regs-2024-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-asbestos-regs-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-emcca-littering-regs-2025-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-littering-regs-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-emcca-fund-regs-2026-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-emcca-fund-regs-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2020/Environmental%20Management%20and%20Climate%20Change%20Act%202020_serv6.pdf"
+ },
+ {
+  "id": "nr-consumer-protection-act-2024-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-consumer-protection-act-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2024/Consumer%20Protection%20Act%202024_serv6.pdf"
+ },
+ {
+  "id": "nr-ozone-layer-protection-act-2017-pdf",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "nr-ozone-layer-protection-act-2017",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2017/Ozone%20Layer%20Protection%20Act%202017_serv6.pdf"
+ },
+ {
+  "id": "terms-nr-ronlaw-copyright-act",
+  "source_id": "NR-RONLAW-CONSOLIDATED",
+  "iso2": "NR",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://ronlaw.gov.nr/assets/docs/acts/2019/Copyright%20Act%202019_serv6.pdf",
+  "change": "terms_changed"
+ },
+ {
+  "id": "sb-environment-act-1998-page",
+  "source_id": "SB-PARLIAMENT-ADOPTED",
+  "iso2": "SB",
+  "instrument": "sb-environment-act-1998",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.sb/business/acts/get_acts.php?year=1998",
+  "params": {
+   "second_route": "https://www.parliament.gov.sb/business/acts/ (browser; choose 1998 in the year tabs; the list is loaded by script, the PDF link is in the JSON this URL returns)"
+  }
+ },
+ {
+  "id": "sb-consumer-protection-act-1995-page",
+  "source_id": "SB-PARLIAMENT-ADOPTED",
+  "iso2": "SB",
+  "instrument": "sb-consumer-protection-act-1995",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.parliament.gov.sb/business/acts/get_acts.php?year=1995",
+  "params": {
+   "second_route": "https://www.parliament.gov.sb/business/acts/ (browser; choose 1995 in the year tabs; the list is loaded by script, the PDF link is in the JSON this URL returns)"
+  }
+ },
+ {
+  "id": "terms-sb-parliament-adopted",
+  "source_id": "SB-PARLIAMENT-ADOPTED",
+  "iso2": "SB",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.parliament.gov.sb/",
+  "params": {
+   "second_route": "https://www.parliament.gov.sb/ (footer line; the site has no terms page on 2026-11-09)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "pw-eqpb-air-2401-71",
+  "source_id": "PW-PALAUGOV-ADOPTED",
+  "iso2": "PW",
+  "instrument": "pw-eqpb-air-2401-71",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.palaugov.pw/wp-content/uploads/2021/11/Chapter-2401-71_Air-Quality-Regulations.pdf",
+  "params": {
+   "second_route": "https://www.palaugov.pw/eqpb/ (the EQPB page that links the regulation; answered 200 to curl with a browser User-Agent on 2026-11-09)"
+  }
+ },
+ {
+  "id": "pw-eqpb-eaeis-2401-61",
+  "source_id": "PW-PALAUGOV-ADOPTED",
+  "iso2": "PW",
+  "instrument": "pw-eqpb-eaeis-2401-61",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.palaugov.pw/wp-content/uploads/2021/06/Chapter-2401-61-EA-EIS-Regulations.pdf",
+  "params": {
+   "second_route": "https://www.palaugov.pw/eqpb/ (the EQPB page that links the regulation; answered 200 to curl with a browser User-Agent on 2026-11-09)"
+  }
+ },
+ {
+  "id": "pw-eqpb-ozone-2401-81",
+  "source_id": "PW-PALAUGOV-ADOPTED",
+  "iso2": "PW",
+  "instrument": "pw-eqpb-ozone-2401-81",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.palaugov.pw/wp-content/uploads/Chapter-2401-81_Ozone-Layer-Protection-Regulations.pdf",
+  "params": {
+   "second_route": "https://www.palaugov.pw/eqpb/ (the EQPB page that links the regulation; answered 200 to curl with a browser User-Agent on 2026-11-09)"
+  }
+ },
+ {
+  "id": "terms-pw-palaugov-adopted",
+  "source_id": "PW-PALAUGOV-ADOPTED",
+  "iso2": "PW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.palaugov.pw/eqpb/",
+  "change": "terms_changed"
  }
 ]
