@@ -1,0 +1,53 @@
+[
+  {
+    "id": "tv-climate-change-resilience-act",
+    "title": "Climate Change Resilience Act 2019 (Act No. 9 of 2019), Cap. 30.03",
+    "official_url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0009/2019-0009_2.pdf",
+    "citation": "Climate Change Resilience Act 2019 (Act 9 of 2019), 2022 Revised Edition, Cap. 30.03",
+    "in_force": "2019-07-01",
+    "evidence": "Printed under the title of the Act in the 2022 Revised Edition and in the Act as enacted: \"Commencement [1st July 2019]\". Opened https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2019/2019-0009/2019-0009_2.pdf on 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TV-LEGISLATION-ADOPTED",
+      "TV-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Climate framework act: creates the Department of Climate Change and Disaster, the National Climate Change Resilience Forum and the National Advisory Council on Climate Change, sets greenhouse gas emissions reduction targets (section 9) and prohibits exploring, mining or extracting fossil fuels with a corporate fine (section 27). Official copies on tuvalu-legislation.tv: as enacted (_1.pdf, sha256 960a57b6047b22b1c9854fbf437f481f2ce54da57a3ce93ea5efc5158faecf0d) and 2022 Revised Edition (_2.pdf, sha256 bfcf07051e00a11b79c97538d119d9d8a79e870d2f9341a8ac038275a3a9f9db). The earlier official_source_url on www.tuvaluclimatechange.gov.tv is replaced by the tuvalu-legislation.tv copy (the climate change host did not answer from the laptop address on 2026-11-09). Row TV-LEGISLATION-ADOPTED / TV-LEGISLATION-CONSOLIDATED is permission requested (site copyright notice: copying in unaltered form only, commercialising needs permission of the Government of Tuvalu), so no text is stored. English only; no Tuvaluan text or government translation was found on the site.",
+    "status": "link only"
+  },
+  {
+    "id": "tv-environment-protection-act",
+    "title": "Environment Protection Act 2008, Cap. 30.25",
+    "official_url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2008/2008-0002/2008-0002_2.pdf",
+    "citation": "Environment Protection Act 2008 (Act 2 of 2008), 2022 Revised Edition, Cap. 30.25",
+    "in_force": "2008-08-18",
+    "evidence": "Printed under the title of the Act in the 2022 Revised Edition: \"Commencement [18 August 2008]\". Opened https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/2008/2008-0002/2008-0002_2.pdf on 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TV-LEGISLATION-ADOPTED",
+      "TV-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework act with Part VIII, Responses to Climate Change. Footnotes in the 2022 Revised Edition record amendment by Act 22 of 2017 (commencement 21 December 2017), Act 9 of 2019 (commencement 1 July 2019) and Act 9 of 2021 (commencement 3 June 2022 by LN 26/2022). Official copies on tuvalu-legislation.tv: as enacted (_1.pdf, sha256 df7dd286edade031936d8bc1c3c8d3216f7563086d62551180aa4d647d957084) and 2022 Revised Edition (_2.pdf, sha256 d427cc1343f78a18cba44f147cae81cb46d16b80292258b01ba8583691c5b0a1). Row TV-LEGISLATION-ADOPTED / TV-LEGISLATION-CONSOLIDATED is permission requested (site copyright notice: copying in unaltered form only, commercialising needs permission of the Government of Tuvalu), so no text is stored. English only; no Tuvaluan text or government translation was found on the site.",
+    "status": "link only"
+  },
+  {
+    "id": "tv-eia-regulations-2014",
+    "title": "Environment Protection (Environmental Impact Assessment) Regulations 2014",
+    "official_url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/SUBORDINATE/2014/2014-0001/2014-0001_2.pdf",
+    "citation": "Environment Protection (Environmental Impact Assessment) Regulations 2014, made under the Environment Protection Act 2008",
+    "in_force": "2014-02-04",
+    "evidence": "Printed in the Regulations as enacted: \"[Commencement: 4 February 2014]\". Opened https://tuvalu-legislation.tv/cms/images/LEGISLATION/SUBORDINATE/2014/2014-0001/2014-0001_1.pdf on 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "TV-LEGISLATION-ADOPTED",
+      "TV-LEGISLATION-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Implementing regulations of tv-environment-protection-act: forms of environmental impact assessment, preliminary reports and full assessments for development activities. Official copies on tuvalu-legislation.tv: as enacted (_1.pdf, sha256 4d4091bce3f908d523b25ee3db7001a43b9a3214148880a034a9cd79c4c23f43) and the 2022 Revised Edition (_2.pdf, Cap. 30.25.1, sha256 77a3e443f4980d525b4104214be6ffad9b23a8d1866497aec7b67c6cc2147631). Row TV-LEGISLATION-ADOPTED / TV-LEGISLATION-CONSOLIDATED is permission requested (site copyright notice: copying in unaltered form only, commercialising needs permission of the Government of Tuvalu), so no text is stored. English only; no Tuvaluan text or government translation was found on the site.",
+    "status": "link only"
+  }
+]
