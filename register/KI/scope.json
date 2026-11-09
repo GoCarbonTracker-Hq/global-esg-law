@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ki-drm-climate-change-act-2019",
+    "title": "Disaster Risk Management and Climate Change Act 2019",
+    "official_url": "https://faolex.fao.org/docs/pdf/kir202936.pdf",
+    "citation": "Disaster Risk Management and Climate Change Act 2019 (Kiribati)",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": "KI-FAOLEX-COPY",
+    "verification": "tracker_only",
+    "notes": "Text read 2026-11-09 only on the FAOLEX copy (not the issuer; no official page found). Section 2: \"This Act commences on a date appointed by the Minister by notice.\"; no notice found, so in_force is null. Government bodies carry the duties (climate integration, plans, reporting); no company disclosure or emissions duty seen. Replaces the National Disaster Act 1993 per ECOLEX. PacLII (drmacca2019348.pdf) could not be opened (HTTP 403). Not stored: KI-FAOLEX-COPY is permission requested. English only; the Government serves no Gilbertese text that was found.",
+    "status": "link only"
+  },
+  {
+    "id": "ki-environment-act-2021",
+    "title": "Environment Act 2021 (Act No. 18 of 2021)",
+    "official_url": "https://faolex.fao.org/docs/pdf/kir219828.pdf",
+    "citation": "Environment Act 2021 (Act No. 18 of 2021, per ECOLEX)",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "KI-FAOLEX-COPY",
+    "verification": "tracker_only",
+    "notes": "Environmental framework act, found 2026-11-09. Section 1: \"This Act may be cited as the Environment Act 2021 and shall come into operation on such date as the Minister may by notice appoint.\"; the cover reads \"Commencement date: 2022\" and no notice was found, so in_force is null. Section 117: \"The Environment Act 1999 and its amendment 2007 are hereby repealed.\" so the Environment Act 1999 and the Environment (Amendment) Act 2007 named in the brief are repealed and are not scope entries. Part on environmental impact assessment (ss.60 to 62), pollution and waste controls; no company sustainability disclosure duty seen. Only the FAOLEX copy was opened. Not stored: KI-FAOLEX-COPY is permission requested.",
+    "status": "link only"
+  },
+  {
+    "id": "ki-consumer-protection-act-2001",
+    "title": "Consumer Protection Act 2001 (No. 11 of 2000), section 20 misleading or deceptive conduct",
+    "official_url": "https://www.wipo.int/wipolex/en/legislation/details/7586",
+    "citation": "Consumer Protection Act 2001 (Kiribati), ss.20 and 24",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "KI-WIPOLEX-COPY",
+    "verification": "tracker_only",
+    "notes": "Umbrella for environmental claims only; no section on environmental claims. Section 20 (WIPO Lex copy, opened 2026-11-09): \"No person shall, in the course of a trade or business, engage in conduct that is misleading or deceptive or is likely to mislead or deceive any purchaser or possible purchaser and any person who contravenes this section commits an offence against this Act.\" Section 1 says the Act \"shall come into operation on such date as the Minister may, by notice appoint\"; the cover prints \"Commencement: 01/01/2002\" and assent 14/01/2002, no notice found, so in_force is null. Not stored: KI-WIPOLEX-COPY is permission requested.",
+    "status": "link only"
+  }
+]
