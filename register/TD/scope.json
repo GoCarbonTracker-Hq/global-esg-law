@@ -1,0 +1,17 @@
+[
+  {
+    "id": "td-env-protection-law-2024",
+    "title": "Loi n° 23/CNT/2024 du 15 octobre 2024 portant protection de l'environnement",
+    "official_url": "https://journalofficiel.td/",
+    "citation": "Loi n° 23/CNT/2024 du 15 octobre 2024 portant protection de l'environnement (as named by UNEP LEAP; the Journal officiel copy was not read)",
+    "in_force": null,
+    "evidence": "Opened https://leap.unep.org/en/countries/td/national-legislation/loi-ndeg-23cnt2024-du-15-octobre-2024-portant-protection-de on 2026-11-09 (UNEP LEAP tracker, not an official page): \"Date of text 15 Oct 2024\", \"Repealed No\", and the text \"abroge toutes dispositions antérieures contraires, notamment, la Loi N°014/PR/1998 du 17 août 1998 définissant les principes généraux de la protection de l'environnement.\" No official page stating an in-force date was reached, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": "TD-JO-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Environmental framework act (F2). Official text not read: the Chad gazette portal (journalofficiel.td, the only official publication route found) answered HTTP 403 to curl and a Cloudflare challenge to headless Chrome on 2026-11-09; https://www.cnt.td/index.php and the ministry and primature hosts did not connect. The official_url above is the portal, not a page for this instrument. Only the UNEP LEAP tracker was read, which gives the date of text (15 October 2024) and the repeal clause. A news report gives the plenary vote as 15 November 2024; the date is unresolved. Covered persons, duties and any climate or carbon provisions are not confirmed (the candidate climate and carbon content comes from a search summary only). The Loi n° 014/PR/98 of 17 August 1998 that it repeals is not in scope: no official copy was read.",
+    "status": "link only",
+    "status_note": "No record stored: no official copy of the text was reachable and the licence row is not pass."
+  }
+]
