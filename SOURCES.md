@@ -10398,3 +10398,182 @@ The OCR texts are uncorrected tesseract output; the appendix tables of the ozone
 ### Not found
 
 - Company sustainability disclosure, carbon market, GHG reporting and consumer-claims instruments: none found on palaugov.pw (RPPLs category, documents list, EQPB, MAFE) or in the WIPO Lex Palau profile (three laws: Copyright Act, Constitution, Second Constitutional Convention). The Financial Institutions Commission and the Chamber of Commerce have no confirmed official host; the OEK host `https://oek.gov.pw` returned no response (`000 0`).
+
+## Afghanistan
+
+No licence row passes, so nothing is stored for Afghanistan and every scope instrument is link only. The fetch requests below were run on 2026-11-09 from the laptop and prove that each source can be read, not that it may be stored.
+
+### Rows
+
+- `AF-MOJ-GAZETTE` (Ministry of Justice, Official Gazette and Collection of Laws): permission requested. The only terms found are the footer "Copyright © 2019 | MOJ. All Rights Reserved" on https://moj.gov.af/en/official-gazette. The Copyright Law (Presidential Decree No. 54 of 21 July 2008, English text on WIPO Lex, sha256 `0115915bab579d61ad6e50f49742d02d8a3c0638f7b2470a9035a1cec2862dfa`, read in full) has no article excluding laws or official texts; Article 8(1) ("The provisions of this Law shall not protect works which are in contradiction with the provisions of the Law.") names no laws, so no statute pass.
+- `AF-NEPA-ADOPTED` (National Environmental Protection Agency): permission requested. No copyright or terms statement on nepa.gov.af or neis.nepa.gov.af; the law files cannot be fetched with curl (JavaScript app shell).
+
+### Fetch requests proven (not stored)
+
+- Gazette page: `curl -sL -A "Mozilla/5.0" -o g.html -w "%{http_code} %{size_download} %{content_type}\n" https://moj.gov.af/en/official-gazette` returned `200 27949 text/html; charset=UTF-8`, sha256 `24a981d23d7dd8584e7d015c626787105bbeb05c737879c6cd8b08d22038f3de`. It lists no gazette issue files.
+- Collection of Laws, Dari list: `curl -sL -A "Mozilla/5.0" -o l.html -w "%{http_code} %{size_download} %{content_type}\n" http://laws.moj.gov.af/ShowLawPersian.aspx` returned `200 20415 text/html; charset=utf-8`; Pashto list `.../ShowLawPashto.aspx` returned `200 20410 text/html; charset=utf-8`. Ten laws per page, further pages by ASP.NET `__doPostBack` (not followed).
+- NEPA law list, `af-environment-law`: `curl -sL -A "Mozilla/5.0" -o n.html -w "%{http_code} %{size_download} %{content_type}\n" https://nepa.gov.af/showDariPage/25` returned `200 82117 text/html; charset=UTF-8`, sha256 `888450cb6fb08868602855b02a193b6d1dc26247620e3e882c1950d2f098c768`. It lists nine titles; each file link is `https://neis.nepa.gov.af/public/{id}`.
+- NEPA law file: `curl -sL -A "Mozilla/5.0" -o f.bin -w "%{http_code} %{size_download} %{content_type}\n" https://neis.nepa.gov.af/public/JE6AIivjwC` returned `200 18248 text/html`, sha256 `7197111a16ed6bc3a0c790ae67aefa4a4f29e07be0a31d44fcdba62742954ddc`; `.../public/wNEk2Kyqi5` returned the identical bytes. `pdftotext` fails on it. It is a Vue app shell that loads the file from a back-end; that back-end was not called.
+
+### Languages
+
+The gazette says all documents in it are published in Dari and Pashto. NEPA lists Dari only. No government English text of any scope instrument was found. The English WIPO Lex Copyright Law is a WIPO Lex copy, not a government translation of a scope instrument, and gets no row.
+
+### Link only
+
+All four scope instruments (`af-environment-law`, `af-eia-regulation`, `af-air-pollution-regulation`, `af-air-pollution-regulation-amendment`): both rows are permission requested. Not found: a Da Afghanistan Bank or securities regulator sustainability disclosure rule (https://dab.gov.af answered `200 59430`), a carbon market rule, a climate act. The consumer protection law is a register row only (https://acku.edu.af/ answered `406 226 text/html; charset=iso-8859-1`).
+
+## Libya
+
+Central Bank of Libya (cbl.gov.ly), checked 2026-11-09. Row LY-CBL-ADOPTED is permission requested: the site footer reads "All rights reserved 2026, The Central Bank of Libya", there is no terms page, and Law No. 9 of 1968 Art. 4(3) excludes only collections of official documents (not applied). No `pass` row, so no fetch is proven for storage and no record is stored.
+
+Reachability check, one instrument (Circular A.R.M.N. No. 28/2023), run 2026-11-09:
+
+```
+curl -sL -A "Mozilla/5.0" "https://cbl.gov.ly/micifaf/2024/01/%D9%85%D9%86%D8%B4%D9%88%D8%B1-%D8%B1%D9%82%D9%85-28-2023-1.pdf" -o c28.pdf -w "%{http_code} %{size_download} %{content_type}\n"
+```
+
+Returned `200 1958393 application/pdf` (24 pages, sha256 5043865bb7afe522b766f78ef982475b3e335289c10b62c5d6c4ddbccf729a3b). `pdftotext` returns nothing: the PDF is an image-only scan, read for checking with `pdftoppm -r 200 -png` and `tesseract <page>.png <out> -l ara`.
+
+### Languages
+
+Arabic only. No English version of the circular found on cbl.gov.ly. The WIPO Lex English translation of the Copyright Law (Law No. 9 of 1968) is not a source row.
+
+### Link only
+
+- ly-cbl-circular-28-2023: row LY-CBL-ADOPTED is permission requested (all rights reserved).
+- Law No. 15 of 2003 on the environment: no official page found (secondary copies only); not in scope.
+- Climate act, carbon market or GHG reporting rule: none found.
+- Libyan Stock Market (lsm.ly): did not answer from the laptop address; no sustainability disclosure rule found by search.
+
+## South Sudan
+
+All three scope instruments are link only, no records. Row `SS-MOJCA-ADOPTED` (Ministry of Justice and Constitutional Affairs, https://mojca.gov.ss/laws/) is `permission requested`: the only rights statement on the page is "© Copyright. Ministry of Justice and Constitutional Affairs (MoJCA). 2023. All Rights Reserved." No copyright statute was found (the WIPO Lex profile for SS lists none). No recipe is proven for storing text; the requests below were run on 2026-11-09 only to read the pages and verify the Acts.
+
+Access. The laptop resolver does not resolve `mojca.gov.ss` (`curl -sL https://mojca.gov.ss/laws/` exits 6, HTTP 000); `dig +short mojca.gov.ss @8.8.8.8` returns 198.177.125.177. Plain HTTP answers 301 to HTTPS, and the HTTPS certificate had expired ("SSL certificate problem: certificate has expired"). Reads were made with:
+
+```
+curl -skL -A "Mozilla/5.0" --resolve mojca.gov.ss:443:198.177.125.177 --resolve mojca.gov.ss:80:198.177.125.177 https://mojca.gov.ss/laws/
+```
+
+-> HTTP 200, 152003 bytes, text/html; charset=UTF-8 (`terms_fingerprint` a47fb208...c8cf, same on two runs). The Companies Act 2012 PDF (`.../wp-content/uploads/2023/03/Companies-Act-2012.pdf`) -> HTTP 200, 1426923 bytes, application/pdf; `pdftotext -layout` gave readable English text (checked, no mojibake). Consumer Protection Act 2011 -> 200, 247134 bytes, application/pdf. THE-PETROLEUM-ACT-2012.pdf -> 200, 221707 bytes, application/pdf.
+
+### Languages
+
+English only. The laws page lists no Arabic or other-language texts and no government English translation exists to look for; no translation row.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Companies Act 2012, Table E Part IV s.15 | http://mojca.gov.ss/wp-content/uploads/2023/03/Companies-Act-2012.pdf | SS-MOJCA-ADOPTED, permission requested. `in_force` null: date of the President's signature, not printed. |
+| Petroleum Act 2012 | http://mojca.gov.ss/wp-content/uploads/2023/03/THE-PETROLEUM-ACT-2012.pdf | SS-MOJCA-ADOPTED, permission requested. Assent page date left blank. |
+| Consumer Protection Act 2011 | http://mojca.gov.ss/wp-content/uploads/2023/03/Consumer-Protection-Act-2011.pdf | SS-MOJCA-ADOPTED, permission requested. `in_force` null. |
+
+Register-only (F7): First National Adaptation Plan (UNFCCC NAP Central lists it, 2021-11-01; the PDF at unfccc.int answers curl with a 212-byte Incapsula challenge page). Not found as Acts on 2026-11-09: an Environment Protection Act (a draft bill pending since 2010 per secondary sources; the MoJCA list has none), emissions trading, carbon tax or GHG reporting rule, company climate-disclosure rule from the Bank of South Sudan. The hosts www.moj.gov.ss, www.mocc.gov.ss, www.bank.gov.ss and www.mofnp.gov.ss did not resolve; https://mofp.gov.ss answered 200 and its `/laws/` page returned an empty body (Content-Length 0).
+
+## Somalia
+
+Run on 2026-11-09 (GEL-22-06). No row passes, so no text is stored and every instrument is link only. `SO-MOECC-ADOPTED` is `permission requested`: the Ministry of Environment and Climate Change site has no terms or licence page, only the footer line "© Ministry of Environment and Climate Change 2026." and a cookie and privacy notice. No copyright statute was applied: the Somali Copyright Law (Law No. 66 of 7 September 1977) was not found as an official copy (the WIPO Lex profile for Somalia, https://www.wipo.int/wipolex/en/members/profile/SO, lists 28 entries and none is a copyright law).
+
+Proven requests (nothing fetched into records; these show what the ministry serves, for when permission or a basis is found):
+
+```
+curl -sL -A "Mozilla/5.0" -o policies.html -w '%{http_code} %{size_download} %{content_type}\n' 'https://moecc.gov.so/policies-and-strategies/'
+curl -sL -A "Mozilla/5.0" -o act_en.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://moecc.gov.so/wp-content/uploads/2024/10/Environmental-Protection-and-Management-Act-Engl_240625_145520-2.pdf'
+```
+
+Returned `200 201937 text/html; charset=UTF-8` and `200 424918 application/pdf` (71 pages; sha256 `0606b0530ceb6e2bf511b89f23aacf74e833e1966974a0536ef700cd8a480142`). `pdftotext -layout act_en.pdf -` gives clean text. The ESIA Regulations PDF returned `200 1180555 application/pdf`, sha256 `435f9a76b33e4d28bc650c0cafda486fafa7b5c344403f969e7aac6dfdaabba6`.
+
+### Languages
+
+Somali (so) and Arabic (ar) are the official languages. The Somali text of the Environmental Protection and Management Act is a scan of the Official Bulletin (Faafinta Rasmiga ah), Year 11, No. 2, April 2024: `curl -sL -A "Mozilla/5.0" 'https://moecc.gov.so/wp-content/uploads/2024/10/SHARCIGA_ILAALINTA_iyo_MAAREYNTA_DEEGAANKA-1.pdf'` returned `200 22677114 application/pdf`, 71 pages, sha256 `ff10a509521754b92a969e2caed85baf3cf411c1bc3306d4d17bda89cae55f96`; `pdftotext` yields 1.5 KB (no text layer). Tesseract has no Somali pack (`tesseract --list-langs`: 163 packs, no `som`), so it was read as images only to find the law number (Law No. 22) and its date (13 February 2024); nothing was stored. No Arabic text of any Somali law was found on the ministry, parliament or finance ministry sites.
+
+### Not stored: candidate publishers and portals
+
+- `SO-MOECC-ADOPTED` (`https://moecc.gov.so/`): official, serves the English Act, the Somali Official Bulletin scan and the ESIA Regulations in English and Somali; copyright line only, no reuse terms: permission requested.
+- `SO-PARLIAMENT-ADOPTED` (`https://parliament.gov.so/legislation-4/`): HTTP 200, 170639 bytes, no laws or terms found in the served HTML.
+- `SO-MOF-ADOPTED` (`https://www.mof.gov.so/legislation/other-acts`): HTTP 200, 61098 bytes; lists legislation sections (Customs Act, Extractive Industry Act, PFM Act, Procurement Act and others) but serves no PDF links in the HTML; none is an ESG family F1 to F6 instrument that was checked.
+- `SO-CBS-ADOPTED` (`https://www.centralbank.gov.so/`): Cloudflare browser check, HTTP 403 (5384 bytes) to curl; `https://centralbank.gov.so/` the same. No browser check was passed.
+- `https://moj.gov.so` answered HTTP 200 (131707 bytes) with no law list found.
+
+### Link-only instruments
+
+- `so-environmental-protection-and-management-act-2024`: row verdict permission requested.
+- `so-esia-regulations-2024`: row verdict permission requested; enactment also unconfirmed (no number, date or gazette on the PDF).
+
+## Eritrea
+
+Row `ER-GAZETTE-ADOPTED` is `permission requested`: nothing is stored. By Varun's ruling (2026-11-09) the CMS copy is not an official page, so `register/ER/scope.json` is empty and Proclamation 179/2017 and Legal Notice 127/2017 are register rows only. No Eritrean government host serving the Gazette of Eritrean Laws was reached on 2026-11-09. `www.moi.gov.er`, `www.mlwe.gov.er`, `www.mfa.gov.er`, `www.moj.gov.er` and `www.bankoferitrea.gov.er` did not resolve (curl exit with no answer); `shabait.com` (Ministry of Information news site) answered 200 and has no law section; `erieri.com` answered 403. The only free copies are third-party: the Library of Congress digital collection (item pages answer curl with 403) and the CMS and FAOLEX copies. The Library of Congress law blog says "there is not a central location where researchers can access the laws of the country for free." No terms page exists to hash, so `terms_fingerprint` is the sha256 of that sentence. The Civil Code of the State of Eritrea (2015) Art. 1161 says official texts "may be freely reproduced", but it is not applied: no state-published copy was reached and no commencement date was read in the Code. No permission request has been sent.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-09 (for the link-only entries and the watchers):
+
+```
+curl -sL -A "Mozilla/5.0" -o gaz.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.cms.int/sites/default/files/document/cms_nlp_eri_proclamation_179_2017.pdf"
+```
+
+Returned `200 27559217 application/pdf` (sha256 5fee60c9c8b52fe89f54777581183e78832bd4428f19c043ad24bbc1f194bdba), a 50-page scan of Gazette of Eritrean Laws Vol. 25/2017 No. 2, Asmara 26 January 2017, carrying Proclamation No. 179/2017 and Legal Notice No. 127/2017. `pdftotext -layout` gives clean English for the Proclamation (Art. 42 entry into force read at page 30); the Legal Notice pages have no English text layer, and `tesseract -l eng` on pages 32, 33, 49 and 50 returned Arabic-script garbage, so its commencement clause was not read. Library of Congress blog `https://blogs.loc.gov/law/2020/09/digital-collection-of-the-gazette-of-eritrean-laws-goes-live/` returned `200 63978 text/html`; `https://www.loc.gov/collections/gazette-of-eritrean-laws/` and the item page `https://www.loc.gov/item/eritrean-proc-179-2017/` answered 403 to curl.
+
+WIPO Lex route for the Civil Code: details page `https://www.wipo.int/wipolex/en/legislation/details/22800`, signed link inside it, `curl -sL -A "Mozilla/5.0"` returned `200 13182777 application/pdf`, sha256 1c36eb2ed15da1c1927dac49dab3afe29fb0d16b38ac1ef345886b1305cd9c4d; `pdftotext -layout` gives Art. 1161 with OCR-typography noise.
+
+### Languages
+
+The issue prints the Proclamation in Tigrinya, English and Arabic. No government translation row exists; nothing is stored in any language.
+
+### Register-row-only instruments
+
+- Proclamation No. 179/2017 (F2): register row only; no state host.
+- Legal Notice No. 127/2017 (F2): register row only; `in_force` null because the commencement clause was not read.
+- No F1 (disclosure), F3 (carbon market, GHG reporting) or F6 (consumer or advertising claims) instrument found; F7 register rows only. No securities regulator, stock exchange or central bank site reached.
+
+## Iran
+
+Run on 2026-11-09 (GEL-22-03). No Iranian state host gave a usable answer from the laptop address, so no row passes, no record is stored and no instrument has a scope entry. Nothing was fetched; there is no proven fetch request to list.
+
+Requests tried and the answers (all with `curl -sL -m 15 -A "Mozilla/5.0"`):
+
+| URL | Answer |
+|---|---|
+| `https://rrk.ir`, `https://www.rrk.ir`, `http://rrk.ir` | no HTTP response, connection timed out |
+| `https://rc.majlis.ir`, `https://rc.majlis.ir/fa`, `http://rc.majlis.ir` | curl error 35, connection reset by peer |
+| `https://doe.ir`, `https://www.doe.ir`, `https://doe.ir/Portal/home/` | no HTTP response, connection timed out |
+| `https://dotic.ir` | 403, 10836 bytes, text/html: "The request has been blocked from your IP or your location!" (geo-block) |
+| `https://www.cbi.ir` | 200, 244 bytes, text/html: "The requested URL was rejected." (WAF) |
+| `https://www.sec.ir` | certificate error; with `-k` a 301 to a domain-sale page at one.ir, not the regulator |
+| `https://www.tse.ir`, `https://www.majlis.ir`, `https://majlis.ir` | no HTTP response |
+| `https://qavanin.ir` | 200, 6094 bytes: a "transferring" script page with no law text |
+
+Rows added, all `permission requested` (terms unread): `IR-DOTIC-ADOPTED`, `IR-RRK-ADOPTED`, `IR-MAJLIS-RC-CONSOLIDATED`, `IR-DOE-ADOPTED`, `IR-CBI-ADOPTED`. For the three hosts that sent nothing, `terms_quote` records the failure, not a quote, and the fingerprint is the hash of empty output.
+
+### Languages
+
+Persian is the language of legislation and of the Official Gazette; no Persian text could be fetched. English texts on WIPO Lex are not stored: `https://www.wipo.int/wipolex/en/members/profile/IR` answers 200 and lists 31 laws, none on environment, climate, securities or consumer protection. The English Copyright Act (`https://www.wipo.int/wipolex/en/legislation/details/7708`, signed PDF sha256 `cb1ecf1d89b5481786b4167e240dab057536ac5be19798115239609a93ae10b0`, read with `pdftotext -layout`) lists protected works in Article 2 and no article excludes laws or official texts, so no statute pass rests on it; it also says the translation was communicated to UNESCO, which is not a government terms grant.
+
+### Link-only instruments
+
+None in scope. Register rows only (F7): National Strategic Plan on Climate Change; Clean Air Law (official page `https://rc.majlis.ir/fa/law/print_version/1030618`, URL copied from a university PDF footer, not opened); Environmental Protection and Enhancement Law (1974); Consumer Rights Protection Law (2009). Reason: official hosts unreachable, so no official page states the text, the in-force date or an ESG-relevant clause.
+
+## Sudan
+
+Run 2026-11-09 from the laptop address. One `pass` row: SD-MOJ-CONSOLIDATED (Ministry of Justice, Laws of Sudan Ninth Revised Edition e-book), verdict `pass` on the statute (Copyright and Neighbouring Rights Protection and Literary and Artistic Works Act 2013, s. 3 and s. 6(b), official documents including laws are not protected), not on site terms: moj.gov.sd has no terms page and its footer says all rights reserved 2026. SD-CBOS-ADOPTED (Central Bank of Sudan) is `permission requested`: the bank claims the copyright and allows personal non-commercial printing only.
+
+### SD-MOJ-CONSOLIDATED
+
+```
+curl -sL -A "Mozilla/5.0" -o szoc49.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/szoc49.html"
+200 39726 text/html
+```
+
+Instrument `sd-environment-protection-act-2001`. The reader page https://www.moj.gov.sd/sudanlaws (HTTP 200, 4838 bytes) is a Kotobee e-book that needs JavaScript and shows no law text to curl, but the e-book is a set of static files under https://www.moj.gov.sd/sudanlaws/epub/: `curl -sL -A "Mozilla/5.0" https://www.moj.gov.sd/sudanlaws/epub/EPUB/package.opf` (HTTP 200, 55633 bytes) lists 434 files under `xhtml/` (365 XHTML pages, one per law or front-matter page, and 69 font, script and style files of a PDF viewer subfolder), with no titles; the title is the first line of each file, so the file for a law is found by downloading the files and reading the first line (`s9hoca.html` is the Copyright Act 2013, `szoc49.html` the Environment Protection Act 2001). A second fetch of each of the seven stored files gave identical bytes, so `fetched_sha256` (hash of the XHTML as received) reproduces; the server sends `Last-Modified: Tue, 01 Aug 2017 14:12:20 GMT`. No browser was used. Text extraction: strip `<script>`, `<style>` and the `<head>`, turn the closing tags of `p`, `div`, `h1` to `h6`, `li`, `tr` and `br` into line breaks, delete the other tags, unescape HTML entities, collapse runs of spaces and tabs, drop blank lines. Nothing is reworded; the footnote markers (`[1](1)`) and the footnote list at the foot of each page stay in the text.
+
+The e-book is the Ninth Revised Edition of the Laws of Sudan; its introduction (`xhtml/sibyrw.html`) says it lists all Sudanese laws in force from 1903 to 30 March 2015. Each stored record is therefore `consolidated`, dated 2015-03-30, not the date of the law. It is a committee compilation, not the Sudan Gazette; no online Gazette was found.
+
+### Languages
+
+Arabic only (`ar`). The Ministry's e-book is Arabic (`dc:language ar` in `package.opf`); https://www.moj.gov.sd/en (HTTP 200, 613 bytes) carries no law texts. The WIPO Lex Sudan profile (https://www.wipo.int/wipolex/en/members/profile/SD) lists intellectual property and culture laws only, none of the subjects stored here. No row for English: no Sudanese government translation was found.
+
+### Link only
+
+- `sd-cbos-policies-2024`: row SD-CBOS-ADOPTED is `permission requested` (https://cbos.gov.sd/ar/content/... "حقوق النشر وحدود المسؤولية": copyright owned by the bank, personal non-commercial printing only). The PDF downloads (`curl -sL -A "Mozilla/5.0" -o p.pdf https://cbos.gov.sd/sites/default/files/CentralBankSudanPolicies2024.pdf` gives `200 6972571 application/pdf`) but is image-only: `pdftotext` returns nothing; OCR (`pdftoppm -r 300`, `tesseract -l ara`) was run for reading only.
+- Company sustainability or climate disclosure rule, emissions trading or GHG reporting rule, consumer protection act (a 2019 act reported by a secondary summary): none found, register rows with law family F7. Searched: the full text of all 365 XHTML pages of the e-book for carbon, emission, climate change, social responsibility, disclosure and consumer (hits were only hydrocarbon and chemistry definitions, aircraft-engine emissions in the Civil Aviation Safety Act 2010, and the competition, standards and anti-dumping laws for consumer), the FMA regulations pages (https://fma.gov.sd/regulatoins/, `/fma-law/`, `/implementing-regulations/`, `/category/board-decisions/`, `/financial-services/publications/`; list pages only, the linked PDFs were not read) and the WIPO Lex Sudan profile.
+- Not reachable from the laptop address: https://dse.sd and http://dse.sd (no answer, curl exit 6/000), https://www.hcenr.gov.sd, https://www.mefpd.gov.sd, https://www.mofep.gov.sd, https://mti.gov.sd (no answer, HTTP 000).

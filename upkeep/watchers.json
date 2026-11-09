@@ -15403,5 +15403,350 @@
   "tier": "regulator_page",
   "url": "https://www.palaugov.pw/eqpb/",
   "change": "terms_changed"
+ },
+ {
+  "id": "af-environment-law-nepa-page",
+  "source_id": "AF-NEPA-ADOPTED",
+  "iso2": "AF",
+  "instrument": "af-environment-law",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nepa.gov.af/showDariPage/25",
+  "params": {
+   "second_route": "https://nepa.gov.af/showDariPage/25 (open in a browser; file links load a JavaScript app)"
+  }
+ },
+ {
+  "id": "af-eia-regulation-nepa-page",
+  "source_id": "AF-NEPA-ADOPTED",
+  "iso2": "AF",
+  "instrument": "af-eia-regulation",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nepa.gov.af/showDariPage/25",
+  "params": {
+   "second_route": "https://nepa.gov.af/showDariPage/25 (open in a browser; file links load a JavaScript app)"
+  }
+ },
+ {
+  "id": "af-air-pollution-regulation-nepa-page",
+  "source_id": "AF-NEPA-ADOPTED",
+  "iso2": "AF",
+  "instrument": "af-air-pollution-regulation",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nepa.gov.af/showDariPage/25",
+  "params": {
+   "second_route": "https://nepa.gov.af/showDariPage/25 (open in a browser; file links load a JavaScript app)"
+  }
+ },
+ {
+  "id": "af-air-pollution-regulation-amendment-nepa-page",
+  "source_id": "AF-NEPA-ADOPTED",
+  "iso2": "AF",
+  "instrument": "af-air-pollution-regulation-amendment",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nepa.gov.af/showDariPage/25",
+  "params": {
+   "second_route": "https://nepa.gov.af/showDariPage/25 (open in a browser; file links load a JavaScript app)"
+  }
+ },
+ {
+  "id": "terms-af-nepa-adopted",
+  "source_id": "AF-NEPA-ADOPTED",
+  "iso2": "AF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nepa.gov.af/showDariPage/25",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://nepa.gov.af/showDariPage/25 (open in a browser; file links load a JavaScript app)"
+  }
+ },
+ {
+  "id": "terms-af-moj-gazette",
+  "source_id": "AF-MOJ-GAZETTE",
+  "iso2": "AF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moj.gov.af/en/official-gazette",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://moj.gov.af/en/official-gazette (open in a browser)"
+  }
+ },
+ {
+  "id": "ly-cbl-circular-28-2023",
+  "source_id": "LY-CBL-ADOPTED",
+  "iso2": "LY",
+  "instrument": "ly-cbl-circular-28-2023",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbl.gov.ly/micifaf/2024/01/%D9%85%D9%86%D8%B4%D9%88%D8%B1-%D8%B1%D9%82%D9%85-28-2023-1.pdf",
+  "change": "new_version"
+ },
+ {
+  "id": "ss-companies-act-2012-table-e-part-iv-pdf",
+  "source_id": "SS-MOJCA-ADOPTED",
+  "iso2": "SS",
+  "instrument": "ss-companies-act-2012-table-e-part-iv",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "http://mojca.gov.ss/wp-content/uploads/2023/03/Companies-Act-2012.pdf",
+  "params": {
+   "second_route": "Internet Archive snapshot of https://mojca.gov.ss/laws/ or a browser read; site certificate expired and laptop resolver does not resolve the host on 2026-11-09"
+  }
+ },
+ {
+  "id": "ss-consumer-protection-act-2011-pdf",
+  "source_id": "SS-MOJCA-ADOPTED",
+  "iso2": "SS",
+  "instrument": "ss-consumer-protection-act-2011",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "http://mojca.gov.ss/wp-content/uploads/2023/03/Consumer-Protection-Act-2011.pdf",
+  "params": {
+   "second_route": "Internet Archive snapshot of https://mojca.gov.ss/laws/ or a browser read; site certificate expired and laptop resolver does not resolve the host on 2026-11-09"
+  }
+ },
+ {
+  "id": "so-environmental-protection-and-management-act-2024-page",
+  "source_id": "SO-MOECC-ADOPTED",
+  "iso2": "SO",
+  "instrument": "so-environmental-protection-and-management-act-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moecc.gov.so/wp-content/uploads/2024/10/Environmental-Protection-and-Management-Act-Engl_240625_145520-2.pdf",
+  "params": {}
+ },
+ {
+  "id": "so-esia-regulations-2024-page",
+  "source_id": "SO-MOECC-ADOPTED",
+  "iso2": "SO",
+  "instrument": "so-esia-regulations-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://moecc.gov.so/wp-content/uploads/2024/10/ESIA-REGULATIONS_Q-1-1.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-so-moecc-adopted",
+  "source_id": "SO-MOECC-ADOPTED",
+  "iso2": "SO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://moecc.gov.so/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-so-parliament-adopted",
+  "source_id": "SO-PARLIAMENT-ADOPTED",
+  "iso2": "SO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://parliament.gov.so/legislation-4/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-so-mof-adopted",
+  "source_id": "SO-MOF-ADOPTED",
+  "iso2": "SO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.mof.gov.so/legislation/other-acts",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-so-cbs-adopted",
+  "source_id": "SO-CBS-ADOPTED",
+  "iso2": "SO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.centralbank.gov.so/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.centralbank.gov.so/ (browser; Cloudflare browser check returns HTTP 403 to curl on 2026-11-09)"
+  }
+ },
+ {
+  "id": "terms-er-gazette-loc-blog",
+  "source_id": "ER-GAZETTE-ADOPTED",
+  "iso2": "ER",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://blogs.loc.gov/law/2020/09/digital-collection-of-the-gazette-of-eritrean-laws-goes-live/",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-ir-dotic",
+  "source_id": "IR-DOTIC-ADOPTED",
+  "iso2": "IR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://dotic.ir",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://dotic.ir (HTTP 403 geo-block to scripts from the laptop address; open from an Iranian-reachable browser)"
+  }
+ },
+ {
+  "id": "terms-ir-rrk",
+  "source_id": "IR-RRK-ADOPTED",
+  "iso2": "IR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://rrk.ir",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://rrk.ir (no response from the laptop address; open in a browser)"
+  }
+ },
+ {
+  "id": "terms-ir-majlis-rc",
+  "source_id": "IR-MAJLIS-RC-CONSOLIDATED",
+  "iso2": "IR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://rc.majlis.ir",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://rc.majlis.ir/fa (connection reset from the laptop address; open in a browser)"
+  }
+ },
+ {
+  "id": "terms-ir-doe",
+  "source_id": "IR-DOE-ADOPTED",
+  "iso2": "IR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://doe.ir",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://doe.ir (no response from the laptop address; open in a browser)"
+  }
+ },
+ {
+  "id": "terms-ir-cbi",
+  "source_id": "IR-CBI-ADOPTED",
+  "iso2": "IR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cbi.ir",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.cbi.ir (WAF rejection page to scripts; open in a browser)"
+  }
+ },
+ {
+  "id": "sd-environment-protection-act-2001-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-environment-protection-act-2001",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/szoc49.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-forests-renewable-natural-resources-act-2002-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-forests-renewable-natural-resources-act-2002",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/s8b225.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-wildlife-protection-national-parks-act-1986-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-wildlife-protection-national-parks-act-1986",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/sa3xs4.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-desertification-control-act-2009-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-desertification-control-act-2009",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/stmzvg.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-biosafety-act-2010-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-biosafety-act-2010",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/sq87kz.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-environmental-health-act-2009-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-environmental-health-act-2009",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/sxgrg3.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-competition-anti-monopoly-act-2009-moj-page",
+  "source_id": "SD-MOJ-CONSOLIDATED",
+  "iso2": "SD",
+  "instrument": "sd-competition-anti-monopoly-act-2009",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/sv3dgv.html",
+  "params": {
+   "second_route": "https://www.moj.gov.sd/sudanlaws (Kotobee e-book reader, needs a browser; open the law in the contents list). The XHTML file answers curl with HTTP 200 and a Last-Modified header"
+  }
+ },
+ {
+  "id": "sd-cbos-policies-2024-pdf",
+  "source_id": "SD-CBOS-ADOPTED",
+  "iso2": "SD",
+  "instrument": "sd-cbos-policies-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cbos.gov.sd/sites/default/files/CentralBankSudanPolicies2024.pdf",
+  "params": {
+   "second_route": "https://cbos.gov.sd (browser; the policies PDF is linked from the bank site)"
+  }
  }
 ]
