@@ -1,0 +1,36 @@
+[
+  {
+    "id": "bf-amf-umoa-taxonomy",
+    "title": "Circulaire n° 001/AMF-UMOA/2024: taxonomy of eligible projects for green, social and sustainable bonds (WAEMU regional market)",
+    "official_url": "https://www.amf-umoa.org/",
+    "citation": "Circulaire n° 001/AMF-UMOA/2024 (AMF-UMOA), taxonomy of eligible projects for green, social and sustainable bonds",
+    "in_force": null,
+    "evidence": "No official page states the date: amf-umoa.org is a JavaScript shell with no circular text (opened 2026-11-09). The date 2024-02-28 comes from a law-firm note (Lextenso, labase-lextenso.fr), not an official page.",
+    "law_family": "F6",
+    "duty_on": "unknown",
+    "source_row": [
+      "BF-AMF-UMOA-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Regional WAEMU text issued by the AMF-UMOA, not a Burkina Faso text, so the Burkina Faso copyright statute (Loi 048-2019/AN art. 10) does not decide its status. Terms not readable on the publisher site, so no records. The taxonomy is also relevant to other WAEMU states; nothing about them is checked here.",
+    "status": "link only",
+    "status_note": "circular text not reached; AMF-UMOA terms not readable as text"
+  },
+  {
+    "id": "bf-environment-code",
+    "title": "Loi n° 006-2013/AN portant code de l'environnement du Burkina Faso",
+    "official_url": "https://www.legiburkina.bf/",
+    "citation": "Loi n° 006-2013/AN portant code de l'environnement, promulgated by Décret n° 2013-406/PRES",
+    "in_force": null,
+    "evidence": "No official page read. Secondary sources only: UNEP LEAP (leap.unep.org) gives 148 articles and decree 2013-406/PRES of 2013-04-02; a BOAD copy (admin.boad.org, not official) gives a transmittal letter dated 16 April 2013. No in-force sentence found.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "BF-LEGIBURKINA-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Official URL is the Légiburkina home page, named as the legal database by an Ecolex entry; the page did not answer on 2026-11-09 and the operator is not confirmed. Art. 10 of Loi 048-2019/AN excludes official legislative texts from copyright, so an official copy from an official host can be stored once found (BF-ASSEMBLEE-ADOPTED is pass). Date conflict (2 vs 16 April 2013) unresolved. F2 status to confirm.",
+    "status": "link only",
+    "status_note": "no official copy reached"
+  }
+]
