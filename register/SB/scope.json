@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sb-environment-act-1998",
+    "title": "Environment Act 1998 (No. 8 of 1998)",
+    "official_url": "https://www.parliament.gov.sb/business/acts/files/1998/The%20Environment%20Act%201998.pdf",
+    "citation": "Environment Act 1998 (No. 8 of 1998), passed 20 October 1998, assented 1 May 1999",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SB-PARLIAMENT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Scanned PDF from the Parliament Acts list (year 1998), read by OCR on 2026-11-09. Section 1: \"This Act may be cited as the Environment Act, 1998, and shall come into force on such date as the Minister may appoint, by notice published in the Gazette.\" No Gazette notice was found on an official page, so in_force is null. Link only: row SB-PARLIAMENT-ADOPTED is permission requested (no terms page; Copyright Act Cap. 138 s. 31 vests Government works in the Government and has no exception for Acts). Language: English only, the only language of legislation. No government translation exists to look for. A September 2026 press report says the Government will review the Act; no amending Act was found in the Parliament list for 1999 to 2026.",
+    "status": "link only"
+  },
+  {
+    "id": "sb-consumer-protection-act-1995",
+    "title": "Consumer Protection Act 1995 (No. 2 of 1995)",
+    "official_url": "https://www.parliament.gov.sb/business/acts/files/1995/The%20Consumer%20Protection%20Act%201995.pdf",
+    "citation": "Consumer Protection Act 1995 (No. 2 of 1995), passed 6 March 1995, assented 29 March 1995",
+    "in_force": null,
+    "evidence": "",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SB-PARLIAMENT-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Scanned PDF from the Parliament Acts list (year 1995), read by OCR on 2026-11-09. Section 1 leaves commencement to a date the Minister appoints by Gazette notice; none found, so in_force is null. Section 24: \"No trader or person shall, in the course of a trade or business, engage in conduct that is misleading or deceptive or is likely to mislead or deceive.\" Section 25 makes false representations about the standard, quality, approval or benefits of goods or services an offence. Neither names environmental or climate claims; the Act is the general umbrella for them. Link only: row SB-PARLIAMENT-ADOPTED is permission requested. English only; no government translation exists to look for.",
+    "status": "link only"
+  }
+]
