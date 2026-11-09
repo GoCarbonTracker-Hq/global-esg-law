@@ -1,0 +1,51 @@
+[
+  {
+    "id": "fm-epa-title25",
+    "title": "FSM Environmental Protection Act, Title 25 FSM Code, Chapters 1 to 3 (as revised by Public Law 17-57)",
+    "official_url": "https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-17-57.pdf",
+    "citation": "Title 25 FSMC chs. 1-3 (FSM Environmental Protection Act, PL 3-83); chapters 1 to 4 of the earlier subtitle repealed and chapters 5 to 7 renumbered 1 to 3 by Public Law 17-57",
+    "in_force": "2012-06-15",
+    "evidence": "Public Law 17-57 section 23: \"This act shall become law upon approval by the President of the Federated States of Micronesia or upon its becoming law without such approval.\" The signature date printed under it is \"June 15 , 2012\". Opened https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-17-57.pdf (sha256 8786c0e7a2fa8bb07104a3f69a000cea45fdb67075dd66e051464d3400dfb923) on 2026-11-09; the editor's note on https://fsmlaw.org/fsm/code/title25/T25_Ch1_2014.html says the same: \"PL 17-57 was signed into law by President Manny Mori on June 15, 2012.\"",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FM-CFSM-ADOPTED",
+      "FM-FSMLAW-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework: national policy (s. 102), the Office of Environment and Emergency Management, environmental impact statements (s. 302), enforcement and a false-statement offence (s. 307). It names no climate or emissions duty on companies. in_force is the date of the 2012 revision; the date of the original Act (PL 3-83) is not stated on any official page opened. Text is on fsmlaw.org chapters T25_Ch1_2014.html, T25_Ch2_2014.html and T25_Ch3_2014.html (LIS copy, not an official publication). Both rows are permission requested, so link only. Amended by fm-climate-change-act, which adds a Chapter 8 that the LIS copy does not carry yet. English is the language of legislation; no other language looked for.",
+    "status": "link only"
+  },
+  {
+    "id": "fm-climate-change-act",
+    "title": "Federated States of Micronesia Climate Change Act (Public Law 18-34), Title 25 FSM Code Chapter 8",
+    "official_url": "https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-18-34.pdf",
+    "citation": "Public Law No. 18-34 (Congressional Bill No. 18-72, C.D.3), adding Chapter 8 \"Climate Change\" (ss. 801 to 803) to Title 25 FSMC",
+    "in_force": null,
+    "evidence": "Section 6: \"This act shall become law upon approval by the President of the Federated States of Micronesia or upon its becoming law without such approval.\" The date line printed under it reads \"January 3 , 2013\" (page 4 read as an image), but the header says \"SECOND REGULAR SESSION, 2013\" and section 4 sets \"By October 1, 2014\", so the printed year looks wrong and no official page gives a reliable date. Opened https://www.cfsm.gov.fm/wp-content/uploads/2024/07/PUBLIC-LAW-18-34.pdf (sha256 44f2e9f95a8749238d8871e1c79e413401859e532cea085cd9da4fa097e2c139) on 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": [
+      "FM-CFSM-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Climate framework: section 802 requires named departments and agencies to prepare climate change plans and policies by 1 October 2014 and the Office of Environment and Emergency Management to make them public; section 803 requires an annual report by the President to Congress from fiscal year 2015. It puts no duty on companies. Amends fm-epa-title25 (adds Chapter 8). in_force left null because the printed approval date is doubtful (see evidence). Row FM-CFSM-ADOPTED is permission requested, so link only. English is the language of legislation.",
+    "status": "link only"
+  },
+  {
+    "id": "fm-consumer-protection-act",
+    "title": "Consumer Protection Act, Title 34 FSM Code, Chapter 1",
+    "official_url": "https://fsmlaw.org/fsm/code/title34/T34_Ch01_2014.html",
+    "citation": "Title 34 FSMC ch. 1, ss. 101-114 (Consumer Protection Act; source COM PL 3C-59, TT Code 1970 33 TTC 351)",
+    "in_force": null,
+    "evidence": "Section 101: \"This chapter may be cited as the “Consumer Protection Act.”\" Source line: \"COM PL 3C-59 § 1; TT Code 1970, 33 TTC 351; TT Code 1980, 33 TTC 351.\" No commencement date appears on the page. Opened https://fsmlaw.org/fsm/code/title34/T34_Ch01_2014.html (sha256 e6773f1f9026ab39214ee081ad38a128f691a0e28bcdcb01c6e52150376479ad) on 2026-11-09.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FM-FSMLAW-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Umbrella consumer law, not an environmental-claims law: section 103 declares unlawful, among others, representing that goods or services have \"characteristics, ingredients, uses, benefits\" they do not have (103(5)), representing a particular \"standard, quality, or grade\" (103(7)) and \"any act or practice which is unfair or deceptive to the consumer\" (103(13)); none names environmental claims. Only the LIS copy was found (a court project, not the enacting body, and not an official publication), so verification is official_page_seen and the text is link only. No official copy of this pre-1979 Trust Territory law found on cfsm.gov.fm (public law lists start with the 10th Congress). English is the language of legislation.",
+    "status": "link only"
+  }
+]
