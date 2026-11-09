@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ss-companies-act-2012-table-e-part-iv",
+    "title": "Companies Act 2012, First Schedule, Table E (code of corporate governance), Part IV: integrated sustainability reporting (section 15)",
+    "official_url": "http://mojca.gov.ss/wp-content/uploads/2023/03/Companies-Act-2012.pdf",
+    "citation": "The Companies Act, 2012 (Laws of South Sudan), First Schedule Table E Part IV s.15, applied by s.17",
+    "in_force": null,
+    "evidence": "Section 1 of the PDF read 2026-11-09: \"This Act shall be cited as “The Companies Act, 2012” and shall come into force on the date of its signature by the President.\" No signature date is printed. Table E Part IV s.15(1): \"A company shall report on its policies and procedures and systems and commitments to the following- (a) social; (b) ethical; (c) safety; (d) health; and (e) environment.\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "SS-MOJCA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Table E is a code of corporate governance. Section 17(1) says a public company shall adopt all or any part of Table E into its articles, and s.17(2) says a private company may; so whether Part IV binds a given company depends on what its articles adopt (read in 2026-11-09 text, not analysed further). PDF is the Act as passed, 1.4 MB, sha256 dc0768b0e3013870807f5b37aa43e0968243549cf27453ea9ab4dc14771b7a03. Not stored: SS-MOJCA-ADOPTED is permission requested (All Rights Reserved). English only; no government translation needed.",
+    "status": "link only"
+  },
+  {
+    "id": "ss-consumer-protection-act-2011",
+    "title": "Consumer Protection Act 2011 (false, misleading or deceptive representations)",
+    "official_url": "http://mojca.gov.ss/wp-content/uploads/2023/03/Consumer-Protection-Act-2011.pdf",
+    "citation": "Consumer Protection Act, 2011 (Laws of South Sudan), s.6",
+    "in_force": null,
+    "evidence": "Section 1 of the PDF read 2026-11-09: \"This Act may be cited as the Consumer Protection Act, 2011 and shall come into force on the date of its signature by the President.\" No signature date is printed (a secondary FAOLEX record gives 2011-12-23, not an official page). Section 6(1)(a): the supplier must not \"directly or indirectly express or imply a false, misleading or deceptive representation concerning a material fact to a consumer or prospective consumer\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SS-MOJCA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "A general consumer law; it does not mention environmental claims. Listed as the umbrella for misleading claims only. sha256 58abd478f8bbf25acd80f5c239af1ae8383347aedf457f32f7ab40a74bbc770d. Not stored: row is permission requested.",
+    "status": "link only"
+  }
+]
