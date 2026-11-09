@@ -1,0 +1,30 @@
+[
+  {
+    "id": "gq-ley-7-2003-medio-ambiente",
+    "title": "Ley n.º 7/2003, reguladora del Medio Ambiente en Guinea Ecuatorial",
+    "official_url": "https://faolex.fao.org/docs/pdf/eqg102892.pdf",
+    "citation": "Ley n.º 7/2003, de 27 de noviembre, Reguladora del Medio Ambiente en Guinea Ecuatorial",
+    "in_force": null,
+    "evidence": "Cover of the FAOLEX copy: \"LEY numero 7/2003, de fecha 27 de noviembre, Reguladora del Medio Ambiente en Guinea Ecuatorial\". No official gazette page was read, so no in-force date is stated.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "GQ-FAOLEX-ADOPTED",
+    "verification": "tracker_only",
+    "notes": "Secondary copy only (FAOLEX, FAO). The Boletin Oficial copy was not located. Other secondary lists give 22 Nov 2003 as the date. Link only: FAO terms allow non-commercial reuse, so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "gq-cosumaf-reglamento-general",
+    "title": "Règlement général de la COSUMAF (adopted 2023-05-23) including rules on green, social and sustainable bonds (OVSD)",
+    "official_url": "https://www.cosumaf.org",
+    "citation": "COSUMAF Règlement général, adopted 2023-05-23 (CEMAC regional text)",
+    "in_force": null,
+    "evidence": "No official page read: cosumaf.org answered HTTP 403 on 2026-11-09. The 2023-05-24 entry date comes from a law-firm article on droitmediasfinance.com.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "GQ-COSUMAF-ADOPTED",
+    "verification": "not_checked",
+    "notes": "CEMAC-wide securities regulation, not a Guinean national law. Applies in GQ through COSUMAF. Official text not verified. Link only.",
+    "status": "link only"
+  }
+]
