@@ -1,0 +1,53 @@
+[
+  {
+    "id": "cf-art6-decree-2025",
+    "title": "Decree formalising carbon market measures for Article 6 participation (number and title not found)",
+    "official_url": "https://primature.cf/category/documents-officiels/decrets-legislations/",
+    "citation": "Decree, number not found; reported as published June 2025 (trade press, QCIntel)",
+    "in_force": null,
+    "evidence": "No official page or gazette read that states the date or number. A QCIntel news item, reported as dated 2025-06-04, says the Central African Republic published a decree formalising key carbon market measures; the item gives no decree number.",
+    "law_family": "F3",
+    "duty_on": "unknown",
+    "source_row": [
+      "CF-PRIMATURE-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only. The Primature decree listing read on 2026-11-09 holds no legal texts. Journal Officiel de la République centrafricaine: no working official URL confirmed on the day. Ministère de l'Environnement et du Développement Durable: its site (www.environnement.gouv.cf) answered HTTP 503 (maintenance page) on 2026-11-09. Trade press (QCIntel, 2026) also reports a July 2026 text on ministry roles and an August 2026 text on the Article 6 rules and a CORSIA letter of authorisation; not read on an official page, so not registered as separate instruments yet.",
+    "status": "link only",
+    "status_note": "No official copy found. Decree number and title to be set when an official copy is read."
+  },
+  {
+    "id": "cf-environment-code-2007",
+    "title": "Loi n° 07.018 du 28 décembre 2007 portant code de l'environnement de la République centrafricaine",
+    "official_url": "https://primature.cf/category/documents-officiels/decrets-legislations/",
+    "citation": "Loi n° 07.018 du 28 décembre 2007 portant code de l'environnement",
+    "in_force": null,
+    "evidence": "No official copy read. Secondary sources only: an AMPEID record gives publication on 28 Dec 2007 and entry into force on 27 Dec 2008; FAOLEX (via UNEP LEAP) lists the text. Neither is an official page, so no in-force date is taken from them.",
+    "law_family": "F2",
+    "duty_on": "unknown",
+    "source_row": [
+      "CF-PRIMATURE-ADOPTED"
+    ],
+    "verification": "tracker_only",
+    "notes": "Link only. The official URL is the Primature listing, which does not carry this text; it is the place the official copy is expected to appear and is used so the watcher has an official host to check. Secondary copies seen in search: FAOLEX caf105925.pdf and an AMPEID PDF; not opened for storage because they are not official. An arrêté of 2013 refers to articles 87 to 102 of the code for environmental impact assessment. Amendments not checked.",
+    "status": "link only",
+    "status_note": "Official copy not reached; the FAOLEX and LEAP hosts did not answer curl (403 and no answer)."
+  },
+  {
+    "id": "cf-cosumaf-green-bonds-rg-2023",
+    "title": "Règlement général COSUMAF du 23 mai 2023, Section IX (green, social and sustainability bonds, Art. 194 to 200)",
+    "official_url": "https://www.bvm-ac.org/wp-content/uploads/2023/10/Reglement-COSUMAF-du-23-mai-2023.pdf",
+    "citation": "Règlement général de la COSUMAF, adopted at the session of 23 May 2023 (Libreville); Art. 194 to 200 on green, social and sustainable bond issues",
+    "in_force": "2023-05-24",
+    "evidence": "Art. 687: \"Le présent règlement général entre en vigueur le premier jour suivant celui de son adoption par le Collège de la COSUMAF.\" Adoption: \"En sa séance du 23 mai 2023\" and \"Fait à Libreville, le 23 mai 2023\" (scanned PDF, read by OCR). First day after adoption is 2023-05-24.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "CF-BVMAC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Covers the disclosure an issuer of green, social or sustainable bonds must make (Art. 198 impacts, Art. 199 project monitoring on the issuer's website) and an independent expert review (Art. 196). It is not a general corporate climate or sustainability reporting rule; the rest of the regulation (periodic information, Art. 189 onward) was not read in full. The text is a scanned PDF: the paragraphs quoted were read by OCR (tesseract, fra) and not corrected. The source is hosted by the BVMAC site; COSUMAF itself (www.cosumaf.org) answered HTTP 403.",
+    "status": "link only",
+    "status_note": "Permission requested from BVMAC (footer reserves all rights); no record stored."
+  }
+]
