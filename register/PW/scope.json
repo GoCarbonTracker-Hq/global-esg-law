@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pw-eqpb-air-2401-71",
+    "title": "Environmental Quality Protection Board, Chapter 2401-71 Air Pollution Control Regulations",
+    "official_url": "https://www.palaugov.pw/wp-content/uploads/2021/11/Chapter-2401-71_Air-Quality-Regulations.pdf",
+    "citation": "EQPB Regulations Chapter 2401-71 (Air Pollution Control), promulgated under RPPL 1-58 (24 PNC section 100 et seq.)",
+    "in_force": "2021-10-23",
+    "evidence": "Every section of the official regulations carries \"(Effective October 23, 2021)\"; section 2401-71-01: \"These regulations shall have the force and effect of law.\" Opened 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "PW-PALAUGOV-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Subordinate regulation under the Environmental Quality Protection Act (RPPL 1-58, 24 PNC). Sets national ambient air quality standards and permit, monitoring and reporting duties for stationary sources; no greenhouse gas duty was found in the text. English only; Palau publishes its regulations in English. One record, adopted text as served by palaugov.pw (statute pass on the Republic of Palau Copyright Act of 2003 s. 3(b)(2)). The PDF text layer contains one garbled signature line (a scanned signature block, byte for byte as extracted).",
+    "status": "stored"
+  },
+  {
+    "id": "pw-eqpb-eaeis-2401-61",
+    "title": "Environmental Quality Protection Board, Chapter 2401-61 Environmental Assessment and Environmental Impact Statement Regulations",
+    "official_url": "https://www.palaugov.pw/wp-content/uploads/2021/06/Chapter-2401-61-EA-EIS-Regulations.pdf",
+    "citation": "EQPB Regulations Chapter 2401-61 (EA and EIS), promulgated under RPPL 1-58 (24 PNC section 101 et seq.)",
+    "in_force": "2020-09-12",
+    "evidence": "Every section of the official regulations carries \"(Effective September 12, 2020)\"; approved by the Board \"this ... day of August 2020\" (signature page). Opened 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "PW-PALAUGOV-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Subordinate regulation under the Environmental Quality Protection Act (RPPL 1-58, 24 PNC): the environmental assessment and impact statement process for proposed projects. The PDF is a scan without a text layer; the stored text is uncorrected OCR output of the scanned official PDF (tesseract 5, eng, --psm 1, 300 dpi), so it holds recognition errors; the original PDF hash is in the record. English only. One record (statute pass on the Republic of Palau Copyright Act of 2003 s. 3(b)(2)).",
+    "status": "stored"
+  },
+  {
+    "id": "pw-eqpb-ozone-2401-81",
+    "title": "Environmental Quality Protection Board, Chapter 2401-81 Ozone Layer Protection Regulations",
+    "official_url": "https://www.palaugov.pw/wp-content/uploads/Chapter-2401-81_Ozone-Layer-Protection-Regulations.pdf",
+    "citation": "EQPB Regulations Chapter 2401-81 (Ozone Layer Protection), promulgated under Title 24 of the Palau National Code",
+    "in_force": "2026-06-06",
+    "evidence": "Every section of the official regulations carries \"(Effective June 6, 2026)\"; section 2401-81-29: \"These Regulations shall take effect as provided by 6 PNC § 127, at which time the EQPB Ozone Layer Protection Regulations preexisting heretofore shall be repealed.\" Opened 2026-11-09.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "PW-PALAUGOV-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Subordinate regulation under Title 24 of the Palau National Code: controlled substances (ozone-depleting substances and HFCs listed in the appendix), import, labelling, permits and licences. It replaces the earlier Ozone Layer Protection Regulations; palaugov.pw serves only the 2026 text, so no earlier version is stored. The PDF is a scan without a text layer; the stored text is uncorrected OCR output of the scanned official PDF (tesseract 5, eng, --psm 1, 300 dpi), so it holds recognition errors, most in the appendix tables; the original PDF hash is in the record. English only. One record (statute pass on the Republic of Palau Copyright Act of 2003 s. 3(b)(2)).",
+    "status": "stored"
+  }
+]
