@@ -1,0 +1,30 @@
+[
+  {
+    "id": "so-environmental-protection-and-management-act-2024",
+    "title": "Environmental Protection and Management Act, 2024 (Law No. 22)",
+    "official_url": "https://moecc.gov.so/wp-content/uploads/2024/10/Environmental-Protection-and-Management-Act-Engl_240625_145520-2.pdf",
+    "citation": "Law No. 22 of 13 February 2024 (Sharci Lr. 22), Official Bulletin of the Federal Republic of Somalia, Year 11, No. 2, April 2024",
+    "in_force": "2024-02-13",
+    "evidence": "Header of the presidential law in the Somali Official Bulletin scan: \"SHARCI LR. 22 TAARIIKH: 13 FEBRAAYO 2024\"; Art. 1: \"Laga billaabo marka uu Madaxweynuhu saxiixo Sharcigan, waxaa si rasmi ah loo oggolaaday Sharciga Ilaalinta iyo Maareeynta Deegaanka.\" (Somali PDF https://moecc.gov.so/wp-content/uploads/2024/10/SHARCIGA_ILAALINTA_iyo_MAAREYNTA_DEEGAANKA-1.pdf, read as an image on 2026-11-09). English Act Art. 102: \"This Act shall enter into force upon passage by the parliament of the Federal Republic of Somalia, signed by the President and published in the Official Gazeta.\" The signature date is not separately stated; the printed date of the law is used.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SO-MOECC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only: SO-MOECC-ADOPTED is permission requested (ministry copyright line, no reuse terms, no copyright statute found), so no text is stored. Arts 54 and 55 are climate programmes and a just transition policy with no carbon market, carbon tax or GHG reporting rule (F2, not F3); Arts 22 and 28 require pollutant reports and emission licences. The Somali text (official languages are Somali and Arabic) is a 71-page scan of the Official Bulletin with no OCR text layer; Tesseract has no Somali pack, so it could not be read as text. English text: ministry PDF, cover April 2024, no number or date on the cover. No Arabic text was found on the ministry or parliament sites.",
+    "status": "link only"
+  },
+  {
+    "id": "so-esia-regulations-2024",
+    "title": "Environmental and Social Impact Assessment and Audit Regulations (ESIA) 2024",
+    "official_url": "https://moecc.gov.so/wp-content/uploads/2024/10/ESIA-REGULATIONS_Q-1-1.pdf",
+    "citation": "ESIA Regulations 2024, Ministry of Environment and Climate Change (made under the Environmental Protection and Management Act 2024)",
+    "in_force": null,
+    "evidence": "No commencement date on the official PDF: the text has a citation clause (\"These Regulations may be cited as the Environmental and Social Impact Assessment Regulations, 2024\") and no commencement clause, number or gazette reference. Read https://moecc.gov.so/wp-content/uploads/2024/10/ESIA-REGULATIONS_Q-1-1.pdf on 2026-11-09 (PDF created 28 October 2024).",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SO-MOECC-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only (SO-MOECC-ADOPTED is permission requested). Enactment is not confirmed: the ministry lists the PDF but no gazette or date was found, so it may be a draft. Impact-assessment procedure, not climate or ESG disclosure. A Somali version is listed beside it (Xeer-nidaamiyaha-Qiimeynta-Saameynta-Lasocodka-Deegaanka-Iyo-Bulshada-2.pdf, 20 pages, text layer present). No government English translation separate from the English original.",
+    "status": "link only"
+  }
+]
