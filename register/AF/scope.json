@@ -1,0 +1,59 @@
+[
+  {
+    "id": "af-environment-law",
+    "title": "Environment Law (قانون محیط زیست)",
+    "official_url": "https://nepa.gov.af/showDariPage/25",
+    "citation": "Environment Law, Official Gazette No. 912 of 25 January 2007 (number and date from search-result summaries of FAOLEX and UNEP only; not confirmed on an official page)",
+    "in_force": null,
+    "evidence": "Listed by title on the NEPA laws and regulations page https://nepa.gov.af/showDariPage/25 (opened 2026-11-09): \"قانون محیط زیست\". The file behind the link is served by a JavaScript app and was not read, so no commencement sentence was seen.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AF-NEPA-ADOPTED",
+    "verification": "official_page_title_only",
+    "notes": "Environmental framework act; NEPA is its principal authority. The gazette number and date are not confirmed on any official page, so in_force is null. AF-NEPA-ADOPTED is permission requested (no terms found), so link only. Languages: the Official Gazette is published in Dari and Pashto; the NEPA list is Dari only; no government English text was found.",
+    "status": "link only"
+  },
+  {
+    "id": "af-eia-regulation",
+    "title": "Regulation on Environmental and Social Impact Assessment (مقرره ارزیابی اثرات محیط زیستی و اجتماعی)",
+    "official_url": "https://nepa.gov.af/showDariPage/25",
+    "citation": "Official Gazette No. 939 of 10 March 2008 per a search-result summary only; not confirmed",
+    "in_force": null,
+    "evidence": "Listed by title on the NEPA laws and regulations page https://nepa.gov.af/showDariPage/25 (opened 2026-11-09): \"مقرره ارزیابی اثرات محیط زیستی و اجتماعی\". The file behind the link is served by a JavaScript app and was not read, so no commencement sentence was seen.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AF-NEPA-ADOPTED",
+    "verification": "official_page_title_only",
+    "notes": "Implementing regulation of the Environment Law; the NEPA title reads Environmental and Social Impact Assessment. AF-NEPA-ADOPTED is permission requested (no terms found), so link only. Languages: the Official Gazette is published in Dari and Pashto; the NEPA list is Dari only; no government English text was found.",
+    "status": "link only"
+  },
+  {
+    "id": "af-air-pollution-regulation",
+    "title": "Regulation on Reduction and Prevention of Air Pollution (مقرره کاهش و جلوگیری از آلودگی هوا)",
+    "official_url": "https://nepa.gov.af/showDariPage/25",
+    "citation": "NEPA title only; gazette number and date not read",
+    "in_force": null,
+    "evidence": "Listed by title on the NEPA laws and regulations page https://nepa.gov.af/showDariPage/25 (opened 2026-11-09): \"مقرره کاهش و جلوگیری از آلودگی هوا\". The file behind the link is served by a JavaScript app and was not read, so no commencement sentence was seen.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AF-NEPA-ADOPTED",
+    "verification": "official_page_title_only",
+    "notes": "Implementing regulation on air pollution. The Environment Law is its parent; no gazette date read. AF-NEPA-ADOPTED is permission requested (no terms found), so link only. Languages: the Official Gazette is published in Dari and Pashto; the NEPA list is Dari only; no government English text was found.",
+    "status": "link only"
+  },
+  {
+    "id": "af-air-pollution-regulation-amendment",
+    "title": "Amendment of the Regulation on Reduction and Prevention of Air Pollution (تعدیل مقرره کاهش و جلوگیری از آلودگی هوا)",
+    "official_url": "https://nepa.gov.af/showDariPage/25",
+    "citation": "NEPA title only; the 21 November 2020 date comes from InforMEA (pointer) and is not confirmed",
+    "in_force": null,
+    "evidence": "Listed by title on the NEPA laws and regulations page https://nepa.gov.af/showDariPage/25 (opened 2026-11-09): \"تعدیل مقرره کاهش و جلوگیری از آلودگی هوا\". The file behind the link is served by a JavaScript app and was not read, so no commencement sentence was seen.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AF-NEPA-ADOPTED",
+    "verification": "official_page_title_only",
+    "notes": "Amending instrument listed separately by NEPA. The 2020-11-21 date seen in the earlier register row is a pointer from InforMEA, not an official page, so in_force is null. AF-NEPA-ADOPTED is permission requested (no terms found), so link only. Languages: the Official Gazette is published in Dari and Pashto; the NEPA list is Dari only; no government English text was found.",
+    "status": "link only",
+    "amends": "af-air-pollution-regulation"
+  }
+]
