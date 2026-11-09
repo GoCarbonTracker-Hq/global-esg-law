@@ -31,7 +31,7 @@ DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 def default_fetch(url, method="GET"):
     """Return (status, headers, body_bytes). HTTP errors return their status; other errors raise."""
     request = urllib.request.Request(url, method=method, headers={
-        "User-Agent": "global-esg-law-watch/1 (+https://github.com/GoCarbonTracker/global-esg-law)",
+        "User-Agent": "global-esg-law-watch/1 (+https://github.com/mokagtc/global-esg-law)",
         "Accept-Encoding": "gzip"})
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
