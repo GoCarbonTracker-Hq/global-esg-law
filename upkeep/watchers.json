@@ -14828,5 +14828,170 @@
   "params": {
    "second_route": "https://minepded.gov.cm (HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)"
   }
+ },
+ {
+  "id": "gq-ley-7-2003-medio-ambiente-faolex-head",
+  "source_id": "GQ-FAOLEX-ADOPTED",
+  "iso2": "GQ",
+  "instrument": "gq-ley-7-2003-medio-ambiente",
+  "kind": "http_head",
+  "tier": "tracker_pointer",
+  "url": "https://faolex.fao.org/docs/pdf/eqg102892.pdf",
+  "params": {
+   "second_route": "https://faolex.fao.org/docs/pdf/eqg102892.pdf (browser); the official gazette copy is not yet located"
+  }
+ },
+ {
+  "id": "gq-cosumaf-reglamento-general-page-hash",
+  "source_id": "GQ-COSUMAF-ADOPTED",
+  "iso2": "GQ",
+  "instrument": "gq-cosumaf-reglamento-general",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cosumaf.org",
+  "params": {
+   "second_route": "https://www.cosumaf.org in a browser; curl gets HTTP 403"
+  }
+ },
+ {
+  "id": "cf-art6-decree-2025-page",
+  "source_id": "CF-PRIMATURE-ADOPTED",
+  "iso2": "CF",
+  "instrument": "cf-art6-decree-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://primature.cf/category/documents-officiels/decrets-legislations/",
+  "params": {}
+ },
+ {
+  "id": "cf-environment-code-2007-page",
+  "source_id": "CF-PRIMATURE-ADOPTED",
+  "iso2": "CF",
+  "instrument": "cf-environment-code-2007",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://primature.cf/category/documents-officiels/decrets-legislations/",
+  "params": {}
+ },
+ {
+  "id": "td-env-protection-law-2024-gazette",
+  "source_id": "TD-JO-ADOPTED",
+  "iso2": "TD",
+  "instrument": "td-env-protection-law-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://journalofficiel.td/",
+  "params": {
+   "second_route": "https://journalofficiel.td/ (browser; the portal answers curl with HTTP 403 and headless Chrome with a Cloudflare challenge page, 2026-11-09)"
+  }
+ },
+ {
+  "id": "st-lei-07-2026-gazette",
+  "source_id": "ST-DIARIO-DA-REPUBLICA-ADOPTED",
+  "iso2": "ST",
+  "instrument": "st-lei-07-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.diariodarepublica.st/"
+ },
+ {
+  "id": "dj-protected-areas-2025",
+  "source_id": "DJ-JO-ADOPTED",
+  "iso2": "DJ",
+  "instrument": "dj-protected-areas-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.journalofficiel.dj/journaux-officiels/",
+  "change": "new_version"
+ },
+ {
+  "id": "gw-lei-bases-ambiente-2011-faolex",
+  "source_id": "GW-FAOLEX-ADOPTED",
+  "iso2": "GW",
+  "instrument": "gw-lei-bases-ambiente-2011",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://faolex.fao.org/docs/pdf/gbs118164.pdf"
+ },
+ {
+  "id": "gw-decreto-b-2017-faolex",
+  "source_id": "GW-FAOLEX-ADOPTED",
+  "iso2": "GW",
+  "instrument": "gw-decreto-b-2017-licenciamento",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://faolex.fao.org/docs/pdf/gbs181208.pdf"
+ },
+ {
+  "id": "gw-crepmf-guia-brvm-pdf",
+  "source_id": "GW-BRVM-ADOPTED",
+  "iso2": "GW",
+  "instrument": "gw-crepmf-guia-obrigacoes-verdes-2020",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.brvm.org/sites/default/files/circulaire_sur_le_guide_des_obligations_vertes.pdf"
+ },
+ {
+  "id": "gw-amf-umoa-taxonomia-brvm-page",
+  "source_id": "GW-BRVM-ADOPTED",
+  "iso2": "GW",
+  "instrument": "gw-amf-umoa-taxonomia-2024",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations"
+ },
+ {
+  "id": "bi-2021-presidence-lois",
+  "source_id": "BI-PRESIDENCE-ADOPTED",
+  "iso2": "BI",
+  "instrument": "bi-env-code-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://presidence.gov.bi/category/lois-promulguees/",
+  "params": {}
+ },
+ {
+  "id": "bi-2000-presidence-lois",
+  "source_id": "BI-PRESIDENCE-ADOPTED",
+  "iso2": "BI",
+  "instrument": "bi-env-code-2000",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://presidence.gov.bi/category/lois-promulguees/",
+  "params": {}
+ },
+ {
+  "id": "bf-amf-umoa-taxonomy-page",
+  "source_id": "BF-AMF-UMOA-ADOPTED",
+  "iso2": "BF",
+  "instrument": "bf-amf-umoa-taxonomy",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.amf-umoa.org/",
+  "params": {
+   "second_route": "browser read of https://www.amf-umoa.org/ (JavaScript shell; the hash changes with each build)"
+  }
+ },
+ {
+  "id": "bf-environment-code-page",
+  "source_id": "BF-LEGIBURKINA-ADOPTED",
+  "iso2": "BF",
+  "instrument": "bf-environment-code",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.legiburkina.bf/",
+  "params": {
+   "second_route": "browser read of https://www.legiburkina.bf/ (no HTTP reply to curl from the laptop on 2026-11-09)"
+  }
+ },
+ {
+  "id": "cf-cosumaf-green-bonds-rg-2023-page",
+  "source_id": "CF-BVMAC-ADOPTED",
+  "iso2": "CF",
+  "instrument": "cf-cosumaf-green-bonds-rg-2023",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bvm-ac.org/wp-content/uploads/2023/10/Reglement-COSUMAF-du-23-mai-2023.pdf",
+  "params": {}
  }
 ]

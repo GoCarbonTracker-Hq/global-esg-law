@@ -9883,3 +9883,290 @@ Under Article 1(3) of the Constitution of the Republic of Cameroon, English and 
 - `https://minepded.gov.cm`: returns HTTP 502 Bad Gateway to all requests from laptop address on 2026-11-05.
 - `https://www.imprimerienationale.cm`: connection timeout (0 bytes returned).
 - `https://www.cosumaf.org`: HTTP 403 Forbidden with Cloudflare challenge (`cf-mitigated: challenge`).
+
+## Central African Republic
+
+Wave 18 (GEL-20-03), checked 2026-11-09, second pass the same day. No official legal text was reachable from this laptop for a statute, decree or code, so no record is stored for this place. Every instrument is link only.
+
+### Sources
+
+| Row | Publisher | Verdict | Basis |
+|---|---|---|---|
+| CF-PRIMATURE-ADOPTED | Primature de la République Centrafricaine | permission requested | terms: footer "© 2025 Primature de la République Centrafricaine. Tous droits réservés." (https://primature.cf/) |
+| CF-BVMAC-ADOPTED | Bourse Régionale des Valeurs Mobilières de l'Afrique Centrale (BVMAC) | permission requested | terms: footer "Copyright © 2019 | Tous droits réservés." (https://www.bvm-ac.org/) |
+
+Proven fetch, listing page (Primature):
+
+```
+curl -sL -A "Mozilla/5.0" -D - -o page.html "https://primature.cf/category/documents-officiels/decrets-legislations/"
+```
+
+Result on 2026-11-09: HTTP 200, 110901 bytes, content type text/html. `content_hash` is the sha256 of that file as received. The listing holds two non-legal posts and no decree.
+
+Proven fetch, COSUMAF regulation (BVMAC):
+
+```
+curl -sL -A "Mozilla/5.0" -D - -o reg2023.pdf "https://www.bvm-ac.org/wp-content/uploads/2023/10/Reglement-COSUMAF-du-23-mai-2023.pdf"
+```
+
+Result on 2026-11-09: HTTP 200, 10509023 bytes, content type application/pdf. The PDF is a scan with no text layer (`pdftotext` gave 157 bytes); pages were rendered at 150 dpi and read with `tesseract -l fra --psm 6`. OCR output is uncorrected and not stored.
+
+### Languages
+
+No language source passes. Legislation is published in French (fr) per the Primature and BVMAC pages; no official Sango (sg) text and no official English text was found.
+
+### Statute question (open for Varun)
+
+Ordonnance n° 85.002 du 5 janvier 1985 sur le droit d'auteur, WIPO Lex record 7558, PDF https://wipolex-res.wipo.int/edocs/lexdocs/laws/fr/cf/cf005fr_1.pdf (signed link taken from the WIPO Lex page, downloaded 2026-11-09, HTTP 200, 1093404 bytes, application/pdf). Art. 10 (OCR, uncorrected): "La protection prévue à l'article 2 ci-dessus ne s'applique pas : aux lois, aux décisions judiciaires ou administratives ainsi qu'aux traductions officielles de ces textes". Whether it reaches the BVMAC regulation and the Primature texts is not decided; neither licence row is pass on this basis.
+
+### Not reached
+
+- Journal Officiel de la République centrafricaine: no working official URL found on the day.
+- Ministère de l'Environnement et du Développement Durable, https://www.environnement.gouv.cf/: HTTP 503, maintenance page.
+- Banque des États de l'Afrique Centrale, https://www.beac.int: no answer (curl 000).
+- COSUMAF, https://www.cosumaf.org: HTTP 403.
+- FAOLEX, https://www.fao.org/faolex: HTTP 403. UNEP LEAP, https://leap.unep.org: no answer.
+- https://www.cnca.cf: no answer.
+
+### Link only
+
+- cf-art6-decree-2025 (F3): carbon market decree reported June 2025; number not found. Source row: permission requested.
+- cf-environment-code-2007 (F2): Loi n° 07.018 of 28 December 2007; no official copy. Source row: permission requested.
+- cf-cosumaf-green-bonds-rg-2023 (F1): COSUMAF Règlement général of 23 May 2023, Section IX on green, social and sustainable bonds. Source row: permission requested.
+- Carbon market texts of 2026 (ministry roles, CORSIA letter of authorisation): register row only, family F7, not in scope.
+
+## Equatorial Guinea
+
+Checked 2026-11-09 by GEL-20-05 (Haiku session). No GQ row is `pass`, so nothing is stored. Every instrument is link only.
+
+### Requests made (2026-11-09)
+
+- `curl -sL -m 40 -A "Mozilla/5.0" -o /tmp/gq-faolex.pdf -w "%{http_code} %{size_download} %{content_type}\n" https://faolex.fao.org/docs/pdf/eqg102892.pdf` returned 200, 2537265 bytes, application/pdf, sha256 03de80840d9c22b9fb4cb3f36aff736e56b45855925fa66b547762b123b3803a. This is a secondary copy (FAO), used only to read the title and date.
+- `curl -sL -A "Mozilla/5.0" https://www.gob.gq` returned 200 with the title "Página Oficial del Gobierno de la República de Guinea Ecuatorial". `https://www.gob.gq/legislacion` returned 404. No legal text found on the government site.
+- `curl -sL -A "Mozilla/5.0" https://www.fao.org/contact-us/terms/en/` returned 200, 65438 bytes. The terms allow non-commercial reuse only (licence row GQ-FAOLEX-ADOPTED, verdict fail).
+- `curl -sL -A "Mozilla/5.0" https://leap.unep.org/en/countries/gq/national-legislation` returned 200 (91636 bytes). It lists Ley 1/2000-era decrees and Ley 14/1984; no GQ climate or ESG statute is listed. Used only as a pointer.
+- `https://www.guineaecuatorialpress.com` returned 200 (news agency, not a legal database). Not used as a source of law text.
+- `https://wipolex.wipo.int/en/legislation/details/21152` returned 200, but GQ copyright status was not resolved (see below).
+
+### Link only
+
+- Ley n.º 7/2003 reguladora del Medio Ambiente (F2): secondary copy only, row GQ-FAOLEX-ADOPTED (fail). The official Boletín Oficial copy was not located.
+- Règlement général de la COSUMAF (F6): cosumaf.org answered HTTP 403 with a browser user agent, row GQ-COSUMAF-ADOPTED (permission requested). The text is a CEMAC regional regulation.
+
+### Blocked from the laptop address
+
+- https://www.cosumaf.org: HTTP 403 to curl with a browser user agent, and HTTP 403 for https://www.cosumaf.org/fr.
+- https://www.beac.int: no answer (curl exit 000).
+- https://www.fao.org/faolex/results/details/en/c/LEX-FAOC038937/: HTTP 403.
+- https://www.unep.org/resources/legislation: HTTP 403.
+
+### Copyright status (not resolved)
+
+WIPO Lex lists the 1889 Civil Code and the 1991 Constitution for GQ, but no copyright statute text was read. Secondary sources disagree (a 1879 law, a 1972 code, and the Bangui Agreement via Wikimedia Commons). Until an official copy of a GQ copyright statute with a sentence excluding official texts is read, no GQ text can pass.
+
+### Languages
+
+No records. Spanish, French and Portuguese are official languages; none stored.
+
+## Chad
+
+Checked 2026-11-09. No row for Chad has verdict `pass`, so no Chad text is stored. The one instrument (`td-env-protection-law-2024`, F2) is link only.
+
+### Fetch attempts (no proven fetch)
+
+- `curl -sIL -A "Mozilla/5.0" https://journalofficiel.td/` gave HTTP 403, `text/html; charset=UTF-8`, 5355 bytes (Cloudflare "Just a moment..." page). The same page via `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --virtual-time-budget=20000 --dump-dom https://journalofficiel.td/` gave a 44833-byte page that is still the challenge ("Verification successful. Waiting for journalofficiel.td to respond"); a 90000 ms budget gave the same challenge. `fetched_sha256` is not applicable: nothing fetched.
+- `curl -sIL https://www.gouvernement.td`, `https://www.primature.gov.td`, `https://www.beac.int`, `https://www.cnt.td/index.php`: no connection (HTTP 000) from the laptop address.
+- `curl -sIL https://www.cosumaf.org`: HTTP 403.
+- `curl -sL https://wipolex-resources-eu-central-1-358922420655.s3.amazonaws.com/edocs/lexdocs/laws/fr/td/td002fr.pdf`: HTTP 403, `application/xml`, 263 bytes (S3 access denied). The WIPO Lex page for the same law, `https://www.wipo.int/wipolex/fr/text/491812`, answered HTTP 200 (HTML, 114608 bytes).
+- `https://leap.unep.org/en/countries/td/national-legislation/loi-ndeg-23cnt2024-du-15-octobre-2024-portant-protection-de` answered HTTP 200 (HTML). Used as a tracker pointer only; not a statute source.
+
+### Languages
+
+No official text of any Chad instrument was read, so no language is stored. French is the official language for legislation (the Journal officiel); Arabic is the second official language and was not searched.
+
+Copyright statute, read for the record: Loi n° 005/PR/2003 du 2 mai 2003, Article 9 para. 1 excludes "official texts of a legislative, administrative or judicial nature or ... the official translations thereof" from protection. Quoted from the WIPO Lex text page (`https://www.wipo.int/wipolex/en/text/491812`, English courtesy translation by WIPO, © 2012), not from an official French copy, which the S3 PDF refused. That quote is not an official copy, so no licence row rests on it. It is the next thing to check if an official French copy can be reached.
+
+### Link only
+
+- `td-env-protection-law-2024` (Loi n° 23/CNT/2024 du 15 octobre 2024 portant protection de l'environnement, F2): row `TD-JO-ADOPTED` is `permission requested` (the portal could not be read). Date of text 15 October 2024 from UNEP LEAP only; in-force date not stated by any official page reached.
+
+## Sao Tome and Principe
+
+Checked 2026-11-09. Stored: no record. The one scope instrument (Lei n.º 07/2026, first amendment to the Lei de Base do Ambiente) is link only: the official gazette host did not answer, so its terms could not be read and its row is permission requested. Copies read to establish the instrument came from FAO and WIPO, not from the official host, and are not used as stored sources.
+
+### Official gazette host (not reached)
+
+- `curl -sL -A "Mozilla/5.0" -o /dev/null -w "%{http_code} %{size_download} %{content_type}\n" https://www.diariodarepublica.st` returned `000 0` (no response), 2026-11-09. The brief records HTTP 502 on 2026-11-05.
+- `https://www.stp.gov.st` returned `000 0` on 2026-11-09.
+- `https://diariodarepublica.st` (without `www`) returned `000 0` on 2026-11-09.
+- No browser recipe was tried: the host gave no response to the HTTP client, so there was no challenge page to render.
+
+### Copies read (not stored)
+
+- FAO copy of Decreto-Lei n.º 04/2025 (Diário da República I Série n.º 31, 17 de Julho de 2025): `curl -sL -A "Mozilla/5.0" -o sao237467.pdf http://faolex.fao.org/docs/pdf/sao237467.pdf` returned HTTP 200, 311837 bytes, application/pdf, 2026-11-09. Read with `pdftotext -layout`.
+- FAO copy of Lei n.º 07/2026 (Diário da República I Série n.º 73, 13 de Agosto de 2026): `curl -sL -A "Mozilla/5.0" -o sao72014.pdf https://faolex.fao.org/docs/pdf/sao72014.pdf` returned HTTP 200, 311406 bytes, application/pdf, 2026-11-09.
+- WIPO Lex, Código do Direito de Autor e dos Direitos Conexos (Decreto-Lei n.º 02/2017): the detail page `https://www.wipo.int/wipolex/en/legislation/details/17161` returned HTTP 200, 40350 bytes, text/html. Its PDFs `https://wipolex-res.wipo.int/edocs/lexdocs/laws/en/st/st007en.pdf` (HTTP 200, 1021778 bytes) and `.../laws/pt/st/st007pt.pdf` (HTTP 200, 1213536 bytes, application/pdf) were fetched with the signed links from the detail page. Used only to read art. 3.º n.º 1 c), art. 7.º and art. 8.º n.º 1 (quoted in the licence row).
+- Banco Central de São Tomé e Príncipe, `https://www.bcstp.st/` returned HTTP 200, 85736 bytes, text/html. Its legislation page holds central bank laws only (Lei Orgânica, Lei Cambial); no instrument in scope.
+
+### Languages
+
+- Portuguese (`pt`): the official language and the language of the gazette. No record stored, because the licence row is not pass.
+- English: no government English text of Lei n.º 07/2026 or Decreto-Lei n.º 04/2025 was found. Not searched on the official host, which did not answer.
+
+### Link only
+
+- `st-lei-07-2026`: row ST-DIARIO-DA-REPUBLICA-ADOPTED, verdict permission requested. The in-force date is not stated in the gazette ("nos termos legais"); Portugal Global gives 18 Aug 2026.
+- Decreto-Lei n.º 04/2025 (Fundo Climático e Ambiental) is a register row only (law family F7), not a scope entry, so it has no record and no watcher.
+
+## Djibouti
+
+Journal Officiel (eJO) issue pages, checked 2026-11-09. Row DJ-JO-ADOPTED is a statute pass for laws only (Loi n°154/AN/01/4ème L, art. 7).
+
+Proven fetch, one instrument (Loi n° 16/AN/23/9ème L, JORD n° 08 du 30/04/2025), run 2026-11-09:
+
+```
+curl -sL -A "Mozilla/5.0" "https://www.journalofficiel.dj/journal-officiel/n-08-du-30-04-2025/" -o n08.html -w "%{http_code} %{size_download} %{content_type}\n"
+```
+
+Returned `200 115138 text/html; charset=UTF-8`. The page gives act titles and headings only; the PDF download is marked "bientôt disponible".
+
+### Languages
+
+French only. The issue pages are in French; the Arabic site (`/arabe/`) was not opened for issue text.
+
+### Link only
+
+- Loi n° 16/AN/23/9ème L relative aux aires protégées: title only on the issue page, PDF not offered.
+- Environment code (Loi 51/AN/09/6ème L) and framework law (106/AN/00/4ème L): no official page found; not in scope.
+- Paris Agreement Article 6 framework: a plan, no official text found; register row only (F7).
+
+## Guinea-Bissau
+
+No licence row for Guinea-Bissau passes on 2026-11-09, so no record text is stored and no `pass` fetch recipe applies. The fetches below were made to check the rows.
+
+### Fetches made (2026-11-09, laptop address)
+
+- Lei n.º 1/2011, Boletim Oficial n.º 9, 2.º Suplemento (FAOLEX copy; FAO terms are non-commercial):
+  `curl -sL -A "Mozilla/5.0" -o gbs118164.pdf https://faolex.fao.org/docs/pdf/gbs118164.pdf`
+  returned HTTP 200, 306471 bytes, application/pdf. Text read with `pdftotext`.
+- Decreto B/2017, Boletim Oficial n.º 26 (FAOLEX copy):
+  `curl -sL -A "Mozilla/5.0" -o gbs181208.pdf https://faolex.fao.org/docs/pdf/gbs181208.pdf`
+  returned HTTP 200, 2492196 bytes, application/pdf.
+- Copyright Code, WIPO Lex GW002 (English and Portuguese PDFs): the stable path `https://www.wipo.int/wipolex/edocs/lexdocs/laws/en/gw/gw002en.pdf` returns an HTML page (HTTP 200, 38232 bytes). The PDF was reached only through the signed link on `https://www.wipo.int/wipolex/en/legislation/details/8448`, which returned HTTP 200, 405655 bytes (English) and 9126274 bytes (Portuguese), application/pdf.
+- BRVM circular page: `https://www.brvm.org/fr/node/405` (terms) returned HTTP 200, 43985 bytes.
+
+### Languages
+
+No pass row, so no language subsection applies. Portuguese is the language of the Boletim and of the Copyright Code; both were read from the FAOLEX and WIPO copies above.
+
+### Blocked from the laptop address (2026-11-09)
+
+- https://www.gov.gw and https://gov.gw: no connection (curl exit 000).
+- https://www.imprensa.gw and https://www.imprensanacional.gw: no connection (curl exit 000).
+- https://www.mtact.gov.gw and https://www.minambiente.gw: no connection (curl exit 000).
+- https://www.crepmf.org: no connection (curl exit 000).
+- https://www.amf-umoa.org: HTTP 200, 1685 bytes, an Angular shell; the circular is not in the HTML and was not reached.
+- https://wipolex-res.wipo.int: HTTP 403 to a bare HEAD request; the GET through the signed link returned 200.
+
+### Link-only instruments
+
+- gw-lei-bases-ambiente-2011: source row GW-FAOLEX-ADOPTED (permission requested). Link only.
+- gw-decreto-b-2017-licenciamento: source row GW-FAOLEX-ADOPTED (permission requested). Link only.
+- gw-crepmf-guia-obrigacoes-verdes-2020: source row GW-BRVM-ADOPTED (permission requested). Link only.
+- gw-amf-umoa-taxonomia-2024: source row GW-BRVM-ADOPTED (permission requested). Link only.
+
+## Burundi
+
+Row `BI-PRESIDENCE-ADOPTED`, `pass` on the statute basis (Loi n° 1/021 du 30 décembre 2005, Art. 7 a): laws and their official translations are not protected. The Presidency site has no terms page. Run on 2026-11-09.
+
+Proven fetch for the listing (the page the law posts are found from):
+
+```
+curl -sS -L -A "Mozilla/5.0" -o lois_promulguees.html -w '%{http_code} %{size_download} %{content_type}\n' https://presidence.gov.bi/category/lois-promulguees/
+```
+
+Returned `200 106432 text/html; charset=UTF-8`. The listing links one page per law (for example `https://presidence.gov.bi/2021/12/loi-no-1-22-du-05-novembre-2021-...`). No law text was taken from this site for the environmental code: a site search for "code de l'environnement", "1/09" and "1/010" returned no law post. Records under this row are not stored yet.
+
+The statute quoted in the licence row was read from the WIPO Lex French PDF of Loi n° 1/021 du 30 décembre 2005, 2026-11-09:
+
+```
+curl -sS -L -A "Mozilla/5.0" -o bi005fr.pdf -w '%{http_code} %{size_download} %{content_type}\n' "<signed PDF URL taken from https://www.wipo.int/wipolex/fr/legislation/details/8323>"
+pdftotext -layout bi005fr.pdf - | sed 's/  */ /g'
+```
+
+Returned `200 889390 application/pdf`; sha256 `0b636555ee37bf6a0edd3b3943256024292b863cf857ad768d6d235a116f71e3`. The signed link is short-lived, so the second command needs the link read from the details page on the day.
+
+### Languages
+
+- French: the only language of the Presidency listing and of the Loi n° 1/021 text. The environmental code copy seen (FAOLEX scan) is in French.
+- Kirundi: no official Kirundi law text found on the sites checked. Not stored.
+- English: WIPO Lex lists an English version of Loi n° 1/021 (`bi005en.pdf`, same details page). It is not a government translation (no source named), so it is not stored and gets no row.
+
+### Link only
+
+- `bi-env-code-2021`: Loi n° 1/09 du 25 mai 2021 (LEAP title "portant modification du Code de l'Environnement"). No official copy found. The FAOLEX scan (`bur223581.pdf`, not official, OCR) reads as a complete environmental code of 244 articles. Link only because no official copy was read.
+- `bi-env-code-2000`: Loi n° 1/010 du 30 juin 2000 (Code de l'Environnement). Not on the Presidency site. Repealed in substance by Art. 244 of the 2021 code (scan read, to confirm). Link only.
+
+### Blocked from the laptop address
+
+- `http://www.fao.org/faolex/results/details/en/c/LEX-FAOC223581` and `.../LEX-FAOC025325`: `403`, 5559 bytes, `text/html` to `curl` with a browser user agent. The FAOLEX PDFs under `faolex.fao.org/docs/pdf/` answered `200`; they are not official and were used only to read the scans.
+
+## Niger
+
+No Niger text is stored (GEL-20-07, 2026-11-09). `register/NE/scope.json` is an empty list: no Niger instrument was confirmed on an official page, so there is nothing to store or link.
+
+### Fetch attempts, 2026-11-09
+
+Request: `curl -sL -A "Mozilla/5.0" -m 20 <url>`. Answers:
+
+| URL | Answer |
+|---|---|
+| http://sgg.ne | 200, 19413 bytes, text/html. Secrétariat Général du Gouvernement home page reads "Site en construction". The sub-pages publications-officielles, codes-et-recueils, documentheques, codes and conseils-des-ministres return the same page (200). |
+| http://www.cnedd.ne/ | 200, 140484 bytes, text/html. Joomla site, no legal-text listing. /index.php/legislation and similar paths return 404. |
+| https://www.presidence.ne | 200, not read for texts. |
+| https://www.jo.ne | 404, a custom-domain page (S.EE). Not the Journal Officiel. |
+| https://www.assemblee.ne, https://www.assemblee-nationale.ne, https://www.gouv.ne, https://www.environnement.gouv.ne, https://www.cnedd.ne (https) | No HTTP reply (curl code 000 within 12 to 20 s), over https and http where tried. |
+| https://www.amf-umoa.org | 200, 1685 bytes, script shell with no circular link. |
+| https://www.bceao.int, https://www.brvm.org | 200, not read for texts. |
+
+The Journal Officiel de la République du Niger was not reached on any URL. Its publisher terms are therefore unread, and no licence row was staged for it.
+
+### Statute basis for a future Niger row
+
+Ordonnance n° 2010-95 du 23 décembre 2010 sur le droit d'auteur, les droits voisins et les expressions du patrimoine culturel traditionnel, Article 7 i):
+
+> "La protection prévue par les dispositions du présent titre ne s'étend pas : i) aux textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles ;"
+
+Read in the WIPO Lex PDF, 36 pages, linked from https://www.wipo.int/wipolex/fr/legislation/details/22769 (the plain edocs URL returns HTML; the link on the details page carries a signed query). The same text, whitespace-normalised, is in https://oapi.int/wp-content/uploads/2025/04/Ordonnance2010Niger.pdf. This basis would cover texts reproduced from the official publication once a Niger official publisher is reached and its terms and fingerprint are recorded.
+
+### Link only
+
+None. No Niger instrument has an official URL that was opened on 2026-11-09.
+
+## Burkina Faso
+
+Corpus status on 2026-11-09 (GEL-20-01, wave 18): no record stored. Two scope instruments, both link only. Licence rows: BF-ASSEMBLEE-ADOPTED (pass, statute), BF-AMF-UMOA-ADOPTED (permission requested), BF-LEGIBURKINA-ADOPTED (unknown).
+
+Statute relied on: Loi n° 048-2019/AN portant protection de la propriété littéraire et artistique, art. 10, which excludes "les textes officiels de nature législative, administrative ou judiciaire, ni à leurs traductions officielles". Read in the WIPO Lex French text, which answered curl on 2026-11-09:
+
+    curl -sL -A "Mozilla/5.0" https://www.wipo.int/wipolex/fr/text/597824 -o wipo_text.html
+    HTTP 200, 156275 bytes, text/html; charset=utf-8
+
+Pass row BF-ASSEMBLEE-ADOPTED (Assemblée législative du peuple). Proven fetch, the law page for Loi n°043-2024/ALT du 30 décembre 2024 (amnesty), used as the route to the Assembly's law PDFs; no PDF opened or stored yet:
+
+    curl -sL -A "Mozilla/5.0" https://www.assembleenationale.bf/loip/137 -o law_137.html
+    HTTP 200, 59592 bytes, text/html; charset=UTF-8
+
+Not pass:
+- BF-AMF-UMOA-ADOPTED (verdict permission requested): https://www.amf-umoa.org/ returns a JavaScript shell (HTTP 200, 1685 bytes, text/html) with no terms text. Circular 001/AMF-UMOA/2024 not reached as text.
+- BF-LEGIBURKINA-ADOPTED (verdict unknown): https://www.legiburkina.bf/ gave no HTTP reply (curl 000 and a timeout on 2026-11-09). https://www.gouv.bf, https://sgg.gov.bf and https://jo.gov.bf gave no reply either.
+
+Link-only instruments and the reason:
+- bf-amf-umoa-taxonomy: row not pass (publisher terms not readable); circular not reached.
+- bf-environment-code (Loi n° 006-2013/AN): no official copy reached. Secondary copies (BOAD PDF, AMPEID PDF, UNEP LEAP page) are not official and were not stored.
+
+### Languages
+
+- French (fr): the only language of the instruments in scope. No English translation row exists in this wave. No government English text was looked for in the Assembly or Légiburkina pages (neither was reached in English).
+
+Blocked from the laptop address on 2026-11-09 (no HTTP reply): https://www.gouv.bf, https://sgg.gov.bf, https://www.sgg.gov.bf, https://jo.gov.bf, https://www.legiburkina.bf/, https://www.environnement.gov.bf, https://www.assemblee-nationale.bf (the Assembly answers at assembleenationale.bf).
