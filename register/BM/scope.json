@@ -1,0 +1,30 @@
+[
+  {
+    "id": "bm-bma-insurer-climate-guidance",
+    "title": "BMA Guidance Note: Management of Climate Change Risks for Commercial Insurers (March 2023)",
+    "official_url": "https://www.bma.bm/viewPDF/documents/2023-03-09-17-03-42-Guidance-Note---Insurance---Management-of-Climate-Change-Risks-for-Commercial-Insurers.pdf",
+    "citation": "Bermuda Monetary Authority, Guidance Note, March 2023 (issued under the Insurance Act 1978 supervisory framework)",
+    "in_force": "2023-03-09",
+    "evidence": "The note has no commencement clause. Cover reads \"March 2023\"; the BMA file path carries the upload stamp 2023-03-09 and the PDF's creation date is 9 March 2023 (opened 2026-11-10, sha256 d6ea91edfa4f3d1da3bed3f805a17a72360c0f39e8184679862ca2179a55d63e). Para 7: \"insurers will be expected to provide in their relevant year-end Own Risk and Solvency Assessment (ORSA), Commercial Insurer’s Solvency Self-Assessment (CISSA), starting with their year-end 2022 ORSA/CISSA, on a best effort basis\"; \"the framework and measures are to be adopted and fully operational on or before year-end 2025.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "BM-BMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Guidance, written as supervisory expectations (\"expects\", \"should\"); the CISSA it points to is a statutory filing (para 46) but the note itself is not an Act or regulation. Date is the upload/creation date, not a printed day. Applies to commercial insurers (classes 3A, 3B, 4, C, D, E) and insurance groups. Row BM-BMA-ADOPTED is permission requested (website terms allow personal use only), so no text is stored.",
+    "status": "link only"
+  },
+  {
+    "id": "bm-consumer-protection-act-1999",
+    "title": "Consumer Protection Act 1999 (1999 : 45), Part III unfair business practices, ss.11-12",
+    "official_url": "https://bermudalaws.bm/Laws/Consolidated%20Law/1999/Consumer%20Protection%20Act%201999",
+    "citation": "Consumer Protection Act 1999 (1999 : 45)",
+    "in_force": "2000-10-01",
+    "evidence": "Consolidated PDF opened 2026-11-10 (sha256 4707c3eafad6f58115a4eeac052a6fea8857aa973f97ffeef067e1928afbc96f) closes with \"[Assent Date: 22 December 1999]\" and \"[Operative Date: 1 October 2000]\". s.36: \"This Act or any provision thereof comes into operation on such day as the Minister may appoint by notice published in the Gazette.\" s.11(1)(a): \"a false, misleading or deceptive consumer representation\" is deemed an unfair business practice; s.12(1): \"No person shall engage in an unfair business practice.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "BM-LAWS-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "General consumer-law rule that reaches environmental claims in consumer sales; it names no environmental claim. The Gazette notice appointing the operative date was not separately opened; the date is the one the official consolidation prints. Row BM-LAWS-CONSOLIDATED is permission requested (Crown copyright, all rights reserved; Copyright and Designs Act 2004 s.199 gives the Crown copyright in every Act and no exception covers republication), so no text is stored.",
+    "status": "link only"
+  }
+]
