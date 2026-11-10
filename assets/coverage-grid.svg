@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="828" height="632" viewBox="0 0 828 632" role="img" aria-labelledby="t d" font-family="monospace">
 <title id="t">Coverage grid of places in the register</title>
-<desc id="d">As of 2026-11-09: 250 places. 128 with text stored, 70 link only, 52 with no corpus.</desc>
+<desc id="d">As of 2026-11-10: 250 places. 130 with text stored, 75 link only, 45 with no corpus.</desc>
 <rect width="828" height="632" fill="#ffffff"/>
 <text x="16" y="26" font-size="16" fill="#212121">Coverage by place, sorted by two-letter code</text>
 <rect x="16" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -55,8 +55,8 @@
 <text x="194" y="106" font-size="12" text-anchor="middle" fill="#ffffff">BJ</text>
 <rect x="216" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
 <text x="234" y="106" font-size="12" text-anchor="middle" fill="#424242">BL</text>
-<rect x="256" y="84" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="274" y="106" font-size="12" text-anchor="middle" fill="#424242">BM</text>
+<rect x="256" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="274" y="106" font-size="12" text-anchor="middle" fill="#212121">BM</text>
 <rect x="296" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="314" y="106" font-size="12" text-anchor="middle" fill="#212121">BN</text>
 <rect x="336" y="84" width="36" height="36" rx="3" fill="#ffb300"/>
@@ -147,8 +147,8 @@
 <text x="434" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FI</text>
 <rect x="456" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="474" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FJ</text>
-<rect x="496" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="514" y="186" font-size="12" text-anchor="middle" fill="#424242">FK</text>
+<rect x="496" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FK</text>
 <rect x="536" y="164" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="554" y="186" font-size="12" text-anchor="middle" fill="#212121">FM</text>
 <rect x="576" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
@@ -165,12 +165,12 @@
 <text x="794" y="186" font-size="12" text-anchor="middle" fill="#ffffff">GE</text>
 <rect x="16" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
 <text x="34" y="226" font-size="12" text-anchor="middle" fill="#424242">GF</text>
-<rect x="56" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="74" y="226" font-size="12" text-anchor="middle" fill="#424242">GG</text>
+<rect x="56" y="204" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="74" y="226" font-size="12" text-anchor="middle" fill="#212121">GG</text>
 <rect x="96" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="114" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GH</text>
-<rect x="136" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="154" y="226" font-size="12" text-anchor="middle" fill="#424242">GI</text>
+<rect x="136" y="204" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="154" y="226" font-size="12" text-anchor="middle" fill="#212121">GI</text>
 <rect x="176" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
 <text x="194" y="226" font-size="12" text-anchor="middle" fill="#424242">GL</text>
 <rect x="216" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -211,8 +211,8 @@
 <text x="114" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IE</text>
 <rect x="136" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="154" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IL</text>
-<rect x="176" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="194" y="266" font-size="12" text-anchor="middle" fill="#424242">IM</text>
+<rect x="176" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="194" y="266" font-size="12" text-anchor="middle" fill="#212121">IM</text>
 <rect x="216" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="234" y="266" font-size="12" text-anchor="middle" fill="#212121">IN</text>
 <rect x="256" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
@@ -225,8 +225,8 @@
 <text x="394" y="266" font-size="12" text-anchor="middle" fill="#212121">IS</text>
 <rect x="416" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="434" y="266" font-size="12" text-anchor="middle" fill="#ffffff">IT</text>
-<rect x="456" y="244" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="474" y="266" font-size="12" text-anchor="middle" fill="#424242">JE</text>
+<rect x="456" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="474" y="266" font-size="12" text-anchor="middle" fill="#ffffff">JE</text>
 <rect x="496" y="244" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="514" y="266" font-size="12" text-anchor="middle" fill="#212121">JM</text>
 <rect x="536" y="244" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -401,8 +401,8 @@
 <text x="714" y="426" font-size="12" text-anchor="middle" fill="#ffffff">SE</text>
 <rect x="736" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="754" y="426" font-size="12" text-anchor="middle" fill="#212121">SG</text>
-<rect x="776" y="404" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="794" y="426" font-size="12" text-anchor="middle" fill="#424242">SH</text>
+<rect x="776" y="404" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="794" y="426" font-size="12" text-anchor="middle" fill="#212121">SH</text>
 <rect x="16" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="34" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SI</text>
 <rect x="56" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
@@ -504,10 +504,10 @@
 <rect x="376" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="394" y="546" font-size="12" text-anchor="middle" fill="#ffffff">ZW</text>
 <rect x="16" y="580" width="16" height="16" rx="2" fill="#1b5e20"/>
-<text x="38" y="593" font-size="13" fill="#212121">text stored (128)</text>
+<text x="38" y="593" font-size="13" fill="#212121">text stored (130)</text>
 <rect x="206" y="580" width="16" height="16" rx="2" fill="#ffb300"/>
-<text x="228" y="593" font-size="13" fill="#212121">link only (70)</text>
+<text x="228" y="593" font-size="13" fill="#212121">link only (75)</text>
 <rect x="396" y="580" width="16" height="16" rx="2" fill="#e0e0e0"/>
-<text x="418" y="593" font-size="13" fill="#212121">no corpus (52)</text>
-<text x="16" y="622" font-size="13" fill="#212121">As of 2026-11-09: 250 places. 128 with text stored, 70 link only, 52 with no corpus.</text>
+<text x="418" y="593" font-size="13" fill="#212121">no corpus (45)</text>
+<text x="16" y="622" font-size="13" fill="#212121">As of 2026-11-10: 250 places. 130 with text stored, 75 link only, 45 with no corpus.</text>
 </svg>
