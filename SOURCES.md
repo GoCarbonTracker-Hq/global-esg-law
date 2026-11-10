@@ -12345,3 +12345,50 @@ English is the only language of every text opened; no official version in anothe
 ### Link only
 
 Nothing is stored and there is no scope entry. Every register row is a register row only: the Territory Act and the Ordinances, proclamation, regulations, plan and determinations made for this Territory alone, the Australian Capital Territory laws applied by s 5(1), and the five general Commonwealth Acts. Blocked from the laptop address, not bypassed: `https://www.heardisland.aq/` (curl exit 60, certificate verification failed) and `https://www.infrastructure.gov.au/` (curl exit 92 on HTTP/2 and a timeout on HTTP/1.1, no HTTP status); neither was read.
+
+## Western Sahara
+
+Nothing is stored and `register/EH/scope.json` is empty (`[]`). No instrument in families F1 to F6 made by a body of Western Sahara's own was found on an official page, and no licence row is written: the only publishers read are Moroccan (the Secrétariat Général du Gouvernement, the environment ministry, the AMMC), whose rows exist under Morocco (`MA-SGG-ADOPTED`, `MA-MTEDD-ADOPTED`, `MA-AMMC-ADOPTED`, all `permission requested`) and are not reused here, and the site of the embassy of the Sahrawi Arab Democratic Republic in Algiers, which prints no terms and is not a gazette. Under the two rulings of 2026-11-10 (Varun) every instrument below is a register row only, and this section takes no position on the status of the territory.
+
+Status sources, quoted in their own words from pages opened on 2026-11-10 (these are the only status sentences used in the rows):
+
+- MINURSO, https://minurso.unmissions.org/en/background (HTTP 200, 166151 bytes, `text/html; charset=utf-8`; "Last updated: 23 January 2026"): "Morocco subsequently came to administer the parts of the Territory vacated by Mauritania." and "the referendum has never been held". The same page says that the 1975 Madrid Accords "partitioned the Territory between Morocco and Mauritania" and that a claim to the territory "was opposed by the Frente Popular para la Liberación de Saguia el-Hamra y de Río de Oro (Frente POLISARIO)".
+- International Court of Justice, https://www.icj-cij.org/case/61 (HTTP 200, 60884 bytes, `text/html; charset=utf-8`): "On the other hand, the Court’s conclusion was that the materials and information presented to it did not establish any tie of territorial sovereignty between the territory of Western Sahara and the Kingdom of Morocco or the Mauritanian entity."
+- Not used: the UN decolonization page answered HTTP 202 with a WAF challenge and an empty body (not bypassed); a news result of 2026-11-02 about MINURSO ending is not confirmed by the MINURSO page above, so neither is written.
+
+Link-only register rows, with the reason:
+
+- Moroccan instruments (`status` "Moroccan instrument; listed as a pointer"): Loi-cadre 99-12 (ministry PDF opened, scanned, no text layer, not read), Loi 11-03 (the consolidated PDF on sgg.gov.ma answered HTTP 404; the ministry page lists the dahir and BO number only), AMMC circular 03/19 (ammc.ma did not answer, curl exit 28), Loi 31-08, Loi 13-09, Loi 28-00 and Loi 36-15 (consolidated PDFs on sgg.gov.ma opened, headers read; a text search of the French ones for "Sahara", "Laâyoune" and "Dakhla" found no hit). For none was a provision applying the instrument in Western Sahara read, so each row says "application in Western Sahara not established on an official page". The SGG page for the consolidated texts says only the versions published in the Bulletin officiel are authoritative.
+- Texts of the Sahrawi Arab Democratic Republic (`status` "text of the Sahrawi Arab Democratic Republic; listed as a pointer"): its constitution as amended August 1995, read in Arabic on the embassy site `https://www.amb-rasd.org/ARAB/1ar9.htm` (HTTP 200, windows-1256 HTML; no gazette, no terms page at `/` or at that path); Law 03/2009 on maritime zones (title read only in a listing on arso.org, which is not an official host); Law No. 1/2019 on natural resources (read only on a copy by Western Sahara Resource Watch; no official page opened).
+
+Terms read: `https://www.sgg.gov.ma/Terms.aspx` (HTTP 200) prints "Any rights not expressly granted herein are reserved." It is a generic template and decides nothing here, since no Moroccan row is stored.
+
+Looked at and not read: `http://www.sahara.gov.ma/` and `https://www.ammc.ma/fr/reglementations/circulaires` (curl timeout, exit 28, on 2026-11-10); the African Commission report of May 2026 (it names no act of the territory's own). No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o f.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.sgg.gov.ma/Portals/0/textesconsolides/36_15.pdf"
+```
+
+Returned `200 982987 application/pdf` (Loi 36-15, 55 pages, `pdftotext -layout`).
+
+## Antarctica
+
+One scope entry, link only: `aq-madrid-protocol` (Protocol on Environmental Protection to the Antarctic Treaty, F2, narrower than a climate framework: environmental protection, no emissions or disclosure duty). Nothing is stored. Antarctica has no state, population or legislature; its own law is the Antarctic Treaty System (the Treaty Parties through the Antarctic Treaty Consultative Meeting, and the CCAMLR Commission). Two licence rows, neither a pass. `AQ-ATS-ADOPTED` is `unknown` (Varun, 2026-11-10: the Antarctic Treaty Secretariat notice on https://www.ats.aq/e/copyright.html, "Unless otherwise indicated, copyright © for all material on this website and all Secretariat publications belongs to the Antarctic Treaty Secretariat (ATS). ATS copyrighted material maybe used as long as the source is indicated.", is not a pass for the treaty, protocol, annex and measure texts; documents.ats.aq has no terms page). `AQ-CCAMLR-ADOPTED` is `permission requested` (https://www.ccamlr.org/node/74333: "You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit it or store it in any other website or other form of electronic retrieval system."). No national Antarctic act is a scope entry and no parent-state licence row is reused (rulings 1 and 2, Varun, 2026-11-10); the UK, Australian, New Zealand, US, German, French, Norwegian and Argentine instruments are register rows only, each marked "Application in Antarctica not established on an official page".
+
+No fetch is proven for a stored record because none is stored. Requests that answered on 2026-11-10 (reading only, `curl -sL -A "Mozilla/5.0" -o <file> -w "%{http_code} %{size_download} %{content_type}\n" <url>`):
+
+- `https://documents.ats.aq/recatt/Att006_e.pdf` (Protocol, English): 200, 58,598 bytes, `application/octet-stream`, a text-layer PDF (`pdftotext -layout`).
+- `https://documents.ats.aq/recatt/Att008_e.pdf` (Annex I): 200, 19,957 bytes, `application/octet-stream`.
+- `https://www.ats.aq/e/parties.html`: 200, 52,397 bytes, `text/html; charset=utf-8` (prints "The Protocol first entered into force on 14 January 1998.").
+- `https://main.ccamlr.org/sites/default/files/2025-12/EN%20-%20schedule%202025-26.pdf`: 200, 4,613,516 bytes, `application/pdf`, text layer.
+- The Antarctic Treaty facsimile `https://documents.ats.aq/ats/treaty_original.pdf` is a scanned PDF with no text layer.
+
+### Languages
+
+The Treaty System texts are published in English, French, Russian and Spanish (files on documents.ats.aq end `_e`, `_f`, `_r`, `_s`; CCAMLR serves the same four). Only the English files were opened. No translation row exists; nothing is stored.
+
+### Link only
+
+- `aq-madrid-protocol`: row `AQ-ATS-ADOPTED` is `unknown` (Varun's ruling above).
+- Register rows with no scope entry: Annexes I to V (in force, year only on the official pages; no scope entry because no page read gives each annex's day), Annex VI (adopted, not in force), the Antarctic Treaty, the CAMLR Convention, the CCAMLR Schedule 2025/26 and its measures (row `AQ-CCAMLR-ADOPTED`, `permission requested`), CCAMLR Resolution 36/41 (a resolution, no binding wording), and the national acts listed above.
+- Blocked from the laptop address: legislation.govt.nz answered HTTP 202 with an empty body (WAF challenge); legifrance.gouv.fr answered HTTP 403 (Cloudflare challenge). Neither was bypassed.

@@ -17646,5 +17646,39 @@
   "params": {
    "second_route": "https://www.legislation.gov.au/terms-of-use (browser; the page holds the CC BY 4.0 sentence quoted in terms_quote)"
   }
+ },
+ {
+  "id": "aq-madrid-protocol",
+  "source_id": "AQ-ATS-ADOPTED",
+  "iso2": "AQ",
+  "instrument": "aq-madrid-protocol",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://documents.ats.aq/recatt/Att006_e.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-aq-ats-adopted",
+  "source_id": "AQ-ATS-ADOPTED",
+  "iso2": "AQ",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.ats.aq/e/copyright.html",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-aq-ccamlr-adopted",
+  "source_id": "AQ-CCAMLR-ADOPTED",
+  "iso2": "AQ",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://fmc.ccamlr.org/node/74333",
+  "params": {
+   "second_route": "https://www.ccamlr.org/node/74333 (redirects to the fmc.ccamlr.org page above)"
+  },
+  "change": "terms_changed"
  }
 ]
