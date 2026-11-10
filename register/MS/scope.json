@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ms-conservation-env-mgmt-act",
+    "title": "Conservation and Environmental Management Act, Cap. 12.03 (Act 17 of 2014)",
+    "official_url": "https://parliament.ms/wp-content/uploads/2026/05/12.03-Conservation-and-Environmental-Management-Act.pdf",
+    "citation": "Conservation and Environmental Management Act, Cap. 12.03 (Act 17 of 2014), Revised Edition showing the law as at 1 January 2019, amended by Act 5 of 2017",
+    "in_force": "2014-09-01",
+    "evidence": "Front matter of the Revised Edition PDF (opened 2026-11-10): \"Act 17 of 2014 .. in force 1 September 2014 (S.R.O. 67/2014)\" and \"Amended by Act 5 of 2017 .... in force 11 July 2017\".",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MS-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Environmental framework Act. Section 20 lets the Director require further information or recommend an environmental impact assessment, which the Planning and Development Authority may direct under section 18 of the Physical Planning Act. The Act's footnote 3 says it repeals the Forestry, Wildlife, National Parks and Protected Areas Act and the Endangered Animals and Plants Act (Cap. 12.01) but 'the repeal of the Endangered Animals and Plants Act is not in force (S.R.O. 67/2014)'. A grep of the text for climate, greenhouse, carbon and emission finds no climate provision; Montserrat has no climate act on the Laws list. Link only: row MS-PARLIAMENT-CONSOLIDATED is permission requested (the Assembly reserves all rights, no reuse licence; UK Copyright Act 1956 as extended keeps Crown copyright), so no text is stored. English is the only language; no translation exists. The page serves one consolidation (law as at 1 January 2019); earlier versions are not served.",
+    "status": "link only"
+  },
+  {
+    "id": "ms-physical-planning-act",
+    "title": "Physical Planning Act, Cap. 8.03 (Act 4 of 1996)",
+    "official_url": "https://parliament.ms/wp-content/uploads/2026/05/8.03-Physical-Planning-Act.pdf",
+    "citation": "Physical Planning Act, Cap. 8.03 (Act 4 of 1996), Revised Edition showing the law as at 1 January 2025",
+    "in_force": "1996-05-09",
+    "evidence": "Front matter of the Revised Edition PDF (opened 2026-11-10): \"Act 4 of 1996 .. in force 9 May 1996\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "MS-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Development control Act. Section 18(1): an application for development permission for a development in Schedule 3 'shall be accompanied by an environmental impact assessment of the proposed development'; section 18(2) and Schedule 4 set its content; section 19(1)(d) and (e) make the sustainability of the development and the content of the assessment matters for the decision. Moka's brief listed it as F7; filed F2 because of the environmental impact assessment duty (other places file such duties as F2). Link only: row MS-PARLIAMENT-CONSOLIDATED is permission requested (the Assembly reserves all rights, no reuse licence; UK Copyright Act 1956 as extended keeps Crown copyright), so no text is stored. English is the only language; no translation exists.",
+    "status": "link only"
+  },
+  {
+    "id": "ms-merchandise-marks-act",
+    "title": "Merchandise Marks Act, Cap. 15.09 (Act 12 of 1887): false trade descriptions",
+    "official_url": "https://parliament.ms/wp-content/uploads/2026/05/15.09-Merchandise-Marks-Act.pdf",
+    "citation": "Merchandise Marks Act, Cap. 15.09 (Act 12 of 1887), Revised Edition showing the law as at 1 January 2013, amended by Act 9 of 2011",
+    "in_force": "1887-12-31",
+    "evidence": "Front matter of the Revised Edition PDF (opened 2026-11-10): \"Act 12 of 1887 .. in force 31 December 1887\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MS-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Section 2 defines 'trade description' to include a description, statement or indication 'as to the mode of manufacturing or producing any goods' and 'as to the material of which any goods are composed', and 'false trade description' as one 'false in a material respect'; the offence section (applying a false trade description to goods) follows. It is a goods-labelling Act of 1887 with no environmental wording, listed as the only Montserrat law found on misleading descriptions of goods (no consumer protection Act is on the Laws list); whether it reaches an environmental claim has not been tested. Link only: row MS-PARLIAMENT-CONSOLIDATED is permission requested (the Assembly reserves all rights, no reuse licence; UK Copyright Act 1956 as extended keeps Crown copyright), so no text is stored. English is the only language; no translation exists.",
+    "status": "link only"
+  },
+  {
+    "id": "ms-eccb-climate-risk-standard",
+    "title": "ECCB Prudential Standard on Climate-Related and Environmental Risks for Institutions Licensed Under the Banking Act, 2015",
+    "official_url": "https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf",
+    "citation": "Eastern Caribbean Central Bank, Prudential Standard on Climate-Related and Environmental Risks (August 2023), issued under s.184 of the Banking (Amendment) Act, 2015 of each ECCU member; Montserrat Banking Act, Cap. 11.03, s.186",
+    "in_force": "2024-03-01",
+    "evidence": "Section 1.0 Commencement: \"This Prudential Standard shall come into effect on the 1st day of March, 2024.\" Footnote 1 of the standard lists \"Banking (Amendment) Act, 2015 of Montserrat (No 15 of 2015)\"; section 4.0: \"This Prudential Standard applies to all institutions licensed under the Act\". Opened 2026-11-10 at the official_url (listed on https://www.eccb-centralbank.org/enforced). The Montserrat Act (https://parliament.ms/wp-content/uploads/2026/05/11.03-Banking-Act.pdf, opened 2026-11-10) s.186: \"The Central Bank may issue such prudential standards as may be required from time to time for giving effect to the provisions of this Act\".",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "MS-ECCB-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regional standard of the ECCB; the same instrument sits under Antigua and Barbuda as ag-eccb-climate-risk-standard, which holds the fuller description. Covers board and senior management roles, risk management, stress testing, disclosure (5.5) and reporting (5.6). Row MS-ECCB-ADOPTED is permission requested (ECCB Disclaimer Policy: personal, noncommercial use only, no derivative works), so no text is stored and no second copy is made. The ECCB www host answers 403 to curl with 'Mozilla/5.0'; a Chrome-style User-Agent gets 200 and the cdn host answers 200 to both. English only.",
+    "status": "link only"
+  }
+]
