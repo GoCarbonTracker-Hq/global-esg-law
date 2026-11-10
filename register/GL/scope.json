@@ -1,0 +1,102 @@
+[
+  {
+    "id": "gl-marketing-act",
+    "title": "Inatsisartutlov om markedsføring og mærkning (markedsføringsloven) (Marketing and Labelling Act)",
+    "official_url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2015/l-39-2015",
+    "citation": "Inatsisartutlov nr. 39 af 9. december 2015; Selvstyrets lovbekendtgørelse nr. 1 af 26. marts 2021 (L-bkg 01 2021)",
+    "in_force": "2015-07-01",
+    "evidence": "§ 40 (Ikrafttræden): \"Inatsisartutloven træder i kraft den 1. juli 2015.\" Opened https://nalunaarutit.gl/groenlandsk-lovgivning/2015/l-39-2015?sc_lang=da on 2026-11-10; the consolidation of 2021 prints the same § 40 and adds that Inatsisartutlov nr. 7 af 19. november 2020 \"træder i kraft den 1. januar 2021\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED",
+      "GL-NALUNAARUTIT-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than its family: a general marketing law with no environmental-claims wording. § 3 stk. 1: \"Erhvervsdrivende må ikke anvende vildledende eller urigtige angivelser eller udelade væsentlige informationer, såfremt dette er egnet til mærkbart at forvride forbrugernes eller andre erhvervsdrivendes økonomiske adfærd på markedet.\" (my translation: traders may not use misleading or false statements or omit material information likely to noticeably distort the economic behaviour of consumers or other traders); § 3 stk. 3: \"Rigtigheden af angivelser om faktiske forhold skal kunne dokumenteres.\" (factual statements must be capable of being documented). Deviation: § 40 as printed gives 1 July 2015, a date earlier than the adoption date of 9 December 2015; the page states no other commencement date, so 2015-07-01 is kept as printed. Records stored on 2026-11-10 in da and kl: adopted text (2015-07-01) and the Selvstyrets lovbekendtgørelse nr. 1 of 26 March 2021 (record date 2021-03-26, the date on the page header; the text includes the 2020 amendment in force from 2021-01-01). The site serves no other consolidation, and the 2021 consolidation does not include Inatsisartutlov nr. 27 af 25. juni 2026, which the page lists under \"Ændret ved\" (gl-marketing-act-amendment-2026). No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  },
+  {
+    "id": "gl-marketing-act-amendment-2026",
+    "title": "Inatsisartutlov om ændring af Inatsisartutlov om markedsføring og mærkning (markedsføringsloven) (Act amending the Marketing and Labelling Act)",
+    "official_url": "https://nalunaarutit.gl/Groenlandsk-lovgivning/2026/Inatsisartutlov-nr-27-af-25_06_2026",
+    "citation": "Inatsisartutlov nr. 27 af 25. juni 2026",
+    "in_force": "2026-07-01",
+    "evidence": "Last section: \"Inatsisartutloven træder i kraft den 1. juli 2026.\" Opened https://nalunaarutit.gl/Groenlandsk-lovgivning/2026/Inatsisartutlov-nr-27-af-25_06_2026?sc_lang=da on 2026-11-10; status on the page: Gældende.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "amends": "gl-marketing-act",
+    "notes": "Narrower than its family: the amendment concerns identification of advertising, marketing to children and young people, marketing of consumer credit, anonymous complaints and the consumer complaints chapter; it has no environmental-claims wording and does not change § 3. It is kept so that the stored consolidation of 2021 is not read as the current text. The site serves no consolidation that includes it. The text is the amending Act only, not a consolidated Act. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  },
+  {
+    "id": "gl-environmental-protection-act",
+    "title": "Inatsisartutlov om beskyttelse af miljøet (Environmental Protection Act)",
+    "official_url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2011/ltl-09-2011",
+    "citation": "Inatsisartutlov nr. 9 af 22. november 2011; Selvstyrets lovbekendtgørelse nr. 4 af 17. februar 2022 (L-bkg 04 2022)",
+    "in_force": "2012-01-01",
+    "evidence": "§ 70 (Ikrafttrædelse m.v.): \"Denne Inatsisartutlov træder i kraft den 1. januar 2012.\" Opened https://nalunaarutit.gl/groenlandsk-lovgivning/2011/ltl-09-2011?sc_lang=da on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED",
+      "GL-NALUNAARUTIT-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Framework environmental act (permits, pollution control, waste, supervision); it has no climate-change or greenhouse-gas provision of its own. The F-gas order (gl-fgas-order) is issued under § 10 of it. Records stored on 2026-11-10 in da and kl: adopted text (2012-01-01) and the Selvstyrets lovbekendtgørelse nr. 4 of 17 February 2022 (record date 2022-02-17, the page header date; it includes Inatsisartutlov nr. 1/2012, 10/2018 and 16/2021, the last in force from 2 December 2021). The site lists no later amendment of the Act on that page. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  },
+  {
+    "id": "gl-fgas-order",
+    "title": "Selvstyrets bekendtgørelse om visse fluorholdige drivhusgasser (Order on certain fluorinated greenhouse gases)",
+    "official_url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2023/selvstyrets-bekendtgoerelse-nr-13-af-24_03_2023",
+    "citation": "Selvstyrets bekendtgørelse nr. 13 af 24. marts 2023",
+    "in_force": "2023-04-01",
+    "evidence": "§ 10 (Ikrafttræden): \"Denne bekendtgørelse træder i kraft den 1. april 2023.\" Opened https://nalunaarutit.gl/groenlandsk-lovgivning/2023/selvstyrets-bekendtgoerelse-nr-13-af-24_03_2023?sc_lang=da on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than its family: it bans the intentional release, import, sale and use of HFCs, PFCs and SF6 (with exemptions to 31 December 2035 in Annexes 1 and 2) and sets leak-repair duties; it does not price or report emissions. Only § 7 stk. 2 lets the Naalakkersuisoq require \"oplysninger vedrørende import og eksport af kontrollerede stoffer\" as a dispensation condition. Issued under the Environmental Protection Act (gl-environmental-protection-act) and the Marine Environment Act. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  },
+  {
+    "id": "gl-energy-levy",
+    "title": "Inatsisartutlov om miljøafgift på produkter til energifremstilling (Environmental Levy on Energy Products Act)",
+    "official_url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2010/ltl-21-2010",
+    "citation": "Inatsisartutlov nr. 21 af 18. november 2010",
+    "in_force": "2011-01-01",
+    "evidence": "§ 17: \"Loven træder i kraft den 1. januar 2011 og finder anvendelse for varer, hvor afgiftspligten, jf. § 2, indtræder den 1. januar 2011 eller senere.\" Opened https://nalunaarutit.gl/groenlandsk-lovgivning/2010/ltl-21-2010?sc_lang=da on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than its family: a fixed levy per litre, ton or Nm3 on mineral oil products, coal and gas used for heat, electricity and motor fuel (§ 1); it is not a carbon price and has no emissions basis or reporting duty beyond the levy accounts. The page prints the heading \"Miljøfgift af energiprodukter med videre\" as shown. The text is the Act as adopted; it is amended by Inatsisartutlov nr. 1 af 14. april 2011 (gl-energy-levy-amendment-2011), and the site serves no consolidation. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  },
+  {
+    "id": "gl-energy-levy-amendment-2011",
+    "title": "Inatsisartutlov om ændring af Inatsisartutlov om miljøafgift på produkter til energifremstilling (Act amending the Environmental Levy on Energy Products Act)",
+    "official_url": "https://nalunaarutit.gl/Groenlandsk-lovgivning/2011/ltl-01-2011",
+    "citation": "Inatsisartutlov nr. 1 af 14. april 2011",
+    "in_force": "2011-04-15",
+    "evidence": "Last section: \"Inatsisartutloven træder i kraft den 15. april 2011.\" Opened https://nalunaarutit.gl/Groenlandsk-lovgivning/2011/ltl-01-2011?sc_lang=da on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "GL-NALUNAARUTIT-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "amends": "gl-energy-levy",
+    "notes": "Narrower than its family: it exempts motor fuel for ships and aircraft in international traffic and adds bonded-store rules to the energy levy; it is kept so that the stored text of gl-energy-levy is not read as the current text. The text is the amending Act only. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
+    "status": "stored"
+  }
+]
