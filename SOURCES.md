@@ -11794,3 +11794,554 @@ French only (`fr`). Leginova, its terms and every act read are French; no Englis
 - `nc-lp-2018-25` (loi du pays n° 2018-25): the JONC text is clean and complete (`curl -sS -A "Mozilla/5.0" -o a1244413.pdf https://leginova.gouv.nc/api/acte/1244413/pdf` gave `200 52471 application/pdf`, 3 pages, sha256 `bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56`, reproduced), but its commencement date is unresolved (Art. 18: "le premier jour du troisième mois suivant sa publication"; Leginova prints 2019-01-01), and a record needs a dated `in_force`. Waits for Varun's ruling on the date.
 - `nc-code-consommation`: Leginova serves a consolidated code only (row NC-LEGINOVA-CONSOLIDATED, `permission requested`).
 - Not law or not in scope as an entry: the provincial environment codes (Sud, Nord, Îles Loyauté), loi du pays n° 2025-9 (water), the mining, urbanism and agricultural codes and the parent-state texts are register rows only. The Province Sud code is published only on province-sud.nc and dimenc.gouv.nc, which reserve reproduction with no carve-out for official texts, and Légifrance answers HTTP 403 to `curl -sL -A "Mozilla/5.0"` (not worked around).
+
+## Bouvet Island
+
+No row is written and nothing is stored: `register/BV/scope.json` is `[]`. Bouvet Island is a Norwegian dependency (biland) with no population and no law-making body, so no instrument of its own in families F1 to F6 exists; the Norwegian instruments that name or may reach the island are register rows only (rulings 1 and 2, Varun, 2026-11-10). Bouvet Island has no publisher of its own, so it has no licence row; the Norwegian rows `NO-LOVDATA-CONSOLIDATED`, `NO-LOVDATA-ADOPTED` and `NO-LOVDATA-TRANSLATION` (all `permission requested`) are not reused. The law of the island is published by Lovdata (Stiftelsen Lovdata); regjeringen.no refuses scripts.
+
+Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o bil.html -w "%{http_code} %{size_download} %{content_type}\n" "https://lovdata.no/dokument/NL/lov/1930-02-27-3"
+```
+
+Returned `200 42270 text/html;charset=utf-8`, the bilandsloven with its header block (`Ikrafttredelse27.02.1930`) and sections 1 to 9. The other Lovdata pages in the register rows (`/dokument/SF/forskrift/1971-12-17-9`, `2005-06-24-687`, `1930-09-19-3663`, `2013-04-26-412`, `2024-12-13-3094`, `2017-06-16-768`, `2017-04-21-492` and `/dokument/NL/lov/` for the five general acts) all answered `200 text/html;charset=utf-8` with the same command.
+
+### Languages
+
+Norwegian (bokmål) is the only language of every text opened. No official English version was found; Lovdata's English pages are unofficial ("The translations are not official; they are provided for information purposes only").
+
+### Link only
+
+All register rows for Bouvet Island are register rows only: the parent state made them, the island has no body of its own. Whether the five general Norwegian acts (regnskapsloven, klimaloven, klimakvoteloven, åpenhetsloven, markedsføringsloven) apply on the island was not established on an official page: each leaves the biland to a King's regulation or does not name it, and no such regulation was found. The Antarctic environment regulation (FOR-2013-04-26-412) does not name Bouvetøya in § 2.
+
+## French Guiana
+
+Nothing is stored and `register/GF/scope.json` is empty. French Guiana is an overseas department and region under Constitution art. 73, run since 2015 by the Collectivité territoriale de Guyane (CTG). No instrument of the CTG itself in families F1 to F6 was found: its deliberations register (`https://www.ctguyane.fr/deliberations-institutionnelles/`) and the webdelib portal list sittings, and the CTG gave opinions on State decrees without making law of its own. The Guiana-specific texts found are State decrees (the mining plan SDOM, décrets 2011-2105 and 2011-2106; the energy programme PPE, décret 2017-457), and they are register rows only, as are the overseas-wide Ordonnance 2022-537, the 2016 building arrêté and the 11 French ESG instruments held under FR. No licence row is written: the only own publisher, the CTG, serves no instrument listed here, and the Préfecture and DEAL publish State acts, for which the French rows already exist under FR and are not reused.
+
+Notices read on 2026-11-10, for the record. Préfecture, `https://www.guyane.gouv.fr/mentions-legales` (HTTP 200, 79757 bytes, text/html): "Les informations mises en ligne sur le site www.guyane.gouv.fr sont publiques et ne sont couvertes par aucun droit d’auteur (art. L. 122-5 du Code de la propriété intellectuelle) ; elles peuvent être reproduites librement, sous trois conditions :" with the third condition "la mention selon laquelle les droits de reproduction sont réservés et strictement limités", and in the footer "Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0". CTG, `https://www.ctguyane.fr/mentions-legales/` (HTTP 200, 161102 bytes, text/html): "La reproduction de tout ou partie du site, sur quelque support que ce soit, est soumise à autorisation écrite préalable de la Collectivité Territoriale de Guyane, sauf dans le cadre d’un usage strictement privé et non commercial."
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o sdom.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.guyane.developpement-durable.gouv.fr/IMG/pdf/Decret_SDOM_approbation_2011-2105_du_30-12-2011.pdf"
+```
+
+Returned `200 122112 application/pdf`; `pdftotext -layout` gives the JORF text (31 décembre 2011, texte 110 sur 172) with its text layer.
+
+```
+curl -sL -A "Mozilla/5.0" -o ecologie.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.ecologie.gouv.fr/politiques-publiques/reglementation-thermique-acoustique-aeration-logements-neufs-outre-mer"
+```
+
+Returned `200 76681 text/html; charset=utf-8`, the page that states where the RTAA 2016 arrêtés apply.
+
+### Languages
+
+French is the only language of every text opened. Creole languages are spoken locally; no official version in them or in English was found.
+
+### Link only
+
+Every row above is a register row; none is a scope entry. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its text pages (curl 403, for example `https://www.legifrance.gouv.fr/loda/id/JORFTEXT000034328710`).
+
+## French Southern and Antarctic Lands (TAAF)
+
+Run on 2026-11-10 (GEL-25-29). Row `TF-TAAF-ADOPTED` is `permission requested`: nothing is stored and `register/TF/scope.json` is empty. The territory (collectivité à statut particulier, Constitution art. 72-3, loi n° 55-1052 du 6 août 1955) has no legislative assembly; the préfète, administratrice supérieure, makes its own arrêtés, published in the Journal officiel des TAAF (quarterly text-layer PDFs on taaf.fr, as published, no consolidation, French only). No arrêté in families F1 to F6 was found: the ones seen are fisheries fees and catch limits, a plant import ban on Amsterdam island and an Antarctic sea-ice derogation (all register rows, family F7). taaf.fr has no index page for the Journal officiel (`/journal-officiel/` answers 404, `/publications/` lists procurement notices; the site search for "journal officiel" lists JO n° 51, 52, 54, 72, 84 and a few more). The newest issue found is n° 85 (2020); the newest opened is n° 84.
+
+The terms page `https://taaf.fr/mentions-legales/` prints: "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de : https://taaf.fr/" and "Le Site constitue une œuvre de l’esprit protégée par les dispositions du Code de la Propriété Intellectuelle". `reserve-australes.taaf.fr/mentions-legales/` answers 302 to the same page, so it is not a second publisher. The Code de la propriété intellectuelle was not read on an official copy: `legifrance.gouv.fr` answers curl 403, so no statute pass is claimed.
+
+General French law and decrees made for the territory alone (décret 2006-1211, loi 55-1052, décret 2008-919) are register rows only (Varun, 2026-11-10); the French rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` are not reused. Where no official page opened says a French text applies in the TAAF, the register row says so.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o ml.html -w "%{http_code} %{size_download} %{content_type}\n" "https://taaf.fr/mentions-legales/"
+```
+
+Returned `200 136562 text/html; charset=UTF-8`; both notices above are in it.
+
+```
+curl -sL -A "Mozilla/5.0" -o jo84.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://taaf.fr/content/uploads/2020/02/JO-84-_4%C3%A8me-trimestre-2019.pdf"
+```
+
+Returned `200 2371063 application/pdf`, Journal officiel n° 84 (4th quarter 2019), text layer readable with `pdftotext` (read as a pointer, not stored).
+
+```
+curl -s -A "Mozilla/5.0" -o /dev/null -w "%{http_code}\n" "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000699397"
+```
+
+Returned `403`.
+
+### Link-only list
+
+All instruments are register rows, none in scope: arrêtés n° 2019-110, 2019-111, 2019-163, 2019-176, 2019-108, 2019-184 and 2019-185 (JO n° 84), and arrêtés n° 2011-67, 2012-48, 2016-144 (found by search, not opened), each F7 with the row `TF-TAAF-ADOPTED` at `permission requested`. Parent-state register rows: décret 2006-1211, loi 55-1052 with décret 2008-919, Code de l'environnement Livres VI and VII, the CSRD ordonnance and Code de commerce articles, Code monétaire et financier L. 533-22-1, Code de l'environnement L. 229-25 and L. 229-68, Code de la consommation.
+
+### Languages
+
+French only. `https://taaf.fr/en/` is an English front page (HTTP 200, not read as law); no English version of any arrêté was found.
+
+## United States Minor Outlying Islands
+
+No licence row is written and `register/UM/scope.json` is empty. The nine islands (Baker, Howland, Jarvis, Johnston, Kingman Reef, Midway, Navassa, Palmyra, Wake) have no law-making body of their own and no organic act in any page opened on 2026-11-10 (an absence in the sources read, not an official statement). They are run by federal departments: Wake by the Air Force (32 CFR part 935), Midway by Interior and the Fish and Wildlife Service (Executive Order 13022, 50 CFR part 38), Navassa by the Fish and Wildlife Service (Secretary's Order 3210). Every instrument found is made by the United States, so each is a register row only (rulings of 2026-11-10: parent-state law in general, and instruments the parent state made for one place alone). The United States rows `US-ECFR-ADOPTED` and `US-FEDREG-ADOPTED` are not reused or copied for this place, and no publisher of the islands' own serves an own instrument.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10 (the eCFR API needs `--compressed`; without it the answer is a 406 of 171 bytes):
+
+```
+curl -sL -A "Mozilla/5.0" --compressed -o t32.xml -w "%{http_code} %{size_download} %{content_type}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-11-06/title-32.xml?part=935"
+```
+
+Returned `200 18967 application/xml; charset=utf-8`, the Wake Island Code; the same API for 50 CFR part 38 returned `200 4525`, part 665 `200 109636`, part 404 `200 29355`, 40 CFR part 98 `200 521319`.
+
+```
+curl -sL -A "Mozilla/5.0" -o eo.json -w "%{http_code} %{size_download} %{content_type}\n" "https://www.federalregister.gov/api/v1/documents/96-28509.json"
+```
+
+Returned `200 957 application/json; charset=utf-8`, the record of Executive Order 13022; its text is at `https://www.federalregister.gov/documents/full_text/text/1996/11/04/96-28509.txt` (`200 5384 text/plain`).
+
+```
+curl -sL -A "Mozilla/5.0" -o u644.htm -w "%{http_code} %{size_download} %{content_type}\n" "https://www.govinfo.gov/content/pkg/USCODE-2023-title48/html/USCODE-2023-title48-chap3-sec644a.htm"
+```
+
+Returned `200 5005 text/html`, 48 U.S.C. 644a (2023 edition); the chapter-8 Guano Islands page returned `200 3031 text/html`. Secretary's Order 3210 on doi.gov returned `200 9345 application/pdf` with a text layer (`pdftotext -layout`).
+
+### Languages
+
+English is the only language of every text opened. Hawaii law is adopted by reference for civil rights on Wake (32 CFR 935.21) and for criminal law on Midway (50 CFR 38.1(b)); no Hawaiian-language text is involved. No translation row.
+
+### Link only
+
+Nothing is stored and no scope instrument exists. Register rows only: the Wake Island Code, the Midway refuge rules, Executive Order 13022, Secretary's Order 3210, Proclamations 8336, 9173, 10880 and 10918, 50 CFR part 665 subparts E and H, 50 CFR part 404 (names the Midway Atoll Special Management Area; a Hawaii monument rule, listed as general parent-state law); and, as parent-state law, the Guano Islands Act, 48 U.S.C. 644a, 40 CFR part 98, the FTC Act definition of commerce with the Green Guides, and the SEC climate rule. For 40 CFR part 98, the FTC Act and the SEC rule, no page opened names the islands: application is not established on an official page. Blocked from the laptop address, not bypassed: `https://www.fws.gov/` and its refuge pages (curl 403); the HTML pages of ecfr.gov and federalregister.gov answer 200 with a "Request Access" body for scripts (the APIs are used); `uscode.house.gov` deep links answer 404.
+
+## South Georgia and the South Sandwich Islands
+
+No scope instrument, no records. `register/GS/scope.json` is an empty list. South Georgia and the South Sandwich Islands is a UK Overseas Territory with no permanent population; the Commissioner makes Ordinances and Orders under the South Georgia and South Sandwich Islands Order 1985, and a UK Act applies only where an Order extends it. The full list of laws since 1985 (https://laws.gov.gs/1985-onwards-laws-of-sgssi, read 2026-11-10) holds conservation, fisheries, pollution, entry and visitor control, customs, income tax, police, criminal justice, trade marks, postal and similar Ordinances; none is a climate, emissions, sustainability-disclosure, carbon-price, due-diligence or consumer-claims law. All of them are register rows (family F7); the two UK instruments are register rows only (rulings of Varun, 2026-11-10).
+
+The only own publisher is the Government's laws website, https://laws.gov.gs/. Row `GS-LAWS-ADOPTED` is `permission requested`: the notice on https://laws.gov.gs/ordinances/ reads "This website is informal and has no legal status. The only current publication of record is the South Georgia and South Sandwich Islands Gazette." and says nothing about reuse; the PDFs print "© Crown Copyright 2019" and "© Crown Copyright 2025" with no licence; https://www.gov.gs/copyright/, /terms-and-conditions/ and /privacy-policy/ answer 404. No copyright statute of the territory was found. The Copyright (Falkland Islands) Order 1963 (SI 1963/1037), art. 1, extends the Copyright Act 1956 to "the Falkland Islands and its Dependencies"; whether it still applies here after 1985 was not read on an official page. The UK Open Government Licence rows cover legislation.gov.uk only and are not reused for this place.
+
+Terms page (`terms_fingerprint` dc0e3552...aabe2, identical on two fetches):
+
+```
+curl -sL -A "Mozilla/5.0" -o ordinances.html -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.gs/ordinances/
+```
+
+-> `200 879732 text/html; charset=UTF-8`.
+
+PDFs read for the register rows (base `https://laws.gov.gs/wp-content/uploads/`, `curl -sL -A "Mozilla/5.0" -o f.pdf -w '%{http_code} %{size_download} %{content_type}\n'`, then `pdftotext -layout f.pdf f.txt`), all `200`, `application/pdf`: `2022/07/2019-05-Heavy-Fuel-Oil-Prohibition-of-Carriage-and-Use-Ordinance-2019.pdf` 880621 bytes (sha256 80d0695a...f648, text layer), `2025/04/SGSSI-Gazette-No-2-dated-22-April-2025.pdf` 351561 (c6cc17ed...5289, text layer), `2026/08/SGSSI-Gazette-No-4-dated-26-August-2026.pdf` 216037 (text layer), `2022/07/2011-01-Wildlife-and-Protected-Areas-Ordinance-2011.pdf` 131590 (54ec9d85...a3a0), `2022/07/Fisheries-Conservation-and-Management-Ordinance-2000.pdf` 146924, `2022/07/Nuclear-Safeguards-Ordinance-2014.pdf` 102622, `2022/07/2022-02-Entry-Control-Ordinance-2022.pdf` 1158226, `2022/06/1992-02-Visitors-Ordinance-1992-1.pdf` 137395, `2022/07/2010-01-Prohibited-Areas-Ordinance-2010.pdf` 59732, `2022/07/2019-O01-Marine-Protected-Areas-Order-2019.pdf` 894999, `2022/03/19852044920SGSSIO201985.pdf` 1901626 (e54949ba...312d; scan with a poor text layer, "Mqrch" for "March"). Scanned, no text layer, read by `pdftoppm -r 150 -png` and `tesseract -l eng`: `2022/07/2022-O02-Wildlife-and-Protected-Areas-Specially-Protected-Areas-Order-2022.pdf` 822924 bytes and `2022/07/Antarctic-Act-1994-Commencement-Order-1997.pdf` 244653 (first pages only); `2022/07/Antarctic-Regulations-1997.pdf` 7381906 bytes is scanned and was not read. UK side: `https://www.legislation.gov.uk/ukpga/1994/15/data.xml` `200 161828 application/xml` (s.34(2)), `https://www.legislation.gov.uk/ukpga/1988/48/section/157/data.xml` `200 52400 application/xml` (s.157(2)), `https://www.legislation.gov.uk/uksi/1963/1037/made/data.xml` `200 52279 application/xml`.
+
+### Languages
+
+English only. Every text opened is in English and no page names another official language. No translation row.
+
+### Link only
+
+None: there is no scope entry. Each Ordinance and Order read is a register row, not a scope entry, because the territory's Ordinances and Orders found are conservation, fisheries, pollution, entry and access controls (family F7). The Wildlife and Protected Areas Ordinance 2011 is the closest to a framework law (conservation and protected areas) and is listed in the report as a decision for Varun.
+
+Register-only UK instruments: the South Georgia and South Sandwich Islands Order 1985 (S.I. 1985 No. 449, made for this territory alone; extent clause quoted from https://laws.gov.gs/1985-onwards-laws-of-sgssi) and the Antarctic Act 1994 (s.34(2) extension power read; application read in the Explanatory Note of S.R.&O. No 3 of 2015, which names the Commissioner's orders through which it applies). Not listed: the Companies Act 2006, the Climate Change Act 2008, FCA and UK SRS material (no extending Order read), and the Copyright, Designs and Patents Act 1988 (s.157(2) is an extension power; no Order for this place found).
+
+## Saint-Barthélemy
+
+One scope entry, link only: `bl-code-energie` (Code de l'énergie de Saint-Barthélemy, F2, narrower than a climate framework). Nothing is stored. The one licence row, `BL-COM-CONSOLIDATED`, is `unknown`: the Collectivité's site has no reachable terms page. Saint-Barthélemy is a French overseas collectivity (Constitution art. 74) whose Conseil territorial makes its own rules; its codes are published by the Collectivité at comstbarth.fr. The other own codes (environment, planning, contributions, planning map) and every French State instrument are register rows only (rulings 1 and 2, Varun, 2026-11-10); the French rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` are not reused for the Collectivité's texts. legifrance.gouv.fr answers curl 403 and headless Chrome a challenge page (not bypassed), so no French State text and no copyright statute was read there.
+
+comstbarth.fr is a JavaScript app: curl returns a 760-byte shell. The codes page lists each code in nested accordions (Show buttons). Proven browser recipe, 2026-11-10: Google Chrome headless with `--remote-debugging-port`, navigate to `https://www.comstbarth.fr/votre-collectivite/codes-et-reglements`, wait 9 s, click every button whose text ends in `Show`, repeat until none is left (two rounds), read `document.documentElement.outerHTML` (237,706 bytes after clicking; 99,389 bytes with `--dump-dom` alone, which leaves the lists collapsed). The `<a href="/in/rest/annotationSVC/DownloadAttachment/attach_cmsUpload_...">` links in the result are the code PDFs.
+
+Request proven on 2026-11-10 for one named instrument (the Energy Code, version "à jour au 26 mars 2026"):
+
+```
+curl -sL -A "Mozilla/5.0" -o energie.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.comstbarth.fr/in/rest/annotationSVC/DownloadAttachment/attach_cmsUpload_c054404a-cc89-4393-a4b5-ac5b4d904f2b"
+```
+
+Returned `200 1048315 application/pdf` (20 pages, sha256 `78b3fcda4e3ed057fe21a860727381c93e223148db3427ba8e2e6629ec8b3830`). The Environment Code PDF (`...5e4c7f67-7625-45cc-a980-855c9a10ceff`) answered `200 4801452 application/pdf`, 199 pages. Text: `pdftotext -layout file.pdf -`; the Energy and Environment PDFs have a clean text layer, the Contributions Code PDF (`...ecc2925d-da4f-4c58-a9df-0a75c590e54b`, 120 pages) returns no usable text. The Journal officiel des actes at `https://actes.eservices-comstbarth.fr/` answers 200 (`/choix_actes_archives.html`, `/jo_consult.php`, tables headed "ACTES COM SBH"); it was not read further and prints no terms.
+
+### Languages
+
+French is the only language of every text opened. The site's English switch translates the menus only. No English version of any instrument was found on the Collectivité's pages.
+
+### Link only
+
+- `bl-code-energie`: row `BL-COM-CONSOLIDATED` is `unknown` (the footer item "Legal mentions" is an anchor with no link target; `/mentions-legales/` renders "Page not found"; the only printed sentence is "© 2020 Collectivité de Saint-Barthélémy • by InMedia Technologies").
+- Register rows with no scope entry: Code de l'environnement (no emissions target or GHG duty found), Code de l'urbanisme, Carte d'urbanisme, Code des contributions; the Code de la route, transport, taxi, port, social-aid and sanitation regulations on the same page are not ESG and have no row.
+- French State rows: ordonnance 2023-1142 and décret 2023-1394, devoir de vigilance, Code monétaire et financier L. 533-22-1, Code de l'environnement L. 229-25 and L. 229-68, Code de la consommation, loi organique 2007-223: application in Saint-Barthélemy not established on an official page. Code de l'énergie L. 100-4 is applied in part by the Collectivité's own Energy Code (quoted on its register row).
+
+## Svalbard and Jan Mayen
+
+No row is written and nothing is stored: `register/SJ/scope.json` is `[]`. Svalbard and Jan Mayen are part of the Kingdom of Norway (Svalbardloven § 1, Lov om Jan Mayen § 1) with no law-making body of their own, so no instrument of the place in families F1 to F6 exists. The Norwegian laws and regulations made for the place, and the general Norwegian acts that name it, are register rows only (rulings 1 and 2, Varun, 2026-11-10); `register/register.csv` holds 39 of them. One ISO code covers two places: every row names Svalbard or Jan Mayen.
+
+No licence row. The law of both places is published by Lovdata (Stiftelsen Lovdata), whose rows `NO-LOVDATA-CONSOLIDATED`, `NO-LOVDATA-ADOPTED` and `NO-LOVDATA-TRANSLATION` (all `permission requested`) belong to Norway and are not reused. Two regulations were made by Longyearbyen lokalstyre (the local board of Longyearbyen; FOR-2023-03-01-435 on waste and sewage fees, FOR-2025-12-10-3067 on 2026 fee rates). Both are published on Lovdata, not by the lokalstyre: its site `https://www.lokalstyre.no/selvbetjening/politikk/reglementer-og-styringsdokumenter` (200) lists its own reglementer as PDFs and links to Lovdata for laws and regulations, and no terms or copyright page was found on it (`/personvern` answered 200 and holds no reuse terms). The Governor of Svalbard's site (`https://www.sysselmesteren.no/en/laws-and-regulations/`, 200) has no terms page; regjeringen.no answers 403 to a script and was not tried further.
+
+Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o svl.html -w "%{http_code} %{size_download} %{content_type}\n" "https://lovdata.no/dokument/NL/lov/1925-07-17-11"
+```
+
+Returned `200 151340 text/html;charset=utf-8`, the Svalbardloven with its header block (`Ikrafttredelse14.08.1925`). The other Lovdata pages in the register rows (`/dokument/NL/lov/2001-06-15-79`, `/dokument/NL/lov/1930-02-27-2` and every `/dokument/SF/forskrift/` id in the rows) all answered `200 text/html;charset=utf-8` with the same command.
+
+### Languages
+
+Norwegian (bokmål) is the only language of every text opened. No official English version was found; Lovdata's English pages (`/dokument/NLE/`, `/dokument/SFE/`) and the Governor's English PDF of the Svalbard Environmental Protection Act are unofficial and were not read or stored.
+
+### Link only
+
+All rows are register rows only. Application of the general acts was not established on an official page: regnskapsloven § 1-1(2), åpenhetsloven § 2 and markedsføringsloven § 4 leave Svalbard and Jan Mayen to a King's regulation and none was found; klimakvoteloven § 2 excludes Svalbard (Jan Mayen not named); klimaloven has no territory clause. Whether the EEA Agreement applies to Svalbard was not read on an official page and is not stated in any row. Rows marked "Only the Lovdata header block was read" have not had their own extent clause read.
+
+## Guadeloupe
+
+Nothing is stored and `register/GP/scope.json` is empty. Guadeloupe is an overseas department and region under Constitution art. 73. Its Région (conseil régional) holds an energy habilitation under art. 73 para. 3 and made 29 délibérations under it (library on `https://www.guadeloupe-energie.gp/bibliotheque/deliberations/`, a mini-site of the Région): the building thermal rule RTG, photovoltaic and wind quotas and siting, consumer information on energy, solar water-heater support, governance. They are building, energy and consumer-information rules with no greenhouse-gas duty found in the one text opened (the 31 October 2019 RTG délibération), so each is an F7 register row, not a scope entry. The State instruments found are register rows only: the PPE décret 2017-570, the RTAA 2016 arrêté, loi 2015-992 art. 205 as cited in a recital, and the 11 French ESG instruments held under FR.
+
+Row `GP-REGION-ADOPTED` is `permission requested`. The Région's legal notice (`https://www.regionguadeloupe.fr/mentions-legales`, HTTP 200, 246510 bytes, text/html; charset=utf-8) says: "La reproduction de tout ou partie de ce site sur un support électronique quel qu’il soit est formellement interdite sauf autorisation expresse du directeur de la publication." The Préfecture (`https://www.guadeloupe.gouv.fr/mentions-legales`, HTTP 200, 80085 bytes) publishes State acts, not the Région's law, and no row is written for it. The Département site (`https://www.cg971.fr/mentions-legales`, HTTP 200) says "Ces droits sont la propriété exclusive du Conseil Départemental de la Guadeloupe." and no act list was opened. The copyright statute was not read on an official copy (Légifrance 403), so no statute pass is claimed.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o rtg.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.guadeloupe-energie.gp/download/38/la-thermique-du-batiment/9530/35-crg-19-1155-ctrx2009005x-delib_reglementation-thermique-de-guadeloupe_cr19_1155-311019.pdf"
+```
+
+Returned `200 247238 application/pdf`; `pdftotext -layout` gives the JORF text (8 avril 2020, texte 31 sur 64) with its text layer.
+
+```
+curl -sL -A "Mozilla/5.0" -o ppe.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://faolex.fao.org/docs/pdf/GLP165489.pdf"
+```
+
+Returned `200 28258356 application/pdf`, the JORF of 21 April 2017 (texte 4 sur 134) with décret 2017-570, a copy hosted by FAO.
+
+### Languages
+
+French is the only language of every text opened. No official version in Creole or English was found.
+
+### Link only
+
+Every row above is a register row; none is a scope entry. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its text pages (curl 403).
+
+## Bonaire, Sint Eustatius and Saba
+
+One ISO code (BQ) covers three Dutch public bodies (openbare lichamen): Bonaire, Sint Eustatius and Saba. Each island council makes its own eilandsverordeningen (Wet openbare lichamen BES art. 157 lid 1), and Dutch state acts made for the islands carry BES in their title. Row `BQ-CVDR-CONSOLIDATED` is a `pass` on a statute: the Auteurswet BES (BWBR0028264, "Geldend van 10-10-2010 t/m heden") art. 11 lid 1 removes copyright from "wetten, besluiten en verordeningen, door de openbare macht uitgevaardigd", read in the official KOOP repository XML on 2026-11-10. The portal that serves the island ordinances (lokaleregelgeving.overheid.nl) has no terms page, so the pass rests on the statute and covers the three islands' own ordinances only. No instrument of the islands' own bodies is in families F1 to F6, so `register/BQ/scope.json` is `[]` and no record is stored. The Dutch state acts made for the islands (the BES acts) and general Dutch law are register rows only (Varun, 2026-11-10): no licence row of this section covers them and no text of them is stored.
+
+Where I looked for an own instrument in families F1 to F6, on 2026-11-10: Overheid.nl Lokale wet- en regelgeving through the SRU search (creator "Bonaire", "Sint Eustatius", "Saba"), title words klimaat*, broeikas*, CO2, duurzaam*, energie*, emissie*, plastic*, consument*, reclame*, subsid*, tas*, kunststof*, wegwerp*, verpakking*, brandstof* and the English climate, sustainab*, energy, carbon, plastic*, consumer, bag*, disposable, waste, tourism: no hit for any of the three islands. Titles with milieu* gave only nature, marine, nuisance and waste ordinances. A scan of the titles of every current record of the three creators for English titles found only Saba texts. Two points kept as register rows on purpose: the Bonaire motor vehicle tax (CVDR700672, tariff by mass, one CO2 term that is an exemption for zero-emission vehicles) and the Sint Eustatius environmental activities ordinance 2026 (CVDR761959, rules for establishments, not a framework ordinance).
+
+Proven request (one island ordinance, Marien Milieu verordening Sint Eustatius, CVDR44403 version 5, "Geldend van 25-05-2017 t/m heden met terugwerkende kracht vanaf 01-11-2016"), 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o cvdr44403-5.html -w "%{http_code} %{size_download} %{content_type}\n" "https://lokaleregelgeving.overheid.nl/CVDR44403/5"
+```
+
+Returned `200 66591 text/html;charset=UTF-8`; sha256 `69f877040ad6dd5d7f2334d58115207a3362b1cdfb166d233a86322f1038ad7d`, reproduced by a second request. A record would be made as for the other CVDR rows: drop `script` and `style`, turn tags into line breaks, collapse spaces; `in_force` is the "Geldend van" date.
+
+Search, to find the CVDR id of an instrument:
+
+```
+curl -sL -A "Mozilla/5.0" "https://zoekservice.overheid.nl/sru/Search?x-connection=cvdr&version=1.2&operation=searchRetrieve&maximumRecords=100&query=dcterms.title%20any%20%22milieu*%22%20and%20dcterms.creator%3D%22Saba%22"
+```
+
+Returns `200 51912 application/xml;charset=UTF-8`; the creator (`Bonaire`, `Sint Eustatius`, `Saba`) separates the island's own records; a record with no `uitwerkingtredingDatum` is current.
+
+The statute copy (the KOOP repository XML, stable per dated version):
+
+```
+curl -sL -A "Mozilla/5.0" -o auteurswet-bes.xml -w "%{http_code} %{size_download} %{content_type}\n" "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0028264/2010-10-10_0/xml/BWBR0028264_2010-10-10_0.xml"
+```
+
+Returned `200 173067 application/xml`; sha256 `c3e2bc11ed77fcc968b9e48e9a891ea9ffb1272851091ffd0d9d8ff697cee1ac`, reproduced by a second request. The list of the BES acts: `https://zoekservice.overheid.nl/sru/Search?x-connection=BWB&version=1.2&operation=searchRetrieve&startRecord=<n>&maximumRecords=100&query=overheidbwb.titel%20any%20%22BES%22` gave 3,262 hits (849 distinct BWBR ids, many versions per id), paged to the end.
+
+### Languages
+
+Dutch is the language of the Dutch state acts and of almost every island ordinance opened. Papiamentu (Bonaire) and English (Sint Eustatius, Saba) are spoken on the islands; the portal metadata marks every current record of the three islands as `nl`, but five Saba texts are printed in English (CVDR734752 National Park Mt. Scenery, CVDR29195 Exotic Species, CVDR30413 Building and Housing 1999, CVDR41902 Spatial Development 2010, CVDR757186 price indication). No Papiamentu text was identified. No government English version of any BES act was found. No translation row.
+
+### Link-only instruments
+
+None in scope. The register rows (Dutch state acts for the islands, general Dutch law whose application in the islands is not established on an official page, and the islands' own ordinances) are listed in `register/register.csv` under BQ with their official URLs. EU status, for the record: Tweede Kamer 36 410 IV nr. 12 (https://zoek.officielebekendmakingen.nl/kst-36410-IV-12.pdf, 200, application/pdf) says the three islands have the status of Land en Gebied Overzee and "maken daarom geen deel uit van de interne markt van de EU"; no EU instrument is a row here.
+
+Blocked from the laptop address: nothing refused. Pages that do not exist: `https://www.overheid.nl/copyright` and `https://www.overheid.nl/en/copyright` answer 404. The island governments' own sites and the Rijksdienst Caribisch Nederland were not opened.
+
+## British Indian Ocean Territory
+
+No scope instrument, no records. `register/IO/scope.json` is an empty list. The British Indian Ocean Territory is administered by a Commissioner who makes Ordinances and Regulations, published by the BIOT Administration at https://www.biot.gov.io/governance/legislation/ as Revised Ordinances (chapters A to H, showing the law as at 1 September 2020), Revised Regulations (Chapter E as at 26 March 2024, in force 27 March 2024 by S.I. No. 1 of 2024), annual Gazettes and Orders in Council. Own law with environmental content is Chapter E (wild life, ozone, conservation, oil pollution, waters, endangered species, fisheries, historic sites); none of the Ordinances listed is a climate, emissions, sustainability-disclosure, carbon-price, due-diligence or consumer-claims law. They are register rows (family F7), as are the two UK Orders in Council made for the territory alone (rulings of Varun, 2026-11-10). The Gazettes (2025 and 2026 issues) were listed and not opened.
+
+The only own publisher is the BIOT Administration. Row `IO-BIOT-CONSOLIDATED` is `permission requested`: the site has no terms page, and every revised-edition PDF prints, after "(c) British Indian Ocean Territory Administration" (the text layer renders the symbol as "a-tilde"; OCR of the page image reads the copyright sign), "All rights reserved. No part of this publication may be reproduced in any form or by any means (including photocopying or copying in electronic format) without the written permission of the Commissioner of the British Indian Ocean Territory, or otherwise as permitted under the terms of a licence from the British Indian Ocean Territory Administration." No copyright statute of the territory was found, and no Order in Council extending CDPA 1988 Part I to it was found (s.157(2) is an extension power). The UK Open Government Licence rows cover legislation.gov.uk only and are not reused here.
+
+Terms notice (page 2 of the Chapter E.1 PDF; `terms_fingerprint` eb1dc26f...fa27, identical on two fetches). The PDF URL is the E.1 link on https://www.biot.gov.io/governance/legislation/revised-ordinances/ ("The Protection and Preservation of Wild Life Ordinance 1970 E.1", file `The-P-and-P-of-Wild-Life-Ord-1970-E.1.pdf`):
+
+```
+curl -sL -A "Mozilla/5.0" -o e1.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.biot.gov.io/wp-content/uploads/The-P-and-P-of-Wild-Life-Ord-1970-E.1.pdf
+pdftotext -f 2 -l 2 -layout e1.pdf -
+```
+
+-> `200 301626 application/pdf` (sha256 96a41171...). The listing pages `https://www.biot.gov.io/governance/legislation/`, `/revised-ordinances/`, `/revised-regulations/`, `/orders-in-council/`, `/gazettes/` and `/privacy-and-cookies/` each returned `200 text/html; charset=UTF-8` (33874, 43720, 46276, 34927, 41100 and 36557 bytes).
+
+Other PDFs read for the register rows (all `200`, `application/pdf`, text layer, `pdftotext -layout`; links from the listing pages): Chapter E.2 to E.8 and G.2, G.3 of the Revised Ordinances, `Revised-Regulations-of-the-British-Indian-Ocean-Territory-Proclamation-2024` 109532 bytes, `The-Strict-Nature-Reserve-Regulations-1998-E.3-2024-Final.pdf` 300922, `Revised-Laws-Publication-Notice-1.pdf` 135700. `The-British-Indian-Ocean-Territory-Constitution-Order-2004.pdf` 1055590 bytes is a scan (pdftotext gives nothing); page 1 read by `pdftoppm -r 150 -png` and `tesseract -l eng`.
+
+### Languages
+
+English only. Every text opened is in English. The home page links a Chagossian Records website, which was not opened. No translation row.
+
+### Chagos treaty and sovereignty
+
+Nothing in the register rows or the licence row depends on it. What was opened on 2026-11-10: the biot.gov.io home page and legislation pages (no treaty or sovereignty text); the legislation.gov.uk title search "Diego Garcia" (`200`, "has returned no results"); https://bills.parliament.uk/bills/4004 (`403` to curl, unread); and the GOV.UK guidance "Citizenship rights for Chagossians: update 15 July 2025" (https://www.gov.uk/guidance/citizenship-rights-for-chagossians-update-15-july-2025, read through https://www.gov.uk/api/content/guidance/citizenship-rights-for-chagossians-update-15-july-2025, `200 20965`), which says: "Before the treaty can come into force, changes to UK law are required." That sentence is dated 15 July 2025. The status of the treaty on 2026-11-10 was not read on any official page. The GOV.UK collection "UK government support for Chagossians" (updated 2025-10-30) carries a change note dated 2025-07-15 in its history that reads "Added guidance on citizenship rights for Chagossians following the entry into force of the Diego Garcia treaty."; it conflicts with the guidance sentence above and was not resolved.
+
+### Link only
+
+None: there is no scope entry. Nothing is stored.
+
+Register-only UK Orders in Council made for the territory alone: the British Indian Ocean Territory (Constitution) Order 2004 (art. 1: "shall come into force forthwith", dated 10 June 2004) and the British Indian Ocean Territory (Immigration) Order 2004 (title only). Not listed: the Antarctic Act 1994, the Companies Act 2006, the Climate Change Act 2008 and any other UK Act, because no page opened says that an Order extends them to the territory.
+
+## Saint-Martin (French part)
+
+`register/MF/scope.json` is `[]`: no instrument of the Collectivité's own body in families F1 to F6 was found. The one licence row, `MF-COM-ADOPTED`, is `permission requested`: the legal notice at `/mention_legale` forbids reproduction "sans autorisation expresse de la Collectivité de Saint Martin" and names no open licence. Saint-Martin (French part) is a French overseas collectivity (Constitution art. 74); this is not Sint Maarten (SX). Its own codes and délibérations are published by the Collectivité at com-saint-martin.fr. Its own planning code and a waste plan, and every French State instrument, are register rows only (rulings 1 and 2, Varun, 2026-11-10); the French rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` are not reused. legifrance.gouv.fr answers curl 403 and headless Chrome a challenge page (not bypassed), so no French State text and no copyright statute was read there.
+
+Where I looked, 2026-11-10: the délibération list at `https://www.com-saint-martin.fr/deliberations_actes/deliberations` is a Next.js page fed by a Prismic API. `curl -sL -A "Mozilla/5.0" https://comsaintmartin.cdn.prismic.io/api/v2` returns the current master ref; `.../api/v2/documents/search?ref=<ref>&q=[[at(document.type, "deliberation_page")]]&orderings=[my.deliberation_page.publication desc]&pageSize=100&page=<n>` returned all 3,073 délibération and arrêté pages in 31 requests (HTTP 200, JSON, "license": "All Rights Reserved"). Every title was searched for énergie, environnement, climat, carbone, gaz à effet de serre, déchet, développement durable, biodiversité, renouvelable, plastique, code, règlement, COP. The 26 Conseil territorial hits are tax, planning-code, tourism-code, taxi, transport, bathing-zone and staff items, one waste plan (CT 33-08-2025) and one governance item (CT 40-06-2026, the commission for the territorial COP). No energy code, environment code, climate act, disclosure or consumer délibération appears. This is a title sweep, not a reading of the texts. The Journal officiel list is at `/deliberations_actes/jo` (monthly PDFs on `comsaintmartin.cdn.prismic.io`).
+
+Request proven on 2026-11-10 for one named instrument (the notice page, the only page that decides reuse):
+
+```
+curl -sL -A "Mozilla/5.0" -o mention_legale.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.com-saint-martin.fr/mention_legale"
+```
+
+Returned `200 137431 text/html; charset=utf-8`. Journal officiel n° 203 (September 2026): `curl -sL -A "Mozilla/5.0" -o jo203.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://comsaintmartin.cdn.prismic.io/comsaintmartin/Bkg0VtZBmb9c4-ua_JOn%C2%B0203septembre2026.pdf"` returned `200 34726936 application/pdf`; `pdftotext -layout jo203.pdf` gives a clean text layer. Nothing is stored.
+
+### Languages
+
+French is the only language of every page and text opened; the site has an /en/ copy of its menus only. No English version of any instrument was found.
+
+### Link only
+
+- No scope entry, so no link-only instrument. Register rows without a scope entry: Code de l'urbanisme (title and dates only), the waste plan PTPGD 2024-2036 (title and dates only), and the French State rows (ordonnance 2023-1142 and décret 2023-1394, devoir de vigilance, Code monétaire et financier L. 533-22-1, Code de l'environnement L. 229-25 and L. 229-68, Code de l'énergie L. 100-4, Code de la consommation, loi organique 2007-223): application in Saint-Martin (French part) not established on an official page.
+
+## Martinique
+
+Nothing is stored and `register/MQ/scope.json` is empty. Martinique is the Collectivité territoriale de Martinique (CTM) under Constitution art. 73. No instrument of its own in families F1 to F6 was found. Its own texts are energy rules made by the former conseil régional under an energy habilitation (the thermal rule RTM, the energy-performance diagnosis DPE-M, photovoltaic siting and tender rules) and the assemblée's requests for a new habilitation: all F7 register rows, none of them opened on an official host (they are described in the Sénat bill n° 283 and listed by title on Légifrance, which answers curl 403). The CTM's site `https://www.collectivitedemartinique.mq/` is marked "Site provisoire"; `/actes-adminitratifs/` answers HTTP 200 (146370 bytes) with no list of acts, and no other CTM host publishing acts was found, so no licence row is written. The State instruments are register rows only: loi n° 2026-574 du 30 juin 2026 (number, date and JO n°152 of 1 July 2026 read on the Sénat dossier page; promulgated text not opened), the lapsed 2011 and 2015 habilitation articles, the PPE décret 2018-852, the RTAA 2016 arrêté and the 11 French ESG instruments held under FR.
+
+Notices read on 2026-11-10, for the record. CTM, `https://www.collectivitedemartinique.mq/mentions-legales/` (HTTP 200, 146477 bytes, text/html; charset=UTF-8): "Les contenus présents sur le site sont couverts par le droit d’auteur. Toute reprise est dès lors conditionnée à l’accord de l’auteur en vertu de l’article L.122-4 du Code de la Propriété intellectuelle." Préfecture, `https://www.martinique.gouv.fr/mentions-legales` (HTTP 200, 83294 bytes): public information reusable on the three conditions of CRPA L322-1, footer "Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0"; it publishes State acts, not the CTM's law.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o pjl.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.senat.fr/leg/pjl25-283.pdf"
+```
+
+Returned `200 1286087 application/pdf`, the Sénat bill (with the impact study that describes the 2013 délibérations).
+
+```
+curl -sL -A "Mozilla/5.0" -o dossier.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.senat.fr/dossier-legislatif/pjl25-283.html"
+```
+
+Returned `200 118458 text/html`, the dossier page that gives "Loi n° 2026-574 du 30 juin 2026 parue au JO n°152 du 1er juillet 2026".
+
+### Languages
+
+French is the only language of every text opened. No official version in Creole or English was found.
+
+### Link only
+
+Every row above is a register row; none is a scope entry. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its text pages (curl 403, for example `/jorf/id/JORFTEXT000027915101`).
+
+## Réunion
+
+Nothing is stored and `register/RE/scope.json` is empty. La Réunion is an overseas department and region under Constitution art. 73, and the last paragraph of that article, read at the Conseil constitutionnel on 2026-11-10 (HTTP 200, 137558 bytes), says: "La disposition prévue aux deux précédents alinéas n'est pas applicable au département et à la région de La Réunion." The two preceding paragraphs are the derogation that lets a collectivity be empowered to set its own rules and the list of matters those rules cannot cover; the paragraph before them, which lets a collectivity decide adaptations when habilitated, is not named. No instrument of La Réunion's own was found. The State instruments found are register rows only: the PPE décrets 2022-575 and 2017-530 (the latter repealed by art. 1 of the former), the RTAA 2016 arrêté and the 11 French ESG instruments held under FR.
+
+No licence row is written: La Réunion has no publisher of its own that serves an own instrument listed here, and the State's rows under FR are not reused. Pages checked on 2026-11-10: Préfecture `https://www.reunion.gouv.fr/mentions-legales` (HTTP 200, 84824 bytes) has no reuse paragraph and carries the footer "Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0"; Département `https://www.departement974.fr/mentions-legales` (HTTP 200, 60581 bytes) says "les informations à caractère public de ce site peuvent être reproduites librement sous réserve :" respect of the integrity of the documents and naming the source; the Région's site `https://www.cr-reunion.fr/` answered HTTP 530 and `https://www.regionreunion.com/` answered HTTP 403, so no notice was read there. No act list of the Département or the Région was opened.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o ppe.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.reunion.developpement-durable.gouv.fr/IMG/pdf/decret_ppe2_joe_20220421_0093_0003.pdf"
+```
+
+Returned `200 178987 application/pdf`; `pdftotext -layout` gives the JORF text (21 avril 2022, texte 3 sur 116).
+
+```
+curl -sL -A "Mozilla/5.0" -o cr.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.cr-reunion.fr/"
+```
+
+Returned `530 17 text/plain; charset=UTF-8`.
+
+### Languages
+
+French is the only language of every text opened. No official version in Creole or English was found.
+
+### Link only
+
+Every row above is a register row; none is a scope entry. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its text pages (curl 403), `https://www.cr-reunion.fr/` (530), `https://www.regionreunion.com/` (403).
+
+## Saint-Pierre and Miquelon
+
+`register/PM/scope.json` is `[]`: no instrument of the Collectivité's own body in families F1 to F6 was found. The one licence row, `PM-JOSPM-ADOPTED`, is `unknown`: the Collectivité's portal jo-spm.fr has no terms page (`/mentions-legales.php`, `/mentions.php`, `/cgu.php`, `/contact.php` and `/aide.php` all answer 404; the home page carries no notice). The Préfecture's page (`https://www.saint-pierre-et-miquelon.gouv.fr/Outils/Mentions-Legales`, Etalab 2.0 beside a no-commercial-use sentence) is a different publisher and is not applied to jo-spm.fr. Saint-Pierre-et-Miquelon is a French overseas collectivity (Constitution art. 74); its Conseil territorial makes its own rules in the matters of CGCT art. LO 6414-1 (the CLU report quotes the planning matter). Its own planning code, planning scheme, energy plan and plastics levy, the State décret on its energy plan, and every other French State instrument are register rows only (rulings 1 and 2, Varun, 2026-11-10). The French rows `FR-DILA-LEGI-CONSOLIDATED` and `FR-DILA-JORF-ADOPTED` are not reused. legifrance.gouv.fr answers curl 403 and headless Chrome a challenge page (not bypassed), so no French State text and no copyright statute was read there.
+
+Where I looked, 2026-11-10: the portal's search form (`https://jo-spm.fr/index.php?f_deliberations=on&f_recherche=<word>`, HTTP 200, HTML) lists the délibérations whose title contains the word. Searched: énergie (7), climat (1), carbone (2), environnement (38), déchets (21), plastique (3), renouvelable (2), réglementation (2) and the first page of code (93, 20 shown). The hits are: the energy plan (PPE) adopted in 2018, 2019 and 2023 and a 2026 revision request, State-law consultations, waste-plan steps (PTPGD, 2025 to 2026), customs and plastics-levy délibérations (206/2019, 259/2019), fishing-right renewals, and the planning code. Nothing is an emissions, climate-disclosure, green-claims or financial-sector rule. This is a title search, not a reading of every text; only the instruments on the register rows were opened.
+
+Request proven on 2026-11-10 for one named instrument (the planning code):
+
+```
+curl -sL -A "Mozilla/5.0" -o clu.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://jo-spm.fr/doc_jo/DELIB2021-0154.pdf"
+```
+
+Returned `200 1701356 application/pdf`; `pdftotext -layout clu.pdf` gives a clean text layer. The same command answered `200` for `DELIB2022-0128.pdf` (789,721 bytes), `DELIB2023-0155.pdf` (12,656,416), `DELIB2019-0259.pdf` (414,524), `DELIB_185_2026.pdf` (198,623) and `DELIB_187_2026.pdf` (235,333). Nothing is stored.
+
+### Languages
+
+French is the only language of every page and text opened. No English version of any instrument was found.
+
+### Link only
+
+- No scope entry, so no link-only instrument. Register rows without a scope entry: Code Local de l'Urbanisme (délibération 154/2021), STAU (128/2022), PPE (155/2023, revision request 187/2026), plastics levy (259/2019), the State décret n° 2023-915 (title from the Collectivité's délibération 187/2026; text not opened), and the French State rows (ordonnance 2023-1142 and décret 2023-1394, devoir de vigilance, Code monétaire et financier L. 533-22-1, Code de l'environnement L. 229-25 and L. 229-68, Code de l'énergie L. 100-4, Code de la consommation, loi organique 2007-223): application in Saint-Pierre-et-Miquelon not established on an official page.
+
+## Cocos (Keeling) Islands
+
+Nothing is stored and `register/CC/scope.json` is empty (`[]`). The Territory is an Australian external Territory under the Cocos (Keeling) Islands Act 1955 (Cth) and has no legislature of its own: the Governor-General makes Ordinances (s 12(1)), Western Australian laws are in force by s 8A(1), and Commonwealth Acts extend of their own force under s 8E(1) unless an Act provides otherwise. Its one own body is the Shire of Cocos (Keeling) Islands, whose two local laws (Public Places and Local Government Property 2020, Meeting Procedures 2019) are in no family from F1 to F6. Under the two rulings of 2026-11-10 (Varun) every Commonwealth instrument, general or made for this Territory alone, is a register row only. The Register's own sources are Australia's rows (`AU-LEGISLATION-ADOPTED`, `AU-LEGISLATION-CONSOLIDATED`, CC BY 4.0) and are not reused for this place.
+
+The one licence row is `CC-SHIRE-ADOPTED`, `permission requested`: the Shire's site serves the two local laws as PDFs and its Disclaimer page carries the footer "© 2026 Shire of Cocos Keeling Islands. All rights reserved." with no reuse terms. Looked at and not found: any climate, emissions, ESG-disclosure, consumer-protection, waste or plastics instrument of the Territory's own. Where looked: the Register title API (`api.prod.legislation.gov.au/v1/titles`, titles containing "Cocos", "Keeling" and "Shire of Cocos"; two Shire local laws in force, the rest Ordinances, Determinations, holiday proclamations and notices) and the Shire's Governance page.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o disclaimer.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.shire.cc/en/disclaimer.html"
+```
+
+Returned `200 22454 text/html; charset=utf-8`; the footer notice quoted above is in it.
+
+```
+curl -sL -A "Mozilla/5.0" -o gov.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.shire.cc/en/your-council/governance.html"
+```
+
+Returned `200 25905 text/html; charset=utf-8`; it lists the two local laws and links their PDFs.
+
+```
+curl -sL -A "Mozilla/5.0" -o ll.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.shire.cc/images/files/LocalLaws/SOCKI_Places__Property_Local_Law_2020.pdf"
+```
+
+Returned `200 12814168 application/pdf` (read as a pointer, not stored).
+
+```
+curl -sL -A "Mozilla/5.0" -o act.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.legislation.gov.au/C1955A00034/2020-12-18/2020-12-18/text/original/pdf"
+```
+
+Returned `200 1075002 application/pdf`, compilation 13 of the Cocos (Keeling) Islands Act 1955 (ss 5, 8A, 8E, 12 read; `pdftotext -layout`).
+
+Commonwealth Acts that name the external Territories were read on the Register: the National Greenhouse and Energy Reporting Act 2007 (PDF `.../C2007A00175/2025-11-03/2025-11-03/text/original/pdf`, `200 733429 application/pdf`, s 6), the Climate Change Act 2022 (PDF `.../C2022A00037/2025-02-20/2025-02-20/text/original/pdf`, `200 299017 application/pdf`, s 7) and the Environment Protection and Biodiversity Conservation Act 1999 (epub, s 5(1)). The Corporations Act 2001 and the Competition and Consumer Act 2010 have no plain PDF at that path (`404`); their epubs were fetched with
+
+```
+curl -g -sL -A "Mozilla/5.0" -o act.epub -w "%{http_code} %{size_download}\n" "https://api.prod.legislation.gov.au/v1/documents/find(titleId='C2004A00818',asAtSpecification='Latest',type='Primary',format='Epub',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+which returned `200 2343153` (Competition and Consumer Act, `C2004A00109`: `200 1106227`; EPBC Act, `C2004A00485`: `200 735386`) and were searched for "external Territor"; no section extending either Act to the Territory was found, so those two register rows say application is not established.
+
+### Languages
+
+English is the only language of every text opened; no official version in another language was found and no translation row applies.
+
+### Link only
+
+Nothing is stored. Every register row is a register row only: the Territory Act and the Ordinances, Rules and Determinations made for this Territory alone, the Marine Park management plan, the two Shire local laws, the Western Australian laws applied by s 8A, and the five general Commonwealth Acts. Blocked from the laptop address, not bypassed: `https://www.infrastructure.gov.au/` (curl exit 92 on HTTP/2 and a timeout on HTTP/1.1, no HTTP status); not read.
+
+## Mayotte
+
+Nothing is stored and `register/YT/scope.json` is empty. Mayotte is the Département de Mayotte under Constitution art. 73. No instrument of its own in families F1 to F6 was found. The Mayotte-specific texts found are State instruments and are register rows only: the PPE décret 2017-577 (read on the ministry's copy of the JORF), the environment-code adaptation ordonnance 2005-869 (described on a Sénat report page, text not opened), the urbanism ordonnance 2012-787 and décret 2012-1529 (titles from Légifrance search results), and the 11 French ESG instruments held under FR.
+
+No licence row is written: Mayotte has no publisher of its own that serves an own instrument listed here, and the State's rows under FR are not reused. Notices read on 2026-11-10. Préfecture, `https://www.mayotte.gouv.fr/mentions-legales` (HTTP 200, 89935 bytes, text/html; charset=utf-8): "Les informations mises en ligne sur le site www.mayotte.pref.gouv.fr sont publiques et ne sont couvertes par aucun droit d’auteur (art. L. 122-5 du Code de la propriété intellectuelle) ; elles peuvent être reproduites librement, sous trois conditions :", the third condition "la mention selon laquelle les droits de reproduction sont réservés et strictement limités", then "Toute utilisation à des fins commerciales ou publicitaire est interdite.", and the footer "Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0". The Département, `https://www.mayotte.fr/contacts/informations-pratiques/mentions-legales` (HTTP 200, 175076 bytes; `https://www.mayotte.fr/mentions-legales` answers 404): "Toute reproduction est interdite sauf autorisation expresse du directeur de la publication." No act list of the Département was opened.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o ppe.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.ecologie.gouv.fr/sites/default/files/PPE%20Mayotte%20-%20Decret.pdf"
+```
+
+Returned `200 183077 application/pdf`; `pdftotext -layout` gives the JORF text (22 avril 2017, texte 3 sur 157).
+
+```
+curl -sL -A "Mozilla/5.0" -o ml.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.mayotte.fr/mentions-legales"
+```
+
+Returned `404 9853 text/html; charset=utf-8`; the notice is at the longer path above.
+
+### Languages
+
+French is the only language of every text opened. Shimaore and Kibushi are spoken locally; no official version in either, or in English, was found.
+
+### Link only
+
+Every row above is a register row; none is a scope entry. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its text pages (curl 403).
+
+## Christmas Island
+
+Nothing is stored. `register/CX/scope.json` holds one link-only entry, `cx-plastic-bag-local-law-2018` (F4), and every other instrument is a register row only. The Territory is an Australian external Territory under the Christmas Island Act 1958 (Cth) and has no legislature of its own: the Governor-General makes Ordinances (s 9(1)), Western Australian laws are in force by s 8A(1), and Commonwealth Acts extend of their own force under s 8E(1) unless an Act provides otherwise. Its one own body is the Shire of Christmas Island, which made ten local laws; nine are in the Register as notifiable instruments and the Cemeteries Local Law 2013 is on the Shire's site only. Under the two rulings of 2026-11-10 (Varun) every Commonwealth instrument, general or made for this Territory alone, is a register row only. The Register's own sources are Australia's rows (`AU-LEGISLATION-ADOPTED`, `AU-LEGISLATION-CONSOLIDATED`, CC BY 4.0) and are not reused for this place.
+
+The one licence row is `CX-SHIRE-ADOPTED`, `unknown`: the Shire's Wix site serves the local laws as PDFs and has no terms, disclaimer or copyright page; the By Laws page and the governance page carry only the footer "©2018 by Shire of Christmas Island", which grants nothing. The plastic bag local law is the one own instrument in a family from F1 to F6 (a retail ban on single-use plastic shopping bags, F4 as in Aruba); it is link only because the row is not `pass`. The wave 25 research listed it as F7; the entry is flagged for Varun's decision. Looked at and not found: any climate, emissions, ESG-disclosure or consumer-protection instrument of the Territory's own. Where looked: the Register title API (titles containing "Christmas Island" and "Shire of Christmas", nine Shire local laws in force) and the Shire's By Laws and governance pages.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o bylaws.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.shire.gov.cx/shire-by-laws"
+```
+
+Returned `200 799072 text/html; charset=UTF-8`; the footer line and the ten local-law links are in it.
+
+```
+curl -sL -A "Mozilla/5.0" -o plastic.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.shire.gov.cx/_files/ugd/ecbb0b_f0086ee3c4744ca795d0adbaf7dbf91e.pdf"
+```
+
+Returned `200 654971 application/pdf` after a `301` to a filesusr.com address (read with `pdftotext -layout`, not stored; the text matches the Register's as-made copy, Authorised Version F2018N00134 registered 20/08/2018).
+
+```
+curl -g -sL -A "Mozilla/5.0" -o plastic-asmade.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://api.prod.legislation.gov.au/v1/documents/find(titleId='F2018N00134',asAtSpecification='AsMade',type='Primary',format='Pdf',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+Returned `200 678103 application/pdf`. The Territory Act: `curl -sL -A "Mozilla/5.0" "https://www.legislation.gov.au/C1958A00041/2020-12-18/2020-12-18/text/original/pdf"` returned `200 1076342 application/pdf` (compilation 13; ss 5, 8A, 8E, 9 read). The Register page `https://www.legislation.gov.au/F2018N00134/asmade/text` returns `200 76939 text/html; charset=utf-8`, a JavaScript shell.
+
+Commonwealth Acts that name the external Territories were read on the Register: the National Greenhouse and Energy Reporting Act 2007 (PDF `.../C2007A00175/2025-11-03/2025-11-03/text/original/pdf`, `200 733429 application/pdf`, s 6), the Climate Change Act 2022 (PDF `.../C2022A00037/2025-02-20/2025-02-20/text/original/pdf`, `200 299017 application/pdf`, s 7) and the Environment Protection and Biodiversity Conservation Act 1999 (epub, s 5(1)). The Corporations Act 2001 and the Competition and Consumer Act 2010 have no plain PDF at that path (`404`); their epubs were fetched with
+
+```
+curl -g -sL -A "Mozilla/5.0" -o act.epub -w "%{http_code} %{size_download}\n" "https://api.prod.legislation.gov.au/v1/documents/find(titleId='C2004A00818',asAtSpecification='Latest',type='Primary',format='Epub',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+which returned `200 2343153` (Competition and Consumer Act, `C2004A00109`: `200 1106227`; EPBC Act, `C2004A00485`: `200 735386`) and were searched for "external Territor"; no section extending either Act to the Territory was found, so those two register rows say application is not established.
+
+### Languages
+
+English is the only language of every text opened; no official version in another language was found and no translation row applies.
+
+### Stored
+
+`cx-plastic-bag-local-law-2018`, as made, under row `CX-FRL-ADOPTED` (Federal Register of Legislation, CC BY 4.0). Ruling (Varun, 2026-11-10): a place's own law may be stored from the parent state's open-licence copy. The Shire's own PDF (row `CX-SHIRE-ADOPTED`, `unknown`) is not the stored text. Proven request, 2026-11-10:
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o cx.epub -w '%{http_code} %{size_download} %{content_type}\n' "https://api.prod.legislation.gov.au/v1/documents/find(titleId='F2018N00134',asAtSpecification='AsMade',type='Primary',format='Epub',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+Returned `200 39013 application/epub+zip`, sha256 `b4b28c46a80653387a3ab313e3bc8de43a621cfaba9b52c7fced5a30efc175ae`. Text: `OEBPS/document_1/document_1.html`, tags stripped with `extract_text` of `tools/update.py`, the HTML `<title>` element dropped (it holds an unrelated document title, "Planning for Fire - Performance Criteria and Minimum Standards for Sub-division Design"). `/v1/versions` lists one version, start 2018-08-20, status InForce, compilation 0.
+
+### Register rows only
+
+Everything else is a register row only: the Territory Act and the Ordinances, Rules, Proclamation, Direction and Agreement Acts made for this Territory alone, the National Park and Marine Park instruments, the other Shire local laws, the Western Australian laws applied by s 8A, and the five general Commonwealth Acts. Blocked from the laptop address, not bypassed: `https://www.infrastructure.gov.au/` (curl exit 92 on HTTP/2 and a timeout on HTTP/1.1, no HTTP status); not read.
+
+## Heard Island and McDonald Islands
+
+Nothing is stored and `register/HM/scope.json` is empty (`[]`). The Territory is an uninhabited Australian external Territory under the Heard Island and McDonald Islands Act 1953 (Cth) and has no body of its own: the Governor-General makes Ordinances (s 10(1)), the non-criminal laws of the Australian Capital Territory are applied by s 5(1), and under s 7(1) a Commonwealth Act is not in force in the Territory unless it is expressed to extend to it. Under the two rulings of 2026-11-10 (Varun) every Commonwealth instrument, general or made for this Territory alone, is a register row only. The Register's own sources are Australia's rows (`AU-LEGISLATION-ADOPTED`, `AU-LEGISLATION-CONSOLIDATED`, CC BY 4.0) and are not reused for this place.
+
+No licence row is written: no publisher of the Territory's own serves an own instrument, and the Federal Register and the Australian Antarctic Division (`https://www.antarctica.gov.au/`, which explains the Territory's law and permits and links the Register) are the parent state's publishers. The Division's copyright page was not opened by this session, and its explanatory pages are not law texts. Looked at and not found: any climate, emissions, ESG-disclosure, consumer-protection or plastics instrument made for the Territory. Where looked: the Register title API (titles containing "Heard Island": the Act, the Environment Protection and Management Ordinance 1987, the Weapons Ordinance 2001 and the Criminal Procedure Ordinance 1993 through the Division's page, the Marine Reserve proclamation and notices, and the fishery regulations, plan and determinations) and the Division's territory-legislation page.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o aad.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/heard-island/protection-and-management/legislation/territory-legislation/"
+```
+
+Returned `200 59528 text/html; charset=utf-8`; it links the Act and the three Ordinances on the Register.
+
+```
+curl -sL -A "Mozilla/5.0" -o act.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.legislation.gov.au/C1953A00007/2008-07-04/2008-07-04/text/original/pdf"
+```
+
+Returned `200 882564 application/pdf`, the Heard Island and McDonald Islands Act 1953 (ss 3, 5, 7, 10 read; `pdftotext -layout`). The Environment Protection and Management Ordinance 1987 (`.../F2007B00567/2024-10-14/2024-10-14/text/original/pdf`) returned `200 280109 application/pdf`; the as-made PDFs of the other Ordinances, the proclamation and the fishery regulations were fetched with `curl -g -sL -A "Mozilla/5.0" "https://api.prod.legislation.gov.au/v1/documents/find(titleId='<id>',asAtSpecification='AsMade',type='Primary',format='Pdf',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"` and each returned `200 application/pdf`.
+
+The Commonwealth Acts that name the external Territories were read on the Register: the National Greenhouse and Energy Reporting Act 2007 (PDF `.../C2007A00175/2025-11-03/2025-11-03/text/original/pdf`, `200 733429 application/pdf`, s 6), the Climate Change Act 2022 (PDF `.../C2022A00037/2025-02-20/2025-02-20/text/original/pdf`, `200 299017 application/pdf`, s 7) and the Environment Protection and Biodiversity Conservation Act 1999 (epub, s 5(1)). The Corporations Act 2001 and the Competition and Consumer Act 2010 have no plain PDF at that path (`404`); their epubs were fetched with
+
+```
+curl -g -sL -A "Mozilla/5.0" -o act.epub -w "%{http_code} %{size_download}\n" "https://api.prod.legislation.gov.au/v1/documents/find(titleId='C2004A00818',asAtSpecification='Latest',type='Primary',format='Epub',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+which returned `200 2343153` (Competition and Consumer Act, `C2004A00109`: `200 1106227`; EPBC Act, `C2004A00485`: `200 735386`) and were searched for "external Territor"; no section extending either Act to the Territory was found, so those two register rows say application is not established.
+
+### Languages
+
+English is the only language of every text opened; no official version in another language was found and no translation row applies.
+
+### Link only
+
+Nothing is stored and there is no scope entry. Every register row is a register row only: the Territory Act and the Ordinances, proclamation, regulations, plan and determinations made for this Territory alone, the Australian Capital Territory laws applied by s 5(1), and the five general Commonwealth Acts. Blocked from the laptop address, not bypassed: `https://www.heardisland.aq/` (curl exit 60, certificate verification failed) and `https://www.infrastructure.gov.au/` (curl exit 92 on HTTP/2 and a timeout on HTTP/1.1, no HTTP status); neither was read.

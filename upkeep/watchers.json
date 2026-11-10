@@ -17491,5 +17491,160 @@
   "params": {
    "second_route": "https://leginova.gouv.nc/textes-consolides/deliberation-cnc-479-du-29-04-2025 in a browser (the page holds the sentence quoted in terms_quote; curl returns the shell, so this hash moves with each portal build; compare the sentence by eye when it fires)"
   }
+ },
+ {
+  "id": "terms-tf-taaf-adopted",
+  "source_id": "TF-TAAF-ADOPTED",
+  "iso2": "TF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://taaf.fr/mentions-legales/",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-gs-laws-adopted",
+  "source_id": "GS-LAWS-ADOPTED",
+  "iso2": "GS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://laws.gov.gs/ordinances/"
+ },
+ {
+  "id": "bl-code-energie",
+  "source_id": "BL-COM-CONSOLIDATED",
+  "iso2": "BL",
+  "instrument": "bl-code-energie",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.comstbarth.fr/in/rest/annotationSVC/DownloadAttachment/attach_cmsUpload_c054404a-cc89-4393-a4b5-ac5b4d904f2b",
+  "params": {
+   "second_route": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements (browser; a JavaScript app, Show buttons open the lists; a new consolidation appears there under a new attachment id)"
+  }
+ },
+ {
+  "id": "terms-bl-com-consolidated",
+  "source_id": "BL-COM-CONSOLIDATED",
+  "iso2": "BL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements",
+  "params": {
+   "second_route": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements (browser; curl returns a 760-byte shell, the footer notice and the Legal mentions item render only in a browser)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-gp-region-adopted",
+  "source_id": "GP-REGION-ADOPTED",
+  "iso2": "GP",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.regionguadeloupe.fr/mentions-legales",
+  "params": {
+   "second_route": "https://www.regionguadeloupe.fr/mentions-legales (Python urllib fails the TLS chain check on this host, curl answers 200; open in a browser or with curl)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-bq-cvdr-consolidated",
+  "source_id": "BQ-CVDR-CONSOLIDATED",
+  "iso2": "BQ",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0028264/2010-10-10_0/xml/BWBR0028264_2010-10-10_0.xml",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-io-biot-consolidated",
+  "source_id": "IO-BIOT-CONSOLIDATED",
+  "iso2": "IO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.biot.gov.io/wp-content/uploads/The-P-and-P-of-Wild-Life-Ord-1970-E.1.pdf",
+  "params": {
+   "second_route": "https://www.biot.gov.io/governance/legislation/revised-ordinances/ (browser; the page lists the Chapter E.1 PDF that carries the notice)"
+  }
+ },
+ {
+  "id": "terms-mf-com-adopted",
+  "source_id": "MF-COM-ADOPTED",
+  "iso2": "MF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.com-saint-martin.fr/mention_legale",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-pm-jospm-adopted",
+  "source_id": "PM-JOSPM-ADOPTED",
+  "iso2": "PM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://jo-spm.fr/mentions-legales.php",
+  "params": {
+   "second_route": "https://jo-spm.fr/ (browser; the terms page answers 404 today, so this watcher reports watch_failed until a notice is published; the home page footer is the only other place a notice could appear)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-cc-shire-adopted",
+  "source_id": "CC-SHIRE-ADOPTED",
+  "iso2": "CC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.shire.cc/en/disclaimer.html",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-cx-shire-adopted",
+  "source_id": "CX-SHIRE-ADOPTED",
+  "iso2": "CX",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.shire.gov.cx/shire-by-laws",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "cx-plastic-bag-local-law-2018",
+  "source_id": "CX-FRL-ADOPTED",
+  "iso2": "CX",
+  "instrument": "cx-plastic-bag-local-law-2018",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'F2018N00134'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/F2018N00134/asmade/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "terms-cx-frl-adopted",
+  "source_id": "CX-FRL-ADOPTED",
+  "iso2": "CX",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.legislation.gov.au/terms-of-use",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.legislation.gov.au/terms-of-use (browser; the page holds the CC BY 4.0 sentence quoted in terms_quote)"
+  }
  }
 ]
