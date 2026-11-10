@@ -177,6 +177,54 @@ def test_http_head_falls_back_to_content_length(tmp_path):
     assert seen(repo)["w-zip"]["signals"] == ["Content-Length: 42"]
 
 
+def test_default_fetch_user_agent_is_bare(monkeypatch):
+    sent = []
+
+    class Response:
+        status, headers = 200, {}
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def read(self):
+            return b"x"
+
+    monkeypatch.setattr(watch.urllib.request, "urlopen", lambda request, timeout: sent.append(request) or Response())
+    watch.default_fetch("https://example.org/")
+    agent = sent[0].get_header("User-agent")
+    assert agent == watch.USER_AGENT == "global-esg-law-watch/1"
+    assert not any(part in agent for part in ("http", "/mokagtc", "("))
+
+
+TEXT_WATCHER = {**WATCHERS[4], "id": "w-text", "kind": "text_hash"}
+
+
+def text_page(nonce, attr, sentence="Terms of use apply."):
+    return (f'<html><head><style>p{{color:red}}</style><script nonce="{nonce}">var a = "{nonce}";</script></head>'
+            f'<body><p class="{attr}">{sentence}</p>\n <b>Second</b>  line</body></html>').encode()
+
+
+def test_text_hash_ignores_markup_and_scripts_but_not_visible_text(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER])
+    signals = []
+    for day, body in enumerate([text_page("aaa", "x"), text_page("bbb", "y"), text_page("aaa", "x", "Terms changed.")]):
+        watch.watch(repo, FakeFetch({TERMS: (200, {}, body)}), date(2026, 11, 2 + day))
+        signals.append(seen(repo)["w-text"]["signals"])
+    assert signals[0] == signals[1] and len(signals[0][0]) == 64
+    assert signals[2] != signals[0]
+    assert [r["change"] for r in rows(repo)] == ["baseline", "terms_changed"]
+
+
+def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER])
+    result = watch.watch(repo, FakeFetch({TERMS: (200, {}, b"<script>var a=1;</script>")}), TODAY)
+    assert result["failures"] == 1
+    assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
+
+
 def test_version_list_follows_pages(tmp_path):
     repo = make(tmp_path, [WATCHERS[2]])
     fetch = FakeFetch({ECFR: (200, {}, ecfr_body(["2017-01-01", "2026-10-14"], page=1, total_pages=2)),

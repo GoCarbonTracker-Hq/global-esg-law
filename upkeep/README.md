@@ -22,7 +22,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `source_id` | An `id` in `sources.json`. |
 | `iso2` | Jurisdiction code, matching `register/<ISO2>/`. |
 | `instrument` | An `id` in `register/<ISO2>/scope.json`, or `*` for a watcher that covers the source as a whole. |
-| `kind` | One of the four kinds below. |
+| `kind` | One of the five kinds below. |
 | `tier` | One of the four tiers under "Cadence and ceiling": `gazette_feed`, `consolidation_site`, `regulator_page` or `tracker_pointer`. Missing or unknown is a validation error. |
 | `url` | What is fetched. Never a URL whose body is law text. |
 | `params.regex` | `date_list` only: a regular expression with exactly one group that captures a date as `YYYY-MM-DD` or `YYYYMMDD`. |
@@ -37,6 +37,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `version_list` | Every `content_versions[].date` in eCFR versioner JSON. The versioner paginates at 1000 entries; the watcher follows `meta.total_pages`. | A date is not in `seen.json`. |
 | `http_head` | `Last-Modified` of a `HEAD` request, or `Content-Length` when there is no `Last-Modified`. | The value differs from `seen.json`. |
 | `page_hash` | sha256 of the body. | The hash differs from `seen.json`. |
+| `text_hash` | sha256 of the visible text: `<script>` and `<style>` blocks and tags removed, entities decoded, whitespace collapsed. For pages whose markup carries a per-request nonce. An empty visible text is a `watch_failed` row. | The hash differs from `seen.json`. |
 
 ## seen.json
 
@@ -132,7 +133,7 @@ By default the four changed paths (the record, `register/<iso2>/scope.json`, `SO
 
 ## Pilot watchers (GEL-02-07)
 
-One watcher per instrument in the four scope files, using only the four kinds above. The Cellar watchers come in two shapes: a `date_list` of consolidated work ids (the CSRD example with the CELEX swapped) for every instrument whose `source_row` names `EU-EURLEX-CONSOLIDATED`, and a `date_list` of the document dates of every act that amends or corrects a target act (SPARQL over `cdm:resource_legal_amends_resource_legal` and `cdm:resource_legal_corrects_resource_legal`) for the adopted-only instruments. The amending acts watch the acts they amend; the two Omnibus directives split their targets so that no two watchers run the same query, and Delegated Regulation 2026/1563 watches its own corrigenda because the 2025/1416 watcher already covers acts amending 2023/2772.
+One watcher per instrument in the four scope files, using only the five kinds above. The Cellar watchers come in two shapes: a `date_list` of consolidated work ids (the CSRD example with the CELEX swapped) for every instrument whose `source_row` names `EU-EURLEX-CONSOLIDATED`, and a `date_list` of the document dates of every act that amends or corrects a target act (SPARQL over `cdm:resource_legal_amends_resource_legal` and `cdm:resource_legal_corrects_resource_legal`) for the adopted-only instruments. The amending acts watch the acts they amend; the two Omnibus directives split their targets so that no two watchers run the same query, and Delegated Regulation 2026/1563 watches its own corrigenda because the 2025/1416 watcher already covers acts amending 2023/2772.
 
 | id | kind | what it watches |
 |---|---|---|
