@@ -1,0 +1,78 @@
+[
+  {
+    "id": "je-consumer-protection-unfair-practices-law-2018",
+    "title": "Consumer Protection (Unfair Practices) (Jersey) Law 2018 (L.16/2018): misleading actions and omissions (Arts. 4 and 5)",
+    "official_url": "https://www.jerseylaw.je/laws/current/l_16_2018",
+    "citation": "Consumer Protection (Unfair Practices) (Jersey) Law 2018, L.16/2018",
+    "in_force": "2018-06-08",
+    "evidence": "Table of Legislation History in the consolidated text (opened 2026-11-10), Commencement column for L.16/2018: \"8 June 2018\". Art. 21 of the enacted text: \"shall come into force 7 days after the day on which it is registered.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JE-JERSEYLAW-ADOPTED",
+      "JE-JERSEYLAW-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "General unfair-commercial-practices law: Art. 4 actively misleading practices and Art. 5 misleading omissions apply to any trader. The text was not searched for an environmental-claims provision and none is claimed here. Records: as enacted plus four point-in-time versions (1 January 2019, 24 November 2023, 11 January 2024, 14 July 2026). Languages: the law pages serve English only; no second language and no government translation is offered on the page or in its version list. Fetched one page at a time because the site asks bulk re-users to request API access.",
+    "status": "stored"
+  },
+  {
+    "id": "je-customs-excise-law-1999",
+    "title": "Customs and Excise (Jersey) Law 1999 (L.33/1999): vehicle emissions duty (Art. 38(3) and (5), Schedule 1)",
+    "official_url": "https://www.jerseylaw.je/laws/current/l_33_1999",
+    "citation": "Customs and Excise (Jersey) Law 1999, L.33/1999",
+    "in_force": "2000-11-01",
+    "evidence": "Table of Legislation History in the consolidated text (opened 2026-11-10), Commencement column for L.33/1999: \"1 November 2000 (R&O.92/2000) except –\". The enacted text (https://www.jerseylaw.je/laws/enacted/Pages/L-33-1999.aspx) says the Law comes into force \"on such day as the States may by Act appoint\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "JE-JERSEYLAW-ADOPTED",
+      "JE-JERSEYLAW-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole Law stored, not only the emissions-duty provisions. Schedule 1 defines \"vehicle emissions duty\" as \"the excise duty payable as described in Article 38(3) or (5)\", charged on a motor vehicle when it is first required to be registered, with rates by CO2 mass emission figure or cylinder capacity. Records: the Law as enacted (in_force is the 1 November 2000 commencement, because the enacted text has no date of its own) and 17 point-in-time versions the site lists, the earliest from 1 January 2019 (the site holds no earlier consolidations). One commencement is not in force per the History table (the part of the Fourth Schedule repealing parts of the Finance (Jersey) Law 1998). Languages: the law pages serve English only; no second language and no government translation is offered on the page or in its version list. Fetched one page at a time because the site asks bulk re-users to request API access.",
+    "status": "stored"
+  },
+  {
+    "id": "je-jfsc-investment-business-code",
+    "title": "Investment Business Code of Practice (JFSC), para 2.30 Sustainable Investment disclosure to clients",
+    "official_url": "https://www.jerseyfsc.org/industry/codes-of-practice/investment-business-code-of-practice/",
+    "citation": "Jersey Financial Services Commission, Investment Business Code of Practice (revised)",
+    "in_force": "2022-01-17",
+    "evidence": "Code page (opened 2026-11-10): \"This revised Code is effective from 17 January 2022 for all registered persons.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "JE-JFSC-CODES",
+    "verification": "official_page_seen",
+    "notes": "Para 2.30 requires a registered person advising a Client on a fund marketed on the basis of investing in a Sustainable Investment to inform the Client of, and make available, the disclosure information on the sustainable investment strategy and objectives, or to tell the Client none is available. Text link only: row JE-JFSC-CODES is permission requested (JFSC copyright notice, no reuse terms found). No government English translation question arises; the page is in English.",
+    "status": "link only"
+  },
+  {
+    "id": "je-jfsc-fund-services-business-code",
+    "title": "Fund Services Business Code of Practice (JFSC), paras 2.10 to 2.13 sustainable investment disclosure",
+    "official_url": "https://www.jerseyfsc.org/industry/codes-of-practice/fund-services-business-code-of-practice/",
+    "citation": "Jersey Financial Services Commission, Fund Services Business Code of Practice (revised)",
+    "in_force": "2021-07-15",
+    "evidence": "Code page (opened 2026-11-10): \"This revised Code is effective from 15 July 2021 for all Registered persons.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "JE-JFSC-CODES",
+    "verification": "official_page_seen",
+    "notes": "Paras 2.10 to 2.13 require disclosure of material information on the sustainable investment strategy and objectives of a fund marketed as a Sustainable Investment (taxonomy alignment, proportion of sustainable investments, due diligence and benchmarking basis, limits of methods and data) and notification to the JFSC where the registered person is not subject to 2.10. For registered persons already serving an existing Fund before 15 July 2021 the effective date is 17 January 2022. Text link only: row JE-JFSC-CODES is permission requested (JFSC copyright notice, no reuse terms found). No government English translation question arises; the page is in English.",
+    "status": "link only"
+  },
+  {
+    "id": "je-jfsc-certified-funds-code-schedule-1",
+    "title": "Certified Funds Code of Practice, Schedule 1 (JFSC), para 2.12 sustainable investment disclosure",
+    "official_url": "https://www.jerseyfsc.org/industry/codes-of-practice/certified-funds-code-of-practice/certified-funds-code-of-practice-schedule-1/",
+    "citation": "Jersey Financial Services Commission, Certified Funds Code of Practice including Schedule 1",
+    "in_force": "2021-07-15",
+    "evidence": "Schedule 1 page (opened 2026-11-10): \"This revised Code is effective from 15 July 2021.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "JE-JFSC-CODES",
+    "verification": "official_page_seen",
+    "notes": "Para 2.12 requires a Fund marketed on the basis of investing in a Sustainable Investment to disclose the same four items as the Fund Services code. Funds that existed before 15 July 2021 have an effective date of 17 January 2022. The Jersey Private Fund Guide ESG amendments named in the brief were not found on an opened JFSC page and are not in scope. Text link only: row JE-JFSC-CODES is permission requested (JFSC copyright notice, no reuse terms found). No government English translation question arises; the page is in English.",
+    "status": "link only"
+  }
+]
