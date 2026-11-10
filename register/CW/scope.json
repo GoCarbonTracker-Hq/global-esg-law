@@ -1,0 +1,45 @@
+[
+  {
+    "id": "cw-welstandcriteria-luchtkwaliteit-2020",
+    "title": "Regeling welstandcriteria voor luchtkwaliteit (ministerial regulation with general effect on air-quality criteria, under the Landsverordening openbare orde)",
+    "official_url": "https://gobiernu.cw/wp-content/uploads/2020/08/84.-Regeling-welstandcriteria-voor-luchtkwaliteit-1.pdf",
+    "citation": "Ministeriele regeling met algemene werking van de 10de augustus 2020, Publicatieblad A° 2020 N° 84",
+    "in_force": "2020-09-01",
+    "evidence": "Art. 11 (Inwerkingtreding): \"Deze regeling treedt in werking met ingang van 1 september 2020.\" Ministeriele regeling met algemene werking van de 10de augustus 2020, Publicatieblad A° 2020 N° 84, uitgegeven de 10de augustus 2020. Opened https://gobiernu.cw/wp-content/uploads/2020/08/84.-Regeling-welstandcriteria-voor-luchtkwaliteit-1.pdf on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "CW-GOBIERNU-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "narrower: air-quality limit values used when a permit is weighed under the Landsverordening openbare orde (art. 2 lid 2); no climate or greenhouse-gas content. Stored text is the regulation as published (the page offers one text, no later amendment was found on it). Record in_force is the commencement date in art. 11.",
+    "status": "stored"
+  },
+  {
+    "id": "cw-luchtkwaliteitseisen-2024",
+    "title": "Landsverordening luchtkwaliteitseisen Curaçao (air-quality requirements ordinance; amends the Hinderverordening Curaçao 1994)",
+    "official_url": "https://gobiernu.cw/wp-content/uploads/2024/10/103.-Lv.-luchtkwaliteitseisen-Curacao-1.pdf",
+    "citation": "Landsverordening van de 14de oktober 2024, Publicatieblad A° 2024 N° 103",
+    "in_force": "2025-01-01",
+    "evidence": "Art. V: \"Deze landsverordening treedt in werking op een bij landsbesluit te bepalen tijdstip, dat voor de verschillende artikelen of onderdelen daarvan verschillend kan worden vastgesteld.\" Landsbesluit van de 30ste december 2024, no. 24/2783 (P.B. 2024 N° 164), art. 1: \"Artikel I, onderdelen B, E, F, G, met uitzondering van de met onderdeel G in de Hinderverordening Curaçao 1994 in te voegen artikelen 32c, 32d en 32x, O, P, Q en artikel IV van de landsverordening luchtkwaliteitseisen Curaçao treden in werking met ingang van 1 januari 2025.\" Opened both PDFs on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "CW-GOBIERNU-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "narrower: air-quality limit values and permit rules, no climate or greenhouse-gas content. Partly in force: Art. I parts B, E, F, G (except Hinderverordening arts 32c, 32d, 32x), O, P, Q and Art. IV from 2025-01-01; the rest has no commencement decree found on gobiernu.cw on 2026-11-10. Stored text is the ordinance as published; the page serves no consolidation. The same file is also linked under /2017/06/ on the Hinderverordening page. Commencement decree: cw-luchtkwaliteitseisen-inwerkingtreding-2024.",
+    "status": "stored"
+  },
+  {
+    "id": "cw-luchtkwaliteitseisen-inwerkingtreding-2024",
+    "title": "Landsbesluit regelende de inwerkingtreding van de Landsverordening luchtkwaliteitseisen Curaçao",
+    "official_url": "https://gobiernu.cw/wp-content/uploads/2024/12/164.-Lb.-inwtr.-Lvo.-Luchtkwaliteitseisen-1.pdf",
+    "citation": "Landsbesluit van de 30ste december 2024, no. 24/2783, Publicatieblad A° 2024 N° 164",
+    "in_force": "2024-12-31",
+    "evidence": "Landsbesluit van de 30ste december 2024, no. 24/2783, P.B. 2024 N° 164, uitgegeven de 31ste december 2024; art. 2: \"Dit landsbesluit wordt in het Publicatieblad bekendgemaakt.\" No commencement clause, so the issue date is taken. Opened https://gobiernu.cw/wp-content/uploads/2024/12/164.-Lb.-inwtr.-Lvo.-Luchtkwaliteitseisen-1.pdf on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "CW-GOBIERNU-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "narrower: commencement decree of cw-luchtkwaliteitseisen-2024 (air quality only). Record in_force is the issue date, 2024-12-31, because the decree has no commencement clause of its own.",
+    "status": "stored",
+    "amends": "cw-luchtkwaliteitseisen-2024"
+  }
+]
