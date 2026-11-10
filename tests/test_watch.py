@@ -225,6 +225,34 @@ def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
     assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
 
 
+def test_cut_removes_only_the_named_moving_part(tmp_path):
+    def page(counter, sentence="Terms of use apply."):
+        return f"<html><body><p>{sentence}</p><span>{counter} vistas</span></body></html>".encode()
+
+    cutting = {**TEXT_WATCHER, "params": {"cut": [r"[\d,]+ vistas"]}}
+    repo = make(tmp_path, [cutting])
+    signals = []
+    for day, body in enumerate([page("1,001"), page("1,002"), page("1,003", "Terms changed.")]):
+        watch.watch(repo, FakeFetch({TERMS: (200, {}, body)}), date(2026, 11, 2 + day))
+        signals.append(seen(repo)["w-text"]["signals"])
+    assert signals[0] == signals[1] and signals[2] != signals[0]
+    assert [r["change"] for r in rows(repo)] == ["baseline", "terms_changed"]
+    # without params.cut the same counter moves the signal: the option is off unless set
+    (tmp_path / "plain").mkdir()
+    plain = make(tmp_path / "plain", [TEXT_WATCHER])
+    for day, body in enumerate([page("1,001"), page("1,002")]):
+        watch.watch(plain, FakeFetch({TERMS: (200, {}, body)}), date(2026, 11, 2 + day))
+    assert [r["change"] for r in rows(plain)] == ["baseline", "terms_changed"]
+
+
+@pytest.mark.parametrize("bad", [{"kind": "page_hash", "params": {"cut": ["x"]}},
+                                 {"params": {"cut": "x"}}, {"params": {"cut": ["("]}}])
+def test_cut_is_validated(tmp_path, bad):
+    repo = make(tmp_path, [{**TEXT_WATCHER, **bad}])
+    with pytest.raises(ValueError, match="params.cut"):
+        watch.load_watchers(repo)
+
+
 def test_reseed_stores_signal_and_adds_no_row(tmp_path):
     repo = make(tmp_path, [TEXT_WATCHER])
     watch.watch(repo, FakeFetch({TERMS: (200, {}, text_page("aaa", "x"))}), TODAY)

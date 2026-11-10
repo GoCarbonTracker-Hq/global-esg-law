@@ -103,6 +103,8 @@ def text_hash(url, body, headers, params):
     """sha256 of the visible text: scripts, styles, tags and whitespace runs removed."""
     text = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
     text = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", text)).split())
+    for pattern in params.get("cut", []):  # off unless set: regexes for a moving part of the visible text
+        text = " ".join(re.sub(pattern, " ", text).split())
     if not text:
         raise ValueError("no visible text")
     return [(hashlib.sha256(text.encode("utf-8")).hexdigest(), url)]
@@ -147,6 +149,15 @@ def load_watchers(repo, source=None):
             raise ValueError(f"watcher {w['id']}: change {w['change']!r} is not one of {CHANGES}")
         if w["kind"] == "date_list" and not w.get("params", {}).get("regex"):
             raise ValueError(f"watcher {w['id']}: date_list needs params.regex")
+        if "cut" in w.get("params", {}):
+            cut = w["params"]["cut"]
+            if w["kind"] != "text_hash" or not isinstance(cut, list) or not all(isinstance(p, str) for p in cut):
+                raise ValueError(f"watcher {w['id']}: params.cut is a list of regexes and needs kind text_hash")
+            for pattern in cut:
+                try:
+                    re.compile(pattern)
+                except re.error as exc:
+                    raise ValueError(f"watcher {w['id']}: params.cut {pattern!r}: {exc}") from exc
         if w["instrument"] != "*":
             scope_path = repo / "register" / w["iso2"] / "scope.json"
             scope = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else []
