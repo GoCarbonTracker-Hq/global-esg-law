@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="828" height="632" viewBox="0 0 828 632" role="img" aria-labelledby="t d" font-family="monospace">
 <title id="t">Coverage grid of places in the register</title>
-<desc id="d">As of 2026-11-10: 250 places. 132 with text stored, 88 link only, 30 with no corpus.</desc>
+<desc id="d">As of 2026-11-10: 250 places. 139 with text stored, 91 link only, 20 with no corpus.</desc>
 <rect width="828" height="632" fill="#ffffff"/>
 <text x="16" y="26" font-size="16" fill="#212121">Coverage by place, sorted by two-letter code</text>
 <rect x="16" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -29,10 +29,10 @@
 <text x="474" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AT</text>
 <rect x="496" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="514" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AU</text>
-<rect x="536" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="554" y="66" font-size="12" text-anchor="middle" fill="#424242">AW</text>
-<rect x="576" y="44" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="594" y="66" font-size="12" text-anchor="middle" fill="#424242">AX</text>
+<rect x="536" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="554" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AW</text>
+<rect x="576" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AX</text>
 <rect x="616" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="634" y="66" font-size="12" text-anchor="middle" fill="#ffffff">AZ</text>
 <rect x="656" y="44" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -107,8 +107,8 @@
 <text x="434" y="146" font-size="12" text-anchor="middle" fill="#212121">CU</text>
 <rect x="456" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="474" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CV</text>
-<rect x="496" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="514" y="146" font-size="12" text-anchor="middle" fill="#424242">CW</text>
+<rect x="496" y="124" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="514" y="146" font-size="12" text-anchor="middle" fill="#ffffff">CW</text>
 <rect x="536" y="124" width="36" height="36" rx="3" fill="#e0e0e0"/>
 <text x="554" y="146" font-size="12" text-anchor="middle" fill="#424242">CX</text>
 <rect x="576" y="124" width="36" height="36" rx="3" fill="#ffb300"/>
@@ -151,8 +151,8 @@
 <text x="514" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FK</text>
 <rect x="536" y="164" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="554" y="186" font-size="12" text-anchor="middle" fill="#212121">FM</text>
-<rect x="576" y="164" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="594" y="186" font-size="12" text-anchor="middle" fill="#424242">FO</text>
+<rect x="576" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="594" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FO</text>
 <rect x="616" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="634" y="186" font-size="12" text-anchor="middle" fill="#ffffff">FR</text>
 <rect x="656" y="164" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -171,8 +171,8 @@
 <text x="114" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GH</text>
 <rect x="136" y="204" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="154" y="226" font-size="12" text-anchor="middle" fill="#212121">GI</text>
-<rect x="176" y="204" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="194" y="226" font-size="12" text-anchor="middle" fill="#424242">GL</text>
+<rect x="176" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="194" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GL</text>
 <rect x="216" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="234" y="226" font-size="12" text-anchor="middle" fill="#ffffff">GM</text>
 <rect x="256" y="204" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -299,8 +299,8 @@
 <text x="274" y="346" font-size="12" text-anchor="middle" fill="#212121">MM</text>
 <rect x="296" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="314" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MN</text>
-<rect x="336" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="354" y="346" font-size="12" text-anchor="middle" fill="#424242">MO</text>
+<rect x="336" y="324" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="354" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MO</text>
 <rect x="376" y="324" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="394" y="346" font-size="12" text-anchor="middle" fill="#212121">MP</text>
 <rect x="416" y="324" width="36" height="36" rx="3" fill="#e0e0e0"/>
@@ -325,8 +325,8 @@
 <text x="794" y="346" font-size="12" text-anchor="middle" fill="#ffffff">MZ</text>
 <rect x="16" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="34" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NA</text>
-<rect x="56" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="74" y="386" font-size="12" text-anchor="middle" fill="#424242">NC</text>
+<rect x="56" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
+<text x="74" y="386" font-size="12" text-anchor="middle" fill="#ffffff">NC</text>
 <rect x="96" y="364" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="114" y="386" font-size="12" text-anchor="middle" fill="#212121">NE</text>
 <rect x="136" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -353,8 +353,8 @@
 <text x="554" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PA</text>
 <rect x="576" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="594" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PE</text>
-<rect x="616" y="364" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="634" y="386" font-size="12" text-anchor="middle" fill="#424242">PF</text>
+<rect x="616" y="364" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="634" y="386" font-size="12" text-anchor="middle" fill="#212121">PF</text>
 <rect x="656" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="674" y="386" font-size="12" text-anchor="middle" fill="#ffffff">PG</text>
 <rect x="696" y="364" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -425,8 +425,8 @@
 <text x="394" y="466" font-size="12" text-anchor="middle" fill="#212121">ST</text>
 <rect x="416" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="434" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SV</text>
-<rect x="456" y="444" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="474" y="466" font-size="12" text-anchor="middle" fill="#424242">SX</text>
+<rect x="456" y="444" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="474" y="466" font-size="12" text-anchor="middle" fill="#212121">SX</text>
 <rect x="496" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="514" y="466" font-size="12" text-anchor="middle" fill="#ffffff">SY</text>
 <rect x="536" y="444" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -489,8 +489,8 @@
 <text x="74" y="546" font-size="12" text-anchor="middle" fill="#ffffff">VN</text>
 <rect x="96" y="524" width="36" height="36" rx="3" fill="#ffb300"/>
 <text x="114" y="546" font-size="12" text-anchor="middle" fill="#212121">VU</text>
-<rect x="136" y="524" width="36" height="36" rx="3" fill="#e0e0e0"/>
-<text x="154" y="546" font-size="12" text-anchor="middle" fill="#424242">WF</text>
+<rect x="136" y="524" width="36" height="36" rx="3" fill="#ffb300"/>
+<text x="154" y="546" font-size="12" text-anchor="middle" fill="#212121">WF</text>
 <rect x="176" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="194" y="546" font-size="12" text-anchor="middle" fill="#ffffff">WS</text>
 <rect x="216" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
@@ -504,10 +504,10 @@
 <rect x="376" y="524" width="36" height="36" rx="3" fill="#1b5e20"/>
 <text x="394" y="546" font-size="12" text-anchor="middle" fill="#ffffff">ZW</text>
 <rect x="16" y="580" width="16" height="16" rx="2" fill="#1b5e20"/>
-<text x="38" y="593" font-size="13" fill="#212121">text stored (132)</text>
+<text x="38" y="593" font-size="13" fill="#212121">text stored (139)</text>
 <rect x="206" y="580" width="16" height="16" rx="2" fill="#ffb300"/>
-<text x="228" y="593" font-size="13" fill="#212121">link only (88)</text>
+<text x="228" y="593" font-size="13" fill="#212121">link only (91)</text>
 <rect x="396" y="580" width="16" height="16" rx="2" fill="#e0e0e0"/>
-<text x="418" y="593" font-size="13" fill="#212121">no corpus (30)</text>
-<text x="16" y="622" font-size="13" fill="#212121">As of 2026-11-10: 250 places. 132 with text stored, 88 link only, 30 with no corpus.</text>
+<text x="418" y="593" font-size="13" fill="#212121">no corpus (20)</text>
+<text x="16" y="622" font-size="13" fill="#212121">As of 2026-11-10: 250 places. 139 with text stored, 91 link only, 20 with no corpus.</text>
 </svg>

@@ -9,29 +9,29 @@ This is a map of what the repository holds and when it was last checked. It is n
 | Count | Value | As of | Command |
 |---|---|---|---|
 | Places in the register | 250 | 2026-11-10 | `python3 tools/coverage.py` |
-| Register rows | 2005 | 2026-11-10 | `python3 tools/coverage.py` |
-| Register rows with an instrument and a law family (shown in the grid) | 1946 | 2026-11-10 | `python3 tools/coverage.py` |
+| Register rows | 2199 | 2026-11-10 | `python3 tools/coverage.py` |
+| Register rows with an instrument and a law family (shown in the grid) | 2140 | 2026-11-10 | `python3 tools/coverage.py` |
 | Register rows with an instrument but no law family (not in the grid) | 4 | 2026-11-10 | `python3 tools/coverage.py` |
 | Register rows with a law family outside F1 to F7 | 1 | 2026-11-10 | `python3 tools/coverage.py` |
 | Register rows with no instrument (place listed, nothing found) | 54 | 2026-11-10 | `python3 tools/coverage.py` |
-| Pilot places with a scope file | 220 | 2026-11-10 | `python3 tools/coverage.py` |
-| Instruments in scope files | 1339 | 2026-11-10 | `python3 tools/coverage.py` |
-| Instruments with stored text | 800 | 2026-11-10 | `python3 tools/coverage.py` |
-| Instruments link only | 539 | 2026-11-10 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3196 | 2026-11-10 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 1489 | 2026-11-10 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 1489 | 2026-11-10 | `python3 tools/coverage.py` |
+| Pilot places with a scope file | 230 | 2026-11-10 | `python3 tools/coverage.py` |
+| Instruments in scope files | 1375 | 2026-11-10 | `python3 tools/coverage.py` |
+| Instruments with stored text | 830 | 2026-11-10 | `python3 tools/coverage.py` |
+| Instruments link only | 545 | 2026-11-10 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3239 | 2026-11-10 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 1541 | 2026-11-10 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 1541 | 2026-11-10 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-10 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-10 | `python3 tools/coverage.py` |
-| Places with no watcher | 32 | 2026-11-10 | `python3 tools/coverage.py` |
-| Places with instruments but no stored text (link only) | 89 | 2026-11-10 | `python3 tools/coverage.py` |
-| Places with stored text but no consolidated text (as published only) | 69 | 2026-11-10 | `python3 tools/coverage.py` |
+| Places with no watcher | 22 | 2026-11-10 | `python3 tools/coverage.py` |
+| Places with instruments but no stored text (link only) | 92 | 2026-11-10 | `python3 tools/coverage.py` |
+| Places with stored text but no consolidated text (as published only) | 71 | 2026-11-10 | `python3 tools/coverage.py` |
 
 ## Not covered
 
 Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 
-- Places with no watcher (32): AQ, AW, AX, BL, BQ, BV, CC, CW, CX, EH, FO, GF, GL, GP, GS, HM, IO, MF, MO, MQ, NC, NE, PF, PM, RE, SJ, SX, TF, TK, UM, WF, YT.
+- Places with no watcher (22): AQ, BL, BQ, BV, CC, CX, EH, GF, GP, GS, HM, IO, MF, MQ, NE, PM, RE, SJ, TF, TK, UM, YT.
 - Families with no instrument anywhere in the register (0): none.
 - Families with no stored text in any place (1): F7.
 - AD: families with no instrument (4): F1, F4, F5, F7.
@@ -46,6 +46,8 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - AS: families with no instrument (5): F1, F2, F3, F4, F5.
 - AT: families with no instrument (3): F4, F5, F7.
 - AU: families with no instrument (2): F4, F6.
+- AW: families with no instrument (3): F1, F3, F5.
+- AX: families with no instrument (2): F4, F5.
 - AZ: families with no instrument (2): F4, F5.
 - BA: families with no instrument (3): F3, F4, F5.
 - BB: families with no instrument (3): F1, F4, F5.
@@ -79,6 +81,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - CR: families with no instrument (3): F1, F4, F5.
 - CU: families with no instrument (5): F1, F4, F5, F6, F7.
 - CV: families with no instrument (4): F4, F5, F6, F7.
+- CW: families with no instrument (5): F1, F3, F4, F5, F6.
 - CY: families with no instrument (3): F2, F4, F5.
 - CZ: families with no instrument (4): F2, F4, F5, F7.
 - DE: families with no instrument (1): F4.
@@ -98,6 +101,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - FJ: families with no instrument (4): F1, F3, F4, F5.
 - FK: families with no instrument (2): F4, F5.
 - FM: families with no instrument (4): F1, F3, F4, F5.
+- FO: families with no instrument (2): F4, F5.
 - FR: families with no instrument (2): F4, F7.
 - GA: families with no instrument (3): F1, F4, F5.
 - GB: families with no instrument (5): F2, F3, F4, F5, F7.
@@ -106,6 +110,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - GG: families with no instrument (4): F2, F3, F4, F5.
 - GH: families with no instrument (3): F3, F4, F5.
 - GI: families with no instrument (2): F1, F4.
+- GL: families with no instrument (2): F4, F5.
 - GM: families with no instrument (5): F1, F3, F4, F5, F7.
 - GN: families with no instrument (4): F1, F3, F4, F5.
 - GQ: families with no instrument (4): F1, F3, F4, F5.
@@ -164,6 +169,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - ML: families with no instrument (3): F1, F3, F5.
 - MM: families with no instrument (3): F3, F4, F5.
 - MN: families with no instrument (2): F4, F5.
+- MO: families with no instrument (4): F1, F3, F4, F5.
 - MP: families with no instrument (3): F1, F4, F5.
 - MR: families with no instrument (4): F1, F3, F4, F5.
 - MS: families with no instrument (3): F3, F4, F5.
@@ -175,6 +181,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - MY: families with no instrument (3): F3, F4, F5.
 - MZ: families with no instrument (2): F4, F5.
 - NA: families with no instrument (4): F3, F4, F5, F6.
+- NC: families with no instrument (3): F1, F4, F5.
 - NE: families with no instrument (4): F1, F3, F4, F5.
 - NF: families with no instrument (2): F4, F5.
 - NG: families with no instrument (4): F3, F4, F5, F7.
@@ -188,6 +195,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - OM: families with no instrument (3): F4, F5, F7.
 - PA: families with no instrument (3): F4, F5, F7.
 - PE: families with no instrument (3): F4, F5, F7.
+- PF: families with no instrument (3): F3, F4, F5.
 - PG: families with no instrument (3): F4, F5, F7.
 - PH: families with no instrument (3): F3, F4, F5.
 - PK: families with no instrument (3): F4, F5, F7.
@@ -220,6 +228,7 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - SS: families with no instrument (4): F2, F3, F4, F5.
 - ST: families with no instrument (5): F1, F3, F4, F5, F6.
 - SV: families with no instrument (3): F3, F4, F5.
+- SX: families with no instrument (6): F1, F2, F3, F4, F5, F6.
 - SY: families with no instrument (5): F1, F3, F4, F5, F7.
 - SZ: families with no instrument (4): F1, F3, F4, F5.
 - TC: families with no instrument (5): F1, F2, F3, F4, F5.
@@ -249,14 +258,15 @@ Counts as of 2026-11-10, from `python3 tools/coverage.py`.
 - VI: families with no instrument (3): F1, F4, F5.
 - VN: families with no instrument (2): F4, F5.
 - VU: families with no instrument (4): F1, F3, F4, F5.
+- WF: families with no instrument (5): F1, F2, F3, F4, F5.
 - WS: families with no instrument (4): F1, F3, F4, F5.
 - YE: families with no instrument (4): F1, F3, F4, F5.
 - ZA: families with no instrument (2): F5, F7.
 - ZM: families with no instrument (4): F1, F4, F5, F7.
 - ZW: families with no instrument (4): F3, F4, F5, F6.
-- Places with instruments but no stored text, link only (89): AE, AF, AI, AS, BB, BD, BF, BI, BM, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GG, GI, GQ, GU, GW, GY, HK, ID, IM, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MP, MS, MW, MY, NE, NO, NP, NU, PK, PN, PR, PS, RO, RU, SA, SB, SC, SG, SH, SM, SN, SO, SS, ST, TC, TD, TG, TH, TK, TV, UA, VA, VC, VG, VI, VU, ZM.
-- Places whose stored texts are the acts as published, no consolidated text (69): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NG, NI, OM, PA, PE, PG, PH, PW, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
-- Places listed with no instrument found (29): AQ, AW, AX, BL, BQ, BV, CC, CW, CX, FO, GF, GL, GP, GS, HM, IO, MF, MO, MQ, NC, PF, PM, RE, SJ, SX, TF, UM, WF, YT.
+- Places with instruments but no stored text, link only (92): AE, AF, AI, AS, BB, BD, BF, BI, BM, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GG, GI, GQ, GU, GW, GY, HK, ID, IM, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MP, MS, MW, MY, NE, NO, NP, NU, PF, PK, PN, PR, PS, RO, RU, SA, SB, SC, SG, SH, SM, SN, SO, SS, ST, SX, TC, TD, TG, TH, TK, TV, UA, VA, VC, VG, VI, VU, WF, ZM.
+- Places whose stored texts are the acts as published, no consolidated text (71): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, CW, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NC, NG, NI, OM, PA, PE, PG, PH, PW, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
+- Places listed with no instrument found (19): AQ, BL, BQ, BV, CC, CX, GF, GP, GS, HM, IO, MF, MQ, PM, RE, SJ, TF, UM, YT.
 - Register rows with an instrument but no law family (4), not shown in the grid: JP, KR, MP, ZW.
 - Register rows with no scope entry have no check date in the files; their cells read `unchecked` and are not counted as stale, although their cadence tier is `tracker_pointer`.
 
@@ -290,8 +300,8 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | AS | American Samoa |  |  |  |  |  | C · tracker_only · no link · unchecked | A/B · not_checked/official_page_seen/official_page_title_only/official_text_seen · link only · unchecked |
 | AT | Austria | A · official_text_seen · text 5 · checked 2026-11-10 · changed 2026-02-19 | A · official_text_seen · text 5 · checked 2026-11-10 · changed 2017-04-26 | A · official_text_seen · text 22 · checked 2026-11-10 · changed 2026-07-30 |  |  | A · official_text_seen · text 10 · checked 2026-11-10 · changed 2026-09-27 |  |
 | AU | Australia | A · official_text_seen · text 3, link only 4 · checked 2026-11-10 · changed 2025-12-05 | A · official_text_seen · text 3 · checked 2026-11-10 · changed 2025-02-20 | A · official_text_seen · text 76 · checked 2026-11-10 · changed 2026-07-01 |  | A · official_text_seen · text 3 · checked 2026-11-10 · changed 2024-11-07 |  | A · official_page_seen · link only · unchecked |
-| AW | Aruba |  |  |  |  |  |  |  |
-| AX | Åland Islands |  |  |  |  |  |  |  |
+| AW | Aruba |  | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2013-10-22 |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2020-07-01 |  | A · official_text_seen · text 1, link only 1 · checked 2026-11-10 · changed 2024-09-04 | A · official_page_seen/official_text_seen · link only · unchecked |
+| AX | Åland Islands | A · official_page_seen · link only · unchecked | A · official_page_seen/official_text_seen · text 1, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2025-11-01 | A · official_page_seen/official_text_seen · text 5, link only 3 · checked 2026-11-10 (3 unchecked) · changed 2025-11-01 |  |  | A · official_page_seen · link only · unchecked | A · official_page_seen/official_page_title_only/official_text_seen · link only · unchecked |
 | AZ | Azerbaijan | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked | B · not_found/official_page_seen/official_text_seen · link only, no link 1 · unchecked |
 | BA | Bosnia | A · official_text_seen · link only · unchecked | A/B · official_page_seen/official_text_seen · link only · unchecked |  |  |  | B · official_page_seen · link only · unchecked | B/C · not_checked/official_text_seen · link only · unchecked |
 | BB | Barbados |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · checked 2026-11-10 |  |  | A · official_text_seen · link only · unchecked | B · official_text_seen · link only · unchecked |
@@ -329,7 +339,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | CR | Costa Rica |  | A · official_text_seen · text 14 · checked 2026-11-10 · changed 2026-09-07 | A · official_text_seen · text 100 · checked 2026-11-10 · changed 2026-08-01 |  |  | A · official_page_seen/official_text_seen · text 21, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2024-07-12 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | CU | Cuba |  | A · tracker_only · link only · checked 2026-11-10 | A · tracker_only · link only · unchecked |  |  |  |  |
 | CV | Cape Verde | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |  |  |  |
-| CW | Curaçao |  |  |  |  |  |  |  |
+| CW | Curaçao |  | A · official_text_seen · text 3 · checked 2026-11-10 · changed 2025-01-01 |  |  |  |  | A/B/C · official_page_seen/official_page_title_only/official_text_seen · link only · unchecked |
 | CX | Christmas Island |  |  |  |  |  |  |  |
 | CY | Cyprus | A · official_text_seen · link only · unchecked |  | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · unchecked | A · tracker_only · link only · unchecked |
 | CZ | Czechia | A/B · official_text_seen · text 5, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2026-01-01 |  | A · official_text_seen · text 16 · checked 2026-11-10 · changed 2027-01-01 |  |  | A · official_text_seen · text 3 · checked 2026-11-10 · changed 2023-01-06 |  |
@@ -351,7 +361,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | FJ | Fiji |  | A · official_text_seen · text 5 · checked 2026-11-10 · changed 2025-12-12 |  |  |  | A · official_text_seen · link only · unchecked | B · official_page_seen · link only · unchecked |
 | FK | Falkland Islands | A · official_text_seen · text 4 · checked 2026-11-10 · changed 2026-07-01 | A · official_text_seen · text 2, link only 1 · checked 2026-11-10 · changed 2022-09-30 | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2026-06-12 |  |  | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2024-10-18 | A · official_page_seen · link only · unchecked |
 | FM | Micronesia |  | A · official_text_seen · link only · checked 2026-11-10 |  |  |  | B · official_page_seen · link only · checked 2026-11-10 | ?/B · not_checked/official_page_seen · link only, no link 1 · unchecked |
-| FO | Faroe Islands |  |  |  |  |  |  |  |
+| FO | Faroe Islands | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2026-01-01 | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2024-01-01 | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2023-12-08 |  |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2022-05-02 | A · official_page_seen/official_text_seen · link only · unchecked |
 | FR | France | A · official_text_seen · text 11 · checked 2026-11-10 · changed 2025-05-03 | A · official_text_seen · text 6 · checked 2026-11-10 · changed 2023-06-24 | A · official_text_seen · text 8 · checked 2026-11-10 · changed 2025-05-03 |  | A · official_text_seen · text 4 · checked 2026-11-10 · changed 2025-01-01 | A · official_page_seen/official_text_seen · text 9, link only 1 · checked 2026-11-10 · changed 2025-01-01 |  |
 | GA | Gabon |  | A/B · official_text_seen/tracker_only · text 4, link only 2 · checked 2026-11-10 (2 unchecked) · changed 2022-12-23 | A · official_text_seen · text 2, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2026-07-17 |  |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 1998-07-31 | B · not_checked · link only · unchecked |
 | GB | UK | A · official_page_seen/official_text_seen · text 10, link only 1 · checked 2026-11-10 · changed 2022-04-06 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-10 |  |
@@ -361,7 +371,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | GG | Guernsey | A/B · official_text_seen · link only · checked 2026-11-10 |  |  |  |  | A · official_page_seen · link only · checked 2026-11-10 | C · official_page_title_only · link only · unchecked |
 | GH | Ghana | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · checked 2026-11-10 |  |  |  | A · official_text_seen · link only · unchecked | B · official_page_seen · link only · unchecked |
 | GI | Gibraltar |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · checked 2026-11-10 |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · checked 2026-11-10 | A · official_page_seen · link only · unchecked |
-| GL | Greenland |  |  |  |  |  |  |  |
+| GL | Greenland | A · official_text_seen · link only · unchecked | A · official_text_seen · text 4 · checked 2026-11-10 · changed 2022-02-17 | A · official_text_seen · text 6 · checked 2026-11-10 · changed 2023-04-01 |  |  | A · official_text_seen · text 6, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2026-07-01 | A/B · official_page_title_only/official_text_seen · link only · unchecked |
 | GM | Gambia |  | A/B · official_page_seen/official_text_seen · text 1, link only 1 · checked 2026-11-10 · changed 1994-05-27 |  |  |  | A · official_text_seen · link only · checked 2026-11-10 |  |
 | GN | Guinea |  | A/B · official_page_seen/official_text_seen/tracker_only · text 4, link only 2 · checked 2026-11-10 (2 unchecked) · changed 2023-07-12 |  |  |  | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2024-04-17 | A · tracker_only · no link · unchecked |
 | GP | Guadeloupe |  |  |  |  |  |  |  |
@@ -425,7 +435,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | ML | Mali |  | A/B · official_text_seen/tracker_only · text 2, link only 2 · checked 2026-11-10 (2 unchecked) · changed 2025-04-04 |  | A · official_text_seen · text 1, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2023-09-01 |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2015-08-07 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | MM | Myanmar | A · official_text_seen · link only · unchecked | B · tracker_only · link only · checked 2026-11-10 |  |  |  | B · tracker_only · link only · checked 2026-11-10 | B · official_text_seen · link only · unchecked |
 | MN | Mongolia | A · official_text_seen · link only · checked 2026-11-10 (1 unchecked) | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |  | A · official_page_seen · link only · checked 2026-11-10 (2 unchecked) | A · not_checked/official_page_seen · link only · unchecked |
-| MO | Macao |  |  |  |  |  |  |  |
+| MO | Macao |  | A · official_text_seen · link only · unchecked |  |  |  | A · official_text_seen · link only · unchecked | A · official_page_seen/official_text_seen · link only · unchecked |
 | MP | Northern Mariana Islands |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · checked 2026-11-10 |  |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_page_seen/official_text_seen/tracker_only · link only · unchecked |
 | MQ | Martinique |  |  |  |  |  |  |  |
 | MR | Mauritania |  | A/B · official_page_seen/official_text_seen · text 7 · checked 2026-11-10 · changed 2025-07-15 |  |  |  | A · official_page_seen/official_text_seen · text 6 · checked 2026-11-10 · changed 2024-06-15 | A · official_page_seen · link only · unchecked |
@@ -438,7 +448,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | MY | Malaysia | A · official_page_seen · link only · unchecked | A · tracker_only · link only · checked 2026-11-10 |  |  |  | A · tracker_only · link only · checked 2026-11-10 (1 unchecked) | B · tracker_only · no link · unchecked |
 | MZ | Mozambique | A · official_text_seen · link only · unchecked | A · tracker_only · link only · unchecked | A · tracker_only · link only · unchecked |  |  | A · tracker_only · link only · unchecked | A · tracker_only · no link · unchecked |
 | NA | Namibia | B · official_text_seen · link only · unchecked | A · official_text_seen · text 1, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2012-02-06 |  |  |  |  | C · not_checked/tracker_only · link only · unchecked |
-| NC | New Caledonia |  |  |  |  |  |  |  |
+| NC | New Caledonia |  | A · official_text_seen · text 3 · checked 2026-11-10 · changed 2025-05-13 | A · official_page_seen/official_text_seen · text 1, link only 2 · checked 2026-11-10 · changed 2025-05-13 |  |  | A · official_page_seen · link only · checked 2026-11-10 | A/B · official_page_seen/official_page_title_only/tracker_only · link only · unchecked |
 | NE | Niger |  | C · tracker_only · link only · unchecked |  |  |  | C · not_checked · link only · unchecked | B/C · not_checked/tracker_only · link only · unchecked |
 | NF | Norfolk Island | A · official_text_seen · link only · unchecked | A · official_text_seen · text 4, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2019-08-13 | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · text 1, link only 2 · checked 2026-11-10 (2 unchecked) · changed 2018-09-29 | A · official_page_seen/official_text_seen · link only · unchecked |
 | NG | Nigeria | A · official_text_seen · link only · unchecked | A/B/C · official_page_seen/official_text_seen/tracker_only · text 1, link only 3 · checked 2026-11-10 · changed 2007-07-30 |  |  |  | A · official_page_seen · link only · checked 2026-11-10 |  |
@@ -452,7 +462,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | OM | Oman | A · official_text_seen · text 2, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2026-03-25 | A · official_page_seen · link only · unchecked | A · official_text_seen · link only · unchecked |  |  | A · official_page_seen · link only · unchecked |  |
 | PA | Panama | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · unchecked | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2021-12-09 |  |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2007-11-07 |  |
 | PE | Peru | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2026-03-27 | A · official_page_seen/official_text_seen · text 2, link only 1 · checked 2026-11-10 · changed 2019-12-31 | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2024-11-13 |  |  | A · official_text_seen · link only · checked 2026-11-10 |  |
-| PF | French Polynesia |  |  |  |  |  |  |  |
+| PF | French Polynesia | C · not_checked · link only · unchecked | A · official_text_seen · link only · unchecked |  |  |  | B/C · not_checked · link only · unchecked | A/B/C · official_page_seen/official_page_title_only/official_text_seen · link only · unchecked |
 | PG | Papua New Guinea | A · official_text_seen · link only · unchecked | A/B · official_text_seen · text 1, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2022-04-25 | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2025-11-20 |  |  | A · official_text_seen · link only · unchecked |  |
 | PH | Philippines | A · official_text_seen/tracker_only · link only · unchecked | A · official_text_seen · text 1, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2009-11-25 |  |  |  | A · official_text_seen · link only · unchecked | A · tracker_only · no link · unchecked |
 | PK | Pakistan | B · official_page_seen · link only · unchecked | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · link only · unchecked |  |  | A · official_text_seen · link only · checked 2026-11-10 (1 unchecked) |  |
@@ -488,7 +498,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | SS | South Sudan | A · official_text_seen · link only · checked 2026-11-10 |  |  |  |  | A · official_text_seen · link only · checked 2026-11-10 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | ST | São Tomé & Príncipe |  | B · official_text_seen · link only · checked 2026-11-10 |  |  |  |  | B · not_checked · no link · unchecked |
 | SV | El Salvador | A · official_text_seen · link only · checked 2026-11-10 | A · official_text_seen · text 2 · checked 2026-11-10 · changed 1998-05-12 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2005-10-08 | B · tracker_only · link only · unchecked |
-| SX | Sint Maarten |  |  |  |  |  |  |  |
+| SX | Sint Maarten |  |  |  |  |  |  | A · official_page_seen/official_text_seen · link only · unchecked |
 | SY | Syria |  | A · official_page_seen/official_text_seen · link only · unchecked |  |  |  | A · not_checked · no link · unchecked |  |
 | SZ | Eswatini |  | A · official_text_seen · text 4 · checked 2026-11-10 · changed 2022-12-30 |  |  |  | B · tracker_only · link only · checked 2026-11-10 | A/B · official_page_seen/official_text_seen/tracker_only · link only · unchecked |
 | TC | Turks & Caicos Islands |  |  |  |  |  | A · official_text_seen · link only · checked 2026-11-10 | A · official_page_seen · link only · unchecked |
@@ -520,7 +530,7 @@ One row per place in the register, one column per law family, as of 2026-11-10.
 | VI | U.S. Virgin Islands |  | B · official_page_seen · link only · unchecked | B · tracker_only · link only · unchecked |  |  | B · tracker_only · link only · unchecked | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | VN | Vietnam | A · official_text_seen · link only · unchecked | A · official_text_seen · text 7 · checked 2026-11-10 · changed 2026-01-29 | A · official_text_seen · text 5, link only 1 · checked 2026-11-10 (1 unchecked) · changed 2026-07-15 |  |  | A · official_text_seen · text 9 · checked 2026-11-10 · changed 2026-07-01 | A · official_text_seen · link only · unchecked |
 | VU | Vanuatu |  | A/B · official_text_seen · link only · checked 2026-11-10 (1 unchecked) |  |  |  | A · not_checked · link only · checked 2026-11-10 | A · official_page_seen/official_text_seen · link only · unchecked |
-| WF | Wallis & Futuna |  |  |  |  |  |  |  |
+| WF | Wallis & Futuna |  |  |  |  |  | C · not_checked · no link · unchecked | A/B/C · none/not_checked/official_page_title_only · link only, no link 7 · unchecked |
 | WS | Samoa |  | A · official_text_seen · text 2 · checked 2026-11-10 · changed 2004-07-01 |  |  |  | A · official_text_seen · text 1 · checked 2026-11-10 · changed 2017-07-03 | A/B · official_page_seen/official_text_seen · link only · unchecked |
 | YE | Yemen |  | A/B · official_text_seen · link only · unchecked |  |  |  | A · official_text_seen · link only · unchecked | A · official_page_seen · link only · unchecked |
 | YT | Mayotte |  |  |  |  |  |  |  |
@@ -655,6 +665,26 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | au-safeguard-crediting-act-2023 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2023-04-12 | current |
 | au-climate-change-act-2022 | F2 | text 3 | 3 | 2026-11-10 | watcher | regulator_page | 2025-02-20 | current |
 | au-modern-slavery-act-2018 | F5 | text 3 | 3 | 2026-11-10 | watcher | regulator_page | 2024-11-07 | current |
+
+### AW (Aruba)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| aw-natuurbescherming | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2013-10-22 | current |
+| aw-parke-nacional-arikok-decree | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2013-10-22 | current |
+| aw-schadelijke-producten | F4 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2020-07-01 | current |
+| aw-consumer-enforcement | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+| aw-bw-book6-misleading-advertising | F6 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2024-09-04 | current |
+
+### AX (Åland Islands)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| ax-miljoskydd-lag-2008-124 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-11-01 | current |
+| ax-utslappshandel-lag-2009-31 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2016-05-01 | current |
+| ax-ccs-lag-2012-79 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2013-01-01 | current |
+| ax-biodrivmedel-lag-2025-71 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-11-01 | current |
+| ax-biodrivmedel-ghg-lag-2018-41 | F3 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2025-11-01 | current |
 
 ### AZ (Azerbaijan)
 
@@ -1042,6 +1072,14 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | cv-portaria-conjunta-39-2025 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2026-07-01 | current |
 | cv-portaria-30-2026 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2026-03-28 | current |
 
+### CW (Curaçao)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| cw-welstandcriteria-luchtkwaliteit-2020 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2020-09-01 | current |
+| cw-luchtkwaliteitseisen-2024 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-01-01 | current |
+| cw-luchtkwaliteitseisen-inwerkingtreding-2024 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2024-12-31 | current |
+
 ### CY (Cyprus)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1269,6 +1307,17 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | fm-climate-change-act | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | fm-consumer-protection-act | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 
+### FO (Faroe Islands)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| fo-annual-accounts-act | F1 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2026-01-01 | current |
+| fo-environmental-protection-act | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2021-12-16 | current |
+| fo-nature-protection-act | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2024-01-01 | current |
+| fo-f-gas-order | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2023-10-21 | current |
+| fo-vehicle-registration-tax-act | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2023-12-08 | current |
+| fo-marketing-act | F6 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2022-05-02 | current |
+
 ### FR (France)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -1373,6 +1422,17 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | gi-cpuf-amendment-regs-2026 | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | gi-misleading-advertising-act-2001 | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | gi-deforestation-act-2026 | F5 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+
+### GL (Greenland)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| gl-marketing-act | F6 | text 4 | 4 | 2026-11-10 | watcher | regulator_page | 2021-03-26 | current |
+| gl-marketing-act-amendment-2026 | F6 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2026-07-01 | current |
+| gl-environmental-protection-act | F2 | text 4 | 4 | 2026-11-10 | watcher | regulator_page | 2022-02-17 | current |
+| gl-fgas-order | F3 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2023-04-01 | current |
+| gl-energy-levy | F3 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2011-01-01 | current |
+| gl-energy-levy-amendment-2011 | F3 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2011-04-15 | current |
 
 ### GM (Gambia)
 
@@ -2036,6 +2096,13 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | mn-law-advertising | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | mn-bom-order-a31-esg-risk | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 
+### MO (Macao)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| mo-lei-2-91-m-ambiente | F2 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2025-01-07 | current |
+| mo-lei-9-2021-consumidor | F6 | text 2 | 2 | 2026-11-10 | watcher | regulator_page | 2022-01-01 | current |
+
 ### MP (Northern Mariana Islands)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2156,6 +2223,18 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | na-bon-big-5-2025 | F1 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-07-01 | current |
 | na-ema-2007 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2012-02-06 | current |
 | na-ema-2012-notices | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2012-02-06 | current |
+
+### NC (New Caledonia)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| nc-delib-479-2025 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-05-13 | current |
+| nc-delib-480-2025 | F3 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2025-05-13 | current |
+| nc-delib-332-2023 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2023-08-30 | current |
+| nc-delib-135-2016 | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2016-07-05 | current |
+| nc-delib-385-2024 | F3 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+| nc-lp-2018-25 | F3 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+| nc-code-consommation | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 
 ### NE (Niger)
 
@@ -2292,6 +2371,13 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | pe-ley-28611 | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | pe-ley-29571 | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | pe-dl-1044 | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+
+### PF (French Polynesia)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+| pf-code-environnement | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+| pf-code-energie | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 
 ### PG (Papua New Guinea)
 
@@ -2630,6 +2716,11 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | sv-lma-reglamento-general | F2 | text 1 | 1 | 2026-11-10 | watcher | regulator_page |  | current |
 | sv-lpc-776 | F6 | text 1 | 1 | 2026-11-10 | watcher | regulator_page | 2005-10-08 | current |
 
+### SX (Sint Maarten)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
+
 ### SY (Syria)
 
 | Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
@@ -2916,6 +3007,11 @@ As of 2026-11-10. `versions` is the number of record files; `checked from` says 
 | vu-environmental-protection-conservation-act | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | vu-eia-regulations | F2 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
 | vu-price-monitoring-consumer-affairs-act | F6 | link only | 0 | 2026-11-10 | watcher | regulator_page |  | current |
+
+### WF (Wallis & Futuna)
+
+| Instrument | Family | Form | Versions stored | Last checked | Checked from | Tier | Last change | Stale |
+|---|---|---|---|---|---|---|---|---|
 
 ### WS (Samoa)
 
