@@ -1,0 +1,30 @@
+[
+  {
+    "id": "pf-code-environnement",
+    "title": "Code de l'environnement de la Polynésie française (Partie lois du Pays, Art. LP. 1000-1 to 4333-4, and Partie Arrêtés)",
+    "official_url": "https://lexpol.cloud.pf/LexpolAfficheContenuPdf.php?texte=1841&version=16122&lg=fr",
+    "citation": "Code de l'environnement de la Polynésie française; Loi du pays n° 2017-25 du 5 octobre 2017 (JOPF n° 66 NS du 05/10/2017, p. 6381) and Arrêté n° 466 CM du 22 mars 2018 (JOPF n° 20 NS du 11/04/2018, p. 1180)",
+    "in_force": null,
+    "evidence": "The Lexpol consolidated text (206 pages, opened 2026-11-10) is headed \"Version en vigueur au 05/11/2026\" and its history list names \"Loi du Pays n° 2017-25 du 5 octobre 2017, JOPF n° 66 NS du 05/10/2017 à la page 6381\". No sentence in it states the date the code took effect, so in_force is null. Art. LP. 3200-1 ends: \"La lutte contre l'intensification de l'effet de serre et la prévention des risques liés au changement climatique sont reconnues d'intérêt général.\"",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "PF-LEXPOL-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Text link only: PF-LEXPOL-CONSOLIDATED is permission requested because the Lexpol notice forbids commercial use. The code is an environmental framework; its only climate wording found is the general-interest sentence of Art. LP. 3200-1 (air quality title), which sets no emissions duty and no reporting duty. The single-use products rules (Loi du pays n° 2024-26 du 16 septembre 2024, Art. LP. 4000-1, 4214-4 and 4214-5) sit inside this code and are a register row. The Partie Arrêtés is part of the same Lexpol text. Language: French only; Lexpol offers a Tahitian (reo) toggle for page labels, and no Tahitian text of the code was opened. No English version found.",
+    "status": "link only"
+  },
+  {
+    "id": "pf-code-energie",
+    "title": "Code de l'énergie de la Polynésie française (Partie lois du Pays, Art. LP. 111-1 to 433-7)",
+    "official_url": "https://lexpol.cloud.pf/LexpolAfficheContenuPdf.php?texte=1030&version=10332&lg=fr",
+    "citation": "Code de l'énergie de la Polynésie française; Loi du pays n° 2019-27 du 26 août 2019 (JOPF n° 51 NS du 26/08/2019, p. 6272), amended by Loi du pays n° 2021-39 du 7 septembre 2021 and n° 2024-3 du 26 janvier 2024",
+    "in_force": null,
+    "evidence": "The Lexpol consolidated text (28 pages, opened 2026-11-10) is headed \"Version en vigueur au 26/01/2024\" and its history list names \"Loi du Pays n° 2019-27 du 26 août 2019, JOPF n° 51 NS du 26/08/2019 à la page 6272\". No sentence states the date the code took effect, so in_force is null. Art. LP. 312-14 lists as criteria for authorising an installation \"la possibilité d'éviter le recours aux énergies fossiles\" and \"en cas de recours à une énergie fossile, la justification du recours à un combustible comportant des émissions de gaz à effet de serre les plus réduites possibles\".",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "PF-LEXPOL-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a climate act: an energy framework whose only greenhouse-gas wording is a criterion for authorising electricity installations (Art. LP. 312-14). Text link only: PF-LEXPOL-CONSOLIDATED is permission requested. The printed version date is 2024-01-26 although the PDF was generated on 2026-11-10, so no later amendment is shown. Language: French only; no Tahitian or English text opened.",
+    "status": "link only"
+  }
+]
