@@ -136,6 +136,16 @@ def test_reject_baseline_or_watch_failed_leaves_seen_unchanged(tmp_path, key):
     assert len(kept) == 1 and kept[0]["outcome"] == "reject"
 
 
+def test_notes_are_written_appended_and_optional(tmp_path):
+    repo = make(tmp_path)
+    review.decide(repo, "reject", "w-uk:2027-01-01", "moka", TODAY, notes="N0: first run")
+    assert rows(repo)[1]["notes"] == "N0: first run"
+    review.decide(repo, "reject", "w-zip:HTTP 403", "moka", TODAY, notes="retired")
+    assert rows(repo)[3]["notes"] == "second_route: none listed; retired"
+    review.decide(repo, "reject", "w-terms:" + HASH, "moka", TODAY)
+    assert rows(repo)[2]["notes"] == ""
+
+
 def test_needs_evidence_leaves_the_row_open(tmp_path, capsys):
     repo = make(tmp_path)
     review.decide(repo, "needs_evidence", "w-uk:2027-01-01", "varun", TODAY)
