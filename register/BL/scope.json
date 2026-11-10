@@ -1,0 +1,16 @@
+[
+  {
+    "id": "bl-code-energie",
+    "title": "Code de l'énergie de Saint-Barthélemy (délibération n° 2020-090 CT du 18 décembre 2020, as amended to 26 March 2026): national energy objectives adapted for the collectivity, including 50 % renewable energy by 2030 and energy autonomy by 2050",
+    "official_url": "https://www.comstbarth.fr/in/rest/annotationSVC/DownloadAttachment/attach_cmsUpload_c054404a-cc89-4393-a4b5-ac5b4d904f2b",
+    "citation": "Code de l'énergie de Saint-Barthélemy, adopted by délibération n° 2020-090 CT du 18 décembre 2020 of the Conseil territorial, amended by n° 2021-046 CT (6 August 2021), n° 2024-055 CT (28 November 2024), n° 2024-066 CT, n° 2024-067 CT (20 December 2024) and n° 2026-013 CT (26 March 2026)",
+    "in_force": null,
+    "evidence": "Title page of the PDF 'Code de l'Energie de Saint-Barthélemy - à jour au 26 mars 2026' on the Collectivité's codes page (opened 2026-11-10, sha256 78b3fcda4e3ed057fe21a860727381c93e223148db3427ba8e2e6629ec8b3830, 20 pages): \"Adopté par délibération n° 2020-090 CT du 18 décembre 2020\". Section 2: \"Le 8e alinéa de l'article L.100-4 est ainsi rédigé : \"De parvenir à l'autonomie énergétique à l'horizon 2050, avec, comme objectif intermédiaire, 50 % d'énergies renouvelables à l'horizon 2030\"\". The PDF states no commencement date, so in_force is null.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "BL-COM-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than an F2 climate framework: an energy code that makes parts of the State's Code de l'énergie applicable in the collectivity and rewrites the 8th paragraph of L.100-4 I with a 2030 renewable share and a 2050 energy autonomy target; it sets no emissions target and no GHG duty. Kept as the one own instrument with a target (Varun's rule: F1 to F6, own body). Text link only: the row BL-COM-CONSOLIDATED is unknown (no terms page), nothing stored. Earlier versions are listed on the same page (26 March 2026, 18 March 2025, 20 December 2024, 6 August 2021, 18 December 2020). French only; no English version found on the Collectivité's pages.",
+    "status": "link only"
+  }
+]
