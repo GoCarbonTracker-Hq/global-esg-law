@@ -1,0 +1,59 @@
+[
+  {
+    "id": "ck-environment-act-2003",
+    "title": "Environment Act 2003 No 22",
+    "official_url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.ENVIRO",
+    "citation": "Environment Act 2003 No 22 (Cook Islands), consolidation as at 1 December 2025",
+    "in_force": "2003-11-19",
+    "evidence": "Table of Amendments of the consolidation: \"The Environment Act 2003 No 22 was assented to and commenced on 19 November 2003, as amended by:\". Opened https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.ENVIRO on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "CK-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "General environmental framework; climate appears only in a provision treating the UN Framework Convention on Climate Change as an international environmental convention (s.9(3), \"must be regarded as international conventions relating to the environment\"); no emissions, reporting or carbon-price duty. Kept as the in-force F2 entry until the Environment Act 2026 commences. The portal file is the Act plus its subsidiary instruments (island application orders, Environment (Montreal Protocol) Regulations 2021 No 12, Environment (Seabed Minerals Activities) Regulations 2023 No 8, and others); the record text is the whole file. Earlier consolidations are not served. Maori text: the portal serves none for this Act (not found). Government English translation: not applicable, English is the text.",
+    "status": "stored"
+  },
+  {
+    "id": "ck-environment-act-2026",
+    "title": "Environment Act 2026 No 11",
+    "official_url": "https://cookislandslaws.gov.ck/api/show_pdf_lawsaspublished/2220",
+    "citation": "Environment Act 2026 No 11 (Cook Islands), Law as Made; repeals and replaces the Environment Act 2003",
+    "in_force": null,
+    "evidence": "s.2 as printed in the scanned Law as Made (read by OCR on 2026-11-10): \"This Act comes into force on a date or dates to be set by Order in Executive Council, and different orders may bring different provisions into force on different dates.\" No Order or official page stating a commencement date was found; a news date is not a source. Opened https://cookislandslaws.gov.ck/api/show_pdf_lawsaspublished/2220 (HTTP 200, 89 pages).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "CK-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Link only: the portal serves only a scanned Law as Made (no text layer) and no commencement date is printed, so nothing is stored (brief of 2026-11-10: OCR text is stored only with an official in-force date). Part 6 state-of-environment reporting; the long title says the Act will replace the Environment Act 2003 (\"(b) replace the Environment Act 2003.\"). Treat ck-environment-act-2003 as the law in force until an Order brings this Act into force. Maori text not served.",
+    "status": "link only",
+    "status_note": "Passed and assented, not yet in force as far as an official page shows"
+  },
+  {
+    "id": "ck-fair-trading-act-2008",
+    "title": "Fair Trading Act 2008 No 22",
+    "official_url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.FTA",
+    "citation": "Fair Trading Act 2008 No 22 (Cook Islands), consolidation as at 1 December 2025",
+    "in_force": "2008-12-01",
+    "evidence": "s.1(2): \"This Act comes into force on 1 December 2008.\" Opened https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.FTA on 2026-11-10.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "CK-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Kept as a narrower entry: a general misleading-conduct law with no environmental wording. s.17: \"No person shall, in trade, engage in conduct that is misleading or deceptive or is likely to mislead or deceive.\"; s.21 false or misleading representations about goods and services. Earlier consolidations are not served. Maori text not served.",
+    "status": "stored"
+  },
+  {
+    "id": "ck-consumer-guarantees-act-2008",
+    "title": "Consumer Guarantees Act 2008 No 21",
+    "official_url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.CGA",
+    "citation": "Consumer Guarantees Act 2008 No 21 (Cook Islands), consolidation as at 1 December 2025",
+    "in_force": "2008-12-01",
+    "evidence": "Table of Amendments of the consolidation: \"The Consumer Guarantees Act 2008 No 21 was assented to on 26 November 2008 and commenced on 1 December 2008.\" Opened https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.CGA on 2026-11-10.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "CK-PARLIAMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Kept as a narrower entry: statutory guarantees on goods and services sold to consumers (acceptable quality, description, manufacturers' express guarantees), no environmental wording. Earlier consolidations are not served. Maori text not served.",
+    "status": "stored"
+  }
+]
