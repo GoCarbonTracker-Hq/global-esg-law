@@ -1,0 +1,114 @@
+[
+  {
+    "id": "nc-delib-479-2025",
+    "title": "Délibération n° 479 du 29 avril 2025 déclarant l'urgence climatique et environnementale en Nouvelle-Calédonie et définissant la stratégie calédonienne du changement climatique",
+    "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/10917/acte/1283673",
+    "citation": "Délibération n° 479 du 29 avril 2025 du Congrès de la Nouvelle-Calédonie, JONC n° 10917 du 13 mai 2025, p. 6932",
+    "in_force": "2025-05-13",
+    "evidence": "Art. 6 (JONC n° 10917, 13 May 2025, p. 6932): \"La présente délibération sera transmise au haut-commissaire de la République ainsi qu'au gouvernement et publiée au Journal officiel de la Nouvelle-Calédonie.\" The act prints no commencement clause. Leginova metadata https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-479-du-29-04-2025 (opened 2026-11-10): \"dateVigueur\":\"2025-05-13\"; the consolidated page header reads \"En vigueur depuis le 13/05/2025\" and the JONC issue is dated 13 May 2025 (the publication date).",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "NC-LEGINOVA-JONC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Climate emergency declaration and framework: Art. 2 \"la Nouvelle-Calédonie s'engage à\" adopt policies to mitigate and adapt, take climate impact into account in projects and in lois du pays and délibérations, and make its services exemplary; Art. 3 approves the Stratégie calédonienne du changement climatique (annexed, three years renewable); Art. 4 creates a climate forum, Art. 5 a Comité calédonien du changement climatique. Commitments and strategy, no penalty and no duty on companies; whether the strategy binds beyond the Government is not stated. in_force is the date Leginova gives (= the JONC publication date) because the act prints no commencement clause. Record 2025-05-13 (fr): text of the act as published in the JONC n° 10917 of 13 May 2025, pp. 6932 to 6948, from https://leginova.gouv.nc/api/acte/1283673/pdf. Articles 1 to 6 are the PDF text layer; the annexed strategy (pp. 6933 to 6948) is OCR. Uncorrected OCR output of the scanned/garbled part (the PDF text layer of the annexed pages is a shifted font encoding that reads as mojibake): pdftoppm -r 300 then tesseract -l fra --psm 3, never corrected, reflowed or reworded by hand; running headers (journal name, date, page number) are left out of the text. The consolidated version is link only (row NC-LEGINOVA-CONSOLIDATED). No English version found (Leginova interface and acts are French only).",
+    "status": "stored"
+  },
+  {
+    "id": "nc-delib-480-2025",
+    "title": "Délibération n° 480 du 29 avril 2025 portant création d'un fonds de résilience calédonien du changement climatique",
+    "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/10917/acte/1283674",
+    "citation": "Délibération n° 480 du 29 avril 2025 du Congrès de la Nouvelle-Calédonie, JONC n° 10917 du 13 mai 2025, p. 6949",
+    "in_force": "2025-05-13",
+    "evidence": "Art. 7 (JONC n° 10917, 13 May 2025, p. 6949): \"La présente délibération sera transmise au haut-commissaire de la République ainsi qu'au gouvernement et publiée au Journal officiel de la Nouvelle-Calédonie.\" No commencement clause. Leginova metadata https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-480-du-29-04-2025 (opened 2026-11-10): \"dateVigueur\":\"2025-05-13\".",
+    "law_family": "F3",
+    "duty_on": "government",
+    "source_row": [
+      "NC-LEGINOVA-JONC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than its family: a climate fund in the budget of New Caledonia, not a carbon price. Art. 2: \"Les ressources du fonds sont constituées des contributions, aides, subventions, dons ou legs de toute personne physique ou morale, publique ou privée.\" (no levy); Art. 6 has the Government report to the Congrès each year on the fund. Companion of nc-delib-479-2025 (the Comité calédonien du changement climatique manages the fund). Record 2025-05-13 (fr): text as published in the JONC n° 10917 of 13 May 2025, p. 6949, from https://leginova.gouv.nc/api/acte/1283674/pdf (PDF text layer). The consolidated version is link only. No English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "nc-delib-332-2023",
+    "title": "Délibération n° 332 du 16 août 2023 relative au schéma pour la transition énergétique de la Nouvelle-Calédonie (STENC)",
+    "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/10618/acte/1271619",
+    "citation": "Délibération n° 332 du 16 août 2023 du Congrès de la Nouvelle-Calédonie, JONC n° 10618 du 29 août 2023, p. 17548",
+    "in_force": "2023-08-30",
+    "evidence": "Art. 28 (JONC n° 10618, 29 August 2023, p. 17550): \"Les dispositions de la présente délibération entrent en vigueur le premier jour suivant sa publication au Journal officiel de la Nouvelle-Calédonie.\" Published 29 August 2023, so the first day following is 2023-08-30. Leginova prints a different date: metadata https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-332-du-16-08-2023 (opened 2026-11-10) has \"dateVigueur\":\"2023-08-29\" and the page header reads \"En vigueur depuis le 29/08/2023\" (the publication date).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "NC-LEGINOVA-JONC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Energy transition scheme with a climate target: Art. 3 \"a pour objectif global d'atteindre au minimum, d'ici à 2035, une réduction de 70 % des gaz à effet de serre comparativement à 2019\"; measures for the mining and metallurgy industry (Art. 8 to 13; Art. 13: \"D'ici juin 2025, la réglementation est modifiée afin de renforcer la communication des entreprises en matière de responsabilité sociétale et environnementale (RSE).\"), low-carbon mobility (Art. 14 to 18), buildings and energy efficiency (Art. 19 to 26); Art. 27 yearly report to the Congrès and a review every 5 years. A policy scheme with dated government actions; binding force beyond the Government not stated. It recites délibération n° 135 of 2016 in its visas and the text read has no repeal clause for it. in_force is computed from Art. 28 (the portal's 2023-08-29 is the publication date and conflicts with the clause). Record 2023-08-30 (fr): the act cut from the whole-issue PDF https://leginova.gouv.nc/api/jonc/10618/pdf (pp. 17548 to 17550), because the act endpoint https://leginova.gouv.nc/api/acte/1271619/pdf stops after p. 17549. PDF text layer, two columns read left then right; running headers left out. The consolidated version is link only. No English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "nc-delib-135-2016",
+    "title": "Délibération n° 135 du 23 juin 2016 portant approbation du schéma pour la transition énergétique de la Nouvelle-Calédonie",
+    "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/9294/acte/1228810",
+    "citation": "Délibération n° 135 du 23 juin 2016 du Congrès de la Nouvelle-Calédonie, JONC n° 9294 du 5 juillet 2016, p. 6489",
+    "in_force": "2016-07-05",
+    "evidence": "Art. 11 (JONC n° 9294, 5 July 2016, p. 6490): \"La présente délibération sera transmise au haut-commissaire de la République ainsi qu'au gouvernement et publiée au Journal officiel de la Nouvelle-Calédonie.\" No commencement clause in Articles 1 to 11. Leginova metadata https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-135-du-23-06-2016 (opened 2026-11-10): \"dateVigueur\":\"2016-07-05\" (the publication date), \"dateConsolidation\":\"2017-08-18\".",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "NC-LEGINOVA-JONC-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "First energy transition scheme (STENC): Art. 4 sets objectives for 2030 against a trend projection, including greenhouse gas cuts of 10 % in mining and metallurgy, 15 % in transport and 35 % in residential and tertiary; Art. 5 the strategic orientations; Art. 10 approves the annexed scheme. Status to confirm: Leginova still lists a consolidated version in force, and délibération n° 332 of 2023 (nc-delib-332-2023) recites it without repealing it in the text read. Record 2016-07-05 (fr): text as published in the JONC n° 9294 of 5 July 2016, pp. 6489 to 6521, cut from the whole-issue PDF https://leginova.gouv.nc/api/jonc/9294/pdf, because the act endpoint https://leginova.gouv.nc/api/acte/1228810/pdf starts at p. 6499 and leaves out Articles 1 to 11. Articles 1 to 11 (pp. 6489 to 6490) are the PDF text layer; the annexed scheme (pp. 6491 to 6521, slides with tables) is OCR and reads roughly. Uncorrected OCR output of the scanned/garbled part (the PDF text layer of the annexed pages is a shifted font encoding that reads as mojibake): pdftoppm -r 300 then tesseract -l fra --psm 3, never corrected, reflowed or reworded by hand; running headers (journal name, date, page number) are left out of the text. The consolidated version is link only. No English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "nc-delib-385-2024",
+    "title": "Délibération-cadre n° 385 du 18 janvier 2024 relative à l'engagement des réformes structurelles et à la mise en place de diverses mesures d'urgence destinées à rétablir l'équilibre financier du système électrique de Nouvelle-Calédonie",
+    "official_url": "https://leginova.gouv.nc/textes-consolides/deliberation-cnc-385-du-18-01-2024",
+    "citation": "Délibération-cadre n° 385 du 18 janvier 2024 du Congrès de la Nouvelle-Calédonie, JONC n° 10690 du 30 janvier 2024, p. 1818",
+    "in_force": "2024-01-30",
+    "evidence": "Leginova metadata https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-385-du-18-01-2024 (opened 2026-11-10): \"dateVigueur\":\"2024-01-30\"; the page header reads \"En vigueur depuis le 30/01/2024\" (the JONC publication date). The act's own commencement clause was not read: Leginova's JONC issue 10690 lists no separate act for it.",
+    "law_family": "F3",
+    "duty_on": "mixed",
+    "source_row": [
+      "NC-LEGINOVA-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Narrower than its family and an announcement only: the Leginova consolidated text, Art. 11, announces \"Un mécanisme fiscal pesant sur les véhicules à usage non professionnel émettant le plus de gaz à effet de serre sera institué au cours de l'année 2024\" (read by the research pass, not re-read); the levy itself was not found as an instrument. Link only because Leginova serves no JONC document of its own for this act: the sommaire of JONC n° 10690 (30 January 2024) has no entry for it, and the act endpoint of the preceding act (loi du pays n° 2024-3, https://leginova.gouv.nc/api/acte/1273967/pdf) ends at the title of this délibération-cadre (p. 1818). The text can be cut from the whole-issue PDF https://leginova.gouv.nc/api/jonc/10690/pdf if Varun wants it stored. The consolidated page is the portal's documentary version (row NC-LEGINOVA-CONSOLIDATED).",
+    "status": "link only"
+  },
+  {
+    "id": "nc-lp-2018-25",
+    "title": "Loi du pays n° 2018-25 du 26 décembre 2018 relative à l'efficacité énergétique des équipements, à l'interdiction d'importation d'équipements contenant des substances appauvrissant la couche d'ozone et à l'interdiction d'importation des ampoules à incandescence ou à halogènes",
+    "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/9670/acte/1244413",
+    "citation": "Loi du pays n° 2018-25 du 26 décembre 2018, JONC n° 9670 du 1er janvier 2019, p. 19",
+    "in_force": null,
+    "evidence": "Art. 18 (JONC n° 9670, 1 January 2019, p. 21): \"La présente loi du pays entre en vigueur le premier jour du troisième mois suivant sa publication au Journal officiel de la Nouvelle-Calédonie.\" The act was published on 1 January 2019. The clause can be read as 1 March 2019 (a Chamber of Commerce page says so) or 1 April 2019, and Leginova prints neither: its metadata https://leginova.gouv.nc/api/texte-consolide/lois-du-pays-cnc-2018-25-du-26-12-2018 (opened 2026-11-10) has \"dateVigueur\":\"2019-01-01\" and \"dateConsolidation\":\"2019-01-14\". So no official page prints a date that fits the clause.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NC-LEGINOVA-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Energy efficiency of equipment, import ban of equipment containing ozone-depleting substances and of incandescent and halogen bulbs (Art. 18 and 19 read; the Act has 6 chapters, Art. 1 to 19). Link only because the commencement date is unresolved (see evidence): a record needs a dated in_force, and storing it under Leginova's 2019-01-01 would put a date the clause contradicts into the history. The JONC text is complete and clean in https://leginova.gouv.nc/api/acte/1244413/pdf (3 pages, pp. 19 to 21, text layer, HTTP 200, 52471 bytes, sha256 bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56) and can be stored as soon as Varun rules on the date. Amendments not checked. No English version found.",
+    "status": "link only"
+  },
+  {
+    "id": "nc-code-consommation",
+    "title": "Code de la consommation de Nouvelle-Calédonie (old code, loi n° 93-949 du 26 juillet 1993, the provisions that stay in New Caledonian competence)",
+    "official_url": "https://leginova.gouv.nc/codes/code-de-la-consommation-de-nouvelle-caledonie",
+    "citation": "Code de la consommation de Nouvelle-Calédonie (Leginova consolidated code)",
+    "in_force": "2015-07-07",
+    "evidence": "Leginova page https://leginova.gouv.nc/codes/code-de-la-consommation-de-nouvelle-caledonie (opened 2026-11-10 with headless Chrome): \"En vigueur depuis le 07/07/2015\"; this is the date of the portal's current consolidation of the code, not of the 1993 statute.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NC-LEGINOVA-CONSOLIDATED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Narrower than its family: the territory's own consumer code, with no environmental wording read. Its L. 121-1 (misleading commercial practices) is printed \"Non applicables.\" (read by the research pass, not re-read): misleading commercial practices are governed by the State code, listed as a parent-state register row. The Leginova intro says the State refounded the code by ordonnance n° 2016-301 du 14 mars 2016, extended overseas by ordonnance n° 2017-269 du 2 mars 2017, and \"il n'a étendu localement que les dispositions de ce nouveau code qui relèvent de sa seule compétence\"; the old code stays applicable for the competences transferred to New Caledonia. Link only: Leginova serves a consolidated code only, with no JONC text of the code itself. Other articles not read.",
+    "status": "link only"
+  }
+]
