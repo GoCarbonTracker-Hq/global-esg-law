@@ -12,10 +12,10 @@ All figures are as of 2026-11-10. Each row names the command that produces it, r
 
 | Measure | Value | Command |
 |---|---|---|
-| Places with a corpus, out of places in the register | 230 of 250 | `ls register/*/scope.json \| wc -l` and `python3 -c "import csv;print(len({r['iso2'] for r in csv.DictReader(open('register/register.csv',encoding='utf-8'))}))"` |
-| Records stored (one file per text version) | 3239 | `find records -name '*.json' \| wc -l` |
+| Places with a corpus, out of places in the register | 250 of 250 | `ls register/*/scope.json \| wc -l` and `python3 -c "import csv;print(len({r['iso2'] for r in csv.DictReader(open('register/register.csv',encoding='utf-8'))}))"` |
+| Records stored (one file per text version) | 3240 | `find records -name '*.json' \| wc -l` |
 | Records read by OCR (`"extraction": "ocr"`) | 104 | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Watchers defined | 1541 | `python3 -c "import json;print(len(json.load(open('upkeep/watchers.json'))))"` |
+| Watchers defined | 1557 | `python3 -c "import json;print(len(json.load(open('upkeep/watchers.json'))))"` |
 | Tests passing | 154 | `python3 -m pytest tests -q` |
 
 ## Quick start
@@ -49,16 +49,16 @@ A place with a corpus has a `scope.json` file under `register/<ISO2>/`. It lists
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
-Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of two-letter codes, not a map. Dark green means text stored, amber means link only and grey means no corpus. As of 2026-11-10 that is 139, 91 and 20 places. `python3 tools/coverage_grid.py` redraws it.
+Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of two-letter codes, not a map. Dark green means text stored, amber means link only and grey means no corpus. As of 2026-11-10 that is 140, 110 and 0 places. `python3 tools/coverage_grid.py` redraws it.
 
-139 of the 230 places with a corpus hold stored text. The other 91 are listed with official URLs and no stored text: AE, AF, AI, AS, BB, BD, BF, BI, BM, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, ER, ET, FM, GG, GI, GQ, GU, GW, GY, HK, ID, IM, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MP, MS, MW, MY, NE, NO, NP, NU, PF, PK, PN, PR, PS, RO, RU, SA, SB, SC, SG, SH, SM, SN, SO, SS, ST, SX, TC, TD, TG, TH, TK, TV, UA, VA, VC, VG, VI, VU, WF, ZM.
+140 of the 250 places with a corpus hold stored text. The other 110 are listed with official URLs and no stored text: AE, AF, AI, AQ, AS, BB, BD, BF, BI, BL, BM, BN, BO, BQ, BS, BV, BZ, CC, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GF, GG, GI, GP, GQ, GS, GU, GW, GY, HK, HM, ID, IM, IN, IO, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MF, MG, MH, MM, MP, MQ, MS, MW, MY, NE, NO, NP, NU, PF, PK, PM, PN, PR, PS, RE, RO, RU, SA, SB, SC, SG, SH, SJ, SM, SN, SO, SS, ST, SX, TC, TD, TF, TG, TH, TK, TV, UA, UM, VA, VC, VG, VI, VU, WF, YT, ZM.
 
 A place or instrument can be link only for three reasons. The source's licence row is not `pass`, so the text may not be copied. The host refuses automated requests. Or the text exists only as a scan we could not use.
 
 <details>
-<summary>Records stored per place (3239 in all, <code>find records/&lt;ISO2&gt; -name '*.json' | wc -l</code>)</summary>
+<summary>Records stored per place (3240 in all, <code>find records/&lt;ISO2&gt; -name '*.json' | wc -l</code>)</summary>
 
-AD 4, AG 2, AL 1, AM 7, AO 4, AR 7, AT 42, AU 85, AW 4, AX 6, AZ 19, BA 4, BE 57, BG 4, BH 7, BJ 6, BR 20, BT 17, BW 2, BY 6, CA 56, CD 1, CG 4, CH 109, CI 5, CK 3, CL 9, CM 4, CN 15, CO 8, CR 135, CV 5, CW 3, CZ 24, DE 19, DK 32, DM 4, DO 10, DZ 12, EC 3, EE 65, ES 65, EU 35, FI 84, FJ 6, FK 9, FO 6, FR 38, GA 9, GB 10, GD 8, GE 134, GH 1, GL 16, GM 1, GN 7, GR 7, GT 3, HN 6, HR 28, HT 2, HU 13, IE 21, IL 2, IT 80, JE 23, JO 3, JP 130, KG 160, KH 3, KR 88, KW 1, KZ 379, LA 8, LI 73, LK 20, LR 2, LU 22, LV 68, MC 25, MD 11, MK 6, ML 6, MN 4, MO 4, MR 13, MT 62, MU 3, MV 7, MX 7, MZ 1, NA 3, NC 4, NF 5, NG 1, NI 4, NL 41, NR 8, NZ 64, OM 2, PA 6, PE 5, PG 5, PH 3, PL 33, PT 14, PW 3, PY 5, QA 8, RS 8, RW 35, SD 7, SE 11, SI 21, SK 88, SL 1, SR 3, SV 3, SY 1, SZ 4, TJ 2, TL 2, TM 16, TN 6, TO 24, TR 11, TT 1, TW 18, TZ 8, UG 3, US 34, UY 7, UZ 121, VE 2, VN 24, WS 3, YE 4, ZA 6, ZW 1
+AD 4, AG 2, AL 1, AM 7, AO 4, AR 7, AT 42, AU 85, AW 4, AX 6, AZ 19, BA 4, BE 57, BG 4, BH 7, BJ 6, BR 20, BT 17, BW 2, BY 6, CA 56, CD 1, CG 4, CH 109, CI 5, CK 3, CL 9, CM 4, CN 15, CO 8, CR 135, CV 5, CW 3, CX 1, CZ 24, DE 19, DK 32, DM 4, DO 10, DZ 12, EC 3, EE 65, ES 65, EU 35, FI 84, FJ 6, FK 9, FO 6, FR 38, GA 9, GB 10, GD 8, GE 134, GH 1, GL 16, GM 1, GN 7, GR 7, GT 3, HN 6, HR 28, HT 2, HU 13, IE 21, IL 2, IT 80, JE 23, JO 3, JP 130, KG 160, KH 3, KR 88, KW 1, KZ 379, LA 8, LI 73, LK 20, LR 2, LU 22, LV 68, MC 25, MD 11, MK 6, ML 6, MN 4, MO 4, MR 13, MT 62, MU 3, MV 7, MX 7, MZ 1, NA 3, NC 4, NF 5, NG 1, NI 4, NL 41, NR 8, NZ 64, OM 2, PA 6, PE 5, PG 5, PH 3, PL 33, PT 14, PW 3, PY 5, QA 8, RS 8, RW 35, SD 7, SE 11, SI 21, SK 88, SL 1, SR 3, SV 3, SY 1, SZ 4, TJ 2, TL 2, TM 16, TN 6, TO 24, TR 11, TT 1, TW 18, TZ 8, UG 3, US 34, UY 7, UZ 121, VE 2, VN 24, WS 3, YE 4, ZA 6, ZW 1
 
 </details>
 
@@ -76,16 +76,16 @@ Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored 
 
 ## Known limits
 
-- Link-only instruments have no stored text. As of 2026-11-10, `COVERAGE.md` counts 545 of 1375 instruments in scope files as link only.
+- Link-only instruments have no stored text. As of 2026-11-10, `COVERAGE.md` counts 547 of 1378 instruments in scope files as link only.
 - OCR text is uncorrected. 104 records are OCR, in 13 languages including Arabic, Spanish and French.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
-- Many state sites refuse requests from cloud addresses, and some fail certificate checks under Python while curl accepts them. The last full watcher run, on 2026-11-10 from a laptop address, recorded 192 failures across 1541 watchers (`upkeep/cadence.json`, key `runs`).
+- Many state sites refuse requests from cloud addresses, and some fail certificate checks under Python while curl accepts them. The last full watcher run, on 2026-11-10 from a laptop address, recorded 183 failures across 1557 watchers (`upkeep/cadence.json`, key `runs`).
 - One full watcher run takes about 53 minutes (3191.6 s on 2026-11-10). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled.
 - Some places hold their laws only as originally published. A lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 
 ## What comes next
 
-20 places in the register have no corpus yet, all of them territories or other non-state places (`python3 tools/coverage.py` lists them under "Places with no watcher"). Examples are French Guiana (GF), Guadeloupe (GP), Réunion (RE) and Caribbean Netherlands (BQ). None of them is started and none has a date. Watchers will need a decided compute budget before they run on a schedule.
+Every place in the register has a scope file as of 2026-11-10. The last 20 places (territories, uninhabited places, Antarctica and Western Sahara) were added as pointers: their laws are mostly those of a parent state, which are listed as register rows with official links and not stored under the place, and 17 of the 20 have an empty scope file. Watchers will need a decided compute budget before they run on a schedule.
 
 ## Look up the law in force on a date
 
@@ -136,7 +136,7 @@ Python 3.11 or later, standard library plus git. pytest is the only extra.
 
 Run these in order and compare each last line with the expected one:
 
-1. `python3 tools/check_corpus.py` ends with `3239 records checked` (as of 2026-11-10).
+1. `python3 tools/check_corpus.py` ends with `3240 records checked` (as of 2026-11-10).
 2. `python3 tools/publish_gate.py` exits 0.
 3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
 4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
