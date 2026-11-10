@@ -225,6 +225,64 @@ def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
     assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
 
 
+def test_reseed_stores_signal_and_adds_no_row(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER])
+    watch.watch(repo, FakeFetch({TERMS: (200, {}, text_page("aaa", "x"))}), TODAY)
+    queue_before = (repo / "upkeep" / "queue.csv").read_bytes()
+    changed = text_page("aaa", "x", "Terms changed.")
+    assert watch.reseed(repo, "w-text", FakeFetch({TERMS: (200, {}, changed)}), date(2026, 11, 3)) == 1
+    assert (repo / "upkeep" / "queue.csv").read_bytes() == queue_before
+    assert seen(repo)["w-text"]["checked_on"] == "2026-11-03"
+    result = watch.watch(repo, FakeFetch({TERMS: (200, {}, changed)}), date(2026, 11, 4))
+    assert result["rows"] == []
+
+
+def test_reseed_touches_only_its_watcher_and_refuses_failure(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER, WATCHERS[3]])
+    fetch = FakeFetch({TERMS: (200, {}, text_page("aaa", "x")), ZIP: BODIES[ZIP]})
+    watch.watch(repo, fetch, TODAY)
+    before = seen(repo)
+    watch.reseed(repo, "w-text", FakeFetch({TERMS: (200, {}, text_page("aaa", "x", "Terms changed."))}), TODAY)
+    after = seen(repo)
+    assert after["w-zip"] == before["w-zip"] and after["w-text"]["signals"] != before["w-text"]["signals"]
+    with pytest.raises(ValueError, match="HTTP 403"):
+        watch.reseed(repo, "w-text", FakeFetch({TERMS: (403, {}, b"")}), TODAY)
+    assert seen(repo) == after
+    with pytest.raises(ValueError, match="no watcher"):
+        watch.reseed(repo, "nope", FakeFetch(), TODAY)
+
+
+def test_truncated_first_read_is_retried_once(monkeypatch):
+    calls = []
+
+    class Response:
+        status, headers = 200, {}
+
+        def __init__(self, read):
+            self._read = read
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def read(self):
+            return self._read()
+
+    def truncated():
+        raise watch.http.client.IncompleteRead(b"par")
+
+    reads = iter([truncated, lambda: b"<p>full page</p>"])
+    monkeypatch.setattr(watch.urllib.request, "urlopen", lambda request, timeout: calls.append(1) or Response(next(reads)))
+    assert watch.default_fetch("https://example.org/")[2] == b"<p>full page</p>"
+    assert len(calls) == 2
+    # a second truncation is raised, so run_watcher reports a watch_failed
+    reads = iter([truncated, truncated])
+    with pytest.raises(watch.http.client.IncompleteRead):
+        watch.default_fetch("https://example.org/")
+
+
 def test_version_list_follows_pages(tmp_path):
     repo = make(tmp_path, [WATCHERS[2]])
     fetch = FakeFetch({ECFR: (200, {}, ecfr_body(["2017-01-01", "2026-10-14"], page=1, total_pages=2)),
