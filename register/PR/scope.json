@@ -1,0 +1,58 @@
+[
+  {
+    "id": "pr-climate-change-act",
+    "title": "Ley de Mitigación, Adaptación y Resiliencia al Cambio Climático de Puerto Rico, Ley Núm. 33 de 22 de mayo de 2019, según enmendada",
+    "official_url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/33-2019.pdf",
+    "citation": "Ley Núm. 33 de 22 de mayo de 2019, según enmendada (Ley Núm. 147 de 8 de noviembre de 2020; Ley Núm. 3 de 24 de mayo de 2021); English enrolled Act No. 33-2019 (S.B. 773)",
+    "in_force": "2019-07-01",
+    "evidence": "OGP PDF (opened 2026-11-10), Articulo 28: \"Vigencia. Esta Ley comenzará a regir el 1ero de julio de 2019.\"; the enrolled English Act, Section 28: \"This Act shall take effect on July 1, 2019.\"",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "PR-OGP-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Climate framework Act: Articulo 10 has the Departamento de Recursos Naturales y Ambientales or the competent agency prepare and publish an annual inventory of greenhouse gas emissions by type and source, covering the six-gas aggregate in tonnes of CO2e; the Act also orders a sector climate mitigation, adaptation and resilience plan and creates an expert committee. It binds the government, not companies. Link only: the OGP copy is an unofficial compilation and row PR-OGP-CONSOLIDATED is permission requested, so no text is stored. Languages: Spanish is the enacting language (OGP consolidated copy, with Leyes 147-2020 and 3-2021 incorporated); the English file https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/2-ingles/0033-2019.pdf is the enrolled Act as approved in 2019, so it does not reflect the two amendments and is not a government translation of the consolidated text. The enacted Act of 2019 is not reachable on the Departamento de Estado library (guessed S3 path answered 403); the amending Acts 147-2020 and 3-2021 are scanned PDFs there. The publisher serves one current consolidation; earlier versions are not served.",
+    "status": "link only"
+  },
+  {
+    "id": "pr-daco-organic-act",
+    "title": "Ley Orgánica del Departamento de Asuntos del Consumidor, Ley Núm. 5 de 23 de abril de 1973, según enmendada",
+    "official_url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/5-1973.pdf",
+    "citation": "Ley Núm. 5 de 23 de abril de 1973, según enmendada, artículo 6(j)",
+    "in_force": "1973-04-23",
+    "evidence": "OGP PDF (opened 2026-11-10): \"Esta ley entrará en vigor inmediatamente después de su aprobación a excepción de la disposición del Artículo 22 referente a la asignación de $1,500,000 de los recursos disponibles del Fondo General.\" The title gives the approval date, 23 April 1973.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "PR-OGP-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a green-claims law: no environmental wording. Articulo 6(j) gives DACO the power to \"Reglamentar y fiscalizar los anuncios y las prácticas engañosas en el comercio\", including claims about the quality of products and services; the green-claims rule is in Reglamento 9158 (entry pr-daco-commercial-practices-reg). Link only: the OGP copy is an unofficial compilation and row PR-OGP-CONSOLIDATED is permission requested. Spanish only; no government English text of this Act was found on OGP, OSL or the Departamento de Estado pages read. The publisher serves one current consolidation; earlier versions are not served.",
+    "status": "link only"
+  },
+  {
+    "id": "pr-daco-commercial-practices-reg",
+    "title": "Reglamento de Prácticas Comerciales, Reglamento Núm. 9158, Departamento de Asuntos del Consumidor",
+    "official_url": "http://app.estado.gobierno.pr/reglamentosonline/reglamentos/9158.pdf",
+    "citation": "Reglamento Núm. 9158 de 6 de febrero de 2020 (Departamento de Asuntos del Consumidor), Regla 14",
+    "in_force": "2020-04-06",
+    "evidence": "Last page of the Departamento de Estado PDF (opened 2026-11-10, read as an image and by OCR): \"Fecha de aprobación: 6 de febrero de 2020 Fecha de radicación: 6 de febrero de 2020 Fecha de vigencia: 6 de abril de 2020\"; Regla 88: \"Este Reglamento entrará en vigor 60 días después de su radicación en la Oficina del Secretario de Estado.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "PR-ESTADO-REGULATIONS",
+    "verification": "official_text_seen",
+    "notes": "Green claims: Regla 14 (practicas y anuncios enganosos) lists as a deceptive practice to attribute to a product ecological or eco-friendly characteristics it does not have, that cannot be substantiated, or whose benefit is minimal against the whole product, and requires claims such as \"no tóxico\", \"reciclado\" or \"reciclable\", \"degradable\", \"compostable\" or \"seguro para el medio ambiente\" to be substantiated in line with the Green Guides of the Federal Trade Commission. The regulation also repeals Reglamento 8599 (deceptive practices, 2015) and Reglamento 7919 (marketing of products with environmental attributes) in its preamble; the earlier Reglamento 7932 (2010) had been repealed by 8599. Status 'in force' is the PDF's own dates; whether it was amended after 2020 was not searched. The text was read as uncorrected OCR output of a scanned official PDF (tesseract spa, 200 dpi or 150 dpi); no text is stored. Link only: the regulation is a scan and row PR-ESTADO-REGULATIONS is permission requested. Spanish only; no government English text was found.",
+    "status": "link only"
+  },
+  {
+    "id": "pr-air-pollution-ghg-reg-8484",
+    "title": "Enmienda a las Reglas 102 y 501 del Reglamento para el Control de la Contaminación Atmosférica (Reglamento Núm. 5300), Reglamento Núm. 8484, Junta de Calidad Ambiental",
+    "official_url": "http://app.estado.gobierno.pr/reglamentosonline/reglamentos/8484.pdf",
+    "citation": "Reglamento Núm. 8484 (Junta de Calidad Ambiental), cover dated 13 de junio de 2014, amending Rules 102 and 501 of Reglamento Núm. 5300",
+    "in_force": null,
+    "evidence": "Departamento de Estado PDF (opened 2026-11-10, read by OCR): index page \"Fecha de Vigencia: Treinta (30) días después de su radicación en el Departamento de Estado\" and cover \"Fecha: 13 de junio de 2014\"; no page states the filing or effective date as a date, so in_force is null.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "PR-ESTADO-REGULATIONS",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a carbon price or greenhouse gas reporting rule (kept under the keep-and-mark rule, Moka 2026-11-10): Air pollution control: the amended Rule 102 defines greenhouse gases (GHG) as the aggregate group of six gases for permit thresholds, and Rule 501 sets a permit fee for GHG measured in CO2e, so that sources affected by greenhouse gases need a Title V permit. It is a permit-threshold and fee rule, not a GHG reporting or carbon price rule; it amends Reglamento 5300, whose full text was not read. The text was read as uncorrected OCR output of a scanned official PDF (tesseract spa, 200 dpi or 150 dpi); no text is stored. Whether a later amendment or replacement exists was not searched. The Junta de Calidad Ambiental and DRNA sites (jca.pr.gov, drna.pr.gov) gave no HTTP answer, so the copy is the Departamento de Estado registry. Link only: row PR-ESTADO-REGULATIONS is permission requested. Spanish only; no government English text was found.",
+    "status": "link only"
+  }
+]
