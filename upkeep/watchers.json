@@ -17367,7 +17367,7 @@
   "source_id": "AW-GOBIERNO-CONSOLIDATED",
   "iso2": "AW",
   "instrument": "*",
-  "kind": "http_head",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gobierno.aw/copyright",
   "change": "terms_changed"
@@ -17377,7 +17377,7 @@
   "source_id": "AW-GOBIERNO-ADOPTED",
   "iso2": "AW",
   "instrument": "*",
-  "kind": "http_head",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gobierno.aw/copyright",
   "change": "terms_changed"
