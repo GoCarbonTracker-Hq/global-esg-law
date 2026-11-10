@@ -1,0 +1,98 @@
+[
+  {
+    "id": "fo-annual-accounts-act",
+    "title": "Løgtingslóg nr. 206 frá 12. desember 2025 um ársroknskap (Ársroknskaparlógin), § 117: report on social responsibility (human rights, social, environmental and climate matters) for large companies",
+    "official_url": "https://www.logir.fo/Logtingslog/203-fra-12-12-2025-um-arsroknskap-Arsroknskaparlogin",
+    "citation": "Løgtingslóg nr. 206 frá 12. desember 2025 um ársroknskap (Ársroknskaparlógin), § 117 and § 203",
+    "in_force": "2026-01-01",
+    "evidence": "§ 203 of the page: \"Hendan løgtingslóg kemur í gildi 1. januar 2026 við virknaði fyri roknskaparár, sum byrja 1. januar 2026 ella seinni.\" § 117 stk. 1: \"Stórar fyritøkur skulu í leiðslufrágreiðingina skoyta upp í eina frágreiðing um samfelagsábyrgd, sbr. stk. 2-8.\" Opened https://www.logir.fo/Logtingslog/203-fra-12-12-2025-um-arsroknskap-Arsroknskaparlogin (status Galdandi) on 2026-11-10.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Whole act stored as the page serves it (it carries Danish-language explanatory notes inside the Faroese text; nothing was removed). The act is not amended in the title, so the stored text is the act as published; it applies to accounting years starting 1 January 2026 or later (§ 203 stk. 1) and ends the Danish royal ordinance nr. 1355/2007 in the Faroes (§ 203 stk. 2; see the register row for that ordinance). The URL on logir.fo says 203 while the page title says nr. 206; the title is used for the citation. § 117 stk. 3 asks for information on the company's climate-impact policy. No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  },
+  {
+    "id": "fo-environmental-protection-act",
+    "title": "Løgtingslóg nr. 134 frá 29. oktober 1988 um umhvørvisvernd, sum seinast broytt við løgtingslóg nr. 168 frá 16. desember 2021 (environmental protection act)",
+    "official_url": "https://logir.fo/ViewLaw.aspx?id=10286",
+    "citation": "Løgtingslóg nr. 134 frá 29. oktober 1988 um umhvørvisvernd",
+    "in_force": null,
+    "evidence": "Page opened 2026-11-10, status Galdandi, issue date 29-10-1988. § 75 reads \"Landsstýrismaðurin ásetir, nær lógin fær gildi.\" (the minister sets the date) and the page prints no date, so the first in-force date is not stated by an official page. Footnote 1 quotes the 2008 amendment: \"Stk. 1. Henda løgtingslóg kemur í gildi dagin eftir, at hon er kunngjørd.\"",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Parent act of the F-gas order (fo-f-gas-order), which cites §§ 7, 8, 34 a-34 d and 72 of it. The page prints no valid-from date for the consolidated text; the record date is 16 December 2021, the date of the last amending act (nr. 168) printed in the title; its own commencement is not printed. The publisher serves only its current text; earlier versions are not served. No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  },
+  {
+    "id": "fo-nature-protection-act",
+    "title": "Løgtingslóg nr. 70 frá 22. mai 2023 um náttúruvernd (Náttúruverndarlógin)",
+    "official_url": "https://logir.fo/Logtingslog/70-fra-22-05-2023-um-natturuvernd",
+    "citation": "Løgtingslóg nr. 70 frá 22. mai 2023 um náttúruvernd (Náttúruverndarlógin)",
+    "in_force": "2024-01-01",
+    "evidence": "§ 47: \"Henda løgtingslógin kemur í gildi 1. januar 2024.\" Page opened 2026-11-10, status Galdandi.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Nature conservation act (species, invasive species, protected areas); kept in F2 as the Faroese environmental framework next to the environmental protection act; it has no emissions or climate duty. The title carries no amendment, so the stored text is the act as published. No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  },
+  {
+    "id": "fo-f-gas-order",
+    "title": "Kunngerð nr. 110 frá 16. oktober 2023 um at minka útlátið av vakstrarhúsgassi, sum inniheldur fluor (F-gasskunngerðin)",
+    "official_url": "https://www.logir.fo/Kunngerd/110-fra-16-10-2023-um-at-minka-utlatid-av-vakstrarhusgassi-sum-inniheldur-fluor",
+    "citation": "Kunngerð nr. 110 frá 16. oktober 2023 um at minka útlátið av vakstrarhúsgassi, sum inniheldur fluor",
+    "in_force": "2023-10-21",
+    "evidence": "§ 25: \"Henda kunngerð kemur í gildi dagin eftir, at hon er kunngjørd.\" The page prints issue date (Útgávudagur) 20-10-2023, so the order took effect 2023-10-21; this date is derived from those two printed items, no page prints it. Status Galdandi, opened 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Made under §§ 7, 8, 34 a-34 d and 72 of løgtingslóg nr. 134/1988 (fo-environmental-protection-act) and the sea environment act nr. 59/2005 (register row). Title carries no amendment, so the stored text is the order as published. The in-force date is derived (issue date 20 October 2023 plus one day). No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  },
+  {
+    "id": "fo-vehicle-registration-tax-act",
+    "title": "Løgtingslóg nr. 33 frá 19. mai 2008 um avgjøld við skráseting av motorakførum, sum seinast broytt við løgtingslóg nr. 137 frá 8. desember 2023 (chapter 3: CO2-avgjald)",
+    "official_url": "https://logir.fo/Logtingslog/33-fra-19-05-2008-um-avgjold-vid-skraseting-av-motorakforum-sum-broytt-vid-logtingslog-nr",
+    "citation": "Løgtingslóg nr. 33 frá 19. mai 2008 um avgjøld við skráseting av motorakførum, kapittul 3 (CO2-avgjald, § 8)",
+    "in_force": "2008-06-01",
+    "evidence": "§ 34: \"Henda løgtingslóg fær gildi 1. juni 2008.\" § 8 stk. 1: \"Fyri skrásetingarskyldug motorakfør verður goldið CO2-avgjald.\" Page opened 2026-11-10, status Galdandi.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than a carbon-pricing family: a vehicle registration tax whose chapter 3 sets a one-off CO2 charge by grams per kilometre at registration; it is not a carbon price on fuel or emissions in general. The same act also carries value and environmental charges on trucks and buses (chapters 2 and 4). The page prints no valid-from date for the consolidated text; the record date is 8 December 2023, the date of the last amending act (nr. 137) printed in the title; its own commencement is not printed. The publisher serves only its current text; earlier versions are not served. No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  },
+  {
+    "id": "fo-marketing-act",
+    "title": "Løgtingslóg nr. 19 frá 8. mai 2008 um marknaðarføring, sum seinast broytt við løgtingslóg nr. 57 frá 2. mai 2022 (marketing act)",
+    "official_url": "https://logir.fo/ViewLaw.aspx?id=18749",
+    "citation": "Løgtingslóg nr. 19 frá 8. mai 2008 um marknaðarføring",
+    "in_force": "2009-01-01",
+    "evidence": "§ 29 stk. 1: \"Lógin kemur í gildi 1. januar 2009.\" Page opened 2026-11-10, status Galdandi.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "FO-LOGIR-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than an environmental-claims rule: a general marketing and consumer-conduct act (misleading and aggressive marketing, Brúkaraumbodið enforces) with no environmental or climate wording found in the text. Kept as the Faroese general misleading-conduct law. Some paragraphs are marked \"ikki sett í gildi\" (not in force) in the text. The page prints no valid-from date for the consolidated text; the record date is 2 May 2022, the date of the last amending act (nr. 57) printed in the title; its own commencement is not printed. The publisher serves only its current text; earlier versions are not served. No official English translation was found: logir.fo's ?lang=en switch changes the interface only (no English law text), and the Kunngerðaportalurin language filter 'Enskt' is a JavaScript search form that was not opened by script.",
+    "status": "stored"
+  }
+]
