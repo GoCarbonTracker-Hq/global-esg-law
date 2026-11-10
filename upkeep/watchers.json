@@ -16599,5 +16599,334 @@
   "params": {
    "second_route": "https://www.eccb-centralbank.org/disclaimer-policy (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200)"
   }
+ },
+ {
+  "id": "mp-environmental-protection-act-pdf",
+  "source_id": "MP-LRC-CONSOLIDATED",
+  "iso2": "MP",
+  "instrument": "mp-environmental-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnmilaw.gov/docs/cmc_section/T2/3111.pdf",
+  "params": {}
+ },
+ {
+  "id": "mp-recycling-act-pdf",
+  "source_id": "MP-LRC-CONSOLIDATED",
+  "iso2": "MP",
+  "instrument": "mp-recycling-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnmilaw.gov/docs/cmc_section/T2/3531.pdf",
+  "params": {}
+ },
+ {
+  "id": "mp-air-pollution-control-regs-pdf",
+  "source_id": "MP-LRC-CONSOLIDATED",
+  "iso2": "MP",
+  "instrument": "mp-air-pollution-control-regs",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnmilaw.gov/docs/admincode/T65/T65-10.pdf",
+  "params": {}
+ },
+ {
+  "id": "mp-consumer-protection-act-pdf",
+  "source_id": "MP-LRC-CONSOLIDATED",
+  "iso2": "MP",
+  "instrument": "mp-consumer-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cnmilaw.gov/docs/cmc_section/T4/5105.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-mp-lrc-consolidated",
+  "source_id": "MP-LRC-CONSOLIDATED",
+  "iso2": "MP",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://cnmilaw.gov/",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "vi-coastal-zone-management-act-page",
+  "source_id": "VI-DPNR-CODECOPY",
+  "iso2": "VI",
+  "instrument": "vi-coastal-zone-management-act",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://dpnr.vi.gov/coastal-zone-management/coastal-zone-management-rules-regs/",
+  "params": {}
+ },
+ {
+  "id": "terms-vi-ltgov-code",
+  "source_id": "VI-LTGOV-CODE",
+  "iso2": "VI",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://compliance.vidol.gov/wp-content/uploads/2023/07/Chapter-11-Workers-Compensation.pdf",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-vi-legvi-adopted",
+  "source_id": "VI-LEGVI-ADOPTED",
+  "iso2": "VI",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://billtracking.legvi.org/",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.legvi.org/ opened in a browser (Cloudflare block page for scripts, answered 403 on 2026-11-10)"
+  }
+ },
+ {
+  "id": "terms-vi-dpnr-codecopy",
+  "source_id": "VI-DPNR-CODECOPY",
+  "iso2": "VI",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://dpnr.vi.gov/fish-and-wildlife/virgin-islands-code/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "nu-environment-act-2015-vol2",
+  "source_id": "NU-GON-CONSOLIDATED",
+  "iso2": "NU",
+  "instrument": "nu-environment-act-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gov.nu/media/pages/information/bfc8b91513-1764012795/niue_laws_vol2_ul2022.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-nu-gon-consolidated",
+  "source_id": "NU-GON-CONSOLIDATED",
+  "iso2": "NU",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.nu/website-terms-of-use/",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "gu-climate-council-act",
+  "source_id": "GU-COL-CONSOLIDATED",
+  "iso2": "GU",
+  "instrument": "gu-climate-council-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://col.guamcourts.gov/sites/default/files/2gc0015.pdf"
+ },
+ {
+  "id": "gu-trade-practices-act",
+  "source_id": "GU-COL-CONSOLIDATED",
+  "iso2": "GU",
+  "instrument": "gu-trade-practices-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://col.guamcourts.gov/sites/default/files/5gc032.pdf"
+ },
+ {
+  "id": "terms-gu-col-website-terms",
+  "source_id": "GU-COL-CONSOLIDATED",
+  "iso2": "GU",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://col.guamcourts.gov/website-terms-use"
+ },
+ {
+  "id": "terms-as-osas-asac",
+  "source_id": "AS-OSAS-ASAC",
+  "iso2": "AS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.osas.as/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-as-asepa-code",
+  "source_id": "AS-ASEPA-CODE",
+  "iso2": "AS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.asepa.gov/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "nf-environment-act-1990-versions",
+  "source_id": "NF-FRL-CONSOLIDATED",
+  "iso2": "NF",
+  "instrument": "nf-environment-act-1990",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2015Q00128'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2015Q00128/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "nf-fair-trading-act-1995-versions",
+  "source_id": "NF-FRL-CONSOLIDATED",
+  "iso2": "NF",
+  "instrument": "nf-fair-trading-act-1995",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://api.prod.legislation.gov.au/v1/versions?$filter=titleId%20eq%20'C2015Q00131'&$select=start&$orderby=start",
+  "params": {
+   "regex": "\"start\":\"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.au/C2015Q00131/latest/versions (browser; the Federal Register of Legislation pages are a JavaScript app)"
+  }
+ },
+ {
+  "id": "terms-nf-frl-consolidated",
+  "source_id": "NF-FRL-CONSOLIDATED",
+  "iso2": "NF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.legislation.gov.au/terms-of-use",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.legislation.gov.au/terms-of-use (browser; the page holds the CC BY 4.0 sentence quoted in terms_quote)"
+  }
+ },
+ {
+  "id": "ck-environment-act-2003-page",
+  "source_id": "CK-PARLIAMENT-CONSOLIDATED",
+  "iso2": "CK",
+  "instrument": "ck-environment-act-2003",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.ENVIRO",
+  "params": {
+   "second_route": "https://cookislandslaws.gov.ck/ (browser; Act list and Consolidation as at date on the home page)"
+  }
+ },
+ {
+  "id": "ck-fair-trading-act-2008-page",
+  "source_id": "CK-PARLIAMENT-CONSOLIDATED",
+  "iso2": "CK",
+  "instrument": "ck-fair-trading-act-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.FTA",
+  "params": {
+   "second_route": "https://cookislandslaws.gov.ck/ (browser; Act list and Consolidation as at date on the home page)"
+  }
+ },
+ {
+  "id": "ck-consumer-guarantees-act-2008-page",
+  "source_id": "CK-PARLIAMENT-CONSOLIDATED",
+  "iso2": "CK",
+  "instrument": "ck-consumer-guarantees-act-2008",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.CGA",
+  "params": {
+   "second_route": "https://cookislandslaws.gov.ck/ (browser; Act list and Consolidation as at date on the home page)"
+  }
+ },
+ {
+  "id": "ck-environment-act-2026-page",
+  "source_id": "CK-PARLIAMENT-CONSOLIDATED",
+  "iso2": "CK",
+  "instrument": "ck-environment-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://cookislandslaws.gov.ck/api/show_pdf_lawsaspublished/2220",
+  "params": {
+   "second_route": "https://cookislandslaws.gov.ck/ (browser; Laws as Made tab, Environment Act 2026 No 11, and the consolidated Environment Act 2003 for a repeal)"
+  }
+ },
+ {
+  "id": "terms-ck-parliament-consolidated",
+  "source_id": "CK-PARLIAMENT-CONSOLIDATED",
+  "iso2": "CK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://cookislandslaws.gov.ck/api/retrieve_disclaimer",
+  "params": {
+   "second_route": "https://cookislandslaws.gov.ck/#/Disclaimer (browser)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "pr-climate-change-act-pdf",
+  "source_id": "PR-OGP-CONSOLIDATED",
+  "iso2": "PR",
+  "instrument": "pr-climate-change-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/33-2019.pdf",
+  "params": {}
+ },
+ {
+  "id": "pr-daco-organic-act-pdf",
+  "source_id": "PR-OGP-CONSOLIDATED",
+  "iso2": "PR",
+  "instrument": "pr-daco-organic-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/5-1973.pdf",
+  "params": {}
+ },
+ {
+  "id": "pr-daco-commercial-practices-reg-pdf",
+  "source_id": "PR-ESTADO-REGULATIONS",
+  "iso2": "PR",
+  "instrument": "pr-daco-commercial-practices-reg",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "http://app.estado.gobierno.pr/reglamentosonline/reglamentos/9158.pdf",
+  "params": {}
+ },
+ {
+  "id": "pr-air-pollution-ghg-reg-8484-pdf",
+  "source_id": "PR-ESTADO-REGULATIONS",
+  "iso2": "PR",
+  "instrument": "pr-air-pollution-ghg-reg-8484",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "http://app.estado.gobierno.pr/reglamentosonline/reglamentos/8484.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-pr-osl-adopted",
+  "source_id": "PR-OSL-ADOPTED",
+  "iso2": "PR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.oslpr.org/advertencias-legales",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-pr-estado-adopted",
+  "source_id": "PR-ESTADO-ADOPTED",
+  "iso2": "PR",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.statedepartment.pr.gov/laws-of-puerto-rico",
+  "params": {},
+  "change": "terms_changed"
  }
 ]

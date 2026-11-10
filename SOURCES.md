@@ -11117,3 +11117,339 @@ Banking Act (Cap. 11.03), Securities Act (Cap. 11.01), Financial Services Commis
 ### Blocked
 
 https://www.eccb-centralbank.org/ answered `403` to `curl -A 'Mozilla/5.0'`; a Chrome-style User-Agent gets `200`. https://www.fscmontserrat.org/ and /legislations/ answered `406` (Mod_Security "Not Acceptable!") to `curl -A 'Mozilla/5.0'` and `200` to the Chrome-style User-Agent; no row, the Commission's guidance is anti-money-laundering only. https://www.ecsrc.com/ answered `500` to both; no climate or ESG rule was found, no row. https://www.gov.ms/ and its terms paths answered `500`.
+
+## Tokelau
+
+Row `TK-GOVTOKELAU-ADOPTED` is `permission requested`: nothing is stored and `register/TK/scope.json` is empty. No official publisher of the Rules of Tokelau was found on 2026-11-10. `tokelau.org.nz` (Government of Tokelau) has no legislation page, terms page or copyright page; the three it might have (`/Government/Legislation.html`, `/Site+Information/Copyright.html`, `/Site+Information/Disclaimer.html`) answer 200 with a "Page not found" body, and `/websitemap.html` lists none. Its only notice is the home page footer, "Copyright On-Going Government of Tokelau. All Rights Reserved.", which covers the site and says nothing on legislation. The rules named in the register (Biosecurity Rules 2003, Marine Pollution Rules 1998, Health Rules 2003, Marine Pollution Regulations 1990) were read only as UN FAOLEX copies, which are not official and are never a source; the other rules and the two NZ Acts are register rows from search results.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o home.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.tokelau.org.nz/"
+```
+
+Returned `200 42176 text/html; charset=iso-8859-1`; the footer notice above is in it.
+
+```
+curl -sL -A "Mozilla/5.0" -o p.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.tokelau.org.nz/Government/Legislation.html"
+```
+
+Returned `200 22202 text/html; charset=iso-8859-1`, a soft 404.
+
+Blocked from the laptop address, not bypassed: `https://paclii.org/tk/legis/` answers `403 5353 text/html` (Cloudflare; also with headless Chrome, and `pacliirms.paclii.org`, `www.nzlii.org/nz/legis/consol_act/ta194899`, `library.sprep.org/.../sprep-legislative-review-tokelau.pdf`); `https://legislation.govt.nz/act/public/1948/24/en/latest/` answers `202` with an empty body and a WAF challenge; `pacliirms.austlii.edu.au` gave no connection.
+
+### Languages
+
+Tokelauan and English; the General Fono decisions on `tokelau.org.nz` are offered in both, and every rule text opened (UN copies) is English. No language source row: nothing is stored.
+
+### Link-only instruments
+
+None in scope. All register rows for Tokelau are register rows only: the rules have no official page, and the Tokelau Act 1948 and Amendment Act 1996 are parent-state (NZ) instruments, which are register rows only by Varun's ruling of 2026-11-10.
+
+## Northern Mariana Islands
+
+Row `MP-LRC-CONSOLIDATED`, `permission requested` (terms basis; the statute check found no exception). It is the only row: the Commonwealth Code, the NMIAC and the Public Laws all come from the CNMI Law Revision Commission (https://cnmilaw.gov/) under one footer notice. No row passes, so nothing is stored and no record fetch is proven for storage. Run on 2026-11-10. The requests below were run only to read titles, source notes and Commission Comments for the scope entries.
+
+Statute check: the Commonwealth Code has no copyright statute (site search for "copyright" returns only 6 CMC 2301, customs contraband) and 1 CMC 3801-3810 hold no reproduction clause. 17 U.S.C. s.105(a) (https://www.copyright.gov/title17/title17.pdf) covers works of the United States Government only, and a CNMI Act is not one, so no statute pass is written.
+
+Home page (the footer disclaimer is the only legal text) and the terms pages:
+
+```
+curl -sL -A 'Mozilla/5.0' -o home.html -w '%{http_code} %{size_download} %{content_type}\n' https://cnmilaw.gov/
+```
+
+Returned `200 43874 text/html; charset=utf-8`. `/terms`, `/privacy`, `/disclaimer` and `/copyright` each answered HTTP 404.
+
+One CMC section PDF (text layer, plain curl works):
+
+```
+curl -sL -A 'Mozilla/5.0' -o 3531.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cnmilaw.gov/docs/cmc_section/T2/3531.pdf
+pdftotext -layout 3531.pdf -
+```
+
+Returned `200 22393 application/pdf`. Other proven requests: `T2/3111.pdf` 12344 bytes, `T4/5105.pdf` 70958 bytes, `T4/8522.pdf` 62926 bytes, all `200 application/pdf`; NMIAC `https://cnmilaw.gov/docs/admincode/T65/T65-10.pdf` `200 433961 application/pdf` (sha256 e491563c24aa823e74ddeacf4710f7d142f68f665883ada90f5321dc8b9f3f87); Public Law `https://cnmilaw.gov/docs/public_laws/06/pl06-46.pdf` `200 2907330` (scanned image with an OCR text layer).
+
+### Languages
+
+English only. No Chamorro or Carolinian text and no government translation was seen on cnmilaw.gov; the official-language status of those languages was not read.
+
+### Link-only instruments
+
+All four scope entries (`mp-environmental-protection-act`, `mp-recycling-act`, `mp-air-pollution-control-regs`, `mp-consumer-protection-act`) are link only because row `MP-LRC-CONSOLIDATED` is permission requested. https://cnmileg.net/ (Legislature, bill texts) gave no answer from the laptop address (curl exit 000 at 15, 30 and 60 seconds), so bills could not be opened.
+
+## US Virgin Islands
+
+Rows `VI-LTGOV-CODE`, `VI-LEGVI-ADOPTED` and `VI-DPNR-CODECOPY`, all `permission requested`. No row passes, so nothing is stored and no record fetch is proven for storage. The requests below were run on 2026-11-10 from the laptop address with `curl -sL -A 'Mozilla/5.0'`, only to read terms notices, the effective date and titles. The territory has its own legislature and Code (Virgin Islands Code Annotated, V.I.C.); no climate or disclosure instrument (F1) was found.
+
+Terms notice, Lieutenant Governor copyright (PDF, text layer; `pdftotext -layout` prints the notice on every page):
+
+```
+curl -sL -A 'Mozilla/5.0' -o ch11.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://compliance.vidol.gov/wp-content/uploads/2023/07/Chapter-11-Workers-Compensation.pdf
+```
+
+Returned `200 1000636 application/pdf` (sha256 d97e716457681770edae698e5cc137d3a20708f7b997ddb0f4a0ccfdc867b5fb).
+
+Coastal Zone Management Act (12 V.I.C. ch.21), DPNR copy, HTML with section text and the history note holding the effective date:
+
+```
+curl -sL -A 'Mozilla/5.0' -o cz.html -w '%{http_code} %{size_download} %{content_type}\n' https://dpnr.vi.gov/coastal-zone-management/coastal-zone-management-rules-regs/
+```
+
+Returned `200 617449 text/html; charset=UTF-8`. A second fetch gave the same bytes (sha256 begins 46b03b5806e371f5), so the page hash is a usable watcher signal.
+
+Blocked from the laptop address: `https://www.legvi.org/` answers `403 4544 text/html` (Cloudflare "Sorry, you have been blocked"); /vi-code/, /vicode, /terms, /disclaimer and /robots.txt answered 403 on the research day. Headless Chrome got the same block page. Not bypassed. The LexisNexis public Code (`advance.lexis.com`, publictoc) is a JavaScript app that curl cannot read and its terms reserve all rights; it is not a source row.
+
+Link-only instruments and reasons: `vi-coastal-zone-management-act` (row `VI-DPNR-CODECOPY` is permission requested; the DPNR host states no reuse terms and calls its Code copies unofficial). Every other instrument is a register row only: the Consumer Code chapters, Act 7075 of 2009 and the F7 chapters were not opened as text on an official page; the federal rows are parent-state instruments (register rows only, with the provision that applies each to the territory in `notes`).
+
+### Languages
+
+English only. Every Virgin Islands page and instrument opened is in English; no second official language and no government translation was seen, so there is no translation row.
+
+## Niue
+
+Checked 2026-11-10. Row `NU-GON-CONSOLIDATED` is `permission requested` (terms basis; the statute check found no exception). It is the only row: the Niue Laws volumes, the Tables, the 2021-2024 Supplement, the single Acts and the Gazette page all sit on the Government of Niue site under one set of site terms. No row passes, so nothing is stored and no record fetch is proven for storage. The requests below were run only to read the terms and the text of the instruments behind the scope entry and the register rows.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| NU-GON-CONSOLIDATED | permission requested | The site terms allow use "for your own non-commercial purposes" and bar other use, modification, reproduction or distribution "without GON permission in writing". Non-commercial use only is not pass. |
+
+Statute check: Niue has no copyright Act of its own (the Tables of Acts in force list none). Niue Act 1966 (1966/38 NZ) s.737(1), in Niue Laws Vol 3, applies New Zealand copyright law "for the time being in force". The New Zealand Copyright Act 1994 and its s.27 were not read: legislation.govt.nz answers scripts with HTTP 202, an empty body and a WAF challenge (`x-amzn-waf-action: challenge`), and was not bypassed. No statute pass is written.
+
+### Proven requests
+
+Terms of the site (decides NU-GON-CONSOLIDATED; 200, 25704 bytes, text/html; the page text hashes to the row's `terms_fingerprint`):
+
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/website-terms-of-use/"
+
+Environment Act 2015 (Niue Laws Vol 2, consolidated as at 31 December 2019; 200, 4479554 bytes, application/pdf, sha256 456115c9eaaa430c4975e4d8c99804f71f1e9a60e83ff5d91f3b836fee77dd9c). Text layer present, 576 pages; `pdftotext -layout` gives clean text, checked for mojibake on ss.2, 38 and 51:
+
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/media/pages/information/bfc8b91513-1764012795/niue_laws_vol2_ul2022.pdf" -o vol2.pdf
+    pdftotext -layout vol2.pdf -
+
+Niue Act 1966 s.737 (Niue Laws Vol 3; 200, 5209676 bytes, application/pdf, sha256 017fb467344ddce21ea803b60029beba4332ac5927b402f85f688e2cf5700dcb):
+
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/media/pages/information/e9850be131-1764012761/niue_laws_vol3_ul2022.pdf"
+
+Tables of Acts in force (200, 578897 bytes, application/pdf, sha256 729254ad86b73294daf631c6a6160660db52a7c6919be0fa009583a882fd011c) and the 2021-2024 Supplement part 1 (200, 326250 bytes, application/pdf):
+
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/media/pages/information/65615c113a-1764012763/niue_legislation_tables_ul2022.pdf"
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/media/pages/information/51f88605f2-1779840449/niue-legislation-supplement-2021-2024-part-1.pdf"
+
+Gazette page (200, 154991 bytes, text/html) and the information page that links the PDFs (200, 83987 bytes, text/html):
+
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/gazette"
+    curl -sL -A "Mozilla/5.0" "https://www.gov.nu/information/"
+
+### Languages
+
+English only. Every Act opened is in English. The Vagahau Niue Act 2012 (Act 321) is on gov.nu, but no Niuean text of any scope instrument was found. No translation source applies.
+
+### Link-only instruments
+
+| Instrument | Reason |
+|---|---|
+| nu-environment-act-2015 | NU-GON-CONSOLIDATED, permission requested; no request sent to GON |
+
+The other Niue instruments in register/register.csv (Environment Regulations, Ozone Layer Protection Regulations, Plastic Shopping Bags Order, Water Act, Departure Tax and Consumption Tax Acts, Companies Act) are F7 register rows with no scope entry. The New Zealand Niue Act 1966 s.737 and Copyright Act 1994 are parent-state register rows only. Single Acts 382 and 386 on gov.nu have no text layer and were not read.
+
+### Blocked
+
+`https://www.legislation.govt.nz/act/public/1994/143/en/latest/` and `/latest/whole.html`: HTTP 202, empty body, `x-amzn-waf-action: challenge`; headless Chrome got a human-check page; not bypassed. `https://www.paclii.org/nu/` and `https://www.nzlii.org`: 403 (not official; search only). `www.environment.gov.nu`, `climatechange.gov.nu` and `crownlaw.gov.nu`: no HTTP answer. `https://www.gov.nu/robots.txt`: 404.
+
+## Guam
+
+Row `GU-COL-CONSOLIDATED`, `permission requested`. Nothing is stored; both scope instruments are link only. Run on 2026-11-10.
+
+The Compiler of Laws of the Judiciary of Guam (https://col.guamcourts.gov/, "Official Publisher of Guam Law") serves the Guam Code Annotated as one consolidated PDF per chapter with a text layer and a "COL <date>" stamp in the footer; the GCA index says "Updated through P.L. 38-143 (Oct. 13, 2026)". No point-in-time versions are served. The terms page (`/website-terms-use`) says "COPYRIGHT: All text, images, and content on this website are protected by U.S. and International copyright laws." and grants no reuse; the footer reads "© Copyright, All Rights Reserved."; the chapter PDFs carry no notice. 1 GCA s.1607 lets the government of Guam copyright the Compiler's work product and keeps its rights to the form or structure of the laws; no section frees the text, so the statute exception is "none found". 17 U.S.C. s.105 covers works of the United States Government only and is not relied on. The requests below were run only to read the pages and verify the instruments; no recipe is proven for storing text.
+
+Terms page (`terms_fingerprint` 57951b1e...9345, identical on two fetches; raw-body sha256 c786865b...96d3 identical too, so the `terms-gu-col-website-terms` page_hash watcher is stable):
+
+```
+curl -sL -A "Mozilla/5.0" -o terms.html -w '%{http_code} %{size_download} %{content_type}\n' https://col.guamcourts.gov/website-terms-use
+```
+
+-> `200 102680 text/html; charset=UTF-8`.
+
+Guam Climate Change Preparedness and Resiliency Act (2 GCA ch.15):
+
+```
+curl -sL -A "Mozilla/5.0" -o 2gc0015.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://col.guamcourts.gov/sites/default/files/2gc0015.pdf
+pdftotext -layout 2gc0015.pdf 2gc0015.txt
+```
+
+-> `200 91028 application/pdf` (sha256 c0950ec9...3bda); `pdftotext -layout` gave a clean text layer of 9492 bytes, footer stamp `COL9222017`. A HEAD request returns `last-modified: Tue, 14 Apr 2026 19:42:46 GMT`, which the `http_head` watcher uses.
+
+Trade Practices and Consumer Protection (5 GCA ch.32):
+
+```
+curl -sL -A "Mozilla/5.0" -o 5gc032.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://col.guamcourts.gov/sites/default/files/5gc032.pdf
+```
+
+-> `200 423155 application/pdf` (sha256 b411980c...4f4e), stamp `COL10/29/2021`, HEAD `last-modified: Tue, 14 Apr 2026 20:05:32 GMT`.
+
+Other pages read (all HTTP 200 with `curl -sL -A "Mozilla/5.0"`): `/legal-publications/guam-code-annotated`, `/guam-administrative-rules-regulations/guam-administrative-rules-and-regulations`, `/disclaimer`, `/privacy-policy`; chapter PDFs under `https://col.guamcourts.gov/sites/default/files/`: `1gc016.pdf` (158139 bytes, source of s.1607), `1gc001.pdf` (196397, s.102), `01gc007.pdf` (219372, 1 GCA ch.7 with s.706 and s.707), `12gc008.pdf` (558118), `22gc046.pdf` (342859), `10gc045_2026-10-26.pdf` (197922), `10gc049.pdf` (216697), `10gc054b.pdf` (201873), `10gc044.pdf` (157013), `10gc047_0.pdf` (193770), `10gc033.pdf` (110846), `10gc051_Q.pdf` (446299), `10gc054.pdf` (89738), `10gc032.pdf` (209442), `21gc063.pdf` (119723), `5gc070.pdf` (108706), all `application/pdf` with a text layer. The Guam Legislature bill history for P.L. 34-17 (`https://archives.guamlegislature.gov/Public%20Laws/Public_Laws_34th/P.L.%20No.%2034-17.pdf`, 1485170 bytes) shows "LAPSED INTO LAW" 6/8/17; it is a bill history and not the law text.
+
+### Languages
+
+English and Chamorro are official (1 GCA s.706: "English and Chamorro are the official languages of Guam, provided, however, that the Chamorro language shall not be required for official recording of public acts and transactions."); s.707: "Wherever there is found to exist a material difference between the English version and Chamorro version of any law or public document, the English version shall be held to be binding." Every instrument opened is in English only. The Compiler's site has a page-translation menu; no Chamorro text of any law was seen. No translation row.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Guam Climate Change Preparedness and Resiliency Act (2 GCA ch.15) | https://col.guamcourts.gov/sites/default/files/2gc0015.pdf | GU-COL-CONSOLIDATED, permission requested. `in_force` 2017-06-08 is the day P.L. 34-17 lapsed into law. Narrower: advisory council only. |
+| Trade Practices and Consumer Protection (5 GCA ch.32) | https://col.guamcourts.gov/sites/default/files/5gc032.pdf | GU-COL-CONSOLIDATED, permission requested. `in_force` null: the source note gives the public law date (May 10, 1991), no page states the effective date. Narrower: no environmental wording. |
+
+Register-only (no scope entry): Renewable Portfolio Standards (12 GCA s.8311, a goal for the Guam Power Authority with no price or reporting duty); Uniform Securities Act (22 GCA ch.46) and Banking and Insurance chapters (11 GCA ch.103, ch.106), no sustainability wording; F7 environment chapters (10 GCA ch.32, 33, 44, 45, 47, 49, 51, 54, 54B; 21 GCA ch.63; 5 GCA ch.70); Title 22 GAR (table of contents only). No carbon tax, carbon market or greenhouse gas reporting rule was found in the chapters read. United States instruments that apply to Guam, register rows only and never stored under a Guam row: Clean Air Act (42 U.S.C. 7602(d)), EPA Greenhouse Gas Reporting Program (40 CFR 98.6), the 2024 SEC climate rules (15 U.S.C. 78c(a)(16); status not checked) and the FTC Green Guides (16 CFR 260.1, 15 U.S.C. 44). No Guam securities, banking or insurance regulator page with law texts and no stock exchange was found: dbi.guam.gov, revtax.guam.gov, dist.guam.gov, dribanking.guam.gov, dnrt.guam.gov, dric.guam.gov, gpuc.guam.gov and guamstockexchange.com gave no connection (guesses, not links from an official page).
+
+## Norfolk Island
+
+Fetched 2026-11-10 (GEL-25-09). Nothing was blocked from the laptop address for the Register API; the Register's own pages answered 200 (see Blocked below for the ones that did not).
+
+Row `NF-FRL-CONSOLIDATED` (Federal Register of Legislation, CC BY 4.0, ruling Varun 2026-11-10 for Norfolk Island continued laws). Norfolk Island's own laws are the "continued laws" (Acts and regulations of the former Legislative Assembly, collection `ContinuedLaw` in the Register) and Ordinances of the Governor-General. The recipe is the one in `## Australia`: the Register API at `https://api.prod.legislation.gov.au/v1/`, EPUB per dated compilation, XHTML files in spine order, tags stripped, block elements as line breaks, cells tab-separated. What differs from `## Australia`:
+
+- Continued laws have no true as-made text. The `AsMade` request answers 200 (Environment Act 1990, `C2015Q00128`: 57004 bytes) but returns a reprint "Consolidated as at 20 February 2006" that prints a Legislative Counsel permission notice (`NF-FRL-CONSOLIDATED` notes), so as-made files are not stored.
+- A `/versions` listing can hold a zero-length entry (Environment Act: `start` and `end` both 2015-06-18, compilation 0) next to a real version with the same `start`; the dated request returns the real version. Compilations are numbered from 1 and some listings show `compilationNumber` null for the first.
+- The terms page `https://www.legislation.gov.au/terms-of-use` now answers a plain `curl` with the server-rendered text (HTTP 200, 50831 bytes), unlike the 2026-11-02 reading; headless Chrome gave the same text hash.
+- Compilation texts print "Compilation No." and "Compilation date:" on the cover; the date matches the `start` of its listing entry for every stored record.
+
+Proven request, Environment Act 1990 (NI), compilation 2 (`start` 2018-03-10):
+
+```
+curl -sS -L -A 'Mozilla/5.0' -o ea_20180310.epub -w '%{http_code} %{size_download} %{content_type}\n' "https://api.prod.legislation.gov.au/v1/documents/find(titleId='C2015Q00128',asAt=2018-03-10T00:00:00Z,type='Primary',format='Epub',uniqueTypeNumber=0,volumeNumber=0,rectificationVersionNumber=0)"
+```
+
+Returned `200 75797 application/epub+zip`. A second fetch gave the same bytes (same sha256 `4b5f3628294df1b004bf...`) and the same extracted text, unlike the Climate Change Act EPUB in `## Australia`, whose bytes changed between fetches. Version list:
+
+```
+curl -sS -A 'Mozilla/5.0' -o versions.json -w '%{http_code} %{size_download} %{content_type}\n' "https://api.prod.legislation.gov.au/v1/versions?\$filter=titleId%20eq%20'C2015Q00128'&\$orderby=start"
+```
+
+Returned `200` with JSON (`application/json; odata.metadata=minimal; odata.streaming=true; charset=utf-8`), five entries: 2015-06-18 (compilation 0, zero length), 2015-06-18, 2018-03-10, 2018-09-29, 2019-08-13. Fair Trading Act 1995 (`C2015Q00131`): 2015-06-18 (as made, not stored) and 2018-09-29.
+
+`fetched_sha256` is the hash of the EPUB as received. Text extraction: nothing reworded, whitespace-only lines dropped, non-breaking spaces left as returned.
+
+### Languages
+
+English only. The Norfolk Island Language (Norf'k) Act 2004 (NI) s 4 recognises Norf'k and s 5(1) says it "when used in official communications must always be accompanied by an accurate translation in the English language"; every continued law opened is in English and the Register serves no Norf'k text. No translation row.
+
+### Stored
+
+| Instrument | Row | Records | Compilation dates stored |
+|---|---|---|---|
+| `nf-environment-act-1990` | consolidated | 4 | 2015-06-18, 2018-03-10, 2018-09-29, 2019-08-13 |
+| `nf-fair-trading-act-1995` | consolidated | 1 | 2018-09-29 |
+
+### Link only
+
+None of the scope instruments is link only. Register rows without text: the Commonwealth Acts that extend to Norfolk Island (NGER Act s 6, Climate Change Act s 7, EPBC Act s 5(1), Competition and Consumer Act and Corporations Act and ASIC Act through their definitions of Territory) are parent-state instruments and are never stored under this row; the continued laws with no sustainability, climate or ESG provision (Companies Act 1985, Waste Management Act 2003, Planning, Heritage, Public Reserves, National Park, Trees, Electricity Supply, Environment Regulations, Fuel Levy, Water Assurance and others) are F7 register rows. Not stored although in scope: the 2015-06-18 version of the Fair Trading Act 1995 (NI), which prints the Legislative Counsel permission notice.
+
+### Blocked
+
+26 continued-law PDFs answered HTTP 403 on the Register in the research run and were not searched; none of them was needed. `https://www.nirc.gov.au/` answers `curl` with 403 (a council site, not a law publisher) and `https://www.infrastructure.gov.au/` gave no answer in 40 s, twice.
+
+## Cook Islands
+
+Row `CK-PARLIAMENT-CONSOLIDATED` (`pass`, statute: Cook Islands Copyright Act 2013 s.7(2)(b), ruling 2026-11-10 by Varun). Run on 2026-11-10.
+
+The Laws of the Cook Islands portal (https://cookislandslaws.gov.ck/, Parliament and Crown Law Office) is an Angular app over a JSON API, found in the site's main.js. The portal states no reuse licence and its footer reads "Copyright © 2026 Cook Islands Parliament"; the pass rests on the Cook Islands' own Copyright Act 2013 (see the row). The home page, rendered in headless Chrome, says "Consolidation as at 1 December 2025. For laws passed since 1 December 2025, refer to the Laws as Made tab." That date is the `in_force` of every consolidated record, because the PDFs do not print it.
+
+Consolidated text, one named law (Environment Act 2003 No 22; the same file holds its subsidiary instruments):
+
+```
+curl -sL -A 'Mozilla/5.0' -o enviro.json -w '%{http_code} %{size_download} %{content_type}\n' https://cookislandslaws.gov.ck/api/download_pdf_consolidated_law/LOCI.ENVIRO
+```
+
+Returned `200 2386949 application/json`. Other named laws, same pattern: `LOCI.FTA` (Fair Trading Act 2008) `200 154482 application/json`, `LOCI.CGA` (Consumer Guarantees Act 2008) `200 128398 application/json`, `LOCI.COPYA` (Copyright Act 2013) `200 351392 application/json`. The `LegalId` of an Act is not listed anywhere but the site's Act list (`https://cookislandslaws.gov.ck/api/retrieve_all_act`).
+
+Record text: the body is JSON with `pdf_file` (base64) and `pdf_name`; decode `pdf_file` to the PDF, run `pdftotext -layout file.pdf -`, form feeds to line breaks, runs of spaces and tabs collapsed to one space, each line trimmed, runs of blank lines collapsed to one, nothing reworded. Checked for mojibake: the only non-ASCII characters are curly apostrophes, en dashes and Maori macron vowels in the headings. `fetched_url` is the API URL and `fetched_sha256` the sha256 of the response body: two fetches of each of LOCI.ENVIRO, LOCI.FTA, LOCI.CGA and LOCI.COPYA gave the same hash, so the body hash is reproducible. The PDF is generated by Ghostscript 9.50 from 2024.
+
+Laws as Made (scanned, no text layer; `pdftotext` returns no words): `curl -sL -A 'Mozilla/5.0' -o ea2026.json -w '%{http_code} %{size_download} %{content_type}\n' https://cookislandslaws.gov.ck/api/show_pdf_lawsaspublished/2220` returned `200 5176500 application/json` (JSON with `PDFFile` base64, 89 pages; two fetches gave the same hash). Read with `pdftoppm -r 200 -png` and `tesseract -l eng`. Not stored: no commencement date is printed (see Link only).
+
+### Languages
+
+English only. English and Cook Islands Maori are the official languages and the portal has a `maori_tree_structure_lawsaspublished` endpoint, but no Maori text was found for the instruments in scope. No translation source; no row for one.
+
+### Link only
+
+- `ck-environment-act-2026`: row `CK-PARLIAMENT-CONSOLIDATED` passes, but the portal serves only a scanned Law as Made (OCR needed) and s.2 says the Act "comes into force on a date or dates to be set by Order in Executive Council"; no Order or official page with a date was found, so `in_force` is null and nothing is stored.
+
+### Not blocked
+
+Every host in the brief answered curl except those that never connected (see the report). The Parliament Acts Library and the Financial Supervisory Commission site were not used for stored text.
+
+## Puerto Rico
+
+Rows `PR-ESTADO-ADOPTED`, `PR-ESTADO-REGULATIONS`, `PR-OGP-CONSOLIDATED` and `PR-OSL-ADOPTED`, all `permission requested` (terms basis; the statute check found no exception). No row passes, so nothing is stored and no record fetch is proven for storage. Run on 2026-11-10. The requests below were run only to read titles, dates and commencement lines for the scope entries.
+
+Statute check: Ley 55-2012 (Derechos Morales de Autor) says "En Puerto Rico aplica el 'Copyright Act' de 1976" for the economic rights and covers moral rights only; Codigo Civil 2020 art. 53 says intellectual property rights "se rigen por la ley vigente en Puerto Rico". Neither says laws are free of copyright, and 17 U.S.C. s.105 covers works of the United States Government only and is not applied. Both OGP copies were opened (HTTP 200, 406947 and 3719050 bytes, application/pdf).
+
+Consolidated law (OGP), the Spanish text of Ley 33-2019 with a text layer:
+
+```
+curl -sL -A 'Mozilla/5.0' -o 33-2019.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://bvirtualogp.pr.gov/ogp/Bvirtual/leyesreferencia/PDF/33-2019.pdf
+```
+
+Returned `200 529383 application/pdf` (sha256 `ab9269af5fd623ae9b2c6babf50de3dbcbbc0e58aa367106b94c05a8da21e54c`; `pdftotext -layout`, no mojibake). The same host serves `5-1973.pdf`, `17-2019.pdf`, `51-2022.pdf`, `60-1963.pdf`, `LeyesOrganicas/pdf/416-2004.pdf` and `Ambientales/70-1992/70-1992.pdf` (all 200, text layer). The site root `https://bvirtualogp.pr.gov/` answers 404; the law list is a SharePoint page loaded by script.
+
+Regulations (Departamento de Estado registry), no text layer:
+
+```
+curl -sL -A 'Mozilla/5.0' -o 9158.pdf -w '%{http_code} %{size_download} %{content_type}\n' http://app.estado.gobierno.pr/reglamentosonline/reglamentos/9158.pdf
+```
+
+Returned `200 20982731 application/pdf` (78 pages, scanned, `pdftotext` returns nothing; odd pages are rotated 180 degrees). Read for scope entries with `pdftoppm -r 150 -png`, `sips -r 180` on the rotated pages and `tesseract <page> stdout -l spa`; the effective-date page was also read as an image. The same pattern gave `8484.pdf` (`200 813752 application/pdf`, 19 pages), `8599.pdf` (`200 2226368`, 36 pages) and `7932.pdf` (`200 1496020`, 36 pages), all scans. The directory `http://app.estado.gobierno.pr/reglamentosonline/` answers 403; the search page `http://app.estado.gobierno.pr/ReglamentosOnLine/ReglOnLine.aspx` answers 200.
+
+Enacted laws (Departamento de Estado library): `https://bibliotecavirtual.estado.pr.gov/` answers `200 689 text/html`, a JavaScript shell; headless Chrome renders it:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --virtual-time-budget=15000 --dump-dom https://bibliotecavirtual.estado.pr.gov/
+```
+
+The DOM (80907 bytes) lists Acts newest first (2026) with links such as `https://aqcheckin.s3.amazonaws.com/static/documents/2026/213.pdf`; its note says "Las leyes disponibles son del año 2010 al año 2023". `.../2020/147.pdf` and `.../2021/3.pdf` answer 200 as scans without a text layer; `.../2019/33.pdf` answers 403 XML (guessed path).
+
+### Languages
+
+Spanish is the enacting language and the language of every text read. English: OGP serves some enrolled Acts under `/PDF/2-ingles/` (`0033-2019.pdf`, `0017-2019.pdf`, `0273-2012.pdf`, all 200, text layer), which are the Acts as approved and do not reflect later amendments; they are not translations of the consolidated text and carry no row of their own. The Oficina de Servicios Legislativos translates laws on request only (https://www.oslpr.org/traduccion-de-leyes-de-puerto-rico lists none). No government English text of Ley 5-1973, Reglamento 9158 or Reglamento 8484 was found.
+
+### Link-only instruments
+
+All four scope instruments are link only. `pr-climate-change-act` and `pr-daco-organic-act` are served by `PR-OGP-CONSOLIDATED`: the PDFs are an unofficial compilation with no reuse terms. `pr-daco-commercial-practices-reg` and `pr-air-pollution-ghg-reg-8484` are served by `PR-ESTADO-REGULATIONS`: scanned PDFs with no terms on the registry. The OSL terms (`PR-OSL-ADOPTED`) retain all intellectual property rights and require express permission; the Departamento de Estado library (`PR-ESTADO-ADOPTED`) has no terms page. Written permission from the Departamento de Estado, OGP and OSL is needed before any text is stored.
+
+### Register-row-only instruments
+
+Ley Uniforme de Valores (Ley 60-1963), International Financial Center Regulatory Act (Act 273-2012), Ley de Politica Publica Energetica (Ley 17-2019), Ley para Prohibir el Expendio y Utilizacion de Plasticos de un Solo Uso (Ley 51-2022), Ley sobre Politica Publica Ambiental (Ley 416-2004) and Ley para la Reduccion y el Reciclaje de Desperdicios Solidos (Ley 70-1992), family F7. Parent-state rows, register only: 40 CFR Part 98 (EPA Greenhouse Gas Reporting Program) and 16 CFR Part 260 (FTC Green Guides). Not reached: Ley 82-2010 and Ley 83-2010 (no official copy opened) and Reglamento 8858 (no official copy opened).
+
+### Blocked
+
+https://www.drna.pr.gov/, https://drna.pr.gov/, https://jca.pr.gov/ and the drna.pr.gov regulation PDFs gave no HTTP answer to `curl -sL -A 'Mozilla/5.0' --max-time 20` (exit 28, code 000). https://bvirtualogp.pr.gov/ answers 404 at the root. https://www.estado.pr.gov/terminos-y-condiciones, /terminos-de-uso, /politica-de-privacidad and https://www.ocif.pr.gov/avisos-publicos answer 404. http://app.estado.gobierno.pr/reglamentosonline/ answers 403.
+
+## American Samoa
+
+Rows `AS-OSAS-ASAC` and `AS-ASEPA-CODE` are `permission requested`: nothing is stored and `register/AS/scope.json` is empty. Section written by Moka on 2026-11-10 from the place report and the licence rows (the place agent staged no section).
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o osas.html -w "%{http_code} %{size_download}\n" "https://www.osas.as/"
+```
+
+Returned `200 1281797`; the page footer reads "©2023 by Secretary of American Samoa.". The Office of the Secretary serves the American Samoa Administrative Code (ASAC) 2024 Edition as one PDF, `https://www.osas.as/_files/ugd/4c56eb_4230571f871d4c7590fbe5ae9b1f771b.pdf`. `/terms` and `/copyright` answer 404.
+
+```
+curl -sL -A "Mozilla/5.0" -o asepa.html -w "%{http_code} %{size_download}\n" "https://www.asepa.gov/"
+```
+
+Returned `200 967599`; the page footer reads "Copyright © 2026 AS-EPA". AS-EPA serves chapters of American Samoa Code Annotated (ASCA) Titles 24 and 25 and ASAC environment chapters as PDFs under `https://www.asepa.gov/_files/ugd/`, linked from `https://www.asepa.gov/services-2`. `/terms` answers 404.
+
+The American Samoa Code Annotated has no official online text. `asbar.org` (the Bar Association's copy) answers 403 to curl and is not a source row; an instrument known only from it is a register row marked search only.
+
+### Languages
+
+English and Samoan are official; every law text opened is English. No language source row: nothing is stored.
+
+### Link-only instruments
+
+None in scope. The register rows for American Samoa are register rows only; the United States instruments among them are parent-state rows, which are register rows only by Varun's ruling of 2026-11-10.
