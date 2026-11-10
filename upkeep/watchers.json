@@ -4982,11 +4982,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-eqa-1974",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -4994,11 +4998,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-cpa-1999",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -5006,11 +5014,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-tda-2011",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -6436,10 +6448,14 @@
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-transparency-amendment-2-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-ets-law-2011-gazette-annex-list",
@@ -6466,20 +6482,28 @@
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-ets-amendment-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/F0CF43ACA530EFBAC2258CD2003C75E2?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-ets-amendment-2-2025-gazette-page",
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-ets-amendment-2-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/D22C2A963427AE00C2258D5B003E7B86?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-consumer-protection-law-2021-gazette-annex-list",
@@ -12752,11 +12776,15 @@
   "source_id": "MN-LEGALINFO-CONSOLIDATED",
   "iso2": "MN",
   "instrument": "mn-corporate-governance-code",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://legalinfo.mn/mn/detail?lawId=16468331291331",
   "params": {
-   "second_route": "https://legalinfo.mn/mn/detail?lawId=16468331291331 (browser; legalinfo.mn resets connections from the cloud address)"
+   "second_route": "https://legalinfo.mn/mn/detail?lawId=16468331291331 (browser; legalinfo.mn resets connections from the cloud address)",
+   "cut": [
+    "(?:\u0425\u0430\u044f\u0433|Address): .*? Developed by Back to Top",
+    "https://legalinfo\\.mn/(?:mn|en) (?:https://www\\.facebook\\.com/legalinfomn \\S+ \\S+ )?https://legalinfo\\.mn/(?:mn|en)/law/26 .*?/about/16106883681171"
+   ]
   }
  },
  {
@@ -13323,11 +13351,13 @@
   "source_id": "TJ-ADLIA-CONSOLIDATED",
   "iso2": "TJ",
   "instrument": "tj-law-advertising-2003",
-  "kind": "page_hash",
+  "kind": "date_list",
   "tier": "consolidation_site",
   "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585",
   "params": {
-   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)",
+   "regex": "\u043e\u0442 (\\d{2}\\.\\d{2}\\.\\d{4})",
+   "verbatim": true
   }
  },
  {
@@ -13663,11 +13693,13 @@
   "source_id": "TT-LAWS-CONSOLIDATED",
   "iso2": "TT",
   "instrument": "tt-ema-2000",
-  "kind": "page_hash",
+  "kind": "date_list",
   "tier": "consolidation_site",
   "url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930",
   "params": {
-   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Environmental Management, open Chap. 35:05, Versions tab)"
+   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Environmental Management, open Chap. 35:05, Versions tab)",
+   "regex": "(LN\\.\\s*\\d+[A-Za-z]?\\s*/\\s*\\d{4}|as at \\w+ \\d+\\w* \\d{4})",
+   "verbatim": true
   }
  },
  {
@@ -15048,9 +15080,15 @@
   "source_id": "GW-BRVM-ADOPTED",
   "iso2": "GW",
   "instrument": "gw-amf-umoa-taxonomia-2024",
-  "kind": "http_head",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations"
+  "url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations",
+  "params": {
+   "cut": [
+    "Portefeuille boursier FR EN PO .*? Courriel",
+    "Top 5 Cours Variation.*?BRVM-PRES \\S+ \\S+"
+   ]
+  }
  },
  {
   "id": "bi-2021-presidence-lois",

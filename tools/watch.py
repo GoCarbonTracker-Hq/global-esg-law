@@ -70,11 +70,13 @@ def _iso(value):
 
 
 def date_list(url, body, headers, params):
-    """Every date matched by the one group of params.regex."""
+    """Every date matched by the one group of params.regex. With params.verbatim the captured text is kept as it is
+    (a version label or a legal-notice number), for a list whose order changes between fetches."""
     regex = re.compile(params["regex"])
     if regex.groups != 1:
         raise ValueError("params.regex must have exactly one group")
-    dates = sorted({_iso(m.group(1)) for m in regex.finditer(_text(body))})
+    norm = (lambda v: v.strip()) if params.get("verbatim") else _iso
+    dates = sorted({norm(m.group(1)) for m in regex.finditer(_text(body))})
     return [(d, url) for d in dates]
 
 
