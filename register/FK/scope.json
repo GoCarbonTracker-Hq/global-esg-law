@@ -11,8 +11,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Establishes an Environmental Impact Offsetting Trust for offshore petroleum; s.68 repeals the Falkland Islands Environment Trust Ordinance 2021 (see fk-environment-trust-ord-2021). The portal lists the in-force consolidation from 2026-06-12 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-planning-eia-regs-2015",
@@ -26,8 +25,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Environmental impact assessment for planning applications. Amended by fk-planning-eia-amend-regs-2022. The portal lists the in-force consolidation from 2022-09-30 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-planning-eia-amend-regs-2022",
@@ -41,8 +39,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Amends the Planning (Environmental Impact Assessment) Regulations 2015. The portal lists the in-force consolidation from 2022-09-30 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored.",
+    "status": "stored",
     "amends": "fk-planning-eia-regs-2015"
   },
   {
@@ -58,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Enacted but no commencement notice was found on the portal, so no in-force date is stated. Repealed by s.68 of Ordinance No. 5 of 2026, in force 2026-06-12, yet the portal still shows it with repealed N (portal not yet updated, or the repeal is read differently; to confirm).",
     "status": "link only",
-    "status_note": "Not in force on the portal's own listing and repealed by Ordinance No. 5 of 2026 s.68; kept for the record. Row is unknown pending Varun's ruling; nothing stored."
+    "status_note": "Not stored: no in-force date is stated (records need one) and Ordinance No. 5 of 2026 s.68 repeals it. Row is pass."
   },
   {
     "id": "fk-consumer-contracts-unfair-terms-ord-1996",
@@ -72,8 +69,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Unfair terms in consumer contracts. The portal lists the in-force consolidation from 2017-07-31 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-organic-foods-ord-2000",
@@ -87,8 +83,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Standards for products described as organically produced in the Falkland Islands. The portal lists the in-force consolidation from 2024-10-18 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-banking-ord-1987",
@@ -102,8 +97,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Regulation of banking business. Banking Regulations Order 1989 is made under s.27. The portal lists the in-force consolidation from 2017-07-31 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-banking-regs-order-1989",
@@ -117,8 +111,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Licence applications and returns under the Banking Ordinance 1987. The portal lists the in-force consolidation from 2026-01-01 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-insurance-ord-2003",
@@ -132,8 +125,7 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Regulation of insurance business. The portal lists the in-force consolidation from 2017-07-31 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   },
   {
     "id": "fk-companies-private-partnership-ord-1922",
@@ -147,7 +139,6 @@
     "source_row": "FK-LEGISLATION-CONSOLIDATED",
     "verification": "official_text_seen",
     "notes": "Trading companies and partnerships; the text is a mix of partnership law and company provisions. A search of the portal titles found no Falkland Islands sustainability or climate reporting duty. The portal lists the in-force consolidation from 2026-07-01 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
-    "status": "link only",
-    "status_note": "Row FK-LEGISLATION-CONSOLIDATED is unknown pending Varun's ruling; nothing stored."
+    "status": "stored"
   }
 ]
