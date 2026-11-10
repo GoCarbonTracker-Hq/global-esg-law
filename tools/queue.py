@@ -83,8 +83,11 @@ def list_open(repo=ROOT):
     return [describe(repo, r) for r in rows] + [f"{len(rows)} open rows"]
 
 
-def decide(repo, outcome, key, reviewer, today=None):
-    """Record outcome on the first open row whose watcher_id:signal is key. Return that row."""
+def decide(repo, outcome, key, reviewer, today=None, notes=None):
+    """Record outcome on the first open row whose watcher_id:signal is key. Return that row.
+
+    notes, when given, goes into the row's notes column after any text already there, joined with '; '.
+    """
     repo = Path(repo).resolve()
     if outcome not in OUTCOMES:
         raise QueueError(f"outcome {outcome!r} is not one of {OUTCOMES}")
@@ -103,6 +106,8 @@ def decide(repo, outcome, key, reviewer, today=None):
         done = matches[0]
         raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")
     row["reviewer"], row["outcome"], row["outcome_on"] = reviewer.strip(), outcome, today
+    if notes:
+        row["notes"] = "; ".join(t for t in (row["notes"], notes) if t)
     write_queue(repo, rows)
     if outcome == "reject" and row["change"] in CHANGES:
         seen_path = repo / "upkeep" / "seen.json"
@@ -121,15 +126,16 @@ def main(argv=None):
     parser.add_argument("--outcome", choices=OUTCOMES, help="record this decision (needs --row and --reviewer)")
     parser.add_argument("--row", metavar="WATCHER_ID:SIGNAL", help="the queue row to decide")
     parser.add_argument("--reviewer", help="who decided")
+    parser.add_argument("--notes", help="text for the row's notes column; appended after any existing notes")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if args.outcome and not (args.row and args.reviewer):
         parser.error("--outcome needs --row and --reviewer")
-    if not args.outcome and (args.row or args.reviewer):
-        parser.error("--row and --reviewer need --outcome")
+    if not args.outcome and (args.row or args.reviewer or args.notes):
+        parser.error("--row, --reviewer and --notes need --outcome")
     try:
         if args.outcome:
-            row = decide(args.repo, args.outcome, args.row, args.reviewer)
+            row = decide(args.repo, args.outcome, args.row, args.reviewer, notes=args.notes)
             print(f"{row['watcher_id']}:{row['signal']} {row['outcome']} by {row['reviewer']} on {row['outcome_on']}")
         else:
             print("\n".join(list_open(args.repo)))
