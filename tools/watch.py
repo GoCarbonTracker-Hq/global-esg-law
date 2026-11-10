@@ -9,6 +9,7 @@ import argparse
 import csv
 import gzip
 import hashlib
+import html
 import json
 import re
 import sys
@@ -26,12 +27,13 @@ COLUMNS = ["detected_on", "watcher_id", "iso2", "source_id", "instrument", "chan
 CHANGES = ("new_version", "terms_changed", "repealed")
 TIERS = ("gazette_feed", "consolidation_site", "regulator_page", "tracker_pointer")  # see upkeep/cadence.json
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+USER_AGENT = "global-esg-law-watch/1"  # lexpol.cloud.pf drops the connection for any agent carrying a URL
 
 
 def default_fetch(url, method="GET"):
     """Return (status, headers, body_bytes). HTTP errors return their status; other errors raise."""
     request = urllib.request.Request(url, method=method, headers={
-        "User-Agent": "global-esg-law-watch/1 (+https://github.com/mokagtc/global-esg-law)",
+        "User-Agent": USER_AGENT,
         "Accept-Encoding": "gzip"})
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
@@ -90,6 +92,15 @@ def page_hash(url, body, headers, params):
     return [(hashlib.sha256(body if isinstance(body, bytes) else body.encode()).hexdigest(), url)]
 
 
+def text_hash(url, body, headers, params):
+    """sha256 of the visible text: scripts, styles, tags and whitespace runs removed."""
+    text = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
+    text = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", text)).split())
+    if not text:
+        raise ValueError("no visible text")
+    return [(hashlib.sha256(text.encode("utf-8")).hexdigest(), url)]
+
+
 def ecfr_more_pages(url, body):
     """The versioner paginates at 1000 entries; return the URLs of the pages after the first."""
     meta = json.loads(_text(body)).get("meta", {})
@@ -100,7 +111,8 @@ def ecfr_more_pages(url, body):
             for page in range(2, total + 1)]
 
 
-KINDS = {"date_list": date_list, "version_list": version_list, "http_head": http_head, "page_hash": page_hash}
+KINDS = {"date_list": date_list, "version_list": version_list, "http_head": http_head, "page_hash": page_hash,
+         "text_hash": text_hash}
 METHODS = {"http_head": "HEAD"}
 MORE_PAGES = {"version_list": ecfr_more_pages}
 ACCUMULATE = ("date_list", "version_list")  # signals are a growing set, not a single current value
