@@ -155,6 +155,6 @@ Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). Each l
 
 ## Cite
 
-global-esg-law, https://github.com/mokagtc/global-esg-law, version `9d6c121f6f289f11c343ebc6349867aac7c6dfe7` (`history` branch, built 2026-11-09, head commit dated 2034-01-01 because it is the newest-dated record, Atmosfääriõhu kaitse seadus of Estonia, Chapter 7 Division 1, not yet in force), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
+global-esg-law, https://github.com/mokagtc/global-esg-law, version `7b5ed3a7dbba18a1df8586fa9b9eb15ab5a09cc6` (`history` branch, built 2026-11-10, head commit dated 2034-01-01 because it is the newest-dated record, Atmosfääriõhu kaitse seadus of Estonia, Chapter 7 Division 1, not yet in force), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
 
 The official source in the `Source-url` trailer is the authority and this repository is a copy.
