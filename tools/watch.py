@@ -99,11 +99,37 @@ def page_hash(url, body, headers, params):
     return [(hashlib.sha256(body if isinstance(body, bytes) else body.encode()).hexdigest(), url)]
 
 
+LINK_ATTRS = {"a": "href", "iframe": "src", "embed": "src", "object": "data"}  # not link, script, img or form: cache-busting URLs
+LINK_TAG = re.compile(r"<(a|iframe|embed|object)\b([^>]*)>", re.I)
+
+
+def link_targets(markup):
+    """The href of every <a> and the src/data of every <iframe>, <embed> and <object>, in document order."""
+    targets = []
+    for tag in LINK_TAG.finditer(markup):
+        attr = LINK_ATTRS[tag.group(1).lower()]
+        found = re.search(rf"(?<![\w-]){attr}\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\s>]+))", tag.group(2), flags=re.I)
+        if found:
+            target = html.unescape(next(g for g in found.groups() if g is not None)).strip()
+            if target:
+                targets.append(target)
+    return targets
+
+
 def text_hash(url, body, headers, params):
-    """sha256 of the visible text: scripts, styles, tags and whitespace runs removed."""
-    text = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
-    text = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", text)).split())
-    for pattern in params.get("cut", []):  # off unless set: regexes for a moving part of the visible text
+    """sha256 of the visible text (scripts, styles, tags and whitespace runs removed) followed by the link targets
+    (see link_targets), so a swapped PDF behind unchanged link wording moves the signal.
+
+    params.cut, a list of regexes, is applied to that whole string to remove a moving part (a counter, a session id
+    or token inside a link). Off unless set.
+    """
+    markup = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
+    visible = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", markup)).split())
+    if not visible:
+        raise ValueError("no visible text")
+    targets = link_targets(markup)
+    text = visible + (" ||links|| " + " ".join(targets) if targets else "")
+    for pattern in params.get("cut", []):
         text = " ".join(re.sub(pattern, " ", text).split())
     if not text:
         raise ValueError("no visible text")

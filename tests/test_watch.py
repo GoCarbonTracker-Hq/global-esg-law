@@ -225,6 +225,43 @@ def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
     assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
 
 
+def link_page(pdf="act-2020.pdf", frame="viewer-1.pdf", script="app.js?v=1", css="a.css?v=1", hidden="tok1", img="logo.png?v=1",
+              action="/search?sid=1", extra=""):
+    return (f'<html><head><link rel="stylesheet" href="/static/{css}"><script src="/static/{script}"></script></head>'
+            f'<body><p>Download the <a href="/files/{pdf}">consolidated act</a>.</p>'
+            f'<iframe src="/frames/{frame}"></iframe><embed src="/embed/e.pdf"><object data="/obj/o.pdf"></object>'
+            f'<img src="/img/{img}"><form action="{action}"><input type="hidden" name="t" value="{hidden}"></form>'
+            f'{extra}</body></html>').encode()
+
+
+def text_signal(tmp_path, body, cut=None):
+    watcher = {**TEXT_WATCHER, "params": {"cut": cut}} if cut else TEXT_WATCHER
+    signals, error = watch.run_watcher(watcher, lambda url, method: (200, {}, body))
+    assert error is None
+    return signals[0][0]
+
+
+def test_text_hash_follows_link_and_frame_targets(tmp_path):
+    base = text_signal(tmp_path, link_page())
+    assert text_signal(tmp_path, link_page(pdf="act-2021.pdf")) != base  # (a) same wording, other PDF
+    assert text_signal(tmp_path, link_page(frame="viewer-2.pdf")) != base  # (b) other iframe target
+    assert text_signal(tmp_path, link_page().replace(b"/embed/e.pdf", b"/embed/f.pdf")) != base
+    assert text_signal(tmp_path, link_page().replace(b"/obj/o.pdf", b"/obj/p.pdf")) != base
+    for moved in (link_page(script="app.js?v=2"), link_page(css="a.css?v=2"), link_page(hidden="tok2"),
+                  link_page(img="logo.png?v=2"), link_page(action="/search?sid=2")):  # (c) asset and form values
+        assert text_signal(tmp_path, moved) == base
+    assert text_signal(tmp_path, link_page(extra='<a data-href="/y.pdf" href="/z.pdf">z</a>')) != base
+
+
+def test_cut_applies_to_link_targets(tmp_path):  # (d)
+    first = link_page(pdf="act.pdf?sid=aaa111")
+    second = link_page(pdf="act.pdf?sid=bbb222")
+    assert text_signal(tmp_path, first) != text_signal(tmp_path, second)
+    cut = [r"sid=[a-z0-9]+"]
+    assert text_signal(tmp_path, first, cut) == text_signal(tmp_path, second, cut)
+    assert text_signal(tmp_path, link_page(pdf="other.pdf?sid=aaa111"), cut) != text_signal(tmp_path, first, cut)
+
+
 def test_cut_removes_only_the_named_moving_part(tmp_path):
     def page(counter, sentence="Terms of use apply."):
         return f"<html><body><p>{sentence}</p><span>{counter} vistas</span></body></html>".encode()
