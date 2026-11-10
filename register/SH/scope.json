@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sh-environmental-protection-ordinance",
+    "title": "Environmental Protection Ordinance, 2016 (Ordinance 1 of 2016)",
+    "official_url": "https://www.sainthelena.gov.sh/app/uploads/2026/09/Environmental-Protection-Ordinance-2016.pdf",
+    "citation": "Environmental Protection Ordinance, 2016 (Ordinance 1 of 2016), St Helena, Revised Edition of the Laws 2017, amended by Ordinance 14 of 2016, L.N. 5/2016 and Ordinance 14 of 2021",
+    "in_force": "2016-02-29",
+    "evidence": "Header of the consolidated PDF, opened 2026-11-10: \"Ordinance 1 of 2016 In force 29 February 2016, except section 119(1)(b)\". Section 1(1) says the Ordinance \"comes into force on a date the Governor appoints by Order\"; the Order itself was not read.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "SH-SHG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Environmental licensing, pollution control permits, protected areas and species. Header also lists the Marine Regulations (Tourism and Interaction with Marine Life) 2023 (Legal Notice 9 of 2023) as subsidiary legislation; not a scope entry of its own. Not stored: SH-SHG-CONSOLIDATED is permission requested (reuse unstated, \"© St Helena Government 2025\"). English only; no government translation exists to look for (the Government publishes English). PDF 1274705 bytes, sha256 ac3dab869271e4957986c55e636c9bde5ec155ec3bd694ff73c84f42a4fefdf9, pdftotext -layout readable (checked, no mojibake).",
+    "status": "link only"
+  },
+  {
+    "id": "sh-consumer-protection-limited-supply-ordinance",
+    "title": "Consumer Protection (Control of Sales During Limited Supply) Ordinance, 2020 (Ordinance 8 of 2020)",
+    "official_url": "https://www.sainthelena.gov.sh/documents/Consumer-Protection-Control-of-Sales-During-Limited-Supply-Ordinance-2020.pdf",
+    "citation": "Consumer Protection (Control of Sales During Limited Supply) Ordinance, 2020 (Ordinance 8 of 2020), St Helena, Revised Edition of the Laws 2017",
+    "in_force": "2020-04-15",
+    "evidence": "Header of the consolidated PDF, opened 2026-11-10: \"Ordinance 8 of 2020 In force 15 April 2020\". Not amended; \"No subsidiary legislation has been made under this Ordinance\".",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "SH-SHG-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "A price-control law for declared limited-supply periods (price display s.5, profiteering s.6); it does not mention environmental or sustainability claims. Listed as the only consumer-protection Ordinance found on the St Helena list; St Helena has no general misleading-claims Ordinance on the list. Not stored: SH-SHG-CONSOLIDATED is permission requested. English only. PDF 205654 bytes, sha256 ff57469e112e2f6de27af479dda65dd70996156db023f5734a3e21ec37189adf.",
+    "status": "link only"
+  }
+]
