@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ai-environmental-levy-electricity-act",
+    "title": "Environmental Levy on Electricity Act, R.S.A. c. E63 (Act 11/2010)",
+    "official_url": "https://gov.ai/Legislation/Acts/E063-Environmental%20Levy%20on%20Electricity%20Act.pdf",
+    "citation": "Environmental Levy on Electricity Act, R.S.A. c. E63, edition showing the law as at 15 December 2010; revises Act 11/2010",
+    "in_force": "2010-11-01",
+    "evidence": "Cover: \"This Edition revises Act 11/2010, in force 1 November 2010\". Opened https://gov.ai/Legislation/Acts/E063-Environmental%20Levy%20on%20Electricity%20Act.pdf on 2026-11-10 (HTTP 200, 60476 bytes, application/pdf, sha256 151ebc31a086a2e4e5b0c127695b74ce9f30d32edac14d1fd00aa5ca935adaf6).",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AI-GOV-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Link only: row AI-GOV-CONSOLIDATED is permission requested. Kept as a narrower entry: s.2: \"A public supplier shall pay an environmental levy to the Comptroller at the rate of 7% of the total income from the sale of electricity supplied to consumers.\" Not a carbon price, no emissions basis. Only this edition is served; later amendments, if any, are not shown.",
+    "status": "link only"
+  },
+  {
+    "id": "ai-unfair-competition-act-2002",
+    "title": "Protection against Unfair Competition Act, R.S.A. c. P112 (Act 4/2002), s.6 misleading the public",
+    "official_url": "https://gov.ai/Legislation/Acts/P112-Protection%20against%20Unfair%20Competition%20Act.pdf",
+    "citation": "Protection against Unfair Competition Act, R.S.A. c. P112, edition showing the law as at 15 December 2002; revises Act 4/2002",
+    "in_force": "2002-08-12",
+    "evidence": "Cover: \"This Edition revises Act 4/2002, in force 12 August 2002\". Opened https://gov.ai/Legislation/Acts/P112-Protection%20against%20Unfair%20Competition%20Act.pdf on 2026-11-10 (HTTP 200, 45937 bytes, application/pdf, sha256 6b188a8343652768c3baed447e4629c92bdddb0fcc6b8a78245dbe2bacf4a669).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "AI-GOV-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Link only: row AI-GOV-CONSOLIDATED is permission requested. Section 6(1): \"Any act or practice in the course of industrial or commercial activities that misleads, or is likely to mislead, the public with respect to an enterprise or its activities, in particular, the products or services offered by such enterprise, shall constitute an act of unfair competition.\" General rule; no environmental claim is named. No Anguilla consumer protection or advertising Act appears in the Revised Statutes index.",
+    "status": "link only"
+  }
+]
