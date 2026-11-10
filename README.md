@@ -12,10 +12,10 @@ All figures are as of 2026-11-10. Each row names the command that produces it, r
 
 | Measure | Value | Command |
 |---|---|---|
-| Places with a corpus, out of places in the register | 205 of 250 | `ls register/*/scope.json \| wc -l` and `python3 -c "import csv;print(len({r['iso2'] for r in csv.DictReader(open('register/register.csv',encoding='utf-8'))}))"` |
+| Places with a corpus, out of places in the register | 211 of 250 | `ls register/*/scope.json \| wc -l` and `python3 -c "import csv;print(len({r['iso2'] for r in csv.DictReader(open('register/register.csv',encoding='utf-8'))}))"` |
 | Records stored (one file per text version) | 3188 | `find records -name '*.json' \| wc -l` |
 | Records read by OCR (`"extraction": "ocr"`) | 104 | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Watchers defined | 1434 | `python3 -c "import json;print(len(json.load(open('upkeep/watchers.json'))))"` |
+| Watchers defined | 1459 | `python3 -c "import json;print(len(json.load(open('upkeep/watchers.json'))))"` |
 | Tests passing | 154 | `python3 -m pytest tests -q` |
 
 ## Quick start
@@ -49,9 +49,9 @@ A place with a corpus has a `scope.json` file under `register/<ISO2>/`. It lists
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
-Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of two-letter codes, not a map. Dark green means text stored, amber means link only and grey means no corpus. As of 2026-11-10 that is 130, 75 and 45 places. `python3 tools/coverage_grid.py` redraws it.
+Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of two-letter codes, not a map. Dark green means text stored, amber means link only and grey means no corpus. As of 2026-11-10 that is 130, 81 and 39 places. `python3 tools/coverage_grid.py` redraws it.
 
-130 of the 205 places with a corpus hold stored text. The other 75 are listed with official URLs and no stored text: AE, AF, BB, BD, BF, BI, BM, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, ER, ET, FM, GG, GI, GQ, GW, GY, HK, ID, IM, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MW, MY, NE, NO, NP, PK, PS, RO, RU, SA, SB, SC, SG, SH, SM, SN, SO, SS, ST, TD, TG, TH, TV, UA, VA, VC, VU, ZM.
+130 of the 211 places with a corpus hold stored text. The other 81 are listed with official URLs and no stored text: AE, AF, AI, BB, BD, BF, BI, BM, BN, BO, BS, BZ, CF, CU, CY, DJ, EG, ER, ET, FM, GG, GI, GQ, GW, GY, HK, ID, IM, IN, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MG, MH, MM, MS, MW, MY, NE, NO, NP, PK, PN, PS, RO, RU, SA, SB, SC, SG, SH, SM, SN, SO, SS, ST, TC, TD, TG, TH, TV, UA, VA, VC, VG, VU, ZM.
 
 A place or instrument can be link only for three reasons. The source's licence row is not `pass`, so the text may not be copied. The host refuses automated requests. Or the text exists only as a scan we could not use.
 
@@ -79,13 +79,13 @@ Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored 
 - Link-only instruments have no stored text. As of 2026-11-10, `COVERAGE.md` counts 510 of 1305 instruments in scope files as link only.
 - OCR text is uncorrected. 104 records are OCR, in 13 languages including Arabic, Spanish and French.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
-- Many state sites refuse requests from cloud addresses, and some fail certificate checks under Python while curl accepts them. The last full watcher run, on 2026-11-10 from a laptop address, recorded 193 failures across 1434 watchers (`upkeep/cadence.json`, key `runs`).
+- Many state sites refuse requests from cloud addresses, and some fail certificate checks under Python while curl accepts them. The last full watcher run, on 2026-11-10 from a laptop address, recorded 195 failures across 1459 watchers (`upkeep/cadence.json`, key `runs`).
 - One full watcher run takes about 53 minutes (3191.6 s on 2026-11-10). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled.
 - Some places hold their laws only as originally published. A lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 
 ## What comes next
 
-45 places in the register have no corpus yet, all of them territories or other non-state places (`python3 tools/coverage.py` lists them under "Places with no watcher"). Examples are Guam (GU), the Cayman Islands (KY), Greenland (GL) and Aruba (AW). None of them is started and none has a date. Watchers will need a decided compute budget before they run on a schedule.
+39 places in the register have no corpus yet, all of them territories or other non-state places (`python3 tools/coverage.py` lists them under "Places with no watcher"). Examples are Guam (GU), Puerto Rico (PR), Greenland (GL) and Aruba (AW). None of them is started and none has a date. Watchers will need a decided compute budget before they run on a schedule.
 
 ## Look up the law in force on a date
 
