@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ax-miljoskydd-lag-2008-124",
+    "title": "Landskapslag (2008:124) om miljöskydd",
+    "official_url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/2008124",
+    "citation": "Landskapslag (2008:124) om miljöskydd (ÅFS 2008/124), Ålex consolidation",
+    "in_force": "2008-12-01",
+    "evidence": "Change list, entry 2008:124 (the Act as passed): \"Denna lag träder i kraft den 1 december 2008.\" Opened https://www.regeringen.ax/alandsk-lagstiftning/alex/2008124 on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Main environmental permit act of Åland (F2): purpose in 1 §, \"främja en hållbar utveckling genom att undvika negativ miljöpåverkan\"; permit and environmental review duties, emission limits, air protection plans. No climate-specific duty was found in the text; kept as the environmental framework entry. The record is the whole Ålex consolidation as served on 2026-11-10; the last amendment in its change list is 2025/73, in force 2025-11-01, and that date is the record in_force. Earlier consolidations are not served. Swedish only; no official English version found on regeringen.ax or the Ålex index.",
+    "status": "stored"
+  },
+  {
+    "id": "ax-utslappshandel-lag-2009-31",
+    "title": "Landskapslag (2009:31) om tillämpning i landskapet Åland av riksförfattningar om utsläppshandel",
+    "official_url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/200931",
+    "citation": "Landskapslag (2009:31) om tillämpning i landskapet Åland av riksförfattningar om utsläppshandel, Ålex consolidation",
+    "in_force": "2009-08-01",
+    "evidence": "Change list, entry 2009:31: \"Denna lag träder i kraft den 1 augusti 2009.\" Opened https://www.regeringen.ax/alandsk-lagstiftning/alex/200931 on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a carbon-pricing family entry: the act applies the Finnish Emissions Trading Act (FFS 311/2011), the Kyoto Mechanisms Act (FFS 109/2007) and the aviation emissions Act (FFS 34/2010) on Åland (1 §) and moves the administrative tasks to the Åland Government; the substantive scheme is in the Finnish state acts (parent-state register rows, not stored). Fines for exceeded allowances go to Åland (5 §). The last amendment in the Ålex change list is 2015/105, in force 2016-05-01, which is the record in_force. Earlier consolidations are not served. Swedish only; no official English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "ax-ccs-lag-2012-79",
+    "title": "Landskapslag (2012:79) om tillämpning på Åland av lagen om avskiljning och lagring av koldioxid",
+    "official_url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201279",
+    "citation": "Landskapslag (2012:79) om tillämpning på Åland av lagen om avskiljning och lagring av koldioxid, Ålex consolidation",
+    "in_force": "2013-01-01",
+    "evidence": "5 §: \"Denna lag träder i kraft den 1 januari 2013.\" Opened https://www.regeringen.ax/alandsk-lagstiftning/alex/201279 on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a climate framework entry: the act applies the Finnish Act on capture and storage of carbon dioxide (FFS 416/2012) on Åland within provincial competence and names the Åland authorities (2 §); the substantive rules are in the Finnish state Act (parent-state register row, not stored). No amendment is listed, so the Ålex text is the Act as passed and 2013-01-01 is the record in_force. Swedish only; no official English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "ax-biodrivmedel-lag-2025-71",
+    "title": "Landskapslag (2025:71) om tillämpning på Åland av lagen om biodrivmedel, flytande biobränslen och biomassabränslen",
+    "official_url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/202571",
+    "citation": "Landskapslag (2025:71) om tillämpning på Åland av lagen om biodrivmedel, flytande biobränslen och biomassabränslen, Ålex",
+    "in_force": "2025-11-01",
+    "evidence": "Change list, entry 2025:71: \"Denna lag träder i kraft den 1 november 2025.\" Opened https://www.regeringen.ax/alandsk-lagstiftning/alex/202571 on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a climate framework entry: the act applies the Finnish Act on biofuels, bioliquids and biomass fuels (FFS 393/2013) on Åland (1 §) and names the Åland authorities (2 §); the sustainability rules are in the Finnish state Act (parent-state register row, not stored). It repealed landskapslag (2018:41) (ax-biodrivmedel-ghg-lag-2018-41) from the same date. No amendment is listed, so the Ålex text is the Act as passed. Swedish only; no official English version found.",
+    "status": "stored"
+  },
+  {
+    "id": "ax-biodrivmedel-ghg-lag-2018-41",
+    "title": "Landskapslag (2018:41) om tillämpning på Åland av rikslagstiftning om biodrivmedel och flytande biobränsle samt om minskning av växthusgasutsläpp från vissa drivmedel",
+    "official_url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201841",
+    "citation": "Landskapslag (2018:41) ... om minskning av växthusgasutsläpp från vissa drivmedel, Ålex (repealed)",
+    "in_force": "2018-10-01",
+    "evidence": "Change list, entry 2018:41: \"Denna lag träder i kraft den 1 oktober 2018.\" Opened https://www.regeringen.ax/alandsk-lagstiftning/alex/201841 on 2026-11-10.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Repealed. The brief listed it as a candidate in force; the Ålex page is headed \"(upphävd)\" and says \"Denna lag har upphävts genom 2025:71 , som gäller från och med den 1 november 2025.\" Narrower than a climate framework entry: it applied the Finnish biofuels act (FFS 393/2013) and the Finnish act on lifecycle greenhouse gas reduction in fuels (FFS 170/2018) on Åland. Two records: the text Ålex still serves (in_force 2018-10-01, no amendment listed; the repeal banner is part of the served page) and a repeal record dated 2025-11-01. Whether FFS 170/2018 still applies on Åland after the repeal was not read. Swedish only.",
+    "status": "stored"
+  }
+]
