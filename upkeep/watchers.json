@@ -16928,5 +16928,568 @@
   "url": "https://www.statedepartment.pr.gov/laws-of-puerto-rico",
   "params": {},
   "change": "terms_changed"
+ },
+ {
+  "id": "terms-wf-prefecture-adopted",
+  "source_id": "WF-PREFECTURE-ADOPTED",
+  "iso2": "WF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.wallis-et-futuna.gouv.fr/index.php/mentions-legales",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-wf-assemblee-adopted",
+  "source_id": "WF-ASSEMBLEE-ADOPTED",
+  "iso2": "WF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.assembleeterritoriale.wf/mentions-legales",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "mo-lei-2-91-m-ambiente-page-pt",
+  "source_id": "MO-BO-CONSOLIDATED",
+  "iso2": "MO",
+  "instrument": "mo-lei-2-91-m-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://bo.dsaj.gov.mo/bo/i/91/10/lei02.asp",
+  "params": {}
+ },
+ {
+  "id": "mo-lei-2-91-m-ambiente-page-zh",
+  "source_id": "MO-BO-CONSOLIDATED",
+  "iso2": "MO",
+  "instrument": "mo-lei-2-91-m-ambiente",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://bo.dsaj.gov.mo/bo/i/91/10/lei02_cn.asp",
+  "params": {}
+ },
+ {
+  "id": "mo-lei-9-2021-consumidor-page-pt",
+  "source_id": "MO-BO-ADOPTED",
+  "iso2": "MO",
+  "instrument": "mo-lei-9-2021-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://bo.dsaj.gov.mo/bo/i/2021/28/lei09.asp",
+  "params": {}
+ },
+ {
+  "id": "mo-lei-9-2021-consumidor-page-zh",
+  "source_id": "MO-BO-ADOPTED",
+  "iso2": "MO",
+  "instrument": "mo-lei-9-2021-consumidor",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://bo.dsaj.gov.mo/bo/i/2021/28/lei09_cn.asp",
+  "params": {}
+ },
+ {
+  "id": "terms-mo-bo-dsaj",
+  "source_id": "MO-BO-ADOPTED",
+  "iso2": "MO",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.dsaj.gov.mo/general/terms_pt.aspx",
+  "params": {
+   "second_route": "https://www.dsaj.gov.mo/general/terms_pt.aspx (browser; the page is a JavaScript shell, read with headless Chrome)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-sx-cvdr-consolidated",
+  "source_id": "SX-CVDR-CONSOLIDATED",
+  "iso2": "SX",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://lokaleregelgeving.overheid.nl/CVDR142375/2",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.bip.sx/system/files/document/2022-03/auteursverordening_ab_2015_no._9_pdf.pdf (PDF print of the same ordinance; art. 11)"
+  }
+ },
+ {
+  "id": "pf-code-environnement-page",
+  "source_id": "PF-LEXPOL-CONSOLIDATED",
+  "iso2": "PF",
+  "instrument": "pf-code-environnement",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581593&lang=fr",
+  "params": {
+   "second_route": "https://lexpol.cloud.pf/LexpolAfficheContenuPdf.php?texte=1841&version=16122&lg=fr (the PDF; its footer carries the download time, so its hash changes at every fetch; the page above names the current version id) The watcher's User-Agent ('global-esg-law-watch/1 (+https://github.com/...)') is dropped by lexpol.cloud.pf (RemoteDisconnected, curl code 000); a plain or 'Mozilla/5.0' User-Agent answers 200."
+  }
+ },
+ {
+  "id": "pf-code-energie-page",
+  "source_id": "PF-LEXPOL-CONSOLIDATED",
+  "iso2": "PF",
+  "instrument": "pf-code-energie",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581596&lang=fr",
+  "params": {
+   "second_route": "https://lexpol.cloud.pf/LexpolAfficheContenuPdf.php?texte=1030&version=10332&lg=fr (the PDF; its footer carries the download time, so its hash changes at every fetch; the page above names the current version id) The watcher's User-Agent ('global-esg-law-watch/1 (+https://github.com/...)') is dropped by lexpol.cloud.pf (RemoteDisconnected, curl code 000); a plain or 'Mozilla/5.0' User-Agent answers 200."
+  }
+ },
+ {
+  "id": "terms-pf-lexpol-consolidated",
+  "source_id": "PF-LEXPOL-CONSOLIDATED",
+  "iso2": "PF",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://lexpol.cloud.pf/LexpolMentionsLegales.php",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://lexpol.cloud.pf/LexpolMentionsLegales.php (browser or curl -A \"Mozilla/5.0\") The watcher's User-Agent ('global-esg-law-watch/1 (+https://github.com/...)') is dropped by lexpol.cloud.pf (RemoteDisconnected, curl code 000); a plain or 'Mozilla/5.0' User-Agent answers 200."
+  }
+ },
+ {
+  "id": "ax-miljoskydd-lag-2008-124-page",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "ax-miljoskydd-lag-2008-124",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/2008124"
+ },
+ {
+  "id": "ax-utslappshandel-lag-2009-31-page",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "ax-utslappshandel-lag-2009-31",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/200931"
+ },
+ {
+  "id": "ax-ccs-lag-2012-79-page",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "ax-ccs-lag-2012-79",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201279"
+ },
+ {
+  "id": "ax-biodrivmedel-lag-2025-71-page",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "ax-biodrivmedel-lag-2025-71",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/202571"
+ },
+ {
+  "id": "ax-biodrivmedel-ghg-lag-2018-41-page",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "ax-biodrivmedel-ghg-lag-2018-41",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201841"
+ },
+ {
+  "id": "terms-ax-aland-government-consolidated",
+  "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
+  "iso2": "AX",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.regeringen.ax/om-webbplatsen/juridisk-information",
+  "change": "terms_changed"
+ },
+ {
+  "id": "fo-annual-accounts-act-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-annual-accounts-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=413331800&objFormat=PDF",
+  "params": {
+   "second_route": "https://www.logir.fo/Logtingslog/203-fra-12-12-2025-um-arsroknskap-Arsroknskaparlogin (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "fo-environmental-protection-act-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-environmental-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=10286&objFormat=PDF",
+  "params": {
+   "second_route": "https://logir.fo/ViewLaw.aspx?id=10286 (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "fo-nature-protection-act-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-nature-protection-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=420008153&objFormat=PDF",
+  "params": {
+   "second_route": "https://logir.fo/Logtingslog/70-fra-22-05-2023-um-natturuvernd (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "fo-f-gas-order-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-f-gas-order",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=92032044&objFormat=PDF",
+  "params": {
+   "second_route": "https://www.logir.fo/Kunngerd/110-fra-16-10-2023-um-at-minka-utlatid-av-vakstrarhusgassi-sum-inniheldur-fluor (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "fo-vehicle-registration-tax-act-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-vehicle-registration-tax-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=18594&objFormat=PDF",
+  "params": {
+   "second_route": "https://logir.fo/Logtingslog/33-fra-19-05-2008-um-avgjold-vid-skraseting-av-motorakforum-sum-broytt-vid-logtingslog-nr (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "fo-marketing-act-logir-pdf-size",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "fo-marketing-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://logir.fo/GetFile/law.aspx?objType=Law&objId=18749&objFormat=PDF",
+  "params": {
+   "second_route": "https://logir.fo/ViewLaw.aspx?id=18749 (browser; logir.fo shows no version history, so the PDF export length is the change signal; the HTML page carries a per-request token and cannot be hashed)"
+  }
+ },
+ {
+  "id": "terms-fo-logir-reservations",
+  "source_id": "FO-LOGIR-CONSOLIDATED",
+  "iso2": "FO",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://logir.fo/Reservations.aspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://logir.fo/Reservations.aspx (browser; the page holds the Fyrivarni notice quoted in terms_quote; Content-Length moves by one byte with the length of a per-request number, so a one-byte change is noise)"
+  }
+ },
+ {
+  "id": "cw-welstandcriteria-luchtkwaliteit-2020-head",
+  "source_id": "CW-GOBIERNU-ADOPTED",
+  "iso2": "CW",
+  "instrument": "cw-welstandcriteria-luchtkwaliteit-2020",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://gobiernu.cw/wp-content/uploads/2020/08/84.-Regeling-welstandcriteria-voor-luchtkwaliteit-1.pdf",
+  "params": {}
+ },
+ {
+  "id": "cw-luchtkwaliteitseisen-2024-head",
+  "source_id": "CW-GOBIERNU-ADOPTED",
+  "iso2": "CW",
+  "instrument": "cw-luchtkwaliteitseisen-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://gobiernu.cw/wp-content/uploads/2024/10/103.-Lv.-luchtkwaliteitseisen-Curacao-1.pdf",
+  "params": {}
+ },
+ {
+  "id": "cw-luchtkwaliteitseisen-inwerkingtreding-2024-head",
+  "source_id": "CW-GOBIERNU-ADOPTED",
+  "iso2": "CW",
+  "instrument": "cw-luchtkwaliteitseisen-inwerkingtreding-2024",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://gobiernu.cw/wp-content/uploads/2024/12/164.-Lb.-inwtr.-Lvo.-Luchtkwaliteitseisen-1.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-cw-gobiernu-adopted",
+  "source_id": "CW-GOBIERNU-ADOPTED",
+  "iso2": "CW",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://gobiernu.cw/disclaimer/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "gl-marketing-act-consolidated-page",
+  "source_id": "GL-NALUNAARUTIT-CONSOLIDATED",
+  "iso2": "GL",
+  "instrument": "gl-marketing-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2021/l-bkg-01-2021?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "gl-marketing-act-amendment-2026-page",
+  "source_id": "GL-NALUNAARUTIT-ADOPTED",
+  "iso2": "GL",
+  "instrument": "gl-marketing-act-amendment-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/Groenlandsk-lovgivning/2026/Inatsisartutlov-nr-27-af-25_06_2026?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "gl-environmental-protection-act-consolidated-page",
+  "source_id": "GL-NALUNAARUTIT-CONSOLIDATED",
+  "iso2": "GL",
+  "instrument": "gl-environmental-protection-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2022/l-bkg-04-2022?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "gl-fgas-order-page",
+  "source_id": "GL-NALUNAARUTIT-ADOPTED",
+  "iso2": "GL",
+  "instrument": "gl-fgas-order",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2023/selvstyrets-bekendtgoerelse-nr-13-af-24_03_2023?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "gl-energy-levy-page",
+  "source_id": "GL-NALUNAARUTIT-ADOPTED",
+  "iso2": "GL",
+  "instrument": "gl-energy-levy",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/groenlandsk-lovgivning/2010/ltl-21-2010?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "gl-energy-levy-amendment-2011-page",
+  "source_id": "GL-NALUNAARUTIT-ADOPTED",
+  "iso2": "GL",
+  "instrument": "gl-energy-levy-amendment-2011",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://nalunaarutit.gl/Groenlandsk-lovgivning/2011/ltl-01-2011?sc_lang=da",
+  "params": {}
+ },
+ {
+  "id": "terms-gl-nalunaarutit-adopted",
+  "source_id": "GL-NALUNAARUTIT-ADOPTED",
+  "iso2": "GL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nalunaarutit.gl/Om-Nalunaarutit?sc_lang=da",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-gl-nalunaarutit-consolidated",
+  "source_id": "GL-NALUNAARUTIT-CONSOLIDATED",
+  "iso2": "GL",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://nalunaarutit.gl/Om-Nalunaarutit?sc_lang=da",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "aw-natuurbescherming",
+  "source_id": "AW-GOBIERNO-CONSOLIDATED",
+  "iso2": "AW",
+  "instrument": "aw-natuurbescherming",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab95.002.pdf"
+ },
+ {
+  "id": "aw-parke-nacional-arikok-decree",
+  "source_id": "AW-GOBIERNO-CONSOLIDATED",
+  "iso2": "AW",
+  "instrument": "aw-parke-nacional-arikok-decree",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab00.059.pdf"
+ },
+ {
+  "id": "aw-schadelijke-producten",
+  "source_id": "AW-GOBIERNO-ADOPTED",
+  "iso2": "AW",
+  "instrument": "aw-schadelijke-producten",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2019no.67.pdf"
+ },
+ {
+  "id": "aw-consumer-enforcement",
+  "source_id": "AW-GOBIERNO-ADOPTED",
+  "iso2": "AW",
+  "instrument": "aw-consumer-enforcement",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2025no.20.pdf"
+ },
+ {
+  "id": "aw-bw-book6-misleading-advertising",
+  "source_id": "AW-GOBIERNO-CONSOLIDATED",
+  "iso2": "AW",
+  "instrument": "aw-bw-book6-misleading-advertising",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/Burgerlijk%20Wetboek%20van%20Aruba%202de%20editie%20september%202024.pdf"
+ },
+ {
+  "id": "terms-aw-gobierno-consolidated",
+  "source_id": "AW-GOBIERNO-CONSOLIDATED",
+  "iso2": "AW",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.gobierno.aw/copyright",
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-aw-gobierno-adopted",
+  "source_id": "AW-GOBIERNO-ADOPTED",
+  "iso2": "AW",
+  "instrument": "*",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://www.gobierno.aw/copyright",
+  "change": "terms_changed"
+ },
+ {
+  "id": "nc-delib-479-2025",
+  "source_id": "NC-LEGINOVA-JONC-ADOPTED",
+  "iso2": "NC",
+  "instrument": "nc-delib-479-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-479-du-29-04-2025",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/deliberation-cnc-479-du-29-04-2025 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-delib-480-2025",
+  "source_id": "NC-LEGINOVA-JONC-ADOPTED",
+  "iso2": "NC",
+  "instrument": "nc-delib-480-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-480-du-29-04-2025",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/deliberation-cnc-480-du-29-04-2025 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-delib-332-2023",
+  "source_id": "NC-LEGINOVA-JONC-ADOPTED",
+  "iso2": "NC",
+  "instrument": "nc-delib-332-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-332-du-16-08-2023",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/deliberation-cnc-332-du-16-08-2023 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-delib-135-2016",
+  "source_id": "NC-LEGINOVA-JONC-ADOPTED",
+  "iso2": "NC",
+  "instrument": "nc-delib-135-2016",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-135-du-23-06-2016",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/deliberation-cnc-135-du-23-06-2016 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-delib-385-2024",
+  "source_id": "NC-LEGINOVA-CONSOLIDATED",
+  "iso2": "NC",
+  "instrument": "nc-delib-385-2024",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-385-du-18-01-2024",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/deliberation-cnc-385-du-18-01-2024 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-lp-2018-25",
+  "source_id": "NC-LEGINOVA-CONSOLIDATED",
+  "iso2": "NC",
+  "instrument": "nc-lp-2018-25",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/texte-consolide/lois-du-pays-cnc-2018-25-du-26-12-2018",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/textes-consolides/lois-du-pays-cnc-2018-25-du-26-12-2018 (Angular app; the amendment history and 'En vigueur depuis' line are on that page)"
+  }
+ },
+ {
+  "id": "nc-code-consommation-sitemap",
+  "source_id": "NC-LEGINOVA-CONSOLIDATED",
+  "iso2": "NC",
+  "instrument": "nc-code-consommation",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://leginova.gouv.nc/api/sitemap/codes-code-de-la-consommation-de-nouvelle-caledonie.xml",
+  "params": {
+   "second_route": "browser page https://leginova.gouv.nc/codes/code-de-la-consommation-de-nouvelle-caledonie (Angular app); the code has no JSON endpoint found, so the signal is the per-code sitemap, whose lastmod values (2026-10-28 on 2026-11-10) move when an article changes"
+  }
+ },
+ {
+  "id": "terms-nc-leginova-jonc-adopted",
+  "source_id": "NC-LEGINOVA-JONC-ADOPTED",
+  "iso2": "NC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://leginova.gouv.nc/conditions-utilisation",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://leginova.gouv.nc/conditions-utilisation in a browser (Angular app: curl returns the same shell as for every page, so this hash moves with each portal build, not only with the terms; compare clause 2.1, quoted in terms_quote, by eye when it fires)"
+  }
+ },
+ {
+  "id": "terms-nc-leginova-consolidated",
+  "source_id": "NC-LEGINOVA-CONSOLIDATED",
+  "iso2": "NC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://leginova.gouv.nc/textes-consolides/deliberation-cnc-479-du-29-04-2025",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://leginova.gouv.nc/textes-consolides/deliberation-cnc-479-du-29-04-2025 in a browser (the page holds the sentence quoted in terms_quote; curl returns the shell, so this hash moves with each portal build; compare the sentence by eye when it fires)"
+  }
  }
 ]

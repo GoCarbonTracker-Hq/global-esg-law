@@ -11453,3 +11453,344 @@ English and Samoan are official; every law text opened is English. No language s
 ### Link-only instruments
 
 None in scope. The register rows for American Samoa are register rows only; the United States instruments among them are parent-state rows, which are register rows only by Varun's ruling of 2026-11-10.
+
+## Wallis and Futuna
+
+Rows `WF-PREFECTURE-ADOPTED` and `WF-ASSEMBLEE-ADOPTED` are `permission requested`: nothing is stored and `register/WF/scope.json` is empty. The Préfecture (`wallis-et-futuna.gouv.fr`) hosts the Journal officiel du Territoire (JOWF) and the arrêtés approving Assemblée territoriale délibérations as French text-layer PDFs, as published, with no consolidation. Its legal notice carries the footer "Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0", and in its body says the information online is not covered by copyright and may be reproduced under three conditions, followed by "Toute utilisation à des fins commerciales ou publicitaire est interdite." Ruling 2026-11-10 (Varun): the commercial-use ban wins over the Etalab footer; link only. The Assemblée territoriale (`assembleeterritoriale.wf`) lists délibération numbers, dates and titles only and forbids reproduction, modification and adaptation without written permission. The copyright statute (Code de la propriété intellectuelle, overseas Book VIII) was not read on an official copy: Légifrance answers curl 403 and headless Chrome met a challenge page, which was not bypassed. No scope instrument was found, and no délibération text was opened.
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o ml.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.wallis-et-futuna.gouv.fr/index.php/mentions-legales"
+```
+
+Returned `200 91981 text/html; charset=utf-8`; both notices above are in it.
+
+```
+curl -sL -A "Mozilla/5.0" -o at.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.assembleeterritoriale.wf/deliberations"
+```
+
+Returned `200 1513489 text/html; charset=UTF-8`, the list of délibération titles (for example 20/AT/2020, 21/AT/2020, 51/AT/2020); the terms page `https://www.assembleeterritoriale.wf/mentions-legales` returned `200 60394 text/html; charset=UTF-8`.
+
+```
+curl -sL -A "Mozilla/5.0" -o a.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://www.wallis-et-futuna.gouv.fr/index.php/contenu/telechargement/762/5072/file/COMPETENCES_COLLECTIVITE_TERRITORIALE.pdf"
+```
+
+Returned `200 108700 application/pdf`, the Préfecture summary of the matters in article 40 of décret 57-811 (read as a pointer, not stored).
+
+### Languages
+
+French is the only language of every text opened. Wallisian and Futunian are spoken and no official version in either was found; no English version was found.
+
+### Link only
+
+Nothing is stored. The five territorial délibérations (protected species 2020, phytosanitary and sanitary rules 2001, environment service tariffs 2003, road code 2011, planning rules 1967) are register rows only, and the parent-state instruments (loi 61-814, décret 57-811 art. 40, Code de la propriété intellectuelle Book VIII, Code de commerce Book IV, Code de la consommation) are register rows only. Blocked from the laptop address, not bypassed: `https://www.legifrance.gouv.fr/` and its legal-notice page (curl 403; headless Chrome challenge page).
+
+## Macau
+
+Rows `MO-BO-ADOPTED` and `MO-BO-CONSOLIDATED` (`pass`, statute: Decreto-Lei n.º 43/99/M Artigo 6.º, Obras oficiais, as republished in the annex to Lei n.º 5/2012; ruling in the GEL-26-09 brief of 2026-11-10). Run on 2026-11-10.
+
+The Boletim Oficial (https://bo.dsaj.gov.mo/, Direcção dos Serviços de Assuntos de Justiça) serves one server-rendered HTML page per diploma, Portuguese at `<name>.asp` and Chinese at `<name>_cn.asp`. The site has no terms page; its footer links to the DSAJ terms (https://www.dsaj.gov.mo/general/terms_pt.aspx, a JavaScript page read in headless Chrome: non-commercial copying only). The pass rests on the statute, not on those terms (see the row). The old hosts `bo.io.gov.mo` and `www.io.gov.mo` timed out; use `bo.dsaj.gov.mo`.
+
+One diploma (Lei n.º 9/2021, Portuguese):
+
+```
+curl -sL -A 'Mozilla/5.0' -o lei09.asp -w '%{http_code} %{size_download} %{content_type}\n' https://bo.dsaj.gov.mo/bo/i/2021/28/lei09.asp
+```
+
+Returned `200 92010 text/html`. A republished diploma (Lei n.º 2/91/M, Portuguese): `https://bo.dsaj.gov.mo/bo/i/91/10/lei02.asp` returned `200 38332 text/html`; two fetches gave the same sha256 (`dc578fa0...b618737`), so `fetched_sha256` is reproducible.
+
+Record text: decode the page by its declared charset (windows-1252 for Portuguese, Big5 via Python `big5hkscs` for Chinese; no replacement characters found), keep what follows the PDF-link table (`</a></tr></table></div></td></tr>`) up to the Adobe Reader notice (`<hr><p align='center'>`), end headings, paragraphs, table rows and `<br>` with a line break, strip tags, unescape entities, collapse runs of spaces, drop blank lines, nothing reworded. `fetched_url` is the page URL and `fetched_sha256` the sha256 of the bytes received.
+
+`MO-BO-CONSOLIDATED` applies where a diploma page carries the notice "O conteúdo deste diploma legal foi republicado pela Lei n.º 26/2024": the page then serves the republished text (in force from 2025-01-07), and the as-made 1991 text exists only as a scanned PDF.
+
+### Languages
+
+Portuguese and Chinese are both on the same row: the Chinese page is the Portuguese name plus `_cn` before `.asp` (for example `https://bo.dsaj.gov.mo/bo/i/2021/28/lei09_cn.asp`, `200 54240 text/html`). No government English text was found; no translation row.
+
+### Link only
+
+No scope instrument is link only. Register rows only (family F7 or no ESG provision found): Decreto-Lei n.º 43/99/M, Lei n.º 16/2019 (plastic bags), Lei n.º 8/2014 (noise), Regulamento Administrativo n.º 22/2020 (construction waste), Regulamento Administrativo n.º 30/2016 (vehicle exhaust), Lei n.º 13/2023 (financial system), Basic Law art. 119.
+
+Not reached: AMCM (https://www.amcm.gov.mo/en/, a JavaScript shell) guidelines were not opened; the Assembleia Legislativa and DSPA sites were not used. Annex III of the Basic Law was not opened, so no national law of the People's Republic of China is listed.
+
+## Sint Maarten
+
+Row `SX-CVDR-CONSOLIDATED` is a `pass` on a statute: Sint Maarten's own Auteursverordening (CVDR142375, "Geldend van 30-05-2015 t/m heden") art. 11 lid 1 removes copyright from laws, decrees and ordinances issued by public authority, read on the portal itself on 2026-11-10. The portal has no terms page, so the pass rests on the statute and not on the site. No instrument of Sint Maarten is in scope (no climate, carbon, ESG-disclosure or consumer-protection ordinance found), so `register/SX/scope.json` is empty and no record is stored. The 17 ordinances and decrees found (nature, waste and wastewater, nuisance, drinking water, fisheries, planning, building, marine oil pollution, financial supervision, prices, company registry) and the two Kingdom instruments are register rows only.
+
+Proven request (the statute copy, and the format any instrument would use), 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o cvdr142375-2.html -w "%{http_code} %{size_download} %{content_type}\n" "https://lokaleregelgeving.overheid.nl/CVDR142375/2"
+```
+
+Returned `200 107396 text/html;charset=UTF-8`; sha256 `a2e19f88d6d543310fe5717d158e333ce1c775ef08708b25ce53dbab73223d5e`, reproduced by a second request. Text extraction for a record would be: drop `script`/`style`, turn tags into line breaks, collapse spaces; art. 11 lid 1 is in the page text word for word.
+
+Search, to find the CVDR id of an instrument:
+
+```
+curl -sL -A "Mozilla/5.0" "https://zoekservice.overheid.nl/sru/Search?x-connection=cvdr&version=1.2&operation=searchRetrieve&maximumRecords=100&query=dcterms.title%20any%20%22natuur*%22%20and%20dcterms.creator%3D%22Sint%20Maarten%22"
+```
+
+Returns `200` XML; the creator `Sint Maarten` separates the country's own records from Curacao's and the Netherlands Antilles' (the Auteursverordening 1913 hits belong to those, not to Sint Maarten).
+
+### Languages
+
+Staatsregeling van Sint Maarten art. 1 lid 2 (CVDR179884): "De officiële talen zijn het Nederlands en het Engels." Every text on the portal is Dutch only; no official or courtesy English version was found on the portal, sintmaartengov.org or bip.sx. No translation row.
+
+### Link-only instruments
+
+None in scope. Not law: the Nature Policy Plan 2021-2025, the single-use plastics and styrofoam bill (news only) and the Landsverordening belastinghervorming fase I (a bill on sxmparliament.org) are not register rows.
+
+Blocked from the laptop address, not bypassed: `https://www.centralbank.cw/` answers `403 5355` (Cloudflare challenge; CBCS rules not read); `https://www.dcsx.com/` gives no connection (`000`, timeout; DCSX rules not read). Pages that do not exist: `https://www.sintmaartengov.org/Pages/Terms.aspx` and `/Pages/Disclaimer.aspx` answer 404; `https://www.overheid.nl/copyright` and `/over-deze-site/copyright` answer 404.
+
+## French Polynesia
+
+Row `PF-LEXPOL-CONSOLIDATED` is `permission requested`: nothing is stored and `register/PF/scope.json` holds two link-only entries. The Lexpol notice allows reproduction of official documents only for personal, associative or professional purposes, forbids commercial use and database extraction, and requires the documents to stay unmodified. No statute removes copyright from the territory's laws (the Code de la propriété intellectuelle de la Polynésie française, première partie, Art. L122-5, lists ordinary exceptions only).
+
+No `pass` row, so no fetch recipe for storing text. Requests proven on 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o ml.html -w "%{http_code} %{size_download} %{content_type}\n" "https://lexpol.cloud.pf/LexpolMentionsLegales.php"
+```
+
+Returned `200 61936 text/html; charset=UTF-8`; a second fetch gave the same file. This is the terms page.
+
+```
+curl -sL -A "Mozilla/5.0" -o env.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://lexpol.cloud.pf/LexpolAfficheContenuPdf.php?texte=1841&version=16122&lg=fr"
+pdftotext -layout env.pdf env.txt
+```
+
+Returned `200 3388364 application/octet-stream`, a 206-page text-layer PDF ("Code de l'environnement", "Version en vigueur au 05/11/2026"); the size differs by a few bytes at each fetch because the footer carries the download time. The energy code (`texte=1030&version=10332`, 28 pages, 265327 bytes) read the same way. The Code de commerce (`texte=4675&version=13459`, 261 pages) answered a broken PDF on the first fetch (pdftotext: "Couldn't find trailer dictionary") and a good one, 2019941 bytes, on the second.
+
+### Languages
+
+French is the language of every text opened. Lexpol has a Tahitian (reo) toggle for page labels and a per-version reo flag in its scripts; no Tahitian law text was opened. No English version was found. No language source row: nothing is stored.
+
+### Link-only instruments
+
+- `pf-code-environnement`: row `PF-LEXPOL-CONSOLIDATED` is permission requested (commercial use forbidden).
+- `pf-code-energie`: same row, same reason.
+- Register rows only (not scope): the single-use products act (Loi du pays n° 2024-26), the Code de commerce (no ESG disclosure rule found), the commercial practices act (Loi du pays n° 2014-31, text not opened), the competition act, the territory's copyright code, and the parent-state instruments (statut d'autonomie, Code monétaire et financier Livre VII, industrial property code, Ordonnance 2017-157).
+- Not reached: `legifrance.gouv.fr` (curl 403, Cloudflare challenge, not bypassed) and four service-public.pf pages (HTTP 503 on 2026-11-10).
+
+## Åland
+
+Row `AX-ALAND-GOVERNMENT-CONSOLIDATED` (`pass`, statute: Upphovsrättslag 404/1961 9 § item 1, ruling 2026-11-10 by Varun). Run on 2026-11-10.
+
+The Åland Government publishes its consolidated landskapslagar as one server-rendered HTML page per law in Ålex (https://www.regeringen.ax/alandsk-lagstiftning/alex), Swedish only. The pages state no reuse terms; the Juridisk information page (https://www.regeringen.ax/om-webbplatsen/juridisk-information) is a liability disclaimer, and the pass rests on the Finnish copyright statute (copyright is state competence on Åland), read on https://www.finlex.fi/sv/lagstiftning/1961/404 (the text is in the page data of a JavaScript app; `curl -sL -A 'Mozilla/5.0'` returned `200 2867001 text/html`). Ålex serves one current version per law ("Uppdaterad till och med ÅFS 2026/46, publicerad den 25 juni 2026"); no point-in-time versions exist. The page's own "Ändrad" date is a page-edit date, not a validity date, so each consolidated record's `in_force` is the in-force date of the latest amendment in the law's change list (a law with no amendment: its own commencement).
+
+Consolidated text, one named law (landskapslag 2009:31):
+
+```
+curl -sL -A 'Mozilla/5.0' -o 200931.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.regeringen.ax/alandsk-lagstiftning/alex/200931
+```
+
+Returned `200 349630 text/html; charset=UTF-8` (349630 bytes), sha256 `be4c42b738d9aad149285d67bbb8566aa6d0836b1c58d836f22709ef7e61c0ec`. Other laws, same pattern (`<year><number>`): 2008124 `200 470624 text/html; charset=UTF-8` (470624 bytes), sha256 `df9c5a893502eef47f71fced5b8d8360cc23565eec181bfe94d9afb22afbcf73`; 201279 `200 347085 text/html; charset=UTF-8` (347085 bytes), sha256 `84649e645f5c74bfc8aa66406257adbaf5ed54371b91f9d949d2cc0821d3a2cf`; 202571 `200 346284 text/html; charset=UTF-8` (346284 bytes), sha256 `6c0c5d24072329818f28bc31a5b6124ab3626e2daa81c5f067f288f9a8e7ae91`; 201841 `200 347193 text/html; charset=UTF-8` (347193 bytes), sha256 `96e52a153269157d2055483b52e6e759823791c78f42516d9c22197067328659`. Two fetches in a row gave the same hash for each law, but the page carries a site-generated element, so a hash taken on another day may differ (2008124 gave 8 bytes less in an earlier run); the page watchers use `page_hash` and will report such a change as a new version to be checked.
+
+Record text: the HTML between the page heading (`<h1>`) and the meta block, scripts and styles removed, closing block tags (`p`, `h1` to `h6`, `li`, `div`, `tr`, `ul`) and `<br>` turned into line breaks, other tags stripped, entities unescaped, runs of spaces collapsed, runs of blank lines collapsed to one, and the site's search form text after the change list ("Sök i lagstiftningen" onward) cut. Nothing reworded. The change list (Ikraftträdandebestämmelser och förarbeten) is part of the record. `fetched_sha256` is the sha256 of the page as received. Checked for mojibake: the pages are UTF-8 and the text prints å, ä, ö correctly.
+
+### Languages
+
+Swedish only (`sv`). Swedish is the language of Åland's legislation (Autonomy Act); no official English or Finnish version of any landskapslag was found on regeringen.ax. Finlex's English translations are of Finnish state Acts, are unofficial and are not Åland texts. No translation source; no row for one.
+
+### Link only
+
+None of the five scope instruments is link only. The F7 register rows and the parent-state rows are register rows only, by design (Varun, 2026-11-10); the ten rows known only from the contents list of Ålands lagsamling 2024 (https://www.regeringen.ax/sites/default/files/law/code/hela_2024.pdf, `curl` `200 22531214 application/pdf`, text read with `pdftotext -layout`) have no Ålex page opened.
+
+### Not blocked
+
+No host refused the laptop address. The bare host `https://lagtinget.ax` was not requested again; the earlier 500 is in the research file.
+
+## Faroe Islands
+
+Row `FO-LOGIR-CONSOLIDATED` (logir.fo, the law database of Løgmálaráðið), `pass` on the statute basis: Faroese Copyright Act (løgtingslóg nr. 30 frá 30. apríl 2015) § 9 stk. 1 removes laws and orders from copyright. The site's own notice reserves all rights ("© Øll rættindi tilskilað") and grants no licence, so the pass rests on the statute, not on the terms. The legally valid text is the one in Kunngerðablaðið, and Kunngerðaportalurin (kunngerdaportalur.fo) calls itself the only binding medium; logir.fo is the database copy and the source used here, because its pages are plain HTML and the portal search is a JavaScript form. logir.fo serves only the current text of each instrument (no dated versions), so one record per instrument is stored, dated by the commencement of an unamended text or, for an amended text, by the date of the last amending act printed in the title (the page prints no valid-from date).
+
+Row `FO-LOGIR-CONSOLIDATED`, current text of the Nature Protection Act (`fo-nature-protection-act`), fetched 2026-11-10:
+
+```
+curl -sL -A 'Mozilla/5.0' -o natur.html -w '%{http_code} %{size_download} %{content_type}\n' https://logir.fo/Logtingslog/70-fra-22-05-2023-um-natturuvernd
+```
+
+Returned `200 193678 text/html; charset=utf-8` (an earlier run returned 193681 bytes: the page embeds a per-request `rnd` number in two attributes, so the bytes and `fetched_sha256` do not reproduce; the law text does). A bare curl without the user agent was not tried. Text extraction: the part of the page from `<div class="doc-wrap">` to the `<aside` that follows, scripts removed, block elements (`p`, `div`, headings, list items, table rows) as line breaks, table cells separated by a tab, tags stripped, entities unescaped, no-break spaces as spaces, empty lines dropped, the date and number line of the title split onto two lines. Nothing is reworded. The law page's side panel carries status (`Gildisstøða`), issue date and the amendment lists; those are read, not stored. Other instruments use the same request with their own address, for example `https://logir.fo/ViewLaw.aspx?id=10286` (`200 253573 text/html; charset=utf-8`, the Environmental Protection Act). Change signal for the watchers: the PDF export `https://logir.fo/GetFile/law.aspx?objType=Law&objId=420008153&objFormat=PDF` answered `200 66992 application/pdf` and a HEAD request returned the same `Content-Length` on three runs, while the HTML page changes length with the per-request number.
+
+### Languages
+
+Faroese only (`fo`). The Faroese acts and orders opened are in Faroese; the annual accounts act carries Danish-language explanatory notes inside the Faroese text, which are kept as served. Danish royal ordinances (anordninger) on logir.fo are Danish and are parent-state instruments, so they are register rows and not stored. No official English translation was found: `https://logir.fo/?lang=en` answers `200` but switches the interface only, and the Kunngerðaportalurin language filter `Enskt` is a JavaScript search form that was not opened.
+
+### Link-only list
+
+None: all six scope instruments passed and are stored. Not in scope and not stored: the register-row instruments (a Danish ordinance, a Danish Act, or a Faroese law with no ESG provision). Not reached from the laptop: fsa.fo, vinnumalaraduneyti.fo, fme.fo and felagid.fo gave no connection (curl HTTP 000) when the research ran on 2026-11-10; no regulator or exchange text was needed for a scope entry.
+
+Terms watcher: `https://logir.fo/Reservations.aspx` holds the Fyrivarni notice quoted in `terms_quote`; its `Content-Length` varies by one byte between requests (a per-request number of nine or ten digits), so a one-byte change is noise.
+
+## Curaçao
+
+Row `CW-GOBIERNU-ADOPTED` is `pass` on the statute basis: Auteursverordening 1913 art. 11 lid 1 ("Er bestaat geen auteursrecht op wetten, besluiten en verordeningen, door de openbare macht uitgevaardigd, ..."), read on the 2025 consolidated text on gobiernu.cw. The site's disclaimer page (Papiamentu) is a liability disclaimer with no reuse sentence, so the pass does not rest on the site's terms. The Publicatieblad texts are PDF with a text layer; the law page `https://gobiernu.cw/nl/laws/<slug>/` links the PDF (and a DOCX). One current text per law, no dated versions. Language: Dutch only (Papiamentu, Dutch and English are official; no Papiamentu or English law text found). Run on 2026-11-10 (GEL-26-04) for the Landsverordening luchtkwaliteitseisen Curaçao (P.B. 2024 N° 103).
+
+Step 1, the law page lists the file links (the upload folder is not always the year of the text):
+
+```
+curl -sS -L -o law.html -w '%{http_code} %{size_download} %{content_type}\n' https://gobiernu.cw/nl/laws/landsverordening-luchtkwaliteitseisen-curacao/
+```
+
+Returned `200 259014 text/html; charset=UTF-8`. The slugs come from the year pages `https://gobiernu.cw/nl/themas/wet-regelgeving/?years=<YYYY>` (HTTP 200, server-rendered, one request per year).
+
+Step 2, row `CW-GOBIERNU-ADOPTED`, the PDF:
+
+```
+curl -sS -L -o lv103.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://gobiernu.cw/wp-content/uploads/2024/10/103.-Lv.-luchtkwaliteitseisen-Curacao-1.pdf
+```
+
+Returned `200 358261 application/pdf` (sha256 `b6f4f163ccb72a0c76b4f62a5d248b0ab604c8cec623aeed31ecd10b820c751f`). Regeling welstandcriteria voor luchtkwaliteit (P.B. 2020 N° 84) with the same command on `.../2020/08/84.-Regeling-welstandcriteria-voor-luchtkwaliteit-1.pdf` returned `200 482803 application/pdf`; the commencement decree (P.B. 2024 N° 164, `.../2024/12/164.-Lb.-inwtr.-Lvo.-Luchtkwaliteitseisen-1.pdf`) returned `200 199268 application/pdf`. Text: `pdftotext -layout file.pdf -`, runs of spaces collapsed, form feeds turned to line breaks, no mojibake (only typographic quotes and dashes).
+
+### Languages
+
+Dutch only. No Papiamentu law text and no government English translation was found on gobiernu.cw (the interface has a Papiamentu version for site pages only); Papiamento has no two-letter code in the corpus checker, so a Papiamentu text would be link only. Looked for: the law pages above, the year pages 2010 to 2026 and the Klapper index; not found.
+
+### Link-only and register-only instruments
+
+No scope instrument is link only. The F7 instruments and parent-state rows are register rows only, with no text stored:
+
+| Instrument | Why not stored |
+|---|---|
+| Hinderverordening Curaçao 1994 (GT 2017 N° 67), Landsverordening grondslagen natuurbeheer en -bescherming (GT 2018 N° 66), Landsverordening afvalstoffenbelasting en reinigingsrechten (GT 2026 N° 81), 1932 rookverspreiding verordening (GT 2026 N° 75), Prijzenverordening 1961 (GT 2024 N° 101) | F7: environmental permit, nature, waste levy, smoke and price control with no climate or ESG content; the files open on gobiernu.cw (HTTP 200, PDF) and could be stored under the same row if they were ever put in scope. |
+| Landsverordening inzake concurrentie (P.B. 2016 N° 16), Landsverordening toezicht effectenbemiddelaars en vermogensbeheerders (P.B. 2016 N° 79) | F7: read on 2026-11-10, no misleading-claims or sustainability provision. |
+| Landsverordening toezicht effectenbeurzen (P.B. 1998 N° 252) | F7, text not opened; the CBCS list is behind a bot challenge. |
+| Rijkswet financieel toezicht Curaçao en Sint Maarten, Statuut voor het Koninkrijk | Parent-state instruments (Varun, 2026-11-10): register rows only. |
+
+Blocked: `https://www.centralbank.cw/` answered curl with HTTP 403 and headless Chrome with a "Just a moment..." bot challenge (not bypassed). No connection (curl HTTP 000): `www.overheid.cw`, `lokaleregelgeving.overheid.cw`, `decentrale.regeringen.cw`, `www.rijksoverheid.cw`, `www.officielebekendmakingen.cw`, `www.curacao-gov.cw`.
+
+Stored by GEL-26-04: `cw-welstandcriteria-luchtkwaliteit-2020` (2020-09-01), `cw-luchtkwaliteitseisen-2024` (2025-01-01), `cw-luchtkwaliteitseisen-inwerkingtreding-2024` (2024-12-31), all Dutch, adopted.
+
+## Greenland
+
+Rows `GL-NALUNAARUTIT-ADOPTED` and `GL-NALUNAARUTIT-CONSOLIDATED` are `pass` on the statute basis: Greenland has no copyright act of its own, the Danish Act on Copyright is in force there by Anordning nr. 1342 af 11. december 2019 (§ 89, in force 1 January 2020), and its § 9 reads "Love, administrative forskrifter, retsafgørelser og lignende offentlige aktstykker er ikke genstand for ophavsret." Nalunaarutit.gl has no terms page (the "Om Nalunaarutit.gl" page has no reuse sentence), so the pass rests on the statute, not on the site. Both rows serve the Selvstyre's own Acts and orders only; Danish state texts that Nalunaarutit.gl also carries from 1 January 2023 are parent-state instruments and are never stored under these rows.
+
+Statute copy, opened 2026-11-10:
+
+```
+curl -sL -A "Mozilla/5.0" -o a1342.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.retsinformation.dk/eli/lta/2019/1342/Pdf
+```
+
+Returned `200 137277 application/pdf` (sha256 903424731cdfb4305df6a38ed9dd74c1e71f29a51f0ece9cb4592ed412bf2df8). `pdftotext a1342.pdf -` prints § 9 and § 89 as quoted (the word "lignende" is hyphenated across a line in the PDF).
+
+Nalunaarutit.gl is a server-rendered HTML site; no browser is needed. Each instrument has one page per language at `https://nalunaarutit.gl/groenlandsk-lovgivning/<year>/<slug>?sc_lang=<da|kl-GL>`. The slug is the one in the page links (for example `l-39-2015`, `l-bkg-04-2022`, `ltl-09-2011`, `selvstyrets-bekendtgoerelse-nr-13-af-24_03_2023`; the 2026 Act is `Groenlandsk-lovgivning/2026/Inatsisartutlov-nr-27-af-25_06_2026`). The site serves one page per dated instrument: an Act as adopted (`Lovgivning`), an order (`Administrativ forskrift`) or a consolidation (`Sammenskrivning`, the Selvstyrets lovbekendtgørelse). It serves no point-in-time versions.
+
+Row `GL-NALUNAARUTIT-ADOPTED`, Marketing and Labelling Act (Inatsisartutlov nr. 39 af 9. december 2015), Danish:
+
+```
+curl -sL -A "Mozilla/5.0" -o l-39-2015_da.html -w '%{http_code} %{size_download} %{content_type}\n' "https://nalunaarutit.gl/groenlandsk-lovgivning/2015/l-39-2015?sc_lang=da"
+```
+
+Returned `200 77682 text/html; charset=utf-8`. A second fetch the same day returned the same bytes (sha256 af802873e53ede9be7942ea6215bb6f72165cc0690deea55853c523bedf8c599), so `fetched_sha256` reproduces.
+
+Row `GL-NALUNAARUTIT-CONSOLIDATED`, Environmental Protection Act, Selvstyrets lovbekendtgørelse nr. 4 af 17. februar 2022, Danish:
+
+```
+curl -sL -A "Mozilla/5.0" -o l-bkg-04-2022_da.html -w '%{http_code} %{size_download} %{content_type}\n' "https://nalunaarutit.gl/groenlandsk-lovgivning/2022/l-bkg-04-2022?sc_lang=da"
+```
+
+Returned `200 128739 text/html; charset=utf-8` (sha256 8767696bed700e7d..., the same on a second fetch).
+
+Text extraction (all records): from the HTML as received, take the part that starts at the `<h3 class="leading-8 font-bold text-[32px] ...">` title and ends before `<div class="col-span-1 xl:col-span-4">` (the "Relationer" panel with links and attached bill PDFs, not law text); remove script and style, turn the closing tags of `p`, `div`, `h1` to `h6`, `li`, `tr`, `td`, `th`, `ul`, `ol` and `br` into line breaks, remove the remaining tags, unescape HTML entities, collapse runs of spaces and non-breaking spaces, collapse blank lines. The text keeps headings, sections, footnotes and the signature lines of the page; table cells (the rates of the levy, Annexes 1 and 2 of the F-gas order) come out one cell per line. `fetched_sha256` is the sha256 of the HTML as received. The page also offers a PDF of each instrument (`/api/sitecore/FilesGenerator/GeneratePDF?Id=<guid>`, for example the Marketing Act `Id=85f9c4f1-8137-4822-8676-1dab3a6b79a0` returned `200 100662 application/octet-stream`, a PDF of 13 pages); it was not used for storage.
+
+### Languages
+
+Greenlandic (Kalaallisut, `kl`) and Danish (`da`) are served under the same row, one page each: the same URL with `?sc_lang=kl-GL` for Greenlandic.
+
+Row `GL-NALUNAARUTIT-CONSOLIDATED`, Environmental Protection Act, Greenlandic:
+
+```
+curl -sL -A "Mozilla/5.0" -o l-bkg-04-2022_kl.html -w '%{http_code} %{size_download} %{content_type}\n' "https://nalunaarutit.gl/groenlandsk-lovgivning/2022/l-bkg-04-2022?sc_lang=kl-GL"
+```
+
+Returned `200 141964 text/html; charset=utf-8` (sha256 6348b53af10cbbaf..., the same on a second fetch). Every record is stored in both languages. The Danish page is the version the Department signs; the site does not say which language prevails, and the Self-Government Act language clause was not opened.
+
+No English: Nalunaarutit.gl offers only Danish and Greenlandic. `?sc_lang=en` answers `200` with the page frame (menu, relations) and no law text, and `https://naalakkersuisut.gl/en` answers `500`. No government English text of any scope instrument was found, so there is no translation row.
+
+### Link-only instruments
+
+None in scope: all six scope instruments are stored in Danish and Greenlandic.
+
+Register rows without records: the six own Acts of family F7 whose pages were opened (Marine Environment Protection Act, Nature Protection Act, Mineral Resources Act, Planning and Land Use Act, Hydropower Act, Environment Fund Act), five more known only by title and number from the Lovoversigt for Grønland of 18 February 2025 (energy supply, Naturinstitut, genetic resources, gas installations, wrecks in harbours), and the seven parent-state instruments (Danish ordinances and one Danish Act on Greenland: finansiel virksomhed, værdipapirhandel, selskabsloven, årsregnskabsloven, visse forbrugeraftaler, havmiljø in the exclusive economic zone, ophavsret). Parent-state instruments are register rows only by Varun's ruling of 2026-11-10. Retsinformation PDFs were opened with `curl -sL -A "Mozilla/5.0" https://www.retsinformation.dk/eli/lta/<year>/<no>/Pdf` and answered `200 application/pdf`.
+
+Not used: `https://www.finanstilsynet.gl/` (no connection, per the brief), `https://www.ft.dk/` (403, per the brief), the Nalunaarutit.gl search API (500 to curl POST, per the brief). Pages that answered 404 on 2026-11-10: `https://nalunaarutit.gl/copyright`, `/cookies`, and `https://naalakkersuisut.gl/Ophavsret`, `/Copyright`, `/Cookies`, `/Privatlivspolitik`, `/Love-og-regler`.
+
+## Aruba
+
+Run on 2026-11-10 (GEL-26-03). Two rows pass, both on the statute: `AW-GOBIERNO-CONSOLIDATED` (Centraal Wettenregister prints) and `AW-GOBIERNO-ADOPTED` (gazette PDFs), both of the Government of Aruba (gobierno.aw). The pass rests on Auteursverordening (AB 2003 no. GT 10) art. 11 lid 1 (no copyright in "wetten en besluiten, door de openbare macht uitgevaardigd"), not on the site terms; the site notice at https://www.gobierno.aw/copyright (Papiamento) excepts "textonan di lei" from its copying reservation. Condition from the brief: no later amendment of the Auteursverordening is listed on the law index or in the yearly gazette lists 2009 to 2025; the gazette list for 2026 does not exist on the site (HTTP 404), so a 2026 amendment cannot be ruled out. Aruba has no climate act, carbon price or GHG reporting rule on gobierno.aw; the scope is a nature ordinance and decree (F2), a single-use plastics and harmful products ban (F4), and two general misleading-advertising provisions (F6). Papiamento is official but every law text is Dutch. There is no version history: one Centraal Wettenregister print per instrument (its date is in the header), and the gazette PDF of the act as published.
+
+Row `AW-GOBIERNO-CONSOLIDATED`, Natuurbeschermingsverordening (AB 1995 no. 2), print of 22 oktober 2013:
+
+```
+curl -sS -L -o 0603ab95.002.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab95.002.pdf
+```
+
+Returned `200 71438 application/pdf`. Landsbesluit Parke Nacional Arikok (`.../uploads/0603ab00.059.pdf`) returned `200 55294 application/pdf`. The file names come from the law index pages (`https://www.gobierno.aw/nl/0603-bescherming-flora-en-fauna` and the other category pages listed in the sitemap `https://www.gobierno.aw/nl/sitemap`), where each row carries the instrument number, its amendments and the PDF link. Burgerlijk Wetboek van Aruba, 2de editie (4 september 2024, all amendments up to AB 2024 no. 27), linked from `https://www.gobierno.aw/nl`: `curl -sS -L -o bw.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/Burgerlijk%20Wetboek%20van%20Aruba%202de%20editie%20september%202024.pdf'` returned `200 3388103 application/pdf` (613 pages). Only Boek 6 Afdeling 4 (Misleidende reclame) is stored, cut from the extracted text between the Afdeling heading and the next Titel heading.
+
+Row `AW-GOBIERNO-ADOPTED`, Landsverordening verbod voor het milieu schadelijke producten (AB 2019 no. 67), as published:
+
+```
+curl -sS -L -o ab2019no.67.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2019no.67.pdf
+```
+
+Returned `200 151725 application/pdf`. The names come from the yearly gazette list `https://www.gobierno.aw/en/official-gazettes-2019` (pattern `ab<year>no.<n>.pdf`; the lists exist for 2009 to 2025 and 2026 gives 404). The commencement decree `ab2019no.73.pdf` returned `200 21521 application/pdf`; AB 2025 no. 20 (`ab2025no.20.pdf`) returned `200 202571 application/pdf`.
+
+Text extraction for every record: `pdftotext -layout file.pdf -`, runs of spaces collapsed, blank lines dropped, so line breaks are the PDF's line wraps and hyphenated line ends stay as printed. The output was checked for mojibake (diacritics such as "geï-" and "Caraïbisch" come out right; no OCR was needed, every PDF has a text layer). `fetched_sha256` is the hash of the PDF as received; two fetches of the Natuurbeschermingsverordening PDF were byte-identical (`cmp`).
+
+### Languages
+
+Dutch (`nl`) is the only language of any law text found. Papiamento (`pap`) is also official but has no two-letter ISO 639-1 code, which `tools/check_corpus.py` requires, and no Papiamento law text was found on gobierno.aw (the site shell and a few explainer pages are in Papiamento and English). No government English translation was found, so there is no translation row.
+
+### Link only and register-only
+
+- `aw-consumer-enforcement` (AB 2025 no. 20): link only. The ordinance starts "op een bij landsbesluit te bepalen tijdstip" and no decree was found (the 2025 gazette list shows none; the 2026 list is not on the site), so no in-force date exists for a record.
+- Register rows only (F7, no sustainability provision found in the text read, or no scope family): Landsverordening toezicht effectenverkeer, toezicht kredietwezen, Centrale Bankverordening, toezicht verzekeringsbedrijf, Hinderverordening, voorkoming verontreiniging door schepen, schadefonds and aansprakelijkheid olietankschepen, Servicio di Limpiesa, elektriciteitsconcessies, publicatieplicht nutsbedrijven, verbod op dierproeven, Mededingingsverordening. Parent-state row: Statuut voor het Koninkrijk (art. 3 and 14). No EU instrument applies: Aruba is not in the EU.
+- Not used: Centrale Bank van Aruba site (https://www.cbaruba.org, HTTP 200). Its terms page (https://www.cbaruba.org/terms-of-use/) states no reuse licence, so no row was made and no CBA text was stored; its supervisory directives were not opened.
+
+## New Caledonia
+
+Run 2026-11-10 from the laptop address. One `pass` row, NC-LEGINOVA-JONC-ADOPTED (Leginova, the law portal of the Government of New Caledonia), `pass` on clause 2.1 of its terms of use for texts as published in the Journal officiel de la Nouvelle-Calédonie (JONC), not on a copyright statute (ruling 2026-11-10, Varun). NC-LEGINOVA-CONSOLIDATED is `permission requested`: consolidated versions are link only. Leginova is an Angular app: a plain `curl` of any page returns the same 19 KB shell, so pages (terms, consolidated texts, codes, JONC sommaires) were read with headless Chrome. The PDFs and one JSON endpoint behind the app answer plain `curl`. No browser-fetched record is stored: every record comes from a `curl` PDF.
+
+### NC-LEGINOVA-JONC-ADOPTED
+
+Act endpoint (délibération n° 480, instrument `nc-delib-480-2025`):
+
+```
+curl -sS -A "Mozilla/5.0" -o a480.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://leginova.gouv.nc/api/acte/1283674/pdf"
+200 47081 application/pdf
+```
+
+Act ids come from the JONC sommaire (`https://leginova.gouv.nc/jonc/sommaire-analytique/10917`, read with headless Chrome: `'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --virtual-time-budget=20000 --dump-dom <url>`). A second fetch gave the same bytes: sha256 `3aa3048b8a9c1b5836be31696a05a0c4252440eb968e908576295a17a08c0355`, which is `fetched_sha256`. Text: `pdftotext -f 1 -l 1 -bbox-layout`, lines of the left column then the right column (split at x = 298 pt; a line crossing the split is a full-width line), running headers (journal name, issue date, page number) dropped, cut from the act's title line to its signature. The plain `pdftotext` reading order interleaves the two columns on some pages (Articles 16, 7, 18, 17 of délibération 332 came out in that order), hence the bounding-box reading. Instrument `nc-delib-479-2025` uses the same endpoint with act id 1283673 (200, 1539336 bytes, application/pdf, sha256 `576954e1073992c12d47744c87451dc87c076ff8ff8e1a6b2b16c68c556858a1`, reproduced on a second fetch).
+
+Whole-issue endpoint (instrument `nc-delib-332-2023`, JONC n° 10618 of 29 August 2023):
+
+```
+curl -sS -A "Mozilla/5.0" -o j10618.pdf -w "%{http_code} %{size_download} %{content_type}\n" "https://leginova.gouv.nc/api/jonc/10618/pdf"
+200 3809674 application/pdf
+```
+
+131 pages; the act is pdf pages 33 to 35 (JONC pp. 17548 to 17550). sha256 `ad8054cdf9f001a105148a867982dcb5c35bdd7876760fdd9c5a9c2eb2564c4d`, reproduced on a second fetch. The act endpoint for the same act (`/api/acte/1271619/pdf`, 200, 44297 bytes) stops after p. 17549 (Articles 20 to 29 are missing), so this record is cut from the issue PDF. Instrument `nc-delib-135-2016` likewise: `curl -sS -A "Mozilla/5.0" -o j9294.pdf "https://leginova.gouv.nc/api/jonc/9294/pdf"` gave `200 15086736 application/pdf`, 104 pages, sha256 `f02bf2def64116e4e5298c270126417663c52dce657f2065cef1db1f4fe5aa23` (not fetched a second time: the download takes several minutes); the act is pdf pages 15 to 47 (pp. 6489 to 6521) and the act endpoint (`/api/acte/1228810/pdf`) starts at p. 6499, without Articles 1 to 11. The endpoint is slow for big issues (the 15 MB issue 9294 took a few minutes; the 35 MB issue 10917 was still downloading after 4 minutes when it was stopped, which is why délibérations 479 and 480 use the act endpoint).
+
+Garbled text layers: the annexed pages of délibérations 479 (pp. 6933 to 6948) and 135 (pp. 6491 to 6521) carry a shifted font encoding (`pdftotext` returns strings like `675$7*,(&$/'21,(11('8` for "STRATEGIE CALEDONIENNE DU"). Those pages are OCR: `pdftoppm -r 300 -png` then `tesseract <page>.png <page> -l fra --psm 3`, text stored uncorrected, `"extraction": "ocr"` in the record. The Articles of both délibérations are the text layer.
+
+Metadata JSON (used by the watchers, not stored):
+
+```
+curl -sS -A "Mozilla/5.0" -o m479.json -w "%{http_code} %{size_download} %{content_type}\n" "https://leginova.gouv.nc/api/texte-consolide/deliberation-cnc-479-du-29-04-2025"
+200 6764 application/json
+```
+
+It carries `dateVigueur` (2025-05-13) and `dateConsolidation`. `https://leginova.gouv.nc/api/code?slug=x` lists the 32 codes with their ids (200, application/json); there is no per-code JSON endpoint (`/api/code/{id}` answers 404).
+
+### Languages
+
+French only (`fr`). Leginova, its terms and every act read are French; no English version of any instrument was found on Leginova or elsewhere (Kanak languages are not languages of legislation). No translation row.
+
+### Link only
+
+- `nc-delib-385-2024` (délibération-cadre n° 385 du 18 janvier 2024): Leginova serves no JONC document of its own for it. The sommaire of JONC n° 10690 (30 January 2024) lists no entry for it, and `curl -sS -A "Mozilla/5.0" -o a1273967.pdf https://leginova.gouv.nc/api/acte/1273967/pdf` (loi du pays n° 2024-3, 200, 6 pages) ends at the title of the délibération-cadre on p. 1818. It could be cut from the whole-issue PDF `/api/jonc/10690/pdf` (the transfer was slow and was stopped); the consolidated page is the portal's documentary version, row NC-LEGINOVA-CONSOLIDATED.
+- `nc-lp-2018-25` (loi du pays n° 2018-25): the JONC text is clean and complete (`curl -sS -A "Mozilla/5.0" -o a1244413.pdf https://leginova.gouv.nc/api/acte/1244413/pdf` gave `200 52471 application/pdf`, 3 pages, sha256 `bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56`, reproduced), but its commencement date is unresolved (Art. 18: "le premier jour du troisième mois suivant sa publication"; Leginova prints 2019-01-01), and a record needs a dated `in_force`. Waits for Varun's ruling on the date.
+- `nc-code-consommation`: Leginova serves a consolidated code only (row NC-LEGINOVA-CONSOLIDATED, `permission requested`).
+- Not law or not in scope as an entry: the provincial environment codes (Sud, Nord, Îles Loyauté), loi du pays n° 2025-9 (water), the mining, urbanism and agricultural codes and the parent-state texts are register rows only. The Province Sud code is published only on province-sud.nc and dimenc.gouv.nc, which reserve reproduction with no carve-out for official texts, and Légifrance answers HTTP 403 to `curl -sL -A "Mozilla/5.0"` (not worked around).
