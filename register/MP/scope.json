@@ -1,0 +1,58 @@
+[
+  {
+    "id": "mp-environmental-protection-act",
+    "title": "Commonwealth Environmental Protection Act (PL 3-23), 2 CMC 3101-3135",
+    "official_url": "https://cnmilaw.gov/docs/cmc_section/T2/3111.pdf",
+    "citation": "PL 3-23, codified as amended at 1 CMC 2646-2649 and 2 CMC 3101-3135",
+    "in_force": "1982-10-08",
+    "evidence": "Commission Comment in NMIAC chapter 65-10 (https://cnmilaw.gov/docs/admincode/T65/T65-10.pdf, opened 2026-11-10, sha256 e491563c24aa823e74ddeacf4710f7d142f68f665883ada90f5321dc8b9f3f87): \"PL 3-23 (effective Oct. 8, 1982), the “Commonwealth Environmental Protection Act,” codified as amended at 1 CMC §§ 2646-2649 and 2 CMC §§ 3101-3135\".",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MP-LRC-CONSOLIDATED",
+    "notes": "Environmental framework Act. 2 CMC 3111 (Policy and Purpose, source PL 3-23 s.2) states the Commonwealth policy of a clean and healthful public environment and sets environmental standards; sections 3111, 3122 and 3131 were read. Implemented in part by the Air Pollution Control Regulations (mp-air-pollution-control-regs, authority 2 CMC 3121 and 3122). Link only: row MP-LRC-CONSOLIDATED is permission requested (the Commission's footer disclaimer grants no reuse and no CNMI statute or page frees the text), so no text is stored. English is the only language seen; no Chamorro or Carolinian text and no government translation was found on cnmilaw.gov. The Code serves only its current text, with a CMC Update Table; earlier versions are not served.",
+    "verification": "official_text_seen",
+    "status": "link only"
+  },
+  {
+    "id": "mp-recycling-act",
+    "title": "Recycling Act, 2 CMC 3531-3536 (PL 11-122)",
+    "official_url": "https://cnmilaw.gov/docs/cmc_section/T2/3531.pdf",
+    "citation": "Commonwealth Recycling Act of 1999, PL 11-122, codified at 2 CMC 3531-3536",
+    "in_force": "2000-02-10",
+    "evidence": "Commission Comment under 2 CMC 3531 (https://cnmilaw.gov/docs/cmc_section/T2/3531.pdf, opened 2026-11-10, sha256 77b89922fc95fa887b8f11775ace65a8259329a358092c9722e0ad01a3eda04d): \"PL 11-122 that created this chapter took effect February 10, 2000.\"",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MP-LRC-CONSOLIDATED",
+    "notes": "Narrower than a carbon price (kept under the keep-and-mark rule, Moka 2026-11-10): Advance disposal fees collected at the point of entry on listed goods (2 CMC 3531 definitions read). A waste fee, not an emissions price; kept as the nearest price-on-pollution instrument. The fee rates in 2 CMC 3532 were not read. Link only: row MP-LRC-CONSOLIDATED is permission requested (the Commission's footer disclaimer grants no reuse and no CNMI statute or page frees the text), so no text is stored. English is the only language seen; no Chamorro or Carolinian text and no government translation was found on cnmilaw.gov. The Code serves only its current text, with a CMC Update Table; earlier versions are not served.",
+    "verification": "official_text_seen",
+    "status": "link only"
+  },
+  {
+    "id": "mp-air-pollution-control-regs",
+    "title": "Air Pollution Control Regulations, NMIAC chapter 65-10",
+    "official_url": "https://cnmilaw.gov/docs/admincode/T65/T65-10.pdf",
+    "citation": "NMIAC chapter 65-10 (authority 2 CMC 3121 and 3122)",
+    "in_force": null,
+    "evidence": "Chapter History printed in the chapter PDF (opened 2026-11-10, sha256 e491563c24aa823e74ddeacf4710f7d142f68f665883ada90f5321dc8b9f3f87): \"Repeal and Reenact Adopted 39 Com. Reg. 40415 (Dec. 28, 2017)\". The PDF prints an adoption date, not a commencement date.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "MP-LRC-CONSOLIDATED",
+    "notes": "Narrower than a greenhouse gas reporting or pricing rule (kept under the keep-and-mark rule, Moka 2026-11-10): Regulations under 2 CMC 3121 and 3122. The permit application sections ask for CO2, CH4 and N2O estimates and apply Prevention of Significant Deterioration to greenhouse gases at 100,000 tpy CO2e; this is a permit-application duty, not a greenhouse gas reporting rule. A copy of the same PDF (433961 bytes) is hosted at https://www.deq.gov.mp/assets/permits-and-regulations-docs/air_regulations_cnmi_law.pdf. in_force is null because the official page states the adoption date only. Link only: row MP-LRC-CONSOLIDATED is permission requested (the Commission's footer disclaimer grants no reuse and no CNMI statute or page frees the text), so no text is stored. English is the only language seen; no Chamorro or Carolinian text and no government translation was found on cnmilaw.gov. The Code serves only its current text, with a CMC Update Table; earlier versions are not served.",
+    "verification": "official_text_seen",
+    "status": "link only"
+  },
+  {
+    "id": "mp-consumer-protection-act",
+    "title": "Consumer Protection Act, 4 CMC 5101 et seq. (PL 6-46)",
+    "official_url": "https://cnmilaw.gov/docs/cmc_section/T4/5105.pdf",
+    "citation": "Consumer Protection Act, 4 CMC 5101 et seq., as amended by PL 6-46",
+    "in_force": "1990-02-02",
+    "evidence": "Commission Comment under 4 CMC 5101 (https://cnmilaw.gov/docs/cmc_section/T4/5101.pdf, opened 2026-11-10): \"PL 6-46 took effect February 2, 1990.\" PL 6-46 s.22: \"This Act shall take effect upon its approval by the Governor or upon its becoming law without such approval.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MP-LRC-CONSOLIDATED",
+    "notes": "Narrower than a green-claims law: 4 CMC 5105 lists unlawful acts, including (e) representing that goods or services have characteristics or benefits they do not have, (g) representing a particular standard, quality or grade, and (m) any act or practice which is unfair or deceptive to the consumer, with no environmental wording. 4 CMC 5112 allows private and class actions. in_force is the date PL 6-46 took effect; the Act replaced portions of the former Consumer Protection Act (33 TTC 351-364). Link only: row MP-LRC-CONSOLIDATED is permission requested (the Commission's footer disclaimer grants no reuse and no CNMI statute or page frees the text), so no text is stored. English is the only language seen; no Chamorro or Carolinian text and no government translation was found on cnmilaw.gov. The Code serves only its current text, with a CMC Update Table; earlier versions are not served.",
+    "verification": "official_text_seen",
+    "status": "link only"
+  }
+]
