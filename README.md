@@ -124,6 +124,8 @@ python3 tools/build.py --branch history
 
 This builds `history` from scratch from `records/` and replaces the branch if it exists. It is the only build command: once anything under `records/` is tracked by git, a run without `--branch` exits 2 and writes nothing. Records added by `tools/update.py` (see `upkeep/README.md`) are ordinary record files, so the same command rebuilds the branch in `In-force` order.
 
+As of 2026-11-10 the published `history` build (`7b5ed3a7`) predates one record on `main`: the Christmas Island plastic bag local law (`records/CX/cx-plastic-bag-local-law-2018/`). A lookup for CX on `origin/history` prints `no instruments stored for CX` until the branch is rebuilt.
+
 ## Tests
 
 ```
