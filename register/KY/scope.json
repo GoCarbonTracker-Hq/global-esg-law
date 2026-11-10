@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ky-cima-sic-esg-2022",
+    "title": "Supervisory Information Circular: Environmental, Social and Governance and Sustainable Investing",
+    "official_url": "https://www.cima.ky/environmental-social-and-governance-and-sustainable-investing",
+    "citation": "CIMA Supervisory Information Circular, 13 April 2022",
+    "in_force": "2022-04-13",
+    "evidence": "Page header read 2026-11-10 at https://www.cima.ky/environmental-social-and-governance-and-sustainable-investing: \"Supervisory Information Circulars Date: Wed, 13 April 2022\". Operative sentence: \"Additionally, funds are required to ensure clear and ongoing disclosures in the context of their reporting requirements.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "KY-CIMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Regulated funds. The only requirement sentence is the one quoted, tied to funds' existing reporting requirements; the rest asks governance bodies to \"start establishing reliable approaches for identifying, measuring, monitoring, and managing material ESG-related risks\". The page prints no commencement clause, so the issue date is used as in_force (lookup policy). The page does not say whether the circular binds: it describes the Authority's expectations and says it will keep reviewing \"with the aim of developing a suitable regulatory and supervisory approach\", which reads as supervisory expectation, not a rule.",
+    "status": "link only",
+    "status_note": "CIMA publishes all rights reserved with no reuse terms (KY-CIMA-ADOPTED, permission requested); no request sent."
+  },
+  {
+    "id": "ky-cima-sic-climate-insurers-2022",
+    "title": "Supervisory Information Circular: Climate Change, Environmental, Social and Governance and Sustainability",
+    "official_url": "https://www.cima.ky/climate-change-environmental-social-and-governance-and-sustainability",
+    "citation": "CIMA Supervisory Information Circular, 11 July 2022",
+    "in_force": "2022-07-11",
+    "evidence": "Page header read 2026-11-10 at https://www.cima.ky/climate-change-environmental-social-and-governance-and-sustainability: \"Supervisory Information Circulars Date: Mon, 11 July 2022\". Operative sentence: \"there is a growing need for insurers to better understand the impact of related climate and ESG risks in their risk management and corporate governance frameworks.\"",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": "KY-CIMA-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Insurers. No numbered requirement; it says insurers \"should ensure that they monitor the inherent environmental risks within their investment portfolios\" and those charged with governance \"should also have clear roles and responsibilities\". The page prints no commencement clause, so the issue date is used as in_force (lookup policy). The page does not say whether the circular binds: it describes the Authority's expectations and says it will keep reviewing \"with the aim of developing a suitable regulatory and supervisory approach\", which reads as supervisory expectation, not a rule.",
+    "status": "link only",
+    "status_note": "CIMA publishes all rights reserved with no reuse terms (KY-CIMA-ADOPTED, permission requested); no request sent."
+  },
+  {
+    "id": "ky-travel-departure-tax-epf-act",
+    "title": "Travel (Departure Tax and Environmental Protection Fee) Act (2026 Revision)",
+    "official_url": "https://legislation.gov.ky/cms/images/LEGISLATION/PRINCIPAL/1976/1976-0011/1976-0011_2026%20Revision.pdf",
+    "citation": "Law 11 of 1976 (Travel Tax Law, 1976), 2026 Revision, Supplement No. 11 to Legislation Gazette No. 9 of 12 February 2026",
+    "in_force": "1976-08-02",
+    "evidence": "Table of Legislation history in the 2026 Revision PDF (opened 2026-11-10): \"11/1976 Travel Tax Law, 1976 2-Aug-1976 G16/1976/s4\". Fee section: \"6. (1) Every agent shall collect (a) from every traveller and tourist in every outward bound vessel an environmental protection fee of two dollars; and (b) from every traveller and tourist in every outboard aircraft, an environmental protection fee of four dollars, or such other sum as may be prescribed by the Cabinet\".",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": "KY-LRC-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a carbon price: s.6 is a per-traveller environmental protection fee collected by transport agents, with no link to emissions (keep-and-mark rule, Varun 2026-11-10). 2-Aug-1976 is the commencement of the 1976 Law; the same table lists the \"(Environmental Protection Fees)\" amendment (Law 3 of 1998) as commencing 14-Apr-1998, which this page does not say is the first environmental fee. Only the 2026 Revision is served on this route; earlier revisions were not listed on the pages opened.",
+    "status": "link only",
+    "status_note": "legislation.gov.ky has no reuse terms; Government portal terms need approval for other uses (KY-LRC-CONSOLIDATED, permission requested); no request sent."
+  }
+]
