@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gu-climate-council-act",
+    "title": "Guam Climate Change Preparedness and Resiliency Act (2 GCA ch.15, Guam Council on Climate Change Preparedness and Resiliency, Guam C3PR)",
+    "official_url": "https://col.guamcourts.gov/sites/default/files/2gc0015.pdf",
+    "citation": "2 GCA ch.15 (ss.15101-15109), added by P.L. 34-17:2 (June 8, 2017)",
+    "in_force": "2017-06-08",
+    "evidence": "Chapter SOURCE line (PDF stamp COL9222017, opened 2026-11-10): \"Entire chapter added by P.L. 34-017: 2 (June 8, 2017)\". The Guam Legislature bill history for the bill (https://archives.guamlegislature.gov/Public%20Laws/Public_Laws_34th/P.L.%20No.%2034-17.pdf, opened 2026-11-10) shows Public Law No. 34-17 with \"LAPSED INTO LAW\" 6/8/17. 1 GCA s.102(b) (https://col.guamcourts.gov/sites/default/files/1gc001.pdf): a bill that becomes law without the Governor's signature \"shall go into effect at midnight on the last of such ten (10) days, unless otherwise provided therein\"; the chapter carries no other effective-date clause.",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": "GU-COL-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than a climate act: s.15102 creates the Council \"for the sole purpose of developing policy direction and recommendations\" on preparing for and mitigating the effects of climate change on Guam, and the chapter puts no duty on private parties, no target and no emissions rule. Kept as the only climate statute found. The date is the day the public law lapsed into law; the text of P.L. 34-17 itself was not opened (the Legislature page is a bill history). Not stored: GU-COL-CONSOLIDATED is permission requested. English only (1 GCA s.706 makes English and Chamorro official, s.707 makes the English version binding); no Chamorro text was seen.",
+    "status": "link only",
+    "status_note": "GU-COL-CONSOLIDATED is permission requested: the Compiler of Laws claims copyright and no statute frees the text"
+  },
+  {
+    "id": "gu-trade-practices-act",
+    "title": "Trade Practices and Consumer Protection (5 GCA ch.32), s.32201 Deceptive Trade Practices Unlawful",
+    "official_url": "https://col.guamcourts.gov/sites/default/files/5gc032.pdf",
+    "citation": "5 GCA ch.32 Art. 2 s.32201, added by P.L. 21-18:1 (May 10, 1991)",
+    "in_force": null,
+    "evidence": "Source note under s.32201 (PDF stamp COL10/29/2021, opened 2026-11-10): \"Added by P.L. 21-018:1 (May 10, 1991).\" The chapter comment says it \"was completely revised by P.L. 21-18:1\". No page opened states the date the section took effect; the text of P.L. 21-18 was not opened.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "GU-COL-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than an environmental-claims law: s.32201(a) declares false, misleading or deceptive acts or practices unlawful, enforceable by the Attorney General or any person, and (b)(5) lists representing that goods or services have \"characteristics, ingredients, uses, benefits, or quantities which they do not have\"; no environmental, green or sustainability wording was found anywhere in the chapter. The source note date is a date of the public law, not a stated in-force date, so in_force is null. Not stored: GU-COL-CONSOLIDATED is permission requested. English only.",
+    "status": "link only",
+    "status_note": "GU-COL-CONSOLIDATED is permission requested: the Compiler of Laws claims copyright and no statute frees the text"
+  }
+]
