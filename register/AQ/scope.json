@@ -1,0 +1,16 @@
+[
+  {
+    "id": "aq-madrid-protocol",
+    "title": "Protocol on Environmental Protection to the Antarctic Treaty (Madrid Protocol), 4 October 1991",
+    "official_url": "https://documents.ats.aq/recatt/Att006_e.pdf",
+    "citation": "Protocol on Environmental Protection to the Antarctic Treaty, done at Madrid on 4 October 1991; Antarctic Treaty Secretariat, documents.ats.aq/recatt/Att006_e.pdf",
+    "in_force": "1998-01-14",
+    "evidence": "ATS Parties page: \"The Protocol first entered into force on 14 January 1998.\" (https://www.ats.aq/e/parties.html, opened 2026-11-10; the page loads the sentence from https://www.ats.aq/devAS/Parties?lang=e, where Moka re-read it by curl on 2026-11-10); ATS Protocol page: \"The Protocol on Environmental Protection to the Antarctic Treaty was signed in Madrid on October 4, 1991 and entered into force in 1998.\" (https://www.ats.aq/e/protocol.html).",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "AQ-ATS-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Link only, narrower than a climate framework: an environmental-protection treaty whose Art. 3(2)(b)(i) says activities shall be planned and conducted so as to avoid 'adverse effects on climate or weather patterns'; no emissions or disclosure duty. Row AQ-ATS-ADOPTED is unknown and nothing is stored (Varun, 2026-11-10: the Secretariat notice on https://www.ats.aq/e/copyright.html is not a pass for the treaty texts). Annexes I to IV entered into force in 1998 and Annex V in 2002 per https://www.ats.aq/e/protocol.html (no day printed); each has a register row, none a scope entry. Annex VI (liability, Measure 1 (2005)) is adopted and not in force (ATCM Decision 6 (2025): 'Noting that Annex VI has yet to become effective'), so it has no scope entry. Language versions served by documents.ats.aq: English (Att006_e.pdf; the English file was opened), French, Russian and Spanish (files end _f, _r, _s; not opened). National Antarctic acts of the Parties are register rows only.",
+    "status": "link only"
+  }
+]
