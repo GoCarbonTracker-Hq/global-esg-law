@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mo-lei-2-91-m-ambiente",
+    "title": "Lei n.º 2/91/M, Lei de bases do ambiente (Environmental framework law), as republished by Lei n.º 26/2024",
+    "official_url": "https://bo.dsaj.gov.mo/bo/i/91/10/lei02.asp",
+    "citation": "Lei n.º 2/91/M of 11 March 1991 (BO 10/1991), republished with adaptation and integration by Lei n.º 26/2024 (BO 1/2025, published 2025-01-06)",
+    "in_force": null,
+    "evidence": "The Boletim Oficial page prints \"Publicado em: 1991.3.11\" and the notice \"O conteúdo deste diploma legal foi republicado pela Lei n.º 26/2024\"; it states no commencement date for the 1991 text. Lei n.º 26/2024 Entrada em vigor: \"A presente lei entra em vigor no dia seguinte ao da sua publicação.\" (published 2025-01-06, so the republished text is in force from 2025-01-07). Opened https://bo.dsaj.gov.mo/bo/i/91/10/lei02.asp and https://bo.dsaj.gov.mo/bo/i/2025/01/lei26.asp on 2026-11-10.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "MO-BO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "General environmental framework (principles, Chief Executive duties, priorities of air, water, habitat); no climate, emissions-reporting or carbon-price duty seen. in_force is null because no official page states the 1991 commencement; the record is dated 2025-01-07, the day the republished text took effect. The Boletim Oficial serves only the republished text on this page; the as-made 1991 text exists only as a scanned PDF (https://images.bo.dsaj.gov.mo//bo/i/91/10/lei-2-91.pdf) and is not stored. Languages stored on 2026-11-10: pt, zh (the two official languages, same page names with _cn). Government English: not found; looked for on the Boletim Oficial diploma page (links only to the Chinese version) and in the Boletim Oficial legislation index.",
+    "status": "stored"
+  },
+  {
+    "id": "mo-lei-9-2021-consumidor",
+    "title": "Lei n.º 9/2021, Lei de protecção dos direitos e interesses do consumidor (Consumer protection law)",
+    "official_url": "https://bo.dsaj.gov.mo/bo/i/2021/28/lei09.asp",
+    "citation": "Lei n.º 9/2021 (BO 28/2021, published 2021-07-12)",
+    "in_force": "2022-01-01",
+    "evidence": "Article \"Entrada em vigor e produção de efeitos\", n.º 1: \"A presente lei entra em vigor no dia 1 de Janeiro de 2022.\" Opened https://bo.dsaj.gov.mo/bo/i/2021/28/lei09.asp on 2026-11-10.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "MO-BO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Narrower than its family: arts 26 and 27 prohibit unfair and misleading commercial practices in general terms, and a search of the Portuguese text for \"ambient\" found no environmental wording, so it is a general misleading-conduct law with no environmental-claims provision. The page lists no amending law. n.º 2 of the same article delays the effect of al. 2) of n.º 1 of the preceding article (the repeal provision) until the new organic law of the Consumer Council comes into force; the record is the whole law. Languages stored on 2026-11-10: pt, zh. Government English: not found; looked for on the Boletim Oficial diploma page (Chinese version link only).",
+    "status": "stored"
+  }
+]
