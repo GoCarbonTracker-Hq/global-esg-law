@@ -1,0 +1,70 @@
+[
+  {
+    "id": "im-climate-change-act-2021",
+    "title": "Climate Change Act 2021 (Act of Tynwald, AT 20 of 2021)",
+    "official_url": "https://www.gov.im/news/2021/dec/15/climate-change-law-gains-royal-assent",
+    "citation": "Climate Change Act 2021 (AT 20 of 2021), Royal Assent 15 December 2021 per the Isle of Man Government",
+    "in_force": null,
+    "evidence": "Isle of Man Government news page, 15 December 2021 (opened 2026-11-10): \"The Climate Change Act 2021 sets the legal framework for planning, monitoring and reporting the reduction of greenhouse gas emissions needed to reach net zero.\" and \"Now the Bill has received Royal Assent it has become an Act of Tynwald.\" The page states no commencement date for the Act as a whole (it says a five year rolling action plan should come into effect by 1 April 2022).",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "IM-LEGISLATION-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Link only: row IM-LEGISLATION-ADOPTED is permission requested because legislation.gov.im and the gov.im terms page could not be opened (WAF rejection), and tynwald.org.im answers HTTP 403. The citation AT 20 of 2021 and the net zero 2050 target (s.9) come from the FAOLEX copy of the Tynwald print (https://faolex.fao.org/docs/pdf/uk214391.pdf), a UN host that is not an official source and is used only to find the title and number; in_force is null because no official page opened states a commencement date. No Order extending a UK Act is involved.",
+    "status": "link only",
+    "status_note": "Official text not opened; row not pass."
+  },
+  {
+    "id": "im-cputr-2019",
+    "title": "Consumer Protection from Unfair Trading Regulations 2019",
+    "official_url": "https://consult.gov.im/office-of-fair-trading/consumer-protection-from-unfair-trading-regulation/",
+    "citation": "Consumer Protection from Unfair Trading Regulations 2019, laid before Tynwald 15 October 2019",
+    "in_force": "2019-10-30",
+    "evidence": "Isle of Man Government consultation page of the Office of Fair Trading (opened 2026-11-10): \"the OFT was content to lay the CPRs before Tynwald on 15th October 2019. They subsequently came into operation on 30th October 2019.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IM-LEGISLATION-ADOPTED"
+    ],
+    "verification": "official_page_seen",
+    "notes": "Link only: the regulations themselves are on legislation.gov.im, which could not be opened (row IM-LEGISLATION-ADOPTED is permission requested). The consultation page offers the regulations as a 922.7 KB PDF under Related, which was not downloaded: the page is a government consultation page, not a statement of reuse terms, so it is not a pass source. Whether the regulations name environmental claims was not read.",
+    "status": "link only",
+    "status_note": "Regulation text not read; row not pass."
+  },
+  {
+    "id": "im-fsa-greenwashing-guidance-2025",
+    "title": "Greenwashing and Consumer Protection: Guidance Note for Firms Regulated under the Financial Services Act 2008, the Insurance Act 2008, the Collective Investment Schemes Act 2008 and the Retirement Benefits Schemes Act 2000",
+    "official_url": "https://www.iomfsa.im/media/3520/greenwashing-and-consumer-protection-guidance-note.pdf",
+    "citation": "IOMFSA Guidance Note, version 1.0, first issued 13 October 2025",
+    "in_force": "2025-10-13",
+    "evidence": "Page 12 of the PDF (opened 2026-11-10, sha256 6df908212cbdc075f28d1ff963ea87783208cc2e16cf68f909362587e00a0d1a), Version History: \"1.0 13/10/2025 Guidance note first issued.\" It carries no commencement clause, so the issue date is used.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IM-IOMFSA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Non-binding guidance: the note says \"Guidance is, by its nature, not law, however it is persuasive\" and \"No new requirements imposed\". Link only: row IM-IOMFSA-ADOPTED is permission requested (terms grant personal use and viewing).",
+    "status": "link only",
+    "status_note": "Permission not requested yet. Not stored."
+  },
+  {
+    "id": "im-fsa-climate-nature-risk-guidance-2025",
+    "title": "Managing the Financial Risks of Climate Change and Nature Loss: Guidance Note for Firms Regulated under the Financial Services Act 2008, the Insurance Act 2008 and the Collective Investment Scheme Act 2008",
+    "official_url": "https://www.iomfsa.im/media/3488/guidance-note-consideration-of-climate-change-risks-final.pdf",
+    "citation": "IOMFSA Guidance Note, version 1.0, first issued 10 July 2025",
+    "in_force": "2025-07-10",
+    "evidence": "Cover page of the PDF (opened 2026-11-10, sha256 03452da0e4ff4a1222c77e63377db79feebc4fec023442b8b63c0f79037fb284): \"Version 1.0 Page 1 of 18 First issued 10 July 2025\". The IOMFSA news page (https://www.iomfsa.im/fsa-news/2025/jul/guidance-note-on-managing-the-financial-risks-of-climate-change-and-nature-loss) says \"Published on: 10 July 2025\". No commencement clause, so the issue date is used.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "IM-IOMFSA-ADOPTED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Guidance on how the Authority expects firms to manage climate and nature risks inside existing requirements; not law. Link only: row IM-IOMFSA-ADOPTED is permission requested.",
+    "status": "link only",
+    "status_note": "Permission not requested yet. Not stored."
+  }
+]
