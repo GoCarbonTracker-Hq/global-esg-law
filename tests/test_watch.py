@@ -225,6 +225,129 @@ def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
     assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
 
 
+def link_page(pdf="act-2020.pdf", frame="viewer-1.pdf", script="app.js?v=1", css="a.css?v=1", hidden="tok1", img="logo.png?v=1",
+              action="/search?sid=1", extra=""):
+    return (f'<html><head><link rel="stylesheet" href="/static/{css}"><script src="/static/{script}"></script></head>'
+            f'<body><p>Download the <a href="/files/{pdf}">consolidated act</a>.</p>'
+            f'<iframe src="/frames/{frame}"></iframe><embed src="/embed/e.pdf"><object data="/obj/o.pdf"></object>'
+            f'<img src="/img/{img}"><form action="{action}"><input type="hidden" name="t" value="{hidden}"></form>'
+            f'{extra}</body></html>').encode()
+
+
+def text_signal(tmp_path, body, cut=None):
+    watcher = {**TEXT_WATCHER, "params": {"cut": cut}} if cut else TEXT_WATCHER
+    signals, error = watch.run_watcher(watcher, lambda url, method: (200, {}, body))
+    assert error is None
+    return signals[0][0]
+
+
+def test_text_hash_follows_link_and_frame_targets(tmp_path):
+    base = text_signal(tmp_path, link_page())
+    assert text_signal(tmp_path, link_page(pdf="act-2021.pdf")) != base  # (a) same wording, other PDF
+    assert text_signal(tmp_path, link_page(frame="viewer-2.pdf")) != base  # (b) other iframe target
+    assert text_signal(tmp_path, link_page().replace(b"/embed/e.pdf", b"/embed/f.pdf")) != base
+    assert text_signal(tmp_path, link_page().replace(b"/obj/o.pdf", b"/obj/p.pdf")) != base
+    for moved in (link_page(script="app.js?v=2"), link_page(css="a.css?v=2"), link_page(hidden="tok2"),
+                  link_page(img="logo.png?v=2"), link_page(action="/search?sid=2")):  # (c) asset and form values
+        assert text_signal(tmp_path, moved) == base
+    assert text_signal(tmp_path, link_page(extra='<a data-href="/y.pdf" href="/z.pdf">z</a>')) != base
+
+
+def test_cut_applies_to_link_targets(tmp_path):  # (d)
+    first = link_page(pdf="act.pdf?sid=aaa111")
+    second = link_page(pdf="act.pdf?sid=bbb222")
+    assert text_signal(tmp_path, first) != text_signal(tmp_path, second)
+    cut = [r"sid=[a-z0-9]+"]
+    assert text_signal(tmp_path, first, cut) == text_signal(tmp_path, second, cut)
+    assert text_signal(tmp_path, link_page(pdf="other.pdf?sid=aaa111"), cut) != text_signal(tmp_path, first, cut)
+
+
+def test_cut_removes_only_the_named_moving_part(tmp_path):
+    def page(counter, sentence="Terms of use apply."):
+        return f"<html><body><p>{sentence}</p><span>{counter} vistas</span></body></html>".encode()
+
+    cutting = {**TEXT_WATCHER, "params": {"cut": [r"[\d,]+ vistas"]}}
+    repo = make(tmp_path, [cutting])
+    signals = []
+    for day, body in enumerate([page("1,001"), page("1,002"), page("1,003", "Terms changed.")]):
+        watch.watch(repo, FakeFetch({TERMS: (200, {}, body)}), date(2026, 11, 2 + day))
+        signals.append(seen(repo)["w-text"]["signals"])
+    assert signals[0] == signals[1] and signals[2] != signals[0]
+    assert [r["change"] for r in rows(repo)] == ["baseline", "terms_changed"]
+    # without params.cut the same counter moves the signal: the option is off unless set
+    (tmp_path / "plain").mkdir()
+    plain = make(tmp_path / "plain", [TEXT_WATCHER])
+    for day, body in enumerate([page("1,001"), page("1,002")]):
+        watch.watch(plain, FakeFetch({TERMS: (200, {}, body)}), date(2026, 11, 2 + day))
+    assert [r["change"] for r in rows(plain)] == ["baseline", "terms_changed"]
+
+
+@pytest.mark.parametrize("bad", [{"kind": "page_hash", "params": {"cut": ["x"]}},
+                                 {"params": {"cut": "x"}}, {"params": {"cut": ["("]}}])
+def test_cut_is_validated(tmp_path, bad):
+    repo = make(tmp_path, [{**TEXT_WATCHER, **bad}])
+    with pytest.raises(ValueError, match="params.cut"):
+        watch.load_watchers(repo)
+
+
+def test_reseed_stores_signal_and_adds_no_row(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER])
+    watch.watch(repo, FakeFetch({TERMS: (200, {}, text_page("aaa", "x"))}), TODAY)
+    queue_before = (repo / "upkeep" / "queue.csv").read_bytes()
+    changed = text_page("aaa", "x", "Terms changed.")
+    assert watch.reseed(repo, "w-text", FakeFetch({TERMS: (200, {}, changed)}), date(2026, 11, 3)) == 1
+    assert (repo / "upkeep" / "queue.csv").read_bytes() == queue_before
+    assert seen(repo)["w-text"]["checked_on"] == "2026-11-03"
+    result = watch.watch(repo, FakeFetch({TERMS: (200, {}, changed)}), date(2026, 11, 4))
+    assert result["rows"] == []
+
+
+def test_reseed_touches_only_its_watcher_and_refuses_failure(tmp_path):
+    repo = make(tmp_path, [TEXT_WATCHER, WATCHERS[3]])
+    fetch = FakeFetch({TERMS: (200, {}, text_page("aaa", "x")), ZIP: BODIES[ZIP]})
+    watch.watch(repo, fetch, TODAY)
+    before = seen(repo)
+    watch.reseed(repo, "w-text", FakeFetch({TERMS: (200, {}, text_page("aaa", "x", "Terms changed."))}), TODAY)
+    after = seen(repo)
+    assert after["w-zip"] == before["w-zip"] and after["w-text"]["signals"] != before["w-text"]["signals"]
+    with pytest.raises(ValueError, match="HTTP 403"):
+        watch.reseed(repo, "w-text", FakeFetch({TERMS: (403, {}, b"")}), TODAY)
+    assert seen(repo) == after
+    with pytest.raises(ValueError, match="no watcher"):
+        watch.reseed(repo, "nope", FakeFetch(), TODAY)
+
+
+def test_truncated_first_read_is_retried_once(monkeypatch):
+    calls = []
+
+    class Response:
+        status, headers = 200, {}
+
+        def __init__(self, read):
+            self._read = read
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def read(self):
+            return self._read()
+
+    def truncated():
+        raise watch.http.client.IncompleteRead(b"par")
+
+    reads = iter([truncated, lambda: b"<p>full page</p>"])
+    monkeypatch.setattr(watch.urllib.request, "urlopen", lambda request, timeout: calls.append(1) or Response(next(reads)))
+    assert watch.default_fetch("https://example.org/")[2] == b"<p>full page</p>"
+    assert len(calls) == 2
+    # a second truncation is raised, so run_watcher reports a watch_failed
+    reads = iter([truncated, truncated])
+    with pytest.raises(watch.http.client.IncompleteRead):
+        watch.default_fetch("https://example.org/")
+
+
 def test_version_list_follows_pages(tmp_path):
     repo = make(tmp_path, [WATCHERS[2]])
     fetch = FakeFetch({ECFR: (200, {}, ecfr_body(["2017-01-01", "2026-10-14"], page=1, total_pages=2)),

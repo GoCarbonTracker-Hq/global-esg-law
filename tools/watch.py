@@ -10,6 +10,7 @@ import csv
 import gzip
 import hashlib
 import html
+import http.client
 import json
 import re
 import sys
@@ -35,11 +36,17 @@ def default_fetch(url, method="GET"):
     request = urllib.request.Request(url, method=method, headers={
         "User-Agent": USER_AGENT,
         "Accept-Encoding": "gzip"})
-    try:
-        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
-            status, headers, body = response.status, dict(response.headers), response.read()
-    except urllib.error.HTTPError as exc:
-        status, headers, body = exc.code, dict(exc.headers or {}), b""
+    for attempt in (1, 2):  # one retry: a truncated read (IncompleteRead) is never a real signal
+        try:
+            with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+                status, headers, body = response.status, dict(response.headers), response.read()
+            break
+        except urllib.error.HTTPError as exc:
+            status, headers, body = exc.code, dict(exc.headers or {}), b""
+            break
+        except http.client.IncompleteRead:
+            if attempt == 2:
+                raise
     if body[:2] == b"\x1f\x8b":
         body = gzip.decompress(body)
     return status, headers, body
@@ -92,10 +99,38 @@ def page_hash(url, body, headers, params):
     return [(hashlib.sha256(body if isinstance(body, bytes) else body.encode()).hexdigest(), url)]
 
 
+LINK_ATTRS = {"a": "href", "iframe": "src", "embed": "src", "object": "data"}  # not link, script, img or form: cache-busting URLs
+LINK_TAG = re.compile(r"<(a|iframe|embed|object)\b([^>]*)>", re.I)
+
+
+def link_targets(markup):
+    """The href of every <a> and the src/data of every <iframe>, <embed> and <object>, in document order."""
+    targets = []
+    for tag in LINK_TAG.finditer(markup):
+        attr = LINK_ATTRS[tag.group(1).lower()]
+        found = re.search(rf"(?<![\w-]){attr}\s*=\s*(?:\"([^\"]*)\"|'([^']*)'|([^\s>]+))", tag.group(2), flags=re.I)
+        if found:
+            target = html.unescape(next(g for g in found.groups() if g is not None)).strip()
+            if target:
+                targets.append(target)
+    return targets
+
+
 def text_hash(url, body, headers, params):
-    """sha256 of the visible text: scripts, styles, tags and whitespace runs removed."""
-    text = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
-    text = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", text)).split())
+    """sha256 of the visible text (scripts, styles, tags and whitespace runs removed) followed by the link targets
+    (see link_targets), so a swapped PDF behind unchanged link wording moves the signal.
+
+    params.cut, a list of regexes, is applied to that whole string to remove a moving part (a counter, a session id
+    or token inside a link). Off unless set.
+    """
+    markup = re.sub(r"(?s)<(script|style)\b.*?</\1>", " ", _text(body), flags=re.I)
+    visible = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", markup)).split())
+    if not visible:
+        raise ValueError("no visible text")
+    targets = link_targets(markup)
+    text = visible + (" ||links|| " + " ".join(targets) if targets else "")
+    for pattern in params.get("cut", []):
+        text = " ".join(re.sub(pattern, " ", text).split())
     if not text:
         raise ValueError("no visible text")
     return [(hashlib.sha256(text.encode("utf-8")).hexdigest(), url)]
@@ -140,6 +175,15 @@ def load_watchers(repo, source=None):
             raise ValueError(f"watcher {w['id']}: change {w['change']!r} is not one of {CHANGES}")
         if w["kind"] == "date_list" and not w.get("params", {}).get("regex"):
             raise ValueError(f"watcher {w['id']}: date_list needs params.regex")
+        if "cut" in w.get("params", {}):
+            cut = w["params"]["cut"]
+            if w["kind"] != "text_hash" or not isinstance(cut, list) or not all(isinstance(p, str) for p in cut):
+                raise ValueError(f"watcher {w['id']}: params.cut is a list of regexes and needs kind text_hash")
+            for pattern in cut:
+                try:
+                    re.compile(pattern)
+                except re.error as exc:
+                    raise ValueError(f"watcher {w['id']}: params.cut {pattern!r}: {exc}") from exc
         if w["instrument"] != "*":
             scope_path = repo / "register" / w["iso2"] / "scope.json"
             scope = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else []
@@ -238,13 +282,43 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
             "seconds": round(seconds, 2), "bytes": nbytes}
 
 
+def reseed(repo, watcher_id, fetch=None, today=None):
+    """Fetch one watcher once and write its current signals to seen.json. No queue row. Return the signal count.
+
+    Raises ValueError when the watcher is unknown or its fetch fails; seen.json is then left as it was.
+    """
+    repo = Path(repo).resolve()
+    today = (today or date.today()).isoformat() if not isinstance(today, str) else today
+    watcher = next((w for w in load_watchers(repo) if w["id"] == watcher_id), None)
+    if watcher is None:
+        raise ValueError(f"no watcher {watcher_id!r} in upkeep/watchers.json")
+    sizes, started = [], time.monotonic()
+    fetch = fetch or default_fetch
+    signals, error = run_watcher(watcher, lambda url, method: _count(sizes, fetch(url, method)))
+    if error is not None:
+        raise ValueError(f"{watcher_id}: {error}")
+    seen_path = repo / "upkeep" / "seen.json"
+    seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
+    current = [s for s, _ in signals]
+    seen[watcher_id] = {"signals": sorted(set(current)) if watcher["kind"] in ACCUMULATE else current,
+                        "failure": None, "checked_on": today,
+                        "seconds": round(time.monotonic() - started, 2), "bytes": sum(sizes)}
+    seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    return len(current)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--source", help="run only the watchers of this sources.json id")
+    parser.add_argument("--reseed", metavar="WATCHER_ID",
+                        help="fetch this one watcher, store its current signal in seen.json, add no queue row")
     parser.add_argument("--dry-run", action="store_true", help="fetch and compare, write nothing")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     try:
+        if args.reseed:
+            print(f"{args.reseed}: reseeded, {reseed(args.repo, args.reseed)} signal(s)")
+            return 0
         result = watch(args.repo, source=args.source, dry_run=args.dry_run)
     except (ValueError, OSError, json.JSONDecodeError, KeyError) as exc:
         print(exc, file=sys.stderr)
