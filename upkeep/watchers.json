@@ -15748,5 +15748,584 @@
   "params": {
    "second_route": "https://cbos.gov.sd (browser; the policies PDF is linked from the bank site)"
   }
+ },
+ {
+  "id": "im-climate-change-act-2021-portal",
+  "source_id": "IM-LEGISLATION-ADOPTED",
+  "iso2": "IM",
+  "instrument": "im-climate-change-act-2021",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://legislation.gov.im/",
+  "params": {
+   "second_route": "https://legislation.gov.im/ (browser; the portal answers scripts with a 269-byte Request Rejected page and /cms/ with a SiteGround captcha, HTTP 202)"
+  }
+ },
+ {
+  "id": "im-cputr-2019-consultation-page",
+  "source_id": "IM-LEGISLATION-ADOPTED",
+  "iso2": "IM",
+  "instrument": "im-cputr-2019",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://consult.gov.im/office-of-fair-trading/consumer-protection-from-unfair-trading-regulation/",
+  "params": {}
+ },
+ {
+  "id": "im-fsa-greenwashing-guidance-2025-news-page",
+  "source_id": "IM-IOMFSA-ADOPTED",
+  "iso2": "IM",
+  "instrument": "im-fsa-greenwashing-guidance-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.iomfsa.im/fsa-news/2025/oct/guidance-note-on-greenwashing-and-consumer-protection",
+  "params": {}
+ },
+ {
+  "id": "im-fsa-climate-nature-risk-guidance-2025-news-page",
+  "source_id": "IM-IOMFSA-ADOPTED",
+  "iso2": "IM",
+  "instrument": "im-fsa-climate-nature-risk-guidance-2025",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.iomfsa.im/fsa-news/2025/jul/guidance-note-on-managing-the-financial-risks-of-climate-change-and-nature-loss",
+  "params": {}
+ },
+ {
+  "id": "terms-im-iomfsa",
+  "source_id": "IM-IOMFSA-ADOPTED",
+  "iso2": "IM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.iomfsa.im/terms-conditions/terms-conditions/",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "bm-bma-insurer-climate-guidance-pdf",
+  "source_id": "BM-BMA-ADOPTED",
+  "iso2": "BM",
+  "instrument": "bm-bma-insurer-climate-guidance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.bma.bm/viewPDF/documents/2023-03-09-17-03-42-Guidance-Note---Insurance---Management-of-Climate-Change-Risks-for-Commercial-Insurers.pdf",
+  "params": {
+   "second_route": "https://www.bma.bm/ (Policy and Guidance under Regulated Sectors; the PDF answers plain curl with 200, no challenge seen 2026-11-10)"
+  }
+ },
+ {
+  "id": "bm-consumer-protection-act-1999-pdf",
+  "source_id": "BM-LAWS-CONSOLIDATED",
+  "iso2": "BM",
+  "instrument": "bm-consumer-protection-act-1999",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://bermudalaws.bm/Laws/Consolidated%20Law/1999/Consumer%20Protection%20Act%201999",
+  "params": {
+   "second_route": "https://www.bermudalaws.bm/ (Blazor site, open in a browser and use Laws, Consolidated Laws; the PDF itself answers plain curl with 200)"
+  }
+ },
+ {
+  "id": "terms-bm-copyright-designs-act-2004",
+  "source_id": "BM-LAWS-CONSOLIDATED",
+  "iso2": "BM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://bermudalaws.bm/Laws/Consolidated%20Law/2004/Copyright%20and%20Designs%20Act%202004",
+  "params": {
+   "second_route": "https://www.bermudalaws.bm/ (Blazor site, open in a browser and use Laws, Consolidated Laws; the PDF answers plain curl with 200). The site footer (\"Crown Copyright ... All Rights Reserved\") is JavaScript-rendered and its HTML shell changes on every request, so it is not hashed."
+  }
+ },
+ {
+  "id": "terms-bm-bma-terms",
+  "source_id": "BM-BMA-ADOPTED",
+  "iso2": "BM",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.bma.bm/terms-conditions",
+  "params": {
+   "second_route": "https://www.bma.bm/terms-conditions (no challenge seen 2026-11-10; page text includes site navigation)"
+  }
+ },
+ {
+  "id": "gi-climate-change-act-2019-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-climate-change-act-2019",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-act-2019-4688/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-act-2019-4688 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-climate-change-amendment-act-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-climate-change-amendment-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-amendment-act-2026-8404/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-amendment-act-2026-8404 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-environmental-governance-act-2023-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-environmental-governance-act-2023",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/environmental-governance-act-2023-7106/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/environmental-governance-act-2023-7106 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-environmental-governance-targets-regs-2025-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-environmental-governance-targets-regs-2025",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/environmental-governance-targets-regulations-2025-7716/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/environmental-governance-targets-regulations-2025-7716 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-climate-change-methane-regs-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-climate-change-methane-regs-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-methane-regulations-2026-8411/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/climate-change-methane-regulations-2026-8411 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-corsia-regs-2022-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-corsia-regs-2022",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/carbon-offsetting-and-reduction-scheme-for-international-aviation-regulations-2022-6757/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/carbon-offsetting-and-reduction-scheme-for-international-aviation-regulations-2022-6757 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-climate-action-fund-regs-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-climate-action-fund-regs-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/climate-action-fund-regulations-2026-8410/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/climate-action-fund-regulations-2026-8410 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-carbon-removals-certification-regs-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-carbon-removals-certification-regs-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/certification-for-carbon-removals-and-carbon-storage-regulations-2026-8412/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/certification-for-carbon-removals-and-carbon-storage-regulations-2026-8412 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-cpuf-act-2008-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-cpuf-act-2008",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/consumer-protection-unfair-trading-act-2008-2229/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/consumer-protection-unfair-trading-act-2008-2229 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-cpuf-amendment-regs-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-cpuf-amendment-regs-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/consumer-protection-unfair-trading-act-amendment-regulations-2026-8561/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/consumer-protection-unfair-trading-act-amendment-regulations-2026-8561 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-misleading-advertising-act-2001-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-misleading-advertising-act-2001",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/misleading-and-comparative-advertising-act-2001-866/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/misleading-and-comparative-advertising-act-2001-866 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "gi-deforestation-act-2026-pdf",
+  "source_id": "GI-GIBRALTARLAWS-CONSOLIDATED",
+  "iso2": "GI",
+  "instrument": "gi-deforestation-act-2026",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.gibraltarlaws.gov.gi/legislations/deforestation-market-access-and-due-diligence-act-2026-8405/download",
+  "params": {
+   "second_route": "https://www.gibraltarlaws.gov.gi/legislations/deforestation-market-access-and-due-diligence-act-2026-8405 (browser; the law page lists the dated versions, but its HTML carries a per-request token so it is not hashed)"
+  }
+ },
+ {
+  "id": "sh-environmental-protection-ordinance-pdf",
+  "source_id": "SH-SHG-CONSOLIDATED",
+  "iso2": "SH",
+  "instrument": "sh-environmental-protection-ordinance",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.sainthelena.gov.sh/app/uploads/2026/09/Environmental-Protection-Ordinance-2016.pdf"
+ },
+ {
+  "id": "sh-consumer-protection-limited-supply-ordinance-pdf",
+  "source_id": "SH-SHG-CONSOLIDATED",
+  "iso2": "SH",
+  "instrument": "sh-consumer-protection-limited-supply-ordinance",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.sainthelena.gov.sh/documents/Consumer-Protection-Control-of-Sales-During-Limited-Supply-Ordinance-2020.pdf"
+ },
+ {
+  "id": "terms-sh-shg-legislation",
+  "source_id": "SH-SHG-CONSOLIDATED",
+  "iso2": "SH",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.sainthelena.gov.sh/st-helena/government/legislation/"
+ },
+ {
+  "id": "je-customs-excise-law-1999-versions",
+  "source_id": "JE-JERSEYLAW-CONSOLIDATED",
+  "iso2": "JE",
+  "instrument": "je-customs-excise-law-1999",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.jerseylaw.je/laws/current/l_33_1999",
+  "params": {
+   "regex": "value=\"l_33_1999_(\\d{8})\"",
+   "second_route": "https://www.jerseylaw.je/laws/current/l_33_1999 (browser; the Select version list on the law page names each earlier version)"
+  }
+ },
+ {
+  "id": "je-consumer-protection-unfair-practices-law-2018-versions",
+  "source_id": "JE-JERSEYLAW-CONSOLIDATED",
+  "iso2": "JE",
+  "instrument": "je-consumer-protection-unfair-practices-law-2018",
+  "kind": "date_list",
+  "tier": "consolidation_site",
+  "url": "https://www.jerseylaw.je/laws/current/l_16_2018",
+  "params": {
+   "regex": "value=\"l_16_2018_(\\d{8})\"",
+   "second_route": "https://www.jerseylaw.je/laws/current/l_16_2018 (browser; the Select version list on the law page names each earlier version)"
+  }
+ },
+ {
+  "id": "je-jfsc-investment-business-code-page",
+  "source_id": "JE-JFSC-CODES",
+  "iso2": "JE",
+  "instrument": "je-jfsc-investment-business-code",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.jerseyfsc.org/industry/codes-of-practice/investment-business-code-of-practice/",
+  "params": {
+   "second_route": "https://www.jerseyfsc.org/industry/codes-of-practice/investment-business-code-of-practice/ (browser; same page)"
+  }
+ },
+ {
+  "id": "je-jfsc-fund-services-business-code-page",
+  "source_id": "JE-JFSC-CODES",
+  "iso2": "JE",
+  "instrument": "je-jfsc-fund-services-business-code",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.jerseyfsc.org/industry/codes-of-practice/fund-services-business-code-of-practice/",
+  "params": {
+   "second_route": "https://www.jerseyfsc.org/industry/codes-of-practice/fund-services-business-code-of-practice/ (browser; same page)"
+  }
+ },
+ {
+  "id": "je-jfsc-certified-funds-code-schedule-1-page",
+  "source_id": "JE-JFSC-CODES",
+  "iso2": "JE",
+  "instrument": "je-jfsc-certified-funds-code-schedule-1",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.jerseyfsc.org/industry/codes-of-practice/certified-funds-code-of-practice/certified-funds-code-of-practice-schedule-1/",
+  "params": {
+   "second_route": "https://www.jerseyfsc.org/industry/codes-of-practice/certified-funds-code-of-practice/certified-funds-code-of-practice-schedule-1/ (browser; same page)"
+  }
+ },
+ {
+  "id": "terms-je-jerseylaw-copyright",
+  "source_id": "JE-JERSEYLAW-CONSOLIDATED",
+  "iso2": "JE",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.jerseylaw.je/Pages/Copyright.aspx",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.jerseylaw.je/Pages/Copyright.aspx (browser; offer of the legislation under OSAL-J v.1)"
+  }
+ },
+ {
+  "id": "gg-green-fund-rules-gfsc-pdf",
+  "source_id": "GG-GFSC-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "gg-green-fund-rules-2021",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gfsc.gg/sites/default/files/2022-09/Consolidated%20Guernsey%20Green%20Fund%20Rules%20and%20Guidance.pdf",
+  "params": {}
+ },
+ {
+  "id": "gg-natural-capital-fund-rules-gfsc-pdf",
+  "source_id": "GG-GFSC-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "gg-natural-capital-fund-rules-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gfsc.gg/sites/default/files/2023-02/Consolidated%20Natural%20Capital%20Fund%20Rules%20and%20Guidance%202022.pdf",
+  "params": {}
+ },
+ {
+  "id": "gg-greenwashing-guidance-gfsc-pdf",
+  "source_id": "GG-GFSC-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "gg-greenwashing-guidance-cis-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gfsc.gg/sites/default/files/2022-09/Guidance%20for%20Auth%20and%20Reg%20CIS%20on%20Measures%20to%20Counter%20the%20Risk%20of%20Greenwashing.pdf",
+  "params": {}
+ },
+ {
+  "id": "gg-finance-sector-code-gfsc-pdf",
+  "source_id": "GG-GFSC-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "gg-finance-sector-code-corporate-governance",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gfsc.gg/sites/default/files/inline-files/Finance%20Sector%20Code%20of%20Corporate%20Governance%202021.pdf",
+  "params": {}
+ },
+ {
+  "id": "gg-trading-standards-ordinance-glr",
+  "source_id": "GG-GOV-ADOPTED",
+  "iso2": "GG",
+  "instrument": "gg-trading-standards-fair-trading-ordinance-2023",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806",
+  "params": {
+   "second_route": "https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806 in a browser (the consolidated text; answers scripts with a Cloudflare 403)"
+  }
+ },
+ {
+  "id": "terms-gg-gfsc-consolidated",
+  "source_id": "GG-GFSC-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gfsc.gg/copyright",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-gg-gov-adopted",
+  "source_id": "GG-GOV-ADOPTED",
+  "iso2": "GG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://gov.gg/TsCs",
+  "params": {},
+  "change": "terms_changed"
+ },
+ {
+  "id": "terms-gg-glr-consolidated",
+  "source_id": "GG-GLR-CONSOLIDATED",
+  "iso2": "GG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://guernseylegalresources.gg/copyright-notice/",
+  "params": {
+   "second_route": "https://guernseylegalresources.gg/copyright-notice/ in a browser (answers scripts with a Cloudflare 403; terms read from the 2025-07-04 Internet Archive capture)"
+  },
+  "change": "terms_changed"
+ },
+ {
+  "id": "fk-offshore-petroleum-eio-trust-ord-2026-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-offshore-petroleum-eio-trust-ord-2026",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-2026-5%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-planning-eia-regs-2015-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-planning-eia-regs-2015",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fisl-2015-6%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-planning-eia-amend-regs-2022-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-planning-eia-amend-regs-2022",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fisl-2022-20%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-environment-trust-ord-2021-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-environment-trust-ord-2021",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-2021-1%22",
+  "kind": "page_hash",
+  "params": {
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-consumer-contracts-unfair-terms-ord-1996-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-consumer-contracts-unfair-terms-ord-1996",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-1996-14%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-organic-foods-ord-2000-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-organic-foods-ord-2000",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-2000-22%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-banking-ord-1987-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-banking-ord-1987",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-1987-13%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-banking-regs-order-1989-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-banking-regs-order-1989",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fisl-1989-13%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-insurance-ord-2003-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-insurance-ord-2003",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-2003-22%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "fk-companies-private-partnership-ord-1922-versions",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "fk-companies-private-partnership-ord-1922",
+  "tier": "consolidation_site",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=20&sortField=sort.title&sortDirection=asc&expression=id%3D%22fiord-1922-7%22",
+  "kind": "date_list",
+  "params": {
+   "regex": "\"first\\.valid\\.date\" : \"(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://www.legislation.gov.fk/ (browser; the portal is a JavaScript shell over /getdata JSON)"
+  }
+ },
+ {
+  "id": "terms-fk-legislation-consolidated",
+  "source_id": "FK-LEGISLATION-CONSOLIDATED",
+  "iso2": "FK",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.legislation.gov.fk/getdata?ds=TTFL-StaticDbDataSource&collection=TTFL.static&expression=name%3D%22COPYRIGHT%22&start=1&count=5",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.legislation.gov.fk/ (browser; open the Copyright link in the page footer)"
+  }
  }
 ]

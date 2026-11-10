@@ -10577,3 +10577,273 @@ Arabic only (`ar`). The Ministry's e-book is Arabic (`dc:language ar` in `packag
 - `sd-cbos-policies-2024`: row SD-CBOS-ADOPTED is `permission requested` (https://cbos.gov.sd/ar/content/... "حقوق النشر وحدود المسؤولية": copyright owned by the bank, personal non-commercial printing only). The PDF downloads (`curl -sL -A "Mozilla/5.0" -o p.pdf https://cbos.gov.sd/sites/default/files/CentralBankSudanPolicies2024.pdf` gives `200 6972571 application/pdf`) but is image-only: `pdftotext` returns nothing; OCR (`pdftoppm -r 300`, `tesseract -l ara`) was run for reading only.
 - Company sustainability or climate disclosure rule, emissions trading or GHG reporting rule, consumer protection act (a 2019 act reported by a secondary summary): none found, register rows with law family F7. Searched: the full text of all 365 XHTML pages of the e-book for carbon, emission, climate change, social responsibility, disclosure and consumer (hits were only hydrocarbon and chemistry definitions, aircraft-engine emissions in the Civil Aviation Safety Act 2010, and the competition, standards and anti-dumping laws for consumer), the FMA regulations pages (https://fma.gov.sd/regulatoins/, `/fma-law/`, `/implementing-regulations/`, `/category/board-decisions/`, `/financial-services/publications/`; list pages only, the linked PDFs were not read) and the WIPO Lex Sudan profile.
 - Not reachable from the laptop address: https://dse.sd and http://dse.sd (no answer, curl exit 6/000), https://www.hcenr.gov.sd, https://www.mefpd.gov.sd, https://www.mofep.gov.sd, https://mti.gov.sd (no answer, HTTP 000).
+
+## Isle of Man
+
+Rows `IM-LEGISLATION-ADOPTED` and `IM-IOMFSA-ADOPTED`, both `permission requested`. Nothing is stored. Run on 2026-11-10.
+
+legislation.gov.im, the gov.im terms page and tynwald.org.im are blocked from the laptop address. The request and the answer:
+
+```
+curl -sL -A 'Mozilla/5.0' -o out.html -w '%{http_code} %{size_download} %{content_type}\n' https://legislation.gov.im/
+```
+
+Returned `200 269 text/html; charset=UTF-8`: a "Request Rejected" page (support ID a99f5cf8-1264-4df3-bdd7-d9be1f6645d7). The same 269-byte page came back for https://www.gov.im/about-this-site/terms-and-conditions/, /about-the-government/terms-of-use/ and /copyright. https://www.legislation.gov.im/cms/legislation answered `000` (connection reset); a research run the same day saw `/cms/` answer HTTP 202 with a meta refresh to `/.well-known/sgcaptcha/`. https://www.tynwald.org.im/ answered `403 239 text/html; charset=iso-8859-1`.
+
+Browser route tried once, with the installed Chrome:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --virtual-time-budget=8000 --dump-dom https://www.legislation.gov.im/
+```
+
+Returned an empty DOM (0 bytes). The same command on the gov.im terms page returned the 266-byte "Request Rejected" page. No browser recipe was found; the portal and the gov.im terms page need Varun's own browser.
+
+gov.im news and category pages do open to curl (`200`, text/html). Their footer reads "All content is available under the Open Government Licence, except where otherwise stated"; that is the gov.im site, and no page of the legislation portal says it covers the portal, so no row relies on it.
+
+IOMFSA (`IM-IOMFSA-ADOPTED`): the terms page and both guidance PDFs open to curl.
+
+```
+curl -sL -A 'Mozilla/5.0' -o gw.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.iomfsa.im/media/3520/greenwashing-and-consumer-protection-guidance-note.pdf
+```
+
+Returned `200 900722 application/pdf` (sha256 6df908212cbdc075f28d1ff963ea87783208cc2e16cf68f909362587e00a0d1a). `pdftotext -layout gw.pdf -` gives clean text (742 lines). The climate and nature note, https://www.iomfsa.im/media/3488/guidance-note-consideration-of-climate-change-risks-final.pdf, returned `200 1247566 application/pdf` (sha256 03452da0e4ff4a1222c77e63377db79feebc4fec023442b8b63c0f79037fb284). The terms page https://www.iomfsa.im/terms-conditions/terms-conditions/ returned `200 43939 text/html; charset=utf-8`; it says "This website is maintained for your personal use and viewing." and grants no reuse, so these PDFs are not stored.
+
+### Languages
+
+English only. The Isle of Man legislates in English; no translation row is needed.
+
+### Link-only instruments
+
+- `im-climate-change-act-2021`: row `IM-LEGISLATION-ADOPTED` is permission requested (portal and terms page could not be opened). The Act's title, number and 2050 target come from a FAOLEX copy, which is not an official source.
+- `im-cputr-2019`: same row; the regulations are on the blocked portal. The in-force date is read from an OFT consultation page on consult.gov.im.
+- `im-fsa-greenwashing-guidance-2025` and `im-fsa-climate-nature-risk-guidance-2025`: row `IM-IOMFSA-ADOPTED` is permission requested (personal use and viewing only).
+- The Copyright Act 1991 is in `register.csv` as F7 and has no scope entry; its text could not be opened, so no copyright-statute pass was possible.
+
+## Bermuda
+
+Rows `BM-LAWS-CONSOLIDATED` (Bermuda Laws Online) and `BM-BMA-ADOPTED` (Bermuda Monetary Authority), both `permission requested`. No text is stored: every Bermuda instrument is `link only`. Run on 2026-11-10 (GEL-23-05).
+
+Why no pass: the Copyright and Designs Act 2004 s.199 gives the Crown copyright in every Act of the Legislature for 50 years from assent and s.199(4) adds that no other copyright subsists in an Act; no section read excludes laws from copyright or allows them to be republished, so there is no statute exception (the El Salvador ruling of 2026-11-03 needs a statute that lets anyone republish official laws). Bermuda Laws Online states "This website and its contents are Crown Copyright The Government of Bermuda - All Rights Reserved" and no licence. The BMA terms allow personal use only and forbid modification without written permission.
+
+The footer of bermudalaws.bm is rendered by JavaScript (a Blazor app), so plain `curl` on the home page does not show it. It was read with headless Chrome:
+
+```
+'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --virtual-time-budget=15000 --dump-dom https://www.bermudalaws.bm/Home/Disclaimer
+```
+
+The Disclaimer page body reads "Sorry, there's nothing at this address." and the footer carries the Crown copyright sentence above. The HTML shell carries a per-request token, so its hash differs on every fetch; the terms watcher therefore hashes the Copyright and Designs Act PDF instead.
+
+### Fetch requests that work (proven for the link-only entries; nothing is stored from them)
+
+```
+curl -sL -A 'Mozilla/5.0' -o cpa.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://bermudalaws.bm/Laws/Consolidated%20Law/1999/Consumer%20Protection%20Act%201999'
+```
+
+Returned `200 103968 application/pdf` for the Consumer Protection Act 1999 (sha256 4707c3eafad6f58115a4eeac052a6fea8857aa973f97ffeef067e1928afbc96f). Same pattern for the Copyright and Designs Act 2004 (`200 714112 application/pdf`, sha256 4cf5b77f1aa7d21d6acfe6f6eab4a03098229c02752026adf61be9bb6b63bdc7). The URL shape is `/Laws/Consolidated%20Law/<year>/<Title>` and `/Laws/Annual%20Law/Acts/<year>/<Title>`. `pdftotext -layout` read all of them cleanly.
+
+```
+curl -sL -A 'Mozilla/5.0' -o bma.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.bma.bm/viewPDF/documents/2023-03-09-17-03-42-Guidance-Note---Insurance---Management-of-Climate-Change-Risks-for-Commercial-Insurers.pdf'
+```
+
+Returned `200 321067 application/pdf` (sha256 d6ea91edfa4f3d1da3bed3f805a17a72360c0f39e8184679862ca2179a55d63e). Documents on `cdn.bma.bm` also answer plain curl (the 1 April 2026 stakeholder letter: `200 232770 application/octet-stream`).
+
+### Languages
+
+English only. Bermuda's legislation and every instrument found are in English; there is no translation row.
+
+### Link-only instruments
+
+- `bm-bma-insurer-climate-guidance`: row `BM-BMA-ADOPTED` is permission requested (personal use only, no modification).
+- `bm-consumer-protection-act-1999`: row `BM-LAWS-CONSOLIDATED` is permission requested (Crown copyright, all rights reserved, no statute exception).
+- The F7 instruments (Clean Air Act 1991 and its Amendment Act 2024 and Regulations 1993, Electricity Act 2016, the Renewable Energy Metering Scheme determination, Single-Use Plastics Act 2026, Invasive Alien Species Act 2021, Protected Species Act 2003, the two emissions standards Orders, the Waste and Litter Control Act) and the proposed Investment Funds sustainability amendments are register rows only, with no scope entry.
+
+## St Helena
+
+Both scope instruments are link only, no records. Row `SH-SHG-CONSOLIDATED` (St Helena Government, https://www.sainthelena.gov.sh/st-helena/government/legislation/) is `permission requested`: the only rights statement on the site is the footer "© St Helena Government 2025"; there is no copyright, licence or terms page (`/copyright/` answers 404, `/terms-and-conditions/` redirects to a 2013 Ascension prize-draw PDF). No St Helena copyright Ordinance is on the three alphabetical lists. The official list of UK laws applied names the Copyright Act 1956 as extended by SI 1963/1038; that Act has no exclusion for laws and s.39(1) gives the Crown the copyright in works made by or under its direction. No recipe is proven for storing text; the requests below were run on 2026-11-10 only to read the pages and verify the Ordinances. The host answers `curl` without a challenge.
+
+Terms page (`terms_fingerprint` 65ce6660...d4ab, identical on two fetches):
+
+```
+curl -sL -A "Mozilla/5.0" -o legislation.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.sainthelena.gov.sh/st-helena/government/legislation/
+```
+
+-> `200 226892 text/html; charset=UTF-8`.
+
+Environmental Protection Ordinance, 2016:
+
+```
+curl -sL -A "Mozilla/5.0" -o epo.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.sainthelena.gov.sh/app/uploads/2026/09/Environmental-Protection-Ordinance-2016.pdf
+pdftotext -layout epo.pdf epo.txt
+```
+
+-> `200 1274705 application/pdf` (sha256 ac3dab86...fdf9, reproduced by a second fetch); `pdftotext -layout` gave 235449 bytes of readable English text, no mojibake. Consumer Protection (Control of Sales During Limited Supply) Ordinance, 2020: `curl -sL -A "Mozilla/5.0" https://www.sainthelena.gov.sh/documents/Consumer-Protection-Control-of-Sales-During-Limited-Supply-Ordinance-2020.pdf` -> `200 205654 application/pdf` (sha256 ff57469e...189adf, reproduced); 3801 bytes of text. Other Ordinances read for the register rows (all `200`, `application/pdf`): `documents/Electricity-Ordinance.pdf` 208362 bytes, `documents/Utility-Services-Ord-Updated-220224.pdf` 198198, `app/uploads/2026/04/20260326_Financial-Services-Ordinance_CONSOLIDATION.pdf` 801694, `documents/20250901_Companies-Ordinance_CONSOLIDATED.pdf` 1235257, `documents/20250704_Prevention-of-abusive-business-practices-Ordinance-2025_CONSOLIDATED.pdf` 515528, `documents/Fisheries-Ordinance-2021-Updated-120922.pdf` 560785, `documents/Water-Ordinance-.pdf` 202248, `app/uploads/2026/04/20260401_Forestry-Ordinance_CONSOLIDATION.pdf` 334240, `documents/Land-Planning-Dev-Control-Ord-Updated-111021` 615749, `documents/Birds-Protection-Ordinance` 159405, `documents/National-Parks-Ordinance` 172455, plus Ascension `documents/wildlife-protection-ordinance/` 314471 and `documents/20250521_National-Protected-Areas-Ord_CONSOLIDATION` 1595047, Tristan da Cunha `documents/Marine-Protection-Tristan-da-Cunha-Ordinance-2021` 235708 and `documents/Ozone-Layer-Protection-TdC-Ordinance` 175655 (base `https://www.sainthelena.gov.sh/`).
+
+### Languages
+
+English only. The Government publishes its Ordinances in English; no other language and no translation exists to look for, so no translation row.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Environmental Protection Ordinance, 2016 | https://www.sainthelena.gov.sh/app/uploads/2026/09/Environmental-Protection-Ordinance-2016.pdf | SH-SHG-CONSOLIDATED, permission requested. `in_force` 2016-02-29 from the PDF header; the commencement Order itself was not read. |
+| Consumer Protection (Control of Sales During Limited Supply) Ordinance, 2020 | https://www.sainthelena.gov.sh/documents/Consumer-Protection-Control-of-Sales-During-Limited-Supply-Ordinance-2020.pdf | SH-SHG-CONSOLIDATED, permission requested. `in_force` 2020-04-15 from the PDF header. |
+
+Register-only (F7, no scope entry): Prevention of Abusive Business Practices Ordinance 2025, Electricity Ordinance 1961, Utility Services Ordinance 2013, Financial Services Ordinance 2008 and Companies Ordinance 2004 (both searched for sustainability, climate, ESG and greenhouse: no match), Fisheries Ordinance 2021, Water Ordinance 1978, Forestry Ordinance 1954, Land Planning and Development Control Ordinance 2013, Birds Protection Ordinance 1996, National Parks Ordinance 2003 (header: "Not in force at 1 April 2017"). Ascension only: Wildlife Protection Ordinance 2013, National Protected Areas Ordinance 2003. Tristan da Cunha only: Marine Protection Ordinance 2021, Ozone Layer Protection Ordinance 1996. Not entered: Ascension Control of Trade in Endangered Species Ordinance 2015 (A7 of 2015, read) and its Tristan counterpart 2020, which sit outside the brief's list.
+
+## Gibraltar
+
+Rows `GI-GIBRALTARLAWS-CONSOLIDATED` (`permission requested`, statute: Intellectual Property (Copyright and Related Rights) Act 2005 s.173) and `GI-GOVGI-COPYRIGHT-NOTICE` (`fail`, terms). No row passes, so nothing is stored and no record fetch is proven for storage. Run on 2026-11-10. The requests below were run only to read dates, titles and commencement lines for the scope entries.
+
+Law page (HTML, with metadata and version history), Climate Change Act 2019:
+
+```
+curl -sL -A 'Mozilla/5.0' -o ccact.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.gibraltarlaws.gov.gi/legislations/climate-change-act-2019-4688
+```
+
+Returned `200 43541 text/html; charset=UTF-8`. Two fetches gave different hashes: the page carries a per-request token, so a page hash is not a usable watcher; the watchers use the PDF.
+
+Consolidated PDF of the current version, same instrument:
+
+```
+curl -sL -A 'Mozilla/5.0' -o ccact.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.gibraltarlaws.gov.gi/legislations/climate-change-act-2019-4688/download
+```
+
+Returned `200 430643 application/pdf`; `pdftotext -layout ccact.pdf -` gives clean text with the commencement line on page 1 ("Act. No. 2019-29 Commencement (LN. 2019/201) 10.10.2019"). `curl -sI` on the same URL returns `last-modified: Thu, 02 Apr 2026 07:01:27 GMT`, which the `http_head` watchers read. The law index https://www.gibraltarlaws.gov.gi/legislations (12.6 MB) lists every law page.
+
+Terms pages: https://www.gibraltarlaws.gov.gi/copyright-and-disclaimer answered `200 19210 text/html; charset=UTF-8` (a disclaimer, no reuse licence); https://www.gibraltar.gov.gi/copyright-and-disclaimer answered `200 70416 text/html; charset=UTF-8`. Both carry a per-request token (two fetches give different hashes) and neither answers HEAD with Last-Modified or Content-Length, so no terms watcher is set; the terms pages are re-read by hand.
+
+### Languages
+
+English only. No second official language and no government translation exists, so there is no translation row.
+
+### Link-only instruments
+
+All twelve scope instruments are link only because the only row that serves them, `GI-GIBRALTARLAWS-CONSOLIDATED`, is `permission requested`: Crown copyright (s.173(1)), no reuse licence on the site, no statute exception. Written permission from the Government of Gibraltar is needed before any text is stored.
+
+### Register-row-only instruments
+
+Climate Change (Idling of Motor Vehicles) Regulations 2023, Climate Change (Net Zero Delivery Body) Regulations 2022, Recycling Regulations 2023, Nature Restoration Act 2026, Gibraltar Climate Change Committee Regulations 2021 (family F7). The Treaty on Gibraltar and the European Union Act 2026 (Act No. 2026-11) has no row: its official page was not opened.
+
+### Blocked
+
+https://www.gfsc.gi/ answered `301` to https://www.fsc.gi/, which answered `403` to `curl -A 'Mozilla/5.0'`. Not read.
+
+## Jersey
+
+Rows `JE-JERSEYLAW-ADOPTED` and `JE-JERSEYLAW-CONSOLIDATED` (`pass`, terms: Open States Assembly Licence - Jersey v1.0) and `JE-JFSC-CODES` (`permission requested`). Run on 2026-11-10.
+
+The Greffier of the States offers the legislation on the current laws, laws as enacted and pending laws pages of jerseylaw.je under OSAL-J v.1 (https://www.jerseylaw.je/Pages/Copyright.aspx). The licence text itself (https://statesassembly.je/open-licence) is blocked from the laptop address, and was read on a Wayback Machine snapshot instead (see the row notes); the verdict is for Varun to confirm against a browser copy. The site asks bulk re-users to request API access by email instead of scraping, so fetch one instrument at a time.
+
+Consolidated text, current version of one named law (Consumer Protection (Unfair Practices) (Jersey) Law 2018):
+
+```
+curl -sL -A 'Mozilla/5.0' -o l16.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.jerseylaw.je/laws/current/l_16_2018
+```
+
+Returned `200 226139 text/html; charset=utf-8`. An earlier point-in-time version is the same URL with a suffix: `https://www.jerseylaw.je/laws/current/l_16_2018_20231123` returned `200 222247 text/html; charset=utf-8` and shows the law "from 1 January 2019 to 23 November 2023". The suffix is the last day of that version; the dates of all versions are the `<option>` labels of the "Select version" list on the current page (`value="l_16_2018_20231123"` is labelled `01 Jan 2019`, because the label is the start date and the value the end date).
+
+Record text: the HTML inside the `RichHtmlField` element (id `ctl00_PlaceHolderMain_RichHtmlField__ControlWrapper_RichHtmlField`), script and style removed, block elements to line breaks, remaining tags dropped, entities unescaped, whitespace collapsed per line, cut before the line "Page Last Updated". `fetched_sha256` is the hash of the HTML as received; the pages carry per-request tokens, so a second fetch does not reproduce it (checked: two fetches of `l_16_2018_20231123` gave different hashes).
+
+As-enacted text:
+
+```
+curl -sL -A 'Mozilla/5.0' -o en16.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.jerseylaw.je/laws/enacted/Pages/L-16-2018.aspx
+```
+
+Returned `200 150809 text/html; charset=utf-8`. The enacted page has no commencement date of its own, so `in_force` of an `adopted` record is the commencement read in the Table of Legislation History of the consolidated page (8 June 2018 for L.16/2018; 1 November 2000, R&O.92/2000, for L.33/1999; the enacted L.33/1999 page returned `200 307928 text/html; charset=utf-8`). Customs and Excise (Jersey) Law 1999 consolidated, current: `https://www.jerseylaw.je/laws/current/l_33_1999` returned `200 916239 text/html; charset=utf-8`.
+
+### Languages
+
+English only. The law pages offer no second language and no translation. No row for a translation.
+
+### Link only
+
+- `je-jfsc-investment-business-code`, `je-jfsc-fund-services-business-code`, `je-jfsc-certified-funds-code-schedule-1`: row `JE-JFSC-CODES`, `permission requested`. The JFSC pages (HTML, `curl -sL -A 'Mozilla/5.0'` returned `200 206681`, `200 171552` and `200 159042 text/html; charset=utf-8`) carry "© 2026 Jersey Financial Services Commission" and no reuse terms; the Registry terms page has no reuse sentence.
+- Blocked from the laptop address: https://statesassembly.je/open-licence answers 403 (Cloudflare challenge page, 5411 bytes) to `curl -sL -A 'Mozilla/5.0'`.
+
+## Guernsey
+
+No licence row passes, so nothing is stored and no fetch recipe is proven for records. Every request below was run on 2026-11-10 from the laptop address with `curl -sL -A 'Mozilla/5.0'`.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| GG-GFSC-CONSOLIDATED | fail | GFSC copyright page: "Any Information from this website may not be sold or otherwise circulated for profit; No Information on this website is to be modified in any way" |
+| GG-GOV-ADOPTED | fail | gov.gg terms: reproduction free "for research, private study or for internal circulation within an organisation" |
+| GG-GLR-CONSOLIDATED | fail | portal copyright notice: permission "otherwise than for the purpose of profit or gain"; live site blocked, notice read from an archive capture |
+
+Guernsey law is States copyright. Copyright (Bailiwick of Guernsey) Ordinance, 2005 s.192(1): "Copyright in every Projet de Loi and Ordinance passed by the States of Deliberation belongs to the States of Guernsey." (s.192(4): 50 years from passing). No statute removes copyright from laws, so there is no statute pass. The Ordinance was read from an Internet Archive capture of the portal page, https://web.archive.org/web/20250222140338/https://www.guernseylegalresources.gg/ordinances/guernsey-bailiwick/i/intellectual-property/copyright-bailiwick-of-guernsey-ordinance-2005/ (HTTP 200, 502681 bytes, text/html, sha256 fc5703e19cb917bb2a637fcacd184fa23dde0d2a9ce58c2f63d2e3daebcdc7ec); WIPO Lex has no Guernsey profile (`https://www.wipo.int/wipolex/en/members/profile/GG` answers 404).
+
+### Requests tried
+
+Terms pages:
+
+```
+curl -sL -A 'Mozilla/5.0' https://www.gfsc.gg/copyright          -> 200, 70403 bytes, text/html; charset=UTF-8
+curl -sL -A 'Mozilla/5.0' https://gov.gg/TsCs                    -> 200, 76525 bytes, text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' https://www.gov.gg/terms               -> 404 (also /copyright, /legal, /disclaimer)
+curl -sL -A 'Mozilla/5.0' https://www.guernseylegalresources.gg/ -> 403, 5281 bytes, text/html; charset=UTF-8 (Cloudflare challenge)
+curl -sL -A 'Mozilla/5.0' https://www.guernseylegalresources.gg/terms-and-conditions -> 403, 5362 bytes
+curl -sL -A 'Mozilla/5.0' 'https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806' -> 403, 5415 bytes
+curl -sL -A 'Mozilla/5.0' https://web.archive.org/web/20250704105946/https://guernseylegalresources.gg/copyright-notice/ -> 200, 16718 bytes, text/html
+```
+
+Instrument PDFs (read with `pdftotext -layout file.pdf -`; the output has no mojibake; nothing was stored):
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://www.gfsc.gg/sites/default/files/2022-09/Consolidated%20Guernsey%20Green%20Fund%20Rules%20and%20Guidance.pdf' -> 200, 492605 bytes, application/pdf
+curl -sL -A 'Mozilla/5.0' 'https://www.gfsc.gg/sites/default/files/2023-02/Consolidated%20Natural%20Capital%20Fund%20Rules%20and%20Guidance%202022.pdf' -> 200, 386788 bytes, application/pdf
+curl -sL -A 'Mozilla/5.0' 'https://www.gfsc.gg/sites/default/files/2022-09/Guidance%20for%20Auth%20and%20Reg%20CIS%20on%20Measures%20to%20Counter%20the%20Risk%20of%20Greenwashing.pdf' -> 200, 191754 bytes, application/pdf
+curl -sL -A 'Mozilla/5.0' 'https://www.gfsc.gg/sites/default/files/inline-files/Finance%20Sector%20Code%20of%20Corporate%20Governance%202021.pdf' -> 200, 345278 bytes, application/pdf
+curl -sL -A 'Mozilla/5.0' 'https://www.gov.gg/CHttpHandler.ashx?id=164587&p=0' -> 200, 2104155 bytes, application/pdf (draft Trading Standards Ordinance, P.2023/9)
+curl -sL -A 'Mozilla/5.0' 'https://www.gov.gg/CHttpHandler.ashx?id=141038&p=0' -> 200, 808981 bytes, application/pdf (draft Protection of Investors commencement Ordinance, P.2021/76)
+```
+
+### Languages
+
+English only. No second official language was found for these instruments and no government English translation applies; nothing stored.
+
+### Link-only instruments
+
+- gg-green-fund-rules-2021, gg-natural-capital-fund-rules-2022, gg-greenwashing-guidance-cis-2022, gg-finance-sector-code-corporate-governance: row GG-GFSC-CONSOLIDATED is fail.
+- gg-trading-standards-fair-trading-ordinance-2023: row GG-GOV-ADOPTED is fail; the enacted text is on the portal, which answers 403 to curl.
+- Environmental Pollution (Guernsey) Law, 2004 (F7): register row only, portal 403.
+
+### Blocked from the laptop address
+
+`https://www.guernseylegalresources.gg/` and the paths above (403, Cloudflare challenge, also in headless Chrome per the brief of 2026-11-10). Browser recipe not attempted: the notice that decides the verdict was readable from the archive, and the row fails on terms whatever the page serves.
+
+## Falkland Islands
+
+GEL-23-06, run 2026-11-10; second pass the same day. The one row, `FK-LEGISLATION-CONSOLIDATED`, is `pass` on terms (ruled by Varun, 2026-11-10): the portal's COPYRIGHT page asserts the Government's copyright and "the right to have this material remain unaltered", then licenses the information on terms "as far as possible identical to" the UK Open Government Licence v3. Texts are stored verbatim. `legislation.gov.fk` serves a 730-byte JavaScript shell; the law is JSON from `/getdata` and PDF from `/download/pdf/`.
+
+Proven requests (curl, no browser needed):
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://www.legislation.gov.fk/getdata?ds=TTFL-BrowseDataSource&collection=TTFL.toc&subset=browse&start=1&count=1000&sortField=sort.title&sortDirection=asc&expression=DocStatus%3D%22inforce%22%20AND%20PitValid%3D%40pointInTime(20261110000000)'
+```
+returned `200 610037 application/json; charset=UTF-8`, 879 in-force instruments, each with `id`, `title`, `version.series.id`, `version.desc.id`, `first.valid.date` (the consolidation date) and `publication.date`. `DocStatus="made"` instead of `"inforce"` lists as-made versions (only recent instruments have one). The `pointInTime` term must be 14 digits.
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://www.legislation.gov.fk/download/pdf/89c43d07-ddc9-42cd-9312-d63be1ba4a0b/ac03660a-0cd0-424f-804b-3248e5996a96/fiord-1987-13.pdf'
+```
+(Banking Ordinance 1987) returned `200 112611 application/pdf` (a second request gave the same size). Text recipe for every record: `pdftotext -layout file.pdf -`, each line stripped and runs of spaces or tabs collapsed to one space, form feeds turned into line breaks, three or more line breaks reduced to two. Page headers and footers stay in the text, and the text layer prints "COMMENCE MENT" in some bracket lines; both are left as the PDF gives them. No OCR (every PDF has a text layer). `fetched_sha256` is the hash of the PDF as returned. Each record's `in_force` is the portal's `first.valid.date` for the consolidated version fetched (its `version.desc.id`); where that is 2017-07-31, it is the portal's consolidation start and the earliest date the portal vouches for that text. The instrument's own commencement date (read from the PDF) stays in `scope.json` and the register.
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://www.legislation.gov.fk/getdata?ds=TTFL-StaticDbDataSource&collection=TTFL.static&expression=name%3D%22COPYRIGHT%22&start=1&count=5'
+```
+returned `200 1783 application/json; charset=UTF-8` (the terms page; `last.modified.date` 2017-07-27).
+
+### Languages
+
+English only. Every instrument found is in English; the Islands have no second official language.
+
+### Link-only instruments
+
+One: `fk-environment-trust-ord-2021` (row `pass`). It states no in-force date (s.1(2) needs a Governor's notice, none found), a record needs one, and s.68 of Ordinance No. 5 of 2026 repeals it; the portal still shows it as `made`, `repealed` N. Official URL: https://www.legislation.gov.fk/download/pdf/5bd206f1-0e7f-4fde-86c7-5032b97fcb2b/62a28a0e-72d1-40a1-9ed1-70aa9970435e/fiord-2021-1.pdf
+
+The nine other scope entries are stored, one consolidated English record each.
+
+No separate financial regulator or Gazette site was found: banking and insurance sit under Ordinances administered by the Government. `gov.fk` terms (personal, non-commercial use only) cover that site and were not used for any law text; `falklands.gov.fk` gave no answer.
