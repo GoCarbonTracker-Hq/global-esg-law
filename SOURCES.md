@@ -10847,3 +10847,273 @@ One: `fk-environment-trust-ord-2021` (row `pass`). It states no in-force date (s
 The nine other scope entries are stored, one consolidated English record each.
 
 No separate financial regulator or Gazette site was found: banking and insurance sit under Ordinances administered by the Government. `gov.fk` terms (personal, non-commercial use only) cover that site and were not used for any law text; `falklands.gov.fk` gave no answer.
+
+## Anguilla
+
+No licence row passes, so nothing is stored and no fetch recipe is proven for records. Every request below was run on 2026-11-10 from the laptop address with `curl -sL -A 'Mozilla/5.0'`.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| AI-GOV-CONSOLIDATED | permission requested | gov.ai terms: "You may not reproduce, distribute, modify, transmit, or otherwise use any material from this website without the prior written consent of the Government of Anguilla." |
+
+Anguilla law is Government of Anguilla copyright. Copyright Act, R.S.A. c. C120 s.4(2): "In paragraph (1)(b), “official text of administrative or legal nature” does not include an Act of the Legislature of Anguilla or a regulation under such an Act." So no statute pass. laws.gov.ai calls its texts unofficial and is not a source row. The Financial Services Commission page (fsc.org.ai/legislation.php) links the same Acts and has no terms of its own that opened.
+
+### Requests tried
+
+Terms and statute:
+
+```
+curl -sL -A 'Mozilla/5.0' https://www.gov.ai/terms-and-conditions -> 200, 34937 bytes, text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' 'https://gov.ai/Legislation/Acts/C120-Copyright%20Act.pdf' -> 200, 929282 bytes, application/pdf (pdftotext -layout; s.4(2) read)
+curl -sL -A 'Mozilla/5.0' https://gov.ai/service/2022-revised-statutes-and-regulations -> 200, 124495 bytes, text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' https://www.gov.ai/laws -> 200, 39069 bytes, text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' 'https://laws.gov.ai/?selected_page=disclaimer' -> 200, 48071 bytes, text/html; charset=utf-8
+curl -sL -A 'Mozilla/5.0' https://fsc.org.ai/legislation.php -> 200, 30440 bytes, text/html; charset=UTF-8
+```
+
+Instrument PDFs (read with `pdftotext -layout file.pdf -`; no mojibake; nothing was stored):
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://gov.ai/Legislation/Acts/E063-Environmental%20Levy%20on%20Electricity%20Act.pdf' -> 200, 60476 bytes, application/pdf
+curl -sL -A 'Mozilla/5.0' 'https://gov.ai/Legislation/Acts/P112-Protection%20against%20Unfair%20Competition%20Act.pdf' -> 200, 45937 bytes, application/pdf
+```
+
+The other 21 register-only Acts and regulations answered 200 application/pdf on the same path pattern (`https://gov.ai/Legislation/Acts/<Code-Title>.pdf`, spaces as `%20`); the Act path without `.pdf` gives 404.
+
+### Languages
+
+English only (official language English). No translation applies; nothing stored.
+
+### Link-only instruments
+
+- ai-environmental-levy-electricity-act, ai-unfair-competition-act-2002: row AI-GOV-CONSOLIDATED is permission requested.
+- Financial-sector Acts (Banking, Securities, Mutual Funds, Insurance), consumer Acts (Sale of Goods, Sale of Food and Drugs, Weights and Measures) and environment, energy and planning Acts (F7): register rows only, no sustainability or green-claims provision found.
+
+### Blocked from the laptop address
+
+`https://www.eccb-centralbank.org/` answered HTTP 403, 118 bytes (403 Forbidden page) to `curl -sL -A 'Mozilla/5.0'`; not read. No ECCB climate standard scope entry for Anguilla: no opened page says it applies here.
+
+## Pitcairn Islands
+
+The one scope instrument is link only, no records. Row `PN-GOVPN-CONSOLIDATED` (Government of the Pitcairn Islands, https://www.government.pn/laws) is `permission requested`: the only rights statement on the site is the footer "© Copyright MMXXIII Pitcairn Islands Office"; `/copyright`, `/terms`, `/legal`, `/disclaimer` and `/privacy` all answer 404. No Pitcairn copyright Ordinance is in the Arrangement of Chapters or the Chronological Table, and no copyright Order is among the 19 Pitcairn Orders on legislation.gov.uk. Constitution s.42(1) applies English statutes of general application, but no official page was found that says a UK copyright Act applies or gives the Crown copyright in Pitcairn Ordinances, so the statute exception is "none found". No recipe is proven for storing text; the requests below were run on 2026-11-10 only to read the pages and verify the instruments. The host answers `curl` without a challenge.
+
+Terms page (`terms_fingerprint` d1ff3061...c832, identical on two fetches):
+
+```
+curl -sL -A "Mozilla/5.0" -o laws.html -w '%{http_code} %{size_download} %{content_type}\n' https://www.government.pn/laws
+```
+
+-> `200 188299 text/html;charset=utf-8`.
+
+Pitcairn Islands Marine Protected Area Ordinance 2016 (Cap. 48):
+
+```
+curl -sL -A "Mozilla/5.0" -o cap48.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.government.pn/s/Cap-48-Pitcairn-Islands-Marine-Protected-Area-2017-Rev-Ed.pdf
+pdftotext -layout cap48.pdf cap48.txt
+```
+
+-> `200 258979 application/pdf` (sha256 14fe2a10...f62f); `pdftotext -layout` gave 62557 bytes with a text layer, but some letters are missing in places ("fis in" for "fishing"), so a stored record would need OCR or a better source. The commencement Order of 14 September 2016 is printed on p. 857 of the chapter.
+
+Other PDFs read for the register rows (base `https://www.government.pn/s/`, all `200`, `application/pdf`): `Endangered-Species-Protection-Ordinance.pdf` 128136 bytes (text layer), `Apiaries-Ordinance.pdf` 134259 (text layer), `Prevention-of-Collisions-at-Sea-Ordinance.pdf` 203158 (text layer), `2024-03-03_Biosecurity_Ordinance_signed_and_dated_with_legal_report-fpka.pdf` 5890273 (body scanned; first pages read with `pdftoppm -r 150` and `tesseract -l eng`), `2022-10-11-Marine-Conservation-Regulations-2022.pdf` 2216140 (scanned; `pdftotext` gave nothing; first two pages read by OCR), `Freedom-of-Information-Ordinance.pdf` 167320, `The-Constitution-of-Pitcairn.pdf` 237533, `Arrangement-of-Chapters.pdf` 85914, `Chronological-Table-of-Ordinances.pdf` 82407, `Preface.pdf` 61430. UK Orders: `curl -sL -A "Mozilla/5.0" https://www.legislation.gov.uk/uksi/2014/2926/made/data.xml` -> `200 63679 application/xml;charset=utf-8`; `.../uksi/2015/236/made/data.xml` -> `200 11109`; `.../uksi/1997/2585/made/data.xml` -> `200 148254`. The government.pn UK Orders page (`/uk-orders-in-council`) -> `200 246003 text/html`.
+
+### Languages
+
+English only. No government page states an official language and every instrument found is in English. The tourism site https://www.visitpitcairn.pn/ prints "Language: English & Pitkern" but publishes no law and no Pitkern text of any Ordinance exists to look for. No translation row.
+
+### Link only
+
+| Instrument | Official URL | Why link only |
+|---|---|---|
+| Pitcairn Islands Marine Protected Area Ordinance 2016 (Cap. 48) | https://www.government.pn/s/Cap-48-Pitcairn-Islands-Marine-Protected-Area-2017-Rev-Ed.pdf | PN-GOVPN-CONSOLIDATED, permission requested. `in_force` 2016-09-15 from the commencement Order printed in the chapter; section 10 awaits a second Order. |
+
+Register-only (F7, no scope entry): Marine Conservation Regulations 2022 (scanned, OCR read), Endangered Species Protection Ordinance (Cap. 42), Biosecurity Ordinance 2024 (scanned; commencement by Order, none found), Apiaries Ordinance (Cap. 28), Prevention of Collisions at Sea Ordinance (Cap. 30). UK Orders that extend to Pitcairn, register only because the brief stores no UK Order under a Pitcairn row: Air Navigation (Overseas Territories) (Environmental Standards) Order 2014 (SI 2014/2926, its Schedule lists Pitcairn) and its 2015 amendment (SI 2015/236), and Merchant Shipping (Oil Pollution) (Pitcairn) Order 1997 (SI 1997/2585, art. 2 extends the Merchant Shipping Act 1995 oil pollution provisions to Pitcairn). No financial regulator, stock exchange or environment department site with law texts was found: https://www.pitcairn.pn/ and https://www.gov.pn gave no connection.
+
+## Turks and Caicos Islands
+
+Row `TC-AGC-CONSOLIDATED`, `permission requested`. Nothing is stored. Run on 2026-11-10.
+
+The Attorney General's Chambers site (gov.tc/agc) serves each Revised Laws edition as a PDF with a text layer. The site has no copyright, licence, terms or disclaimer page: `/agc/disclaimer`, `/disclaimer`, `/terms-of-use`, `/copyright-notice`, `/agc/copyright` and `/agc/terms-and-conditions` all answer HTTP 404, and `https://www.gov.tc/agc/` and `https://www.gov.tc/agc/2021-revised-laws` carry no such wording. No Copyright Ordinance is in the 2021 Revised Laws list and no Order extending a UK copyright Act to the islands was found, so the row has no statute either. The request below works and was used to open the text for citation only:
+
+```
+curl -sL -A 'Mozilla/5.0' -o cp.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://www.gov.tc/agc/component/edocman/17-14-consumer-protection-ordinance/fdocument?Itemid=9999'
+```
+
+Returned `200 968197 application/pdf` (sha256 `29760d76edee4cfbfdaa2d0c41edb00dd99b41a53b5059b8f79b7c96a1333de5`); `pdftotext -layout cp.pdf -` gives clean English text. The slug of each instrument comes from the list pages `https://www.gov.tc/agc/2021-revised-laws` and `https://www.gov.tc/agc/<year>-ordinances` (checked 2016 to 2024; 2025 is under `-acts`). A plain `/viewdocument/<id>` URL returns a Google-viewer shell, not the PDF.
+
+### Languages
+
+English only; no second official language and no translation source.
+
+### Link-only instruments
+
+- `tc-consumer-protection-ordinance` (Consumer Protection Ordinance, ss.33-35): row `TC-AGC-CONSOLIDATED` is `permission requested`, so the instrument is `link only`.
+
+The other thirteen Ordinances found (plastics, marine pollution, national parks, coast protection, wild birds, fisheries, planning, water, public and environmental health, electricity, petroleum, disaster management, beach vending), the Financial Services Commission Ordinance and the Grand Turk agency Ordinance are family F7 or have no sustainability provision. They have `register.csv` rows only and no scope entry.
+
+Other pages checked: `https://www.gov.tc/` and `https://www.gov.tc/privacy-policy` (job-applicant policy, no reuse sentence); `https://www.tcifsc.tc/` (footer: "Copyright © 2024 Turks and Caicos Islands Financial Services Commission. All Rights Reserved."); `https://www.gov.tc/decr` (no terms). `https://www.wipo.int/wipolex/en/members/profile/TC` answers 404.
+
+## Cayman Islands
+
+Checked 2026-11-10. No Cayman Islands row passes, so nothing is stored and no record is fetched for storage. The requests below are the ones that decided each row and the ones a later fetch would use if permission is granted. All were run from the laptop with `curl -sL -A "Mozilla/5.0"`; no challenge or 403 was met.
+
+### Rows
+
+| Row | Verdict | Why |
+|---|---|---|
+| KY-LRC-CONSOLIDATED | permission requested | legislation.gov.ky states no terms; the Government portal terms (gov.ky) allow download to file or printer and say "Any other proposed use of the material is subject to approval." The Copyright (Cayman Islands) Order 2015 gives the Crown copyright in every Law of the Legislature. |
+| KY-CIMA-ADOPTED | permission requested | cima.ky footer only: "© 2026 Cayman Islands Monetary Authority. All Rights Reserved."; the General Disclaimer link answers 404. |
+| KY-CSX-ADOPTED | fail | The CSX terms bar copying and republication "to any third parties for commercial gain" and adaptation without express permission. |
+
+### Proven requests
+
+Terms of the Government portal (decides KY-LRC-CONSOLIDATED; 200, 127985 bytes, text/html):
+
+    curl -sL -A "Mozilla/5.0" "https://gov.ky/terms-and-conditions"
+
+Law page that a fetch would use (Travel (Departure Tax and Environmental Protection Fee) Act, 2026 Revision; 200, 393585 bytes, application/pdf, sha256 20fc668d6962...). Text layer present; `pdftotext -layout` gives clean English with no mojibake:
+
+    curl -sL -A "Mozilla/5.0" "https://legislation.gov.ky/cms/images/LEGISLATION/PRINCIPAL/1976/1976-0011/1976-0011_2026%20Revision.pdf" -o 1976-0011.pdf
+    pdftotext -layout 1976-0011.pdf -
+
+Current-law index (200, 263484 bytes, text/html; the by-title page lists the current PDFs; the per-letter lists need a POST):
+
+    curl -sL -A "Mozilla/5.0" "https://legislation.gov.ky/cms/legislation/current/by-title.html"
+
+CIMA circulars (each 200, text/html, 170122 and 169588 bytes):
+
+    curl -sL -A "Mozilla/5.0" "https://www.cima.ky/environmental-social-and-governance-and-sustainable-investing"
+    curl -sL -A "Mozilla/5.0" "https://www.cima.ky/climate-change-environmental-social-and-governance-and-sustainability"
+
+CIMA terms: `https://www.cima.ky/general-disclaimer` answers 404 (2984 bytes); `/terms-and-conditions`, `/legal`, `/disclaimer` also 404; `/privacy-policy` answers 200 and is not a reuse notice.
+
+CSX terms (200, 25451 bytes, text/html) and ESG page (200, 21567 bytes, text/html):
+
+    curl -sL -A "Mozilla/5.0" "https://www.csx.ky/terms-of-use.asp"
+    curl -sL -A "Mozilla/5.0" "https://www.csx.ky/companies/esg.asp"
+
+Copyright Order on legislation.gov.uk (200, 157949 bytes, text/html), Schedule Part 2 para 54:
+
+    curl -sL -A "Mozilla/5.0" "https://www.legislation.gov.uk/uksi/2015/795/made/data.htm"
+
+### Languages
+
+English only. Every instrument found is published in English; no second official language and no translation source applies.
+
+### Link-only instruments
+
+| Instrument | Reason |
+|---|---|
+| ky-cima-sic-esg-2022 | KY-CIMA-ADOPTED, permission requested; no request sent |
+| ky-cima-sic-climate-insurers-2022 | KY-CIMA-ADOPTED, permission requested; no request sent |
+| ky-travel-departure-tax-epf-act | KY-LRC-CONSOLIDATED, permission requested; no request sent |
+
+The 26 F7 instruments in register/register.csv (conservation, water, waste, shipping, planning, fuel and electricity Acts and regulations) and the CSX ESG Market page are register rows only, with no scope entry.
+
+### Blocked
+
+`https://www.gazettes.gov.ky/` did not answer (curl status 000, no HTTP response within 40 s). The legislation.gov.ky gazette PDFs answered normally.
+
+## British Virgin Islands
+
+Row `VG-LAWSGOVVG-ADOPTED` (`permission requested`, terms: the laws.gov.vg FAQ). No row passes, so nothing is stored and no record fetch is proven for storage. Every request below was run on 2026-11-10 from the laptop address with `curl -sL -A 'Mozilla/5.0'`, only to read dates, titles and commencement lines for the scope entries.
+
+The Virgin Islands have their own legislature; their instruments are Acts, Ordinances and statutory instruments published by the Attorney General's Chambers on Virgin Islands Laws Online. The site holds the as-enacted Act or statutory instrument as one PDF per law (from 1 January 2020) and Revised Editions showing the law as at 1 January 2020.
+
+Law page (HTML, lists amendments, subsidiary legislation and commencement notices), Consumer Protection Act, 2020:
+
+```
+curl -sL -A 'Mozilla/5.0' -o cpa.html -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.vg/Laws/consumer-protection-act-2020
+```
+
+Returned `200 32101 text/html; charset=UTF-8`. Two fetches gave the same bytes, so the page hash is a usable watcher signal (it changes when an amendment or notice is added). The PDF link sits in the page source (an embed with the `https://laws.gov.vg/sites/default/files/...pdf` address).
+
+As-enacted PDF, same instrument:
+
+```
+curl -sL -A 'Mozilla/5.0' -o cpa.pdf -w '%{http_code} %{size_download} %{content_type}\n' 'https://laws.gov.vg/sites/default/files/2023-02/Act%20No.%2010%20of%202020-Consumer%20Protection%20Act%2C%202020_0%20%20%28Gazetted%20July%2013%202020%29.pdf'
+```
+
+Returned `200 632511 application/pdf`; `pdftotext -layout cpa.pdf -` gives clean text (section 42 starts at "False, misleading or deceptive representations"). `curl -sI` on the same URL returns `Last-Modified: Sun, 12 Feb 2023 15:16:56 GMT`. The commencement notice (S.I. 2021 No. 78) is its own PDF under `/sites/default/files/2024-04/` and returned `200 184152 application/pdf`.
+
+Terms page (the only reuse text on the site):
+
+```
+curl -sL -A 'Mozilla/5.0' -o faqs.html -w '%{http_code} %{size_download} %{content_type}\n' https://laws.gov.vg/faqs
+```
+
+Returned `200 37565 text/html; charset=UTF-8`, sha256 `c9d8069e07505a04e687ccf248db4fc973c58fc4d9ada94f07632e1c1f9c7925`; two fetches gave the same bytes. `/terms`, `/copyright`, `/disclaimer` and `/about` answered `404`.
+
+Copyright position: the UK Copyright Act 1956 applies through the Copyright (Virgin Islands) Order 1962, read on the bvifsc.vg PDFs `https://www.bvifsc.vg/sites/default/files/copyright_act.pdf` (`200 706022 application/pdf`, sha256 `73cc1251...`) and `.../copyright_virgin_islands_order.pdf` (`200 331599 application/pdf`, sha256 `3e1efba7...`). Section 39(1) gives the Crown copyright in works made by or under the direction or control of the Crown or a Government department; no section found excludes laws from copyright, so there is no statute pass. WIPO Lex has no profile for the territory (`https://www.wipo.int/wipolex/en/members/profile/VG` answers 404).
+
+### Languages
+
+English only. No second official language and no government translation exists, so there is no translation row.
+
+### Link-only instruments
+
+All five scope instruments are link only because the only row that serves them, `VG-LAWSGOVVG-ADOPTED`, is `permission requested`: the FAQ says the official published versions have copyright protection and asks users to contact the Attorney General's Chambers (agc@gov.vg) before reproducing or distributing the official text. Written permission is needed before any text is stored.
+
+### Register-row-only instruments
+
+National Parks Act, 2006; Physical Planning Act, 2004; Trade in Endangered Species (CITES) Act, 2020; Protection of Endangered Animals, Plants and Articles (Removal and Possession) Act; Turtles (Protection) Notice; Virgin Islands Energy and Water Corporation Act, 2026; Water and Sewerage Authority Act, 2022 (not in force); Virgin Islands Food Security and Sustainability Act, 2022 (not in force); Securities and Investment Business Act (family F7). The Environment and Climate Change Bill is announced on https://www.gov.vg/service-details/environmental-legislation and is not an instrument.
+
+### Blocked
+
+- https://www.bvifsc.vg/ and https://www.bvifsc.vg/terms-use answered `403 5657 text/html` (a Cloudflare "Just a moment..." challenge page) to `curl -sL -A 'Mozilla/5.0'`. Not bypassed. Its PDFs under `/sites/default/files/` answer 200.
+- https://www.bvistockexchange.com/ answered `403 5558 text/html` (same challenge).
+- https://www.bvihouseofassembly.vg/ gave no answer (`000`).
+- https://www.bvi.gov.vg/ answered `200` with an empty body (0 bytes).
+
+## Montserrat
+
+Rows `MS-PARLIAMENT-CONSOLIDATED`, `MS-GOV-ADOPTED` and `MS-ECCB-ADOPTED`, all `permission requested` (terms basis; the statute check found no exception). No row passes, so nothing is stored and no record fetch is proven for storage. Run on 2026-11-10. The requests below were run only to read dates, titles and commencement lines for the scope entries.
+
+Statute check: the Copyright (Montserrat) Order 1965 (UK S.I. 1965 No. 1858, https://www.legislation.gov.uk/uksi/1965/1858/made, HTTP 200) extends the Copyright Act 1956 to Montserrat except sections 23 to 30, 32, 34, 35, 42 and 44; section 39(1)(b) of that Act (https://www.legislation.gov.uk/ukpga/Eliz2/4-5/74/section/39/enacted, HTTP 200) gives Her Majesty the copyright in works made under the direction or control of a Government department. Nothing removes copyright from laws, and the Laws of Montserrat list holds no later Montserrat copyright law.
+
+Laws list page (HTML, lists the chapters), then one chapter page, then the file:
+
+```
+curl -sL -A 'Mozilla/5.0' -o laws.html -w '%{http_code} %{size_download} %{content_type}\n' https://parliament.ms/document-type/laws/
+```
+
+Returned `200 107827 text/html; charset=UTF-8`. The chapter page https://parliament.ms/legal_document/physical-planning-act/ does not carry the PDF link in its HTML; the link comes from the media endpoint, using the number in the page's `<link rel='shortlink' href='https://parliament.ms/?p=<id>'>`:
+
+```
+curl -sL -A 'Mozilla/5.0' 'https://parliament.ms/wp-json/wp/v2/media?parent=<id>&per_page=20'
+```
+
+The JSON lists `source_url` of the chapter PDF. Chapter PDF, Physical Planning Act:
+
+```
+curl -sL -A 'Mozilla/5.0' -o pp.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://parliament.ms/wp-content/uploads/2026/05/8.03-Physical-Planning-Act.pdf
+```
+
+Returned `200 1211033 application/pdf`; `pdftotext -layout pp.pdf -` gives clean text with "Revision Date: 1 Jan 2025" and "Act 4 of 1996 .. in force 9 May 1996" on the front matter. `curl -sI` returns `last-modified: Tue, 05 May 2026 14:51:24 GMT`, which the `http_head` watchers read. A few S.R.O. PDFs are scans without a text layer (S.R.O. 23 of 2022 has none: `pdftotext` gives 4 bytes; `pdftoppm -r 300 -png` and `tesseract -l eng` read it).
+
+Terms pages: the footer of https://parliament.ms/ (`200 154957 text/html; charset=UTF-8`) reads "© Montserrat Legislative Assembly. All Rights Reserved." and its "Terms & Conditions" link goes to the theme vendor's sample site (finpath.keydesign.xyz). The on-site page https://parliament.ms/terms-and-conditions/ (`200 119366 text/html; charset=UTF-8`) is the same vendor boilerplate about "WordPress themes"; a watcher hashes it so a real Assembly policy would show. https://www.gov.ms/government/legal-department/attorney-generals-chambers/ answered `200 264074 text/html; charset=UTF-8` with the footer "Copyright © 2026 Government of Montserrat"; https://www.gov.ms/ and the terms, disclaimer, privacy and accessibility paths answered `500`.
+
+ECCB (regional standard, link only):
+
+```
+curl -sL -A 'Mozilla/5.0' -o /dev/null -w '%{http_code}\n' https://www.eccb-centralbank.org/enforced
+```
+
+Returned `403`. With a Chrome-style User-Agent (`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36`) the same URL returned `200 121086 text/html; charset=UTF-8`, and https://www.eccb-centralbank.org/disclaimer-policy returned `200 100188`. The standard itself at https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf returned `200 294880` (`application/octet-stream` with the Chrome UA; `file` says PDF 1.5), sha256 `1d9c0140fbeba16d37d21b160f6e6dedd8e9dc8afd8912d6503ab801ed15c193`, `last-modified: Tue, 30 Jul 2024 15:23:58 GMT`, HTTP 200 to `Mozilla/5.0` too.
+
+### Languages
+
+English only. Montserrat has no second official language and no government translation exists, so there is no translation row.
+
+### Link-only instruments
+
+All four scope instruments are link only. `ms-conservation-env-mgmt-act`, `ms-physical-planning-act` and `ms-merchandise-marks-act` are served only by `MS-PARLIAMENT-CONSOLIDATED`: the Assembly reserves all rights, publishes no reuse licence, and the Copyright Act 1956 as extended keeps Crown copyright. `ms-eccb-climate-risk-standard` is served by `MS-ECCB-ADOPTED`: the ECCB Disclaimer Policy allows personal, noncommercial use only and no derivative works. Written permission from the Assembly, the Government of Montserrat and the ECCB is needed before any text is stored.
+
+### Register-row-only instruments
+
+Banking Act (Cap. 11.03), Securities Act (Cap. 11.01), Financial Services Commission Act (Cap. 11.02), Sale of Goods Act (Cap. 15.18), Fisheries Act (Cap. 9.01), Public Health Act (Cap. 14.01), Trade in Endangered Species Act (Cap. 12.01), Beach Protection Act (Cap. 12.04), Underground Water Act (Cap. 14.08), Petroleum Act (Cap. 10.12), Electrical Installations Act (Cap. 8.15), Licensing of Utility Services Act (Cap. 18.02), Disaster Preparedness and Response Act (Cap. 10.03), Plant Protection Act (Cap. 9.02), Turtles Act (Cap. 12.06), Convention of Migratory Species Act (Cap. 12.05), Pesticides Control Act (Cap. 14.06), the Protection of the Seas (Civil Liability for Bunker Oil Pollution Damage) Regulations 2026 (S.R.O. 41 of 2026, gov.ms) and the expired Customs Duties and Consumption Tax (Electric and Hybrid Vehicles) (Exemption and Reduction) Order, 2022 (S.R.O. 23 of 2022), family F7. The Laws list holds no climate act and no consumer protection act.
+
+### Blocked
+
+https://www.eccb-centralbank.org/ answered `403` to `curl -A 'Mozilla/5.0'`; a Chrome-style User-Agent gets `200`. https://www.fscmontserrat.org/ and /legislations/ answered `406` (Mod_Security "Not Acceptable!") to `curl -A 'Mozilla/5.0'` and `200` to the Chrome-style User-Agent; no row, the Commission's guidance is anti-money-laundering only. https://www.ecsrc.com/ answered `500` to both; no climate or ESG rule was found, no row. https://www.gov.ms/ and its terms paths answered `500`.

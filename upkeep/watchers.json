@@ -16327,5 +16327,277 @@
   "params": {
    "second_route": "https://www.legislation.gov.fk/ (browser; open the Copyright link in the page footer)"
   }
+ },
+ {
+  "id": "ai-environmental-levy-electricity-act-gov-pdf",
+  "source_id": "AI-GOV-CONSOLIDATED",
+  "iso2": "AI",
+  "instrument": "ai-environmental-levy-electricity-act",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://gov.ai/Legislation/Acts/E063-Environmental%20Levy%20on%20Electricity%20Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "ai-unfair-competition-act-2002-gov-pdf",
+  "source_id": "AI-GOV-CONSOLIDATED",
+  "iso2": "AI",
+  "instrument": "ai-unfair-competition-act-2002",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://gov.ai/Legislation/Acts/P112-Protection%20against%20Unfair%20Competition%20Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-ai-gov-consolidated",
+  "source_id": "AI-GOV-CONSOLIDATED",
+  "iso2": "AI",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.ai/terms-and-conditions",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "pn-marine-protected-area-ordinance-pdf",
+  "source_id": "PN-GOVPN-CONSOLIDATED",
+  "iso2": "PN",
+  "instrument": "pn-marine-protected-area-ordinance",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://www.government.pn/s/Cap-48-Pitcairn-Islands-Marine-Protected-Area-2017-Rev-Ed.pdf",
+  "params": {
+   "second_route": "https://www.government.pn/laws (browser; the laws page links the PDF)"
+  }
+ },
+ {
+  "id": "terms-pn-govpn-laws",
+  "source_id": "PN-GOVPN-CONSOLIDATED",
+  "iso2": "PN",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "change": "terms_changed",
+  "url": "https://www.government.pn/laws"
+ },
+ {
+  "id": "tc-consumer-protection-ordinance-edition",
+  "source_id": "TC-AGC-CONSOLIDATED",
+  "iso2": "TC",
+  "instrument": "tc-consumer-protection-ordinance",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.gov.tc/agc/component/edocman/17-14-consumer-protection-ordinance/fdocument?Itemid=9999",
+  "params": {}
+ },
+ {
+  "id": "terms-tc-agc-consolidated",
+  "source_id": "TC-AGC-CONSOLIDATED",
+  "iso2": "TC",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.tc/agc/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "ky-cima-sic-esg-2022-page",
+  "source_id": "KY-CIMA-ADOPTED",
+  "iso2": "KY",
+  "instrument": "ky-cima-sic-esg-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cima.ky/environmental-social-and-governance-and-sustainable-investing",
+  "params": {
+   "second_route": "same URL in a browser; the page answered curl with HTTP 200, so no challenge seen"
+  }
+ },
+ {
+  "id": "ky-cima-sic-climate-insurers-2022-page",
+  "source_id": "KY-CIMA-ADOPTED",
+  "iso2": "KY",
+  "instrument": "ky-cima-sic-climate-insurers-2022",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cima.ky/climate-change-environmental-social-and-governance-and-sustainability",
+  "params": {
+   "second_route": "same URL in a browser; the page answered curl with HTTP 200, so no challenge seen"
+  }
+ },
+ {
+  "id": "ky-travel-departure-tax-epf-act-head",
+  "source_id": "KY-LRC-CONSOLIDATED",
+  "iso2": "KY",
+  "instrument": "ky-travel-departure-tax-epf-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://legislation.gov.ky/cms/images/LEGISLATION/PRINCIPAL/1976/1976-0011/1976-0011_2026%20Revision.pdf",
+  "params": {
+   "second_route": "https://legislation.gov.ky/cms/legislation/current/by-title.html (browser; the Act's row shows the current revision in its title)"
+  }
+ },
+ {
+  "id": "terms-ky-lrc-consolidated",
+  "source_id": "KY-LRC-CONSOLIDATED",
+  "iso2": "KY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://gov.ky/terms-and-conditions",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://legislation.gov.ky/cms/ (home page; check it for a new copyright or terms page)"
+  }
+ },
+ {
+  "id": "terms-ky-cima-adopted",
+  "source_id": "KY-CIMA-ADOPTED",
+  "iso2": "KY",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.cima.ky/general-disclaimer",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.cima.ky/ (footer line with the copyright notice); the General Disclaimer link answers HTTP 404 today, so a change from 404 to a page is the signal"
+  }
+ },
+ {
+  "id": "vg-consumer-protection-act-2020-law-page",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "vg-consumer-protection-act-2020",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.vg/Laws/consumer-protection-act-2020",
+  "params": {}
+ },
+ {
+  "id": "vg-consumer-protection-amendment-act-2026-law-page",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "vg-consumer-protection-amendment-act-2026",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.vg/Laws/consumer-protection-amendment-act-2026",
+  "params": {}
+ },
+ {
+  "id": "vg-eptif-act-2017-law-page",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "vg-eptif-act-2017",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.vg/Laws/environmental-protection-and-improvement-fund-act-2017",
+  "params": {}
+ },
+ {
+  "id": "vg-eptif-regulations-2025-law-page",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "vg-eptif-regulations-2025",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.vg/Laws/environmental-protection-and-tourism-improvement-fund-regulations-2025",
+  "params": {}
+ },
+ {
+  "id": "vg-climate-change-trust-fund-act-2015-law-page",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "vg-climate-change-trust-fund-act-2015",
+  "kind": "page_hash",
+  "tier": "consolidation_site",
+  "url": "https://laws.gov.vg/Laws/virgin-islands-climate-change-trust-fund-act-2015",
+  "params": {}
+ },
+ {
+  "id": "terms-vg-lawsgovvg-adopted",
+  "source_id": "VG-LAWSGOVVG-ADOPTED",
+  "iso2": "VG",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://laws.gov.vg/faqs",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "ms-conservation-env-mgmt-act-pdf",
+  "source_id": "MS-PARLIAMENT-CONSOLIDATED",
+  "iso2": "MS",
+  "instrument": "ms-conservation-env-mgmt-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parliament.ms/wp-content/uploads/2026/05/12.03-Conservation-and-Environmental-Management-Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "ms-physical-planning-act-pdf",
+  "source_id": "MS-PARLIAMENT-CONSOLIDATED",
+  "iso2": "MS",
+  "instrument": "ms-physical-planning-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parliament.ms/wp-content/uploads/2026/05/8.03-Physical-Planning-Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "ms-merchandise-marks-act-pdf",
+  "source_id": "MS-PARLIAMENT-CONSOLIDATED",
+  "iso2": "MS",
+  "instrument": "ms-merchandise-marks-act",
+  "kind": "http_head",
+  "tier": "consolidation_site",
+  "url": "https://parliament.ms/wp-content/uploads/2026/05/15.09-Merchandise-Marks-Act.pdf",
+  "params": {}
+ },
+ {
+  "id": "ms-eccb-climate-risk-standard-pdf",
+  "source_id": "MS-ECCB-ADOPTED",
+  "iso2": "MS",
+  "instrument": "ms-eccb-climate-risk-standard",
+  "kind": "http_head",
+  "tier": "regulator_page",
+  "url": "https://cdn.eccb-centralbank.org/documents/2024-07-30-11-23-57-Prudential-Standard-on-Climate-related-and-Environmental-Risks.pdf",
+  "params": {}
+ },
+ {
+  "id": "terms-ms-parliament-consolidated",
+  "source_id": "MS-PARLIAMENT-CONSOLIDATED",
+  "iso2": "MS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://parliament.ms/terms-and-conditions/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-ms-gov-adopted",
+  "source_id": "MS-GOV-ADOPTED",
+  "iso2": "MS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.gov.ms/government/legal-department/attorney-generals-chambers/",
+  "change": "terms_changed",
+  "params": {}
+ },
+ {
+  "id": "terms-ms-eccb-adopted",
+  "source_id": "MS-ECCB-ADOPTED",
+  "iso2": "MS",
+  "instrument": "*",
+  "kind": "page_hash",
+  "tier": "regulator_page",
+  "url": "https://www.eccb-centralbank.org/disclaimer-policy",
+  "change": "terms_changed",
+  "params": {
+   "second_route": "https://www.eccb-centralbank.org/disclaimer-policy (browser; plain curl answers 403 from scripts, a Chrome-style User-Agent gets 200)"
+  }
  }
 ]
