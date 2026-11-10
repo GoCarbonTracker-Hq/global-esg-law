@@ -1,0 +1,73 @@
+[
+  {
+    "id": "aw-natuurbescherming",
+    "title": "Natuurbeschermingsverordening (Landsverordening van 13 februari 1995 houdende regels ter bescherming van de natuur en de daarin voorkomende dier- en plantensoorten)",
+    "official_url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab95.002.pdf",
+    "citation": "AB 1995 no. 2, amended AB 1997 no. 34",
+    "in_force": null,
+    "evidence": "Art. 26 lid 1, read in the Centraal Wettenregister print of 22 oktober 2013 (https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab95.002.pdf, opened 2026-11-10): \"Deze landsverordening treedt in werking met ingang van de eerste kalendermaand na die van haar plaatsing in het Afkondigingsblad van Aruba\", with exceptions for articles 17, 24 and 25 onderdeel b. The print does not give the date of publication in the Afkondigingsblad and the yearly gazette lists opened on gobierno.aw (2009 to 2025) do not reach 1995, so no official page opened states the first in-force date.",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": "AW-GOBIERNO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Aruba's framework nature protection ordinance (protected species, nature reserves under art. 10, permits); no climate act, carbon price or GHG reporting rule was found on gobierno.aw. Record text is the whole print, dated 2013-10-22 because that is the date the Centraal Wettenregister prints on it; the site serves no other version, and amendments after the print cannot be ruled out (the law index lists only AB 1997 no. 34). Implementing decrees on the law index page https://www.gobierno.aw/nl/0603-bescherming-flora-en-fauna: Landsbesluit natuurreservaat Parke Nacional Arikok (aw-parke-nacional-arikok-decree), Landsbesluit verboden onderwaterjachtmiddelen (AB 2001 no. 115), Landsbesluit CITES-registers (AB 1995 no. 69), Landsbesluit ontheffingen beschermde niet-inheemse flora en fauna (AB 1996 no. 1), Landsbesluit verbod jacht op koraalvissen (AB 1992 no. 70); the last four are not scope entries. Dutch is the only language served: Papiamento is also an official language of Aruba, but no Papiamento or English text of this instrument was found on gobierno.aw (the site shell exists in Papiamento, English and Dutch, the law PDFs are Dutch) and Papiamento has only a three-letter ISO code, so a Papiamento text could not be stored anyway. No government English translation was looked for beyond gobierno.aw and the Centraal Wettenregister index pages.",
+    "status": "stored"
+  },
+  {
+    "id": "aw-parke-nacional-arikok-decree",
+    "title": "Landsbesluit, houdende algemene maatregelen, van 24 augustus 2000 ter uitvoering van artikel 10 van de Natuurbeschermingsverordening tot instelling van het natuurreservaat Parke Nacional Arikok",
+    "official_url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab00.059.pdf",
+    "citation": "AB 2000 no. 59 (Landsbesluit Parke Nacional Arikok), no amendments listed",
+    "in_force": null,
+    "evidence": "Art. 16 lid 1, read in the Centraal Wettenregister print of 22 oktober 2013 (https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0603ab00.059.pdf, opened 2026-11-10): \"Dit landsbesluit treedt in werking met ingang van de dag na die van zijn plaatsing in het Afkondigingsblad van Aruba.\" The date of publication is not printed and no yearly gazette list opened reaches 2000, so no official page opened states the in-force date.",
+    "law_family": "F2",
+    "duty_on": "mixed",
+    "source_row": "AW-GOBIERNO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Implements art. 10 of aw-natuurbescherming: designates the state land of the park as a nature reserve, sets the manager's duty to preserve biodiversity and the rules on access. The record is the whole print, dated 2013-10-22, the print date; the 5-page print does not include annexes I and II (maps and description of the area) that art. 2 refers to. Dutch is the only language served: Papiamento is also an official language of Aruba, but no Papiamento or English text of this instrument was found on gobierno.aw (the site shell exists in Papiamento, English and Dutch, the law PDFs are Dutch) and Papiamento has only a three-letter ISO code, so a Papiamento text could not be stored anyway. No government English translation was looked for beyond gobierno.aw and the Centraal Wettenregister index pages.",
+    "status": "stored"
+  },
+  {
+    "id": "aw-schadelijke-producten",
+    "title": "Landsverordening van 27 november 2019 houdende een verbod op bepaalde voor het milieu schadelijke producten (Landsverordening verbod voor het milieu schadelijke producten)",
+    "official_url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2019no.67.pdf",
+    "citation": "AB 2019 no. 67, issued 2 december 2019; commencement by Landsbesluit of 11 december 2019 no. 1, AB 2019 no. 73",
+    "in_force": "2020-07-01",
+    "evidence": "Landsbesluit AB 2019 no. 73 (https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2019no.73.pdf, opened 2026-11-10, issued 12 december 2019): \"te bepalen dat de Landsverordening verbod voor het milieu schadelijke producten (AB 2019 no. 67) in werking treedt met ingang van 1 juli 2020.\" The ordinance itself (art. 18 lid 1 sets the commencement by decree) is listed in the 2019 gazette list https://www.gobierno.aw/en/official-gazettes-2019.",
+    "law_family": "F4",
+    "duty_on": "private_sector",
+    "source_row": "AW-GOBIERNO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Product ban on environmental grounds: art. 2 lid 1 \"De invoer, vervaardiging, verkoop of gratis aanbieding van de producten die vervaardigd zijn van plastic of polystereen, die naar hun aard bestemd zijn voor eenmalig gebruik, en die zijn opgenomen in Bijlage I, Delen A en B, is verboden.\" Art. 2 lid 2 bans products with listed substances (Bijlage I Deel C); administrative fine up to Afl. 10.000 per violation (art. 4). Not a climate or ESG disclosure rule. Brief listed it as F7 or F3; filed F4 because the repo files other single-use plastic bans (AO, MH) as F4. Record is the text as published in the gazette (the register keeps no consolidated print); the 2020 to 2025 gazette lists opened show no amending act. The commencement decree AB 2019 no. 73 is not a scope entry (no duties). Dutch is the only language served: Papiamento is also an official language of Aruba, but no Papiamento or English text of this instrument was found on gobierno.aw (the site shell exists in Papiamento, English and Dutch, the law PDFs are Dutch) and Papiamento has only a three-letter ISO code, so a Papiamento text could not be stored anyway. No government English translation was looked for beyond gobierno.aw and the Centraal Wettenregister index pages.",
+    "status": "stored"
+  },
+  {
+    "id": "aw-consumer-enforcement",
+    "title": "Landsverordening van 26 juni 2025 houdende regels ten behoeve van de bestuursrechtelijke handhaving van de consumentenwetgeving (Landsverordening bestuursrechtelijke handhaving consumentenbescherming)",
+    "official_url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2025no.20.pdf",
+    "citation": "AB 2025 no. 20, issued 3 juli 2025",
+    "in_force": null,
+    "evidence": "Art. 8.3 (https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/ab2025no.20.pdf, opened 2026-11-10): \"Deze landsverordening treedt in werking op een bij landsbesluit te bepalen tijdstip, dat voor de verschillende artikelen of onderdelen daarvan verschillend kan worden vastgesteld.\" No commencement decree was found: the 2025 gazette list https://www.gobierno.aw/en/official-gazettes-2025 (HTTP 200) shows none, and the list for 2026 does not exist on the site (HTTP 404).",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "AW-GOBIERNO-ADOPTED",
+    "verification": "official_text_seen",
+    "notes": "Kept as a narrower entry than a green-claims rule: art. 2.2 lid 1 \"Het openbaar maken of laten maken van misleidende reclame als bedoeld in artikel 194 van Boek 6 van het Burgerlijk Wetboek van Aruba is niet toegestaan.\" is general misleading advertising with no environmental wording (the text has no milieu, duurzaam or klimaat). Link only: no in-force date is printed on any official page, and a record needs one; the commencement may fall after the 2025 gazette list. Dutch is the only language served: Papiamento is also an official language of Aruba, but no Papiamento or English text of this instrument was found on gobierno.aw (the site shell exists in Papiamento, English and Dutch, the law PDFs are Dutch) and Papiamento has only a three-letter ISO code, so a Papiamento text could not be stored anyway. No government English translation was looked for beyond gobierno.aw and the Centraal Wettenregister index pages.",
+    "status": "link only",
+    "status_note": "Commencement by landsbesluit, not found"
+  },
+  {
+    "id": "aw-bw-book6-misleading-advertising",
+    "title": "Burgerlijk Wetboek van Aruba, Boek 6, Afdeling 4 Misleidende reclame (artikelen 194 tot en met 196)",
+    "official_url": "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/Burgerlijk%20Wetboek%20van%20Aruba%202de%20editie%20september%202024.pdf",
+    "citation": "BW Aruba Boek 6 art. 194-196, 2de editie of 4 september 2024 (amendments up to AB 2024 no. 27)",
+    "in_force": null,
+    "evidence": "Art. 194, 2de editie (https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/Burgerlijk%20Wetboek%20van%20Aruba%202de%20editie%20september%202024.pdf, opened 2026-11-10; front page: \"Deze tweede editie is gepubliceerd op 4 september 2024 door de Directie Wetgeving en Juridische Zaken. Erin zijn verwerkt alle wijzigingen tot en met AB 2024 no. 27.\"): \"Hij die omtrent goederen of diensten die door hem of degene ten behoeve van wie hij handelt in de uitoefening van een beroep of bedrijf, worden aangeboden, een mededeling openbaar maakt of laat openbaar maken, handelt onrechtmatig, indien deze mededeling in een of meer opzichten misleidend is\" The edition states no commencement date for Boek 6.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "AW-GOBIERNO-CONSOLIDATED",
+    "verification": "official_text_seen",
+    "notes": "Kept as a narrower entry than a green-claims rule: art. 194 is the general civil-law ban on misleading statements about goods and services (nature, composition, origin, awards, comparison), with no environmental wording; art. 2.2 of aw-consumer-enforcement points to it. Record is only Afdeling 4 cut from the 613-page edition (text lines from the Afdeling heading to the next Titel), dated 2024-09-04, the publication date of the edition; the edition is a compiled text of the Directie Wetgeving en Juridische Zaken that disclaims liability for errors. Earlier editions are not served. Dutch is the only language served: Papiamento is also an official language of Aruba, but no Papiamento or English text of this instrument was found on gobierno.aw (the site shell exists in Papiamento, English and Dutch, the law PDFs are Dutch) and Papiamento has only a three-letter ISO code, so a Papiamento text could not be stored anyway. No government English translation was looked for beyond gobierno.aw and the Centraal Wettenregister index pages.",
+    "status": "stored"
+  }
+]
