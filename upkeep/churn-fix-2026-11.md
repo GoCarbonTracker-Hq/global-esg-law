@@ -95,3 +95,29 @@ In all six, the unedited second fetch gave the old signal, so the move comes fro
 - Churn shows that a page moves by itself, not that the law is unchanged. The 48 churn watchers on stored text stay on GEL-28-03's reading list and the churn terms watchers on GEL-28-04's.
 - A cut is written from two fetches. A moving part that did not move in the window is not cut.
 - `text_hash` of a page whose law text is loaded by script (a shell) sees no law text; the seven c-blind watchers are the ones found in this pass, and other shells may exist among the watchers that were not churn.
+
+## Held watchers, follow-up (GEL-28-02b, 2026-11-11)
+
+Varun ruled on 2026-11-11 that the ten watchers held in `review-held-2026-11.md` are churn and that the three Singapore watchers are route failures. Each of the ten was changed on a local branch and measured with the watcher's own `run_watcher`, on `main` code plus one option (below). Stability pair: two fetches at least 300 s apart (CY, TJ, TT, GW 00:35 and 00:41; MN and MY, after a first pair failed and the cuts were widened, 00:43 and 00:48), signals equal. Each page body was read: the source page in every case, not a block or challenge page. `seen.json` was reseeded for all ten with `--reseed`; no queue row was written or decided.
+
+| Watcher | Fix | Stability pair (fetch 1 = fetch 2) | Edit on the saved page: moved or unchanged |
+|---|---|---|---|
+| `cy-ets-amendment-2-2025-gazette-page` | `text_hash` + cut on the file-size token | `c5e2e138ad8d` = `c5e2e138ad8d` | file size `(Μέγεθος Αρχείου: …Kb)` rewritten to `1.234,5Kb`: unchanged; `Νόμοι` to `Νόμοις`: moved; PDF link `$file/` to `$file/x`: moved |
+| `cy-ets-amendment-2025-gazette-page` | same | `df1cdbe161f3` = `df1cdbe161f3` | file size `(Μέγεθος Αρχείου: …Kb)` rewritten to `1.234,5Kb`: unchanged; `Νόμοι` to `Νόμοις`: moved; PDF link `$file/` to `$file/x`: moved |
+| `cy-transparency-amendment-2-2025-gazette-page` | same | `f3a85b53ff32` = `f3a85b53ff32` | file size `(Μέγεθος Αρχείου: …Kb)` rewritten to `1.234,5Kb`: unchanged; `Νόμοι` to `Νόμοις`: moved; PDF link `$file/` to `$file/x`: moved |
+| `mn-corporate-governance-code-legalinfo-page` | `text_hash` + 2 cuts: the footer text and its link block, which flip between Mongolian and English per fetch (the captcha address is an `<img src>`, never hashed; the first plan "plain `text_hash`" failed the pair on this footer flip) | `221f7e4d22ca` = `221f7e4d22ca` | footer swapped between the two fetched pages: unchanged; one word of the act title: moved; `/mn/book` link target: moved |
+| `my-cpa-1999-lom-home-page` | `text_hash` + cut on the `Terms & Condition (T&C) \|+ FAQS \|+ Contact Us` footer line and a cut on the "Top Hit" view counters (they tick up every few minutes; found by the first pair) | `482af6b1d160` = `482af6b1d160` | `\|`/`\|\|`/`\|\|\|` between the footer links: unchanged; a hit counter changed: unchanged; `Revised` to `Revisedd`: moved; an Act title in the feed: moved; `principal.php?type=reprint` link target: moved |
+| `my-tda-2011-lom-home-page` | same (same URL, same signal) | `482af6b1d160` = `482af6b1d160` | same as above |
+| `my-eqa-1974-lom-home-page` | same (same URL, same signal) | `482af6b1d160` = `482af6b1d160` | same as above |
+| `tj-law-advertising-2003-adlia-page` | `date_list` + `params.verbatim`, regex `от (dd.mm.yyyy)` | 14 entries, identical set (a870e4fc8a6b) | version list reversed: unchanged; an added `от 05.05.2030` entry: moved |
+| `tt-ema-2000-versions-page` | `date_list` + `params.verbatim`, regex over `LN. n/yyyy` and `as at <month> <day> <year>` | 270 entries, identical set (4219830f5557) | amendment entries reversed: unchanged; an added `LN. 77/2030`: moved; an added `as at December 31st 2030`: moved |
+| `gw-amf-umoa-taxonomia-brvm-page` | `http_head` to `text_hash` (GET) + 2 cuts: the market ticker/clock block and the Top 5/Flop 5 block | `a534960a3470` = `a534960a3470` | clock and ticker prices changed: unchanged; circular title word: moved; circular date: moved; PDF link target: moved |
+
+Findings that changed the plan:
+
+- `tj-law-advertising-2003-adlia-page` and `tt-ema-2000-versions-page` needed code: `date_list` accepts only ISO dates, and the pages list `18.07.2017` and `LN. 129/2004`. `params.verbatim` (off unless set, `date_list` only) keeps the captured text as written; the set is compared, so a reorder never moves it, and a new entry does. Test: `test_date_list_verbatim_ignores_order_and_sees_a_new_entry`. TJ now watches the dates on the page (the version list and the document's own dates); a changed article text with unchanged dates is no longer seen. TT watches the 263 amendment numbers and the version dates.
+- The first pair for `mn-corporate-governance-code-legalinfo-page` moved: the footer text and the footer links come back in Mongolian or English. The first pair for the three Malaysia watchers moved on the "Top Hit" view counters. Both were cut and measured again.
+- The three Malaysia watchers share one URL and one signal. The page is the federal legislation home page, an index with no act text. It carries a daily "What's New" feed of P.U. notices and the newest Acts; the signal is stable over 5 minutes but will move on any day a notice or Act is posted. That is a signal of the page, not noise, and it is not specific to the Consumer Protection, Trade Descriptions or Environmental Quality Acts.
+- `gw-amf-umoa-taxonomia-brvm-page`: the URL is an HTML news page of the BRVM, not a PDF. The body shows the circular, its date and the PDF link; the watcher no longer sends HEAD.
+- The three Singapore watchers are unchanged. The body is the MAS "Maintenance" page (HTTP 200, `ref-id` differs per request). Their rows in `triage-2026-11.csv` are `route_failure`, for GEL-28-05.
+- Left on `main`: none of the ten.

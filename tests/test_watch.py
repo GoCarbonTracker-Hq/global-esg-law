@@ -454,6 +454,17 @@ def test_date_list_regex_needs_one_group(tmp_path):
     assert result["failures"] == 1 and "exactly one group" in result["rows"][0]["signal"]
 
 
+def test_date_list_verbatim_ignores_order_and_sees_a_new_entry(tmp_path):
+    w = {**WATCHERS[0], "params": {"regex": r"LN\. (\d+/\d{4})", "verbatim": True}}
+    repo = make(tmp_path, [w])
+    page = lambda *ns: (200, {}, " ".join(f"Legal Notice LN. {n}" for n in ns).encode())
+    out = []
+    for day, body in enumerate([page("5/2001", "9/2004"), page("9/2004", "5/2001"), page("9/2004", "5/2001", "7/2026")]):
+        watch.watch(repo, FakeFetch({w["url"]: body}), date(2026, 11, 2 + day))
+        out.append([r["signal"] for r in rows(repo)])
+    assert out[0] == out[1] == ["2"] and out[2] == ["2", "7/2026"]
+
+
 def test_cli_summary_and_exit_code(tmp_path, capsys, monkeypatch):
     repo = make(tmp_path)
     fetch = FakeFetch()
