@@ -1,0 +1,34 @@
+[
+  {
+    "id": "nf-environment-act-1990",
+    "title": "Environment Act 1990 (NI), No. 11 of 1990",
+    "official_url": "https://www.legislation.gov.au/C2015Q00128/latest/text",
+    "citation": "Environment Act 1990 (NI), No. 11, 1990 (Norfolk Island continued law; Federal Register of Legislation title C2015Q00128)",
+    "in_force": "1990-12-31",
+    "evidence": "Endnote to the Act in the compilation of 2019-08-13, opened 2026-11-10: \"Parts 1, 2, 3; and Divisions 1, 2, 4, 5, and 7 of Part 6; and Division 1 and 3 of Part 7; and Part 9, 10, 11; and Items 3, 7 of Schedule 1; and Items 1, 2, 3, 4, 5, 17 and 20 of Schedule 3 commenced 31.12.1990; and Division 3 of Part 6 and items 11 to 16 of Schedule 3 commenced 10.3.2018 (s 2(4)). The remainder will commence on a day or days to be fixed by notice in the Gazette.\"",
+    "law_family": "F2",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NF-FRL-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Environmental framework Act of the former Norfolk Island Legislative Assembly (objects in s 3: conservation of the natural environment and landscape beauty of Norfolk Island); no climate or emissions provision. Not all of it is in force: the table of provisions notes \"Parts 4 and 5, Division 6 of Part 6, Divisions 2 and 4–6 of Part 7, Part 8, items 1, 2 and 4–6 of Schedule 1, Schedule 2 and items 6–10, 18, 19 and 21–28 of Schedule 3 have not yet commenced\"; s 2(1) leaves the commencement of those to a Gazette notice. in_force is the commencement of Parts 1 to 3 and the other provisions listed in the endnote, not of the whole Act. Records: the four compilations the Register serves, starting 2015-06-18, 2018-03-10, 2018-09-29 and 2019-08-13 (compilations 1 to 4; the Register lists no later one on 2026-11-10). The Register's zero-length listing at 2015-06-18 (compilation 0) and its as-made version, a reprint \"Consolidated as at 20 February 2006\" that carries the Legislative Counsel permission notice quoted on NF-FRL-CONSOLIDATED, are not stored. English only; no Norf'k text was found on the Register. Implemented by the Environment Regulations 1990 (NI) (register row, not in scope).",
+    "status": "stored"
+  },
+  {
+    "id": "nf-fair-trading-act-1995",
+    "title": "Fair Trading Act 1995 (NI), No. 2 of 1995",
+    "official_url": "https://www.legislation.gov.au/C2015Q00131/latest/text",
+    "citation": "Fair Trading Act 1995 (NI), No. 2 of 1995 (Norfolk Island continued law; Federal Register of Legislation title C2015Q00131)",
+    "in_force": "1995-04-27",
+    "evidence": "Commencement table in the endnotes of the compilation of 2018-09-29, opened 2026-11-10: \"Fair Trading Act 1995 2, 1995 27.4.95\". Section 14(1): \"A person shall not, in trade or commerce, engage in conduct that is misleading or deceptive or is likely to mislead or deceive.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "NF-FRL-CONSOLIDATED"
+    ],
+    "verification": "official_text_seen",
+    "notes": "Narrower than a green-claims law: a general misleading-or-deceptive-conduct law (s 14) with false-representation offences about goods and services (s 16); no environmental wording was found in it. Kept as the territory's only consumer-claims law. Records: one, the compilation of 2018-09-29 (compilation 1, the latest the Register serves on 2026-11-10). The Register's other version, from 2015-06-18, is the as-made text \"Consolidated as at 28 January 2014\" and prints \"The Copyright Act 1968 of the Commonwealth of Australia permits certain reproduction and publication of this legislation. For reproduction or publication beyond that permitted by the Act, written permission must be sought from the Legislative Counsel, Administration of Norfolk Island, Norfolk Island, South Pacific 2899.\" It is not stored; the 2018-09-29 compilation carries no such notice. English only.",
+    "status": "stored"
+  }
+]
