@@ -3587,6 +3587,8 @@
   "failure": null,
   "seconds": 0.71,
   "signals": [
+   "161a5873e7e03de7726adfaafb0aa6c2821fae5b7428a485584d0fc9db74abea",
+   "4ec0882fd09bb7cecca0add3be366e0646e2d086bbc21466085268bf5357674c",
    "c5e2e138ad8d4dce8a63a5c1b1ca96d4521ba4fd613f83589fe43959ad6667f6"
   ]
  },
@@ -3605,7 +3607,9 @@
   "failure": null,
   "seconds": 0.41,
   "signals": [
-   "df1cdbe161f35ed1aa698cdc77041635dca8242d63e319126023cb4b5baba38d"
+   "8eb98aefcefb265f67762cc0221b1b5cea266e7a376174bc97df77a8eb6fce98",
+   "df1cdbe161f35ed1aa698cdc77041635dca8242d63e319126023cb4b5baba38d",
+   "e141d961b37ad7dfbaea06c154b75f9c8e0884ea441ba454e4b1d770fea2dd24"
   ]
  },
  "cy-ets-law-2011-gazette-annex-list": {
@@ -3623,6 +3627,8 @@
   "failure": null,
   "seconds": 0.48,
   "signals": [
+   "4e50562b5b0a67a2e8bad7522cdc86c4de2ac54586ddc24f1208c9f13bae08fc",
+   "f2edb2975e3a8f250133223cfb38926bb94de860ebdfafd21de869fd2c219140",
    "f3a85b53ff32055d3b161a0471fc5aac92755ec3035c5ca95febf5d24aa35473"
   ]
  },
@@ -6213,6 +6219,12 @@
   "failure": null,
   "seconds": 1.14,
   "signals": [
+   "Last-Modified: Mon, 09 Nov 2026 20:27:15 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 01:07:14 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 03:26:40 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 10:13:48 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 12:45:36 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 16:40:46 GMT",
    "a534960a3470605b60006010f2c1244c3c9c5584e9b7e960d9881966c86c184a"
   ]
  },
@@ -10310,7 +10322,12 @@
   "failure": null,
   "seconds": 3.43,
   "signals": [
-   "221f7e4d22cad9289a708dbe829ccf7a3191678a980562efa35a21ecfc9e018c"
+   "10e0778f913ad1296a09f91629fa000edcabaf49c38bce48a0ec3ffb09bf1340",
+   "221f7e4d22cad9289a708dbe829ccf7a3191678a980562efa35a21ecfc9e018c",
+   "b0e1c1164134c9a313d36439e99a6f0f7d921c4dd1aa63d0b858eea913383071",
+   "eb6d12dc7782ea42cc0ec4af0fa757dad046d63485231ecece7df1d0dafbee5a",
+   "ef6b8f6c4e14804c55bbd290806e605cdcbe0927c20bc51e35ca7f3325e073c5",
+   "f651b559be2a9f5002ff5bf3d5d569fb82e7b053f8b529261d623bde7096857c"
   ]
  },
  "mn-law-advertising-parliament-page": {
@@ -10998,7 +11015,16 @@
   "failure": null,
   "seconds": 3.64,
   "signals": [
-   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1"
+   "121071da403ad7ad3e4fcfbbeed6e24683db4bd5a12bac11beaf009af600d4e3",
+   "12b0384e8a27e795f86c16e9baf780e69f55993e9a34dc6a56f9081f9493f7c9",
+   "38f3438ff9e9ae910dfa618d362b639740b1f6ccfbb3e8396f4041918b335392",
+   "39528ca5fee7cb4481e3e28a4f02e19b4ab945d95fb9fa557f6492d26ddfb531",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "b76c9f4c138fbb6b10d9c9dd7bae345699af4848e4f1dce892cfd585f75b0833",
+   "e17eae3fcd289ebe55c97d296fbb61ed6c42ff30eaf5f58d7452d9cd2f972c6e",
+   "ee317d2bff5c966c1e01a43e4d2d3dfdd95ba619e602cb20626511b01329a5cd"
   ]
  },
  "my-eqa-1974-lom-home-page": {
@@ -11007,7 +11033,16 @@
   "failure": null,
   "seconds": 3.1,
   "signals": [
-   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1"
+   "05c7ceee43753c3b6b5c3ff2847bbde9bb2066f544a730a1d1ede2882e215b68",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "83ec4e8969b93818aaaab7d7b281d0f2ccd5346614e3dcb40c76d982758c5147",
+   "a41b9191884cf956f95a96c13c8034f997e47f5c362f0518f49159e134a95a8d",
+   "bc31b2a3c252231f205217fbf4ebcf36b42384682e2328a17b4da1e6a59c5327",
+   "d1091d78426e9fbe94f38a01093aaeab8448dcab8243968e23dffd1bae0970da",
+   "d3ba949eef7298c8e23fb28000100e1f154e6663787c4b238fed8a4abcf8e9db",
+   "d53825fdf9928b0dc3d8556a5542408cfb229409f4fe64629c156fc53211e482"
   ]
  },
  "my-tda-2011-lom-home-page": {
@@ -11016,7 +11051,15 @@
   "failure": null,
   "seconds": 3.63,
   "signals": [
-   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1"
+   "121071da403ad7ad3e4fcfbbeed6e24683db4bd5a12bac11beaf009af600d4e3",
+   "12b0384e8a27e795f86c16e9baf780e69f55993e9a34dc6a56f9081f9493f7c9",
+   "38f3438ff9e9ae910dfa618d362b639740b1f6ccfbb3e8396f4041918b335392",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "bc31b2a3c252231f205217fbf4ebcf36b42384682e2328a17b4da1e6a59c5327",
+   "e17eae3fcd289ebe55c97d296fbb61ed6c42ff30eaf5f58d7452d9cd2f972c6e",
+   "ee317d2bff5c966c1e01a43e4d2d3dfdd95ba619e602cb20626511b01329a5cd"
   ]
  },
  "mz-aviso-6-gbm-2025-bancomoc-pdf": {
@@ -16323,7 +16366,12 @@
    "19.07.2022",
    "24.12.2022",
    "26.12.2011",
-   "27.11.2014"
+   "27.11.2014",
+   "578d86622f4232fc0616df9ed3549d703d6d9eaadd7815711412accc7ea2754b",
+   "940a663b45a9ed81ace4ae18dcaacab4dd6c2c0d954b0e97384ad1acb0f571c4",
+   "9646cf39858f75484994747a35fc11db14701cb0e2ff52842dba1634268c1f58",
+   "da189f2f8b7c5895257cf39e3dfcc660dcc6293b9b0d60745fba7afe3cb6077a",
+   "fba4dcf6f572a41559209147743591d5e52a95414921b663bcdead4abca6b6c5"
   ]
  },
  "tj-law-consumer-rights-2004-adlia-page": {
@@ -16629,6 +16677,9 @@
   "failure": null,
   "seconds": 3.46,
   "signals": [
+   "270014f048d1c0ea5c4d9eafc1c3927105f79902287544735252dec55e7e9561",
+   "4472a7253d335e182be3af84ceecafd55a6fdf2bab0fb3da4451bd8bd82c5132",
+   "5c327706b3def23c7266b3a76ba07d80295e77e1c68cf3fb4b35a0132b4777b7",
    "LN. 10/2005",
    "LN. 10/2008",
    "LN. 10/2009",
@@ -16892,13 +16943,15 @@
    "LN. 93/2010",
    "LN. 93/2013",
    "LN. 94/2007",
+   "a934d040c3e26e6c6ddda0b280119260f5c36cc798fab298db06b106476a3e26",
    "as at December 31st 2004",
    "as at December 31st 2007",
    "as at December 31st 2009",
    "as at December 31st 2012",
    "as at December 31st 2014",
    "as at December 31st 2015",
-   "as at December 31st 2016"
+   "as at December 31st 2016",
+   "ee5090db7af446e0166601e74149bb4df9db10619408184849718bcafca8405e"
   ]
  },
  "tt-icaap-guideline-2020-pdf-head": {
