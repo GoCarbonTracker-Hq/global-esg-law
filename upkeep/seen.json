@@ -14484,9 +14484,7 @@
   "failure": null,
   "seconds": 1.0,
   "signals": [
-   "24a981d23d7dd8584e7d015c626787105bbeb05c737879c6cd8b08d22038f3de",
-   "37de3bf41043872fe250eaec149176ade0292ea7f43eb04988d5581e9dcd468e",
-   "92f1f675afb8dcfd6283b331e2cb4883fb7bf63165ce091be14e9d4ff7a29db5"
+   "24a981d23d7dd8584e7d015c626787105bbeb05c737879c6cd8b08d22038f3de"
   ]
  },
  "terms-af-nepa-adopted": {
@@ -14577,8 +14575,7 @@
   "failure": null,
   "seconds": 0.14,
   "signals": [
-   "4333edb5a48c8bb3bfb22a2a6fa7b79518d07e027e965502ee7fb9c120bb49a4",
-   "ca0c8a776db0dbe2869f1be43dc83cdf7e4a8f404c902390418f94fb1a2ca533"
+   "4333edb5a48c8bb3bfb22a2a6fa7b79518d07e027e965502ee7fb9c120bb49a4"
   ]
  },
  "terms-as-osas-asac": {
@@ -15006,11 +15003,7 @@
   "failure": null,
   "seconds": 0.63,
   "signals": [
-   "ab81fd4d052e1a714085f87e3afb594593ae379510c2d18a22af971037394035",
-   "ac0cd1a930ef27590ce8a922ce63993d1d7161bbd71204b74d894a15d15965c4",
-   "c61884c62dc7d9e4343e76b9d7ee174a5bea128adbd87f9acf21a1106d6e3fa8",
-   "d87379c03f96b7bb09bea742e11778d751a3f74e0c16722136720ad484d26d98",
-   "df183fa72f610d0fd132c9f48f638868644a8fd52f10a35f3a13005a56918407"
+   "c61884c62dc7d9e4343e76b9d7ee174a5bea128adbd87f9acf21a1106d6e3fa8"
   ]
  },
  "terms-eu-eurlex-adopted": {
@@ -15055,7 +15048,6 @@
   "failure": null,
   "seconds": 1.63,
   "signals": [
-   "625684a84319667401170f01b210ed5e0a93f49a54519dc296b4835d9e2d6db0",
    "81e7424d8553d68da4956bb0b131177720fff8a2b397154f006b66e074c327c2"
   ]
  },
@@ -15112,9 +15104,7 @@
   "failure": null,
   "seconds": 2.6,
   "signals": [
-   "403b621bea83d022aa6f9ecaa9ee445885649a3c627f3c9f3450d6bb07a66a32",
-   "6b46d8c106203b3b85bf4beac106c1a9c5b0a3e7f5598793e56c8eeb839ceaf3",
-   "c7c332acf30a068b02ef962783475888afb626851c271db75f558a8663e1bfeb"
+   "403b621bea83d022aa6f9ecaa9ee445885649a3c627f3c9f3450d6bb07a66a32"
   ]
  },
  "terms-gl-nalunaarutit-adopted": {
@@ -15175,8 +15165,7 @@
   "failure": null,
   "seconds": 0.92,
   "signals": [
-   "dfcbe505942b9745ca211709cb712a9f2a7751f2a0622260abada50006ce5bb1",
-   "ebdcc34375206808f787ba7473842b7635c2629b83cfb00d17d69c2c455f602f"
+   "dfcbe505942b9745ca211709cb712a9f2a7751f2a0622260abada50006ce5bb1"
   ]
  },
  "terms-in-sebi-adopted": {
@@ -15258,14 +15247,7 @@
   "failure": null,
   "seconds": 2.52,
   "signals": [
-   "0e399cd36c77c9deb9c58967db85d1547bb96589e41e47514291053e88dbd227",
-   "2d00b1a4f47d0b11f802efb206d65642ebaea8501d2ba4fb1c0f7ce65352d38e",
-   "32f7fcda743c21d9b133003754095c7f036567d4dac94fe01e8544f1e114aa6b",
-   "37e6f7643f918b11f8df071f2f184a6c03557a3471d388c8b29ad177d8998468",
-   "53f8ebf39fdaf88a8e9eb37cf4aa189f03ce39e506e1890488fcacc6ebaabb21",
-   "63f8b22210e5e57545bc64b418a7387f03f44de4942a558e94621999b13d94e5",
-   "7958cffd6ee8b1ae88af8b823b2f84235a0c7a2406e9f0ff45ddaa3a0e690f8c",
-   "b8c03aad5b90a13c4e752d90947cfb94ba0f02ca44fc685b5e77dedc348db23c"
+   "0e399cd36c77c9deb9c58967db85d1547bb96589e41e47514291053e88dbd227"
   ]
  },
  "terms-jm-nepa": {
@@ -15334,8 +15316,7 @@
   "failure": null,
   "seconds": 1.21,
   "signals": [
-   "49cacc01ce6ee2edd50de87ade7a2152580ec4fd59f566b6f4e069e7f6cdf94b",
-   "96824dc3b61b939f63f098c4c255d32832a4735a4091292e984469c4ec23d99f"
+   "49cacc01ce6ee2edd50de87ade7a2152580ec4fd59f566b6f4e069e7f6cdf94b"
   ]
  },
  "terms-lc-npc-adopted": {
@@ -15453,8 +15434,7 @@
   "failure": null,
   "seconds": 0.75,
   "signals": [
-   "9295a2e6beed78e8d2db08f1698fbc418e0fae9e8119156613c3a279388222fe",
-   "b7ad7e3033171d8f43f51a96c9b92c13deeb2a5395d8cd30bba22b00708ea6a3"
+   "9295a2e6beed78e8d2db08f1698fbc418e0fae9e8119156613c3a279388222fe"
   ]
  },
  "terms-mr-msgg-adopted": {
@@ -15725,7 +15705,6 @@
   "failure": null,
   "seconds": 0.17,
   "signals": [
-   "244293432a5fc284e7608aec8fe9313dacb3b07bd8dabdb1c1e201cf1f33090f",
    "7776a5a969bfd7fa9cb2b7d58b0de9c57ece2c5ea66f62281e212d069ad47e89"
   ]
  },
@@ -15735,11 +15714,7 @@
   "failure": null,
   "seconds": 0.37,
   "signals": [
-   "0bb6fb06546d8fa1105de55e4df428702e5a641758c482fda81e9837537cc318",
-   "25da9dee4ab0d897286f4617f538af9742bed0326713c2aae33e5e44bc94c41a",
-   "34241ac8c115311d06a5364e14ee70b24df915a84a5c7931723cc03e3c66c9a0",
-   "3644a79bf5c4a276008d63a97ae5866e9407d802084ae6fbfc2ac8b8e8ff7ddd",
-   "b7788386e4ad4e37ad8963355e8772838f3299a7b53ebc25a6c3725a94a2c555"
+   "25da9dee4ab0d897286f4617f538af9742bed0326713c2aae33e5e44bc94c41a"
   ]
  },
  "terms-sk-slovlex-copyright-act": {
