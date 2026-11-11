@@ -84,7 +84,8 @@ def list_open(repo=ROOT):
 
 
 def decide(repo, outcome, key, reviewer, today=None, notes=None):
-    """Record outcome on the first open row whose watcher_id:signal is key. Return that row.
+    """Record outcome on the first open row whose watcher_id:signal is key, undecided rows before
+    needs_evidence rows. Return that row.
 
     notes, when given, goes into the row's notes column after any text already there, joined with '; '.
     """
@@ -101,7 +102,8 @@ def decide(repo, outcome, key, reviewer, today=None, notes=None):
     matches = [r for r in rows if r["watcher_id"] == watcher_id and r["signal"] == signal]
     if not matches:
         raise QueueError(f"row {key!r} is not in upkeep/queue.csv")
-    row = next((r for r in matches if is_open(r)), None)
+    # An undecided row comes before a needs_evidence row, so a repeat row of the same key can be reached.
+    row = next((r for r in matches if not (r.get("outcome") or "").strip()), None) or next((r for r in matches if is_open(r)), None)
     if row is None:
         done = matches[0]
         raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")

@@ -159,6 +159,18 @@ def test_needs_evidence_leaves_the_row_open(tmp_path, capsys):
     assert seen(repo) == SEEN
 
 
+def test_repeat_row_behind_needs_evidence_is_reachable(tmp_path):
+    """A watcher that fails again with the same text adds a second row with the same key; the
+    undecided row is decided first, then the needs_evidence row."""
+    failed = dict(watcher_id="w-zip", instrument="*", change="watch_failed", signal="HTTP 403", evidence_url=ZIP)
+    repo = make(tmp_path, rows=[row(**failed, reviewer="ada", outcome="needs_evidence", outcome_on="2026-11-01"),
+                                row(**failed, detected_on="2026-11-02")])
+    assert review.decide(repo, "needs_evidence", "w-zip:HTTP 403", "moka", TODAY)["detected_on"] == "2026-11-02"
+    assert review.decide(repo, "reject", "w-zip:HTTP 403", "moka", TODAY)["detected_on"] == "2026-11-01"
+    assert review.decide(repo, "reject", "w-zip:HTTP 403", "moka", TODAY)["detected_on"] == "2026-11-02"
+    assert [r["outcome"] for r in rows(repo)] == ["reject", "reject"]
+
+
 @pytest.mark.parametrize("outcome", ["confirm", "reject", "needs_evidence"])
 def test_deciding_a_decided_row_exits_1(tmp_path, capsys, outcome):
     repo = make(tmp_path)
