@@ -37,6 +37,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `params.regex` | `date_list` only: a regular expression with exactly one group that captures a date as `YYYY-MM-DD` or `YYYYMMDD`. With `params.verbatim` set to `true` the group is kept as written (a version date as `18.07.2017`, a legal-notice number as `129/2004`), for a list whose entries come back in a different order on each fetch; the set is compared, so order never moves it. Off unless set. |
 | `params.cut` | Optional, `text_hash` only (any other kind is a validation error): a list of regexes. Each match is removed from the string that is hashed (visible text plus link targets) before hashing, to take out a moving part such as a visitor counter, a request id or a session id inside a link. Off unless set. A cut must not match the law text or the path of the document itself; if it would, the watcher cannot be made quiet and stays on `page_hash`. |
 | `params.second_route` | Optional: where a person can check by hand when the fetch fails. Copied into the `notes` of a `watch_failed` row. |
+| `params.note` | Optional: why the watcher stays failing, or why its URL or kind changed, and the manual route. Free text; no code reads it. |
 | `change` | Optional, default `new_version`. Set `terms_changed` on a watcher that points at a licence or terms page, such as a `page_hash` of a `sources.json` row's `terms_url`. |
 
 ### Kinds

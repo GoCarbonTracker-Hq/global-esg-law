@@ -54,12 +54,12 @@
   "source_id": "EU-EURLEX-ADOPTED",
   "iso2": "EU",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "url": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+   "note": "Moved 2026-11-11 from a web.archive.org snapshot that answered HTTP 202 with an empty body to the live legal notice, which the watch client now reads; text_hash because the live page hash moves on every fetch."
   }
  },
  {
@@ -67,12 +67,12 @@
   "source_id": "EU-EURLEX-CONSOLIDATED",
   "iso2": "EU",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "url": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+   "note": "Moved 2026-11-11 from a web.archive.org snapshot that answered HTTP 202 with an empty body to the live legal notice, which the watch client now reads; text_hash because the live page hash moves on every fetch."
   }
  },
  {
@@ -80,12 +80,12 @@
   "source_id": "EU-EURLEX-TRANSLATION",
   "iso2": "EU",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://web.archive.org/web/2026/https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+  "url": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html (live page; answers scripts with a WAF challenge, open in a browser)"
+   "note": "Moved 2026-11-11 from a web.archive.org snapshot that answered HTTP 202 with an empty body to the live legal notice, which the watch client now reads; text_hash because the live page hash moves on every fetch."
   }
  },
  {
@@ -503,7 +503,8 @@
   "tier": "regulator_page",
   "url": "https://www.indiacode.nic.in/show-data?actid=AC_CEN_22_29_00008_201318_1517807327856&orderno=139",
   "params": {
-   "second_route": "browser read (browser-harness) or Internet Archive snapshot"
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: indiacode.nic.in timed out from this laptop and answered 403 to Python; browser read or Internet Archive snapshot. Manual route: see params.second_route."
   }
  },
  {
@@ -1448,7 +1449,8 @@
   "tier": "regulator_page",
   "url": "https://law.krx.co.kr/",
   "params": {
-   "second_route": "https://law.krx.co.kr/ (browser; blocked from the cloud address, not opened in the wave 1 session)"
+   "second_route": "https://law.krx.co.kr/ (browser; blocked from the cloud address, not opened in the wave 1 session)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: law.krx.co.kr timed out from this laptop (twice incl. second route); browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -1461,7 +1463,8 @@
   "url": "https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/act/public/2013/69/en/2022-10-27/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1474,7 +1477,8 @@
   "url": "https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-28/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/act/public/2021/39/en/2021-10-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1487,7 +1491,8 @@
   "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-10-02/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-10-02/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2023/222/en/2023-10-02/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1499,7 +1504,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/",
   "params": {
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180500/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1511,7 +1517,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/",
   "params": {
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180453/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1523,7 +1530,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/",
   "params": {
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/agency-drafted/~2024/~180455/en/latest/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1536,7 +1544,8 @@
   "url": "https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-14/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/act/public/2019/61/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1549,7 +1558,8 @@
   "url": "https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2019-11-14/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1562,7 +1572,8 @@
   "url": "https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/act/public/2002/40/en/2008-09-26/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1575,7 +1586,8 @@
   "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2009/285/en/2009-09-28/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1588,7 +1600,8 @@
   "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2025-01-01/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2025-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2008/356/en/2025-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1601,7 +1614,8 @@
   "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2023-01-01/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2023-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2010/338/en/2023-01-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1614,7 +1628,8 @@
   "url": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/2026-07-01/versions/?per_page=100",
   "params": {
    "regex": "/en/(\\d{4}-\\d{2}-\\d{2})/\"",
-   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/2026-07-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)"
+   "second_route": "https://www.legislation.govt.nz/secondary-legislation/pco-drafted/2022/266/en/2026-07-01/versions/ (browser; legislation.govt.nz answers scripts with an AWS WAF challenge, HTTP 202 with an empty body)",
+   "note": "Stays failing (2026-11-11): Host answers 202 with an empty body to Python and curl on both routes (AWS WAF style challenge); readable in a browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -1650,7 +1665,8 @@
   "tier": "consolidation_site",
   "url": "https://sso.agc.gov.sg/Act/CPA2018",
   "params": {
-   "second_route": "https://sso.agc.gov.sg/Act/CPA2018 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)"
+   "second_route": "https://sso.agc.gov.sg/Act/CPA2018 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)",
+   "note": "Stays failing (2026-11-11): sso.agc.gov.sg answers Python with HTTP 202 and a script challenge page and curl with 403; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -1662,7 +1678,8 @@
   "tier": "consolidation_site",
   "url": "https://sso.agc.gov.sg/SL-Supp/S857-2018/Published?DocDate=20181221",
   "params": {
-   "second_route": "https://sso.agc.gov.sg/SL-Supp/S857-2018/Published?DocDate=20181221 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)"
+   "second_route": "https://sso.agc.gov.sg/SL-Supp/S857-2018/Published?DocDate=20181221 (browser; sso.agc.gov.sg answers scripts with HTTP 403 from CloudFront)",
+   "note": "Stays failing (2026-11-11): sso.agc.gov.sg answers Python with HTTP 202 and a script challenge page and curl with 403; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -1806,7 +1823,8 @@
   "tier": "regulator_page",
   "url": "https://www.resbank.co.za/content/dam/sarb/publications/prudential-authority/pa-deposit-takers/banks-guidance-notes/2025/g3-2025/G3-2025-%20Guidance%20Note%20Climate%20Disclosures%20for%20banks.pdf",
   "params": {
-   "second_route": "https://www.resbank.co.za/content/dam/sarb/publications/prudential-authority/pa-deposit-takers/banks-guidance-notes/2025/g3-2025/G3-2025-%20Guidance%20Note%20Climate%20Disclosures%20for%20banks.pdf (browser)"
+   "second_route": "https://www.resbank.co.za/content/dam/sarb/publications/prudential-authority/pa-deposit-takers/banks-guidance-notes/2025/g3-2025/G3-2025-%20Guidance%20Note%20Climate%20Disclosures%20for%20banks.pdf (browser)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl connect timed out too; host unreachable from this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -1854,7 +1872,8 @@
   "tier": "regulator_page",
   "url": "https://www.sec.or.th",
   "params": {
-   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)"
+   "second_route": "https://www.sec.or.th (browser; sec.or.th answers scripts with 403 Block Response or resets the connection)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"Block Response\" (WAF) to curl with a browser user agent; listed, not fought; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -1866,7 +1885,8 @@
   "tier": "consolidation_site",
   "url": "https://www.krisdika.go.th",
   "params": {
-   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)"
+   "second_route": "https://www.krisdika.go.th (browser; answers scripts with a TLS error and Chromium with 502 from the cloud address; law.go.th gives 403)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: certificate check fails on both attempts (server-side); plain curl is the limit. Earlier note: Self-signed certificate; behind -k the site answers 404 for plain curl; browser only per its note. Manual route: see params.second_route."
   }
  },
  {
@@ -1902,7 +1922,8 @@
   "tier": "consolidation_site",
   "url": "https://peraturan.bpk.go.id/Details/187122",
   "params": {
-   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+   "second_route": "https://peraturan.bpk.go.id/Details/187122 (browser; Cloudflare challenge to scripts on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): the host answers a script with HTTP 403 on some requests and the browser-agent retry reads it on others; a run can pass or fail. Manual route: see params.second_route."
   }
  },
  {
@@ -1914,7 +1935,8 @@
   "tier": "consolidation_site",
   "url": "https://peraturan.bpk.go.id/Details/235421/permen",
   "params": {
-   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)"
+   "second_route": "https://peraturan.bpk.go.id/Details/235421/permen (browser; Cloudflare challenge to scripts on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): the host answers a script with HTTP 403 on some requests and the browser-agent retry reads it on others; a run can pass or fail. Manual route: see params.second_route."
   }
  },
  {
@@ -1938,7 +1960,8 @@
   "tier": "consolidation_site",
   "url": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023",
   "params": {
-   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)"
+   "second_route": "https://peraturan.bpk.go.id/Details/240203/uu-no-4-tahun-2023 (browser; Cloudflare challenge to scripts on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): the host answers a script with HTTP 403 on some requests and the browser-agent retry reads it on others; a run can pass or fail. Manual route: see params.second_route."
   }
  },
  {
@@ -2247,7 +2270,8 @@
   "url": "https://www.government.se/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)"
+   "second_route": "https://www.government.se/ (browser; answers scripts with HTTP 403, a Cloudflare challenge; the terms page itself was never opened)",
+   "note": "Stays failing (2026-11-11): The host answers a Cloudflare \"Just a moment\" 403 challenge to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -2259,7 +2283,8 @@
   "tier": "consolidation_site",
   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCC.pdf",
   "params": {
-   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/ref/lgcc.htm (browser; lists every reform with its DOF date; the bare directory https://www.diputados.gob.mx/LeyesBiblio/ answers 403)"
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/ref/lgcc.htm (browser; lists every reform with its DOF date; the bare directory https://www.diputados.gob.mx/LeyesBiblio/ answers 403)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: diputados.gob.mx timed out from this laptop twice (PDF and the ref page); could not be tested here, open in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -2271,7 +2296,8 @@
   "tier": "consolidation_site",
   "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LGCC_MRNE_281014.pdf",
   "params": {
-   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm (browser; list of Reglamentos with their reform dates)"
+   "second_route": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm (browser; list of Reglamentos with their reform dates)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: diputados.gob.mx timed out from this laptop twice (PDF and the ref page); could not be tested here, open in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -3875,7 +3901,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048519395 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3887,7 +3914,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048735301",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048735301 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000048735301 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3899,7 +3927,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559591",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559591 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559591 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3911,7 +3940,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559589",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559589 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559589 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3923,7 +3953,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048535098",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048535098 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048535098 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3935,7 +3966,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048533586",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048533586 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048533586 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3947,7 +3979,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043541738",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043541738 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043541738 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3959,7 +3992,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559662",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559662 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051559662 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3971,7 +4005,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043960256",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043960256 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043960256 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -3983,7 +4018,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047717642",
   "params": {
-   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047717642 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)"
+   "second_route": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047717642 (browser; legifrance.gouv.fr answers scripts with a Cloudflare challenge, HTTP 403 with cf-mitigated: challenge; the L\u00e9gifrance page lists the dated versions)",
+   "note": "Stays failing (2026-11-11): Legifrance answers every script and curl with a Cloudflare \"Just a moment\" challenge; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -4101,7 +4137,8 @@
   "tier": "consolidation_site",
   "url": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true",
   "params": {
-   "second_route": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+   "second_route": "https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/f06cb9b2338c11efb121d2fe3a0eff27?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -4113,7 +4150,8 @@
   "tier": "consolidation_site",
   "url": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true",
   "params": {
-   "second_route": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+   "second_route": "https://www.e-tar.lt/portal/lt/legalActEditions/TAR.132D0D75309C?faces-redirect=true (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -4125,7 +4163,8 @@
   "tier": "consolidation_site",
   "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E",
   "params": {
-   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.AB44F084071E (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -4137,7 +4176,8 @@
   "tier": "consolidation_site",
   "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB",
   "params": {
-   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.B77E00EAEBEB (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -4149,7 +4189,8 @@
   "tier": "consolidation_site",
   "url": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A",
   "params": {
-   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")"
+   "second_route": "https://www.e-tar.lt/portal/lt/legalAct/TAR.55FFE350795A (browser; e-tar.lt and e-seimas.lrs.lt answer scripts with a Cloudflare challenge, HTTP 403 \"Luktel\u0117kite...\")",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -4974,7 +5015,8 @@
   "tier": "regulator_page",
   "url": "https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/content_entry5c11a9db758f8d31544574c6/6768e229e6414a4ba0eb9f4d/files/23122024__MEDIA_RELEASE_BURSA_MALAYSIA_REQUIRES_SUSTAINABILITY_REPORTING_USING_THE_IFRS_SUSTAINABILITY_DISCLOSURE_STANDARDS.pdf?1734927108=",
   "params": {
-   "second_route": "https://www.bursamalaysia.com/regulation/listing_requirements (browser; bursamalaysia.com answers scripts with a Cloudflare challenge, HTTP 403)"
+   "second_route": "https://www.bursamalaysia.com/regulation/listing_requirements (browser; bursamalaysia.com answers scripts with a Cloudflare challenge, HTTP 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5034,7 +5076,8 @@
   "tier": "consolidation_site",
   "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
   "params": {
-   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -5046,7 +5089,8 @@
   "tier": "consolidation_site",
   "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
   "params": {
-   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -5058,7 +5102,8 @@
   "tier": "consolidation_site",
   "url": "https://laws.boe.gov.sa/BoeLaws/Laws/",
   "params": {
-   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)"
+   "second_route": "https://laws.boe.gov.sa/BoeLaws/Laws/ (browser; a JavaScript application whose host refused the cloud address with a connection reset and HTTP 502 on 2026-11-02)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -5083,7 +5128,8 @@
   "tier": "consolidation_site",
   "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615",
   "params": {
-   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/18615 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead",
+   "note": "Stays failing (2026-11-11): elibrary.judiciary.gov.ph answers 403 Forbidden to curl with a browser user agent too; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -5095,7 +5141,8 @@
   "tier": "consolidation_site",
   "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/50257",
   "params": {
-   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/50257 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/50257 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead",
+   "note": "Stays failing (2026-11-11): elibrary.judiciary.gov.ph answers 403 Forbidden to curl with a browser user agent too; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -5107,7 +5154,8 @@
   "tier": "consolidation_site",
   "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302",
   "params": {
-   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead"
+   "second_route": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/3302 (browser). Also the list of Republic Acts: https://elibrary.judiciary.gov.ph/republic_acts (browser). The page carries a per-session csrf token, so its hash differs on every run and each run adds one new_version row until a stable signal is found; compare the extracted text instead",
+   "note": "Stays failing (2026-11-11): elibrary.judiciary.gov.ph answers 403 Forbidden to curl with a browser user agent too; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -5119,7 +5167,8 @@
   "tier": "regulator_page",
   "url": "https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/",
   "params": {
-   "second_route": "https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/ (browser from the laptop; Cloudflare challenge answers scripts and the cloud address with 403)"
+   "second_route": "https://www.sec.gov.ph/mc-2025/sec-mc-no-16-series-of-2025/ (browser from the laptop; Cloudflare challenge answers scripts and the cloud address with 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5131,7 +5180,8 @@
   "tier": "regulator_page",
   "url": "https://www.sec.gov.ph/mc-2019/mc-no-04-s-2019-sustainability-reporting-guidelines-for-publicly-listed-companies/",
   "params": {
-   "second_route": "https://www.sec.gov.ph/mc-2019/mc-no-04-s-2019-sustainability-reporting-guidelines-for-publicly-listed-companies/ (browser from the laptop; Cloudflare challenge)"
+   "second_route": "https://www.sec.gov.ph/mc-2019/mc-no-04-s-2019-sustainability-reporting-guidelines-for-publicly-listed-companies/ (browser from the laptop; Cloudflare challenge)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5156,7 +5206,8 @@
   "url": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx (browser; curl with a Mozilla User-Agent is answered Access Denied)"
+   "second_route": "https://www.bsp.gov.ph/Pages/AboutTheBank/Terms-of-Use.aspx (browser; curl with a Mozilla User-Agent is answered Access Denied)",
+   "note": "Stays failing (2026-11-11): Edge block for plain curl; browser only, no evasion. Manual route: see params.second_route."
   }
  },
  {
@@ -5466,7 +5517,8 @@
   "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000055)?$format=json",
   "params": {
    "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)",
+   "note": "Stays failing (2026-11-11): the Knesset firewall answers HTTP 474 \"access denied\" to this laptop for Python and curl alike; not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5479,7 +5531,8 @@
   "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000233)?$format=json",
   "params": {
    "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)",
+   "note": "Stays failing (2026-11-11): the Knesset firewall answers HTTP 474 \"access denied\" to this laptop for Python and curl alike; not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5492,7 +5545,8 @@
   "url": "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_IsraelLaw(2000237)?$format=json",
   "params": {
    "regex": "\"LatestPublicationDate\":\"(\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)",
+   "note": "Stays failing (2026-11-11): the Knesset firewall answers HTTP 474 \"access denied\" to this laptop for Python and curl alike; not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5518,7 +5572,8 @@
   "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214964)?$select=LastUpdatedDate",
   "params": {
    "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)",
+   "note": "Stays failing (2026-11-11): the Knesset firewall answers HTTP 474 \"access denied\" to this laptop for Python and curl alike; not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5531,7 +5586,8 @@
   "url": "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_SecondaryLaw(2214962)?$select=LastUpdatedDate",
   "params": {
    "regex": "\"LastUpdatedDate\":\"(\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)"
+   "second_route": "https://main.knesset.gov.il/Activity/Legislation/Laws (browser; the Knesset web app answers scripts with an HTTP 247 bot challenge and an empty page to headless Chromium, the OData API answers curl)",
+   "note": "Stays failing (2026-11-11): the Knesset firewall answers HTTP 474 \"access denied\" to this laptop for Python and curl alike; not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -5752,7 +5808,8 @@
   "tier": "regulator_page",
   "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1057619",
   "params": {
-   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"request is blocked\" (firewall) to curl with a browser user agent on file and second route; listed, not fought; download in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -5764,7 +5821,8 @@
   "tier": "regulator_page",
   "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059496",
   "params": {
-   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"request is blocked\" (firewall) to curl with a browser user agent on file and second route; listed, not fought; download in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -5776,7 +5834,8 @@
   "tier": "regulator_page",
   "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1059686",
   "params": {
-   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"request is blocked\" (firewall) to curl with a browser user agent on file and second route; listed, not fought; download in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -5788,7 +5847,8 @@
   "tier": "regulator_page",
   "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1070272",
   "params": {
-   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"request is blocked\" (firewall) to curl with a browser user agent on file and second route; listed, not fought; download in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -5800,7 +5860,8 @@
   "tier": "regulator_page",
   "url": "https://www.superfinanciera.gov.co/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=1079295",
   "params": {
-   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)"
+   "second_route": "https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/ (browser; the circular is linked from this list)",
+   "note": "Stays failing (2026-11-11): Host answers 403 \"request is blocked\" (firewall) to curl with a browser user agent on file and second route; listed, not fought; download in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -6089,7 +6150,8 @@
   "tier": "consolidation_site",
   "url": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15",
   "params": {
-   "second_route": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+   "second_route": "https://kenyalaw.org/akn/ke/act/2016/11/eng@2023-09-15 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)",
+   "note": "Stays failing (2026-11-11): kenyalaw.org answers 202 with an empty body (CloudFront challenge) to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -6101,7 +6163,8 @@
   "tier": "consolidation_site",
   "url": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07",
   "params": {
-   "second_route": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+   "second_route": "https://kenyalaw.org/akn/ke/act/ln/2024/84/eng@2024-06-07 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)",
+   "note": "Stays failing (2026-11-11): kenyalaw.org answers 202 with an empty body (CloudFront challenge) to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -6113,7 +6176,8 @@
   "tier": "consolidation_site",
   "url": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31",
   "params": {
-   "second_route": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+   "second_route": "https://kenyalaw.org/akn/ke/act/1999/8/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)",
+   "note": "Stays failing (2026-11-11): kenyalaw.org answers 202 with an empty body (CloudFront challenge) to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -6125,7 +6189,8 @@
   "tier": "consolidation_site",
   "url": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31",
   "params": {
-   "second_route": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)"
+   "second_route": "https://kenyalaw.org/akn/ke/act/2012/46/eng@2022-12-31 (browser; curl gets HTTP 202 with an empty body from the CloudFront challenge; Playwright chromium with networkidle plus 2 s returns the page)",
+   "note": "Stays failing (2026-11-11): kenyalaw.org answers 202 with an empty body (CloudFront challenge) to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -6258,7 +6323,8 @@
   "tier": "regulator_page",
   "url": "https://www.eeaa.gov.eg/Laws/55/index",
   "params": {
-   "second_route": "https://www.eeaa.gov.eg/Laws/55/index (browser; the cloud address saw timeouts and resets)"
+   "second_route": "https://www.eeaa.gov.eg/Laws/55/index (browser; the cloud address saw timeouts and resets)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: TLS handshake failed or was reset on both attempts, no HTTP status. Earlier note: TLS fails (SSL_ERROR_SYSCALL) with and without -k on this laptop, DNS resolves; listed, not fought; read manually. Manual route: see params.second_route."
   }
  },
  {
@@ -6293,7 +6359,9 @@
   "kind": "http_head",
   "tier": "regulator_page",
   "url": "https://www.ammc.ma/sites/default/files/Circulaire%2003_19%20relative%20aux%20op%C3%A9rations%20et%20informations%20financi%C3%A8res.pdf",
-  "params": {}
+  "params": {
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "ma-loi-99-12-ministry-pdf-head",
@@ -6582,7 +6650,8 @@
   "tier": "consolidation_site",
   "url": "https://uaelegislation.gov.ae/en/legislations/2558",
   "params": {
-   "second_route": "https://uaelegislation.gov.ae/en/legislations/2558 (browser; the portal answers scripts with a Cloudflare 403)"
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2558 (browser; the portal answers scripts with a Cloudflare 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare block page for plain curl; browser only, no evasion. Manual route: see params.second_route."
   }
  },
  {
@@ -6606,7 +6675,8 @@
   "tier": "consolidation_site",
   "url": "https://uaelegislation.gov.ae/en/legislations/1146",
   "params": {
-   "second_route": "https://uaelegislation.gov.ae/en/legislations/1146 (browser; the portal answers scripts with a Cloudflare 403)"
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1146 (browser; the portal answers scripts with a Cloudflare 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare block page for plain curl; browser only, no evasion. Manual route: see params.second_route."
   }
  },
  {
@@ -6618,7 +6688,8 @@
   "tier": "consolidation_site",
   "url": "https://uaelegislation.gov.ae/en/legislations/1455",
   "params": {
-   "second_route": "https://uaelegislation.gov.ae/en/legislations/1455 (browser; the portal answers scripts with a Cloudflare 403)"
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/1455 (browser; the portal answers scripts with a Cloudflare 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare block page for plain curl; browser only, no evasion. Manual route: see params.second_route."
   }
  },
  {
@@ -6630,7 +6701,8 @@
   "tier": "consolidation_site",
   "url": "https://uaelegislation.gov.ae/en/legislations/2157",
   "params": {
-   "second_route": "https://uaelegislation.gov.ae/en/legislations/2157 (browser; the portal answers scripts with a Cloudflare 403)"
+   "second_route": "https://uaelegislation.gov.ae/en/legislations/2157 (browser; the portal answers scripts with a Cloudflare 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare block page for plain curl; browser only, no evasion. Manual route: see params.second_route."
   }
  },
  {
@@ -6724,7 +6796,8 @@
   "url": "https://www.secp.gov.pk/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.secp.gov.pk/ (browser from the laptop; secp.gov.pk answers curl and headless Chromium with a Cloudflare challenge, HTTP 403, \"Just a moment...\"); the terms page was not located"
+   "second_route": "https://www.secp.gov.pk/ (browser from the laptop; secp.gov.pk answers curl and headless Chromium with a Cloudflare challenge, HTTP 403, \"Just a moment...\"); the terms page was not located",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -6937,7 +7010,9 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.superbancos.gob.ec/bancos/descargas/39342/",
-  "params": {}
+  "params": {
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl connect timed out too; host unreachable from this laptop. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "ec-coa-libro4-asamblea-leyes-aprobadas",
@@ -6982,7 +7057,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/377-20",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/377-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -6994,7 +7070,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/996-14",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/996-14 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -7006,7 +7083,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/3991-20",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3991-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -7018,7 +7096,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/1264-12",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/1264-12 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -7030,7 +7109,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/3153-20",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/3153-20 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -7042,7 +7122,8 @@
   "tier": "consolidation_site",
   "url": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80",
   "params": {
-   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)"
+   "second_route": "https://zakon.rada.gov.ua/laws/show/270/96-%D0%B2%D1%80 (browser; zakon.rada.gov.ua resets connections from the cloud address)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: zakon.rada.gov.ua timed out from this laptop twice with a browser user agent; blocked or unreachable from here, open in a browser from Ukraine-reachable network. Manual route: see params.second_route."
   }
  },
  {
@@ -8314,7 +8395,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=C22100137",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=C22100137 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22100137 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8326,7 +8408,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=C22400130",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=C22400130 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=C22400130 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8338,7 +8421,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=H12300294",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300294 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300294 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8350,7 +8434,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=H12300295",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300295 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H12300295 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8362,7 +8447,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=H10800002",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=H10800002 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10800002 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8374,7 +8460,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=H10700225",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=H10700225 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10700225 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8386,7 +8473,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=H10200090",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=H10200090 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=H10200090 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -8398,7 +8486,8 @@
   "tier": "consolidation_site",
   "url": "https://pravo.by/document/?guid=3961&p0=V19201982",
   "params": {
-   "second_route": "https://pravo.by/document/?guid=3961&p0=V19201982 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)"
+   "second_route": "https://pravo.by/document/?guid=3961&p0=V19201982 (browser; the page answers 403 to the watcher's User-Agent, which contains a github.com address, and 200 to curl with 'Mozilla/5.0' or a plain 'global-esg-law-watch/1'; the hash changes when an amending act is added to the card)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: pravo.by timed out from this laptop twice with a browser user agent, so it could not be tested here; open it in a browser (the source note says the 403 comes from the github.com address in the watcher user agent). Manual route: see params.second_route."
   }
  },
  {
@@ -9004,7 +9093,8 @@
   "tier": "consolidation_site",
   "url": "https://www.lob.gov.jo/",
   "params": {
-   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3168&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)",
+   "note": "Reads 200 but the body is an Angular shell with no page text, so the signal does not watch the law (2026-11-11); counted as failing, not recovered. Manual route: open the watcher url in a browser."
   }
  },
  {
@@ -9016,7 +9106,8 @@
   "tier": "consolidation_site",
   "url": "https://www.lob.gov.jo/",
   "params": {
-   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=6243&LegislationType=3&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=6243&LegislationType=3&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)",
+   "note": "Reads 200 but the body is an Angular shell with no page text, so the signal does not watch the law (2026-11-11); counted as failing, not recovered. Manual route: open the watcher url in a browser."
   }
  },
  {
@@ -9028,7 +9119,8 @@
   "tier": "consolidation_site",
   "url": "https://www.lob.gov.jo/",
   "params": {
-   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3169&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)"
+   "second_route": "https://www.lob.gov.jo/?v=3&lang=ar#!/LegislationDetails?LegislationID=3169&LegislationType=2&isMod=false browser (the Bureau site is a JavaScript application, curl returns only the page shell: open the URL, wait for the article list, compare the text; hash-fragment URL, the shell is identical for every instrument)",
+   "note": "Reads 200 but the body is an Angular shell with no page text, so the signal does not watch the law (2026-11-11); counted as failing, not recovered. Manual route: open the watcher url in a browser."
   }
  },
  {
@@ -9040,7 +9132,8 @@
   "tier": "regulator_page",
   "url": "https://www.jsc.gov.jo/Uploads/Files/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85/%D8%AA%D8%B9%D8%A7%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D8%AD%D9%88%D9%83%D9%85%D8%A9/Jordan%20Securities%20Commission%20ESG%20Code.pdf",
   "params": {
-   "second_route": "https://www.jsc.gov.jo/Search/en/ESG (browser; jsc.gov.jo answers a first request with a 302 and a cookie, and loops without a cookie jar)"
+   "second_route": "https://www.jsc.gov.jo/Search/en/ESG (browser; jsc.gov.jo answers a first request with a 302 and a cookie, and loops without a cookie jar)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -9436,7 +9529,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legis.md/",
   "params": {
-   "second_route": "https://www.legis.md/ (browser; legis.md answers scripts with a Cloudflare challenge, HTTP 403; look up Law 1515-XII/1993 there, and in the Monitorul Oficial search at https://monitorul.gov.md/ro/search?keywords=Legii%20nr.%201515-XII%20din%2016%20iunie%201993)"
+   "second_route": "https://www.legis.md/ (browser; legis.md answers scripts with a Cloudflare challenge, HTTP 403; look up Law 1515-XII/1993 there, and in the Monitorul Oficial search at https://monitorul.gov.md/ro/search?keywords=Legii%20nr.%201515-XII%20din%2016%20iunie%201993)",
+   "note": "Stays failing (2026-11-11): legis.md answers a Cloudflare \"Just a moment\" 403 challenge to curl; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -9661,7 +9755,8 @@
   "tier": "consolidation_site",
   "url": "https://www.imprensanac.gov.mz",
   "params": {
-   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connection refused or failed on both attempts, no HTTP status. Earlier note: Host refuses the connection from this laptop on two tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -9673,7 +9768,8 @@
   "tier": "consolidation_site",
   "url": "https://www.imprensanac.gov.mz",
   "params": {
-   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connection refused or failed on both attempts, no HTTP status. Earlier note: Host refuses the connection from this laptop on two tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -9685,7 +9781,8 @@
   "tier": "consolidation_site",
   "url": "https://www.imprensanac.gov.mz",
   "params": {
-   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)"
+   "second_route": "https://www.imprensanac.gov.mz (browser; the site refused the cloud address with a connection reset on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connection refused or failed on both attempts, no HTTP status. Earlier note: Host refuses the connection from this laptop on two tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -9709,7 +9806,8 @@
   "tier": "consolidation_site",
   "url": "https://www.jo.gouv.sn",
   "params": {
-   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -9721,7 +9819,8 @@
   "tier": "consolidation_site",
   "url": "https://www.jo.gouv.sn",
   "params": {
-   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)"
+   "second_route": "https://www.jo.gouv.sn (browser from the laptop; the site refused the cloud address with a reset connection)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -10842,7 +10941,9 @@
   "kind": "http_head",
   "tier": "consolidation_site",
   "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-organi-20220210161106.pdf",
-  "params": {}
+  "params": {
+   "note": "Stays failing (2026-11-11): the PDF address answers 404; the official list of current laws is https://www.asambleanacional.gob.ve/leyes/vigentes (filter Ambiental) and its links load by script, so the new address needs a browser. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "ve-penal-environment-law-pdf-head",
@@ -10852,7 +10953,9 @@
   "kind": "http_head",
   "tier": "consolidation_site",
   "url": "https://www.asambleanacional.gob.ve/storage/documentos/leyes/ley-penal--20211109143642.pdf",
-  "params": {}
+  "params": {
+   "note": "Stays failing (2026-11-11): the PDF address answers 404; the official list of current laws is https://www.asambleanacional.gob.ve/leyes/vigentes (filter Ambiental) and its links load by script, so the new address needs a browser. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "gt-ley-marco-cambio-climatico-congreso-pdf",
@@ -10863,7 +10966,8 @@
   "tier": "consolidation_site",
   "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2013/07-2013.pdf",
   "params": {
-   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)",
+   "note": "Stays failing (2026-11-11): The Congress site answers an Incapsula \"Request unsuccessful\" 403 stub; browser session only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -10875,7 +10979,8 @@
   "tier": "consolidation_site",
   "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/1986/gtdcx00681986.pdf",
   "params": {
-   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)",
+   "note": "Stays failing (2026-11-11): The Congress site answers an Incapsula \"Request unsuccessful\" 403 stub; browser session only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -10887,7 +10992,8 @@
   "tier": "consolidation_site",
   "url": "https://www.congreso.gob.gt/assets/uploads/info_legislativo/decretos/2003/gtdcx06-2003.pdf",
   "params": {
-   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)"
+   "second_route": "https://www.congreso.gob.gt/seccion_informacion_legislativa/decretos (browser: Incapsula challenge; open https://www.congreso.gob.gt/ and /consulta_legislativa first in the same session)",
+   "note": "Stays failing (2026-11-11): The Congress site answers an Incapsula \"Request unsuccessful\" 403 stub; browser session only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -11557,7 +11663,8 @@
   "tier": "consolidation_site",
   "url": "https://dominica.gov.dm/laws/2018/Climate%20Resilience%20Act%202018.pdf",
   "params": {
-   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name dominica.gov.dm does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Name does not resolve (laptop resolver, 8.8.8.8 and 9.9.9.9 all timed out); unconfirmed whether the site is down; browser route is the Laws of Dominica page. Manual route: see params.second_route."
   }
  },
  {
@@ -11569,7 +11676,8 @@
   "tier": "consolidation_site",
   "url": "https://dominica.gov.dm/laws/2021/Climate%20Resilience%20%28Extension%20of%20duration%29%20Order%2C%202021%20sro%2044%20of%202021.pdf",
   "params": {
-   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name dominica.gov.dm does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Name does not resolve (laptop resolver, 8.8.8.8 and 9.9.9.9 all timed out); unconfirmed whether the site is down; browser route is the Laws of Dominica page. Manual route: see params.second_route."
   }
  },
  {
@@ -11581,7 +11689,8 @@
   "tier": "consolidation_site",
   "url": "https://dominica.gov.dm/laws/2002/act5-2002.pdf",
   "params": {
-   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name dominica.gov.dm does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Name does not resolve (laptop resolver, 8.8.8.8 and 9.9.9.9 all timed out); unconfirmed whether the site is down; browser route is the Laws of Dominica page. Manual route: see params.second_route."
   }
  },
  {
@@ -11593,7 +11702,8 @@
   "tier": "consolidation_site",
   "url": "https://dominica.gov.dm/laws/1997/act08-1997.pdf",
   "params": {
-   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)"
+   "second_route": "https://dominica.gov.dm/laws-of-dominica (browser; search the title in the Laws page form, the list is a POST so a script cannot fetch it; the portal answered scripts with HTTP 200 on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name dominica.gov.dm does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Name does not resolve (laptop resolver, 8.8.8.8 and 9.9.9.9 all timed out); unconfirmed whether the site is down; browser route is the Laws of Dominica page. Manual route: see params.second_route."
   }
  },
  {
@@ -11618,7 +11728,8 @@
   "url": "https://dominica.gov.dm/privacy-copyright-notices",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)"
+   "second_route": "https://dominica.gov.dm/privacy-copyright-notices (browser; the copyright notice and the disclaimer at /disclaimer; the pass rests on Copyright Act 2003 s. 21, so a change here is a prompt to reread, not a failure)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name dominica.gov.dm does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Name does not resolve (laptop resolver, 8.8.8.8 and 9.9.9.9 all timed out); unconfirmed whether the site is down; browser route is the Laws of Dominica page. Manual route: see params.second_route."
   }
  },
  {
@@ -11829,7 +11940,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=300",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/300 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/300 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11842,7 +11954,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1696",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1696 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1696 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11855,7 +11968,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=1333",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1333 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1333 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11868,7 +11982,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=24176",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/24176 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/24176 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11881,7 +11996,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=3549",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3549 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3549 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11894,7 +12010,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=5264",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/5264 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/5264 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11907,7 +12024,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=835",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/835 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/835 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -11920,7 +12038,8 @@
   "url": "http://www.gacetaoficialdebolivia.gob.bo/normas/busqueda?n=453",
   "params": {
    "regex": "Fecha de Publicaci\u00f3n: (\\d{4}-\\d{2}-\\d{2})",
-   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/453 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)"
+   "second_route": "http://www.gacetaoficialdebolivia.gob.bo/normas/buscar/453 (the HTTPS site resets the connection from the cloud address; plain HTTP answers; browser: open the number search on the Gaceta home page)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.gacetaoficialdebolivia.gob.bo resolves at 1.1.1.1 (181.115.190.188) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: www host does not resolve (laptop resolver timed out, 1.1.1.1 has no record for www); the apex resolves at 1.1.1.1 to 181.115.190.188 but plain HTTP to it timed out; manual route is the Gaceta home page in a browser. Manual route: see params.second_route."
   }
  },
  {
@@ -12110,7 +12229,8 @@
   "tier": "regulator_page",
   "url": "http://www.naenara.com.kp",
   "params": {
-   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -12122,7 +12242,8 @@
   "tier": "regulator_page",
   "url": "http://www.naenara.com.kp",
   "params": {
-   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)"
+   "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
   }
  },
  {
@@ -12156,7 +12277,8 @@
   "tier": "regulator_page",
   "url": "https://www.monrec.gov.mm/",
   "params": {
-   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connection refused or failed on both attempts, no HTTP status. Earlier note: Python gets connection reset; curl cannot connect (code 7); host refuses this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -12168,7 +12290,8 @@
   "tier": "regulator_page",
   "url": "https://www.monrec.gov.mm/",
   "params": {
-   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+   "second_route": "https://www.monrec.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connection refused or failed on both attempts, no HTTP status. Earlier note: Python gets connection reset; curl cannot connect (code 7); host refuses this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -12180,7 +12303,8 @@
   "tier": "regulator_page",
   "url": "https://www.mlis.gov.mm/",
   "params": {
-   "second_route": "https://www.mlis.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)"
+   "second_route": "https://www.mlis.gov.mm/ (browser; resets the connection from the cloud address, open from a laptop)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl also times out connecting; host unreachable from this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -12228,7 +12352,8 @@
   "tier": "consolidation_site",
   "url": "https://rms.paclii.org/vu/legis/num_act/pmacaa2023360",
   "params": {
-   "second_route": "https://www.paclii.org/vu/legis/num_act/pmacaa2023360.html (browser; paclii.org answers scripts and headless Chromium with a Cloudflare 403 challenge from the cloud address)"
+   "second_route": "https://www.paclii.org/vu/legis/num_act/pmacaa2023360.html (browser; paclii.org answers scripts and headless Chromium with a Cloudflare 403 challenge from the cloud address)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -12427,7 +12552,8 @@
   "tier": "regulator_page",
   "url": "https://climatechange.gov.bn/Press%20Release/Press%20Release%20-%20Launching%20of%20the%20Directive%20on%20the%20Mandatory%20Reporting%20on%20Greenhouse%20Gas.pdf",
   "params": {
-   "second_route": "https://climatechange.gov.bn/ (browser from a laptop; the https certificate has expired and plain http answers 403 to scripts on 2026-11-03; the Directive PDF is under Shared Documents)"
+   "second_route": "https://climatechange.gov.bn/ (browser from a laptop; the https certificate has expired and plain http answers 403 to scripts on 2026-11-03; the Directive PDF is under Shared Documents)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: certificate check fails on both attempts (server-side); plain curl is the limit. Earlier note: Server certificate expired (server-side); the press release PDF reads only with certificate checks off, which we do not do. Manual route: see params.second_route."
   }
  },
  {
@@ -12633,7 +12759,9 @@
   "kind": "http_head",
   "tier": "consolidation_site",
   "url": "https://giwmscdnone.gov.np/media/pdf_upload/8.%20%E0%A4%B5%E0%A4%BE%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%B0%E0%A4%A3%20%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3%20%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AD_jahaoua.pdf",
-  "params": {}
+  "params": {
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "np-carbon-trading-rules-lawcommission-pdf-head",
@@ -12784,7 +12912,8 @@
    "cut": [
     "(?:\u0425\u0430\u044f\u0433|Address): .*? Developed by Back to Top",
     "https://legalinfo\\.mn/(?:mn|en) (?:https://www\\.facebook\\.com/legalinfomn \\S+ \\S+ )?https://legalinfo\\.mn/(?:mn|en)/law/26 .*?/about/16106883681171"
-   ]
+   ],
+   "note": "Stays failing (2026-11-11): legalinfo.mn times out for Python and curl alike (30 s). Manual route: see params.second_route."
   }
  },
  {
@@ -13496,7 +13625,8 @@
   "tier": "regulator_page",
   "url": "https://www.meft.gov.na/files/downloads/12e_dd7_Environmental%20Management%20Act%20regulations%202012.pdf",
   "params": {
-   "second_route": "https://www.meft.gov.na/policies-legislation/acts/191/ (browser; MEFT Environmental Management Act page, lists the gazette PDFs)"
+   "second_route": "https://www.meft.gov.na/policies-legislation/acts/191/ (browser; MEFT Environmental Management Act page, lists the gazette PDFs)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.meft.gov.na resolves at 1.1.1.1 (106.0.62.85) but not through the laptop resolver; fails on both attempts, so no HTTP status. Earlier note: Laptop resolver fails but 1.1.1.1 resolves the host and the gazette PDF reads (curl --resolve), so this is a resolver problem not a dead source; retry on a working resolver. Manual route: see params.second_route."
   }
  },
  {
@@ -14582,10 +14712,10 @@
   "instrument": "*",
   "kind": "page_hash",
   "tier": "regulator_page",
-  "url": "https://www.centralbank.org.ls/",
+  "url": "https://centralbank.org.ls/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.centralbank.org.ls/ (browser; server returned HTTP 502 Bad Gateway on 2026-11-05)"
+   "note": "Moved 2026-11-11 from www.centralbank.org.ls (certificate does not match the name) to centralbank.org.ls, same Central Bank of Lesotho page with a valid certificate."
   }
  },
  {
@@ -14896,7 +15026,8 @@
   "tier": "regulator_page",
   "url": "https://minepded.gov.cm/loi-cadre-sur-la-gestion-de-lenvironnement/",
   "params": {
-   "second_route": "https://minepded.gov.cm/loi-cadre-sur-la-gestion-de-lenvironnement/ (browser; minepded.gov.cm returned HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)"
+   "second_route": "https://minepded.gov.cm/loi-cadre-sur-la-gestion-de-lenvironnement/ (browser; minepded.gov.cm returned HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: certificate check fails on both attempts (server-side); plain curl is the limit. Earlier note: Server certificate expired; behind -k the law page is a 404 and the home page has no link to a replacement; manual search on minepded.gov.cm needed. Manual route: see params.second_route."
   }
  },
  {
@@ -14970,7 +15101,8 @@
   "change": "terms_changed",
   "url": "https://minepded.gov.cm",
   "params": {
-   "second_route": "https://minepded.gov.cm (HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)"
+   "second_route": "https://minepded.gov.cm (HTTP 502 Bad Gateway to curl from laptop address on 2026-11-05)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: certificate check fails on both attempts (server-side); plain curl is the limit. Earlier note: Server certificate expired (server-side); the site answers only with certificate checks off, which we do not do. Manual route: see params.second_route."
   }
  },
  {
@@ -15026,7 +15158,8 @@
   "tier": "consolidation_site",
   "url": "https://journalofficiel.td/",
   "params": {
-   "second_route": "https://journalofficiel.td/ (browser; the portal answers curl with HTTP 403 and headless Chrome with a Cloudflare challenge page, 2026-11-09)"
+   "second_route": "https://journalofficiel.td/ (browser; the portal answers curl with HTTP 403 and headless Chrome with a Cloudflare challenge page, 2026-11-09)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -15036,7 +15169,10 @@
   "instrument": "st-lei-07-2026",
   "kind": "page_hash",
   "tier": "consolidation_site",
-  "url": "https://www.diariodarepublica.st/"
+  "url": "https://www.diariodarepublica.st/",
+  "params": {
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: the name www.diariodarepublica.st does not resolve at 1.1.1.1 either (empty answer); fails on both attempts, so no HTTP status. Earlier note: Host does not resolve on the laptop, 8.8.8.8 or 9.9.9.9; unknown whether the portal is retired, so not proposed for retire. Manual route: open the watcher url in a browser."
+  }
  },
  {
   "id": "dj-protected-areas-2025",
@@ -15131,7 +15267,8 @@
   "tier": "consolidation_site",
   "url": "https://www.legiburkina.bf/",
   "params": {
-   "second_route": "browser read of https://www.legiburkina.bf/ (no HTTP reply to curl from the laptop on 2026-11-09)"
+   "second_route": "browser read of https://www.legiburkina.bf/ (no HTTP reply to curl from the laptop on 2026-11-09)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl connect timed out too; host unreachable from this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -15727,7 +15864,8 @@
   "url": "https://www.centralbank.gov.so/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.centralbank.gov.so/ (browser; Cloudflare browser check returns HTTP 403 to curl on 2026-11-09)"
+   "second_route": "https://www.centralbank.gov.so/ (browser; Cloudflare browser check returns HTTP 403 to curl on 2026-11-09)",
+   "note": "Stays failing (2026-11-11): Cloudflare JS challenge; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -15750,7 +15888,8 @@
   "url": "https://dotic.ir",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://dotic.ir (HTTP 403 geo-block to scripts from the laptop address; open from an Iranian-reachable browser)"
+   "second_route": "https://dotic.ir (HTTP 403 geo-block to scripts from the laptop address; open from an Iranian-reachable browser)",
+   "note": "Stays failing (2026-11-11): Host blocks by IP or location (\"Access Denied\"); listed, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -15763,7 +15902,8 @@
   "url": "https://rrk.ir",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://rrk.ir (no response from the laptop address; open in a browser)"
+   "second_route": "https://rrk.ir (no response from the laptop address; open in a browser)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl connect timed out too; Iranian host unreachable from this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -15776,7 +15916,8 @@
   "url": "https://rc.majlis.ir",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://rc.majlis.ir/fa (connection reset from the laptop address; open in a browser)"
+   "second_route": "https://rc.majlis.ir/fa (connection reset from the laptop address; open in a browser)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: TLS handshake failed or was reset on both attempts, no HTTP status. Earlier note: rc.majlis.ir resets the connection from this laptop even with -k; browser only. Manual route: see params.second_route."
   }
  },
  {
@@ -15789,7 +15930,8 @@
   "url": "https://doe.ir",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://doe.ir (no response from the laptop address; open in a browser)"
+   "second_route": "https://doe.ir (no response from the laptop address; open in a browser)",
+   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: curl connect timed out too; Iranian host unreachable from this laptop. Manual route: see params.second_route."
   }
  },
  {
@@ -16303,7 +16445,8 @@
   "tier": "consolidation_site",
   "url": "https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806",
   "params": {
-   "second_route": "https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806 in a browser (the consolidated text; answers scripts with a Cloudflare 403)"
+   "second_route": "https://guernseylegalresources.gg/CHttpHandler.ashx?documentid=84806 in a browser (the consolidated text; answers scripts with a Cloudflare 403)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   }
  },
  {
@@ -16341,7 +16484,8 @@
   "tier": "regulator_page",
   "url": "https://guernseylegalresources.gg/copyright-notice/",
   "params": {
-   "second_route": "https://guernseylegalresources.gg/copyright-notice/ in a browser (answers scripts with a Cloudflare 403; terms read from the 2025-07-04 Internet Archive capture)"
+   "second_route": "https://guernseylegalresources.gg/copyright-notice/ in a browser (answers scripts with a Cloudflare 403; terms read from the 2025-07-04 Internet Archive capture)",
+   "note": "Stays failing (2026-11-11): Cloudflare \"Just a moment\" JavaScript challenge on the page and its second route; browser only, not fought. Manual route: see params.second_route."
   },
   "change": "terms_changed"
  },
@@ -16621,12 +16765,12 @@
   "source_id": "KY-CIMA-ADOPTED",
   "iso2": "KY",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://www.cima.ky/general-disclaimer",
+  "url": "https://www.cima.ky/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://www.cima.ky/ (footer line with the copyright notice); the General Disclaimer link answers HTTP 404 today, so a change from 404 to a page is the signal"
+   "note": "Moved 2026-11-11 from https://www.cima.ky/general-disclaimer, which answers HTTP 404, to the home page that carries the footer links (the licence row fingerprints the same page); a General Disclaimer link that changes or goes moves the signal."
   }
  },
  {
@@ -17760,7 +17904,8 @@
   "tier": "regulator_page",
   "url": "https://jo-spm.fr/mentions-legales.php",
   "params": {
-   "second_route": "https://jo-spm.fr/ (browser; the terms page answers 404 today, so this watcher reports watch_failed until a notice is published; the home page footer is the only other place a notice could appear)"
+   "second_route": "https://jo-spm.fr/ (browser; the terms page answers 404 today, so this watcher reports watch_failed until a notice is published; the home page footer is the only other place a notice could appear)",
+   "note": "Stays failing (2026-11-11): The terms page answers 404 and the home page (fetched, 200) has no replacement link; matches the watcher note that it fails until a notice is published. Manual route: see params.second_route."
   },
   "change": "terms_changed"
  },
