@@ -2,7 +2,7 @@
 
 **WIP, stopped by the owner 2026-11-11 before completion.**
 
-Only what was measured is stated. The gate (`check_corpus.py`, pytest, `publish_gate.py`) was not run. The stability proof was not done.
+Only what was measured is stated. The gate was run after the stop, on 859b6f316: `check_corpus.py` 3240 records checked, pytest 185 passed, `publish_gate.py` exit 0. The stability proof was not done.
 
 ## Method
 
@@ -32,7 +32,7 @@ Before number, 5-minute window: page_hash differed between the first two reads f
 
 - Stability proof (two fetches 300 s apart with the final config against the reseeded signal): not run. Round 0 of that run started and was killed.
 - The 71 watchers with a stable page_hash and their open rows.
-- Gate, README line, tests (no tools/ code was changed).
+- README line, tests (no tools/ code was changed).
 
 ## Out of scope, looked at once (no decisions)
 
