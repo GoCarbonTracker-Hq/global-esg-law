@@ -136,10 +136,15 @@
   "source_id": "UK-FCA-HANDBOOK",
   "iso2": "GB",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.fca.org.uk/legal",
-  "change": "terms_changed"
+  "change": "terms_changed",
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  }
  },
  {
   "id": "terms-uk-srs-adopted",
@@ -159,7 +164,7 @@
   "source_id": "US-ECFR-ADOPTED",
   "iso2": "US",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://web.archive.org/web/20250601034451/https://www.ecfr.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site",
   "change": "terms_changed",
@@ -427,7 +432,7 @@
   "source_id": "UK-SRS-ADOPTED",
   "iso2": "GB",
   "instrument": "gb-uk-srs-s1-s2",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.uk/government/publications/uk-sustainability-reporting-standards-uk-srs-s1-and-uk-srs-s2",
   "params": {
@@ -452,11 +457,14 @@
   "source_id": "US-CA-LEGINFO-ADOPTED",
   "iso2": "US",
   "instrument": "us-ca-sb253",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ww2.arb.ca.gov/our-work/programs/california-corporate-greenhouse-gas-ghg-reporting-and-climate-related-financial-risk",
   "params": {
-   "second_route": "browser read (browser-harness) or Internet Archive snapshot; ww2.arb.ca.gov answers scripts with HTTP 419"
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot; ww2.arb.ca.gov answers scripts with HTTP 419",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -464,11 +472,14 @@
   "source_id": "US-CA-LEGINFO-ADOPTED",
   "iso2": "US",
   "instrument": "us-ca-sb261",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ww2.arb.ca.gov/node/49201",
   "params": {
-   "second_route": "browser read (browser-harness) or Internet Archive snapshot of the CARB Climate-Related Financial Risk page; ww2.arb.ca.gov answers scripts with HTTP 419"
+   "second_route": "browser read (browser-harness) or Internet Archive snapshot of the CARB Climate-Related Financial Risk page; ww2.arb.ca.gov answers scripts with HTTP 419",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -1165,7 +1176,7 @@
   "source_id": "HK-HKEX-ADOPTED",
   "iso2": "HK",
   "instrument": "hk-hkex-esg-code-part-d",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.hkex.com.hk/Listing/Sustainability/ESG-Academy/Rules-and-Regulations?sc_lang=en",
   "params": {
@@ -1189,7 +1200,7 @@
   "source_id": "HK-HKICPA-ADOPTED",
   "iso2": "HK",
   "instrument": "hk-hkfrs-s1-s2",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.hkicpa.org.hk/en/News/News-Release/20241212_HKFRS_S1_S2",
   "params": {
@@ -1201,7 +1212,7 @@
   "source_id": "HK-HKMA-ADOPTED",
   "iso2": "HK",
   "instrument": "hk-hkma-spm-gs1",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/docId/20211230-2-EN",
   "params": {
@@ -1213,7 +1224,7 @@
   "source_id": "HK-HKMA-ADOPTED",
   "iso2": "HK",
   "instrument": "hk-taxonomy-sustainable-finance",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/05/20240503-3/",
   "params": {
@@ -1418,11 +1429,14 @@
   "source_id": "KR-KASB-ADOPTED",
   "iso2": "KR",
   "instrument": "kr-kssb-ksds",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.kasb.or.kr/front/board/kdsdList.do",
   "params": {
-   "second_route": "https://www.kasb.or.kr/front/board/kdsdList.do (browser)"
+   "second_route": "https://www.kasb.or.kr/front/board/kdsdList.do (browser)",
+   "cut": [
+    ";jsessionid=[\\w.\\-]+"
+   ]
   }
  },
  {
@@ -1860,7 +1874,7 @@
   "source_id": "ID-OJK-ADOPTED",
   "iso2": "ID",
   "instrument": "id-pojk-51-2017",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ojk.go.id/id/regulasi/pages/penerapan-keuangan-berkelanjutan-bagi-lembaga-jasa-keuangan,-emiten,-dan-perusahaan-publik.aspx",
   "params": {
@@ -1872,7 +1886,7 @@
   "source_id": "ID-OJK-ADOPTED",
   "iso2": "ID",
   "instrument": "id-seojk-16-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ojk.go.id/id/regulasi/Pages/Bentuk-dan-Isi-Laporan-Tahunan--Emiten-atau-Perusahaan-Publik.aspx",
   "params": {
@@ -1908,7 +1922,7 @@
   "source_id": "ID-OJK-ADOPTED",
   "iso2": "ID",
   "instrument": "id-pojk-14-2023",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ojk.go.id/id/regulasi",
   "params": {
@@ -2427,7 +2441,7 @@
   "source_id": "DE-BAFIN-ADOPTED",
   "iso2": "DE",
   "instrument": "de-bafin-merkblatt-nachhaltigkeitsrisiken",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.bafin.de/SharedDocs/Downloads/DE/Merkblatt/dl_mb_Nachhaltigkeitsrisiken.html"
  },
@@ -2462,11 +2476,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-climate-risk-assessment-guidelines",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143 (browser; compare the last \u6cbf\u9769 entry with 2025-07-16)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020143 (browser; compare the last \u6cbf\u9769 entry with 2025-07-16)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2474,11 +2491,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-inventory-registration-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102 (browser; compare the last \u6cbf\u9769 entry with 2025-12-19)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020102 (browser; compare the last \u6cbf\u9769 entry with 2025-12-19)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2499,11 +2519,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-voluntary-reduction-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020137 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2511,11 +2534,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-reduction-credit-trading-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138 (browser; compare the last \u6cbf\u9769 entry with 2024-08-15)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020138 (browser; compare the last \u6cbf\u9769 entry with 2024-08-15)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2523,11 +2549,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-increment-offset-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020136 (browser; compare the last \u6cbf\u9769 entry with 2023-10-12)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2535,11 +2564,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-verification-bodies-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104 (browser; compare the last \u6cbf\u9769 entry with 2025-03-19)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020104 (browser; compare the last \u6cbf\u9769 entry with 2025-03-19)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2547,11 +2579,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-ghg-offset-project-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101 (browser; compare the last \u6cbf\u9769 entry with 2018-12-27)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=O0020101 (browser; compare the last \u6cbf\u9769 entry with 2018-12-27)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -2559,11 +2594,14 @@
   "source_id": "TW-MOJ-CONSOLIDATED",
   "iso2": "TW",
   "instrument": "tw-electricity-emission-factor-regs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079",
   "params": {
-   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079 (browser; compare the last \u6cbf\u9769 entry with 2020-11-11)"
+   "second_route": "https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=J0130079 (browser; compare the last \u6cbf\u9769 entry with 2020-11-11)",
+   "cut": [
+    "(\u700f\u89bd\u4eba\u6b21\u7e3d\u8a08|\u672c\u6708\u700f\u89bd\u4eba\u6b21|\u76ee\u524d\u4f7f\u7528\u4eba\u6b21|\u96fb\u5b50\u5831\u8a02\u95b1\u4eba\u6578|\u96fb\u5b50\u5831\u8a02\u95b1)[\uff1a: ]*[\\d,]+\u4eba"
+   ]
   }
  },
  {
@@ -4322,7 +4360,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-ilgtspejas-informacijas-likums",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/355381"
  },
@@ -4331,7 +4369,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-gada-parskatu-likums",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/277779"
  },
@@ -4340,7 +4378,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-klimatnoturibas-likums",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/364967"
  },
@@ -4358,7 +4396,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-mk-769-ets-iekartas",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/253119"
  },
@@ -4367,7 +4405,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-negodigas-komercprakses-likums",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/167759"
  },
@@ -4944,11 +4982,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-eqa-1974",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -4956,11 +4998,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-cpa-1999",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -4968,11 +5014,15 @@
   "source_id": "MY-AGC-CONSOLIDATED",
   "iso2": "MY",
   "instrument": "my-tda-2011",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lom.agc.gov.my/",
   "params": {
-   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)"
+   "second_route": "https://lom.agc.gov.my/ (browser; Laws of Malaysia list pages are JavaScript tables over an encrypted JSON endpoint; the page_hash covers the home page, which lists the newest Acts and amendments, so it flags new Acts, not edits to one reprint)",
+   "cut": [
+    "Terms & Condition \\(T&C\\) \\|+ FAQS \\|+ Contact Us",
+    "Top Hit \\(All Time\\) Views .*? Copyrights"
+   ]
   }
  },
  {
@@ -5016,7 +5066,7 @@
   "source_id": "SA-CMA-ADOPTED",
   "iso2": "SA",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://cma.gov.sa/en/Pages/terms.aspx",
   "change": "terms_changed",
@@ -5243,7 +5293,7 @@
   "source_id": "TR-KGK-ADOPTED",
   "iso2": "TR",
   "instrument": "tr-tsrs",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.kgk.gov.tr/SustainabilityDetailForm/11455/Raporlama%20Standartlar%C4%B1",
   "params": {
@@ -5682,12 +5732,15 @@
   "source_id": "VN-CONGBAO-CONSOLIDATED",
   "iso2": "VN",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://congbao.chinhphu.vn/gioi-thieu.htm",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)"
+   "second_route": "https://congbao.chinhphu.vn/gioi-thieu.htm in a browser (the footer notice \"Ghi r\u00f5 ngu\u1ed3n 'congbao.chinhphu.vn' khi ph\u00e1t h\u00e0nh l\u1ea1i th\u00f4ng tin t\u1eeb c\u00e1c ngu\u1ed3n n\u00e0y.\" is the terms statement; curl to the site is sometimes reset with curl error 35, a retry answers)",
+   "cut": [
+    "\\d{2}\u00b0-\\d{2}\u00b0"
+   ]
   }
  },
  {
@@ -6177,7 +6230,7 @@
   "source_id": "EG-FRA-ADOPTED",
   "iso2": "EG",
   "instrument": "eg-fra-bod-107-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
   "params": {
@@ -6189,7 +6242,7 @@
   "source_id": "EG-FRA-ADOPTED",
   "iso2": "EG",
   "instrument": "eg-fra-bod-108-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
   "params": {
@@ -6213,7 +6266,7 @@
   "source_id": "EG-FRA-ADOPTED",
   "iso2": "EG",
   "instrument": "eg-pm-decree-4664-2022",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
   "params": {
@@ -6225,7 +6278,7 @@
   "source_id": "EG-FRA-ADOPTED",
   "iso2": "EG",
   "instrument": "eg-fra-bod-31-2024",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://fra.gov.eg/%D8%AA%D8%B4%D8%B1%D9%8A%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AF%D8%A7%D9%85%D8%A9-%D9%88%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%83%D8%B1%D8%A8%D9%88%D9%86/",
   "params": {
@@ -6267,7 +6320,7 @@
   "source_id": "NG-SEC-ADOPTED",
   "iso2": "NG",
   "instrument": "ng-sec-ifrs-sds-circular",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://home.sec.gov.ng/for-investors/keep-track-of-circulars/implementation-of-the-ifrs-sustainability-disclosure-standards-in-nigeria/",
   "params": {}
@@ -6277,7 +6330,7 @@
   "source_id": "NG-NCCC-ADOPTED",
   "iso2": "NG",
   "instrument": "ng-climate-change-act-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://climatecouncil.gov.ng/documents-and-decisions/",
   "params": {
@@ -6309,7 +6362,7 @@
   "source_id": "NG-FMENV-ADOPTED",
   "iso2": "NG",
   "instrument": "ng-eia-act",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://environment.gov.ng/",
   "params": {
@@ -6395,10 +6448,14 @@
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-transparency-amendment-2-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/ADB5F123967FEA15C2258CD6002F9C3B?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-ets-law-2011-gazette-annex-list",
@@ -6425,20 +6482,28 @@
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-ets-amendment-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/F0CF43ACA530EFBAC2258CD2003C75E2?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-ets-amendment-2-2025-gazette-page",
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-ets-amendment-2-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/D22C2A963427AE00C2258D5B003E7B86?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\(\u039c\u03ad\u03b3\u03b5\u03b8\u03bf\u03c2 \u0391\u03c1\u03c7\u03b5\u03af\u03bf\u03c5: [\\d.,]+Kb\\)"
+   ]
+  }
  },
  {
   "id": "cy-consumer-protection-law-2021-gazette-annex-list",
@@ -6476,18 +6541,22 @@
   "source_id": "CY-CYLAW-CONSOLIDATED",
   "iso2": "CY",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cylaw.org/terms.html",
   "change": "terms_changed",
-  "params": {}
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  }
  },
  {
   "id": "terms-cy-cysec-adopted",
   "source_id": "CY-CYSEC-ADOPTED",
   "iso2": "CY",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cysec.gov.cy/el-GR/terms/",
   "change": "terms_changed",
@@ -6498,7 +6567,7 @@
   "source_id": "CY-CSE-ADOPTED",
   "iso2": "CY",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cse.com.cy/el-GR/disclaimer/",
   "change": "terms_changed",
@@ -6521,7 +6590,7 @@
   "source_id": "AE-CMA-ADOPTED",
   "iso2": "AE",
   "instrument": "ae-cma-governance-guide-art76",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.uaecma.gov.ae/en/regulations/corporate-governance",
   "params": {
@@ -6605,7 +6674,7 @@
   "source_id": "PK-SBP-ADOPTED",
   "iso2": "PK",
   "instrument": "pk-sbp-shsfd-circular-07-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.sbp.org.pk/circulars/shsfd-circular-no-07-of-2025",
   "params": {
@@ -6640,7 +6709,7 @@
   "source_id": "PK-SENATE-ADOPTED",
   "iso2": "PK",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://senate.gov.pk/en/messence.php?id=111&cattitle=TermsOfUse",
   "change": "terms_changed"
@@ -6663,7 +6732,7 @@
   "source_id": "PK-PSX-ADOPTED",
   "iso2": "PK",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.psx.com.pk/psx/terms-of-use",
   "change": "terms_changed"
@@ -6673,7 +6742,7 @@
   "source_id": "PK-SBP-ADOPTED",
   "iso2": "PK",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.sbp.org.pk/our-operations/disclaimer",
   "change": "terms_changed",
@@ -6875,7 +6944,7 @@
   "source_id": "EC-ASAMBLEA-ADOPTED",
   "iso2": "EC",
   "instrument": "ec-coa-libro4",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.asambleanacional.gob.ec/es/leyes-aprobadas",
   "params": {}
@@ -7683,7 +7752,7 @@
   "source_id": "AL-MJEDISI-ADOPTED",
   "iso2": "AL",
   "instrument": "al-climate-law-155-2020",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://mjedisi.gov.al/ndryshimet-klimatike/"
  },
@@ -8549,7 +8618,7 @@
   "source_id": "QA-QSE-ADOPTED",
   "iso2": "QA",
   "instrument": "qa-qse-esg-reporting-guidance",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.qe.com.qa/sustainability-and-esg",
   "params": {
@@ -9066,7 +9135,7 @@
   "source_id": "GE-MATSNE-CONSOLIDATED",
   "iso2": "GE",
   "instrument": "ge-accounting-law-2016",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/3311504",
   "params": {
@@ -9078,7 +9147,7 @@
   "source_id": "GE-MATSNE-CONSOLIDATED",
   "iso2": "GE",
   "instrument": "ge-environmental-protection-law-1996",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/33340",
   "params": {
@@ -9090,7 +9159,7 @@
   "source_id": "GE-MATSNE-CONSOLIDATED",
   "iso2": "GE",
   "instrument": "ge-consumer-rights-law-2022",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/5420598",
   "params": {
@@ -9102,7 +9171,7 @@
   "source_id": "GE-MATSNE-CONSOLIDATED",
   "iso2": "GE",
   "instrument": "ge-advertising-law-1998",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/31840",
   "params": {
@@ -9114,7 +9183,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-nbg-corporate-governance-code-2018",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/4333402",
   "params": {
@@ -9126,7 +9195,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-nbg-cg-code-esg-amendment-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/5180556",
   "params": {
@@ -9138,7 +9207,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-fgas-technical-regulation-2023",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/5855354",
   "params": {
@@ -9150,7 +9219,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-corsia-order-235-2023",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/5974679",
   "params": {
@@ -9162,7 +9231,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-corsia-order-amendment-2026",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/6998052",
   "params": {
@@ -9174,7 +9243,7 @@
   "source_id": "GE-MATSNE-ADOPTED",
   "iso2": "GE",
   "instrument": "ge-climate-change-council-decree-54-2020",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://matsne.gov.ge/en/document/view/4780380",
   "params": {
@@ -9420,7 +9489,7 @@
   "source_id": "UZ-LEXUZ-CONSOLIDATED",
   "iso2": "UZ",
   "instrument": "uz-ghg-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/7618153"
  },
@@ -9429,7 +9498,7 @@
   "source_id": "UZ-LEXUZ-ADOPTED",
   "iso2": "UZ",
   "instrument": "uz-decree-up110-carbon-units",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/7616216"
  },
@@ -9438,7 +9507,7 @@
   "source_id": "UZ-LEXUZ-ADOPTED",
   "iso2": "UZ",
   "instrument": "uz-pp213-transparency-system",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/6956104"
  },
@@ -9447,7 +9516,7 @@
   "source_id": "UZ-LEXUZ-CONSOLIDATED",
   "iso2": "UZ",
   "instrument": "uz-nature-protection-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/7065"
  },
@@ -9456,7 +9525,7 @@
   "source_id": "UZ-LEXUZ-ADOPTED",
   "iso2": "UZ",
   "instrument": "uz-eco-expertise-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/7397289"
  },
@@ -9465,7 +9534,7 @@
   "source_id": "UZ-LEXUZ-ADOPTED",
   "iso2": "UZ",
   "instrument": "uz-esg-resolution-221",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/docs/8171367"
  },
@@ -9474,7 +9543,7 @@
   "source_id": "UZ-LEXUZ-CONSOLIDATED",
   "iso2": "UZ",
   "instrument": "uz-consumer-rights-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/14643"
  },
@@ -9483,7 +9552,7 @@
   "source_id": "UZ-LEXUZ-CONSOLIDATED",
   "iso2": "UZ",
   "instrument": "uz-advertising-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://lex.uz/ru/docs/6052633"
  },
@@ -9741,7 +9810,7 @@
   "source_id": "ZW-SECZ-ADOPTED",
   "iso2": "ZW",
   "instrument": "zw-si-134-2019",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://seczim.co.zw/download/si-2019-134-zimbabwe-stock-exchange-listings-requirements-2019/",
   "params": {}
@@ -10722,7 +10791,7 @@
   "source_id": "CU-GACETA-ADOPTED",
   "iso2": "CU",
   "instrument": "cu-ley-150-2022-environment",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.gacetaoficial.gob.cu/",
   "params": {
@@ -11283,52 +11352,87 @@
   "source_id": "PY-BACN-ADOPTED",
   "iso2": "PY",
   "instrument": "py-ley-7190-2023",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
-  "url": "https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono"
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/11986/ley-n-7190-de-los-creditos-de-carbono",
+  "params": {
+   "cut": [
+    "[\\d,.]+ vistas",
+    "De interes.*?(?= \\|\\|links\\|\\| |$)",
+    "https://www\\.bacn\\.gov\\.py/(?:leyes-paraguayas|dinapi|libros)/(?!11986/)\\d+/\\S*"
+   ]
+  }
  },
  {
   "id": "py-ley-5875-2017-bacn-page",
   "source_id": "PY-BACN-ADOPTED",
   "iso2": "PY",
   "instrument": "py-ley-5875-2017",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
-  "url": "https://www.bacn.gov.py/leyes-paraguayas/8712/ley-n-5875-nacional-de-cambio-climatico"
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/8712/ley-n-5875-nacional-de-cambio-climatico",
+  "params": {
+   "cut": [
+    "[\\d,.]+ vistas",
+    "De interes.*?(?= \\|\\|links\\|\\| |$)",
+    "https://www\\.bacn\\.gov\\.py/(?:leyes-paraguayas|dinapi|libros)/(?!8712/)\\d+/\\S*"
+   ]
+  }
  },
  {
   "id": "py-ley-294-1993-bacn-page",
   "source_id": "PY-BACN-ADOPTED",
   "iso2": "PY",
   "instrument": "py-ley-294-1993",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
-  "url": "https://www.bacn.gov.py/leyes-paraguayas/2374/ley-n-294-evaluacion-de-impacto-ambiental"
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/2374/ley-n-294-evaluacion-de-impacto-ambiental",
+  "params": {
+   "cut": [
+    "[\\d,.]+ vistas",
+    "De interes.*?(?= \\|\\|links\\|\\| |$)",
+    "https://www\\.bacn\\.gov\\.py/(?:leyes-paraguayas|dinapi|libros)/(?!2374/)\\d+/\\S*"
+   ]
+  }
  },
  {
   "id": "py-ley-1561-2000-bacn-page",
   "source_id": "PY-BACN-ADOPTED",
   "iso2": "PY",
   "instrument": "py-ley-1561-2000",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
-  "url": "https://www.bacn.gov.py/leyes-paraguayas/1645/ley-n-1561-crea-el-sistema-nacional-del-ambiente-el-consejo-nacional-del-ambiente-y-la-secretaria-del-ambiente"
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/1645/ley-n-1561-crea-el-sistema-nacional-del-ambiente-el-consejo-nacional-del-ambiente-y-la-secretaria-del-ambiente",
+  "params": {
+   "cut": [
+    "[\\d,.]+ vistas",
+    "De interes.*?(?= \\|\\|links\\|\\| |$)",
+    "https://www\\.bacn\\.gov\\.py/(?:leyes-paraguayas|dinapi|libros)/(?!1645/)\\d+/\\S*"
+   ]
+  }
  },
  {
   "id": "py-ley-1334-1998-bacn-page",
   "source_id": "PY-BACN-ADOPTED",
   "iso2": "PY",
   "instrument": "py-ley-1334-1998",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
-  "url": "https://www.bacn.gov.py/leyes-paraguayas/897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario"
+  "url": "https://www.bacn.gov.py/leyes-paraguayas/897/ley-n-1334-de-defensa-del-consumidor-y-del-usuario",
+  "params": {
+   "cut": [
+    "[\\d,.]+ vistas",
+    "De interes.*?(?= \\|\\|links\\|\\| |$)",
+    "https://www\\.bacn\\.gov\\.py/(?:leyes-paraguayas|dinapi|libros)/(?!897/)\\d+/\\S*"
+   ]
+  }
  },
  {
   "id": "py-decreto-3369-2025-mades-decretos",
   "source_id": "PY-MADES-ADOPTED",
   "iso2": "PY",
   "instrument": "py-decreto-3369-2025",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.mades.gov.py/decretos/"
  },
@@ -11624,7 +11728,7 @@
   "source_id": "NI-LAGACETA-ADOPTED",
   "iso2": "NI",
   "instrument": "ni-decreto-15-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
   "params": {
@@ -11636,7 +11740,7 @@
   "source_id": "NI-LAGACETA-ADOPTED",
   "iso2": "NI",
   "instrument": "ni-ley-217",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.lagaceta.gob.ni/descargables?page=1&search=Medio",
   "params": {
@@ -11648,7 +11752,7 @@
   "source_id": "NI-LAGACETA-ADOPTED",
   "iso2": "NI",
   "instrument": "ni-ley-647",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.lagaceta.gob.ni/ediciones?page=1&search=",
   "params": {
@@ -11660,7 +11764,7 @@
   "source_id": "NI-LAGACETA-ADOPTED",
   "iso2": "NI",
   "instrument": "ni-ley-842",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.siboif.gob.ni/supervision/intendencia-bancos/marco-juridico?combine=842",
   "params": {
@@ -12026,7 +12130,7 @@
   "source_id": "SY-MOLAE-ADOPTED",
   "iso2": "SY",
   "instrument": "sy-environment-protection-law-12-2012",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://molae.gov.sy/law",
   "params": {}
@@ -12672,11 +12776,15 @@
   "source_id": "MN-LEGALINFO-CONSOLIDATED",
   "iso2": "MN",
   "instrument": "mn-corporate-governance-code",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://legalinfo.mn/mn/detail?lawId=16468331291331",
   "params": {
-   "second_route": "https://legalinfo.mn/mn/detail?lawId=16468331291331 (browser; legalinfo.mn resets connections from the cloud address)"
+   "second_route": "https://legalinfo.mn/mn/detail?lawId=16468331291331 (browser; legalinfo.mn resets connections from the cloud address)",
+   "cut": [
+    "(?:\u0425\u0430\u044f\u0433|Address): .*? Developed by Back to Top",
+    "https://legalinfo\\.mn/(?:mn|en) (?:https://www\\.facebook\\.com/legalinfomn \\S+ \\S+ )?https://legalinfo\\.mn/(?:mn|en)/law/26 .*?/about/16106883681171"
+   ]
   }
  },
  {
@@ -12711,7 +12819,7 @@
   "source_id": "MN-PARLIAMENT-ADOPTED",
   "iso2": "MN",
   "instrument": "mn-law-climate-change",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://old.parliament.mn/laws/17426/"
  },
@@ -12720,7 +12828,7 @@
   "source_id": "MN-MECC-ADOPTED",
   "iso2": "MN",
   "instrument": "mn-carbon-registry-procedure-a422",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://mecc.gov.mn/documents/d-rem-zhuram?sort=date&order=desc"
  },
@@ -12729,7 +12837,7 @@
   "source_id": "MN-PARLIAMENT-ADOPTED",
   "iso2": "MN",
   "instrument": "mn-law-consumer-protection",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://old.parliament.mn/laws/5183/"
  },
@@ -12738,7 +12846,7 @@
   "source_id": "MN-PARLIAMENT-ADOPTED",
   "iso2": "MN",
   "instrument": "mn-law-advertising",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://old.parliament.mn/laws/2437/"
  },
@@ -12756,7 +12864,7 @@
   "source_id": "KH-SERC-ADOPTED",
   "iso2": "KH",
   "instrument": "kh-serc-prakas-034",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.serc.gov.kh/boards/index.php?bid=m23Prakas_k&nav=list&no=0"
  },
@@ -13243,11 +13351,13 @@
   "source_id": "TJ-ADLIA-CONSOLIDATED",
   "iso2": "TJ",
   "instrument": "tj-law-advertising-2003",
-  "kind": "page_hash",
+  "kind": "date_list",
   "tier": "consolidation_site",
   "url": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585",
   "params": {
-   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)"
+   "second_route": "https://mmih.adlia.tj/SEARCH/DocumentView?DocumentId=23585 (browser; the page answers plain curl with 200 but cuts the text off after the first article, so the hash changes when Adlia republishes the document)",
+   "regex": "\u043e\u0442 (\\d{2}\\.\\d{2}\\.\\d{4})",
+   "verbatim": true
   }
  },
  {
@@ -13279,11 +13389,14 @@
   "source_id": "BW-GOVBW-ADOPTED",
   "iso2": "BW",
   "instrument": "bw-environmental-assessment-act-2011",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.botswanalaws.com/principal-legislation/",
   "params": {
-   "second_route": "https://cms2.gov.bw/sites/default/files/2020-02/Environmental%20Assessment%20Act%202011.pdf (browser; government PDF, certificate expired for curl)"
+   "second_route": "https://cms2.gov.bw/sites/default/files/2020-02/Environmental%20Assessment%20Act%202011.pdf (browser; government PDF, certificate expired for curl)",
+   "cut": [
+    "\\d{2}:\\d{2}:\\d{2}"
+   ]
   }
  },
  {
@@ -13291,11 +13404,14 @@
   "source_id": "BW-GOVBW-ADOPTED",
   "iso2": "BW",
   "instrument": "bw-environmental-assessment-regulations-2012",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.botswanalaws.com/subsidiary-legislation/",
   "params": {
-   "second_route": "https://www.gov.bw/sites/default/files/2019-12/Environmental Assessment Regulations 2012 (002).pdf (browser; certificate expired for curl)"
+   "second_route": "https://www.gov.bw/sites/default/files/2019-12/Environmental Assessment Regulations 2012 (002).pdf (browser; certificate expired for curl)",
+   "cut": [
+    "\\d{2}:\\d{2}:\\d{2}"
+   ]
   }
  },
  {
@@ -13325,18 +13441,22 @@
   "source_id": "BW-BLACKHALL-CONSOLIDATED",
   "iso2": "BW",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.botswanalaws.com/terms-conditions-2/",
   "change": "terms_changed",
-  "params": {}
+  "params": {
+   "cut": [
+    "\\d{2}:\\d{2}:\\d{2}"
+   ]
+  }
  },
  {
   "id": "terms-bw-bse-adopted",
   "source_id": "BW-BSE-ADOPTED",
   "iso2": "BW",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.bse.co.bw/terms-of-use/",
   "change": "terms_changed",
@@ -13420,7 +13540,7 @@
   "source_id": "MW-MALAWILII-ADOPTED",
   "iso2": "MW",
   "instrument": "mw-ema-2016",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://commons.laws.africa/akn/mw/act/2017/19",
   "params": {
@@ -13432,7 +13552,7 @@
   "source_id": "MW-MALAWILII-CONSOLIDATED",
   "iso2": "MW",
   "instrument": "mw-consumer-protection-act-2003",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://commons.laws.africa/akn/mw/act/2003/14",
   "params": {
@@ -13444,7 +13564,7 @@
   "source_id": "MW-MALAWILII-CONSOLIDATED",
   "iso2": "MW",
   "instrument": "mw-competition-fair-trading-act-1998",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://commons.laws.africa/akn/mw/act/1998/43",
   "params": {
@@ -13456,12 +13576,15 @@
   "source_id": "MW-MALAWILII-CONSOLIDATED",
   "iso2": "MW",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://malawilii.org/terms-of-use/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://malawilii.org/terms-of-use/ (browser; curl answered 200 on 2026-11-05)"
+   "second_route": "https://malawilii.org/terms-of-use/ (browser; curl answered 200 on 2026-11-05)",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -13533,7 +13656,7 @@
   "source_id": "BB-PARLIAMENT-ADOPTED",
   "iso2": "BB",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://barbadosparliament-laws.com/en/StatutesOnline/AnnualActs",
   "change": "terms_changed"
@@ -13543,10 +13666,15 @@
   "source_id": "BB-FSC-ADOPTED",
   "iso2": "BB",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.fsc.gov.bb/terms-conditions",
-  "change": "terms_changed"
+  "change": "terms_changed",
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  }
  },
  {
   "id": "tt-icaap-guideline-2020-pdf-head",
@@ -13565,11 +13693,13 @@
   "source_id": "TT-LAWS-CONSOLIDATED",
   "iso2": "TT",
   "instrument": "tt-ema-2000",
-  "kind": "page_hash",
+  "kind": "date_list",
   "tier": "consolidation_site",
   "url": "https://laws.gov.tt/ttdll-web2/revision/list?offset=0&q=environmental&currentid=930",
   "params": {
-   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Environmental Management, open Chap. 35:05, Versions tab)"
+   "second_route": "https://laws.gov.tt/ttdll-web2/revision/list (browser; search Environmental Management, open Chap. 35:05, Versions tab)",
+   "regex": "(LN\\.\\s*\\d+[A-Za-z]?\\s*/\\s*\\d{4}|as at \\w+ \\d+\\w* \\d{4})",
+   "verbatim": true
   }
  },
  {
@@ -13614,7 +13744,7 @@
   "source_id": "TT-LAWS-CONSOLIDATED",
   "iso2": "TT",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://laws.gov.tt/",
@@ -13917,7 +14047,7 @@
   "source_id": "UG-MWE-ADOPTED",
   "iso2": "UG",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://mwe.go.ug/terms-conditions",
   "params": {},
@@ -13928,10 +14058,14 @@
   "source_id": "UG-ULII-CONSOLIDATED",
   "iso2": "UG",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://ulii.org/en/terms-of-use/",
-  "params": {},
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  },
   "change": "terms_changed"
  },
  {
@@ -14212,7 +14346,7 @@
   "source_id": "KN-LAWCOMMISSION-CONSOLIDATED",
   "iso2": "KN",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://lawcommission.gov.kn/home/terms-of-use/",
   "change": "terms_changed"
@@ -14308,12 +14442,15 @@
   "source_id": "WS-MCIL-ADOPTED",
   "iso2": "WS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://www.mcil.gov.ws/disclaimer",
   "params": {
-   "second_route": "https://www.mcil.gov.ws/disclaimer (live page in browser)"
+   "second_route": "https://www.mcil.gov.ws/disclaimer (live page in browser)",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -14321,7 +14458,7 @@
   "source_id": "WS-MNRE-ADOPTED",
   "iso2": "WS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://www.mnre.gov.ws/?page_id=7955",
@@ -14358,7 +14495,7 @@
   "source_id": "TL-JORNAL-ADOPTED",
   "iso2": "TL",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://mj.gov.tl/jornal/",
   "change": "terms_changed",
@@ -14369,7 +14506,7 @@
   "source_id": "TL-PARLAMENTO-ADOPTED",
   "iso2": "TL",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.parlamento.tl",
   "change": "terms_changed",
@@ -14380,7 +14517,7 @@
   "source_id": "TL-BCTL-ADOPTED",
   "iso2": "TL",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.bancocentral.tl",
   "change": "terms_changed",
@@ -14391,7 +14528,7 @@
   "source_id": "LS-DOE-ADOPTED",
   "iso2": "LS",
   "instrument": "ls-environment-act-2008",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://environment.gov.ls/download/environment-act-2008/",
   "params": {}
@@ -14401,23 +14538,30 @@
   "source_id": "LS-DOE-ADOPTED",
   "iso2": "LS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://wipolex.wipo.int/en/text/209919",
   "change": "terms_changed",
-  "params": {}
+  "params": {
+   "cut": [
+    "&Expires=\\S*"
+   ]
+  }
  },
  {
   "id": "terms-ls-lesotholii-adopted",
   "source_id": "LS-LESOTHOLII-ADOPTED",
   "iso2": "LS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://lesotholii.org/terms-of-use/",
   "change": "terms_changed",
   "params": {
-   "second_route": "https://lesotholii.org/terms-of-use/ (browser; Cloudflare challenge returns HTTP 403 to automated scripts)"
+   "second_route": "https://lesotholii.org/terms-of-use/ (browser; Cloudflare challenge returns HTTP 403 to automated scripts)",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -14425,7 +14569,7 @@
   "source_id": "LS-GOVLS-ADOPTED",
   "iso2": "LS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.ls/",
   "change": "terms_changed",
@@ -14508,7 +14652,7 @@
   "source_id": "SZ-COMPCO-ADOPTED",
   "iso2": "SZ",
   "instrument": "sz-fair-trading-act-2001",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.compco.co.sz/legislation/",
   "params": {
@@ -14520,7 +14664,7 @@
   "source_id": "SZ-EEA-ADOPTED",
   "iso2": "SZ",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://eea.org.sz/",
   "change": "terms_changed",
@@ -14533,7 +14677,7 @@
   "source_id": "SZ-COMPCO-ADOPTED",
   "iso2": "SZ",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.compco.co.sz/",
   "change": "terms_changed",
@@ -14607,7 +14751,7 @@
   "source_id": "CG-MEDDBC-ADOPTED",
   "iso2": "CG",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://developpement-durable.gouv.cg/mention-legale/",
@@ -14936,9 +15080,15 @@
   "source_id": "GW-BRVM-ADOPTED",
   "iso2": "GW",
   "instrument": "gw-amf-umoa-taxonomia-2024",
-  "kind": "http_head",
+  "kind": "text_hash",
   "tier": "regulator_page",
-  "url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations"
+  "url": "https://www.brvm.org/fr/circulaire-amf-umoa-mise-en-place-dune-taxonomie-des-projets-faisant-lobjet-demissions-dobligations",
+  "params": {
+   "cut": [
+    "Portefeuille boursier FR EN PO .*? Courriel",
+    "Top 5 Cours Variation.*?BRVM-PRES \\S+ \\S+"
+   ]
+  }
  },
  {
   "id": "bi-2021-presidence-lois",
@@ -15048,7 +15198,7 @@
   "source_id": "TV-LEGISLATION-CONSOLIDATED",
   "iso2": "TV",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://tuvalu-legislation.tv/cms/?view=article&id=115:copyright&catid=14:general-articles",
@@ -15083,11 +15233,14 @@
   "source_id": "KI-WIPOLEX-COPY",
   "iso2": "KI",
   "instrument": "ki-consumer-protection-act-2001",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.wipo.int/wipolex/en/legislation/details/7586",
   "params": {
-   "second_route": "https://www.wipo.int/wipolex/en/members/profile/KI (browser; lists the Act)"
+   "second_route": "https://www.wipo.int/wipolex/en/members/profile/KI (browser; lists the Act)",
+   "cut": [
+    "&Expires=\\S*"
+   ]
   }
  },
  {
@@ -15350,7 +15503,7 @@
   "source_id": "SB-PARLIAMENT-ADOPTED",
   "iso2": "SB",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.parliament.gov.sb/",
   "params": {
@@ -15537,7 +15690,7 @@
   "source_id": "SO-MOECC-ADOPTED",
   "iso2": "SO",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://moecc.gov.so/",
   "change": "terms_changed",
@@ -15562,8 +15715,7 @@
   "kind": "page_hash",
   "tier": "regulator_page",
   "url": "https://www.mof.gov.so/legislation/other-acts",
-  "change": "terms_changed",
-  "params": {}
+  "change": "terms_changed"
  },
  {
   "id": "terms-so-cbs-adopted",
@@ -15645,7 +15797,7 @@
   "source_id": "IR-CBI-ADOPTED",
   "iso2": "IR",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cbi.ir",
   "change": "terms_changed",
@@ -15844,12 +15996,15 @@
   "source_id": "BM-BMA-ADOPTED",
   "iso2": "BM",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://www.bma.bm/terms-conditions",
   "params": {
-   "second_route": "https://www.bma.bm/terms-conditions (no challenge seen 2026-11-10; page text includes site navigation)"
+   "second_route": "https://www.bma.bm/terms-conditions (no challenge seen 2026-11-10; page text includes site navigation)",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -16091,7 +16246,7 @@
   "source_id": "JE-JERSEYLAW-CONSOLIDATED",
   "iso2": "JE",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.jerseylaw.je/Pages/Copyright.aspx",
   "change": "terms_changed",
@@ -16156,10 +16311,14 @@
   "source_id": "GG-GFSC-CONSOLIDATED",
   "iso2": "GG",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gfsc.gg/copyright",
-  "params": {},
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  },
   "change": "terms_changed"
  },
  {
@@ -16353,7 +16512,7 @@
   "source_id": "AI-GOV-CONSOLIDATED",
   "iso2": "AI",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.ai/terms-and-conditions",
   "change": "terms_changed",
@@ -16396,7 +16555,7 @@
   "source_id": "TC-AGC-CONSOLIDATED",
   "iso2": "TC",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.tc/agc/",
   "change": "terms_changed",
@@ -16407,11 +16566,14 @@
   "source_id": "KY-CIMA-ADOPTED",
   "iso2": "KY",
   "instrument": "ky-cima-sic-esg-2022",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cima.ky/environmental-social-and-governance-and-sustainable-investing",
   "params": {
-   "second_route": "same URL in a browser; the page answered curl with HTTP 200, so no challenge seen"
+   "second_route": "same URL in a browser; the page answered curl with HTTP 200, so no challenge seen",
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
   }
  },
  {
@@ -16419,10 +16581,13 @@
   "source_id": "KY-CIMA-ADOPTED",
   "iso2": "KY",
   "instrument": "ky-cima-sic-climate-insurers-2022",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cima.ky/climate-change-environmental-social-and-governance-and-sustainability",
   "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ],
    "second_route": "same URL in a browser; the page answered curl with HTTP 200, so no challenge seen"
   }
  },
@@ -16443,7 +16608,7 @@
   "source_id": "KY-LRC-CONSOLIDATED",
   "iso2": "KY",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://gov.ky/terms-and-conditions",
   "change": "terms_changed",

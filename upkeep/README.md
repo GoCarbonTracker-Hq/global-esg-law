@@ -6,9 +6,10 @@ Tools that notice when an official source changes, so a person can decide whethe
 
 ```
 python3 tools/watch.py [--source <sources.json id>] [--dry-run]
+python3 tools/watch.py --reseed <watcher id>
 ```
 
-Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing.
+Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing. `--reseed <watcher id>` fetches that one watcher once, stores its current signal in `seen.json` and appends no queue row; use it in the same commit as any change to a watcher's `kind` or `params`, whose old hash would otherwise raise a `new_version` row. A failed fetch leaves `seen.json` as it was and exits 1. A truncated read (`IncompleteRead`) is retried once.
 
 A contributor's run ends in a pull request from a fork, never a push to main.
 
@@ -25,7 +26,8 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `kind` | One of the five kinds below. |
 | `tier` | One of the four tiers under "Cadence and ceiling": `gazette_feed`, `consolidation_site`, `regulator_page` or `tracker_pointer`. Missing or unknown is a validation error. |
 | `url` | What is fetched. Never a URL whose body is law text. |
-| `params.regex` | `date_list` only: a regular expression with exactly one group that captures a date as `YYYY-MM-DD` or `YYYYMMDD`. |
+| `params.regex` | `date_list` only: a regular expression with exactly one group that captures a date as `YYYY-MM-DD` or `YYYYMMDD`. With `params.verbatim` set to `true` the group is kept as written (a version date as `18.07.2017`, a legal-notice number as `129/2004`), for a list whose entries come back in a different order on each fetch; the set is compared, so order never moves it. Off unless set. |
+| `params.cut` | Optional, `text_hash` only (any other kind is a validation error): a list of regexes. Each match is removed from the string that is hashed (visible text plus link targets) before hashing, to take out a moving part such as a visitor counter, a request id or a session id inside a link. Off unless set. A cut must not match the law text or the path of the document itself; if it would, the watcher cannot be made quiet and stays on `page_hash`. |
 | `params.second_route` | Optional: where a person can check by hand when the fetch fails. Copied into the `notes` of a `watch_failed` row. |
 | `change` | Optional, default `new_version`. Set `terms_changed` on a watcher that points at a licence or terms page, such as a `page_hash` of a `sources.json` row's `terms_url`. |
 
@@ -37,7 +39,7 @@ One entry per watcher. A watcher may point at a `sources.json` row whose verdict
 | `version_list` | Every `content_versions[].date` in eCFR versioner JSON. The versioner paginates at 1000 entries; the watcher follows `meta.total_pages`. | A date is not in `seen.json`. |
 | `http_head` | `Last-Modified` of a `HEAD` request, or `Content-Length` when there is no `Last-Modified`. | The value differs from `seen.json`. |
 | `page_hash` | sha256 of the body. | The hash differs from `seen.json`. |
-| `text_hash` | sha256 of the visible text: `<script>` and `<style>` blocks and tags removed, entities decoded, whitespace collapsed. For pages whose markup carries a per-request nonce. An empty visible text is a `watch_failed` row. | The hash differs from `seen.json`. |
+| `text_hash` | sha256 of the visible text (`<script>` and `<style>` blocks and tags removed, entities decoded, whitespace collapsed) followed by the link targets: the `href` of every `<a>` and the `src` or `data` of every `<iframe>`, `<embed>` and `<object>`, in document order. For pages whose markup carries a per-request nonce. Targets are kept so that a PDF swapped behind unchanged link wording moves the signal; `<link>`, `<script>`, `<img>` and `<form action>` are not kept, because their URLs carry cache-busting values. `params.cut` (below) applies to the whole string. An empty visible text is a `watch_failed` row. | The hash differs from `seen.json`. |
 
 ## seen.json
 
@@ -110,7 +112,8 @@ Known gaps:
 
 - The EUR-Lex, eCFR and Federal Register rows point at Internet Archive snapshots because the live pages block scripts. Those watchers prove the snapshot is unchanged, not the live page. Each carries the live URL as `params.second_route`; open it in a browser when the row is rechecked.
 - The EUR-Lex snapshot URL (`web/2026/...`) resolves to the newest 2026 capture, and the Internet Archive wraps every capture in a toolbar with per-request timing and server names. Two fetches a few minutes apart gave different hashes on 2026-11-02, so the three EUR-Lex watchers will raise a `terms_changed` row on every run until `page_hash` normalises the body or those rows point at a fixed-timestamp `id_` capture. The fixed-timestamp eCFR and Federal Register snapshots hashed the same on two fetches.
-- `https://www.fca.org.uk/legal` rewrites its email-protection links with a fresh key on each response, so `terms-uk-fca-handbook` has the same problem.
+- `https://www.fca.org.uk/legal` rewrites its email-protection links with a fresh key on each response. `terms-uk-fca-handbook` is now `text_hash` with `params.cut` on `email-protection#[0-9a-f]+`.
+- GEL-28-02 moved 124 watchers from `page_hash` to `text_hash` (`upkeep/churn-fix-2026-11.md`, column `fix` in `upkeep/triage-2026-11.csv`). What it does not fix: a page whose fetched body holds no page text (a JavaScript shell, an archive toolbar, a block page) hashes stably but watches nothing, so such watchers stay on `page_hash` with their rows open; a link set that differs between fetches is not a token and cannot be cut; a news or edition feed is quiet for minutes and will fire on a new item. A cut is found from two fetches, so a moving part that did not move in that window is not cut. Prove a new `params.cut` by editing one link target of a saved page and checking that the signal moves: a cut that reaches to the end of the string removes the link targets too.
 - `https://indiacode.gov.in/info/copyright-policy` is an Angular shell; the policy text lives in a lazily loaded script. The watcher sees the shell, which changes on redeploy, not the policy text.
 - `terms-uk-srs-adopted` hashes the S1 PDF itself (the row's `terms_url`), so it also fires when the standard is republished. Its seed equals the row's `content_hash` for S1.
 
