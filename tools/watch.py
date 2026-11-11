@@ -13,7 +13,10 @@ import html
 import http.client
 import json
 import re
+import ssl
+import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -29,24 +32,77 @@ CHANGES = ("new_version", "terms_changed", "repealed")
 TIERS = ("gazette_feed", "consolidation_site", "regulator_page", "tracker_pointer")  # see upkeep/cadence.json
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 USER_AGENT = "global-esg-law-watch/1"  # lexpol.cloud.pf drops the connection for any agent carrying a URL
+BROWSER_HEADERS = {  # second try after an HTTP 403 only: some hosts refuse a script agent and serve a browser
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/130.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9"}
+
+
+class _KeepAlive(http.client.HTTPSConnection):
+    """urllib sends Connection: close; lexpol.cloud.pf then cuts the body short. Used for the retry only."""
+
+    def request(self, method, url, body=None, headers=None, **kwargs):
+        headers = {k: v for k, v in (headers or {}).items() if k.lower() != "connection"}
+        super().request(method, url, body, headers, **kwargs)
+
+
+class _KeepAliveHandler(urllib.request.HTTPSHandler):
+    def https_open(self, req):
+        return self.do_open(_KeepAlive, req)
+
+
+def _curl(url, method, headers):
+    """Read url with the system curl when Python cannot verify the server's certificate chain.
+
+    Python's ssl does not fetch a missing intermediate certificate; curl on macOS does (system trust store), so it
+    verifies a chain Python rejects. Verification stays on: no -k. Raises OSError when curl fails.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        head, body = Path(tmp, "head"), Path(tmp, "body")
+        args = ["curl", "-sS", "-L", "--max-redirs", "10", "--max-time", str(TIMEOUT), "--compressed",
+                "-D", str(head), "-o", str(body)]
+        args += ["-I"] if method == "HEAD" else []
+        for name, value in headers.items():
+            args += ["-H", f"{name}: {value}"]
+        done = subprocess.run(args + [url], capture_output=True, text=True, timeout=TIMEOUT + 10)
+        if done.returncode:
+            raise OSError(f"curl exit {done.returncode}: {done.stderr.strip()}")
+        blocks = head.read_text(errors="replace").replace("\r", "").strip().split("\n\n")
+        lines = blocks[-1].split("\n")
+        pairs = (line.split(":", 1) for line in lines[1:] if ":" in line)
+        return int(lines[0].split()[1]), {k.strip(): v.strip() for k, v in pairs}, b"" if method == "HEAD" else body.read_bytes()
+
+
+def _get(url, method, headers):
+    for attempt in (1, 2):  # one retry: a truncated read (IncompleteRead) is never a real signal
+        request = urllib.request.Request(url, method=method, headers=headers)
+        try:
+            opened = urllib.request.urlopen(request, timeout=TIMEOUT) if attempt == 1 else \
+                urllib.request.build_opener(_KeepAliveHandler).open(request, timeout=TIMEOUT)
+            with opened as response:
+                return response.status, dict(response.headers), response.read()
+        except urllib.error.HTTPError as exc:
+            return exc.code, dict(exc.headers or {}), b""
+        except urllib.error.URLError as exc:
+            if not isinstance(exc.reason, ssl.SSLCertVerificationError):
+                raise
+            try:
+                return _curl(url, method, headers)
+            except (OSError, subprocess.SubprocessError, ValueError, IndexError):
+                raise exc from None
+        except http.client.IncompleteRead:
+            if attempt == 2:
+                raise
 
 
 def default_fetch(url, method="GET"):
     """Return (status, headers, body_bytes). HTTP errors return their status; other errors raise."""
-    request = urllib.request.Request(url, method=method, headers={
-        "User-Agent": USER_AGENT,
-        "Accept-Encoding": "gzip"})
-    for attempt in (1, 2):  # one retry: a truncated read (IncompleteRead) is never a real signal
-        try:
-            with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
-                status, headers, body = response.status, dict(response.headers), response.read()
-            break
-        except urllib.error.HTTPError as exc:
-            status, headers, body = exc.code, dict(exc.headers or {}), b""
-            break
-        except http.client.IncompleteRead:
-            if attempt == 2:
-                raise
+    status, headers, body = _get(url, method, {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip"})
+    if status == 403:  # a browser agent is a normal client, tried once; a still-403 host stays failed
+        second = _get(url, method, {**BROWSER_HEADERS, "Accept-Encoding": "gzip"})
+        if second[0] != 403:
+            status, headers, body = second
     if body[:2] == b"\x1f\x8b":
         body = gzip.decompress(body)
     return status, headers, body

@@ -339,9 +339,17 @@ def test_truncated_first_read_is_retried_once(monkeypatch):
         raise watch.http.client.IncompleteRead(b"par")
 
     reads = iter([truncated, lambda: b"<p>full page</p>"])
+    opened = []
+
+    class Opener:  # the retry goes through the keep-alive opener (lexpol.cloud.pf cuts a Connection: close body short)
+        def open(self, request, timeout):
+            opened.append(request)
+            return Response(next(reads))
+
     monkeypatch.setattr(watch.urllib.request, "urlopen", lambda request, timeout: calls.append(1) or Response(next(reads)))
+    monkeypatch.setattr(watch.urllib.request, "build_opener", lambda *handlers: Opener())
     assert watch.default_fetch("https://example.org/")[2] == b"<p>full page</p>"
-    assert len(calls) == 2
+    assert len(calls) == 1 and len(opened) == 1
     # a second truncation is raised, so run_watcher reports a watch_failed
     reads = iter([truncated, truncated])
     with pytest.raises(watch.http.client.IncompleteRead):
@@ -554,3 +562,109 @@ def test_shipped_watchers_validate_against_real_repo():
             iso2, entry = scope[w["instrument"]]
             rows = entry["source_row"] if isinstance(entry["source_row"], list) else [entry["source_row"]]
             assert w["iso2"] == iso2 and w["source_id"] in rows, w["id"]
+
+
+class Reply:
+    def __init__(self, status=200, body=b"x"):
+        self.status, self.headers, self._body = status, {}, body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def read(self):
+        return self._body
+
+
+def fake_urlopen(monkeypatch, replies):
+    """Replace urlopen with a queue of replies (an exception instance is raised); return the requests it saw."""
+    sent = []
+
+    def urlopen(request, timeout):
+        sent.append(request)
+        reply = replies.pop(0)
+        if isinstance(reply, Exception):
+            raise reply
+        return reply
+
+    monkeypatch.setattr(watch.urllib.request, "urlopen", urlopen)
+    return sent
+
+
+def http_error(code):
+    return watch.urllib.error.HTTPError("https://example.org/", code, "", {}, None)
+
+
+def cert_error():
+    return watch.urllib.error.URLError(watch.ssl.SSLCertVerificationError(1, "certificate verify failed"))
+
+
+def test_403_is_retried_once_with_browser_headers(monkeypatch):
+    sent = fake_urlopen(monkeypatch, [http_error(403), Reply(200, b"<p>page</p>")])
+    assert watch.default_fetch("https://example.org/") == (200, {}, b"<p>page</p>")
+    assert sent[0].get_header("User-agent") == watch.USER_AGENT
+    second = sent[1]
+    assert second.get_header("User-agent").startswith("Mozilla/5.0") and "http" not in second.get_header("User-agent")
+    assert second.get_header("Accept").startswith("text/html") and second.get_header("Accept-language")
+    assert second.get_header("Accept-encoding") == "gzip"
+
+
+def test_403_that_stays_403_returns_403_and_other_errors_are_not_retried(monkeypatch):
+    sent = fake_urlopen(monkeypatch, [http_error(403), http_error(403)])
+    assert watch.default_fetch("https://example.org/")[0] == 403 and len(sent) == 2
+    sent = fake_urlopen(monkeypatch, [http_error(404)])
+    assert watch.default_fetch("https://example.org/")[0] == 404 and len(sent) == 1
+
+
+def test_certificate_failure_falls_back_to_curl_with_verification_on(monkeypatch):
+    fake_urlopen(monkeypatch, [cert_error()])
+    calls = []
+
+    def run(args, **kwargs):
+        calls.append(args)
+        out = args[args.index("-o") + 1]
+        Path(out).write_bytes(b"<p>real page</p>")
+        Path(args[args.index("-D") + 1]).write_text(
+            "HTTP/1.1 301 Moved\r\nLocation: /b\r\n\r\nHTTP/2 200\r\nLast-Modified: Mon, 01 Jan 2026\r\n\r\n")
+        return watch.subprocess.CompletedProcess(args, 0, "", "")
+
+    monkeypatch.setattr(watch.subprocess, "run", run)
+    status, headers, body = watch.default_fetch("https://example.org/a")
+    assert (status, headers["Last-Modified"], body) == (200, "Mon, 01 Jan 2026", b"<p>real page</p>")
+    assert calls[0][0] == "curl" and calls[0][-1] == "https://example.org/a"
+    assert not {"-k", "--insecure"} & set(calls[0])
+    assert "User-Agent: " + watch.USER_AGENT in calls[0]
+
+
+def test_curl_fallback_head_has_no_body_and_a_curl_failure_keeps_the_certificate_error(monkeypatch):
+    fake_urlopen(monkeypatch, [cert_error()])
+
+    def run_ok(args, **kwargs):
+        assert "-I" in args
+        Path(args[args.index("-o") + 1]).write_bytes(b"HTTP/2 200\r\n\r\n")
+        Path(args[args.index("-D") + 1]).write_text("HTTP/2 200\r\nContent-Length: 9\r\n\r\n")
+        return watch.subprocess.CompletedProcess(args, 0, "", "")
+
+    monkeypatch.setattr(watch.subprocess, "run", run_ok)
+    assert watch.default_fetch("https://example.org/", "HEAD") == (200, {"Content-Length": "9"}, b"")
+    fake_urlopen(monkeypatch, [cert_error()])
+    monkeypatch.setattr(watch.subprocess, "run", lambda args, **kw: watch.subprocess.CompletedProcess(args, 60, "", "bad cert"))
+    with pytest.raises(watch.urllib.error.URLError, match="certificate verify failed"):
+        watch.default_fetch("https://example.org/")
+
+
+def test_other_url_errors_do_not_reach_curl(monkeypatch):
+    fake_urlopen(monkeypatch, [watch.urllib.error.URLError(TimeoutError("timed out"))])
+    monkeypatch.setattr(watch.subprocess, "run", lambda *a, **kw: pytest.fail("curl called"))
+    with pytest.raises(watch.urllib.error.URLError, match="timed out"):
+        watch.default_fetch("https://example.org/")
+
+
+def test_keep_alive_connection_drops_the_connection_close_header(monkeypatch):
+    sent = {}
+    monkeypatch.setattr(watch.http.client.HTTPSConnection, "request",
+                        lambda self, method, url, body=None, headers=None, **kw: sent.update(headers))
+    watch._KeepAlive("example.org").request("GET", "/", headers={"Connection": "close", "User-Agent": "u"})
+    assert sent == {"User-Agent": "u"}
