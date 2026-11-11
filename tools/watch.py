@@ -233,6 +233,9 @@ def load_watchers(repo, source=None):
             raise ValueError(f"watcher {w['id']}: change {w['change']!r} is not one of {CHANGES}")
         if w["kind"] == "date_list" and not w.get("params", {}).get("regex"):
             raise ValueError(f"watcher {w['id']}: date_list needs params.regex")
+        if "expect" in w.get("params", {}):
+            if w["kind"] == "http_head" or not isinstance(w["params"]["expect"], str) or not w["params"]["expect"]:
+                raise ValueError(f"watcher {w['id']}: params.expect is a non-empty string and needs a GET kind")
         if "cut" in w.get("params", {}):
             cut = w["params"]["cut"]
             if w["kind"] != "text_hash" or not isinstance(cut, list) or not all(isinstance(p, str) for p in cut):
@@ -261,6 +264,8 @@ def run_watcher(watcher, fetch):
             return None, f"HTTP {status}"
         if method == "GET" and not body:
             return None, "empty body"
+        if params.get("expect") and params["expect"] not in _text(body):
+            return None, f"expected text not in body: {params['expect']}"
         signals = KINDS[kind](url, body, headers, params)
         for more in MORE_PAGES.get(kind, lambda u, b: [])(url, body):
             status, headers, body = fetch(more, method)

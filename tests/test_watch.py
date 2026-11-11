@@ -225,6 +225,22 @@ def test_text_hash_without_visible_text_gives_watch_failed(tmp_path):
     assert rows(repo)[-1]["change"] == "watch_failed" and "no visible text" in rows(repo)[-1]["signal"]
 
 
+def test_expect_missing_from_body_gives_watch_failed(tmp_path):
+    """A block page or shell that answers 200 fails instead of being hashed."""
+    watcher = {**TEXT_WATCHER, "kind": "page_hash", "params": {"expect": "Climate Change Act"}}
+    signals, error = watch.run_watcher(watcher, lambda url, method: (200, {}, b"<html>Request Rejected</html>"))
+    assert signals is None and error == "expected text not in body: Climate Change Act"
+    signals, error = watch.run_watcher(watcher, lambda url, method: (200, {}, b"<h1>Climate Change Act 2021</h1>"))
+    assert error is None and len(signals) == 1
+
+
+@pytest.mark.parametrize("expect, kind", [("", "page_hash"), (["x"], "page_hash"), ("x", "http_head")])
+def test_expect_is_validated(tmp_path, expect, kind):
+    repo = make(tmp_path, [{**TEXT_WATCHER, "kind": kind, "params": {"expect": expect}}])
+    with pytest.raises(ValueError, match="params.expect"):
+        watch.watch(repo, FakeFetch(), TODAY)
+
+
 def link_page(pdf="act-2020.pdf", frame="viewer-1.pdf", script="app.js?v=1", css="a.css?v=1", hidden="tok1", img="logo.png?v=1",
               action="/search?sid=1", extra=""):
     return (f'<html><head><link rel="stylesheet" href="/static/{css}"><script src="/static/{script}"></script></head>'

@@ -12181,7 +12181,9 @@
   "tier": "consolidation_site",
   "url": "http://www.iort.gov.tn/",
   "params": {
-   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)",
+   "expect": "2018-35",
+   "note": "The URL answers a 159-byte meta refresh to a session site, the same body for all four TN watchers. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   }
  },
  {
@@ -12193,7 +12195,9 @@
   "tier": "consolidation_site",
   "url": "http://www.iort.gov.tn/",
   "params": {
-   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)",
+   "expect": "88-91",
+   "note": "The URL answers a 159-byte meta refresh to a session site, the same body for all four TN watchers. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   }
  },
  {
@@ -12205,7 +12209,9 @@
   "tier": "consolidation_site",
   "url": "http://www.iort.gov.tn/",
   "params": {
-   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)",
+   "expect": "92-117",
+   "note": "The URL answers a 159-byte meta refresh to a session site, the same body for all four TN watchers. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   }
  },
  {
@@ -12217,7 +12223,9 @@
   "tier": "consolidation_site",
   "url": "http://www.iort.gov.tn/",
   "params": {
-   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)"
+   "second_route": "http://www.iort.gov.tn/ (browser; the page is a meta refresh to a session site, search the text by year, number and category: https://www.iort.gov.tn/ resets curl, legislation.tn answers 502 from the cloud address)",
+   "expect": "2015-36",
+   "note": "The URL answers a 159-byte meta refresh to a session site, the same body for all four TN watchers. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   }
  },
  {
@@ -16052,7 +16060,9 @@
   "tier": "consolidation_site",
   "url": "https://legislation.gov.im/",
   "params": {
-   "second_route": "https://legislation.gov.im/ (browser; the portal answers scripts with a 269-byte Request Rejected page and /cms/ with a SiteGround captcha, HTTP 202)"
+   "second_route": "https://legislation.gov.im/ (browser; the portal answers scripts with a 269-byte Request Rejected page and /cms/ with a SiteGround captcha, HTTP 202)",
+   "expect": "Climate Change Act 2021",
+   "note": "The URL is the portal root and scripts get a 269-byte Request Rejected page whose support id changes on every fetch, so each run raised a false new_version row. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   }
  },
  {
@@ -17844,7 +17854,9 @@
   "tier": "regulator_page",
   "url": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements",
   "params": {
-   "second_route": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements (browser; curl returns a 760-byte shell, the footer notice and the Legal mentions item render only in a browser)"
+   "second_route": "https://www.comstbarth.fr/votre-collectivite/codes-et-reglements (browser; curl returns a 760-byte shell, the footer notice and the Legal mentions item render only in a browser)",
+   "expect": "Mentions l\u00e9gales",
+   "note": "The URL answers a 760-byte script shell (an Archimed portal); the notice renders only in a browser. GEL-28 (2026-11-11): the fetched body is not the law or terms text, so params.expect makes the watcher fail instead of hashing it; it stays failing until a scriptable route to the text is found."
   },
   "change": "terms_changed"
  },
