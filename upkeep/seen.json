@@ -3583,11 +3583,13 @@
  },
  "cy-ets-amendment-2-2025-gazette-page": {
   "bytes": 14623,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.23,
+  "seconds": 0.71,
   "signals": [
-   "4ec0882fd09bb7cecca0add3be366e0646e2d086bbc21466085268bf5357674c"
+   "161a5873e7e03de7726adfaafb0aa6c2821fae5b7428a485584d0fc9db74abea",
+   "4ec0882fd09bb7cecca0add3be366e0646e2d086bbc21466085268bf5357674c",
+   "c5e2e138ad8d4dce8a63a5c1b1ca96d4521ba4fd613f83589fe43959ad6667f6"
   ]
  },
  "cy-ets-amendment-2024-gazette-page": {
@@ -3601,11 +3603,13 @@
  },
  "cy-ets-amendment-2025-gazette-page": {
   "bytes": 14622,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.23,
+  "seconds": 0.41,
   "signals": [
-   "8eb98aefcefb265f67762cc0221b1b5cea266e7a376174bc97df77a8eb6fce98"
+   "8eb98aefcefb265f67762cc0221b1b5cea266e7a376174bc97df77a8eb6fce98",
+   "df1cdbe161f35ed1aa698cdc77041635dca8242d63e319126023cb4b5baba38d",
+   "e141d961b37ad7dfbaea06c154b75f9c8e0884ea441ba454e4b1d770fea2dd24"
   ]
  },
  "cy-ets-law-2011-gazette-annex-list": {
@@ -3619,11 +3623,13 @@
  },
  "cy-transparency-amendment-2-2025-gazette-page": {
   "bytes": 14622,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.24,
+  "seconds": 0.48,
   "signals": [
-   "f2edb2975e3a8f250133223cfb38926bb94de860ebdfafd21de869fd2c219140"
+   "4e50562b5b0a67a2e8bad7522cdc86c4de2ac54586ddc24f1208c9f13bae08fc",
+   "f2edb2975e3a8f250133223cfb38926bb94de860ebdfafd21de869fd2c219140",
+   "f3a85b53ff32055d3b161a0471fc5aac92755ec3035c5ca95febf5d24aa35473"
   ]
  },
  "cz-accounting-act-sustainability-reporting-esbirka-versions": {
@@ -6208,12 +6214,18 @@
   ]
  },
  "gw-amf-umoa-taxonomia-brvm-page": {
-  "bytes": 0,
-  "checked_on": "2026-11-10",
+  "bytes": 38982,
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.59,
+  "seconds": 1.14,
   "signals": [
-   "Last-Modified: Tue, 10 Nov 2026 16:40:46 GMT"
+   "Last-Modified: Mon, 09 Nov 2026 20:27:15 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 01:07:14 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 03:26:40 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 10:13:48 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 12:45:36 GMT",
+   "Last-Modified: Tue, 10 Nov 2026 16:40:46 GMT",
+   "a534960a3470605b60006010f2c1244c3c9c5584e9b7e960d9881966c86c184a"
   ]
  },
  "gw-crepmf-guia-brvm-pdf": {
@@ -9676,7 +9688,16 @@
   "failure": null,
   "seconds": 0.37,
   "signals": [
-   "21e5bc8be050e1cf07a8ff13ed49f31ad8343027092d58ffebff0f5eaa24d75d"
+   "21e5bc8be050e1cf07a8ff13ed49f31ad8343027092d58ffebff0f5eaa24d75d",
+   "29ee070aca3ce02570b03cdfa11c0592b4c9fc43bf950f30b060ccc8dd35ec8b",
+   "309487957a3f4394516ab964978b7d71384b1fcd40e4ba21c98cbc9011387292",
+   "44487e34e27c996b2949b37b1bd51cd99fd3d0780ddaa3dab52c47fd42d348a2",
+   "6623cb1cf86b42fd038ab26338374a25e48babe71bce02293c0e8fc64a18a338",
+   "6c23be967a7054891f2ea84b718bcbbf8ffb55296454ff8af618c697d95c7434",
+   "7c6a4c858fe0b70e2bc8ee97e90c70913df76b35a83a72dcc39c8dab0dae569a",
+   "a0b6fb1056f9ea0a5f5ce328782e8192ba8becef2a048929618fc7c52af610a2",
+   "c43f70044a2aa4b139a637ce89c9fdcae092d4b2eae5bc2d573f60eeb275525e",
+   "d2f14888e062b73465285cee1c18b15554e0f171df2be97e4fc75b64b2128821"
   ]
  },
  "ly-cbl-circular-28-2023": {
@@ -10297,11 +10318,16 @@
  },
  "mn-corporate-governance-code-legalinfo-page": {
   "bytes": 202117,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.89,
+  "seconds": 3.43,
   "signals": [
-   "b0e1c1164134c9a313d36439e99a6f0f7d921c4dd1aa63d0b858eea913383071"
+   "10e0778f913ad1296a09f91629fa000edcabaf49c38bce48a0ec3ffb09bf1340",
+   "221f7e4d22cad9289a708dbe829ccf7a3191678a980562efa35a21ecfc9e018c",
+   "b0e1c1164134c9a313d36439e99a6f0f7d921c4dd1aa63d0b858eea913383071",
+   "eb6d12dc7782ea42cc0ec4af0fa757dad046d63485231ecece7df1d0dafbee5a",
+   "ef6b8f6c4e14804c55bbd290806e605cdcbe0927c20bc51e35ca7f3325e073c5",
+   "f651b559be2a9f5002ff5bf3d5d569fb82e7b053f8b529261d623bde7096857c"
   ]
  },
  "mn-law-advertising-parliament-page": {
@@ -10985,29 +11011,55 @@
  },
  "my-cpa-1999-lom-home-page": {
   "bytes": 42679,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.84,
+  "seconds": 3.64,
   "signals": [
-   "b76c9f4c138fbb6b10d9c9dd7bae345699af4848e4f1dce892cfd585f75b0833"
+   "121071da403ad7ad3e4fcfbbeed6e24683db4bd5a12bac11beaf009af600d4e3",
+   "12b0384e8a27e795f86c16e9baf780e69f55993e9a34dc6a56f9081f9493f7c9",
+   "38f3438ff9e9ae910dfa618d362b639740b1f6ccfbb3e8396f4041918b335392",
+   "39528ca5fee7cb4481e3e28a4f02e19b4ab945d95fb9fa557f6492d26ddfb531",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "b76c9f4c138fbb6b10d9c9dd7bae345699af4848e4f1dce892cfd585f75b0833",
+   "e17eae3fcd289ebe55c97d296fbb61ed6c42ff30eaf5f58d7452d9cd2f972c6e",
+   "ee317d2bff5c966c1e01a43e4d2d3dfdd95ba619e602cb20626511b01329a5cd"
   ]
  },
  "my-eqa-1974-lom-home-page": {
-  "bytes": 42685,
-  "checked_on": "2026-11-10",
+  "bytes": 42679,
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 3.17,
+  "seconds": 3.1,
   "signals": [
-   "d3ba949eef7298c8e23fb28000100e1f154e6663787c4b238fed8a4abcf8e9db"
+   "05c7ceee43753c3b6b5c3ff2847bbde9bb2066f544a730a1d1ede2882e215b68",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "83ec4e8969b93818aaaab7d7b281d0f2ccd5346614e3dcb40c76d982758c5147",
+   "a41b9191884cf956f95a96c13c8034f997e47f5c362f0518f49159e134a95a8d",
+   "bc31b2a3c252231f205217fbf4ebcf36b42384682e2328a17b4da1e6a59c5327",
+   "d1091d78426e9fbe94f38a01093aaeab8448dcab8243968e23dffd1bae0970da",
+   "d3ba949eef7298c8e23fb28000100e1f154e6663787c4b238fed8a4abcf8e9db",
+   "d53825fdf9928b0dc3d8556a5542408cfb229409f4fe64629c156fc53211e482"
   ]
  },
  "my-tda-2011-lom-home-page": {
-  "bytes": 0,
-  "checked_on": "2026-11-10",
-  "failure": "URLError: <urlopen error timed out>",
-  "seconds": 30.0,
+  "bytes": 42685,
+  "checked_on": "2026-11-11",
+  "failure": null,
+  "seconds": 3.63,
   "signals": [
-   "12b0384e8a27e795f86c16e9baf780e69f55993e9a34dc6a56f9081f9493f7c9"
+   "121071da403ad7ad3e4fcfbbeed6e24683db4bd5a12bac11beaf009af600d4e3",
+   "12b0384e8a27e795f86c16e9baf780e69f55993e9a34dc6a56f9081f9493f7c9",
+   "38f3438ff9e9ae910dfa618d362b639740b1f6ccfbb3e8396f4041918b335392",
+   "482af6b1d160524f0905bf83ef909d3da8c35d83f7c0182410dcee254335eca1",
+   "780409d5a0bf7ce81d51ab57a551fd25d3203848d988636aeb73f86ea71aa4fb",
+   "78baace1f26f31f49ad53fd502c3f92420e4c3b26939805b86bd8948e2979353",
+   "bc31b2a3c252231f205217fbf4ebcf36b42384682e2328a17b4da1e6a59c5327",
+   "e17eae3fcd289ebe55c97d296fbb61ed6c42ff30eaf5f58d7452d9cd2f972c6e",
+   "ee317d2bff5c966c1e01a43e4d2d3dfdd95ba619e602cb20626511b01329a5cd"
   ]
  },
  "mz-aviso-6-gbm-2025-bancomoc-pdf": {
@@ -14432,7 +14484,9 @@
   "failure": null,
   "seconds": 1.0,
   "signals": [
-   "24a981d23d7dd8584e7d015c626787105bbeb05c737879c6cd8b08d22038f3de"
+   "24a981d23d7dd8584e7d015c626787105bbeb05c737879c6cd8b08d22038f3de",
+   "37de3bf41043872fe250eaec149176ade0292ea7f43eb04988d5581e9dcd468e",
+   "92f1f675afb8dcfd6283b331e2cb4883fb7bf63165ce091be14e9d4ff7a29db5"
   ]
  },
  "terms-af-nepa-adopted": {
@@ -14523,7 +14577,8 @@
   "failure": null,
   "seconds": 0.14,
   "signals": [
-   "4333edb5a48c8bb3bfb22a2a6fa7b79518d07e027e965502ee7fb9c120bb49a4"
+   "4333edb5a48c8bb3bfb22a2a6fa7b79518d07e027e965502ee7fb9c120bb49a4",
+   "ca0c8a776db0dbe2869f1be43dc83cdf7e4a8f404c902390418f94fb1a2ca533"
   ]
  },
  "terms-as-osas-asac": {
@@ -14660,7 +14715,10 @@
   "failure": null,
   "seconds": 1.12,
   "signals": [
-   "f7f97c00639c4205cfa35bb5a953aa6e294bbabf6f9d985d5d5069e3aad97408"
+   "5e83563a93cd19b579599cbe986c6d450e5135a9b1eb8316de7b31b2b5d69520",
+   "70f775536f1923e869a9cd747f2d70206fcfa6b0067d8f7b9875d16b740e8b27",
+   "f7f97c00639c4205cfa35bb5a953aa6e294bbabf6f9d985d5d5069e3aad97408",
+   "f825ccca9fac1d5bb8c20b6d68b7ade7c25004208c99e6fd320f4fc06a52f4cb"
   ]
  },
  "terms-bw-blackhall-consolidated": {
@@ -14703,7 +14761,10 @@
   "failure": null,
   "seconds": 1.0,
   "signals": [
-   "8f6a04fc9a7317256b85af8bed4f08f511c10832dafc2ad03ab8d5f53dfd7653"
+   "172a8b2781c5e23220c6d52f7dc16807a81fe5aab981a4c15d322437791e8514",
+   "39c10b5971d9b51daecb9c5ba427dcc19f97e7ba9a7c86133d368e965a2c2082",
+   "8f6a04fc9a7317256b85af8bed4f08f511c10832dafc2ad03ab8d5f53dfd7653",
+   "bb93a53bb2db2c4e555feaf94c37ab19773644dbbf64d634e173ad0b7579988d"
   ]
  },
  "terms-cc-shire-adopted": {
@@ -14929,6 +14990,13 @@
   "failure": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
   "seconds": 0.0,
   "signals": [
+   "3047fe1f70360a4a58746b93449d2a081e3797c6953a949147d346c69501651b",
+   "3bbdf07a9aab657f810c70ecdb3a89aa6cead0bf1bd32da5eaf2ff867d6942e1",
+   "6478f407066e2fded39c4713ad6fd5b5a6fee8088de2e11c060e9b66de238e07",
+   "6bde3160c5e1c181b1a0a0f120e7d11853b40a76a01ca14e4e3fc80f805b617c",
+   "9293077744ff1ea05b10e7879fad4bd78935d354a64977c590efec85522a63f1",
+   "ad786327c92d84f0558b31daa342d8c150dc8633ffdd6efe0b447ebaf955748b",
+   "cf28869e24975d94f9219fe100c7f89ec6b982c9512ca33d9547aa7966a4cd19",
    "d18f5400699eac618692d292b401d140fa4836683511d32a8d60ef962415f7ba"
   ]
  },
@@ -14938,7 +15006,11 @@
   "failure": null,
   "seconds": 0.63,
   "signals": [
-   "c61884c62dc7d9e4343e76b9d7ee174a5bea128adbd87f9acf21a1106d6e3fa8"
+   "ab81fd4d052e1a714085f87e3afb594593ae379510c2d18a22af971037394035",
+   "ac0cd1a930ef27590ce8a922ce63993d1d7161bbd71204b74d894a15d15965c4",
+   "c61884c62dc7d9e4343e76b9d7ee174a5bea128adbd87f9acf21a1106d6e3fa8",
+   "d87379c03f96b7bb09bea742e11778d751a3f74e0c16722136720ad484d26d98",
+   "df183fa72f610d0fd132c9f48f638868644a8fd52f10a35f3a13005a56918407"
   ]
  },
  "terms-eu-eurlex-adopted": {
@@ -14947,6 +15019,15 @@
   "failure": null,
   "seconds": 6.23,
   "signals": [
+   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
+   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
+   "1197db78f434debed205476a888fb6dbaa3f9a4493cb67455a8fc4a94dab8c54",
+   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
+   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
+   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
+   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
+   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
+   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
    "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826"
   ]
  },
@@ -14956,6 +15037,15 @@
   "failure": null,
   "seconds": 0.96,
   "signals": [
+   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
+   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
+   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
+   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
+   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
+   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
+   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
+   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
+   "cd52563f5f67efe936393a512c8606f6ad8cde7903957afd87ec128ffb35e810",
    "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826"
   ]
  },
@@ -14965,7 +15055,16 @@
   "failure": null,
   "seconds": 0.94,
   "signals": [
-   "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826"
+   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
+   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
+   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
+   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
+   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
+   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
+   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
+   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
+   "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826",
+   "e8a6cfc477a98a979c0449b70caa08709606d52cd62ddfdb8b8612d965a1b51e"
   ]
  },
  "terms-fk-legislation-consolidated": {
@@ -14983,6 +15082,7 @@
   "failure": null,
   "seconds": 1.63,
   "signals": [
+   "625684a84319667401170f01b210ed5e0a93f49a54519dc296b4835d9e2d6db0",
    "81e7424d8553d68da4956bb0b131177720fff8a2b397154f006b66e074c327c2"
   ]
  },
@@ -15039,7 +15139,9 @@
   "failure": null,
   "seconds": 2.6,
   "signals": [
-   "403b621bea83d022aa6f9ecaa9ee445885649a3c627f3c9f3450d6bb07a66a32"
+   "403b621bea83d022aa6f9ecaa9ee445885649a3c627f3c9f3450d6bb07a66a32",
+   "6b46d8c106203b3b85bf4beac106c1a9c5b0a3e7f5598793e56c8eeb839ceaf3",
+   "c7c332acf30a068b02ef962783475888afb626851c271db75f558a8663e1bfeb"
   ]
  },
  "terms-gl-nalunaarutit-adopted": {
@@ -15100,7 +15202,8 @@
   "failure": null,
   "seconds": 0.92,
   "signals": [
-   "dfcbe505942b9745ca211709cb712a9f2a7751f2a0622260abada50006ce5bb1"
+   "dfcbe505942b9745ca211709cb712a9f2a7751f2a0622260abada50006ce5bb1",
+   "ebdcc34375206808f787ba7473842b7635c2629b83cfb00d17d69c2c455f602f"
   ]
  },
  "terms-in-sebi-adopted": {
@@ -15182,7 +15285,14 @@
   "failure": null,
   "seconds": 2.52,
   "signals": [
-   "0e399cd36c77c9deb9c58967db85d1547bb96589e41e47514291053e88dbd227"
+   "0e399cd36c77c9deb9c58967db85d1547bb96589e41e47514291053e88dbd227",
+   "2d00b1a4f47d0b11f802efb206d65642ebaea8501d2ba4fb1c0f7ce65352d38e",
+   "32f7fcda743c21d9b133003754095c7f036567d4dac94fe01e8544f1e114aa6b",
+   "37e6f7643f918b11f8df071f2f184a6c03557a3471d388c8b29ad177d8998468",
+   "53f8ebf39fdaf88a8e9eb37cf4aa189f03ce39e506e1890488fcacc6ebaabb21",
+   "63f8b22210e5e57545bc64b418a7387f03f44de4942a558e94621999b13d94e5",
+   "7958cffd6ee8b1ae88af8b823b2f84235a0c7a2406e9f0ff45ddaa3a0e690f8c",
+   "b8c03aad5b90a13c4e752d90947cfb94ba0f02ca44fc685b5e77dedc348db23c"
   ]
  },
  "terms-jm-nepa": {
@@ -15251,7 +15361,8 @@
   "failure": null,
   "seconds": 1.21,
   "signals": [
-   "49cacc01ce6ee2edd50de87ade7a2152580ec4fd59f566b6f4e069e7f6cdf94b"
+   "49cacc01ce6ee2edd50de87ade7a2152580ec4fd59f566b6f4e069e7f6cdf94b",
+   "96824dc3b61b939f63f098c4c255d32832a4735a4091292e984469c4ec23d99f"
   ]
  },
  "terms-lc-npc-adopted": {
@@ -15367,7 +15478,8 @@
   "failure": null,
   "seconds": 0.75,
   "signals": [
-   "9295a2e6beed78e8d2db08f1698fbc418e0fae9e8119156613c3a279388222fe"
+   "9295a2e6beed78e8d2db08f1698fbc418e0fae9e8119156613c3a279388222fe",
+   "b7ad7e3033171d8f43f51a96c9b92c13deeb2a5395d8cd30bba22b00708ea6a3"
   ]
  },
  "terms-mr-msgg-adopted": {
@@ -15445,6 +15557,7 @@
   "failure": null,
   "seconds": 1.2,
   "signals": [
+   "3ec064e28280385c7d953489081959a8703af4fa3939ddd1995f442cbab99d07",
    "baf60b5cecf1967579734fe8371d39bbb34c56a61bb31cf65dd031dda83f96ff"
   ]
  },
@@ -15479,7 +15592,13 @@
   "failure": "HTTP 403",
   "seconds": 1.08,
   "signals": [
-   "300ef619e667e6d25318789e09d3e718c7f8481128643dfd979ab7c4e4a2a798"
+   "19512f892d07f6e9e41c9318a41bf1b0ee1ed8a024f0fc3d7dfafd77cde94f45",
+   "300ef619e667e6d25318789e09d3e718c7f8481128643dfd979ab7c4e4a2a798",
+   "4f6b09444675e7fee65fa5df471c5cc0ed61f4bafe6d9926639413ab47c00d8e",
+   "8602594d6d5306b383ede93ad0853457d5058b600b08152f555731fc7255dca9",
+   "ce020bf206faa98912737a8d66972cad5176d826a10a5e82af2c544c6f62097d",
+   "d0f13bc07197ce7d8504518a6028c145669b265517964d52c598e8e27268725c",
+   "f7646b9adf5c022f27c797f87989e9976f92baef2ada9bc523942bd62231fb25"
   ]
  },
  "terms-pm-jospm-adopted": {
@@ -15522,6 +15641,7 @@
   "failure": null,
   "seconds": 1.22,
   "signals": [
+   "16d4715bd8dc2cee72ead50696d769085b3eee31a5f1c520dc55df24c19df6a0",
    "4372f2af5dbead3ba563aa85a89d283ed05e1d5322a6bf5d62af9023353fd0cb"
   ]
  },
@@ -15540,7 +15660,13 @@
   "failure": null,
   "seconds": 0.29,
   "signals": [
-   "8ff0e64caab8156d3df71690fd64568be43fc88fe81e00572fafb997c00989fb"
+   "481c1a303335c17f40765873d9a9b1cd6b90893a4329ce095265f54bdccf93e8",
+   "534fe24cb66ade6c856b595c96e0ea03fc8192d1a650b42c4bcf6e8780533950",
+   "627b8c478b1181238e22b5e864182000ce345a6ef5a903c673309c238c47d397",
+   "723b4d3fea6f1ce6cf99fc5d5852ad079b9a57515ae0795713cdb18817cf4deb",
+   "8ff0e64caab8156d3df71690fd64568be43fc88fe81e00572fafb997c00989fb",
+   "a39eedd56981389652a96721a3ded887813285ba4783826ef717964882221087",
+   "acf494d3e321b76428bbc9d22df4430c57ccf58c604175ca87d365a9a56e7944"
   ]
  },
  "terms-rw-rse-esg": {
@@ -15607,6 +15733,7 @@
   "failure": null,
   "seconds": 0.37,
   "signals": [
+   "498d57e4d99e5a0e4ca4ba74fd4ac1f1fb3435c2ab8e3e1464188504c0c34ba2",
    "f311c27641fbe9daf677b215067077338b656d75da9198e38f2d597d494e0680"
   ]
  },
@@ -15623,6 +15750,7 @@
   "failure": null,
   "seconds": 0.17,
   "signals": [
+   "244293432a5fc284e7608aec8fe9313dacb3b07bd8dabdb1c1e201cf1f33090f",
    "7776a5a969bfd7fa9cb2b7d58b0de9c57ece2c5ea66f62281e212d069ad47e89"
   ]
  },
@@ -15632,7 +15760,11 @@
   "failure": null,
   "seconds": 0.37,
   "signals": [
-   "25da9dee4ab0d897286f4617f538af9742bed0326713c2aae33e5e44bc94c41a"
+   "0bb6fb06546d8fa1105de55e4df428702e5a641758c482fda81e9837537cc318",
+   "25da9dee4ab0d897286f4617f538af9742bed0326713c2aae33e5e44bc94c41a",
+   "34241ac8c115311d06a5364e14ee70b24df915a84a5c7931723cc03e3c66c9a0",
+   "3644a79bf5c4a276008d63a97ae5866e9407d802084ae6fbfc2ac8b8e8ff7ddd",
+   "b7788386e4ad4e37ad8963355e8772838f3299a7b53ebc25a6c3725a94a2c555"
   ]
  },
  "terms-sk-slovlex-copyright-act": {
@@ -15822,6 +15954,7 @@
   "failure": null,
   "seconds": 14.3,
   "signals": [
+   "62408ef2e288ffdcbd089ff839ad75e3e204b0a06e1e758a197fc803b9cdace3",
    "ac7e7762727a80b23a25cc4ce26a97d189f502e896598aa721e7eb40aa5fb47f"
   ]
  },
@@ -15973,7 +16106,16 @@
   "failure": null,
   "seconds": 2.77,
   "signals": [
-   "861aa9fb82b724b1953ed657c8094a9bef832f682fb8628c9cd0112cd456ef78"
+   "3385400ad0d21e18d5df6b1e1446784350c1aca09a4db19360ddd83c9a09a6d0",
+   "387599f31497bc47a044f04628fca57f03aa6f3d752ca84aa956fb72d14869ad",
+   "3aa208eb1a66202b1fee6c9e44b722e66b2bb1c8c5784de49ebe1381e4817e04",
+   "861aa9fb82b724b1953ed657c8094a9bef832f682fb8628c9cd0112cd456ef78",
+   "9b59465915b420c65055135c8306de70415509b92faa83ab90c4e959d90051ad",
+   "a6bb9631e95f9c00234245f7e23d59430d4edb649d863c54755f2dd43619b4fe",
+   "aa8b917b63dbf90799c8d02502bfe5e0204b87b82f872fc78128ebb8b956c5ac",
+   "bf3c554477cd5edd5d7657fdb77730bfa2443043f70dafb16785d742763e7950",
+   "de766a159390536a38f46e9945ce115ccb2ff90accefb984d3cc8029a82da2ba",
+   "ef29e70576332b775088c21101546d9a437699a512e72f71cbee61fde56bd013"
   ]
  },
  "terms-va-vaticanstate-copyright-law": {
@@ -16207,11 +16349,29 @@
  },
  "tj-law-advertising-2003-adlia-page": {
   "bytes": 115007,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.84,
+  "seconds": 1.57,
   "signals": [
-   "940a663b45a9ed81ace4ae18dcaacab4dd6c2c0d954b0e97384ad1acb0f571c4"
+   "01.08.2003",
+   "02.01.2017",
+   "02.01.2018",
+   "02.01.2025",
+   "06.10.2008",
+   "13.06.2007",
+   "13.11.2024",
+   "16.04.2012",
+   "18.03.2015",
+   "18.07.2017",
+   "19.07.2022",
+   "24.12.2022",
+   "26.12.2011",
+   "27.11.2014",
+   "578d86622f4232fc0616df9ed3549d703d6d9eaadd7815711412accc7ea2754b",
+   "940a663b45a9ed81ace4ae18dcaacab4dd6c2c0d954b0e97384ad1acb0f571c4",
+   "9646cf39858f75484994747a35fc11db14701cb0e2ff52842dba1634268c1f58",
+   "da189f2f8b7c5895257cf39e3dfcc660dcc6293b9b0d60745fba7afe3cb6077a",
+   "fba4dcf6f572a41559209147743591d5e52a95414921b663bcdead4abca6b6c5"
   ]
  },
  "tj-law-consumer-rights-2004-adlia-page": {
@@ -16513,10 +16673,284 @@
  },
  "tt-ema-2000-versions-page": {
   "bytes": 236120,
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.94,
+  "seconds": 3.46,
   "signals": [
+   "270014f048d1c0ea5c4d9eafc1c3927105f79902287544735252dec55e7e9561",
+   "4472a7253d335e182be3af84ceecafd55a6fdf2bab0fb3da4451bd8bd82c5132",
+   "5c327706b3def23c7266b3a76ba07d80295e77e1c68cf3fb4b35a0132b4777b7",
+   "LN. 10/2005",
+   "LN. 10/2008",
+   "LN. 10/2009",
+   "LN. 100/2003",
+   "LN. 100/2007",
+   "LN. 103/2001",
+   "LN. 103/2010",
+   "LN. 104/2001",
+   "LN. 104/2007",
+   "LN. 105 /2003",
+   "LN. 105/2007",
+   "LN. 105/2008",
+   "LN. 107/2002",
+   "LN. 107/2006",
+   "LN. 110/2000",
+   "LN. 110/2007",
+   "LN. 111/2003",
+   "LN. 112/2003",
+   "LN. 112/2004",
+   "LN. 112/2009",
+   "LN. 113/2001",
+   "LN. 114 /2008",
+   "LN. 115/2015",
+   "LN. 118/2005",
+   "LN. 119/2003",
+   "LN. 12/2007",
+   "LN. 12/2010",
+   "LN. 12/2015",
+   "LN. 120/2002",
+   "LN. 120/2003",
+   "LN. 123/2005",
+   "LN. 123/2006",
+   "LN. 124/2005",
+   "LN. 124/2006",
+   "LN. 125/2002",
+   "LN. 125/2005",
+   "LN. 126/2002",
+   "LN. 128/2002",
+   "LN. 129/2004",
+   "LN. 129/2008",
+   "LN. 13/2002",
+   "LN. 13/2015",
+   "LN. 130/2001",
+   "LN. 130/2004",
+   "LN. 130/2008",
+   "LN. 131/2012",
+   "LN. 132/2004",
+   "LN. 133/2005",
+   "LN. 134/2005",
+   "LN. 135/2002",
+   "LN. 135/2008",
+   "LN. 136/2004",
+   "LN. 136/2011",
+   "LN. 139/2009",
+   "LN. 14/2003",
+   "LN. 14/2013",
+   "LN. 140/2002",
+   "LN. 140/2003",
+   "LN. 140/2009",
+   "LN. 141/2009",
+   "LN. 142/2001",
+   "LN. 142/2006",
+   "LN. 143/2007",
+   "LN. 143/2018",
+   "LN. 151/2002",
+   "LN. 151/2006",
+   "LN. 152/2002",
+   "LN. 152/2006",
+   "LN. 152/2007",
+   "LN. 153/2001",
+   "LN. 153/2002",
+   "LN. 153/2006",
+   "LN. 154/2006",
+   "LN. 155/2001",
+   "LN. 155/2007",
+   "LN. 158/2002",
+   "LN. 159/2002",
+   "LN. 160/2013",
+   "LN. 164/2007",
+   "LN. 166/2007",
+   "LN. 167/2006",
+   "LN. 168/2003",
+   "LN. 168/2006",
+   "LN. 168/2007",
+   "LN. 17/2007",
+   "LN. 170/2006",
+   "LN. 171/2006",
+   "LN. 172/2008",
+   "LN. 172/2013",
+   "LN. 173/2006",
+   "LN. 173/2008",
+   "LN. 177/2006",
+   "LN. 179/2022",
+   "LN. 18/2022",
+   "LN. 180/2022",
+   "LN. 182/2008",
+   "LN. 184/2006",
+   "LN. 184/2007",
+   "LN. 184/2008",
+   "LN. 184/2009",
+   "LN. 184/2021",
+   "LN. 185/2008",
+   "LN. 185/2021",
+   "LN. 186/2008",
+   "LN. 186/2010",
+   "LN. 187 /2018",
+   "LN. 194/2006",
+   "LN. 194/2008",
+   "LN. 195/2006",
+   "LN. 196/2006",
+   "LN. 2/2004",
+   "LN. 2/2005",
+   "LN. 200/2015",
+   "LN. 202/2015",
+   "LN. 207/2013",
+   "LN. 208/2005",
+   "LN. 217/2001",
+   "LN. 219/2001",
+   "LN. 219/2014",
+   "LN. 22/2003",
+   "LN. 220/2001",
+   "LN. 221/2001",
+   "LN. 222/2001",
+   "LN. 223/2010",
+   "LN. 225/2015",
+   "LN. 226/2015",
+   "LN. 228/2004",
+   "LN. 228/2007",
+   "LN. 229/2007",
+   "LN. 23/2002",
+   "LN. 23/2015",
+   "LN. 230/2001",
+   "LN. 235/2011",
+   "LN. 236/2007",
+   "LN. 236/2011",
+   "LN. 243/2010",
+   "LN. 248/2004",
+   "LN. 253/2007",
+   "LN. 258/2005",
+   "LN. 258/2006",
+   "LN. 258/2007",
+   "LN. 26/2010",
+   "LN. 263/2007",
+   "LN. 263/2010",
+   "LN. 268/2005",
+   "LN. 27/2007",
+   "LN. 274/2006",
+   "LN. 274/2014",
+   "LN. 276/2005",
+   "LN. 276/2006",
+   "LN. 279/2005",
+   "LN. 28 /2007",
+   "LN. 282/2004",
+   "LN. 284/2014",
+   "LN. 285/2014",
+   "LN. 287/2010",
+   "LN. 29/2003",
+   "LN. 3/2004",
+   "LN. 3/2005",
+   "LN. 3/2009",
+   "LN. 304/2006",
+   "LN. 306/2000",
+   "LN. 307/2000",
+   "LN. 308/2000",
+   "LN. 308/2004",
+   "LN. 309/2004",
+   "LN. 31/2013",
+   "LN. 311/2019",
+   "LN. 312/2019",
+   "LN. 316/2012",
+   "LN. 318A/2004",
+   "LN. 32/2003",
+   "LN. 32/2013",
+   "LN. 323/2004",
+   "LN. 325/2006",
+   "LN. 326/2004",
+   "LN. 330/2006",
+   "LN. 333/2004",
+   "LN. 334/2006",
+   "LN. 335/2006",
+   "LN. 35/2001",
+   "LN. 35/2013",
+   "LN. 355/2014",
+   "LN. 36/2001",
+   "LN. 36/2006",
+   "LN. 36/2012",
+   "LN. 37/2001",
+   "LN. 37/2004",
+   "LN. 4/2005",
+   "LN. 4/2007",
+   "LN. 41/2004",
+   "LN. 41/2013",
+   "LN. 42/2004",
+   "LN. 42/2005",
+   "LN. 45/2008",
+   "LN. 49/2005",
+   "LN. 50/2013",
+   "LN. 51/2001",
+   "LN. 51/2005",
+   "LN. 51/2008",
+   "LN. 52/2005",
+   "LN. 52/2012",
+   "LN. 54/2003",
+   "LN. 55/2002",
+   "LN. 55/2005",
+   "LN. 55/2015",
+   "LN. 56/2002",
+   "LN. 56/2006",
+   "LN. 57/2002",
+   "LN. 57/2005",
+   "LN. 57/2008",
+   "LN. 58/2008",
+   "LN. 59/2008",
+   "LN. 60/2001",
+   "LN. 60/2003",
+   "LN. 61/2001",
+   "LN. 61/2007",
+   "LN. 61/2008",
+   "LN. 62/2004",
+   "LN. 63/2001",
+   "LN. 63/2008",
+   "LN. 64/2001",
+   "LN. 65/2001",
+   "LN. 65/2003",
+   "LN. 67/2003",
+   "LN. 67/2016",
+   "LN. 7/2006",
+   "LN. 71/2006",
+   "LN. 75/2001",
+   "LN. 76/2002",
+   "LN. 77/2002",
+   "LN. 79/2004",
+   "LN. 79/2013",
+   "LN. 8/2003",
+   "LN. 8/2005",
+   "LN. 8/2006",
+   "LN. 8/2007",
+   "LN. 84/2002",
+   "LN. 84/2007",
+   "LN. 85/2002",
+   "LN. 85/2007",
+   "LN. 86/2002",
+   "LN. 86/2005",
+   "LN. 86/2013",
+   "LN. 87/2013",
+   "LN. 88/2001",
+   "LN. 88/2014",
+   "LN. 89/2001",
+   "LN. 89/2014",
+   "LN. 9/2004",
+   "LN. 9/2005",
+   "LN. 90/2001",
+   "LN. 90/2007",
+   "LN. 90/2014",
+   "LN. 91/2001",
+   "LN. 91/2014",
+   "LN. 92/2002",
+   "LN. 92/2014",
+   "LN. 93/2001",
+   "LN. 93/2007",
+   "LN. 93/2010",
+   "LN. 93/2013",
+   "LN. 94/2007",
+   "a934d040c3e26e6c6ddda0b280119260f5c36cc798fab298db06b106476a3e26",
+   "as at December 31st 2004",
+   "as at December 31st 2007",
+   "as at December 31st 2009",
+   "as at December 31st 2012",
+   "as at December 31st 2014",
+   "as at December 31st 2015",
+   "as at December 31st 2016",
    "ee5090db7af446e0166601e74149bb4df9db10619408184849718bcafca8405e"
   ]
  },
@@ -17623,7 +18057,12 @@
   "failure": null,
   "seconds": 2.77,
   "signals": [
-   "9e825efdc5b13bf1287d641cda07c73c295e8f6dfed44c3c9888c668be599987"
+   "3af8583191d53f1705b753ebb480709cbd3b3f92001e6a60a3cff56b83f4021d",
+   "3f9bb20b215c42c302996cbe7db537c7e0da25e0b5ac717762d0e9010e9c022b",
+   "43521aac7b50b2ec8442c45e9fef7fced78e1d522f8ea6030c3df588d84cb0a3",
+   "6838b79dda4abe907a2658afebc9662bc81e9b4cdf333cbb95b03e537c6b53a1",
+   "9e825efdc5b13bf1287d641cda07c73c295e8f6dfed44c3c9888c668be599987",
+   "fec955a52cbd78ec87778c9ce81186f53c7853b8339130da589ad1c00d4baa98"
   ]
  },
  "za-companies-act-71-2008-govza-page": {
