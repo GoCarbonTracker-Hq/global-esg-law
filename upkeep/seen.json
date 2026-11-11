@@ -15014,57 +15014,30 @@
   ]
  },
  "terms-eu-eurlex-adopted": {
-  "bytes": 8846,
-  "checked_on": "2026-11-10",
+  "bytes": 135307,
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 6.23,
+  "seconds": 0.54,
   "signals": [
-   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
-   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
-   "1197db78f434debed205476a888fb6dbaa3f9a4493cb67455a8fc4a94dab8c54",
-   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
-   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
-   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
-   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
-   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
-   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
-   "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826"
+   "dee4f221ac21143242e2496bdeff7ac4c733fee8ad93e04b7a5fd90746de61ab"
   ]
  },
  "terms-eu-eurlex-consolidated": {
-  "bytes": 8846,
-  "checked_on": "2026-11-10",
+  "bytes": 135306,
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.96,
+  "seconds": 0.42,
   "signals": [
-   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
-   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
-   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
-   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
-   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
-   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
-   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
-   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
-   "cd52563f5f67efe936393a512c8606f6ad8cde7903957afd87ec128ffb35e810",
-   "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826"
+   "dee4f221ac21143242e2496bdeff7ac4c733fee8ad93e04b7a5fd90746de61ab"
   ]
  },
  "terms-eu-eurlex-translation": {
-  "bytes": 8846,
-  "checked_on": "2026-11-10",
+  "bytes": 135307,
+  "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.94,
+  "seconds": 0.57,
   "signals": [
-   "0abc00d95715941f92840445d49f36144fb88198c9190355efd2f17688637603",
-   "0eadf06a00c31d3e5166c1c0813aa3928ee395fb5255cdeb4e52e38e06c67b14",
-   "2e980cb526f407167eb281264cfaf0a36e0e719a91341d2e0ab07d500266365c",
-   "37b3f23146b858f9da20b7667c3cd018262533cf8fd3102b05a64e06566bf2b7",
-   "4746a20f0a01a7d4cdfb01fd90cbe9c65428baafe41c23810c2a5768b232e0b6",
-   "7c43b95a15c16995f8b30531cbfa973a9178d57a84823fc8a771c1fed2e61216",
-   "85656f6c89b5efe172e506f548526da5c3300da7a9ad294ed79edb62ae6a138a",
-   "b15a21e4c4abb28d6b0e033ed1ab9724a7951d53afbe6d907951b40f9fb425e1",
-   "d01020deb2c7f0db1cb9fa9d2c920fcb6fc65ce56bc70492dfe4e6c922b3d826",
-   "e8a6cfc477a98a979c0449b70caa08709606d52cd62ddfdb8b8612d965a1b51e"
+   "dee4f221ac21143242e2496bdeff7ac4c733fee8ad93e04b7a5fd90746de61ab"
   ]
  },
  "terms-fk-legislation-consolidated": {
@@ -15384,11 +15357,13 @@
   ]
  },
  "terms-ls-cbl-adopted": {
-  "bytes": 0,
-  "checked_on": "2026-11-10",
-  "failure": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.centralbank.org.ls'. (_ssl.c:1147)>",
-  "seconds": 3.52,
-  "signals": null
+  "bytes": 785825,
+  "checked_on": "2026-11-11",
+  "failure": null,
+  "seconds": 1.33,
+  "signals": [
+   "a489da2b9e3246f42767d35b2aed548cfcccbd462f7d1be5d350fb8464866693"
+  ]
  },
  "terms-ls-doe-adopted": {
   "bytes": 28675,
