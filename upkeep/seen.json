@@ -15310,13 +15310,11 @@
   ]
  },
  "terms-ky-cima-adopted": {
-  "bytes": 198378,
-  "checked_on": "2026-11-11",
-  "failure": null,
-  "seconds": 0.68,
-  "signals": [
-   "e376e4f26055670160931aaa5cf4ad3645b250de5a119493a78051d921c64214"
-  ]
+  "bytes": 0,
+  "checked_on": "2026-11-10",
+  "failure": "HTTP 404",
+  "seconds": 0.17,
+  "signals": null
  },
  "terms-ky-lrc-consolidated": {
   "bytes": 127987,

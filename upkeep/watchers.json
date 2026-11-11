@@ -16765,12 +16765,13 @@
   "source_id": "KY-CIMA-ADOPTED",
   "iso2": "KY",
   "instrument": "*",
-  "kind": "text_hash",
+  "kind": "page_hash",
   "tier": "regulator_page",
-  "url": "https://www.cima.ky/",
+  "url": "https://www.cima.ky/general-disclaimer",
   "change": "terms_changed",
   "params": {
-   "note": "Moved 2026-11-11 from https://www.cima.ky/general-disclaimer, which answers HTTP 404, to the home page that carries the footer links (the licence row fingerprints the same page); a General Disclaimer link that changes or goes moves the signal."
+   "second_route": "https://www.cima.ky/ (footer line with the copyright notice); the General Disclaimer link answers HTTP 404 today, so a change from 404 to a page is the signal",
+   "note": "Stays failing (2026-11-11, Varun): the General Disclaimer address answers HTTP 404 and no replacement terms page was found; the home page was tried as a route and dropped because it is not a terms text. Manual route: open https://www.cima.ky/ and look for a disclaimer or terms link in the footer."
   }
  },
  {

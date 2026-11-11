@@ -18,7 +18,7 @@ Of the 225 `client_change` watchers, 65 failed with the old client when run live
 
 The first pass after the change failed 11: the 8 above plus three one-off network failures (dof.gob.mx reset, kjs.mof.gov.cn, riigiteataja.ee) that read on the immediate rerun. A threaded run from one laptop is noisy; the table uses the rerun.
 
-All 365 watchers: 227 read now (217 of the 225, 5 `keep_failing` watchers the 403 retry recovered, 5 whose URL moved), 138 still fail. Nothing was removed and nothing is `retire`.
+All 365 watchers: 226 read now (217 of the 225, 5 `keep_failing` watchers the 403 retry recovered, 4 whose URL moved), 139 still fail. Nothing was removed and nothing is `retire`.
 
 ## Diagnosis per class
 
@@ -53,12 +53,12 @@ Block-page check: for 21 hosts across certificate, 403, truncated, dns and other
 |---|---|
 | `terms-ls-cbl-adopted` | URL `www.centralbank.org.ls` (certificate does not match the name) to `https://centralbank.org.ls/`, reseeded. No register `official_source_url` pointed at the old address; the `sources.json` licence row keeps its URLs. |
 | `terms-eu-eurlex-adopted`, `-consolidated`, `-translation` | web.archive.org snapshot (HTTP 202, empty body) to the live `https://eur-lex.europa.eu/content/legal-notice/legal-notice.html`, kind `page_hash` to `text_hash` (the live page hash moves on every fetch, the text hash was stable on two fetches), reseeded. |
-| `terms-ky-cima-adopted` | `/general-disclaimer` (404) to `https://www.cima.ky/`, `text_hash`, the page the licence row fingerprints; a General Disclaimer link appearing or changing moves the signal. Reseeded. |
+| `terms-ky-cima-adopted` | Stays failing (Varun, 2026-11-11). The move to the home page `https://www.cima.ky/` was taken back: the watcher read again but no longer watched a terms text. URL and kind are as before (`/general-disclaimer`, 404), with a note. |
 | `ve-organic-environment-law-pdf-head`, `ve-penal-environment-law-pdf-head` | Stay failing. The official list (`/leyes/vigentes`) loads its links by script; the new PDF addresses need a browser. No second-route code was needed for any watcher: no general mechanism was built. |
 
-`params.note` was added to the 138 watchers that stay failing (133 `keep_failing` minus 5 that now read, plus 8 unrecovered `client_change`, plus the 2 Venezuela PDFs). The 5 `keep_failing` watchers that now read with the 403 retry (`ph-bsp-circular-1128-head`, `se-sfs-2024-347-sfs-head`, `terms-se-sfs-adopted`, `th-cmsb-tor-jor-55-2563-sec-page`, `za-jse-listings-8-63-pdf-head`) carry no note and were not reseeded.
+`params.note` was added to the 139 watchers that stay failing (133 `keep_failing` minus 5 that now read, plus 8 unrecovered `client_change`, plus the 2 Venezuela PDFs, plus `terms-ky-cima-adopted`). The 5 `keep_failing` watchers that now read with the 403 retry (`ph-bsp-circular-1128-head`, `se-sfs-2024-347-sfs-head`, `terms-se-sfs-adopted`, `th-cmsb-tor-jor-55-2563-sec-page`, `za-jse-listings-8-63-pdf-head`) carry no note and were not reseeded.
 
-## Still failing, by reason (138)
+## Still failing, by reason (139, with `terms-ky-cima-adopted`: HTTP 404, put back after the table below was written)
 
 | Reason | Watchers |
 |---|---|
