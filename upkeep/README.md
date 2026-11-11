@@ -11,6 +11,14 @@ python3 tools/watch.py --reseed <watcher id>
 
 Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing. `--reseed <watcher id>` fetches that one watcher once, stores its current signal in `seen.json` and appends no queue row; use it in the same commit as any change to a watcher's `kind` or `params`, whose old hash would otherwise raise a `new_version` row. A failed fetch leaves `seen.json` as it was and exits 1. A truncated read (`IncompleteRead`) is retried once.
 
+The client is `default_fetch` in `tools/watch.py`, stdlib only. It sends the bare agent `global-esg-law-watch/1` (no URL in it: `lexpol.cloud.pf` drops the connection for an agent that carries one) and three more things happen only after a failure, so a watcher that reads today sends the same request as before:
+
+- HTTP 403: one second request with a browser user agent and `Accept` / `Accept-Language` headers. A host that still answers 403 stays failed.
+- Truncated read: the one retry omits `Connection: close`, which `lexpol.cloud.pf` answers with a short body.
+- Certificate failure (`SSLCertVerificationError`): the same request through the system `curl`, with verification on (never `-k`). Some servers send only their own certificate and leave out the intermediate; Python's `ssl` does not fetch it, macOS `curl` does. If `curl` also fails, the original certificate error is the failure text. On a Linux runner `curl` cannot fetch it either, so those watchers fail there; run them from the laptop.
+
+Measured counts and the watchers that still fail are in `upkeep/failing-fix-2026-11.md`.
+
 A contributor's run ends in a pull request from a fork, never a push to main.
 
 ## watchers.json
