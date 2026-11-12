@@ -2,6 +2,14 @@
 
 For people who change the corpus or the tools. Visitors should start with [`README.md`](README.md). Source watching and updates are in [`upkeep/README.md`](upkeep/README.md).
 
+## What a record looks like
+
+Each file under `records/<ISO2>/<instrument>/` is one text version with these fields: `source_id`, `in_force`, `kind` (`adopted`, `consolidated` or `translation`), `language`, `text`, and usually `message`, `fetched_url` and `fetched_sha256`. A repeal record has empty text and `repealed: true`. Every official language of a version is stored, plus an English version where the source publishes one.
+
+On the `history` branch each record is one commit. The commit carries trailers that name its origin: `Source-url`, `Licence` and `Language`, plus `Instrument`, `In-force`, `Kind`, `Jurisdiction` and `Instrument-id`.
+
+Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored uncorrected, with the URL and sha256 of the original PDF in `fetched_url` and `fetched_sha256`. Arabic OCR in particular misreads digits, so check dates and article numbers against the PDF.
+
 ## Rebuild the history
 
 ```
