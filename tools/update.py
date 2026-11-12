@@ -106,7 +106,7 @@ LANGUAGES = {sid: "en" for sid in RECIPES}
 def default_fetch(url, headers):
     """Return (status, body_bytes). Gzip is undone, so the body is the file as the server has it."""
     request = urllib.request.Request(url, headers={
-        "User-Agent": "global-esg-law-update/1 (+https://github.com/mokagtc/global-esg-law)",
+        "User-Agent": "global-esg-law-update/1 (+https://github.com/GoCarbonTracker-Hq/global-esg-law)",
         "Accept-Encoding": "gzip", **headers})
     try:
         with urllib.request.urlopen(request, timeout=TIMEOUT) as response:

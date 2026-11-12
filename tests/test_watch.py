@@ -196,7 +196,7 @@ def test_default_fetch_user_agent_is_bare(monkeypatch):
     watch.default_fetch("https://example.org/")
     agent = sent[0].get_header("User-agent")
     assert agent == watch.USER_AGENT == "global-esg-law-watch/1"
-    assert not any(part in agent for part in ("http", "/mokagtc", "("))
+    assert not any(part in agent for part in ("http", "/GoCarbonTracker-Hq", "("))
 
 
 TEXT_WATCHER = {**WATCHERS[4], "id": "w-text", "kind": "text_hash"}
