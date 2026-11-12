@@ -1,0 +1,32 @@
+name: Wrong or missing law
+description: Report a text that is wrong, out of date or missing, or question a source's licence verdict.
+title: "<place>: <instrument>"
+body:
+  - type: input
+    id: place
+    attributes:
+      label: Place
+      description: The country or territory, with its two-letter ISO code if you know it (for example GB, or EU).
+    validations:
+      required: true
+  - type: input
+    id: instrument
+    attributes:
+      label: Instrument
+      description: The act, regulation, rule or guidance document, by its official title or its id in this repository.
+    validations:
+      required: true
+  - type: input
+    id: official_url
+    attributes:
+      label: Official URL
+      description: The page on the official source that shows the correct text or the licence terms.
+    validations:
+      required: true
+  - type: textarea
+    id: difference
+    attributes:
+      label: What the record shows against what the source shows
+      description: Quote both where you can, and give the date the wording applies from.
+    validations:
+      required: true
