@@ -3542,11 +3542,11 @@
  },
  "cy-consumer-protection-amendment-3-2026-gazette-page": {
   "bytes": 14621,
-  "checked_on": "2026-11-11",
+  "checked_on": "2026-11-12",
   "failure": null,
-  "seconds": 0.29,
+  "seconds": 0.27,
   "signals": [
-   "d643fc8ebd728bd665b34b6daba9017f731892ca9a48317c028f3c946ce61550"
+   "97fc023298448c54964ff15657e35d44c74816166c7b3634e5a2389675bbcb37"
   ]
  },
  "cy-consumer-protection-law-2021-gazette-annex-list": {
@@ -8293,21 +8293,21 @@
   ]
  },
  "kp-air-pollution-control-act-naenara-page": {
-  "bytes": 0,
-  "checked_on": "2026-11-11",
-  "failure": "URLError: <urlopen error timed out>",
-  "seconds": 30.01,
+  "bytes": 25008,
+  "checked_on": "2026-11-12",
+  "failure": null,
+  "seconds": 0.93,
   "signals": [
-   "4bf241effc8d8eca9a25fdca84ad6153b454f3728c76c1e37be7f214ace69245"
+   "601ff677082413073dbe3f7c8aefe90304f0cc8b05bfeda1dce95467c1a5f00c"
   ]
  },
  "kp-environmental-protection-law-naenara-page": {
-  "bytes": 0,
-  "checked_on": "2026-11-11",
-  "failure": "URLError: <urlopen error timed out>",
-  "seconds": 34.62,
+  "bytes": 25105,
+  "checked_on": "2026-11-12",
+  "failure": null,
+  "seconds": 0.85,
   "signals": [
-   "29755cb5d64643fcb9c3ef4e3a36f271b1bd2fd9e216b1ae95adf304cd2e46cb"
+   "601ff677082413073dbe3f7c8aefe90304f0cc8b05bfeda1dce95467c1a5f00c"
   ]
  },
  "kr-carbon-neutrality-act-decree-lawgokr-history": {

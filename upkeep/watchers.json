@@ -6592,10 +6592,14 @@
   "source_id": "CY-GPO-ADOPTED",
   "iso2": "CY",
   "instrument": "cy-consumer-protection-amendment-3-2026",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.mof.gov.cy/mof/gpo/gazette.nsf/All/3ECEBA072E9DDD4DC2258E370035196F?OpenDocument",
-  "params": {}
+  "params": {
+   "cut": [
+    "(?<=\\d)[.,](?=\\d+Kb\\))"
+   ]
+  }
  },
  {
   "id": "terms-cy-gpo-adopted",
@@ -12242,12 +12246,15 @@
   "source_id": "KP-NAENARA-ADOPTED",
   "iso2": "KP",
   "instrument": "kp-environmental-protection-law",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "http://www.naenara.com.kp",
   "params": {
    "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)",
-   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
+   "note": "Manual check (2026-11-12): this watcher fetches the Naenara home page, which does not carry the law text; no naenara page per law was found (politics, society, trade and history sections checked 2026-11-12), so an edit to the law cannot show here. params.cut removes the leader news, the rotating quotation and the dated news lists, so the signal moves only when the page's fixed text or links change (a new section, a moved site). Check the law by hand: see params.second_route. The host often times out or fails DNS from this laptop (2026-11-03 to 2026-11-12).",
+   "cut": [
+    "(?<=\ud601\uba85\ud65c\ub3d9\uc18c\uc2dd ).*?(?=\u300a\ub0b4\ub098\ub77c\u300b\ud648\ud398\uc9c0\ub294)"
+   ]
   }
  },
  {
@@ -12255,12 +12262,15 @@
   "source_id": "KP-NAENARA-ADOPTED",
   "iso2": "KP",
   "instrument": "kp-air-pollution-control-act",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "http://www.naenara.com.kp",
   "params": {
    "second_route": "http://www.naenara.com.kp (browser; answered 503 to curl and to headless Chromium from the cloud address on 2026-11-03)",
-   "note": "Stays failing (2026-11-11): re-checked 2026-11-11: fails again, keep_failing: connect or read timed out after 40 s on both attempts, no HTTP status; host unreachable from this laptop right now. Earlier note: Connection times out from this laptop on both tries although DNS resolves; listed, not fought; read manually from another network. Manual route: see params.second_route."
+   "note": "Manual check (2026-11-12): this watcher fetches the Naenara home page, which does not carry the law text; no naenara page per law was found (politics, society, trade and history sections checked 2026-11-12), so an edit to the law cannot show here. params.cut removes the leader news, the rotating quotation and the dated news lists, so the signal moves only when the page's fixed text or links change (a new section, a moved site). Check the law by hand: see params.second_route. The host often times out or fails DNS from this laptop (2026-11-03 to 2026-11-12).",
+   "cut": [
+    "(?<=\ud601\uba85\ud65c\ub3d9\uc18c\uc2dd ).*?(?=\u300a\ub0b4\ub098\ub77c\u300b\ud648\ud398\uc9c0\ub294)"
+   ]
   }
  },
  {
