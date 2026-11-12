@@ -14304,12 +14304,12 @@
   ]
  },
  "terms-cw-gobiernu-adopted": {
-  "bytes": 221325,
-  "checked_on": "2026-11-11",
+  "bytes": 221271,
+  "checked_on": "2026-11-12",
   "failure": null,
-  "seconds": 0.34,
+  "seconds": 3.24,
   "signals": [
-   "92da0202ab0b23c637635d3b038b6f61a4f861ac421187bd3b41c0e03225cf21"
+   "8dcd4851b572ab88090267a53d372a023e91a4ae3ed81241a1b9c5ed6ee2e3d5"
   ]
  },
  "terms-cx-frl-adopted": {
@@ -14480,12 +14480,12 @@
   "signals": null
  },
  "terms-gg-gov-adopted": {
-  "bytes": 76593,
-  "checked_on": "2026-11-11",
+  "bytes": 76485,
+  "checked_on": "2026-11-12",
   "failure": null,
-  "seconds": 0.63,
+  "seconds": 1.73,
   "signals": [
-   "31fe9f674bcd90f96fa10a162af9e7b1202bc9893927595f73655018a1fe4f1b"
+   "2f01f5b37942615c30efb0c5c61dab00ba5d6e98920850ac14cb9eec5865bf8b"
   ]
  },
  "terms-gl-nalunaarutit-adopted": {
@@ -14616,12 +14616,12 @@
   ]
  },
  "terms-jm-boj": {
-  "bytes": 324773,
-  "checked_on": "2026-11-11",
+  "bytes": 324721,
+  "checked_on": "2026-11-12",
   "failure": null,
-  "seconds": 2.32,
+  "seconds": 2.97,
   "signals": [
-   "30f783fd6dfc2ec6f72cbcd6ba2259234d7cfde90bd9509bf7e551d8b2f7c8ab"
+   "c33e25b30fb293494a64df47b6b9cf26aa0367116419fc8b36f99731a301ef3b"
   ]
  },
  "terms-jm-nepa": {
@@ -17048,10 +17048,10 @@
   ]
  },
  "za-companies-act-71-2008-govza-page": {
-  "bytes": 43535,
-  "checked_on": "2026-11-11",
+  "bytes": 44405,
+  "checked_on": "2026-11-12",
   "failure": null,
-  "seconds": 0.94,
+  "seconds": 1.9,
   "signals": [
    "04ec8527bd9b8429ba9264b1d4ad8f06fde6bf26e8481ef67d5a6936549fae14"
   ]
