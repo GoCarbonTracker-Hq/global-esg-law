@@ -65,9 +65,19 @@ Proof:
 
 The terms-cw-gobiernu-adopted 2026-11-11 row, reopened earlier on 2026-11-12, is rejected under N5 (source verdict `pass`). The 11-11 terms rows on terms-jm-boj (`permission requested`) and terms-gg-gov-adopted (`fail`) stay open.
 
+## N5 cuts, cy and kp (2026-11-12)
+
+The 3 remaining N5 watchers moved from `page_hash` to `text_hash` with a `params.cut`, and were reseeded:
+
+- `cy-consumer-protection-amendment-3-2026-gazette-page`: the cut removes the decimal mark in the file size ("1349.61Kb" or "1349,61Kb"), so the digits still count and a new file size still moves the signal. 33 of 33 links and all 160 words stay in the hash.
+- `kp-air-pollution-control-act-naenara-page` and `kp-environmental-protection-law-naenara-page` both fetch the Naenara home page, which does not carry either law. No Naenara page names either law (politics, society, trade and history sections checked). Both are now manual checks, as their `params.note` says. The cut removes the leader news, the rotating quotation and the dated news lists (199 of 308 words), so the signal moves only on the page's fixed text or its 75 links. The news dates were the same on 2026-11-11 and 2026-11-12 05:00, so a news change has not been seen yet; the cut is a region, not the headlines.
+
+Proof: the saved 2026-11-11 bodies and 2026-11-12 bodies give one hash per watcher after the cut, equal to the reseeded signal. Two live reads 300 s apart were the same on all 3.
+
+Rejected under N5, reviewer moka: 14 new_version rows (cy 6, which are exactly the two saved 11-11 bodies; kp 4 each, home page only). The 6 kp `watch_failed` rows stay open.
+
 ## Not reached
 
-- The 3 other N5 watchers (cy-consumer-protection-amendment-3-2026-gazette-page, kp-air-pollution-control-act-naenara-page, kp-environmental-protection-law-naenara-page): N5 is now approved, no cut made yet.
 - The 71 watchers with a stable page_hash and their open rows.
 - README line, tests (no tools/ code was changed).
 
