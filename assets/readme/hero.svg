@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">global-esg-law</title>
+  <desc id="hero-desc">Ask what was in force in a place on any date. The example shows the three stored versions of the EU Corporate Sustainability Reporting Directive as dated commits; a lookup for 2025-06-01 returns the text in force since 2025-04-17.</desc>
+
+  <rect width="1200" height="420" rx="20" fill="#F7F4EC"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="418.5" rx="20" fill="none" stroke="#14161A" stroke-width="1.5"/>
+
+  <g id="title-block" transform="translate(64 0)">
+    <text x="0" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2" fill="#1F6F4A">ESG-RELEVANT LAW · DATED GIT HISTORY</text>
+    <text x="-3" y="182" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-weight="700" fill="#14161A">global-esg-law</text>
+    <rect x="0" y="210" width="96" height="4" fill="#14161A"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" fill="#14161A">
+      <tspan x="0" y="266">Ask what was in force in a place</tspan>
+      <tspan x="0" y="304">on any date.</tspan>
+    </text>
+    <text font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#5B616B">
+      <tspan x="0" y="352">one commit per text version,</tspan>
+      <tspan x="0" y="376">dated to the day it came into force</tspan>
+    </text>
+  </g>
+
+  <g id="project-proof" transform="translate(664 44)">
+    <clipPath id="card"><rect width="472" height="332" rx="12"/></clipPath>
+    <g clip-path="url(#card)">
+      <rect width="472" height="332" fill="#FFFFFF"/>
+      <rect y="284" width="472" height="48" fill="#14161A"/>
+    </g>
+    <rect width="472" height="332" rx="12" fill="none" stroke="#14161A" stroke-width="1.5"/>
+
+    <text x="24" y="42" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#5B616B">EU · eu-csrd-2022-2464</text>
+    <text x="24" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#14161A">Directive (EU) 2022/2464 (CSRD)</text>
+    <line x1="24" y1="96" x2="448" y2="96" stroke="#14161A" stroke-width="1"/>
+
+    <!-- version rail: three stored versions, by in-force date -->
+    <line x1="44" y1="130" x2="44" y2="258" stroke="#14161A" stroke-width="2"/>
+    <rect x="62" y="163" width="386" height="38" rx="6" fill="#E3F0E8"/>
+
+    <circle cx="44" cy="130" r="7" fill="#FFFFFF" stroke="#14161A" stroke-width="2"/>
+    <text x="74" y="137" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#14161A">2023-01-05  adopted</text>
+
+    <circle cx="44" cy="182" r="9" fill="#1F6F4A"/>
+    <text x="74" y="189" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#1F6F4A">2025-04-17  consolidated</text>
+
+    <line x1="20" y1="222" x2="448" y2="222" stroke="#1F6F4A" stroke-width="2" stroke-dasharray="6 6"/>
+    <rect x="232" y="209" width="216" height="26" fill="#FFFFFF"/>
+    <text x="448" y="228" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#1F6F4A">asked: 2025-06-01</text>
+
+    <circle cx="44" cy="258" r="7" fill="#FFFFFF" stroke="#8A8F98" stroke-width="2"/>
+    <text x="74" y="265" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#8A8F98">2026-03-18  consolidated</text>
+
+    <text x="24" y="315" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#F7F4EC">$ law.py EU 2025-06-01</text>
+  </g>
+</svg>

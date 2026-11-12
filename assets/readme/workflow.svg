@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-labelledby="wf-title wf-desc">
+  <title id="wf-title">From official source to a dated lookup</title>
+  <desc id="wf-desc">Five steps: an official source is found; its licence is checked, and text is stored only on a pass verdict, otherwise only a link is kept; each text version becomes one record file; each record becomes one commit dated to the day it came into force; a lookup by place and date reads that history.</desc>
+
+  <rect width="1200" height="250" rx="20" fill="#F7F4EC"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="248.5" rx="20" fill="none" stroke="#14161A" stroke-width="1.5"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g id="step-1" transform="translate(48 44)">
+      <rect width="196" height="162" rx="10" fill="#FFFFFF" stroke="#14161A" stroke-width="1.5"/>
+      <text x="20" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#5B616B">01</text>
+      <text x="20" y="76" font-size="23" font-weight="700" fill="#14161A">Official source</text>
+      <text font-size="18" fill="#5B616B"><tspan x="20" y="112">official gazette</tspan><tspan x="20" y="136">or law portal</tspan></text>
+    </g>
+    <g id="step-2" transform="translate(275 44)">
+      <rect width="196" height="162" rx="10" fill="#E3F0E8" stroke="#1F6F4A" stroke-width="2.5"/>
+      <text x="20" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#1F6F4A">02</text>
+      <text x="20" y="76" font-size="23" font-weight="700" fill="#14161A">Licence check</text>
+      <text font-size="18" fill="#14161A"><tspan x="20" y="112">pass: text stored</tspan><tspan x="20" y="136">else: link only</tspan></text>
+    </g>
+    <g id="step-3" transform="translate(502 44)">
+      <rect width="196" height="162" rx="10" fill="#FFFFFF" stroke="#14161A" stroke-width="1.5"/>
+      <text x="20" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#5B616B">03</text>
+      <text x="20" y="76" font-size="23" font-weight="700" fill="#14161A">Record file</text>
+      <text font-size="18" fill="#5B616B"><tspan x="20" y="112">one text version</tspan><tspan x="20" y="136">per file</tspan></text>
+    </g>
+    <g id="step-4" transform="translate(729 44)">
+      <rect width="196" height="162" rx="10" fill="#FFFFFF" stroke="#14161A" stroke-width="1.5"/>
+      <text x="20" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#5B616B">04</text>
+      <text x="20" y="76" font-size="23" font-weight="700" fill="#14161A">Dated commit</text>
+      <text font-size="18" fill="#5B616B"><tspan x="20" y="112">dated to the day</tspan><tspan x="20" y="136">it came into force</tspan></text>
+    </g>
+    <g id="step-5" transform="translate(956 44)">
+      <rect width="196" height="162" rx="10" fill="#14161A"/>
+      <text x="20" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#B9BEC7">05</text>
+      <text x="20" y="76" font-size="23" font-weight="700" fill="#F7F4EC">Lookup</text>
+      <text font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#F7F4EC"><tspan x="20" y="112">law.py GB</tspan><tspan x="20" y="136">2023-01-01</tspan></text>
+    </g>
+    <g id="arrows" stroke="#14161A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M249 125h20m-6-6 6 6-6 6"/>
+      <path d="M476 125h20m-6-6 6 6-6 6"/>
+      <path d="M703 125h20m-6-6 6 6-6 6"/>
+      <path d="M930 125h20m-6-6 6 6-6 6"/>
+    </g>
+  </g>
+</svg>

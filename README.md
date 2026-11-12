@@ -1,4 +1,12 @@
-# global-esg-law
+<p align="center">
+  <img src="assets/readme/hero.svg" width="100%" alt="global-esg-law: ask what was in force in a place on any date. The example shows the three stored versions of the EU CSRD as dated commits; a lookup for 2025-06-01 returns the text in force since 2025-04-17.">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/tools%20and%20docs-CC0%201.0-1F6F4A" alt="Tools and docs are CC0 1.0"></a>
+  <img src="https://img.shields.io/badge/python-3.11%2B-14161A" alt="Python 3.11 or later">
+  <a href="#known-limits"><img src="https://img.shields.io/badge/not-legal%20advice-8A8F98" alt="Not legal advice"></a>
+</p>
 
 **Read ESG-relevant law as dated git history, and ask what was in force in a place on any date.**
 
@@ -9,6 +17,14 @@ Text is stored for 140 places and for 831 of the 1378 instruments looked for (as
 This is not legal advice. The repository is a copy, the official source named in each commit is the authority, and nothing here says whether any company complies with any law.
 
 Maintained by [GoCarbonTracker](https://gocarbontracker.net). Inspired by [lexifina/global-law](https://github.com/lexifina/global-law), which keeps the law of many countries as one git history. This repository applies the same idea to ESG-relevant law and adds a licence check on every source before any text is stored.
+
+## How it works
+
+<p align="center">
+  <img src="assets/readme/workflow.svg" width="100%" alt="Five steps: official source, licence check (text stored on a pass verdict, otherwise link only), record file, dated commit, lookup by place and date.">
+</p>
+
+Each text comes from an official gazette or law portal. Its source is licence-checked first: the text is stored only on a `pass` verdict, and otherwise only a link is kept. Every stored version becomes one record file and then one commit dated to the day it came into force, and the lookup reads that history.
 
 ## Quick start
 
