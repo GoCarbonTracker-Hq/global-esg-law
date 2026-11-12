@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this corpus, please cite it as below, and name the instrument and its in-force date when you cite one text."
+title: "global-esg-law"
+abstract: "ESG-relevant law as dated git history, with a lookup of the law in force in a place on a date. Text is stored only where the source licence allows."
+type: dataset
+authors:
+  - name: "GoCarbonTracker"
+    website: "https://gocarbontracker.net"
+repository-code: "https://github.com/GoCarbonTracker-Hq/global-esg-law"
+url: "https://github.com/GoCarbonTracker-Hq/global-esg-law"
+license: CC0-1.0
+commit: 7b5ed3a7dbba18a1df8586fa9b9eb15ab5a09cc6
+date-released: "2026-11-10"

@@ -2,25 +2,17 @@
 
 **Read ESG-relevant law as dated git history, and ask what was in force in a place on any date.**
 
-Each version of a legal text is one commit on the `history` branch, dated to the day it came into force. A lookup tool returns the law in force in a place on a date. The repository stores the text of a law only where the licence row for its source has the verdict `pass`. For every other instrument it holds a link to the official page. It makes no statement about whether any company complies with any law. The official source in each commit's `Source-url` trailer is the authority, and this repository is a copy.
+Sustainability law changes often, and a consolidated text on a government site usually shows only today's wording. This repository keeps each version of a legal text as one git commit, dated to the day it came into force, so a lookup tool can return the law in force in a place on a given date. It is for people who need to check a reporting or climate duty against the wording that applied at the time: analysts, auditors, researchers and developers of compliance tools.
 
-Inspired by [lexifina/global-law](https://github.com/lexifina/global-law), which keeps the law of many countries as one git history. This repository applies the same idea to ESG-relevant law, with a licence check on every source before any text is stored.
+Text is stored for 140 places and for 831 of the 1378 instruments looked for (as of 2026-11-10). An instrument is one act, regulation, rule or guidance document. For the other 547 instruments the repository holds a link to the official page and no text.
 
-## Status
+This is not legal advice. The repository is a copy, the official source named in each commit is the authority, and nothing here says whether any company complies with any law.
 
-All figures are as of 2026-11-10. Each row names the command that produces it, run from the repository root.
-
-| Measure | Value | Command |
-|---|---|---|
-| Places with a corpus, out of places in the register | 250 of 250 | `ls register/*/scope.json \| wc -l` and `python3 -c "import csv;print(len({r['iso2'] for r in csv.DictReader(open('register/register.csv',encoding='utf-8'))}))"` |
-| Records stored (one file per text version) | 3240 | `find records -name '*.json' \| wc -l` |
-| Records read by OCR (`"extraction": "ocr"`) | 104 | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Watchers defined | 1557 | `python3 -c "import json;print(len(json.load(open('upkeep/watchers.json'))))"` |
-| Tests passing | 154 | `python3 -m pytest tests -q` |
+Maintained by [GoCarbonTracker](https://gocarbontracker.net). Inspired by [lexifina/global-law](https://github.com/lexifina/global-law), which keeps the law of many countries as one git history. This repository applies the same idea to ESG-relevant law and adds a licence check on every source before any text is stored.
 
 ## Quick start
 
-Needs Python 3.11 or later and git. The lookups read the `history` branch. A fresh clone holds it as `origin/history`, so these commands pass `--ref origin/history`.
+Needs Python 3.11 or later and git. The lookups read the `history` branch, the branch that holds one commit per text version. A fresh clone holds it as `origin/history`, so these commands pass `--ref origin/history`.
 
 ```
 git clone https://github.com/GoCarbonTracker-Hq/global-esg-law && cd global-esg-law
@@ -28,7 +20,7 @@ python3 tools/law.py GB 2023-01-01 --ref origin/history
 python3 tools/law.py CH 2025-06-01 --lang en --ref origin/history
 ```
 
-The first lookup prints one line per instrument in force in Great Britain on that date. The second asks for the English record in Switzerland. First lines of output from a fresh clone:
+The first lookup prints one line per instrument in force in Great Britain on that date. The second asks for the English text in Switzerland. First lines of output from a fresh clone:
 
 ```
 gb-ca2006-s414a-414d	2022-04-06	consolidated	Companies Act 2006, Part 15 Chapter 4A, strategic report (sections 414A to 414D)
@@ -41,19 +33,78 @@ ch-co-art964a-c	2022-01-01	translation	Code of Obligations (SR 220), Sixth Divis
 note ch-co-art964a-c: showing the en record
 ```
 
-A place with a corpus has a `scope.json` file under `register/<ISO2>/`. It lists the instruments we looked for, with the official URL of each. Places are identified by ISO 3166-1 alpha-2 code, plus `EU`.
+Each line gives the instrument id, the date that version came into force, its kind (`adopted`, `consolidated` or `translation`) and its title. The line shown is the official-language text, and the indented lines name every other language the same version exists in. `--lang <code>` returns that language where the version has it, and otherwise the official text with a note.
+
+Places are identified by ISO 3166-1 alpha-2 code, plus `EU`. The general form is:
+
+```
+python3 tools/law.py <ISO2> <YYYY-MM-DD> [--repo PATH] [--ref history] [--lang CODE] [--json]
+```
+
+`--json` adds a `languages` list to each instrument. In Python: `in_force(iso2, on, repo=ROOT, ref="history", lang=None, detail=False) -> list[dict]`.
+
+Three rules decide what counts as in force:
+
+- A stayed or enjoined rule counts as in force on its date, and its status note is printed with it.
+- An amendment published but not yet in force is listed after the line `not yet in force`.
+- A circular or notice with no commencement clause takes its issue date.
+
+## Questions it answers
+
+Each question is answered by one command from the repository root.
+
+- What was in force in Great Britain on 1 January 2023? `python3 tools/law.py GB 2023-01-01 --ref origin/history`
+- Which languages does a Swiss law exist in? `python3 tools/law.py CH 2025-06-01 --ref origin/history`
+- Is there an English text for it? `python3 tools/law.py CH 2025-06-01 --lang en --ref origin/history`
+- What changed in Great Britain between 2020 and 2024? `diff <(python3 tools/law.py GB 2020-01-01 --ref origin/history) <(python3 tools/law.py GB 2024-01-01 --ref origin/history)`. Lines marked `<` are the 2020 answer and lines marked `>` the 2024 answer.
+- What is announced in Estonia but not yet in force on 1 January 2026? `python3 tools/law.py EE 2026-01-01 --ref origin/history`
+- Does a place with links only have any text? `python3 tools/law.py AE 2023-01-01 --ref origin/history` prints `no instruments stored for AE`.
 
 ## What is covered
 
-[`COVERAGE.md`](COVERAGE.md) is the per-place map. It is regenerated by `python3 tools/coverage.py` and nothing in it is typed by hand. Start with its Counts table. The Grid has one row per place and one column per law family, and each cell says how many texts are stored, when the source was last checked and when the law last changed. The section "Pilot places by instrument" lists each instrument with its stored versions. `COVERAGE.md` has no single record total per place, so the totals are kept here.
+The register (`register/register.csv`) is the list of every place and every instrument found for it, 250 places in all. Each place also has a scope file (`register/<ISO2>/scope.json`), which lists the instruments we looked for there with the official URL of each. A record is one file under `records/` holding one version of one text.
+
+All figures are as of 2026-11-10. Each row names the command that produces it, run from the repository root.
+
+| Measure | Value | Command |
+|---|---|---|
+| Places with stored text | 140 | `ls -d records/*/ \| wc -l` |
+| Instruments with stored text, out of instruments in scope files | 831 of 1378 | `python3 tools/coverage.py`, then the Counts table in `COVERAGE.md` |
+| Places with links only | 110 | same Counts table |
+| Records stored (one file per text version) | 3240 | `find records -name '*.json' \| wc -l` |
+| Records read by OCR (`"extraction": "ocr"`) | 104 | `grep -rl '"extraction": "ocr"' records \| wc -l` |
+| Tests | 185 passed (run on 2026-11-12) | `python3 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
-Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of two-letter codes, not a map. Dark green means text stored, amber means link only and grey means no corpus. As of 2026-11-10 that is 140, 110 and 0 places. `python3 tools/coverage_grid.py` redraws it.
+Each square is one place in the register, labelled with its two-letter code and sorted by code. It is a grid of codes and not a map. Dark green means text stored, amber means link only and grey means no scope file. As of 2026-11-10 that is 140, 110 and 0 places.
 
-140 of the 250 places with a corpus hold stored text. The other 110 are listed with official URLs and no stored text: AE, AF, AI, AQ, AS, BB, BD, BF, BI, BL, BM, BN, BO, BQ, BS, BV, BZ, CC, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GF, GG, GI, GP, GQ, GS, GU, GW, GY, HK, HM, ID, IM, IN, IO, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MF, MG, MH, MM, MP, MQ, MS, MW, MY, NE, NO, NP, NU, PF, PK, PM, PN, PR, PS, RE, RO, RU, SA, SB, SC, SG, SH, SJ, SM, SN, SO, SS, ST, SX, TC, TD, TF, TG, TH, TK, TV, UA, UM, VA, VC, VG, VI, VU, WF, YT, ZM.
+A place or instrument is link only for one of three reasons. The licence verdict for its source is not `pass`, so the text may not be copied. The host refuses automated requests. Or the text exists only as a scan we could not use.
 
-A place or instrument can be link only for three reasons. The source's licence row is not `pass`, so the text may not be copied. The host refuses automated requests. Or the text exists only as a scan we could not use.
+### Law families
+
+Every register row carries a law family code. The codes group instruments by the kind of duty they set.
+
+| Family | What it covers |
+|---|---|
+| F1 | Sustainability disclosure and reporting |
+| F2 | Climate and environment framework laws |
+| F3 | Emissions and carbon pricing |
+| F4 | Waste and products |
+| F5 | Supply chain due diligence |
+| F6 | Green claims and consumer protection |
+| F7 | Everything else: energy, biodiversity, plans and other instruments listed for context |
+
+F7 is the largest family in the register and no F7 text is stored. F4 and F5 are thin, and the gaps found by an audit of 13 places are in [issue #16](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/16).
+
+[`COVERAGE.md`](COVERAGE.md) is the per-place map, generated by `python3 tools/coverage.py` with nothing typed by hand. Its Grid has one row per place and one column per law family, and each cell says how many texts are stored, when the source was last checked and when the law last changed. It calls places with a scope file "pilot places", a name from when there were four of them. Today that is every place.
+
+<details>
+<summary>The 110 places with links only</summary>
+
+AE, AF, AI, AQ, AS, BB, BD, BF, BI, BL, BM, BN, BO, BQ, BS, BV, BZ, CC, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GF, GG, GI, GP, GQ, GS, GU, GW, GY, HK, HM, ID, IM, IN, IO, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MF, MG, MH, MM, MP, MQ, MS, MW, MY, NE, NO, NP, NU, PF, PK, PM, PN, PR, PS, RE, RO, RU, SA, SB, SC, SG, SH, SJ, SM, SN, SO, SS, ST, SX, TC, TD, TF, TG, TH, TK, TV, UA, UM, VA, VC, VG, VI, VU, WF, YT, ZM
+
+</details>
 
 <details>
 <summary>Records stored per place (3240 in all, <code>find records/&lt;ISO2&gt; -name '*.json' | wc -l</code>)</summary>
@@ -62,101 +113,46 @@ AD 4, AG 2, AL 1, AM 7, AO 4, AR 7, AT 42, AU 85, AW 4, AX 6, AZ 19, BA 4, BE 57
 
 </details>
 
-## How it was built
-
-The first 14 places were built and checked by hand-written briefs. Then 140 more places were added in fifteen batches. One further pass read scanned gazettes with OCR. The text was collected by automated sessions working from per-place briefs. Every addition passed `python3 tools/check_corpus.py`, `python3 tools/publish_gate.py` and the tests before it was merged. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records.
-
-## What the records look like
+## What a record looks like
 
 Each file under `records/<ISO2>/<instrument>/` is one text version with these fields: `source_id`, `in_force`, `kind` (`adopted`, `consolidated` or `translation`), `language`, `text`, and usually `message`, `fetched_url` and `fetched_sha256`. A repeal record has empty text and `repealed: true`. Every official language of a version is stored, plus an English version where the source publishes one.
 
-`python3 tools/build.py --branch history` turns these files into the `history` branch. Each commit carries trailers: `Source-url`, `Licence` and `Language`, plus `Instrument`, `In-force`, `Kind`, `Jurisdiction` and `Instrument-id`.
+On the `history` branch each record is one commit. The commit carries trailers that name its origin: `Source-url`, `Licence` and `Language`, plus `Instrument`, `In-force`, `Kind`, `Jurisdiction` and `Instrument-id`.
 
 Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored uncorrected, with the URL and sha256 of the original PDF in `fetched_url` and `fetched_sha256`. Arabic OCR in particular misreads digits, so check dates and article numbers against the PDF.
 
+## How it is made and checked
+
+The text was collected with AI assistance. AI agents (Anthropic's Claude models) worked from a written brief per place: they searched for the instruments, fetched each text from its official source and wrote the record files. The first 14 places were built and checked from hand-written briefs. Another 140 places followed in fifteen batches, and one further pass read scanned gazettes with OCR. Every place in the register now has a scope file.
+
+The licence verdicts were drafted the same way. Before any text is stored, the source gets a row in `sources/licence-table.csv` with a verdict: `pass`, `permission requested`, `unknown` or `fail`. An AI model read the source's terms page or the country's copyright statute and wrote the verdict with the quoted wording it rests on. The `checked_by` column names the model on every row. The maintainer set the rule that text is stored only under a `pass` row and ruled on the cases the agents raised as unclear. No lawyer has reviewed the table.
+
+Three automated checks ran on every addition before it was merged: `tools/check_corpus.py`, `tools/publish_gate.py` and the tests. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records.
+
+Watchers are small checks that notice when an official source changes, so a person can decide whether a new version belongs in the records. They are described in [`upkeep/README.md`](upkeep/README.md). Rebuilding the history, running the tests and the release checks are in [`MAINTAINING.md`](MAINTAINING.md).
+
 ## Known limits
 
-- Link-only instruments have no stored text. As of 2026-11-10, `COVERAGE.md` counts 547 of 1378 instruments in scope files as link only.
+- Two `pass` licence verdicts are in doubt. An audit of a sample of the licence table on 2026-11-12 is in [issue #18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18). Until it is closed, read the `Licence` trailer and the source's own terms before reusing a text.
+- Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17). No continuous integration runs the tests yet.
+- Link-only instruments have no stored text: 547 of 1378 as of 2026-11-10.
 - OCR text is uncorrected. 104 records are OCR, in 13 languages including Arabic, Spanish and French.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
-- Many state sites refuse requests from cloud addresses, and some fail certificate checks under Python while curl accepts them. The last full watcher run, on 2026-11-10 from a laptop address, recorded 183 failures across 1557 watchers (`upkeep/cadence.json`, key `runs`).
-- One full watcher run takes about 53 minutes (3191.6 s on 2026-11-10). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled.
-- Some places hold their laws only as originally published. A lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
-
-## What comes next
-
-Every place in the register has a scope file as of 2026-11-10. The last 20 places (territories, uninhabited places, Antarctica and Western Sahara) were added as pointers: their laws are mostly those of a parent state, which are listed as register rows with official links and not stored under the place, and 17 of the 20 have an empty scope file. Watchers will need a decided compute budget before they run on a schedule.
-
-## Look up the law in force on a date
-
-```
-python3 tools/law.py <ISO2> <YYYY-MM-DD>
-```
-
-Example: `python3 tools/law.py GB 2023-01-01`. Options: `[--repo PATH] [--ref history] [--lang CODE] [--json]`. In Python: `in_force(iso2, on, repo=ROOT, ref="history", lang=None, detail=False) -> list[dict]`. The lookup reads the `history` branch. Stayed or enjoined rules count as in force on their date, and their `status_note` from `register/<ISO2>/scope.json` is printed with them. An amendment published but not yet in force is listed as not yet in force. A circular or notice with no commencement clause takes its issue date as `in_force`.
-
-The output has one line per instrument per date: the official-language record. Every other language of the same version is listed under it. `--lang <code>` returns that language's record when the version has one, and otherwise the official record with a note. `--json` adds a `languages` list to each instrument. The `history` branch must carry the `Language` trailer, or every record shows language `-`.
-
-```
-$ python3 tools/law.py CH 2025-06-01 --lang en
-ch-example-act	2025-01-01	translation	Example Act
-  de	consolidated
-  fr	consolidated
-note ch-example-act: showing the en record
-```
-
-## Ask it in plain words
-
-Each question below is answered by one command from the repository root. Run them after a clone, as in the quick start.
-
-- What was in force in Great Britain on 1 January 2023? `python3 tools/law.py GB 2023-01-01 --ref origin/history`
-- Which languages does a Swiss law exist in? The indented lines under each instrument name them. `python3 tools/law.py CH 2025-06-01 --ref origin/history`
-- Is there an English text for it? Where there is none, the official record is shown with a note. `python3 tools/law.py CH 2025-06-01 --lang en --ref origin/history`
-- What changed in Great Britain between 2020 and 2024? `diff <(python3 tools/law.py GB 2020-01-01 --ref origin/history) <(python3 tools/law.py GB 2024-01-01 --ref origin/history)`. Lines marked `<` are the 2020 answer, lines marked `>` the 2024 answer, and `diff` exits 1 when they differ.
-- What is announced in Estonia but not yet in force on 1 January 2026? It is listed after the line `not yet in force`. `python3 tools/law.py EE 2026-01-01 --ref origin/history`
-- Does a place that is link only have any text? `python3 tools/law.py AE 2023-01-01 --ref origin/history` prints `no instruments stored for AE`.
-
-## Rebuild the history
-
-```
-python3 tools/build.py --branch history
-```
-
-This builds `history` from scratch from `records/` and replaces the branch if it exists. It is the only build command: once anything under `records/` is tracked by git, a run without `--branch` exits 2 and writes nothing. Records added by `tools/update.py` (see `upkeep/README.md`) are ordinary record files, so the same command rebuilds the branch in `In-force` order.
-
-As of 2026-11-10 the published `history` build (`7b5ed3a7`) predates one record on `main`: the Christmas Island plastic bag local law (`records/CX/cx-plastic-bag-local-law-2018/`). A lookup for CX on `origin/history` prints `no instruments stored for CX` until the branch is rebuilt.
-
-## Tests
-
-```
-python3 -m pytest tests -q
-```
-
-Python 3.11 or later, standard library plus git. pytest is the only extra.
-
-## Release checks
-
-Run these in order and compare each last line with the expected one:
-
-1. `python3 tools/check_corpus.py` ends with `3240 records checked` (as of 2026-11-10).
-2. `python3 tools/publish_gate.py` exits 0.
-3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
-4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
-5. `python3 tools/watch.py --dry-run` exits 0 or 1, never 2.
-6. `python3 tools/coverage_grid.py`, then `git diff --quiet assets/coverage-grid.svg` exits 0 (no change).
-
-`publish_gate.py` prints every source row and scope entry. It exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records.
+- Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
+- The last 20 places added (territories, uninhabited places, Antarctica and Western Sahara) are pointers. Their laws are mostly those of a parent state, and 17 of the 20 have an empty scope file.
+- The published `history` branch can trail `main`. As of 2026-11-10 it lacks one record, the Christmas Island plastic bag local law, so a lookup for CX prints `no instruments stored for CX`.
+- Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on 2026-11-10 recorded 183 failures across 1557 watchers.
 
 ## Reporting a problem
 
-Wrong or missing law, and questions about a source's licence, go to GitHub issues on this repository. Name the place, the instrument and the official URL, and say what the record shows against what the source shows.
+Wrong or missing law, and questions about a source's licence, go to [GitHub issues](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues). Name the place, the instrument and the official URL, and say what the record shows against what the source shows.
 
 ## Licence
 
-Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). Each law record carries its own source licence in the `Licence` trailer of its commit on the `history` branch and in `sources/licence-table.csv`. Nothing is stored under a row whose verdict is not `pass`.
+Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). The law texts are not covered by that dedication. Each record carries its own source licence in the `Licence` trailer of its commit on the `history` branch and in `sources/licence-table.csv`.
 
 ## Cite
 
-global-esg-law, https://github.com/GoCarbonTracker-Hq/global-esg-law, version `7b5ed3a7dbba18a1df8586fa9b9eb15ab5a09cc6` (`history` branch, built 2026-11-10, head commit dated 2034-01-01 because it is the newest-dated record, Atmosfääriõhu kaitse seadus of Estonia, Chapter 7 Division 1, not yet in force), record Directive (EU) 2022/2464 (CSRD), in force 2026-03-18.
+GoCarbonTracker, global-esg-law, `history` branch built 2026-11-10 (commit `7b5ed3a7`), https://github.com/GoCarbonTracker-Hq/global-esg-law.
 
-The official source in the `Source-url` trailer is the authority and this repository is a copy.
+Add the instrument and its in-force date when you cite one text, for example "Directive (EU) 2022/2464 (CSRD), in force 2026-03-18". [`CITATION.cff`](CITATION.cff) holds the same details in machine-readable form.
