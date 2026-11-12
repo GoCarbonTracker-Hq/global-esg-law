@@ -88,7 +88,7 @@ All figures are as of 2026-11-10. Each row names the command that produces it, r
 | Instruments with stored text, out of instruments in scope files | 831 of 1378 | `python3 tools/coverage.py`, then the Counts table in `COVERAGE.md` |
 | Places with links only | 110 | same Counts table |
 | Records stored (one file per text version) | 3240 | `find records -name '*.json' \| wc -l` |
-| Records read by OCR (`"extraction": "ocr"`) | 104 | `grep -rl '"extraction": "ocr"' records \| wc -l` |
+| Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-13) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
 | Tests | 185 passed (run on 2026-11-12) | `python3 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
@@ -139,12 +139,12 @@ Watchers are small checks that notice when an official source changes, so a pers
 - Two `pass` licence verdicts are in doubt. An audit of a sample of the licence table on 2026-11-12 is in [issue #18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18). Until it is closed, read the `Licence` trailer and the source's own terms before reusing a text.
 - Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
 - Link-only instruments have no stored text: 547 of 1378 as of 2026-11-10.
-- OCR text is uncorrected. 104 records are OCR, in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
+- OCR text is uncorrected. 106 records are OCR (counted 2026-11-13), in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
 - Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 - The last 20 places added (territories, uninhabited places, Antarctica and Western Sahara) are pointers. Their laws are mostly those of a parent state, and 17 of the 20 have an empty scope file.
 - The published `history` branch can trail `main`. As of 2026-11-10 it lacks one record, the Christmas Island plastic bag local law, so a lookup for CX prints `no instruments stored for CX`.
-- Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on 2026-11-10 recorded 183 failures across 1557 watchers.
+- Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on record, on 2026-11-11, ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`).
 
 ## Reporting a problem
 

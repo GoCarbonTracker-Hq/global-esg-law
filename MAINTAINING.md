@@ -45,4 +45,4 @@ Run these in order and compare each last line with the expected one:
 
 ## Watcher runs
 
-One full watcher run takes about 53 minutes (3191.6 s on 2026-11-10, from a laptop address, 183 failures across 1557 watchers; see `upkeep/cadence.json`, key `runs`). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled. They need a decided compute budget before they run on a schedule. Some state sites also fail certificate checks under Python while curl accepts them.
+One full watcher run takes close to an hour. The last full run on record, on 2026-11-11 from a laptop address, took 3481.9 s and ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`; that run is not yet in `upkeep/cadence.json`). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled. They need a decided compute budget before they run on a schedule. Some state sites also fail certificate checks under Python while curl accepts them.

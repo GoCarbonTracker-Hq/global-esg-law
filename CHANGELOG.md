@@ -11,6 +11,7 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 
 ## 2026-11-13
 
+- **Fixed:** two stale figures in the README and `MAINTAINING.md`, both reported in [#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17). OCR records are 106, not 104, and the last full watcher run on record is the one of 2026-11-11 (158 failures across 1557 watchers), not the run of 2026-11-10.
 - **Fixed:** the law family table in the README. The version published on 2026-11-12 described F4, F6 and F7 wrongly (it was inferred from register topics). The table now follows the project's scope definition: F4 is mandatory CSR and social duties, F6 is sustainable finance, and F7 is environmental core law listed as candidates only.
 - **Added:** this changelog and a pull request template.
 - **Added:** a `tests` workflow that runs the tests, the corpus check and the publish gate on every pull request and on `main`, on Python 3.11 and 3.13 (pull request #19). This closes the "no continuous integration" part of [#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
