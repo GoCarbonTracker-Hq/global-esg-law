@@ -1775,7 +1775,11 @@
   "tier": "regulator_page",
   "url": "https://www.gov.za/ts/documents/companies-act",
   "params": {
-   "second_route": "https://www.gov.za/ts/documents/companies-act (browser; gov.za resets scripted connections at random)"
+   "second_route": "https://www.gov.za/ts/documents/companies-act (browser; gov.za resets scripted connections at random)",
+   "cut": [
+    "Related Documents .*?(?=Explore Explore)",
+    "(?:/ts/node/\\d+ )+(?=/speeches )"
+   ]
   }
  },
  {
@@ -14100,7 +14104,11 @@
   "tier": "regulator_page",
   "url": "https://boj.org.jm/disclaimer/",
   "params": {
-   "second_route": "https://boj.org.jm/disclaimer/ (live page; answers curl)"
+   "second_route": "https://boj.org.jm/disclaimer/ (live page; answers curl)",
+   "cut": [
+    "Recent Posts .*?(?=Bank of Jamaica\\. \\d{4} Copyright)",
+    "(?<=/other-links/ ).*?(?=/privacy-policy )"
+   ]
   },
   "change": "terms_changed"
  },
@@ -16490,7 +16498,11 @@
   "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://gov.gg/TsCs",
-  "params": {},
+  "params": {
+   "cut": [
+    "(?<=The official website for the States of Guernsey ).*?(?=Tide timetables)"
+   ]
+  },
   "change": "terms_changed"
  },
  {
@@ -17565,7 +17577,11 @@
   "tier": "regulator_page",
   "url": "https://gobiernu.cw/disclaimer/",
   "change": "terms_changed",
-  "params": {}
+  "params": {
+   "cut": [
+    "(?<=update! )[^!|]{0,40}?(?=This field is for validation purposes)"
+   ]
+  }
  },
  {
   "id": "gl-marketing-act-consolidated-page",

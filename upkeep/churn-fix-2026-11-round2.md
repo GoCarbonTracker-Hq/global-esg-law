@@ -1,6 +1,6 @@
 # Page-hash churn fix, round 2 (GEL-28, 2026-11-11)
 
-Stopped by the owner 2026-11-11; the proof run was done 2026-11-12 (section "Proof run" below). 30 of the 34 moved watchers pass; 4 still move on visible text and are left as a follow-up.
+Stopped by the owner 2026-11-11; the proof run was done 2026-11-12 (section "Proof run" below). 30 of the 34 moved watchers passed; the other 4 moved on site widgets and got a `params.cut` once N5 was approved (section "N5 cuts").
 
 Only what was measured is stated. The gate was run after the proof run, on the final head: `check_corpus.py` 3240 records checked, pytest 185 passed, `publish_gate.py` exit 0.
 
@@ -45,11 +45,29 @@ The 4 that still move, each read against the saved 2026-11-11 body:
 - `terms-gg-gov-adopted`: the header weather forecast and bin-collection box.
 - `terms-cw-gobiernu-adopted`: a share-widget label that reads "Comments" or "Facebook" between fetches; three text variants were seen in about 20 minutes.
 
-The terms text itself did not change on any of the 4. A `params.cut` for each block would fix them, but these are N5 (visible text moves), which is not approved, so no cut was added. They stay on `text_hash`, which moves only when that widget changes, where `page_hash` moved on nearly every fetch. The next watch run will raise a row on each.
+The terms text itself did not change on any of the 4. These are N5 (visible text moves); the cuts were added after Varun approved N5 (below).
+
+## N5 cuts (2026-11-12)
+
+Varun approved N5 on 2026-11-12. Each of the 4 got a `params.cut` in `upkeep/watchers.json` and was reseeded:
+
+| Watcher | Cut | Links in cut | Visible words in cut |
+|---|---|---|---|
+| za-companies-act-71-2008-govza-page | "Related Documents" sidebar up to the footer, and the `/ts/node/` links before `/speeches` | 3 of 80 | 66 of 868 |
+| terms-jm-boj | "Recent Posts" and Twitter feed up to the copyright line, and their links between `/other-links/` and `/privacy-policy` | 55 of 364 (20 posts, 35 Twitter) | 226 of 1651 |
+| terms-gg-gov-adopted | bin-collection and weather box between the site strapline and "Tide timetables" | 0 of 98 | 57 of 1693 |
+| terms-cw-gobiernu-adopted | the newsletter form's honeypot field label (a random word: "Comments", "Facebook") | 0 of 75 | 1 of 385 |
+
+Proof:
+- Saved bodies (2026-11-11 from the round-2 reads, 2026-11-12 from the proof run, and for cw two label variants): one hash per watcher after the cut, and each reseeded signal equals that hash.
+- Editing any one link target outside the cut moved the signal (80 of 80, 309 of 309, 98 of 98, 75 of 75); so did editing a word of the text outside the cut.
+- Live: two reads 300 s apart with the final config, all 4 equal to the reseeded signal.
+
+The terms-cw-gobiernu-adopted 2026-11-11 row, reopened earlier on 2026-11-12, is rejected under N5 (source verdict `pass`). The 11-11 terms rows on terms-jm-boj (`permission requested`) and terms-gg-gov-adopted (`fail`) stay open.
 
 ## Not reached
 
-- The 4 watchers above: a cut for each needs N5 approved.
+- The 3 other N5 watchers (cy-consumer-protection-amendment-3-2026-gazette-page, kp-air-pollution-control-act-naenara-page, kp-environmental-protection-law-naenara-page): N5 is now approved, no cut made yet.
 - The 71 watchers with a stable page_hash and their open rows.
 - README line, tests (no tools/ code was changed).
 
