@@ -137,7 +137,7 @@ Watchers are small checks that notice when an official source changes, so a pers
 ## Known limits
 
 - Two `pass` licence verdicts are in doubt. An audit of a sample of the licence table on 2026-11-12 is in [issue #18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18). Until it is closed, read the `Licence` trailer and the source's own terms before reusing a text.
-- Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17). No continuous integration runs the tests yet.
+- Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
 - Link-only instruments have no stored text: 547 of 1378 as of 2026-11-10.
 - OCR text is uncorrected. 104 records are OCR, in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.

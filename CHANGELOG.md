@@ -12,6 +12,7 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 ## 2026-11-13
 
 - **Added:** this changelog and a pull request template.
+- **Added:** a `tests` workflow that runs the tests, the corpus check and the publish gate on every pull request and on `main`, on Python 3.11 and 3.13 (pull request #19). This closes the "no continuous integration" part of [#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
 - **Changed:** the README is shorter. The list of places with links only is read from `COVERAGE.md`, and the record format moved to `MAINTAINING.md`.
 
 ## 2026-11-12
@@ -22,7 +23,7 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 - **Changed:** the repository moved to the GoCarbonTracker-Hq organization. The old address redirects.
 - **Changed:** watchers that fired on page furniture, not on the law text, were moved from a page hash to a text hash, and queue rows that were not real changes were rejected (pull requests #8 to #13).
 - **Open:** scope gaps in carbon pricing, green claims and supply chain due diligence ([#16](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/16)).
-- **Open:** tool defects found by a code review, and no continuous integration ([#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17)).
+- **Open:** tool defects found by a code review ([#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17)).
 - **Open:** two `pass` licence verdicts in doubt after an audit of a sample of the licence table ([#18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18)).
 
 ## 2026-11-10
