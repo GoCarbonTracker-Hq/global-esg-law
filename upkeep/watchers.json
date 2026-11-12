@@ -177,7 +177,7 @@
   "source_id": "US-FEDREG-ADOPTED",
   "iso2": "US",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://web.archive.org/web/20250601013753/https://www.federalregister.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site",
   "change": "terms_changed",
@@ -1049,7 +1049,7 @@
   "source_id": "CA-OSFI-ADOPTED",
   "iso2": "CA",
   "instrument": "ca-osfi-b15",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/climate-risk-management",
   "params": {
@@ -1723,7 +1723,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-climate-change-act-22-2024",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/documents/acts/climate-change-act-22-2024-english-tshivenda-23-jul-2024",
   "params": {
@@ -1735,7 +1735,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-carbon-tax-act-15-2019",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/documents/acts/carbon-tax-act-15-2019-english-afrikaans-23-may-2019",
   "params": {
@@ -1759,7 +1759,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-nger-regs-amendment-2020",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/documents/notices/national-environmental-management-air-quality-act-regulations-national-2",
   "params": {
@@ -1771,7 +1771,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-companies-act-71-2008",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/ts/documents/companies-act",
   "params": {
@@ -1783,7 +1783,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-companies-regs-2011",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/documents/notices/companies-act-regulations-26-apr-2011",
   "params": {
@@ -1795,7 +1795,7 @@
   "source_id": "ZA-GOVZA-ADOPTED",
   "iso2": "ZA",
   "instrument": "za-bbbee-act-53-2003",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.gov.za/node/697333",
   "params": {
@@ -4428,7 +4428,7 @@
   "source_id": "LV-LIKUMI-CONSOLIDATED",
   "iso2": "LV",
   "instrument": "lv-par-piesarnojumu",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://likumi.lv/ta/id/6075"
  },
@@ -6758,10 +6758,15 @@
   "source_id": "PK-PAKISTANCODE-CONSOLIDATED",
   "iso2": "PK",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://pakistancode.gov.pk/english/Xki72HF.php",
-  "change": "terms_changed"
+  "change": "terms_changed",
+  "params": {
+   "cut": [
+    "Active Visitors \\d+ Today Visitors \\d+ Total Visitors \\d+"
+   ]
+  }
  },
  {
   "id": "pk-terms-na-adopted",
@@ -10878,7 +10883,7 @@
   "source_id": "CU-GACETA-ADOPTED",
   "iso2": "CU",
   "instrument": "cu-res-106-2025-carbon-market",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.gacetaoficial.gob.cu/",
   "params": {
@@ -13567,7 +13572,7 @@
   "source_id": "BW-CCA-ADOPTED",
   "iso2": "BW",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cca.co.bw/consumer-protection-act-2018",
   "change": "terms_changed",
@@ -13919,11 +13924,14 @@
   "source_id": "CD-MEDD-ADOPTED",
   "iso2": "CD",
   "instrument": "cd-ordonnance-loi-26-016",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://medd.gouv.cd/rdc-la-promulgation-de-lordonnance-loi-sur-le-marche-du-carbone-consacre-le-statut-du-pays-comme-pays-solution-souverain-et-regule/",
   "params": {
-   "second_route": "https://medd.gouv.cd/?s=26%2F016 (ministry search; a Journal officiel issue is not free)"
+   "second_route": "https://medd.gouv.cd/?s=26%2F016 (ministry search; a Journal officiel issue is not free)",
+   "cut": [
+    "\\d+ Views"
+   ]
   }
  },
  {
@@ -14088,7 +14096,7 @@
   "source_id": "JM-BOJ-ADOPTED",
   "iso2": "JM",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://boj.org.jm/disclaimer/",
   "params": {
@@ -14365,7 +14373,7 @@
   "source_id": "RW-RSE-ESG",
   "iso2": "RW",
   "instrument": "rw-rse-esg-reporting-guidelines",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://rse.rw/esg-guidelines",
   "params": {
@@ -14428,7 +14436,7 @@
   "source_id": "LC-AGC-CONSOLIDATED",
   "iso2": "LC",
   "instrument": "lc-consumer-protection-act",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://attorneygeneralchambers.com/laws-of-saint-lucia/consumer-protection-act/act",
   "params": {
@@ -15239,7 +15247,7 @@
   "source_id": "BI-PRESIDENCE-ADOPTED",
   "iso2": "BI",
   "instrument": "bi-env-code-2021",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://presidence.gov.bi/category/lois-promulguees/",
   "params": {}
@@ -15249,7 +15257,7 @@
   "source_id": "BI-PRESIDENCE-ADOPTED",
   "iso2": "BI",
   "instrument": "bi-env-code-2000",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://presidence.gov.bi/category/lois-promulguees/",
   "params": {}
@@ -16479,7 +16487,7 @@
   "source_id": "GG-GOV-ADOPTED",
   "iso2": "GG",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://gov.gg/TsCs",
   "params": {},
@@ -16965,10 +16973,14 @@
   "source_id": "MP-LRC-CONSOLIDATED",
   "iso2": "MP",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://cnmilaw.gov/",
-  "params": {},
+  "params": {
+   "cut": [
+    "email-protection#[0-9a-f]+"
+   ]
+  },
   "change": "terms_changed"
  },
  {
@@ -16997,7 +17009,7 @@
   "source_id": "VI-LEGVI-ADOPTED",
   "iso2": "VI",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://billtracking.legvi.org/",
   "change": "terms_changed",
@@ -17070,7 +17082,7 @@
   "source_id": "AS-OSAS-ASAC",
   "iso2": "AS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.osas.as/",
   "change": "terms_changed",
@@ -17081,7 +17093,7 @@
   "source_id": "AS-ASEPA-CODE",
   "iso2": "AS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.asepa.gov/",
   "change": "terms_changed",
@@ -17118,7 +17130,7 @@
   "source_id": "NF-FRL-CONSOLIDATED",
   "iso2": "NF",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.legislation.gov.au/terms-of-use",
   "change": "terms_changed",
@@ -17379,7 +17391,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "ax-miljoskydd-lag-2008-124",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/2008124"
  },
@@ -17388,7 +17400,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "ax-utslappshandel-lag-2009-31",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/200931"
  },
@@ -17397,7 +17409,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "ax-ccs-lag-2012-79",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201279"
  },
@@ -17406,7 +17418,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "ax-biodrivmedel-lag-2025-71",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/202571"
  },
@@ -17415,7 +17427,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "ax-biodrivmedel-ghg-lag-2018-41",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "consolidation_site",
   "url": "https://www.regeringen.ax/alandsk-lagstiftning/alex/201841"
  },
@@ -17424,7 +17436,7 @@
   "source_id": "AX-ALAND-GOVERNMENT-CONSOLIDATED",
   "iso2": "AX",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.regeringen.ax/om-webbplatsen/juridisk-information",
   "change": "terms_changed"
@@ -17549,7 +17561,7 @@
   "source_id": "CW-GOBIERNU-ADOPTED",
   "iso2": "CW",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://gobiernu.cw/disclaimer/",
   "change": "terms_changed",
@@ -17828,7 +17840,7 @@
   "source_id": "GS-LAWS-ADOPTED",
   "iso2": "GS",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "change": "terms_changed",
   "url": "https://laws.gov.gs/ordinances/"
@@ -17927,7 +17939,7 @@
   "source_id": "CC-SHIRE-ADOPTED",
   "iso2": "CC",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.shire.cc/en/disclaimer.html",
   "change": "terms_changed",
@@ -17962,7 +17974,7 @@
   "source_id": "CX-FRL-ADOPTED",
   "iso2": "CX",
   "instrument": "*",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.legislation.gov.au/terms-of-use",
   "change": "terms_changed",

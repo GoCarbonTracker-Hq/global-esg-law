@@ -1101,48 +1101,48 @@
   ]
  },
  "ax-biodrivmedel-ghg-lag-2018-41-page": {
-  "bytes": 347253,
+  "bytes": 347175,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.49,
+  "seconds": 0.4,
   "signals": [
-   "d6fa93e6a3d0672031c5ea54da7b3cd4ca4ebf859cc6decf0b4418526bf0fe47"
+   "6fe090d1e85c40e4744261bf902591913cf8975504b633c0124fa3b56ea4863e"
   ]
  },
  "ax-biodrivmedel-lag-2025-71-page": {
-  "bytes": 346344,
+  "bytes": 346266,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.37,
+  "seconds": 0.16,
   "signals": [
-   "4a6a81a9ffc888e0d114b65c538ec2d648eb299f9f9a46ca880133ab86b4cd99"
+   "f4fbfe4a2dafd7217b01abdda7f31a4c6bbfbfc069803ccf60fde7d8ab7ed1bb"
   ]
  },
  "ax-ccs-lag-2012-79-page": {
-  "bytes": 347142,
+  "bytes": 347064,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.26,
+  "seconds": 0.17,
   "signals": [
-   "bc42645ea8a29252f92e07d4801b5b373408268e5a3942bf44ca0b8c2e747d0e"
+   "1c715033febe0080a70cfa793e4e53cfbc4b2c32770691a22aacdbfaa2372d08"
   ]
  },
  "ax-miljoskydd-lag-2008-124-page": {
-  "bytes": 470684,
+  "bytes": 470606,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.36,
+  "seconds": 0.17,
   "signals": [
-   "0684aa6768a17c8c391e248776b5c2d73172435b761f1ae186095f4ce953faba"
+   "d2e0cb6e89d2fd078c44e4fc1442a9607ee871fe87d4c5b66f5d2a31687ad105"
   ]
  },
  "ax-utslappshandel-lag-2009-31-page": {
-  "bytes": 349687,
+  "bytes": 349609,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.3,
+  "seconds": 0.16,
   "signals": [
-   "67dd3dee6003d1f00382b734b4e0e0c1a533ad23608abb3ddfad738928cbc654"
+   "cdc70a500a77102a54b8a5a206be4a27e1981e460f76fc0074604863db3af093"
   ]
  },
  "az-advertising-law-eqanun-versions": {
@@ -1633,18 +1633,18 @@
   "bytes": 106625,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 3.71,
+  "seconds": 3.7,
   "signals": [
-   "47a4b11c4d9ca0a7c72fa3397ec77a7ba72220d263c500850304228f584995e1"
+   "570dbaaae8a726b01a245f05f241cc6197c461d0b3a30712248becf32684127b"
   ]
  },
  "bi-2021-presidence-lois": {
   "bytes": 106625,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 4.23,
+  "seconds": 3.7,
   "signals": [
-   "71c728f4c12bcb9d80a6abe6ed678713f1841c312604263c482d92318be04305"
+   "570dbaaae8a726b01a245f05f241cc6197c461d0b3a30712248becf32684127b"
   ]
  },
  "bj-aepc-decree-sgg-pdf-head": {
@@ -2499,9 +2499,9 @@
   "bytes": 145939,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.14,
+  "seconds": 0.12,
   "signals": [
-   "6790b7f4e6c077d0a0583aa35e227a9e30d3247195b0dff7684aacd96722b2bc"
+   "3c000b1b5498e5c06c2c7a81197315e11cfea1a5d5280398f337d20decee5d30"
   ]
  },
  "cd-loi-11-009-pdf": {
@@ -2523,12 +2523,12 @@
   ]
  },
  "cd-ordonnance-loi-26-016-page": {
-  "bytes": 314305,
+  "bytes": 312050,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.62,
+  "seconds": 1.65,
   "signals": [
-   "77112e50a582e760bbfbf58ebab35b21330af3026e8b08480dc2fd5742638fc4"
+   "7d0d28810337b360e8cd7d1990fea6dc284f9410ea098b8cc8f5ae5eb3a4f71d"
   ]
  },
  "cf-art6-decree-2025-page": {
@@ -3406,12 +3406,12 @@
   ]
  },
  "cu-res-106-2025-carbon-market-gaceta-page": {
-  "bytes": 26669,
+  "bytes": 26679,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.94,
+  "seconds": 2.06,
   "signals": [
-   "fa5eeca493bfad8b5aba24bc13ce8150f75bedadabc1e25a83b44fc116486fc0"
+   "07c254a614e779f6abe160081cc4dec31cbe2c9ece9b710df633844d33c7de88"
   ]
  },
  "cv-dl-31-2026-boe-act-file": {
@@ -8961,9 +8961,9 @@
   "bytes": 136650,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.74,
+  "seconds": 1.59,
   "signals": [
-   "e45196f5adc3cc0a82eb525cec426a4220744433b65fc23484f0994d21997b04"
+   "46eba1ea6d69110b639b546d6b51f338e18989f8c21b3473a3eb2b745f3a42eb"
   ]
  },
  "li-co2-gesetz-lilex-current-pdf": {
@@ -9367,9 +9367,9 @@
   "bytes": 544906,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.32,
+  "seconds": 0.31,
   "signals": [
-   "70896292698ab2f91c26d9d1b5c7e5597aba5099a12921e0e687d76d943aa5f9"
+   "9e2890c948f8f0487bca0dfba3ae5bdff6b318c9acde123d4600218bee25ba4e"
   ]
  },
  "ly-cbl-circular-28-2023": {
@@ -11824,12 +11824,12 @@
   ]
  },
  "pk-terms-pakistancode-consolidated": {
-  "bytes": 36373,
+  "bytes": 36374,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.11,
+  "seconds": 2.18,
   "signals": [
-   "c35c9f6a5440f6f322a396a2041157faab4e455122d1b7279978e103715308fc"
+   "6a1c9f7a813f5f686c5606d1ff3282724a959a93437958942e54d4e31ade0163"
   ]
  },
  "pk-terms-psx-adopted": {
@@ -13096,9 +13096,9 @@
   "bytes": 41579,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.51,
+  "seconds": 1.94,
   "signals": [
-   "070257d1d2425796ce431c1c77f034cbe42d943974ad45238a679de9a47373d6"
+   "af352499b060c10e833ad2d0aaa4d21a74ac704c2657aaa31c751c662912cd61"
   ]
  },
  "sa-air-quality-regulation-boe-page": {
@@ -14027,21 +14027,21 @@
   ]
  },
  "terms-as-asepa-code": {
-  "bytes": 967201,
+  "bytes": 964716,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.3,
+  "seconds": 0.13,
   "signals": [
-   "23b4c3a8d0996040f049b9008229c68e7acf90f8dbe0e5deadac3fc30a0dc022"
+   "8b97ce3aba34c22f0b31e37eb39cde480bf12e81e14241073135073eb31992ce"
   ]
  },
  "terms-as-osas-asac": {
   "bytes": 1279472,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.38,
+  "seconds": 0.16,
   "signals": [
-   "d159caaab46e3e263494f4d1a13542738ccf0155418e0650c33de384868744f3"
+   "90de0d77a4b1106995812be2853176d1920d75b2f0226de19e4d0d9782796813"
   ]
  },
  "terms-at-ris-ogd": {
@@ -14072,12 +14072,12 @@
   ]
  },
  "terms-ax-aland-government-consolidated": {
-  "bytes": 337067,
+  "bytes": 336989,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.25,
+  "seconds": 0.26,
   "signals": [
-   "b2b1b109407675a2b0de4d66298094fed3fad0ef687321ffdc7cde406b723c79"
+   "17af0ea5584a3d5eed18fe160bf992e85876d1d3b486c0846b90b9eb9c9d5fc8"
   ]
  },
  "terms-bb-fsc-adopted": {
@@ -14174,18 +14174,18 @@
   "bytes": 32285,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.45,
+  "seconds": 0.92,
   "signals": [
-   "882b845fdee8fc18d7b3eb0799f9d1cd68345e5611b7a09ad3f4a60ead107b7c"
+   "2e1a33c95d3ce2485941f309708042995e0331f3691dfbb8531578756d917a82"
   ]
  },
  "terms-cc-shire-adopted": {
   "bytes": 22454,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.03,
+  "seconds": 0.94,
   "signals": [
-   "3aabb110ad692b06cbe4f2175bf6138ea582b3b6f68f64a4843615187936e2bb"
+   "f5729bc4768695cef15382d9e7d5a7daf61c48a1876f90996c67c9b07c0b83bd"
   ]
  },
  "terms-cd-jordc-adopted": {
@@ -14304,21 +14304,21 @@
   ]
  },
  "terms-cw-gobiernu-adopted": {
-  "bytes": 221199,
+  "bytes": 221325,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.9,
+  "seconds": 0.34,
   "signals": [
-   "170b41dbe1b496889cf59ebf02393a24f78f7cb78cd3b0d349c4421c8e3ad46f"
+   "92da0202ab0b23c637635d3b038b6f61a4f861ac421187bd3b41c0e03225cf21"
   ]
  },
  "terms-cx-frl-adopted": {
-  "bytes": 50831,
+  "bytes": 50809,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.22,
+  "seconds": 1.13,
   "signals": [
-   "ca7d4b7aec69d14912f3108ec5aae8d1c9dc4195b346c6b3333e8cf0a0c393d6"
+   "88becdd96f98fbc806d3c8dd2f113caee2ce6c7987e011ee83d47f2c6cd9c565"
   ]
  },
  "terms-cx-shire-adopted": {
@@ -14480,12 +14480,12 @@
   "signals": null
  },
  "terms-gg-gov-adopted": {
-  "bytes": 76586,
+  "bytes": 76593,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.92,
+  "seconds": 0.63,
   "signals": [
-   "7fa09f042590dbd73b38c80dec214dc2f14516b9da86ff62562ec812b9c4661f"
+   "31fe9f674bcd90f96fa10a162af9e7b1202bc9893927595f73655018a1fe4f1b"
   ]
  },
  "terms-gl-nalunaarutit-adopted": {
@@ -14516,12 +14516,12 @@
   ]
  },
  "terms-gs-laws-adopted": {
-  "bytes": 879743,
+  "bytes": 879751,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.33,
+  "seconds": 0.27,
   "signals": [
-   "0e77d8ea3787d852781172b33497ee13bc30d3181cafe44dda63e2ed12d1f277"
+   "aa77970d8312ac5a2ce641a30ca6f788961ede0bc0c21b5ffcd636348e6f3a64"
   ]
  },
  "terms-gu-col-website-terms": {
@@ -14619,9 +14619,9 @@
   "bytes": 324773,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.75,
+  "seconds": 2.32,
   "signals": [
-   "f1ccd5e349c951da535f6b8627c47d1f2f17b8ee2acb657ee0dcdd3813fd151a"
+   "30f783fd6dfc2ec6f72cbcd6ba2259234d7cfde90bd9509bf7e551d8b2f7c8ab"
   ]
  },
  "terms-jm-nepa": {
@@ -14779,9 +14779,9 @@
   "bytes": 43874,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.82,
+  "seconds": 0.34,
   "signals": [
-   "169d083d82621e71c15ec14c175fb39d87c6102eb4acf96b611fe777321e6ce4"
+   "784b78b9e97b0e125668f68bf022dc3b95de4df3c65dfd11b3dc3720a4b1ff40"
   ]
  },
  "terms-mr-msgg-adopted": {
@@ -14848,12 +14848,12 @@
   ]
  },
  "terms-nf-frl-consolidated": {
-  "bytes": 50831,
+  "bytes": 50809,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.33,
+  "seconds": 0.63,
   "signals": [
-   "a1b452d810f44144c66847567a5b6750ff36b31e2c764f2e5b13bf71b98bd485"
+   "88becdd96f98fbc806d3c8dd2f113caee2ce6c7987e011ee83d47f2c6cd9c565"
   ]
  },
  "terms-nr-ronlaw-copyright-act": {
@@ -15276,12 +15276,12 @@
   ]
  },
  "terms-us-fedreg-adopted": {
-  "bytes": 73618,
+  "bytes": 73614,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.29,
+  "seconds": 0.67,
   "signals": [
-   "3a8de135bb62b882fe28edb190c9890fcbc9e4ec944c4e2e53596f8f5a83bc67"
+   "163d9349ecf9bcf1b7f1241bd78719f1b6343a18804b4e29978ee726967b4b58"
   ]
  },
  "terms-va-vaticanstate-copyright-law": {
@@ -15333,9 +15333,9 @@
   "bytes": 256409,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 0.8,
+  "seconds": 0.65,
   "signals": [
-   "8b25001cb7741dca33328419570352aac7e5a3fcf531aa11034dda6e989391d2"
+   "2bf22c1fc08290a46abce713b092978f1c62b5feef3a1875bdeb7ca697042cee"
   ]
  },
  "terms-vi-ltgov-code": {
@@ -17024,45 +17024,45 @@
   "bytes": 40880,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.66,
+  "seconds": 2.47,
   "signals": [
-   "535c75bbed78dda05a4138d68978ddb47636e3a7d8afbd6df5a2e04b3e395009"
+   "c59d6ecd5d3c86ed5eb136c01cf971b0b3f6e6bb59849f64b8a94d1c36c67252"
   ]
  },
  "za-carbon-tax-act-15-2019-govza-page": {
   "bytes": 42199,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.16,
+  "seconds": 1.06,
   "signals": [
-   "2a9883cfce40b35ba55ac01683915b555df031cb28eaaff6e3f0e32b1888a7c9"
+   "87febd33e7095449427c682a168c347af99ce8e82dbc03cfbc653282c3c176e0"
   ]
  },
  "za-climate-change-act-22-2024-govza-page": {
   "bytes": 40440,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.09,
+  "seconds": 0.86,
   "signals": [
-   "f8447933f5e3bebea8f35584d0ba686577d6c289f16dd227297c63304c437d0e"
+   "a55c08d4f6b4a55db1c4c8b01d78de8d23d8581fcae673d521b98756c847608f"
   ]
  },
  "za-companies-act-71-2008-govza-page": {
-  "bytes": 43532,
+  "bytes": 43535,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 1.01,
+  "seconds": 0.94,
   "signals": [
-   "a13048c6da42d56fcfb1b7c30de5f39f15678a122fe9f3c8ccfca2c4e4f434f1"
+   "04ec8527bd9b8429ba9264b1d4ad8f06fde6bf26e8481ef67d5a6936549fae14"
   ]
  },
  "za-companies-regs-2011-govza-page": {
   "bytes": 42728,
   "checked_on": "2026-11-11",
   "failure": null,
-  "seconds": 2.12,
+  "seconds": 0.86,
   "signals": [
-   "1f8071c282213fa13428b66e2b6491ba6a2c42410742e1accff5035fc3685f9a"
+   "c7972ee3ae8200cfd1f25d302e60871addecc66dba43124c2d06304066bb0905"
   ]
  },
  "za-jse-listings-8-63-pdf-head": {
@@ -17087,7 +17087,7 @@
   "failure": null,
   "seconds": 0.84,
   "signals": [
-   "3f29407ac3e321031d23bc225ae60c185a8082d4b7feff729dca77026a68ce72"
+   "ad4c27bf09c6988d477c14f548e678f4d203fe1fb4e2793fe1c2f72b6a33650e"
   ]
  },
  "za-pa-g3-2025-banks-pdf-head": {
