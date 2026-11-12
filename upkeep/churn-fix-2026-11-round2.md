@@ -1,8 +1,8 @@
 # Page-hash churn fix, round 2 (GEL-28, 2026-11-11)
 
-**WIP, stopped by the owner 2026-11-11 before completion.**
+Stopped by the owner 2026-11-11; the proof run was done 2026-11-12 (section "Proof run" below). 30 of the 34 moved watchers pass; 4 still move on visible text and are left as a follow-up.
 
-Only what was measured is stated. The gate was run after the stop, on 859b6f316: `check_corpus.py` 3240 records checked, pytest 185 passed, `publish_gate.py` exit 0. The stability proof was not done.
+Only what was measured is stated. The gate was run after the proof run, on the final head: `check_corpus.py` 3240 records checked, pytest 185 passed, `publish_gate.py` exit 0.
 
 ## Method
 
@@ -25,12 +25,31 @@ Before number, 5-minute window: page_hash differed between the first two reads f
 - `upkeep/watchers.json`: 34 watchers `page_hash` to `text_hash`. 31 plain; 3 with a new `params.cut`: `cd-ordonnance-loi-26-016-page` (`\d+ Views`), `pk-terms-pakistancode-consolidated` (`Active Visitors \d+ Today Visitors \d+ Total Visitors \d+`), `terms-mp-lrc-consolidated` (`email-protection#[0-9a-f]+`, existing cut). Cut proof on the saved pages: editing any single link target moved the signal (271 of 271, 23 of 23, 107 of 107).
 - Causes of the 34: markup only 18, timestamp/date 7, nonce/token 6, view counter 1 (cd), visitor counter 1 (pk, class N7), email-protection key 1.
 - `upkeep/seen.json`: each of the 34 reseeded with `watch.py --reseed` (twice: before and after the rejects); each holds 1 signal.
-- `upkeep/queue.csv`: 115 rows rejected through `tools/queue.py`, reviewer moka: new_version 109 (N2 59, N1 27, N4 14, N7 9), terms_changed 6 on `pass` sources (N4 3, N2 3).
+- `upkeep/queue.csv`: 114 rows rejected through `tools/queue.py`, reviewer moka: new_version 109 (N2 59, N1 27, N4 14, N7 9), terms_changed 5 on `pass` sources (N4 2, N2 3). A sixth, terms-cw-gobiernu-adopted 2026-11-11 (N4), was reopened on 2026-11-12 after the proof run showed its visible text moves (below); it is open again.
 - 11 terms_changed rows on those watchers stay open: source verdict `permission requested` (10) or `fail` (1).
+
+## Proof run (2026-11-12)
+
+Each of the 34 watchers was fetched with `run_watcher` and its final config, twice 300 s apart, and each signal was compared with the reseeded one in `upkeep/seen.json`, as `watch()` would. Script and log in /tmp/gel28-proof (not committed).
+
+| Result | Watchers |
+|---|---|
+| reseeded signal on both reads | 27 |
+| one fetch failed (timeout, TLS handshake, HTTP 500), reseeded signal on two other reads at least 5 min apart | 3: cu-res-106-2025-carbon-market-gaceta-page, rw-rse-esg-reporting-guidelines-page-hash, bi-2000-presidence-lois |
+| visible text moved since the reseed, not fixed | 4 (below) |
+
+The 4 that still move, each read against the saved 2026-11-11 body:
+
+- `za-companies-act-71-2008-govza-page`: a "Related Documents" sidebar of recent gov.za notices (new entry dated 23 Oct 2026, three `/ts/node/` links).
+- `terms-jm-boj`: the "Recent Posts" list and Twitter feed beside the disclaimer (auction results, balance sheet).
+- `terms-gg-gov-adopted`: the header weather forecast and bin-collection box.
+- `terms-cw-gobiernu-adopted`: a share-widget label that reads "Comments" or "Facebook" between fetches; three text variants were seen in about 20 minutes.
+
+The terms text itself did not change on any of the 4. A `params.cut` for each block would fix them, but these are N5 (visible text moves), which is not approved, so no cut was added. They stay on `text_hash`, which moves only when that widget changes, where `page_hash` moved on nearly every fetch. The next watch run will raise a row on each.
 
 ## Not reached
 
-- Stability proof (two fetches 300 s apart with the final config against the reseeded signal): not run. Round 0 of that run started and was killed.
+- The 4 watchers above: a cut for each needs N5 approved.
 - The 71 watchers with a stable page_hash and their open rows.
 - README line, tests (no tools/ code was changed).
 
