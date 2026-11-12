@@ -103,13 +103,13 @@ Every register row carries a law family code. The codes group instruments by the
 
 | Family | What it covers |
 |---|---|
-| F1 | Sustainability disclosure and reporting |
-| F2 | Climate and environment framework laws |
-| F3 | Emissions and carbon pricing |
-| F4 | Waste and products |
-| F5 | Supply chain due diligence |
-| F6 | Green claims and consumer protection |
-| F7 | Everything else: energy, biodiversity, plans and other instruments listed for context |
+| F1 | Reporting and disclosure: sustainability, non-financial and climate reporting, listing rules |
+| F2 | Climate and net zero acts: climate change acts, carbon budgets, adaptation duties |
+| F3 | Carbon pricing and emissions monitoring, reporting and verification: carbon taxes, emissions trading |
+| F4 | Mandatory CSR and social duties: statutory CSR spend, community, employee and human-rights duties |
+| F5 | Supply chain and due diligence: environmental and human-rights due diligence, forced labour, deforestation |
+| F6 | Sustainable finance: taxonomies, green bond rules, bank climate risk rules, anti-greenwashing and green-claims rules |
+| F7 | Environmental core, candidate only: impact assessment, pollution, waste, energy efficiency. Listed in the register, not collected as text |
 
 F7 is the largest family in the register and no F7 text is stored. F4 and F5 are thin, and the gaps found by an audit of 13 places are in [issue #16](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/16).
 
