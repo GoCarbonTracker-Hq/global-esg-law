@@ -93,7 +93,7 @@ def test_language_shown_and_fallback_noted(tmp_path):
     ("QQ", "2021-01-01", "place_not_in_register"),
     ("LL", "2021-01-01", "links_only"),
     ("XX", "2019-01-01", "before_record_starts"),
-    ("EE", "2021-01-01", "no_stored_text"),
+    ("EE", "2021-01-01", "registered_no_instruments"),
 ])
 def test_empty_cases_each_name_themselves(tmp_path, place, on, case):
     repo = repo_with_extras(tmp_path)
@@ -131,6 +131,48 @@ def test_malformed_input_is_an_input_error_with_hint(tmp_path, kwargs, hint):
     repo = repo_with_extras(tmp_path)
     with pytest.raises(ValueError, match=hint):
         query.law_in_force(repo, **kwargs)
+
+
+def test_ambiguous_register_rows_give_no_tier(tmp_path):
+    repo = repo_with_extras(tmp_path)
+    with (repo / "register" / "register.csv").open("a", newline="", encoding="utf-8") as handle:
+        import csv
+        csv.writer(handle).writerow(["XX", "Placeholder Land", "Dup", "F1", "B", "official_text_seen", "", "",
+                                     "https://example.invalid/act"])
+    assert query.law_in_force(repo, "XX", "2021-01-01")["in_force"][0]["tier"] == "not available"
+
+
+def test_validation_precedes_any_read(tmp_path):
+    with pytest.raises(ValueError, match="place"):
+        query.law_in_force(tmp_path / "no-such-repo", "usa", "2021-01-01")
+    with pytest.raises(ValueError, match="date"):
+        query.law_in_force(tmp_path / "no-such-repo", "US", "2021-13-01")
+    with pytest.raises(ValueError, match="language"):
+        query.law_in_force(tmp_path / "no-such-repo", "US", "2021-01-01", lang="eng")
+
+
+def _real_history():
+    return subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "history^{commit}"]).returncode == 0 \
+        or subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "origin/history^{commit}"]).returncode == 0
+
+
+needs_history = pytest.mark.skipif(not _real_history(), reason="no history or origin/history ref in this clone")
+
+
+@needs_history
+def test_real_corpus_ee_matches_command_line():
+    answer = query.law_in_force(ROOT, "EE", "2026-01-01")
+    expected = cli(ROOT, "EE", "2026-01-01")
+    assert len(answer["in_force"]) == 6
+    assert [{k: i[k] for k in e} for i, e in zip(answer["in_force"], expected["in_force"])] == expected["in_force"]
+    assert ("ee-aoks-ets", "2026-03-28") in [(i["id"], i["in_force"]) for i in answer["not_yet_in_force"]]
+
+
+@needs_history
+def test_real_corpus_ae_lists_link_only_with_urls():
+    answer = query.law_in_force(ROOT, "AE", "2025-06-01")
+    assert answer["in_force"] == [] and answer["case"] == "links_only"
+    assert len(answer["link_only"]) == 5 and all(i["official_url"].startswith("http") for i in answer["link_only"])
 
 
 CALL = {"name": "law_in_force", "arguments": {"place": "XX", "date": "2021-01-01"}}

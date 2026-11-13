@@ -231,6 +231,8 @@ EMPTY_CASES = {
     "nothing_in_force": "Nothing in {place}'s scope was in force on {date} according to the stored records "
                         "(the earliest starts {first}). This does not mean no law applied; "
                         "link-only instruments and anything outside the scope list are not covered.",
+    "registered_no_instruments": "{place} is in the register, and no instruments are listed for it yet. "
+                                 "This does not mean no law was in force on {date}; the place has not been scoped.",
     "no_stored_text": "No text is stored in this snapshot for {place}. "
                       "This does not mean no law was in force on {date}.",
 }
@@ -242,10 +244,11 @@ def _register_tiers(repo):
         return {}
     with path.open(encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    tiers = {}
+    found = defaultdict(set)
     for row in rows:
-        tiers.setdefault((row["iso2"], row["official_source_url"], row["law_family"]), row.get("tier_hint") or None)
-    return tiers
+        found[(row["iso2"], row["official_source_url"], row["law_family"])].add(row.get("tier_hint") or None)
+    # a key that matches rows with different tiers has no tier; the label then reads not available
+    return {key: next(iter(values)) for key, values in found.items() if len(values) == 1}
 
 
 def _labels(iso2, entry, tiers):
@@ -293,7 +296,9 @@ def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
          **_labels(place, e, tiers)} for e in scope.values() if e.get("status") == "link only"])
     if not found:
         link_only_place = first is None and answer["link_only"] and all(e.get("status") == "link only" for e in scope.values())
-        case = ("links_only" if link_only_place else "no_stored_text" if first is None else
+        empty_scope = first is None and (repo / "register" / place / "scope.json").exists() and not scope
+        case = ("links_only" if link_only_place else "registered_no_instruments" if empty_scope else
+                "no_stored_text" if first is None else
                 "before_record_starts" if date < first else "nothing_in_force")
         answer.update(case=case, message=EMPTY_CASES[case].format(place=place, date=date, first=first))
     return answer
