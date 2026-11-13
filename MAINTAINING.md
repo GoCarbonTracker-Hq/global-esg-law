@@ -34,6 +34,8 @@ python3 -m pytest tests -q
 
 Python 3.11 or later, standard library plus git. pytest is the only extra. The `tests` workflow runs this, the corpus check and the publish gate on every pull request and on `main`. On 2026-11-12 the run ended with `185 passed`. The workflow fetches the `history` branch first, and fails if a test that reads the real history is skipped; a local run without that branch skips those tests instead.
 
+`tools/acceptance_mcp.py` compares the server against named records (the CSRD character count and version dates, the AE link-only list, the YE OCR record, the EE dates); update it when those records are re-extracted.
+
 ## Release checks
 
 Run these in order and compare each last line with the expected one:
