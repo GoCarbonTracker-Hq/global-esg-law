@@ -67,7 +67,9 @@ Three rules decide what counts as in force:
 
 ## Use it from an AI assistant
 
-A small local server lets an AI assistant that speaks MCP (Model Context Protocol) look up places, laws in force on a date, stored texts and the version history of an instrument. It runs on your machine and changes nothing. [MCP.md](MCP.md) has the setup, the tools and the limits.
+A small local server lets an AI assistant that speaks MCP (Model Context Protocol) look up places, laws in force on a date, stored texts and the version history of an instrument. It runs on your machine and changes nothing.
+
+To start, open the cloned folder in Claude Code and approve the server named `global-esg-law` when it asks. Any other MCP client can run `python3 tools/mcp_server.py` from the folder. There are four tools: `list_places`, `law_in_force`, `read_text` and `instrument_history`. Every answer names its snapshot and its source, and text is returned only where the source's licence verdict is `pass`. [MCP.md](MCP.md) has the setup, the tools with example answers, and the limits.
 
 ## Questions it answers
 
@@ -134,7 +136,7 @@ The text was collected with AI assistance. AI agents (Anthropic's Claude models)
 
 The licence verdicts were drafted the same way. Before any text is stored, the source gets a row in `sources/licence-table.csv` with a verdict: `pass`, `permission requested`, `unknown` or `fail`. An AI model read the source's terms page or the country's copyright statute and wrote the verdict with the quoted wording it rests on. The `checked_by` column names the model on every row. The maintainer set the rule that text is stored only under a `pass` row and ruled on the cases the agents raised as unclear. No lawyer has reviewed the table.
 
-Three automated checks ran on every addition before it was merged: `tools/check_corpus.py`, `tools/publish_gate.py` and the tests. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records.
+Three automated checks ran on every addition before it was merged: `tools/check_corpus.py`, `tools/publish_gate.py` and the tests. Since 2026-11-13 the tests on GitHub also read the published `history` branch, and a second job starts the assistant server from a fresh clone and checks its answers against named records. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records.
 
 Watchers are small checks that notice when an official source changes, so a person can decide whether a new version belongs in the records. They are described in [`upkeep/README.md`](upkeep/README.md). The record format, rebuilding the history, the tests and the release checks are in [`MAINTAINING.md`](MAINTAINING.md).
 
