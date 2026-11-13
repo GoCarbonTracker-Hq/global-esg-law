@@ -24,7 +24,7 @@ For a local test rebuild, choose a separate branch name, such as `history-gel-32
 
 The branch must carry the `Language` trailer on each commit, or every lookup shows language `-`.
 
-As of 2026-11-10 the published `history` build (`7b5ed3a7`) predates one record on `main`: the Christmas Island plastic bag local law (`records/CX/cx-plastic-bag-local-law-2018/`). A lookup for CX on `origin/history` prints `no instruments stored for CX` until the branch is rebuilt. The head commit of that build is dated 2034-01-01 because commits are dated by in-force date and the newest-dated record is an Estonian provision not yet in force.
+As of 2026-11-13 the published `history` build (`745289cd`, 3,240 commits) holds every record on `main`. A record added to `main` after a build does not show in a lookup on `origin/history` until the branch is rebuilt and published. Publishing replaces the branch, and the maintainer does that step by hand. The head commit of that build is dated 2034-01-01 because commits are dated by in-force date and the newest-dated record is an Estonian provision not yet in force.
 
 ## Tests
 

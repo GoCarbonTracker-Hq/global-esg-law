@@ -143,7 +143,7 @@ Watchers are small checks that notice when an official source changes, so a pers
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
 - Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 - The last 20 places added (territories, uninhabited places, Antarctica and Western Sahara) are pointers. Their laws are mostly those of a parent state, and 17 of the 20 have an empty scope file.
-- The published `history` branch can trail `main`. As of 2026-11-10 it lacks one record, the Christmas Island plastic bag local law, so a lookup for CX prints `no instruments stored for CX`.
+- The published `history` branch can trail `main` between rebuilds: a record added to `main` shows in lookups only after the next rebuild. It was last rebuilt on 2026-11-13 and held every record on `main` that day.
 - Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on record, on 2026-11-11, ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`).
 
 ## Reporting a problem
@@ -156,6 +156,6 @@ Tools, tests, the register and the documentation are CC0 1.0 (`LICENSE`). The la
 
 ## Cite
 
-GoCarbonTracker, global-esg-law, `history` branch built 2026-11-10 (commit `7b5ed3a7`), https://github.com/GoCarbonTracker-Hq/global-esg-law.
+GoCarbonTracker, global-esg-law, `history` branch built 2026-11-13 (commit `745289cd`), https://github.com/GoCarbonTracker-Hq/global-esg-law.
 
 Add the instrument and its in-force date when you cite one text, for example "Directive (EU) 2022/2464 (CSRD), in force 2026-03-18". [`CITATION.cff`](CITATION.cff) holds the same details in machine-readable form.
