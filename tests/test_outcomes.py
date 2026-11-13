@@ -191,7 +191,7 @@ def test_repealed_empty_text_and_law_drops_it_from_that_date(tmp_path):
     assert ids(law.in_force("EU", "2028-02-29", repo)) == ["old-act", "amend-act"]
     assert ids(law.in_force("EU", "2028-03-01", repo)) == ["amend-act"]
     assert ids(law.in_force("EU", "2030-01-01", repo)) == ["amend-act"]
-    assert law.lookup("EU", "2028-02-29", repo)[1] == []  # a coming repeal is not "not yet in force"
+    assert law.lookup("EU", "2028-02-29", repo)[1][0]["id"] == "old-act"  # a coming repeal is listed for the active instrument
     # a repealed row whose signal is not a date is refused, with the reason in notes
     result, _ = run(repo, BAD_REPEAL)
     assert result["status"] == "refused"

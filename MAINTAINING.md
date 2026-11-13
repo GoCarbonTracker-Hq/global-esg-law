@@ -8,6 +8,8 @@ Each file under `records/<ISO2>/<instrument>/` is one text version with these fi
 
 On the `history` branch each record is one commit. The commit carries trailers that name its origin: `Source-url`, `Licence` and `Language`, plus `Instrument`, `In-force`, `Kind`, `Jurisdiction` and `Instrument-id`.
 
+A record with `"re_enactment": true` marks an instrument re-enacted on or after its repeal. The builder writes `Re-enactment: true` on that commit. The publish gate refuses any other record dated on or after the instrument's repeal. A record with `in_force: null` uses its file-name date as a publication date and carries `Date-basis: publication` in its commit.
+
 Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored uncorrected, with the URL and sha256 of the original PDF in `fetched_url` and `fetched_sha256`. Arabic OCR in particular misreads digits, so check dates and article numbers against the PDF.
 
 ## Rebuild the history
@@ -17,6 +19,8 @@ python3 tools/build.py --branch history
 ```
 
 This builds the `history` branch from scratch from `records/` and replaces the branch if it exists. It is the only build command: once anything under `records/` is tracked by git, a run without `--branch` exits 2 and writes nothing. Records added by `tools/update.py` (see `upkeep/README.md`) are ordinary record files, so the same command rebuilds the branch in `In-force` order.
+
+For a local test rebuild, choose a separate branch name, such as `history-gel-32-01`. Never use the published `history` name unless the release owner approves replacing it.
 
 The branch must carry the `Language` trailer on each commit, or every lookup shows language `-`.
 

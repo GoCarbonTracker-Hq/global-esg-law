@@ -11,6 +11,7 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 
 ## 2026-11-13
 
+- **Fixed:** lookups choose consolidated text over adopted text on the same date, mark publication dates when commencement is unknown, keep repealed instruments out of force unless a later record is flagged `re_enactment`, retain the earlier official text when a later version has only translations, and list future versions or repeals for active instruments. The publish gate rejects unflagged records dated on or after repeal. The `history` branch was rebuilt locally as `history-gel-32-01`; the published `history` branch was not changed.
 - **Fixed:** two stale figures in the README and `MAINTAINING.md`, both reported in [#17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17). OCR records are 106, not 104, and the last full watcher run on record is the one of 2026-11-11 (158 failures across 1557 watchers), not the run of 2026-11-10.
 - **Fixed:** the law family table in the README. The version published on 2026-11-12 described F4, F6 and F7 wrongly (it was inferred from register topics). The table now follows the project's scope definition: F4 is mandatory CSR and social duties, F6 is sustainable finance, and F7 is environmental core law listed as candidates only.
 - **Added:** this changelog and a pull request template.

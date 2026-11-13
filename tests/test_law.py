@@ -46,6 +46,30 @@ def test_latest_version_wins(tmp_path):
     assert {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}["law2"]["in_force"] == "2020-03-04"
 
 
+@pytest.mark.parametrize(("adopted_id", "consolidated_id"), [("a-adopted", "z-consolidated"),
+                                                               ("z-adopted", "a-consolidated")])
+def test_consolidated_wins_same_day_for_either_source_id_order(tmp_path, adopted_id, consolidated_id):
+    fixture(tmp_path)
+    sources = json.loads((tmp_path / "sources.json").read_text())
+    sources[1]["id"] = adopted_id
+    sources.append({**sources[1], "id": consolidated_id, "form": "consolidated"})
+    (tmp_path / "sources.json").write_text(json.dumps(sources))
+    scope = tmp_path / "register" / "EU" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["source_row"] = [adopted_id, consolidated_id]
+    scope.write_text(json.dumps(entries))
+    record = tmp_path / "records" / "EU" / "law2" / "new.json"
+    data = json.loads(record.read_text())
+    data["source_id"] = adopted_id
+    (tmp_path / "records" / "EU" / "law2" / "2020-03-04-adopted.json").write_text(json.dumps(data))
+    record.unlink()
+    (tmp_path / "records" / "EU" / "law2" / "2020-03-04-consolidated.json").write_text(json.dumps(
+        {**data, "source_id": consolidated_id, "kind": "consolidated", "text": "consolidated"}))
+    build.build(tmp_path, branch="history")
+    shown = {i["id"]: i for i in law.in_force("EU", "2020-03-04", tmp_path)}["law2"]
+    assert shown["kind"] == "consolidated"
+
+
 def test_status_note_passthrough(tmp_path):
     repo = make(tmp_path)
     by_id = {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}
@@ -106,6 +130,19 @@ def test_pre_1970_date(tmp_path):
     assert ids(law.in_force("EU", "1969-12-31", repo)) == ["law"]
 
 
+def test_unknown_commencement_marks_publication_date_in_text_and_json(tmp_path, capsys):
+    fixture(tmp_path)
+    folder = tmp_path / "records" / "EU" / "law2"
+    (folder / "1990-06-07-null.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "unknown start"}))
+    build.build(tmp_path, branch="history")
+    assert law.main(["EU", "1990-06-07", "--repo", str(tmp_path)]) == 0
+    assert "note law2: date is a publication date" in capsys.readouterr().out
+    assert law.main(["EU", "1990-06-07", "--repo", str(tmp_path), "--json"]) == 0
+    item = {i["id"]: i for i in json.loads(capsys.readouterr().out)["in_force"]}["law2"]
+    assert item["date_basis"] == "publication"
+
+
 def test_repeal_drops_instrument_from_its_date(tmp_path):
     fixture(tmp_path)
     (tmp_path / "records" / "EU" / "law2" / "repeal.json").write_text(json.dumps(
@@ -115,11 +152,38 @@ def test_repeal_drops_instrument_from_its_date(tmp_path):
     assert ids(law.in_force("EU", "2024-05-05", tmp_path)) == ["law", "law2"]
     assert ids(law.in_force("EU", "2024-05-06", tmp_path)) == ["law"]
     assert ids(law.in_force("EU", "2030-01-01", tmp_path)) == ["law"]
-    # the not-yet-in-force list is unchanged: a coming repeal is not listed there
-    assert law.lookup("EU", "2021-01-01", tmp_path)[1] == []
+    # A coming repeal is listed under not yet in force for this active instrument.
+    assert law.lookup("EU", "2021-01-01", tmp_path)[1][0]["in_force"] == "2024-05-06"
     assert [i["in_force"] for i in law.lookup("EU", "2000-01-01", tmp_path)[1]] == ["2020-03-04"]
     kinds = subprocess.check_output(["git", "-C", str(tmp_path), "log", "--reverse", "--format=%(trailers:key=Kind,valueonly)", "history"], text=True).split()
     assert kinds == ["adopted", "adopted", "repeal"]
+
+
+@pytest.mark.parametrize("later_date", ["2024-06-01", "2024-06-02"])
+def test_repeal_blocks_same_day_and_later_unflagged_records(tmp_path, later_date):
+    fixture(tmp_path)
+    folder = tmp_path / "records" / "EU" / "law2"
+    (folder / "2024-06-01-repeal.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": "2024-06-01", "kind": "adopted", "language": "en", "text": "", "repealed": True}))
+    (folder / f"{later_date}-snapshot.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": later_date, "kind": "adopted", "language": "en", "text": "snapshot"}))
+    build.build(tmp_path, branch="history")
+    assert "law2" not in ids(law.in_force("EU", "2030-01-01", tmp_path))
+    if later_date == "2024-06-01":
+        kinds = subprocess.check_output(["git", "-C", str(tmp_path), "log", "--reverse",
+                                         "--format=%(trailers:key=Kind,valueonly)", "history"], text=True).split()
+        assert kinds[-2:] == ["repeal", "adopted"]
+
+
+def test_flagged_reenactment_restores_instrument_from_its_date(tmp_path):
+    fixture(tmp_path)
+    folder = tmp_path / "records" / "EU" / "law2"
+    (folder / "2024-06-01-repeal.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": "2024-06-01", "kind": "adopted", "language": "en", "text": "", "repealed": True}))
+    (folder / "2024-06-02-reenactment.json").write_text(json.dumps(
+        {"source_id": "new", "in_force": "2024-06-02", "kind": "adopted", "language": "en", "text": "re-enacted", "re_enactment": True}))
+    build.build(tmp_path, branch="history")
+    assert "law2" in ids(law.in_force("EU", "2024-06-02", tmp_path))
 
 
 def multilingual(tmp_path):
@@ -169,3 +233,49 @@ def test_two_official_languages_and_a_translation(tmp_path, capsys):
     assert law.main(["EU", "2024-06-01", "--repo", str(repo), "--json", "--lang", "en"]) == 0
     shown = {i["id"]: i for i in json.loads(capsys.readouterr().out)["in_force"]}["law2"]
     assert shown["language"] == "en" and [x["language"] for x in shown["languages"]] == ["en", "de", "fr"]
+
+
+def test_translation_only_later_date_keeps_earlier_official_record(tmp_path):
+    fixture(tmp_path)
+    rows = json.loads((tmp_path / "sources.json").read_text())
+    rows.append({**rows[1], "id": "tr", "form": "translation"})
+    (tmp_path / "sources.json").write_text(json.dumps(rows))
+    scope = tmp_path / "register" / "EU" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["source_row"] = ["new", "tr"]
+    scope.write_text(json.dumps(entries))
+    folder = tmp_path / "records" / "EU" / "law2"
+    earlier = json.loads((folder / "new.json").read_text())
+    earlier["language"] = "de"
+    (folder / "2020-03-04-adopted-de.json").write_text(json.dumps(earlier))
+    (folder / "new.json").unlink()
+    (folder / "2022-01-01-translation-en.json").write_text(json.dumps(
+        {"source_id": "tr", "in_force": "2022-01-01", "kind": "translation", "language": "en", "text": "translation"}))
+    build.build(tmp_path, branch="history")
+    for lang in (None, "de"):
+        found = {i["id"]: i for i in law.in_force("EU", "2023-01-01", tmp_path, lang=lang, detail=True)}["law2"]
+        assert (found["in_force"], found["kind"], found["language"]) == ("2020-03-04", "adopted", "de")
+
+
+def test_all_repealed_message_names_query_date(tmp_path, capsys):
+    fixture(tmp_path)
+    for instrument, source in (("law", "old"), ("law2", "new")):
+        folder = tmp_path / "records" / "EU" / instrument
+        (folder / "2020-12-31-repeal.json").write_text(json.dumps(
+            {"source_id": source, "in_force": "2020-12-31", "kind": "adopted", "language": "en", "text": "", "repealed": True}))
+    build.build(tmp_path, branch="history")
+    assert law.main(["EU", "2021-01-01", "--repo", str(tmp_path)]) == 0
+    assert "nothing in force on 2021-01-01" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("future", ["version", "repeal"])
+def test_future_version_or_repeal_is_listed_for_active_instrument(tmp_path, future):
+    fixture(tmp_path)
+    folder = tmp_path / "records" / "EU" / "law2"
+    record = {"source_id": "new", "in_force": "2030-01-01", "kind": "adopted", "language": "en", "text": "future"}
+    if future == "repeal":
+        record.update(text="", repealed=True)
+    (folder / f"2030-01-01-{future}.json").write_text(json.dumps(record))
+    build.build(tmp_path, branch="history")
+    _, pending, _ = law.lookup("EU", "2025-01-01", tmp_path)
+    assert [item["id"] for item in pending] == ["law2"]
