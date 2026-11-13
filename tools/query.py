@@ -301,6 +301,9 @@ def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
                 "no_stored_text" if first is None else
                 "before_record_starts" if date < first else "nothing_in_force")
         answer.update(case=case, message=EMPTY_CASES[case].format(place=place, date=date, first=first))
+    return answer
+
+
 # --- STORY-GEL-32-04: read_text ---
 PART_SIZE = 20000
 OCR_WARNING = ("Uncorrected OCR from a scanned original: check dates and article numbers against the original PDF "
