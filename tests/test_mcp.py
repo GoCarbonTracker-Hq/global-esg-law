@@ -194,7 +194,7 @@ def test_timeout_names_budget_and_leaves_server_loop_available(monkeypatch):
     import mcp_server
 
     monkeypatch.setattr(mcp_server, "CALL_BUDGET_SECONDS", 0.01)
-    monkeypatch.setattr(mcp_server, "list_places", lambda _repo: time.sleep(0.1))
+    monkeypatch.setitem(mcp_server.TOOLS["list_places"], "function", lambda _repo: time.sleep(0.1))
     request = modern("tools/call", "slow", {"name": "list_places", "arguments": {}})
     reply, era, initialized = mcp_server.handle(request)
     assert era == "modern" and not initialized
