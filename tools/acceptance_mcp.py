@@ -58,18 +58,27 @@ def list_places_envelope(answer):
     return errors
 
 
-def list_places_records(answer):
+def list_places_summary(answer):
     errors = []
-    csrd = instrument(answer, "EU", CSRD)
-    if (csrd.get("status"), csrd.get("first_in_force")) != ("text stored", "2023-01-05"):
-        errors.append(f"EU CSRD is {csrd}")
+    if len(answer.get("places", [])) < 100:
+        errors.append(f"{len(answer.get('places', []))} places")
+    if any("instruments" in p for p in answer["places"]):
+        errors.append("summary rows carry instrument lists")
+    if len(json.dumps(answer)) > 60000:
+        errors.append(f"answer is {len(json.dumps(answer))} characters, over 60000")
     ae = place(answer, "AE")
     if (ae.get("status"), ae.get("stored_count"), ae.get("link_only_count", 0) > 0) != ("link only", 0, True):
         errors.append(f"AE is {ae.get('status')!r}, stored {ae.get('stored_count')}")
-    ocr = instrument(answer, OCR_PLACE, OCR_ID)
-    if (ocr.get("status"), ocr.get("first_in_force")) != ("text stored", OCR_FIRST):
-        errors.append(f"{OCR_PLACE} OCR instrument is {ocr}")
     return errors
+
+
+def one_place(iso2, instrument_id, status, first):
+    def check(answer):
+        if [p["iso2"] for p in answer.get("places", [])] != [iso2]:
+            return [f"expected only {iso2}"]
+        found = instrument(answer, iso2, instrument_id)
+        return [] if (found.get("status"), found.get("first_in_force")) == (status, first) else [f"{iso2} instrument is {found}"]
+    return check
 
 
 # One table, one list per tool. A check is (label, arguments, expect_error, test).
@@ -78,8 +87,14 @@ def list_places_records(answer):
 CHECKS = {
     "list_places": [
         ("envelope reads origin/history in a fresh clone", {}, False, list_places_envelope),
-        ("stored text (EU CSRD), link-only place (AE), OCR instrument (YE)", {}, False, list_places_records),
-        ("unknown argument is a protocol error", {"place": "AE"}, "protocol", lambda a: []),
+        ("summary rows only, under 60000 characters, AE is link only", {}, False, list_places_summary),
+        ("EU CSRD is text stored from 2023-01-05", {"place": "EU"}, False, one_place("EU", CSRD, "text stored", "2023-01-05")),
+        ("AE instrument is link only", {"place": "AE"}, False, one_place("AE", AE_ID, "link only", None)),
+        (f"{OCR_PLACE} OCR instrument is text stored from {OCR_FIRST}", {"place": OCR_PLACE}, False,
+         one_place(OCR_PLACE, OCR_ID, "text stored", OCR_FIRST)),
+        ("input error: malformed place", {"place": "xx"}, True, has("two capital letters")),
+        ("input error: unknown place", {"place": "ZZ"}, True, has("unknown place")),
+        ("unknown argument is a protocol error", {"colour": "red"}, "protocol", lambda a: []),
     ],
     "law_in_force": [  # STORY 03
         ("stored text: EU 2025-06-01 lists the CSRD", {"place": "EU", "date": "2025-06-01"}, False, has(CSRD)),
