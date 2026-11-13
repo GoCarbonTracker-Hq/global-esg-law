@@ -19,8 +19,12 @@ CLIENT_CAPABILITIES = "io.modelcontextprotocol/clientCapabilities"
 SERVER_INFO = "io.modelcontextprotocol/serverInfo"
 SERVER = {"name": "global-esg-law", "version": "1.0.0"}
 CALL_BUDGET_SECONDS = 30
-TOOL = {"name": "list_places", "description": "List places and the instruments held in the corpus.",
-        "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False}}
+# Add a tool by adding one entry here; put its function at the end of tools/query.py.
+TOOLS = {"list_places": {
+    "description": "List places and the instruments held in the corpus.",
+    "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
+    "function": list_places,
+}}
 
 
 class ProtocolError(Exception):
@@ -28,30 +32,32 @@ class ProtocolError(Exception):
         self.code, self.message, self.data = code, message, data
 
 
-def _run_worker(connection, function, args):
+def _run_worker(connection, function, args, kwargs):
     try:
-        connection.send((True, function(*args)))
+        connection.send((True, function(*args, **kwargs)))
     except Exception as error:
-        connection.send((False, str(error)))
+        connection.send((False, type(error).__name__, str(error)))
     finally:
         connection.close()
 
 
-def _within_budget(function, *args):
+def _within_budget(function, *args, **kwargs):
     if not hasattr(signal, "setitimer"):
         receiver, sender = multiprocessing.Pipe(duplex=False)
-        process = multiprocessing.Process(target=_run_worker, args=(sender, function, args))
+        process = multiprocessing.Process(target=_run_worker, args=(sender, function, args, kwargs))
         process.start()
         sender.close()
         try:
             if not receiver.poll(CALL_BUDGET_SECONDS):
                 process.terminate()
                 raise TimeoutError(f"Tool call exceeded the {CALL_BUDGET_SECONDS} second time budget")
-            success, result = receiver.recv()
+            response = receiver.recv()
             process.join()
-            if not success:
-                raise RuntimeError(result)
-            return result
+            if response[0]:
+                return response[1]
+            if response[1] == "ValueError":
+                raise ValueError(response[2])
+            raise RuntimeError(response[2])
         finally:
             receiver.close()
             if process.is_alive():
@@ -66,7 +72,7 @@ def _within_budget(function, *args):
     signal.signal(signal.SIGALRM, expired)
     signal.setitimer(signal.ITIMER_REAL, CALL_BUDGET_SECONDS)
     try:
-        return function(*args)
+        return function(*args, **kwargs)
     finally:
         signal.setitimer(signal.ITIMER_REAL, *previous_timer)
         signal.signal(signal.SIGALRM, previous_handler)
@@ -113,22 +119,51 @@ def _initialize(request_id, params):
 
 
 def _tools_list(request_id, modern):
-    result = {"tools": [TOOL]}
+    result = {"tools": [{"name": name, "description": tool["description"],
+                         "inputSchema": tool["inputSchema"]} for name, tool in TOOLS.items()]}
     if modern:
         result.update(resultType="complete", ttlMs=300000, cacheScope="public")
     return _result(request_id, result, modern)
 
 
+def _validate_arguments(arguments, schema):
+    if not isinstance(arguments, dict):
+        raise ProtocolError(-32602, "Tool arguments must be an object")
+    properties = schema.get("properties", {})
+    if schema.get("additionalProperties") is False:
+        unknown = arguments.keys() - properties.keys()
+        if unknown:
+            raise ProtocolError(-32602, f"Unknown tool argument: {sorted(unknown)[0]}")
+    missing = set(schema.get("required", ())) - arguments.keys()
+    if missing:
+        raise ProtocolError(-32602, f"Missing required tool argument: {sorted(missing)[0]}")
+    types = {"string": str, "object": dict, "array": list, "integer": int,
+             "number": (int, float), "boolean": bool, "null": type(None)}
+    for name, value in arguments.items():
+        expected = schema.get("properties", {}).get(name, {}).get("type")
+        if expected in types:
+            valid = isinstance(value, types[expected])
+            if expected in ("integer", "number") and isinstance(value, bool):
+                valid = False
+            if not valid:
+                raise ProtocolError(-32602, f"Tool argument {name} must be {expected}")
+
+
 def _call(request_id, params, repo, modern):
     name = params.get("name")
-    if name != "list_places":
+    tool = TOOLS.get(name)
+    if tool is None:
         raise ProtocolError(-32602, f"Unknown tool: {name}")
     arguments = params.get("arguments", {})
-    if not isinstance(arguments, dict) or arguments:
-        raise ProtocolError(-32602, "list_places accepts no arguments")
-    answer = _within_budget(list_places, repo)
-    result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False)}],
-              "structuredContent": answer, "isError": False}
+    _validate_arguments(arguments, tool["inputSchema"])
+    try:
+        answer = _within_budget(tool["function"], repo, **arguments)
+    except ValueError as error:
+        answer = str(error)
+        result = {"content": [{"type": "text", "text": answer}], "isError": True}
+    else:
+        result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False)}],
+                  "structuredContent": answer, "isError": False}
     if modern:
         result["resultType"] = "complete"
     return _result(request_id, result, modern)

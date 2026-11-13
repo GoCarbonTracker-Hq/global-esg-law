@@ -63,6 +63,16 @@ def test_list_places_reports_storage_start_and_coverage_totals(tmp_path):
     assert "company" in answer["notice"].lower()
 
 
+def test_envelope_returns_shared_fields_and_history_records(tmp_path):
+    repo = make_repo(tmp_path)
+
+    envelope, records = query.envelope(repo)
+
+    assert set(envelope) == {"snapshot", "coverage", "notice"}
+    assert envelope["snapshot"]["history_ref"] == "history"
+    assert records and records[0]["jurisdiction"] == "XX"
+
+
 def test_default_ref_uses_origin_history_when_local_history_is_absent(tmp_path):
     repo = make_repo(tmp_path)
     head = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "history"], text=True).strip()

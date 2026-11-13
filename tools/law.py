@@ -6,7 +6,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from query import FIELDS, _commits, _scope, _version, in_force, known, lookup
+from query import in_force, known, lookup
 
 ROOT = Path(__file__).resolve().parents[1]
 

@@ -160,12 +160,21 @@ def _coverage_status(repo, history, history_commit):
             "record_content_diff": content_diff}
 
 
-def list_places(repo=ROOT, ref=None):
-    """List scope-file places with storage facts and one shared evidence envelope."""
+def envelope(repo=ROOT, ref=None):
+    """Return (snapshot, coverage, notice envelope, history records) for this repo snapshot."""
     repo = Path(repo).resolve()
     ref = resolve_ref(repo, ref)
     history_commit = _head(repo, ref)
     history = _read_commits(str(repo), history_commit)
+    return ({"snapshot": {"history_ref": ref, "history_commit": history_commit,
+                          "working_tree_commit": _git(repo, "rev-parse", "--verify", "HEAD").stdout.strip()},
+             "coverage": _coverage_status(repo, history, history_commit), "notice": NOTICE}, history)
+
+
+def list_places(repo=ROOT, ref=None):
+    """List scope-file places with storage facts and one shared evidence envelope."""
+    repo = Path(repo).resolve()
+    shared, history = envelope(repo, ref)
     first_dates = defaultdict(list)
     by_place_id = defaultdict(list)
     for record in history:
@@ -207,7 +216,4 @@ def list_places(repo=ROOT, ref=None):
                        "instrument_count": len(entries), "stored_count": stored_count,
                        "link_only_count": link_only_count, "missing_history_count": missing_history_count,
                        "instruments": instruments})
-    working_tree_commit = _git(repo, "rev-parse", "--verify", "HEAD").stdout.strip()
-    return {"snapshot": {"history_ref": ref, "history_commit": history_commit,
-                         "working_tree_commit": working_tree_commit},
-            "coverage": _coverage_status(repo, history, history_commit), "notice": NOTICE, "places": places}
+    return {**shared, "places": places}

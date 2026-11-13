@@ -138,6 +138,48 @@ def test_protocol_errors_do_not_stop_the_stdio_server(tmp_path):
     assert process.stderr == ""
 
 
+def test_registry_entry_uses_shared_argument_validation(monkeypatch, tmp_path):
+    import mcp_server
+
+    calls = []
+    def fake_query(repo, label):
+        calls.append((repo, label))
+        return {"label": label}
+
+    monkeypatch.setitem(mcp_server.TOOLS, "fake", {
+        "description": "Fake tool", "inputSchema": {
+            "type": "object", "properties": {"label": {"type": "string"}},
+            "required": ["label"], "additionalProperties": False,
+        }, "function": fake_query,
+    })
+    assert [tool["name"] for tool in mcp_server._tools_list("list", False)["result"]["tools"]] == [
+        "list_places", "fake"]
+    reply = mcp_server._call("valid", {"name": "fake", "arguments": {"label": "ok"}}, tmp_path, False)
+    assert reply["result"]["structuredContent"] == {"label": "ok"}
+    assert calls == [(tmp_path, "ok")]
+
+    for arguments in ({}, {"label": 1}, {"label": "ok", "extra": "no"}, []):
+        with pytest.raises(mcp_server.ProtocolError):
+            mcp_server._call("invalid", {"name": "fake", "arguments": arguments}, tmp_path, False)
+
+
+def test_registry_query_value_error_becomes_tool_error(monkeypatch, tmp_path):
+    import mcp_server
+
+    def rejected(_repo, value):
+        raise ValueError(f"rejected {value}")
+
+    monkeypatch.setitem(mcp_server.TOOLS, "reject", {
+        "description": "Reject value", "inputSchema": {
+            "type": "object", "properties": {"value": {"type": "string"}},
+            "required": ["value"], "additionalProperties": False,
+        }, "function": rejected,
+    })
+    reply = mcp_server._call("reject", {"name": "reject", "arguments": {"value": "bad"}}, tmp_path, False)
+    assert reply["result"]["isError"] is True
+    assert reply["result"]["content"][0]["text"] == "rejected bad"
+
+
 def test_server_and_query_use_only_standard_library_and_no_network_modules():
     for path in (SERVER, ROOT / "tools" / "query.py"):
         tree = ast.parse(path.read_text(encoding="utf-8"))
@@ -171,15 +213,16 @@ def test_process_timeout_fallback(monkeypatch):
         mcp_server._within_budget(slow_work)
 
 
-def test_process_query_error_returns_protocol_error_and_keeps_server_running(monkeypatch):
+def test_process_query_value_error_becomes_tool_error_and_keeps_server_running(monkeypatch):
     import mcp_server
 
     monkeypatch.delattr(mcp_server.signal, "setitimer")
     monkeypatch.setattr(mcp_server, "CALL_BUDGET_SECONDS", 5)
-    monkeypatch.setattr(mcp_server, "list_places", failed_work)
+    monkeypatch.setitem(mcp_server.TOOLS["list_places"], "function", failed_work)
     request = modern("tools/call", "error", {"name": "list_places", "arguments": {}})
     reply, era, initialized = mcp_server.handle(request)
-    assert reply["error"]["code"] == -32603
+    assert reply["result"]["isError"] is True
+    assert reply["result"]["content"][0]["text"] == "query failure"
     reply, _, _ = mcp_server.handle(modern("tools/list", "after-error"), era, initialized)
     assert reply["result"]["tools"]
 
