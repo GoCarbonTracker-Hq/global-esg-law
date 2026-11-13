@@ -28,9 +28,18 @@ def gate(repo=ROOT, iso2=None):
         iso2 = scope_path.parent.name
         for e in json.loads(scope_path.read_text(encoding="utf-8")):
             folder = repo / "records" / iso2 / e["id"]
-            n = len(list(folder.glob("*.json"))) if folder.is_dir() else 0
+            files = list(folder.glob("*.json")) if folder.is_dir() else []
+            records = [(path, json.loads(path.read_text(encoding="utf-8"))) for path in files]
+            n = len(records)
             out.append(f"scope {iso2}/{e['id']}: {e.get('status')}, {n} records")
             status, name = e.get("status"), f"{iso2}/{e['id']}"
+            repeal_dates = [record.get("in_force") or path.name[:10]
+                            for path, record in records if record.get("repealed") is True]
+            for path, record in records:
+                effective = record.get("in_force") or path.name[:10]
+                if record.get("repealed") is not True and any(effective >= day for day in repeal_dates) \
+                        and record.get("re_enactment") is not True:
+                    bad.append(f"{name}: record {path.name} is dated on or after repeal; flag it re_enactment to allow it")
             if status == "pending":
                 bad.append(f"{name}: status is pending")
             elif status == "stored":

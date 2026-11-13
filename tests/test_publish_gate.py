@@ -51,3 +51,19 @@ def test_stored_with_non_pass_row(tmp_path):
 def test_link_only_with_records(tmp_path):
     make(tmp_path, status="link only")
     assert "link only but has 1" in refusals(tmp_path)[0]
+
+
+def test_later_record_after_repeal_requires_reenactment_flag(tmp_path):
+    make(tmp_path, records=2)
+    folder = tmp_path / "records" / "XX" / "act"
+    (folder / "0.json").write_text(json.dumps({"in_force": "2024-06-01", "repealed": True}))
+    (folder / "1.json").write_text(json.dumps({"in_force": "2024-06-02"}))
+    assert any("after repeal" in line for line in refusals(tmp_path))
+
+
+def test_flagged_reenactment_after_repeal_passes(tmp_path):
+    make(tmp_path, records=2)
+    folder = tmp_path / "records" / "XX" / "act"
+    (folder / "0.json").write_text(json.dumps({"in_force": "2024-06-01", "repealed": True}))
+    (folder / "1.json").write_text(json.dumps({"in_force": "2024-06-02", "re_enactment": True}))
+    assert refusals(tmp_path) == []

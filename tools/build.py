@@ -52,8 +52,8 @@ def build(repo=ROOT, branch=None):
         row = {**row, "trailer_instrument": entry["title"], "trailer_source_url": entry["official_url"],
                "iso2": iso2, "instrument_id": instrument_id}
         records.append((effective, row_id, path, record, row))
-    # Same date and instrument: adopted before consolidated, translations last, and repeals last.
-    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[3].get("repealed") is True,
+    # Same date and instrument: repeals first, adopted before consolidated, translations last.
+    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[3].get("repealed") is not True,
                                    {"adopted": 0, "consolidated": 1, "translation": 2}.get(item[3]["kind"], 0),
                                    item[3]["language"], item[1], item[2].as_posix()))
     tmp = tempfile.TemporaryDirectory()
@@ -69,6 +69,10 @@ def build(repo=ROOT, branch=None):
         message += (f"Instrument: {row['trailer_instrument']}\nSource-url: {row['trailer_source_url']}\n"
                     f"In-force: {effective}\nKind: {kind}\nLicence: {row['trailer_licence']}\n"
                     f"Jurisdiction: {row['iso2']}\nInstrument-id: {row['instrument_id']}\nLanguage: {record['language']}")
+        if record.get("re_enactment") is True:
+            message += "\nRe-enactment: true"
+        if record.get("in_force") is None:
+            message += "\nDate-basis: publication"
         ident = ["-c", "user.name=Global ESG Law Builder", "-c", "user.email=builder@global-esg-law.invalid"]
         rel = str(path.relative_to(repo))
         if branch:

@@ -9,7 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = {"Instrument": "title", "Source-url": "source_url", "In-force": "in_force", "Kind": "kind",
-          "Licence": "licence", "Jurisdiction": "jurisdiction", "Instrument-id": "id", "Language": "language"}
+          "Licence": "licence", "Jurisdiction": "jurisdiction", "Instrument-id": "id", "Language": "language",
+          "Date-basis": "date_basis", "Re-enactment": "re_enactment"}
 
 
 def _commits(repo, ref):
@@ -67,12 +68,22 @@ def lookup(iso2, on, repo=ROOT, ref="history", lang=None, detail=False):
     (fallback true). detail adds language, languages (the shown record first), and fallback."""
     versions = sorted((c for c in _commits(repo, ref) if c.get("jurisdiction") == iso2),
                       key=lambda c: c["in_force"])  # sorted() is stable, so commit order breaks ties
-    latest, pending = {}, {}
+    latest, pending, repealed = {}, {}, {}
     for c in versions:
         if c["kind"] == "repeal":  # Kind trailer of a repeal record: out of force from that date
             if c["in_force"] <= on:
                 latest.pop(c["id"], None)
+                repealed[c["id"]] = c["in_force"]
+            else:
+                pending.setdefault(c["id"], c)
         elif c["in_force"] <= on:
+            if c["kind"] == "translation" and c["id"] in latest \
+                    and latest[c["id"]][0]["in_force"] < c["in_force"]:
+                continue
+            if c["id"] in repealed and c["in_force"] >= repealed[c["id"]]:
+                if c.get("re_enactment") != "true":
+                    continue
+                repealed.pop(c["id"])
             if c["id"] in latest and latest[c["id"]][0]["in_force"] == c["in_force"]:
                 latest[c["id"]].append(c)  # another record of the same version
             else:
@@ -80,14 +91,14 @@ def lookup(iso2, on, repo=ROOT, ref="history", lang=None, detail=False):
         else:
             pending.setdefault(c["id"], c)
     scope = _scope(repo, iso2)
-    keys = ("id", "title", "in_force", "kind", "source_url", "licence", "commit")
+    keys = ("id", "title", "in_force", "kind", "source_url", "licence", "commit", "date_basis")
     chosen = []
     for records in latest.values():
         shown, fallback, languages = _version(records, lang)
         chosen.append((shown, fallback, languages))
     found = []
     for c, fallback, languages in sorted(chosen, key=lambda t: (t[0]["in_force"], t[0]["id"])):
-        item = {k: c[k] for k in keys}
+        item = {k: c[k] for k in keys if k in c}
         if detail:
             item.update(language=c.get("language"), languages=languages)
             if lang:
@@ -97,8 +108,7 @@ def lookup(iso2, on, repo=ROOT, ref="history", lang=None, detail=False):
             if value:
                 item[key] = value
         found.append(item)
-    not_yet = [{k: c[k] for k in ("id", "title", "in_force")} for i, c in sorted(pending.items())
-               if i not in latest]
+    not_yet = [{k: c[k] for k in ("id", "title", "in_force")} for _, c in sorted(pending.items())]
     return found, not_yet, versions[0]["in_force"] if versions else None
 
 
@@ -151,8 +161,11 @@ def main(argv=None):
     for item in found:
         if "status_note" in item:
             print(f"note {item['id']}: {item['status_note']}")
+        if item.get("date_basis") == "publication":
+            print(f"note {item['id']}: date is a publication date because commencement is unknown")
     if not found:
-        print(f"nothing in force before {first}" if first else f"no instruments stored for {iso2}")
+        print((f"nothing in force before {first}" if args.date < first else f"nothing in force on {args.date}")
+              if first else f"no instruments stored for {iso2}")
     if not_yet:
         print("not yet in force")
         for item in not_yet:
