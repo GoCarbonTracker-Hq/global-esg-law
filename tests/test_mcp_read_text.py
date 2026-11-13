@@ -24,6 +24,7 @@ def fixture(tmp_path):
     second = json.loads(new.read_text())
     second.update(text=LONG, fetched_url="https://example.invalid/act/2023", fetched_sha256="ab" * 32)
     new.write_text(json.dumps(second))
+    new.rename(act / "2023-06-01-consolidated-en-final.json")
     build.build(repo, branch="history")
     return repo
 
@@ -48,10 +49,11 @@ def test_pass_source_returns_text_with_source_facts(tmp_path):
 
 def test_parts_joined_equal_the_stored_text(tmp_path):
     repo = fixture(tmp_path)
+    assert query.PART_SIZE == 20000
     parts, offset = [], 0
     while offset is not None:
         answer = query.read_text(repo, "act", "2024-01-01", offset=offset)
-        assert answer["total_length"] == len(LONG)
+        assert answer["total_chars"] == len(LONG)
         parts.append(answer["text"])
         offset = answer["next_offset"]
     assert len(parts) > 1 and "".join(parts) == LONG
@@ -69,10 +71,32 @@ def test_non_pass_verdict_withholds_text_and_gives_reason_and_url(tmp_path, verd
     assert answer["official_url"] == "https://example.invalid/act"
 
 
-def test_missing_source_row_withholds_text(tmp_path):
+def test_missing_or_duplicate_source_row_withholds_text(tmp_path):
     repo = fixture(tmp_path)
+    rows = json.loads((repo / "sources.json").read_text())
     (repo / "sources.json").write_text("[]")
-    assert query.read_text(repo, "act", "2024-01-01")["text"] is None
+    missing = query.read_text(repo, "act", "2024-01-01")
+    assert missing["text"] is None and "missing or ambiguous" in missing["reason"]
+    (repo / "sources.json").write_text(json.dumps(rows + [rows[0]]))
+    duplicate = query.read_text(repo, "act", "2024-01-01")
+    assert duplicate["text"] is None and "missing or ambiguous" in duplicate["reason"]
+
+
+def test_non_records_path_is_an_internal_error(tmp_path, monkeypatch):
+    repo = fixture(tmp_path)
+    real = query._git
+    monkeypatch.setattr(query, "_git", lambda r, *a, **k: type("R", (), {"stdout": "elsewhere/x.json\n"})()
+                        if a[0] == "diff-tree" else real(r, *a, **k))
+    with pytest.raises(RuntimeError):
+        query.read_text(repo, "act", "2024-01-01")
+
+
+def test_real_ocr_record_is_flagged():
+    if query._git(ROOT, "rev-parse", "--verify", "--quiet", "history^{commit}", check=False).returncode and \
+            query._git(ROOT, "rev-parse", "--verify", "--quiet", "origin/history^{commit}", check=False).returncode:
+        pytest.skip("no history or origin/history ref in this clone")
+    answer = query.read_text(ROOT, "ye-consumer-protection-regulation-2010", "2010-05-12")
+    assert answer["ocr"] is True and "original PDF" in answer["ocr_warning"]
 
 
 def test_link_only_instrument_says_text_is_not_stored(tmp_path):
@@ -113,3 +137,15 @@ def test_read_text_over_stdio(tmp_path):
     ])
     assert replies[0]["result"]["isError"] is False and replies[0]["result"]["structuredContent"]["text"]
     assert replies[1]["result"]["isError"] is True
+
+
+def test_real_csrd_adopted_text_is_267926_chars_and_parts_add_up():
+    if query._git(ROOT, "rev-parse", "--verify", "--quiet", "history^{commit}", check=False).returncode and \
+            query._git(ROOT, "rev-parse", "--verify", "--quiet", "origin/history^{commit}", check=False).returncode:
+        pytest.skip("no history or origin/history ref in this clone")
+    parts, offset = [], 0
+    while offset is not None:
+        answer = query.read_text(ROOT, "eu-csrd-2022-2464", "2023-01-05", offset=offset)
+        parts.append(answer["text"])
+        offset = answer["next_offset"]
+    assert answer["total_chars"] == 267926 == len("".join(parts))

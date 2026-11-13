@@ -302,7 +302,7 @@ def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
                 "before_record_starts" if date < first else "nothing_in_force")
         answer.update(case=case, message=EMPTY_CASES[case].format(place=place, date=date, first=first))
 # --- STORY-GEL-32-04: read_text ---
-PART_SIZE = 50000
+PART_SIZE = 20000
 OCR_WARNING = ("Uncorrected OCR from a scanned original: check dates and article numbers against the original PDF "
                "before quoting.")
 
@@ -311,8 +311,11 @@ def _load_record(repo, commit):
     """Read the one record file a history commit adds. Return None when it cannot be read."""
     try:
         path = _git(repo, "diff-tree", "--root", "--no-commit-id", "--name-only", "-r", commit).stdout.split()
-        if len(path) != 1:
-            return None
+    except subprocess.CalledProcessError:
+        return None
+    if len(path) != 1 or not (path[0].startswith("records/") and path[0].endswith(".json")):
+        raise RuntimeError(f"history commit {commit} does not add exactly one records/*.json file")
+    try:
         return json.loads(_git(repo, "show", f"{commit}:{path[0]}").stdout)
     except (subprocess.CalledProcessError, ValueError):
         return None
@@ -343,8 +346,10 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
     base = {**shared, "instrument": instrument}
     versions = [c for c in history if c.get("id") == instrument]
     if not versions:
+        stored = scope[instrument].get("status") == "stored"
         return {**base, "text": None, "official_url": scope[instrument].get("official_url"),
-                "reason": "The text of this instrument is not stored in the corpus (link only); read it at the official URL."}
+                "reason": ("The scope file lists this text as stored but the history snapshot does not hold it; read it at the official URL."
+                           if stored else "The text of this instrument is not stored in the corpus (link only); read it at the official URL.")}
     first = min(c["in_force"] for c in versions)
     if date < first:
         return {**base, "text": None, "official_url": versions[0].get("source_url"),
@@ -362,19 +367,20 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
         return {**facts, "text": None, "official_url": item.get("source_url"), "ocr": "unknown",
                 "ocr_warning": "The record file could not be read, so its OCR status is unknown.",
                 "reason": "The stored record file could not be read."}
-    rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
-    verdict = rows.get(record.get("source_id"), {}).get("verdict")
-    if verdict != "pass":
+    matches = [r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))
+               if r.get("id") == record.get("source_id")]
+    if len(matches) != 1 or matches[0].get("verdict") != "pass":
+        why = (f"source row {record.get('source_id')} is missing or ambiguous in sources.json" if len(matches) != 1
+               else f"the licence verdict of source {record.get('source_id')} is {matches[0].get('verdict')}, not pass")
         return {**facts, "text": None, "official_url": item.get("source_url"),
-                "reason": f"The licence verdict of source {record.get('source_id')} is {verdict or 'missing'}, not pass, "
-                          "so the text is withheld; read it at the official URL."}
+                "reason": f"The text is withheld: {why}. Read it at the official URL."}
     text = record.get("text") or ""
     if offset > len(text):
         raise ValueError(f"offset is past the end of the text, which is {len(text)} characters long")
     end = offset + PART_SIZE
     ocr = record.get("extraction") == "ocr"
     answer = {**facts, "source_id": record.get("source_id"), "ocr": ocr, "text": text[offset:end],
-              "offset": offset, "total_length": len(text), "next_offset": end if end < len(text) else None}
+              "offset": offset, "total_chars": len(text), "next_offset": end if end < len(text) else None}
     for key in ("fetched_url", "fetched_sha256"):
         if record.get(key):
             answer[key] = record[key]
