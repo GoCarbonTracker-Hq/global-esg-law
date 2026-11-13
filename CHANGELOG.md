@@ -10,6 +10,7 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
 ## 2026-11-13
+- **Added:** the MCP tool `instrument_history`: every stored version of one instrument in in-force order, with kind, languages, source, licence and any repeal; a link-only instrument answers that it is not stored and gives its official URL.
 
 - **Changed:** the published `history` branch was rebuilt and replaced (commit `745289cd`, 3,240 commits; the build before it was `7b5ed3a7`). Lookups on it now carry the fixes below. Five instruments show their consolidated text where they showed the adopted one (four Belgian instruments and `tr-iklim-kanunu`), records dated by publication carry a note, and the Christmas Island plastic bag local law is included. Commit ids on `history` changed, so anyone who fetched the old branch needs to fetch it again. The Cite line and `CITATION.cff` name the new build.
 - **Added:** the `read_text` tool of the MCP server: the text of one instrument as in force on a date, in parts, returned only when the licence verdict of its source row in `sources.json` is `pass`, with an OCR flag.
