@@ -395,3 +395,48 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
     if answer["next_offset"] is not None:
         answer["how_to_continue"] = f"Call read_text again with the same arguments and offset={end} for the next part."
     return answer
+
+
+# --- STORY-GEL-32-05: instrument_history ---
+def instrument_history(repo=ROOT, instrument=None, ref=None):
+    """Every stored version of one instrument in in-force order, with its repeal and a storage note."""
+    repo = Path(repo).resolve()
+    shared, history = envelope(repo, ref)
+    records = sorted((c for c in history if c.get("id") == instrument),
+                     key=lambda c: (c["in_force"], c["kind"] != "repeal"))
+    entry = next((e for p in sorted((repo / "register").glob("*/scope.json"))
+                  for e in _scope(repo, p.parent.name).values() if e["id"] == instrument), None)
+    if not isinstance(instrument, str) or not (records or entry):
+        raise ValueError(f"Unknown instrument id: {instrument!r}. Use an id from list_places.")
+    base = {**shared, "instrument": instrument, "title": (records[-1] if records else entry).get("title", ""),
+            "jurisdiction": records[0].get("jurisdiction") if records else None}
+    if not records:
+        status = (entry or {}).get("status")
+        why = ("It is link only: no text is stored." if status == "link only"
+               else "It is in the register but absent from the history snapshot.")
+        return {**base, "stored": False, "versions": [], "official_url": entry.get("official_url"),
+                "reason": f"Instrument {instrument} is not stored. {why} The official source is the authority."}
+    groups, excluded, repealed = [], [], None
+    for c in records:
+        if c["kind"] == "repeal":
+            repealed = c["in_force"]
+        elif repealed and c["in_force"] >= repealed:
+            if c.get("re_enactment") != "true":
+                excluded.append(c["in_force"])
+                continue
+            repealed = None
+        if groups and groups[-1][0]["in_force"] == c["in_force"] and c["kind"] != "repeal" \
+                and groups[-1][0]["kind"] != "repeal":
+            groups[-1].append(c)
+        else:
+            groups.append([c])
+    versions = []
+    for group in groups:
+        shown, _, langs = _version(group, None)
+        item = {k: shown[k] for k in ("in_force", "kind", "source_url", "licence", "commit") if k in shown}
+        item["languages"] = [x["language"] for x in langs]
+        if any(c.get("date_basis") == "publication" for c in group):
+            item["note"] = "This date is a publication date because the commencement date is unknown."
+        versions.append(item)
+    return {**base, "stored": True, "versions": versions, "excluded_after_repeal": sorted(set(excluded)),
+            "official_url": (entry or {}).get("official_url")}

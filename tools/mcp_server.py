@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 
-from query import law_in_force, list_places, read_text
+from query import instrument_history, law_in_force, list_places, read_text
 
 ROOT = Path(__file__).resolve().parents[1]
 MODERN = "2026-07-28"
@@ -43,6 +43,12 @@ TOOLS = {"list_places": {
         "offset": {"type": "integer", "description": "Character offset of the part to read; use next_offset from the previous answer."}},
         "required": ["instrument", "date"], "additionalProperties": False},
     "function": read_text,
+},
+    "instrument_history": {
+    "description": "Every stored version of one instrument in in-force order, with kind, languages, source and any repeal.",
+    "inputSchema": {"type": "object", "properties": {"instrument": {"type": "string", "description": "Instrument id, as listed by list_places."}},
+                    "required": ["instrument"], "additionalProperties": False},
+    "function": instrument_history,
 }}
 
 
