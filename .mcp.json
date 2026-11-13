@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "global-esg-law": {
+      "command": "python3",
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/tools/mcp_server.py"]
+    }
+  }
+}
