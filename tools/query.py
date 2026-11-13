@@ -301,4 +301,85 @@ def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
                 "no_stored_text" if first is None else
                 "before_record_starts" if date < first else "nothing_in_force")
         answer.update(case=case, message=EMPTY_CASES[case].format(place=place, date=date, first=first))
+# --- STORY-GEL-32-04: read_text ---
+PART_SIZE = 50000
+OCR_WARNING = ("Uncorrected OCR from a scanned original: check dates and article numbers against the original PDF "
+               "before quoting.")
+
+
+def _load_record(repo, commit):
+    """Read the one record file a history commit adds. Return None when it cannot be read."""
+    try:
+        path = _git(repo, "diff-tree", "--root", "--no-commit-id", "--name-only", "-r", commit).stdout.split()
+        if len(path) != 1:
+            return None
+        return json.loads(_git(repo, "show", f"{commit}:{path[0]}").stdout)
+    except (subprocess.CalledProcessError, ValueError):
+        return None
+
+
+def _valid_date(value):
+    from datetime import date as calendar_date
+    try:
+        return calendar_date.fromisoformat(value).isoformat() == value
+    except (TypeError, ValueError):
+        return False
+
+
+def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=None):
+    """Return the text of one instrument as in force on a date, in parts, only when its source licence passes."""
+    repo = Path(repo).resolve()
+    if not _valid_date(date):
+        raise ValueError("date must be a real calendar date written YYYY-MM-DD, for example 2025-06-30")
+    if lang is not None and not (isinstance(lang, str) and len(lang) == 2 and lang.isalpha() and lang.islower()):
+        raise ValueError("lang must be a two-letter lowercase language code, for example en")
+    if isinstance(offset, bool) or not isinstance(offset, int) or offset < 0:
+        raise ValueError("offset must be an integer of 0 or more")
+    shared, history = envelope(repo, ref)
+    places = {c["id"]: c["jurisdiction"] for c in history if c.get("id") and c.get("jurisdiction")}
+    scope = {e["id"]: e for p in (repo / "register").glob("*/scope.json") for e in json.loads(p.read_text(encoding="utf-8"))}
+    if not isinstance(instrument, str) or (instrument not in places and instrument not in scope):
+        raise ValueError("unknown instrument id; ids come from list_places, for example the id of an instrument in a place")
+    base = {**shared, "instrument": instrument}
+    versions = [c for c in history if c.get("id") == instrument]
+    if not versions:
+        return {**base, "text": None, "official_url": scope[instrument].get("official_url"),
+                "reason": "The text of this instrument is not stored in the corpus (link only); read it at the official URL."}
+    first = min(c["in_force"] for c in versions)
+    if date < first:
+        return {**base, "text": None, "official_url": versions[0].get("source_url"),
+                "reason": f"The stored record of this instrument starts on {first}; nothing is stored for {date}."}
+    found = [i for i in in_force(places[instrument], date, repo, ref, lang, detail=True) if i["id"] == instrument]
+    if not found:
+        return {**base, "text": None, "official_url": versions[-1].get("source_url"),
+                "reason": f"No version of this instrument is in force on {date} in the stored record (repealed or not yet in force)."}
+    item = found[0]
+    facts = {**base, "source_url": item.get("source_url"), "licence": item.get("licence"), "kind": item["kind"],
+             "language": item.get("language"), "in_force": item["in_force"], "commit": item["commit"],
+             "fallback": item.get("fallback", False), "languages": item["languages"]}
+    record = _load_record(repo, item["commit"])
+    if record is None:
+        return {**facts, "text": None, "official_url": item.get("source_url"), "ocr": "unknown",
+                "ocr_warning": "The record file could not be read, so its OCR status is unknown.",
+                "reason": "The stored record file could not be read."}
+    rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
+    verdict = rows.get(record.get("source_id"), {}).get("verdict")
+    if verdict != "pass":
+        return {**facts, "text": None, "official_url": item.get("source_url"),
+                "reason": f"The licence verdict of source {record.get('source_id')} is {verdict or 'missing'}, not pass, "
+                          "so the text is withheld; read it at the official URL."}
+    text = record.get("text") or ""
+    if offset > len(text):
+        raise ValueError(f"offset is past the end of the text, which is {len(text)} characters long")
+    end = offset + PART_SIZE
+    ocr = record.get("extraction") == "ocr"
+    answer = {**facts, "source_id": record.get("source_id"), "ocr": ocr, "text": text[offset:end],
+              "offset": offset, "total_length": len(text), "next_offset": end if end < len(text) else None}
+    for key in ("fetched_url", "fetched_sha256"):
+        if record.get(key):
+            answer[key] = record[key]
+    if ocr:
+        answer["ocr_warning"] = OCR_WARNING
+    if answer["next_offset"] is not None:
+        answer["how_to_continue"] = f"Call read_text again with the same arguments and offset={end} for the next part."
     return answer

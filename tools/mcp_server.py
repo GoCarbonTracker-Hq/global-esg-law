@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 
-from query import law_in_force, list_places
+from query import law_in_force, list_places, read_text
 
 ROOT = Path(__file__).resolve().parents[1]
 MODERN = "2026-07-28"
@@ -32,6 +32,17 @@ TOOLS = {"list_places": {
         "lang": {"type": "string", "description": "Optional two-letter language code, such as en"}},
         "required": ["place", "date"], "additionalProperties": False},
     "function": law_in_force,
+},
+    "read_text": {
+    "description": "Read the text of one instrument as in force on a date, in parts, only when its source licence allows. "
+                   "The answer is withheld, with the official URL, when the licence verdict is not pass.",
+    "inputSchema": {"type": "object", "properties": {
+        "instrument": {"type": "string", "description": "Instrument id, as listed by list_places."},
+        "date": {"type": "string", "description": "YYYY-MM-DD."},
+        "lang": {"type": "string", "description": "Two-letter language code, optional."},
+        "offset": {"type": "integer", "description": "Character offset of the part to read; use next_offset from the previous answer."}},
+        "required": ["instrument", "date"], "additionalProperties": False},
+    "function": read_text,
 }}
 
 
