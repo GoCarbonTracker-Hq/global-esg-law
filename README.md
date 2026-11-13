@@ -65,6 +65,10 @@ Three rules decide what counts as in force:
 - An amendment published but not yet in force is listed after the line `not yet in force`.
 - A circular or notice with no commencement clause takes its issue date.
 
+## Use it from an AI assistant
+
+A small local server lets an AI assistant that speaks MCP (Model Context Protocol) look up places, laws in force on a date, stored texts and the version history of an instrument. It runs on your machine and changes nothing. [MCP.md](MCP.md) has the setup, the tools and the limits.
+
 ## Questions it answers
 
 Each question is answered by one command from the repository root.
