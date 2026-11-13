@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 
-from query import list_places
+from query import law_in_force, list_places
 
 ROOT = Path(__file__).resolve().parents[1]
 MODERN = "2026-07-28"
@@ -24,6 +24,14 @@ TOOLS = {"list_places": {
     "description": "List places and the instruments held in the corpus.",
     "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
     "function": list_places,
+}, "law_in_force": {
+    "description": "List the instruments in force in a place on a date, with link-only instruments apart. Not legal advice.",
+    "inputSchema": {"type": "object", "properties": {
+        "place": {"type": "string", "description": "Two capital letters, such as DE, or EU"},
+        "date": {"type": "string", "description": "A real date as YYYY-MM-DD"},
+        "lang": {"type": "string", "description": "Optional two-letter language code, such as en"}},
+        "required": ["place", "date"], "additionalProperties": False},
+    "function": law_in_force,
 }}
 
 

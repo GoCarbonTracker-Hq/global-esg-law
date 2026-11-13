@@ -217,3 +217,88 @@ def list_places(repo=ROOT, ref=None):
                        "link_only_count": link_only_count, "missing_history_count": missing_history_count,
                        "instruments": instruments})
     return {**shared, "places": places}
+
+
+# --- STORY-GEL-32-03: law_in_force ---
+NOT_AVAILABLE = "not available"
+EMPTY_CASES = {
+    "place_not_in_register": "{place} is not in this snapshot's register: it has no scope file and no stored record. "
+                             "This does not mean no law exists there; the corpus does not cover the place.",
+    "links_only": "{place} has links only: its instruments are listed under link_only with their official URLs, "
+                  "and no text is stored. This does not mean no law was in force on {date}.",
+    "before_record_starts": "The earliest stored record for {place} starts on {first}, after {date}. "
+                            "This does not mean no law was in force on {date}; the corpus has no record that early.",
+    "nothing_in_force": "Nothing in {place}'s scope was in force on {date} according to the stored records "
+                        "(the earliest starts {first}). This does not mean no law applied; "
+                        "link-only instruments and anything outside the scope list are not covered.",
+    "registered_no_instruments": "{place} is in the register, and no instruments are listed for it yet. "
+                                 "This does not mean no law was in force on {date}; the place has not been scoped.",
+    "no_stored_text": "No text is stored in this snapshot for {place}. "
+                      "This does not mean no law was in force on {date}.",
+}
+
+
+def _register_tiers(repo):
+    path = Path(repo) / "register" / "register.csv"
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    found = defaultdict(set)
+    for row in rows:
+        found[(row["iso2"], row["official_source_url"], row["law_family"])].add(row.get("tier_hint") or None)
+    # a key that matches rows with different tiers has no tier; the label then reads not available
+    return {key: next(iter(values)) for key, values in found.items() if len(values) == 1}
+
+
+def _labels(iso2, entry, tiers):
+    """Tier and verification as the scope file and register give them; a missing value reads not available."""
+    tier = tiers.get((iso2, entry.get("official_url"), entry.get("law_family"))) or NOT_AVAILABLE
+    verification = entry.get("verification") or NOT_AVAILABLE
+    unverified = verification != "official_text_seen"
+    return {"official_url": entry.get("official_url") or NOT_AVAILABLE,
+            "law_family": entry.get("law_family") or NOT_AVAILABLE,
+            "duty_on": entry.get("duty_on") or NOT_AVAILABLE,
+            "tier": tier, "verification": verification, "unverified": unverified,
+            "tier_label": f"{tier}, unverified" if tier == "A" and unverified else tier}
+
+
+def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
+    """Instruments in force in one place on one date, with link-only instruments listed apart."""
+    import re
+    from datetime import date as _date
+    if not isinstance(place, str) or not re.fullmatch(r"[A-Z]{2}", place):
+        raise ValueError(f"malformed place {place!r}: use two capital letters such as DE, or EU")
+    try:
+        if not isinstance(date, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+            raise ValueError
+        _date.fromisoformat(date)
+    except ValueError:
+        raise ValueError(f"malformed date {date!r}: use a real calendar date as YYYY-MM-DD, such as 2024-12-31") from None
+    if lang is not None and not (isinstance(lang, str) and re.fullmatch(r"[a-z]{2}", lang)):
+        raise ValueError(f"malformed language {lang!r}: use a two-letter lowercase code such as en")
+    repo = Path(repo).resolve()
+    shared, _history = envelope(repo, ref)
+    answer = {**shared, "place": place, "date": date, "language_requested": lang, "case": None, "message": None,
+              "first_record_date": None, "in_force": [], "not_yet_in_force": [], "link_only": []}
+    if place not in known(repo, ref):
+        answer.update(case="place_not_in_register", message=EMPTY_CASES["place_not_in_register"].format(place=place))
+        return answer
+    found, not_yet, first = lookup(place, date, repo, ref, lang, detail=True)
+    scope, tiers = _scope(repo, place), _register_tiers(repo)
+    for item in found:
+        item.update(_labels(place, scope.get(item["id"], {}), tiers))
+        if lang:
+            item["language_note"] = (f"no {lang} record for this version, showing the official record ({item['language']})"
+                                     if item["fallback"] else f"showing the {item['language']} record")
+    answer.update(in_force=found, not_yet_in_force=not_yet, first_record_date=first, link_only=[
+        {"id": e["id"], "title": e.get("title", ""), "stored": False, "status": "link only, text not stored",
+         **_labels(place, e, tiers)} for e in scope.values() if e.get("status") == "link only"])
+    if not found:
+        link_only_place = first is None and answer["link_only"] and all(e.get("status") == "link only" for e in scope.values())
+        empty_scope = first is None and (repo / "register" / place / "scope.json").exists() and not scope
+        case = ("links_only" if link_only_place else "registered_no_instruments" if empty_scope else
+                "no_stored_text" if first is None else
+                "before_record_starts" if date < first else "nothing_in_force")
+        answer.update(case=case, message=EMPTY_CASES[case].format(place=place, date=date, first=first))
+    return answer
