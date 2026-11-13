@@ -78,6 +78,8 @@ def test_missing_or_duplicate_source_row_withholds_text(tmp_path):
     missing = query.read_text(repo, "act", "2024-01-01")
     assert missing["text"] is None and "missing or ambiguous" in missing["reason"]
     (repo / "sources.json").write_text(json.dumps(rows + [rows[0]]))
+    assert query.read_text(repo, "act", "2024-01-01")["text"]  # identical pass rows (as in the real file) are not ambiguous
+    (repo / "sources.json").write_text(json.dumps(rows + [{**rows[0], "verdict": "unknown"}]))
     duplicate = query.read_text(repo, "act", "2024-01-01")
     assert duplicate["text"] is None and "missing or ambiguous" in duplicate["reason"]
 

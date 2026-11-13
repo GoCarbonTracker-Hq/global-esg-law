@@ -369,9 +369,12 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
                 "reason": "The stored record file could not be read."}
     matches = [r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))
                if r.get("id") == record.get("source_id")]
-    if len(matches) != 1 or matches[0].get("verdict") != "pass":
-        why = (f"source row {record.get('source_id')} is missing or ambiguous in sources.json" if len(matches) != 1
-               else f"the licence verdict of source {record.get('source_id')} is {matches[0].get('verdict')}, not pass")
+    verdicts = {r.get("verdict") for r in matches}
+    if not matches or verdicts != {"pass"}:
+        # sources.json repeats 21 ids with identical pass rows; duplicates that disagree, like a missing row, withhold.
+        why = (f"source row {record.get('source_id')} is missing or ambiguous in sources.json"
+               if not matches or len(verdicts) > 1 else
+               f"the licence verdict of source {record.get('source_id')} is {verdicts.pop()}, not pass")
         return {**facts, "text": None, "official_url": item.get("source_url"),
                 "reason": f"The text is withheld: {why}. Read it at the official URL."}
     text = record.get("text") or ""
