@@ -46,6 +46,30 @@ def test_latest_version_wins(tmp_path):
     assert {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}["law2"]["in_force"] == "2020-03-04"
 
 
+@pytest.mark.parametrize(("adopted_id", "consolidated_id"), [("a-adopted", "z-consolidated"),
+                                                               ("z-adopted", "a-consolidated")])
+def test_consolidated_wins_same_day_for_either_source_id_order(tmp_path, adopted_id, consolidated_id):
+    fixture(tmp_path)
+    sources = json.loads((tmp_path / "sources.json").read_text())
+    sources[1]["id"] = adopted_id
+    sources.append({**sources[1], "id": consolidated_id, "form": "consolidated"})
+    (tmp_path / "sources.json").write_text(json.dumps(sources))
+    scope = tmp_path / "register" / "EU" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["source_row"] = [adopted_id, consolidated_id]
+    scope.write_text(json.dumps(entries))
+    record = tmp_path / "records" / "EU" / "law2" / "new.json"
+    data = json.loads(record.read_text())
+    data["source_id"] = adopted_id
+    (tmp_path / "records" / "EU" / "law2" / "2020-03-04-adopted.json").write_text(json.dumps(data))
+    record.unlink()
+    (tmp_path / "records" / "EU" / "law2" / "2020-03-04-consolidated.json").write_text(json.dumps(
+        {**data, "source_id": consolidated_id, "kind": "consolidated", "text": "consolidated"}))
+    build.build(tmp_path, branch="history")
+    shown = {i["id"]: i for i in law.in_force("EU", "2020-03-04", tmp_path)}["law2"]
+    assert shown["kind"] == "consolidated"
+
+
 def test_status_note_passthrough(tmp_path):
     repo = make(tmp_path)
     by_id = {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}

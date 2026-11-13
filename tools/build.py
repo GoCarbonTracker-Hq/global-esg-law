@@ -52,9 +52,9 @@ def build(repo=ROOT, branch=None):
         row = {**row, "trailer_instrument": entry["title"], "trailer_source_url": entry["official_url"],
                "iso2": iso2, "instrument_id": instrument_id}
         records.append((effective, row_id, path, record, row))
-    # Same date and instrument: official-language records first (a translation never replaces one in a
-    # lookup), then by language code, then as before.
-    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[3]["kind"] == "translation",
+    # Same date and instrument: adopted before consolidated, translations last, and repeals last.
+    records.sort(key=lambda item: (item[0], item[4]["trailer_instrument"], item[3].get("repealed") is True,
+                                   {"adopted": 0, "consolidated": 1, "translation": 2}.get(item[3]["kind"], 0),
                                    item[3]["language"], item[1], item[2].as_posix()))
     tmp = tempfile.TemporaryDirectory()
     index = Path(tmp.name) / "index"
