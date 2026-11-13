@@ -19,7 +19,7 @@ META = "io.modelcontextprotocol/"
 CSRD = "eu-csrd-2022-2464"
 AE_ID = "ae-dl-11-2024-climate"
 AE_URL = "https://uaelegislation.gov.ae/en/legislations/2558"
-OCR_ID = "ug-cma-esg-guidelines-2026"  # records/UG/<id>/2026-07-02-adopted-en.json has "extraction": "ocr"
+OCR_PLACE, OCR_ID, OCR_FIRST = "YE", "ye-consumer-protection-regulation-2010", "2010-05-12"  # record has "extraction": "ocr"
 
 
 def blob(answer):
@@ -66,9 +66,9 @@ def list_places_records(answer):
     ae = place(answer, "AE")
     if (ae.get("status"), ae.get("stored_count"), ae.get("link_only_count", 0) > 0) != ("link only", 0, True):
         errors.append(f"AE is {ae.get('status')!r}, stored {ae.get('stored_count')}")
-    ocr = instrument(answer, "UG", OCR_ID)
-    if (ocr.get("status"), ocr.get("first_in_force")) != ("text stored", "2026-07-02"):
-        errors.append(f"UG OCR instrument is {ocr}")
+    ocr = instrument(answer, OCR_PLACE, OCR_ID)
+    if (ocr.get("status"), ocr.get("first_in_force")) != ("text stored", OCR_FIRST):
+        errors.append(f"{OCR_PLACE} OCR instrument is {ocr}")
     return errors
 
 
@@ -78,22 +78,24 @@ def list_places_records(answer):
 CHECKS = {
     "list_places": [
         ("envelope reads origin/history in a fresh clone", {}, False, list_places_envelope),
-        ("stored text (EU CSRD), link-only place (AE), OCR instrument (UG)", {}, False, list_places_records),
+        ("stored text (EU CSRD), link-only place (AE), OCR instrument (YE)", {}, False, list_places_records),
         ("unknown argument is a protocol error", {"place": "AE"}, "protocol", lambda a: []),
     ],
     "law_in_force": [  # STORY 03
         ("stored text: EU 2025-06-01 lists the CSRD", {"place": "EU", "date": "2025-06-01"}, False, has(CSRD)),
-        ("not yet in force: EE 2026-01-01 lists ee-tks-2024-825-act with 2026-07-13",
-         {"place": "EE", "date": "2026-01-01"}, False, has("ee-tks-2024-825-act", "2026-07-13", "ee-aoks-ets")),
+        ("not yet in force: EE 2026-01-01 has ee-aoks-ets dated 2026-03-28 apart from the six in force",
+         {"place": "EE", "date": "2026-01-01"}, False, has("ee-aoks-ets", "2026-03-28", "ee-tks-2024-825-act", "2026-07-13")),
         ("link-only place: AE lists its instrument as not stored with the official URL",
          {"place": "AE", "date": "2026-01-01"}, False, has(AE_ID, AE_URL, "not stored")),
         ("input error: impossible date", {"place": "EU", "date": "2026-13-45"}, True, has("yyyy-mm-dd")),
     ],
     "read_text": [  # STORY 04
+        ("stored text: CSRD adopted text of 2023-01-05 in parts (total_chars 267926, next_offset 20000)",
+         {"instrument": CSRD, "date": "2023-06-01"}, False, has("2023-01-05", "https://", '"total_chars": 267926', '"next_offset": 20000')),
         ("stored text: CSRD version of 2025-04-17 with source URL",
          {"instrument": CSRD, "date": "2025-06-01"}, False, has("2025-04-17", "https://", "02022L2464")),
         ("OCR record is flagged as uncorrected OCR",
-         {"instrument": OCR_ID, "date": "2026-08-01"}, False, has("ocr")),
+         {"instrument": OCR_ID, "date": "2026-01-01"}, False, has("ocr")),
         ("link-only instrument: no text, official URL",
          {"instrument": AE_ID, "date": "2026-01-01"}, False, has(AE_URL, "not stored")),
         ("input error: path-like instrument id", {"instrument": "../../etc/passwd", "date": "2026-01-01"}, True, has("instrument")),
