@@ -223,7 +223,13 @@ def list_places(repo=ROOT, ref=None, place=None):
                        "link_only_count": link_only_count, "missing_history_count": missing_history_count,
                        "first_in_force": min((i["first_in_force"] for i in instruments if i["first_in_force"]), default=None),
                        **({"instruments": instruments} if place else {})})
-    return {**shared, "places": places}
+    if place:
+        return {**shared, "places": places}
+    columns = ["iso2", "name", "status", "instrument_count", "stored_count", "link_only_count",
+               "missing_history_count", "first_in_force"]
+    return {**shared, "place_count": len(places), "columns": columns,
+            "rows": [[row[c] for c in columns] for row in places],
+            "how_to_read": "Each row follows columns; call list_places with place to get one place with its instruments."}
 
 
 # --- STORY-GEL-32-03: law_in_force ---

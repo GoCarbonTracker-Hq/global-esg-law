@@ -40,6 +40,8 @@ def in_order(*needles):
 
 
 def place(answer, iso2):
+    if "rows" in answer:
+        return next((dict(zip(answer["columns"], r)) for r in answer["rows"] if r[0] == iso2), {})
     return next((p for p in answer.get("places", []) if p["iso2"] == iso2), {})
 
 
@@ -60,12 +62,13 @@ def list_places_envelope(answer):
 
 def list_places_summary(answer):
     errors = []
-    if len(answer.get("places", [])) < 100:
-        errors.append(f"{len(answer.get('places', []))} places")
-    if any("instruments" in p for p in answer["places"]):
-        errors.append("summary rows carry instrument lists")
-    if len(json.dumps(answer)) > 60000:
-        errors.append(f"answer is {len(json.dumps(answer))} characters, over 60000")
+    if answer.get("place_count", 0) < 100 or answer.get("place_count") != len(answer.get("rows", [])):
+        errors.append(f"place_count {answer.get('place_count')}, {len(answer.get('rows', []))} rows")
+    if "places" in answer or any(len(r) != len(answer["columns"]) for r in answer.get("rows", [])):
+        errors.append("table is not columns plus rows")
+    size = len(json.dumps(answer, separators=(",", ":")))
+    if size > 15000:
+        errors.append(f"answer is {size} characters, over 15000")
     ae = place(answer, "AE")
     if (ae.get("status"), ae.get("stored_count"), ae.get("link_only_count", 0) > 0) != ("link only", 0, True):
         errors.append(f"AE is {ae.get('status')!r}, stored {ae.get('stored_count')}")
@@ -87,7 +90,7 @@ def one_place(iso2, instrument_id, status, first):
 CHECKS = {
     "list_places": [
         ("envelope reads origin/history in a fresh clone", {}, False, list_places_envelope),
-        ("summary rows only, under 60000 characters, AE is link only", {}, False, list_places_summary),
+        ("compact table (columns and rows), under 15000 characters, AE is link only", {}, False, list_places_summary),
         ("EU CSRD is text stored from 2023-01-05", {"place": "EU"}, False, one_place("EU", CSRD, "text stored", "2023-01-05")),
         ("AE instrument is link only", {"place": "AE"}, False, one_place("AE", AE_ID, "link only", None)),
         (f"{OCR_PLACE} OCR instrument is text stored from {OCR_FIRST}", {"place": OCR_PLACE}, False,

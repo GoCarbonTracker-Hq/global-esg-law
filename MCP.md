@@ -49,13 +49,30 @@ A tool call that is cut off after 30 seconds returns an error that names the lim
 
 Lists the places in the register, or one place with its instruments.
 
-Input: `place` (optional; two capital letters, or `EU`). With no `place`, the answer has one summary row per place and no instrument lists, so it stays small (about 46,000 characters of JSON for 250 places on 2026-11-13). With a `place`, the answer holds that place alone, with its instruments. A malformed code or a place that is not in the register is an input error.
+Input: `place` (optional; two capital letters, or `EU`). With no `place`, the answer is a compact table, one array per place and no instrument lists, so a client can show it (the whole reply line is about 29,000 characters for 250 places on 2026-11-13, the answer being sent in both `content` and `structuredContent`). With a `place`, the answer holds that place alone, with its instruments. A malformed code or a place that is not in the register is an input error.
 
-Output: the three labels, and `places`. Each place has `iso2`, `name`, `status` (`text stored`, `link only`, `empty scope file`, or `stored in working tree, absent from history snapshot`), `instrument_count`, `stored_count`, `link_only_count`, `missing_history_count` and `first_in_force` (the earliest date among the place's stored records, `null` if none). With `place`, each place also has `instruments`: `id`, `title`, `status` and `first_in_force` (`null` for a link-only instrument).
+Output with no `place`: the three labels, `place_count`, `columns`, `rows` and `how_to_read`. Each row is an array in the order of `columns`: `iso2`, `name`, `status` (`text stored`, `link only`, `empty scope file`, or `stored in working tree, absent from history snapshot`), `instrument_count`, `stored_count`, `link_only_count`, `missing_history_count` and `first_in_force` (the earliest date among the place's stored records, `null` if none).
+
+Output with `place`: the three labels and `places`, a list of one object with the same eight fields as named keys, plus `instruments`: `id`, `title`, `status` and `first_in_force` (`null` for a link-only instrument).
+
+Real example, no `place`, run on 2026-11-13 (`rows` cut to four of 250):
+
+```json
+{
+  "snapshot": {"history_ref": "history", "history_commit": "745289cde13fcd1e28333922da235f3467441f1a", "working_tree_commit": "5150218f23ca04f551206a6f8f21733f8e929e0f"},
+  "coverage": {"status": "matches working tree", "missing_records": 0, "extra_records": 0, "record_content_diff": false},
+  "notice": "This is not legal advice. The official source is the authority. Nothing here says whether any company complies with any law.",
+  "place_count": 250,
+  "columns": ["iso2", "name", "status", "instrument_count", "stored_count", "link_only_count", "missing_history_count", "first_in_force"],
+  "rows": [["AD", "Andorra", "text stored", 4, 4, 0, 0, "2013-08-10"], ["AE", "United Arab Emirates", "link only", 5, 0, 5, 0, null],
+           ["AF", "Afghanistan", "link only", 4, 0, 4, 0, null], ["EU", "European Union", "text stored", 16, 16, 0, 0, "2019-12-29"]],
+  "how_to_read": "Each row follows columns; call list_places with place to get one place with its instruments."
+}
+```
 
 The number of places and instruments is in `COVERAGE.md` with its date, and `python3 tools/coverage.py` produces it again.
 
-Real example, `{"place": "AE"}`, run on 2026-11-13 (the `instruments` list is cut to one of five):
+Real example with a place, `{"place": "AE"}`, run on 2026-11-13 (the `instruments` list is cut to one of five):
 
 ```json
 {

@@ -189,7 +189,7 @@ def _call(request_id, params, repo, modern):
         answer = str(error)
         result = {"content": [{"type": "text", "text": answer}], "isError": True}
     else:
-        result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False)}],
+        result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False, separators=(",", ":"))}],
                   "structuredContent": answer, "isError": False}
     if modern:
         result["resultType"] = "complete"
