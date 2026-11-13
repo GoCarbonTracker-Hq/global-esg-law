@@ -36,14 +36,14 @@ Lookups read the `history` branch, which holds one commit per text version. A fr
 ## Every answer carries the same three labels
 
 - `snapshot`: the history ref and commit that were read, and the commit of the checked-out working tree. The register and the scope files are read from the working tree, the texts from the history.
-- `coverage`: whether the history matches the working tree. The value is `matches working tree`, `history trails working tree` (records exist on `main` that the history branch lacks) or `history differs from working tree`, with the number of missing and extra records.
+- `coverage`: whether the history matches the working tree. The value is `matches working tree`, `history trails working tree` (records exist on `main` that the history branch lacks) or `history differs from working tree`, with the number of missing and extra records, and `record_content_diff` (`true` when a record file in the working tree differs from the one in the history commit).
 - `notice`: not legal advice, the official source is the authority, no statement about any company's compliance.
 
 An empty answer always says why. It never means that no law exists.
 
 ## Tools
 
-A tool call that is cut off after 30 seconds returns an error that names the limit. A bad input comes back as a tool result with `isError: true` and a hint, for example the expected date format.
+A tool call that is cut off after 30 seconds returns an error that names the limit. A bad value (wrong format, unknown id or place, an offset past the end) comes back as a tool result with `isError: true` and a hint, for example the expected date format. A missing or unknown argument, an argument of the wrong type, or an unknown tool name comes back as a JSON-RPC error with code -32602.
 
 ### list_places
 
@@ -99,10 +99,10 @@ Output: the three labels, then `place`, `date`, `language_requested`, `case`, `m
 
 - `in_force`: each instrument with `id`, `title`, `in_force`, `kind`, `source_url`, `licence`, `commit`, `language`, `languages`, `official_url`, `law_family`, `duty_on`, `tier`, `verification`, `unverified`, `tier_label`, and `status_note` or `amends` where the scope file has one. A missing tier or verification reads `not available`. `tier_label` reads "A, unverified" for tier A when the official text was not seen. With `lang`, each item also has `fallback` and `language_note`.
 - `not_yet_in_force`: instruments announced for a later date, with `id`, `title`, `in_force`.
-- `link_only`: instruments of the place whose text is not stored, each with `stored: false`, `official_url` and the same labels. They are neither in force nor out of force in this answer.
+- `link_only`: instruments of the place whose text is not stored, each with `stored: false`, `official_url` and the same labels. They are neither in force nor out of force in this answer. Each also has `title` and `status: "link only, text not stored"`. The list is filled whenever the place has link-only instruments, also when `in_force` has entries.
 - `case` and `message` are empty (`null`) when `in_force` has entries. Otherwise `case` is one of `place_not_in_register`, `links_only`, `registered_no_instruments`, `no_stored_text`, `before_record_starts` or `nothing_in_force`, and `message` says what that means. None of them says that no law exists.
 
-The `in_force` list is the one `python3 tools/law.py <place> <date> --json` prints.
+The `in_force` list holds the same instruments, in the same order, as the `in_force` list of `python3 tools/law.py <place> <date> --json`. The tool adds the fields `official_url`, `law_family`, `duty_on`, `tier`, `verification`, `unverified` and `tier_label` (and `fallback` and `language_note` with `lang`), which `law.py --json` does not print.
 
 Real example, `{"place": "EE", "date": "2026-01-01"}`, 2026-11-13, cut to one entry in each list (the real answer has six in force and three not yet in force):
 
@@ -128,9 +128,9 @@ Returns the stored text of one instrument as it stood on a date, in parts.
 
 Input: `instrument` (an id from `list_places`), `date` (`YYYY-MM-DD`), and optionally `lang` (two lowercase letters) and `offset` (an integer of 0 or more, the character position of the part).
 
-Output: the three labels and `instrument`, then, for text that is returned: `source_url`, `licence`, `kind`, `language`, `in_force`, `commit`, `fallback`, `languages`, `source_id`, `ocr` (`true` or `false`), `text`, `offset`, `total_chars`, `next_offset` (`null` at the end), `fetched_url` and `fetched_sha256` where the record has them, and `how_to_continue` while more text remains. A part is 20,000 characters; pass `next_offset` as `offset` for the next one. The parts joined equal the stored text. The adopted CSRD text of 2023-01-05 is 267,926 characters, so it takes 14 calls.
+Output: the three labels and `instrument`, then, for text that is returned: `source_url`, `licence`, `kind`, `language`, `in_force`, `commit`, `fallback`, `languages`, `source_id`, `ocr` (`true` or `false`), `text`, `offset`, `total_chars`, `next_offset` (`null` at the end), `fetched_url` and `fetched_sha256` where the record has them, and `how_to_continue` while more text remains. A part is 20,000 characters; pass `next_offset` as `offset` for the next one. An `offset` equal to `total_chars` is valid and returns empty `text`; a larger one is an input error. With `lang`, if that language is not stored for the version, the official-language record is returned and `fallback` is `true`. The parts joined equal the stored text. The adopted CSRD text of 2023-01-05 is 267,926 characters, so it takes 14 calls.
 
-When text is not returned, `text` is `null`, `official_url` is given, and `reason` says why: the instrument is link only, the date is before the record starts, no version is in force on that date, the licence verdict is not `pass`, or the record file could not be read.
+When text is not returned, `text` is `null`, `official_url` is given, and `reason` says why: the instrument is link only, the date is before the record starts, no version is in force on that date, the licence verdict is not `pass`, the scope file lists the text as stored but the history snapshot does not hold it, or the record file could not be read. A withheld answer for a failed licence check keeps `source_url`, `licence`, `kind`, `language`, `in_force`, `commit`, `fallback` and `languages`, but has no `source_id`, `ocr` or `offset`.
 
 The licence is checked at read time, against `sources.json` in the checked-out tree. Text is returned only when every `sources.json` row whose id matches the record's `source_id` has the verdict `pass`. A missing row, or rows that disagree, withhold the text.
 
@@ -161,7 +161,7 @@ Lists every stored version of one instrument, oldest first.
 
 Input: `instrument` (an id from `list_places`). An id the corpus does not know is an input error.
 
-Output: the three labels and `instrument`, `title`, `jurisdiction`, `stored`, `versions`, `excluded_after_repeal` and `official_url`. Each version has `in_force`, `kind`, `source_url`, `licence`, `commit` and `languages`, and a `note` when the date is a publication date because the commencement date is unknown. A repeal is a version of kind `repeal`, listed at its date. `excluded_after_repeal` lists dates of later records that are not shown as versions because they come after a repeal and are not flagged as re-enactments. A link-only instrument has `stored: false`, an empty `versions`, its `official_url` and a `reason`.
+Output: the three labels and `instrument`, `title`, `jurisdiction`, `stored`, `versions`, `excluded_after_repeal` and `official_url`. Each version has `in_force`, `kind`, `source_url`, `licence`, `commit` and `languages`, and a `note` when the date is a publication date because the commencement date is unknown. A repeal is a version of kind `repeal`, listed at its date. `excluded_after_repeal` lists dates of later records that are not shown as versions because they come after a repeal and are not flagged as re-enactments. A link-only instrument has `stored: false`, an empty `versions`, `jurisdiction: null`, its `official_url` and a `reason`, and no `excluded_after_repeal`. An instrument that the register lists as stored but the history snapshot lacks gets the same shape with a different `reason`.
 
 Real example, `{"instrument": "eu-csrd-2022-2464"}`, 2026-11-13, with the labels and `title` left out and `licence` shortened:
 
@@ -177,6 +177,13 @@ Real example, `{"instrument": "eu-csrd-2022-2464"}`, 2026-11-13, with the labels
   "official_url": "https://eur-lex.europa.eu/eli/dir/2022/2464/oj"
 }
 ```
+
+## Writing your own client
+
+Claude Code and the MCP Inspector handle this for you. A hand-written client needs the rules of the two protocol revisions. Send one JSON message per line.
+
+- 2026-07-28: no `initialize`. Every request, not only the first, carries `params._meta` with `io.modelcontextprotocol/protocolVersion` (the string `2026-07-28`), `io.modelcontextprotocol/clientInfo` (name and version) and `io.modelcontextprotocol/clientCapabilities` (an object, `{}` is fine). The server checks the version and the capabilities. Without them it answers -32602 "Missing required request metadata". Another version gives -32022 with the supported ones, and `2025-11-25` in `_meta` gives -32602 "Legacy requests must use initialize". `server/discover` is also understood. Replies carry `resultType: "complete"` and server info in `_meta`; `tools/list` and `server/discover` also carry `ttlMs` and `cacheScope`.
+- 2025-11-25: send `initialize` with `protocolVersion: "2025-11-25"`, `capabilities` and `clientInfo` objects, then the notification `notifications/initialized`. Any other request before that gets -32600 "Server is not initialized".
 
 ## Limits
 
@@ -204,4 +211,4 @@ A tool that the server does not list is reported as not present and counts as a 
 - Automated tests (`python3 -m pytest tests -q`) cover the query functions and the server over stdio, on fixture repositories and on the real corpus. On GitHub the tests run with the published `history` branch fetched, and a test skipped for a missing history ref fails the run.
 - `tools/acceptance_mcp.py` runs the server from a fresh clone in both protocol revisions and checks the answers against known records (above).
 - The GitHub `acceptance` job also calls the server with the official MCP Inspector (`@modelcontextprotocol/inspector`, in CLI mode), a client this project did not write: `tools/list` and one `law_in_force` call.
-- <!-- REAL-CLIENT: orchestrator fills this in -->
+- On 2026-11-13 a real Claude Code 2.1.323 session connected to the server from a fresh clone. It sends protocol revision 2026-07-28 and probes with `server/discover`. `law_in_force`, `read_text`, `instrument_history` and `list_places` (all 250 places, shown in full, and one place with its instruments) answered correctly on the real corpus. The official MCP Inspector 2.15.0 runs `tools/list` and one `tools/call` against the server in the GitHub checks on Linux. Not tested: the prompt where Claude Code asks you to approve the project's `.mcp.json` server, and any other assistant app.
