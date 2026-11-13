@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from conftest import NO_HISTORY
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -96,7 +97,7 @@ def test_non_records_path_is_an_internal_error(tmp_path, monkeypatch):
 def test_real_ocr_record_is_flagged():
     if query._git(ROOT, "rev-parse", "--verify", "--quiet", "history^{commit}", check=False).returncode and \
             query._git(ROOT, "rev-parse", "--verify", "--quiet", "origin/history^{commit}", check=False).returncode:
-        pytest.skip("no history or origin/history ref in this clone")
+        pytest.skip(NO_HISTORY)
     answer = query.read_text(ROOT, "ye-consumer-protection-regulation-2010", "2010-05-12")
     assert answer["ocr"] is True and "original PDF" in answer["ocr_warning"]
 
@@ -144,7 +145,7 @@ def test_read_text_over_stdio(tmp_path):
 def test_real_csrd_adopted_text_is_267926_chars_and_parts_add_up():
     if query._git(ROOT, "rev-parse", "--verify", "--quiet", "history^{commit}", check=False).returncode and \
             query._git(ROOT, "rev-parse", "--verify", "--quiet", "origin/history^{commit}", check=False).returncode:
-        pytest.skip("no history or origin/history ref in this clone")
+        pytest.skip(NO_HISTORY)
     parts, offset = [], 0
     while offset is not None:
         answer = query.read_text(ROOT, "eu-csrd-2022-2464", "2023-01-05", offset=offset)

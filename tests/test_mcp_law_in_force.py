@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from conftest import NO_HISTORY
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -159,7 +160,7 @@ def _real_history():
         or subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "origin/history^{commit}"]).returncode == 0
 
 
-needs_history = pytest.mark.skipif(not _real_history(), reason="no history or origin/history ref in this clone")
+needs_history = pytest.mark.skipif(not _real_history(), reason=NO_HISTORY)
 
 
 @needs_history

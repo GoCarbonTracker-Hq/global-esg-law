@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from conftest import NO_HISTORY
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -137,7 +138,7 @@ def test_list_places_one_place_validates_input(tmp_path):
 def test_list_places_reply_stays_under_30000_characters_on_the_real_corpus():
     if query.resolve_ref(ROOT) == "history" and subprocess.run(
             ["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "history"]).returncode != 0:
-        pytest.skip("no history ref")
+        pytest.skip(NO_HISTORY)
     answer = query.list_places(ROOT)
     reply = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False, separators=(",", ":"))}], "structuredContent": answer}
     assert len(json.dumps(reply, ensure_ascii=False, separators=(",", ":"))) < 30000
