@@ -32,7 +32,7 @@ As of 2026-11-13 the published `history` build (`745289cd`, 3,240 commits) holds
 python3 -m pytest tests -q
 ```
 
-Python 3.11 or later, standard library plus git. pytest is the only extra. The `tests` workflow runs this, the corpus check and the publish gate on every pull request and on `main`. On 2026-11-12 the run ended with `185 passed`.
+Python 3.11 or later, standard library plus git. pytest is the only extra. The `tests` workflow runs this, the corpus check and the publish gate on every pull request and on `main`. On 2026-11-12 the run ended with `185 passed`. The workflow fetches the `history` branch first, and fails if a test that reads the real history is skipped; a local run without that branch skips those tests instead.
 
 ## Release checks
 

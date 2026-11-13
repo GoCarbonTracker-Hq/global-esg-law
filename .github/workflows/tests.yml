@@ -24,12 +24,45 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+      - name: Fetch the published history, which the real-data tests read
+        run: git fetch --no-tags origin history:refs/remotes/origin/history
       - name: Install pytest
         run: python -m pip install pytest
-      - name: Tests
-        run: python -m pytest tests -q
+      - name: Tests (a test skipped for a missing history ref fails the job)
+        run: python -m pytest tests -q -rs
       - name: Corpus check
         run: python tools/check_corpus.py | tail -n 5
         shell: bash -eo pipefail {0}
       - name: Publish gate
         run: python tools/publish_gate.py > gate.log || (tail -n 60 gate.log; exit 1)
+
+  acceptance:
+    # The most authentic test available here: a fresh clone of the checked-out code, a server started
+    # as a client would start it, and an MCP client we did not write (the official Inspector).
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Fetch the published history as a local branch
+        run: git fetch origin history:history
+      - name: Acceptance script (fresh clone, both protocol revisions)
+        run: python tools/acceptance_mcp.py .
+      - name: Official MCP Inspector, tools/list
+        shell: bash -eo pipefail {0}
+        run: |
+          npx --yes @modelcontextprotocol/inspector@2.15.0 --cli python tools/mcp_server.py --method tools/list --format json \
+            | python -c "import json,sys; names=[t['name'] for t in json.load(sys.stdin)['result']['tools']]; print(names); assert names==['list_places','law_in_force','read_text','instrument_history'], names"
+      - name: Official MCP Inspector, tools/call
+        shell: bash -eo pipefail {0}
+        run: |
+          npx --yes @modelcontextprotocol/inspector@2.15.0 --cli python tools/mcp_server.py --method tools/call \
+            --tool-name law_in_force --tool-args-json '{"place":"EE","date":"2026-01-01"}' --format json \
+            | python -c "import json,sys; r=json.load(sys.stdin)['result']; assert not r.get('isError'); t=r['content'][0]['text']; assert 'ee-aoks-ets' in t and 'not_yet_in_force' in t; print('law_in_force EE 2026-01-01 ok')"
