@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from conftest import NO_HISTORY
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -95,7 +96,7 @@ def test_eu_csrd_known_answer_on_real_history():
     ref = next((r for r in ("history", "origin/history") if subprocess.run(
         ["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", r]).returncode == 0), None)
     if ref is None:
-        pytest.skip("neither history nor origin/history exists in this clone")
+        pytest.skip(NO_HISTORY)
     answer = query.instrument_history(ROOT, "eu-csrd-2022-2464", ref=ref)
     assert [v["in_force"] for v in answer["versions"]] == ["2023-01-05", "2025-04-17", "2026-03-18"]
     assert [v["kind"] for v in answer["versions"]] == ["adopted", "consolidated", "consolidated"]

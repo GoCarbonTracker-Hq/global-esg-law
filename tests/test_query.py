@@ -4,6 +4,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+from conftest import NO_HISTORY
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import build
@@ -45,16 +48,23 @@ def count(report, label):
 def test_list_places_reports_storage_start_and_coverage_totals(tmp_path):
     repo = make_repo(tmp_path)
     answer = query.list_places(repo)
-    places = {place["iso2"]: place for place in answer["places"]}
+    assert "places" not in answer and answer["place_count"] == len(answer["rows"])
+    assert answer["columns"] == ["iso2", "name", "status", "instrument_count", "stored_count", "link_only_count",
+                                 "missing_history_count", "first_in_force"]
+    assert "columns" in answer["how_to_read"] and "place" in answer["how_to_read"]
+    places = {row[0]: dict(zip(answer["columns"], row)) for row in answer["rows"]}
 
     assert places["XX"]["status"] == "text stored"
     assert (places["XX"]["stored_count"], places["XX"]["link_only_count"]) == (1, 1)
-    assert next(item for item in places["XX"]["instruments"] if item["id"] == "act")["first_in_force"] == "2020-01-01"
+    assert "instruments" not in places["XX"] and places["XX"]["first_in_force"] == "2020-01-01"
+    one = query.list_places(repo, place="XX")
+    assert [p["iso2"] for p in one["places"]] == ["XX"]
+    assert next(item for item in one["places"][0]["instruments"] if item["id"] == "act")["first_in_force"] == "2020-01-01"
     assert places["EE"]["status"] == "empty scope file"
     report = coverage.build(repo)
-    assert sum(p["instrument_count"] for p in answer["places"]) == count(report, "Instruments in scope files")
-    assert sum(p["stored_count"] for p in answer["places"]) == count(report, "Instruments with stored text")
-    assert sum(p["link_only_count"] for p in answer["places"]) == count(report, "Instruments link only")
+    assert sum(p["instrument_count"] for p in places.values()) == count(report, "Instruments in scope files")
+    assert sum(p["stored_count"] for p in places.values()) == count(report, "Instruments with stored text")
+    assert sum(p["link_only_count"] for p in places.values()) == count(report, "Instruments link only")
     assert answer["coverage"]["status"] == "matches working tree"
     assert answer["snapshot"]["history_ref"] == "history"
     assert answer["snapshot"]["working_tree_commit"]
@@ -114,3 +124,21 @@ def test_law_uses_shared_query_functions(tmp_path):
     repo = make_repo(tmp_path)
     assert law.lookup("XX", "2024-01-01", repo) == query.lookup("XX", "2024-01-01", repo)
     assert law.known(repo) == query.known(repo)
+
+
+def test_list_places_one_place_validates_input(tmp_path):
+    repo = make_repo(tmp_path)
+    for bad in ("xx", "XXX", 5):
+        with pytest.raises(ValueError, match="two capital letters"):
+            query.list_places(repo, place=bad)
+    with pytest.raises(ValueError, match="unknown place"):
+        query.list_places(repo, place="ZZ")
+
+
+def test_list_places_reply_stays_under_30000_characters_on_the_real_corpus():
+    if query.resolve_ref(ROOT) == "history" and subprocess.run(
+            ["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "history"]).returncode != 0:
+        pytest.skip(NO_HISTORY)
+    answer = query.list_places(ROOT)
+    reply = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False, separators=(",", ":"))}], "structuredContent": answer}
+    assert len(json.dumps(reply, ensure_ascii=False, separators=(",", ":"))) < 30000

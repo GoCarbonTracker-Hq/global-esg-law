@@ -21,8 +21,10 @@ SERVER = {"name": "global-esg-law", "version": "1.0.0"}
 CALL_BUDGET_SECONDS = 30
 # Add a tool by adding one entry here; put its function at the end of tools/query.py.
 TOOLS = {"list_places": {
-    "description": "List places and the instruments held in the corpus.",
-    "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
+    "description": "List every place with its counts and first in-force date. Pass place to get that one place with its instruments.",
+    "inputSchema": {"type": "object", "properties": {
+        "place": {"type": "string", "description": "Optional. Two capital letters, such as DE, or EU: returns that place with its instruments."}},
+        "additionalProperties": False},
     "function": list_places,
 }, "law_in_force": {
     "description": "List the instruments in force in a place on a date, with link-only instruments apart. Not legal advice.",
@@ -187,7 +189,7 @@ def _call(request_id, params, repo, modern):
         answer = str(error)
         result = {"content": [{"type": "text", "text": answer}], "isError": True}
     else:
-        result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False)}],
+        result = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False, separators=(",", ":"))}],
                   "structuredContent": answer, "isError": False}
     if modern:
         result["resultType"] = "complete"

@@ -1,6 +1,7 @@
 """Read-only queries over the register and a history ref."""
 import csv
 import json
+import re
 import subprocess
 from collections import Counter, defaultdict
 from functools import lru_cache
@@ -171,8 +172,10 @@ def envelope(repo=ROOT, ref=None):
              "coverage": _coverage_status(repo, history, history_commit), "notice": NOTICE}, history)
 
 
-def list_places(repo=ROOT, ref=None):
-    """List scope-file places with storage facts and one shared evidence envelope."""
+def list_places(repo=ROOT, ref=None, place=None):
+    """List places with storage facts and one shared envelope; one place with its instruments when place is given."""
+    if place is not None and not (isinstance(place, str) and re.fullmatch(r"[A-Z]{2}", place)):
+        raise ValueError(f"malformed place {place!r}: use two capital letters such as DE, or EU")
     repo = Path(repo).resolve()
     shared, history = envelope(repo, ref)
     first_dates = defaultdict(list)
@@ -189,7 +192,10 @@ def list_places(repo=ROOT, ref=None):
             names = {row["iso2"]: row.get("country") or row["iso2"] for row in csv.DictReader(handle)}
     scope_paths = {path.parent.name: path for path in (repo / "register").glob("*/scope.json")}
     places = []
-    for iso2 in sorted(set(scope_paths) | set(key[0] for key in by_place_id)):
+    all_places = sorted(set(scope_paths) | set(key[0] for key in by_place_id))
+    if place is not None and place not in all_places:
+        raise ValueError(f"unknown place {place!r}: it is not in this snapshot's register")
+    for iso2 in [place] if place else all_places:
         path = scope_paths.get(iso2)
         entries = json.loads(path.read_text(encoding="utf-8")) if path else [
             {"id": instrument, "title": records[-1].get("title", ""), "status": "stored"}
@@ -215,8 +221,15 @@ def list_places(repo=ROOT, ref=None):
                                  "link only"),
                        "instrument_count": len(entries), "stored_count": stored_count,
                        "link_only_count": link_only_count, "missing_history_count": missing_history_count,
-                       "instruments": instruments})
-    return {**shared, "places": places}
+                       "first_in_force": min((i["first_in_force"] for i in instruments if i["first_in_force"]), default=None),
+                       **({"instruments": instruments} if place else {})})
+    if place:
+        return {**shared, "places": places}
+    columns = ["iso2", "name", "status", "instrument_count", "stored_count", "link_only_count",
+               "missing_history_count", "first_in_force"]
+    return {**shared, "place_count": len(places), "columns": columns,
+            "rows": [[row[c] for c in columns] for row in places],
+            "how_to_read": "Each row follows columns; call list_places with place to get one place with its instruments."}
 
 
 # --- STORY-GEL-32-03: law_in_force ---

@@ -61,7 +61,7 @@ def test_modern_stdio_session_lists_tools_and_calls_list_places(tmp_path):
     assert tool["name"] == "list_places" and tool["inputSchema"]["type"] == "object"
     result = replies[2]["result"]
     assert result["resultType"] == "complete"
-    assert result["structuredContent"]["places"]
+    assert result["structuredContent"]["rows"]
     assert {"snapshot", "coverage", "notice"} <= result["structuredContent"].keys()
     assert len(raw) == 3
 
@@ -80,7 +80,7 @@ def test_legacy_stdio_session_initializes_lists_tools_and_calls_list_places(tmp_
     tool = replies[1]["result"]["tools"][0]
     assert tool["name"] == "list_places" and tool["inputSchema"]["type"] == "object"
     answer = replies[2]["result"]["structuredContent"]
-    assert answer["places"] and {"snapshot", "coverage", "notice"} <= answer.keys()
+    assert answer["rows"] and {"snapshot", "coverage", "notice"} <= answer.keys()
     assert len(raw) == 3
 
 
