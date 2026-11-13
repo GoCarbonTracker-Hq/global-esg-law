@@ -92,8 +92,10 @@ def test_tool_over_stdio(tmp_path):
 
 
 def test_eu_csrd_known_answer_on_real_history():
-    if subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", "history"]).returncode:
-        pytest.skip("branch history is absent")
-    answer = query.instrument_history(ROOT, "eu-csrd-2022-2464", ref="history")
+    ref = next((r for r in ("history", "origin/history") if subprocess.run(
+        ["git", "-C", str(ROOT), "rev-parse", "--verify", "--quiet", r]).returncode == 0), None)
+    if ref is None:
+        pytest.skip("neither history nor origin/history exists in this clone")
+    answer = query.instrument_history(ROOT, "eu-csrd-2022-2464", ref=ref)
     assert [v["in_force"] for v in answer["versions"]] == ["2023-01-05", "2025-04-17", "2026-03-18"]
     assert [v["kind"] for v in answer["versions"]] == ["adopted", "consolidated", "consolidated"]

@@ -401,12 +401,14 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
 def instrument_history(repo=ROOT, instrument=None, ref=None):
     """Every stored version of one instrument in in-force order, with its repeal and a storage note."""
     repo = Path(repo).resolve()
+    if not isinstance(instrument, str) or not instrument.replace("-", "").replace("_", "").isalnum():
+        raise ValueError(f"Unknown instrument id: {instrument!r}. Use an id from list_places.")
     shared, history = envelope(repo, ref)
     records = sorted((c for c in history if c.get("id") == instrument),
                      key=lambda c: (c["in_force"], c["kind"] != "repeal"))
     entry = next((e for p in sorted((repo / "register").glob("*/scope.json"))
                   for e in _scope(repo, p.parent.name).values() if e["id"] == instrument), None)
-    if not isinstance(instrument, str) or not (records or entry):
+    if not (records or entry):
         raise ValueError(f"Unknown instrument id: {instrument!r}. Use an id from list_places.")
     base = {**shared, "instrument": instrument, "title": (records[-1] if records else entry).get("title", ""),
             "jurisdiction": records[0].get("jurisdiction") if records else None}
