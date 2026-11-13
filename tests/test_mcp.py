@@ -153,7 +153,7 @@ def test_registry_entry_uses_shared_argument_validation(monkeypatch, tmp_path):
         }, "function": fake_query,
     })
     assert [tool["name"] for tool in mcp_server._tools_list("list", False)["result"]["tools"]] == [
-        "list_places", "fake"]
+        "list_places", "law_in_force", "fake"]
     reply = mcp_server._call("valid", {"name": "fake", "arguments": {"label": "ok"}}, tmp_path, False)
     assert reply["result"]["structuredContent"] == {"label": "ok"}
     assert calls == [(tmp_path, "ok")]
