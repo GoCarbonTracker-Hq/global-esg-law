@@ -134,12 +134,15 @@ def test_malformed_input_is_an_input_error_with_hint(tmp_path, kwargs, hint):
 
 
 def test_ambiguous_register_rows_give_no_tier(tmp_path):
-    repo = repo_with_extras(tmp_path)
-    with (repo / "register" / "register.csv").open("a", newline="", encoding="utf-8") as handle:
-        import csv
-        csv.writer(handle).writerow(["XX", "Placeholder Land", "Dup", "F1", "B", "official_text_seen", "", "",
-                                     "https://example.invalid/act"])
-    assert query.law_in_force(repo, "XX", "2021-01-01")["in_force"][0]["tier"] == "not available"
+    url = "https://www.gesetze-im-internet.de/hgb/__289b.html"
+    (tmp_path / "register").mkdir()
+    (tmp_path / "register" / "register.csv").write_text(
+        "iso2,official_source_url,law_family,tier_hint\n"
+        f"DE,{url},F4,A\nDE,{url},F4,B\nDE,https://www.gesetze-im-internet.de/lksg/,F4,A\n")
+    tiers = query._register_tiers(tmp_path)
+    assert (("DE", url, "F4") in tiers) is False
+    assert query._labels("DE", {"official_url": url, "law_family": "F4"}, tiers)["tier"] == "not available"
+    assert tiers[("DE", "https://www.gesetze-im-internet.de/lksg/", "F4")] == "A"
 
 
 def test_validation_precedes_any_read(tmp_path):
