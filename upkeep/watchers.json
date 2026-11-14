@@ -420,11 +420,12 @@
   "source_id": "UK-FCA-HANDBOOK",
   "iso2": "GB",
   "instrument": "gb-fca-esg-sdr",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.handbook.fca.org.uk/handbook/ESG/",
   "params": {
-   "second_route": "browser read of https://www.handbook.fca.org.uk/handbook/ESG/ (JavaScript shell; Cloudflare adds a per-request nonce, so the hash never repeats)"
+   "second_route": "browser read of https://www.handbook.fca.org.uk/handbook/ESG/ (JavaScript shell; Cloudflare adds a per-request nonce, so the hash never repeats)",
+   "note": "Manual check (2026-11-14): moved from page_hash to text_hash because a per-request Cloudflare nonce moved the page hash on every read (13 rows rejected 2026-11-14). The page is a JavaScript shell: to a script its visible text is only the 'JavaScript is disabled' notice and it has no links, so an edit to the ESG sourcebook cannot show here. The signal now moves only if the shell itself changes. Check the sourcebook by hand: see params.second_route."
   }
  },
  {
@@ -4031,10 +4032,12 @@
   "source_id": "FR-AMF-DOCTRINE",
   "iso2": "FR",
   "instrument": "fr-amf-doc-2020-03",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2020-03",
-  "params": {}
+  "params": {
+   "note": "2026-11-14: moved from page_hash to text_hash; the page hash moved on every read on hidden markup while the visible text (about 44,900 characters) and the 380 links stayed the same (10 rows rejected 2026-11-14)."
+  }
  },
  {
   "id": "be-loi-2024-12-02-csrd-justel-page",
@@ -15156,11 +15159,12 @@
   "source_id": "GQ-COSUMAF-ADOPTED",
   "iso2": "GQ",
   "instrument": "gq-cosumaf-reglamento-general",
-  "kind": "page_hash",
+  "kind": "text_hash",
   "tier": "regulator_page",
   "url": "https://www.cosumaf.org",
   "params": {
-   "second_route": "https://www.cosumaf.org in a browser; curl gets HTTP 403"
+   "second_route": "https://www.cosumaf.org in a browser; curl gets HTTP 403",
+   "note": "Manual check (2026-11-14): moved from page_hash to text_hash because the page hash moved on every read (per-request token in the markup; 7 rows rejected 2026-11-14). The home page is a script-built app: to a script its visible text is only 'COSUMAF' and it has no links, and it does not carry the Reglamento General, so an edit to the regulation cannot show here. The signal now moves only if the page shell changes. Check by hand: see params.second_route."
   }
  },
  {
