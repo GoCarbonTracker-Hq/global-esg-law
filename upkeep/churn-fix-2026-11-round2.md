@@ -85,3 +85,12 @@ Rejected under N5, reviewer moka: 14 new_version rows (cy 6, which are exactly t
 
 - text_hash, 10 new_version rows plus 2 terms_changed rows (terms-tl-parlamento-adopted, terms-tl-bctl-adopted): 8 `tw-*-moj-history-page` rows all raised 11-11 (look like one site change, unclear), ls-environment-act-2008-page (unclear), us-ca-sb253-carb-program-page (current signal differs from the stored one, then stable on two reads; may be a real edit).
 - http_head, 36 new_version rows on 20 watchers: 11 `ie-si-*-isbc-directory` share one Last-Modified (09 Nov 12:22), a site-wide rebuild, look like churn; 3 `mg-*-cnlegis-pdf` moved 4 times in a week, look like re-uploads; 2 `sg-sgx-*-rulebook-head` share the rulebook URL; 2 `sc-*-gazette-acts` share one 2026 list URL; `mn-mse-disclosure-rules-pdf` one row; `us-ca-leginfo-pubinfo-2025` weekly zip. The count is 36, not the 27 in the brief.
+
+## Three more page_hash watchers moved to text_hash (2026-11-14)
+
+`gb-fca-esg-handbook-page`, `fr-amf-doc-2020-03-amf-page` and `gq-cosumaf-reglamento-general-page-hash` moved from `page_hash` to `text_hash` and were reseeded. Their 30 open rows (13, 10, 7) were rejected in the 2026-11-14 batch. No `params.cut`.
+
+- `fr-amf-doc-2020-03-amf-page`: the page carries the doctrine text (about 44,900 characters of visible text, 380 links), so the watcher still shows an edit.
+- `gb-fca-esg-handbook-page` and `gq-cosumaf-reglamento-general-page-hash` are now manual checks, as their `params.note` says. To a script the FCA page is a JavaScript shell (visible text is the "JavaScript is disabled" notice, no links) and the COSUMAF home page is a script-built app (visible text "COSUMAF", no links), so neither can show a change to the law.
+
+Proof: the two bodies saved on 2026-11-14 morning give two page hashes and one text hash per watcher, equal to the reseeded signal. Two live reads 300 s apart (12:10 and 12:15 CET) were equal to the reseeded signal on all 3.

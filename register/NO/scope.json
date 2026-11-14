@@ -78,7 +78,7 @@
       "NO-LOVDATA-CONSOLIDATED"
     ],
     "verification": "official_page_seen",
-    "notes": "Implements klimakvoteloven (no-klimakvoteloven). Last changed FOR-2026-08-28-1706. The Lovdata title is \"Forskrift om kvoteplikt og handel med kvoter for utslipp av klimagasser\", not the shorter title in the brief. English page (SFE) answers 404. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
+    "notes": "Implements klimakvoteloven (no-klimakvoteloven). Last changed FOR-2026-11-05-2304 (page header \"Sist endret FOR-2026-11-05-2304\", read by curl on 2026-11-14; before that FOR-2026-08-28-1706). The amending regulation (https://lovdata.no/dokument/LTI/forskrift/2026-11-05-2304, \"Ikrafttredelse 05.11.2026\", \"Kunngjort 10.11.2026\") changes the EEA reference field and § 1A-1 (aircraft operators with Norway as administering state). The Lovdata title is \"Forskrift om kvoteplikt og handel med kvoter for utslipp av klimagasser\", not the shorter title in the brief. English page (SFE) answers 404. Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
     "status": "link only"
   },
   {
