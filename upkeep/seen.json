@@ -13418,7 +13418,10 @@
   "failure": null,
   "seconds": 0.64,
   "signals": [
-   "Last-Modified: Sun, 08 Nov 2026 16:49:32 GMT"
+   "Last-Modified: Sun, 08 Nov 2026 16:49:32 GMT",
+   "Last-Modified: Thu, 05 Nov 2026 10:53:11 GMT",
+   "Last-Modified: Tue, 03 Nov 2026 10:40:57 GMT",
+   "Last-Modified: Wed, 04 Nov 2026 07:44:31 GMT"
   ]
  },
  "sg-sgx-pn-7-6-rulebook-head": {
@@ -13427,7 +13430,10 @@
   "failure": null,
   "seconds": 1.38,
   "signals": [
-   "Last-Modified: Sun, 08 Nov 2026 16:49:32 GMT"
+   "Last-Modified: Sun, 08 Nov 2026 16:49:32 GMT",
+   "Last-Modified: Thu, 05 Nov 2026 10:53:11 GMT",
+   "Last-Modified: Tue, 03 Nov 2026 10:40:57 GMT",
+   "Last-Modified: Wed, 04 Nov 2026 07:44:31 GMT"
   ]
  },
  "sh-consumer-protection-limited-supply-ordinance-pdf": {
