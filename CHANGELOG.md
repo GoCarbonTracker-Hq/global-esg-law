@@ -9,6 +9,21 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
+## 2026-11-15
+- **Added:** deep review report in `tickets/GEL-33-deep-review.md`.
+- **Open:** `check_corpus.py`, `publish_gate.py`, `update.py`, and `build.py` use last-row-wins dict lookup for duplicate `source_id`s in `sources.json` (`F2-2`, S1).
+- **Open:** `acceptance_mcp.py` lacks a negative check for a licence-denied stored record and passes if `link only` `read_text` leaks `text` (`F2-3`, S1).
+- **Open:** `update.py` leaves `queue.csv` marked `stored` and 4 staged files on `main` when `git commit` fails (`F4-1`, S1).
+- **Open:** `query.py` `_version()` only prefers `consolidated` over `adopted` when both share the same language, and same-language `translation` overwrites `consolidated` (`F1-1`, S2).
+- **Open:** `query.py` `lookup()` compares `on` as an unvalidated string (`F1-2`, S2).
+- **Open:** `query.py` `read_text()` compares only `verdict` across duplicate `source_id` rows, suppressing ambiguity in licence URL, terms, or place (`F2-4`, S2).
+- **Open:** `publish_gate.py` checks `scope.json` `source_row` instead of each record's `source_id`, and ignores orphan records (`F2-5`, S2).
+- **Open:** `coverage.py` drops 152 `stored` scope entries from the `COVERAGE.md` grid due to `(iso2, title)` join mismatch (`F3-1`, S2).
+- **Open:** `register/register.csv` has 7 duplicate `(iso2, instrument_title)` groups across 19 rows (`F3-3`, S2).
+- **Open:** `update.py` aborts the entire batch on any mid-batch transport exception (`F4-2`, S2).
+- **Open:** `watch.py --reseed` can silently swallow a real law change (`F4-3`, S2).
+- **Open:** no concurrency control across `watch.py`, `queue.py`, and `update.py` (`F4-5`, S2).
+
 ## 2026-11-13
 - **Changed:** the README says how to start the assistant server and names its four tools.
 - **Added:** the MCP tool `instrument_history`: every stored version of one instrument in in-force order, with kind, languages, source, licence and any repeal; a link-only instrument answers that it is not stored and gives its official URL.
