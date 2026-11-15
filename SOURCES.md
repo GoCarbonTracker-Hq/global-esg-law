@@ -168,6 +168,8 @@ Four adopted-form records, row `EU-EURLEX-ADOPTED`, fetched with the CSRD adopte
 
 Further amending acts: a SPARQL query on `https://publications.europa.eu/webapi/rdf/sparql` for acts dated 2026-09-01 or later that amend 2022/2464, 2023/2772, 2024/1760 or 2013/34 returned no rows. The same query without the date bound returned these four, so it works. No new scope entry was added.
 
+2026-11-15 (GEL-28-03 pass B): `us-ca-sb253`: the CARB program page was opened with curl (200); it names SB 253 and a proposed CARB Initial Regulation (Scope 1 and 2 deadline moved from 10 Aug to 10 Nov 2026) but gives no statute version or date, so it cannot confirm the stored 2025-10-11 text; row set to `needs_evidence`. Nothing stored.
+
 ## South Korea
 
 Row `KR-LAWGOKR-CONSOLIDATED` (Korea Law Information Center, law.go.kr; verdict `pass` on Copyright Act art. 7). The public Open API (`/DRF/lawService.do`) needs a registered key and server IP, so it is not used; the web page's own body request is. The site resets about one connection in three; every request below was retried until it answered. Run on 2026-11-02.
@@ -3429,6 +3431,8 @@ All five instruments in `register/EG/scope.json`: `eg-fra-bod-107-2021`, `eg-fra
 Law 82 of 2002 Art. 141 (official documents, including laws and decisions, are not protected) was not applied: the text was read on ar.wikisource.org only, it protects original collections, and the extraction fails in any case. Varun decides whether to apply it to FRA decisions and gazette extracts.
 
 Not in scope, with reason: Consumer Protection Law 181 of 2018 (cpa.gov.eg answered `502`; no official page opened); a framework climate law (none found on any page opened); EGX (https://www.egx.com.eg/ and egx.com.eg refused the cloud address with an empty reply or no connection; blocked from the cloud address: https://www.egx.com.eg/); manshurat.org (NGO database, never a source); sis.gov.eg, egypt.gov.eg, ecs.gov.eg, idsc.gov.eg and gpp.gov.eg gave no connection (000).
+
+2026-11-15 (GEL-28-03 pass B): `eg-law-4-1994-environment` (link only): the EEAA Laws/55 page (`https://www.eeaa.gov.eg/Laws/55/index`) was opened with curl (200, 139670 bytes) and lists Law 4/1994 as amended by Law 9/2009, Law 105/2015 and the executive regulation with its amendments up to PM Decree 2466/2024; no newer amendment of the law; the 8 open queue rows were rejected. Nothing stored.
 
 ## Morocco
 
@@ -7782,6 +7786,8 @@ Stored by GEL-15-09: `lr-eo-155-carbon-markets-authority` (adopted 2025-10-31, e
 
 Not in scope.json: the Climate and Carbon Act (not enacted; no draft on any site opened), the Sovereign Carbon Initiative contribution on aviation and shipping (no instrument on any site opened), a Central Bank of Liberia climate regulation (none found), a consumer protection act (none on the four sites opened), the National Carbon Market Policy (F7, register row only).
 
+2026-11-15 (GEL-28-03 pass B): `lr-eo-155-carbon-markets-authority`: the Executive Orders page on emansion.gov.lr was opened with curl (200); it lists EO 155 of 31 Oct 2025 and a newer 'Executive Order #157' of 23 Jan 2026 whose PDF answers 404, so its subject is unread; the EO 155 PDF has no text layer. Row set to `needs_evidence`; nothing stored.
+
 ## Panama
 
 Rows `PA-SBP-ADOPTED` and `PA-GACETA-ADOPTED` (both `pass`, statute: Ley 64 de 2012 Art. 13 num. 2, "Los textos oficiales de carácter administrativo, legislativo o judicial ni las traducciones oficiales de los mismos"). Run on 2026-11-03 (GEL-14-05). Both pass on the statute alone: the Superintendencia de Bancos aviso legal reserves all reproduction rights, and no terms page of the Gaceta was opened (see Blocked). Varun to confirm both. The statute was read on the Asamblea Nacional copy of Gaceta 27139-B (`s3-legispan.asamblea.gob.pa`, which answers plain curl and gave the same sha256 twice: 847581ec4b1db45531a73c553cbdcdf83bb5259f9b874e20f86be903781268ed).
@@ -8710,6 +8716,8 @@ Blocked from the cloud address (2026-11-03; the orchestrator can read these from
 
 The Royal Gazette has no free online edition that was found; no Cambodian gazette page was opened.
 
+2026-11-15 (GEL-28-03 pass B): `kh-consumer-protection-law`: the CCF Laws page (`https://www.ccfdg.gov.kh/en/laws-regulations/laws/`) was opened with curl (200); it lists the Law on Consumer Protection (file 20191102) with no amendment, and the linked PDF matches the stored translation text; row rejected. Nothing stored.
+
 ## Laos
 
 Run on 2026-11-03 (GEL-16-02). Three licence rows: `LA-GAZETTE-ADOPTED` (Lao Official Gazette, Ministry of Justice) and `LA-LSC-ADOPTED` (Lao Securities Commission) are `pass` on a statute, `LA-GAZETTE-TRANSLATION` is `permission requested`. Eight instruments are stored, all in Lao (the only official language of legislation), all as uncorrected OCR text because every official PDF is a scan with no text layer. No instrument is link only. No browser was used, so no record is browser-fetched.
@@ -9396,6 +9404,8 @@ English is the language of every instrument found; Kiswahili is official but no 
 - `ug-ira-esg-guidelines-2026`: the download link on https://ira.go.ug/download/esg-guidelines/ answers `406` to the default curl agent and `200 29451915 application/pdf` to a Chrome User-Agent with the page's cookie and referer (77 pages, image-only, sha256 `42c9b44f2825fcebf03aef81da68e7eed523ecaaf03497f1cd039355743fd014`); the link carries a per-request token. Row is permission requested and the text is soft guidance.
 
 Blocked from the laptop address: https://ulii.org/en/akn/ug/act/2006/19 (`403 text/html`, Cloudflare "Just a moment..." to headless Chrome); https://laws.go.ug and https://index.laws.go.ug (DNS does not resolve, named in the ULRC portal script); https://publications.ulrc.go.ug/laws-of-uganda/ (single-page app with a purchase cart; not read). https://www.parliament.go.ug/acts lists only five 2023 Acts under every year heading.
+
+2026-11-15 (GEL-28-03 pass B): `ug-cma-esg-guidelines-2026`: the CMA Guidelines page (`https://cmauganda.co.ug/guidelines/`) was opened with curl (200); it lists the ESG Disclosures and Sustainability Reporting Guidelines, 2026 (952 KB, matching the PDF downloaded) with no later edition; the PDF has no text layer, so no text comparison; row rejected. Nothing stored.
 
 ## Rwanda
 
