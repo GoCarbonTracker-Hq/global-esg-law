@@ -13,7 +13,7 @@
       "LV-LIKUMI-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "notes": "Latvian transposition of Directive (EU) 2022/2464 (CSRD). Two editions on Likumi.lv on 2026-11-02: the base edition of 2024-10-17 and the edition of 2025-10-24 (amending law of 2025-10-02). Both stored in Latvian; the English translation (State Language Centre) states amending laws up to 2 October 2025, in force 24 October 2025, and is stored against the 2025-10-24 edition. Amends the management report content of lv-gada-parskatu-likums by cross-reference.",
+    "notes": "Latvian transposition of Directive (EU) 2022/2464 (CSRD). Two editions on Likumi.lv on 2026-11-02: the base edition of 2024-10-17 and the edition of 2025-10-24 (amending law of 2025-10-02). Both stored in Latvian; the English translation (State Language Centre) states amending laws up to 2 October 2025, in force 24 October 2025, and is stored against the 2025-10-24 edition. Amends the management report content of lv-gada-parskatu-likums by cross-reference. 2026-11-15 (GEL-28-08): third edition stored in Latvian, 2026-11-13 (law of 22.10.2026, in force 13.11.2026). No English record for it: the State Language Centre translation still stops at amending laws of 2 October 2025 and its banner says amendments of 22.10.2026 are not included. The instrument has no open queue row, so no queue.py call was made (Varun, 2026-11-14).",
     "status": "stored"
   },
   {
