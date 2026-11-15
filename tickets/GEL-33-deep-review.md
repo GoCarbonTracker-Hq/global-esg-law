@@ -139,7 +139,7 @@ Run date: 2026-11-15. Commit: `e7951bd11` (`main`). `origin/history`: `745289cde
   # F1-1 diff-lang: adopted de
   # F1-1 same-lang: translation en
   ```
-- **Known:** new
+- **Known:** #17 T10, #17 T14 (mechanism refined)
 - **Confidence:** reproduced
 - **Suggested fix:** Sort `ordered` by kind priority (`consolidated` < `adopted` < `translation`) before selecting `official`, and prevent `translation` from overwriting non-translation records in `by_lang`.
 
@@ -387,6 +387,8 @@ Run date: 2026-11-15. Commit: `e7951bd11` (`main`). `origin/history`: `745289cde
 ---
 
 ### S3 Findings
+
+F1-3, F1-4, F2-7, F5-2, F5-3, F5-4, F5-6, and F4-7 (S4) are recorded here and deliberately not filed as issues.
 
 - **F1-3 (S3)** · `tools/query.py:60-62,88,114` (`_scope`, `lookup`): `iso2` is not validated, allowing `../../` traversal outside `register/` for direct Python callers (`law.py` and `law_in_force()` validate it).
 - **F1-4 (S3)** · `tools/query.py:422-427` (`instrument_history`): returns `jurisdiction: None` for link-only instruments instead of `p.parent.name`.
