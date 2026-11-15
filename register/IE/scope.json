@@ -174,7 +174,7 @@
     "duty_on": "private_sector",
     "source_row": "IE-EISB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Inserts reg. 9(6) in S.I. No. 471/2024. No commencement clause, so the making date is in_force. English only.",
+    "notes": "Inserts reg. 9(6) in S.I. No. 471/2024. No commencement clause, so the making date is in_force. English only. 2026-11-15 (GEL-28-11 lead): re-opened https://www.irishstatutebook.ie/eli/2024/si/740/made/en/print and read no commencement or \"come into operation\" sentence; the only date in the text is the signing line \"GIVEN under my Official Seal, 19 December, 2024\", which is the stored in_force 2024-12-19. The text also says notice of the making was published in Iris Oifigiúil of 3 January 2025. in_force has not been changed; whether the date should stay is Varun's decision.",
     "status": "stored",
     "amends": "ie-si-471-2024"
   },

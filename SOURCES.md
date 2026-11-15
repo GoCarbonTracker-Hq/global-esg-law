@@ -1357,6 +1357,8 @@ A text for a given version is stored only for the versions the publisher serves:
 
 2026-11-15 (GEL-28-11): `ie-cpa-2007-part-3`, `ie-si-360-2017` and `ie-si-471-2024`: nothing newer found, nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, the LRC Revised Act is still updated to 24 November 2025 (S.I. 124/2026 is stored as `ie-si-124-2026`), eISB serves no merged S.I. text, and S.I. 597/2019 is not added. The Oireachtas (Open Data) PSI Licence quotes match `sources/licence-table.csv`; no change to the table. The open `...-isbc-directory` `new_version` rows of the three watchers are `needs_evidence` (reviewer varun).
 
+2026-11-15 (GEL-28-11 lead): `ie-si-740-2024`: re-opened `https://www.irishstatutebook.ie/eli/2024/si/740/made/en/print`; it has no commencement sentence, and its only date is the signing line "GIVEN under my Official Seal, 19 December, 2024", the stored `in_force` 2024-12-19. Date not changed; the decision is Varun's. Recorded in the scope entry `notes`.
+
 
 ## Poland
 
@@ -3873,6 +3875,8 @@ Spanish is the only official language; every record has `language` es and no row
 - `https://www.supercias.gob.ec/portalscvs/index.htm`: `200 248924 text/html`, no terms or copyright page linked; no SCVS resolution text was fetched, so no row. `https://www.lexis.com.ec` answers 200 and is private: never a row.
 
 2026-11-15 (GEL-28-09): `ec-coa-libro4`: held, nothing stored (Varun, 2026-11-15; OCR not allowed). Per the 2026-11-15 research, R.O. 360 of 2026-09-02 reforms provisions inside arts. 247 to 261 and its only official copy has no text layer; R.O. 602 (2021) and R.O. 375 (2026) do not touch them. The COESCCI art. 107 reading matches `sources/licence-table.csv`; no change to the table. No open queue row.
+
+2026-11-15 (GEL-28-09 note fix): `ec-coa-libro4` scope `notes` and register row corrected: they said R.O. 360 and R.O. 602 were not read for Libro Cuarto; they now state the 2026-11-15 research result. `notes` only, nothing stored.
 
 ## Ukraine
 
@@ -7336,6 +7340,8 @@ Link-only instruments:
 Stored by GEL-14-09 (adopted, `es`, source `PY-BACN-ADOPTED`): `py-ley-7190-2023` (2023-10-13), `py-ley-5875-2017` (2017-09-28), `py-ley-294-1993` (1994-01-01), `py-ley-1561-2000` (2000-07-25), `py-ley-1334-1998` (1999-04-25). Dates are the day after publication (Código Civil art. 1) except Ley 1334, whose art. 53 sets 180 days after promulgation.
 
 2026-11-15 (GEL-28-09): `py-ley-1334-1998`: nothing added for now (Varun, 2026-11-15). Per the 2026-11-15 research, BACN serves no merged text and the amending laws are 2340 (2003/2004), 5427/2015, 6366/2019 and 6624/2020. The Ley 1328 art. 8 reading matches `sources/licence-table.csv`; no change to the table. No open queue row.
+
+2026-11-15 (GEL-28-09 note fix): `py-ley-1334-1998` scope `notes` and register row corrected: Ley 2340 was written as 2003 only; it now reads 2003/2004 (promulgated 2003-12-26, published 2004-01-12), and the note records that BACN's law page omits Ley 6624/2020. `notes` only, nothing stored.
 
 ## Grenada
 
