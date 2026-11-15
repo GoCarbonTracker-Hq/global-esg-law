@@ -9448,6 +9448,8 @@ The record text is the page `.txt` files in page order with the form feed remove
 - The Capital Market Corporate Governance Code 2024 named in the brief was not found; the gazetted instrument is Regulations No 002/CMA/2026, whose art. 50 repeals the 2012 code.
 - The ICPAR IFRS S1/S2 adoption roadmap (May 2025) was not found on an official page.
 
+2026-11-15 (GEL-28-04): `terms-rw-bnr-adopted` (signal 6536e770): rejected; the `pass` verdict rests on Rwanda Law 055/2024 Art. 282, which a terms change does not touch. No change to the licence table. Varun, 2026-11-15.
+
 ## Saint Lucia
 
 Rows `LC-NPC-ADOPTED` and `LC-AGC-CONSOLIDATED`, both `permission requested`. Run on 2026-11-05. No row passes, so no text is stored and no record exists under `records/LC/`. The fetches below were proven to read the official PDFs and HTML pages for the scope entries and the Copyright Act; they are not record recipes.
@@ -9802,6 +9804,8 @@ Candidate topics examined and status in `register.csv`:
 
 - `https://www.cosumaf.org`: returned HTTP 403 `cf-mitigated: challenge` on automated requests. Mentions légales and regulatory texts inspected via web search cache and regional portals.
 
+2026-11-15 (GEL-28-04): `terms-cg-cosumaf` (signal d7c229b5): rejected; same legal notice as the sibling rows rejected on 2026-11-11, source stays `permission requested`. Varun, 2026-11-15.
+
 ## Angola
 
 Run on 2026-11-05 (GEL-19-10). Three rows pass on the statutory exclusion: `AO-MINAMB-ADOPTED`, `AO-INBAC-ADOPTED`, and `AO-DRON-ADOPTED` (Lei n.º 15/14, de 31 de Julho, Lei dos Direitos de Autor e Conexos, Artigo 24.º n.º 1 alínea a): "Não são protegidas pelo direito de autor: a) As leis, decisões de órgãos administrativos e judiciais publicados ou não em Diário da República;"). All official enactments and presidential decrees published in the Diário da República or by line ministries are excluded by statute from copyright protection. In addition, the government portal terms (https://governo.gov.ao/termos, fingerprint `a463847a64239d2660137f915bf86e5b3cf37db90d6a1e8efe07424d54d4a79f`) explicitly allow non-commercial use with citation.
@@ -9923,6 +9927,8 @@ Under Article 1(3) of the Constitution of the Republic of Cameroon, English and 
 - `https://minepded.gov.cm`: returns HTTP 502 Bad Gateway to all requests from laptop address on 2026-11-05.
 - `https://www.imprimerienationale.cm`: connection timeout (0 bytes returned).
 - `https://www.cosumaf.org`: HTTP 403 Forbidden with Cloudflare challenge (`cf-mitigated: challenge`).
+
+2026-11-15 (GEL-28-04): `terms-cm-cosumaf` (signal 77c23874): rejected; same legal notice as the sibling rows rejected on 2026-11-11, source stays `permission requested`. Varun, 2026-11-15.
 
 ## Central African Republic
 
@@ -11245,6 +11251,8 @@ Link-only instruments and reasons: `vi-coastal-zone-management-act` (row `VI-DPN
 
 English only. Every Virgin Islands page and instrument opened is in English; no second official language and no government translation was seen, so there is no translation row.
 
+2026-11-15 (GEL-28-04): `terms-vi-legvi-adopted` (signals 8b25001c, 9db9c565, e6047928): all three `needs_evidence`; the terms page cannot be read by curl or headless Chrome (Cloudflare block), Varun will open https://www.legvi.org/ in a normal browser. No change to the licence table. Varun, 2026-11-15.
+
 ## Niue
 
 Checked 2026-11-10. Row `NU-GON-CONSOLIDATED` is `permission requested` (terms basis; the statute check found no exception). It is the only row: the Niue Laws volumes, the Tables, the 2021-2024 Supplement, the single Acts and the Gazette page all sit on the Government of Niue site under one set of site terms. No row passes, so nothing is stored and no record fetch is proven for storage. The requests below were run only to read the terms and the text of the instruments behind the scope entry and the register rows.
@@ -11553,6 +11561,8 @@ Portuguese and Chinese are both on the same row: the Chinese page is the Portugu
 No scope instrument is link only. Register rows only (family F7 or no ESG provision found): Decreto-Lei n.º 43/99/M, Lei n.º 16/2019 (plastic bags), Lei n.º 8/2014 (noise), Regulamento Administrativo n.º 22/2020 (construction waste), Regulamento Administrativo n.º 30/2016 (vehicle exhaust), Lei n.º 13/2023 (financial system), Basic Law art. 119.
 
 Not reached: AMCM (https://www.amcm.gov.mo/en/, a JavaScript shell) guidelines were not opened; the Assembleia Legislativa and DSPA sites were not used. Annex III of the Basic Law was not opened, so no national law of the People's Republic of China is listed.
+
+2026-11-15 (GEL-28-04): `terms-mo-bo-dsaj` (signal c3e2aa03): rejected; the `pass` verdict rests on Decreto-Lei 43/99/M, which a terms change does not touch. No change to the licence table. Varun, 2026-11-15.
 
 ## Sint Maarten
 
