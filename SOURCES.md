@@ -172,6 +172,8 @@ Further amending acts: a SPARQL query on `https://publications.europa.eu/webapi/
 
 Row `KR-LAWGOKR-CONSOLIDATED` (Korea Law Information Center, law.go.kr; verdict `pass` on Copyright Act art. 7). The public Open API (`/DRF/lawService.do`) needs a registered key and server IP, so it is not used; the web page's own body request is. The site resets about one connection in three; every request below was retried until it answered. Run on 2026-11-02.
 
+2026-11-15 (GEL-28-07 follow-up): rows `KR-LAWGOKR-CONSOLIDATED` and `KR-LAWGOKR-TRANSLATION` had `terms_url` `https://www.law.go.kr/LSW/lawPetitionForm.do?menuId=13&subMenuId=79&query=` (the improvement-suggestion form, 개선의견 작성; it carries neither stored quote). Now `https://www.law.go.kr/LSW/legalCopyright.do?menuId=803&subMenuId=79` (법적효력 및 저작권), which carries both quotes exactly as stored. New `terms_fingerprint` 638e6033a10412b02c7684186233a103e2e899d3390563bfd922db8829580c3e (identical on three fetches; the petition form now hashes e468a88558b960200adf93d85e7761dd1c210ff991b8c6d766524dc582e363ae, not the 818c0a78... that was stored). Verdicts unchanged. The translation table below still shows the old address for `KR-LAWGOKR-TRANSLATION`; that table is a record of the 2026-11-02 read.
+
 Version list for one instrument (Framework Act on Carbon Neutrality, `lsId` 014152; the page lists every history version, including ones not yet in force, as `lsViewLsHst2('<lsiSeq>', '<promulgation date>', '<act no.>', '<effective date>', '<current Y/N>', ...)`):
 
 ```
