@@ -726,6 +726,8 @@ Not stored, with the reason:
 
 The JSE Sustainability and Climate Disclosure Guidance (June 2022) is voluntary guidance with a `register.csv` row and no scope entry. The Internet Archive (`web.archive.org`) reset every connection from the cloud address, so no archived terms pages were read. Terms page read: `https://www.gov.za/terms-and-conditions-use-0` (200, 45674 bytes).
 
+2026-11-15 (GEL-28-13): `za-carbon-tax-act-15-2019` and `za-companies-act-71-2008`: nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, gov.za publishes each amending Act as its own PDF and no merged text, so no new version can be stored without a hand merge. The terms page and the Copyright Act 98 of 1978 s.12(8)(a) reading match `sources/licence-table.csv`; no change to the table. No open queue row.
+
 ## New Zealand
 
 Rows `NZ-LEGISLATION-ADOPTED` and `NZ-LEGISLATION-CONSOLIDATED` (`pass`, statute: Copyright Act 1994 s 27) and `NZ-XRB-ADOPTED` (`permission requested`). Run on 2026-11-02.
@@ -1350,6 +1352,8 @@ A text for a given version is stored only for the versions the publisher serves:
 - S.I. No. 490/2012 (the brief's stationary-installation ETS regulations) was revoked on 2024-09-19 by S.I. No. 470/2024 reg. 51(1); both it and S.I. No. 755/2020 are kept with repeal records and the replacement is `ie-si-470-2024`.
 - The Companies Act 2014 (into which S.I. No. 336/2024, 498/2024 and 309/2025 insert the reporting duty) and the Consumer Rights Act 2022 (amended by S.I. No. 124/2026) are not in scope; no carbon tax instrument (Finance Act 2010) and no Central Bank Consumer Protection Code were looked at.
 - Blocked from the cloud address: none. Every URL above answered `200`.
+
+2026-11-15 (GEL-28-11): `ie-cpa-2007-part-3`, `ie-si-360-2017` and `ie-si-471-2024`: nothing newer found, nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, the LRC Revised Act is still updated to 24 November 2025 (S.I. 124/2026 is stored as `ie-si-124-2026`), eISB serves no merged S.I. text, and S.I. 597/2019 is not added. The Oireachtas (Open Data) PSI Licence quotes match `sources/licence-table.csv`; no change to the table. The open `...-isbc-directory` `new_version` rows of the three watchers are `needs_evidence` (reviewer varun).
 
 
 ## Poland
@@ -3524,6 +3528,8 @@ Link-only instruments:
 
 Stored by GEL-08-02: `ng-nesrea-act-2007` (adopted 2007-07-30, en).
 
+2026-11-15 (GEL-28-10): `ng-nesrea-act-2007`: outcome C, held, nothing stored (Varun, 2026-11-15; OCR not allowed). Per the 2026-11-15 research, the 2018 amending Act on the NESREA page is an image scan with no text layer, and its in-force date rests on a bracketed date only. The Copyright Act 2022 s. 3(b) reading matches `sources/licence-table.csv`; no change to the table. The 7 open `ng-nesrea-act-2007-laws-page` `new_version` rows are `needs_evidence` (reviewer varun).
+
 ## Ghana
 
 Run on 2026-11-02 (GEL-09-09). One row passes: `GH-PARLIAMENT-REPOSITORY-ADOPTED` (statute: Copyright Act, 2005 (Act 690) s. 8(1)(a), "an enactment"; the repository and parliament.gh terms themselves reserve rights and allow non-commercial copying only). `GH-BOG-ADOPTED` and `GH-ICAG-ADOPTED` are permission requested. `www.parliament.gh/epanel/docs/` serves only 41 old Acts (Banks Act 2016, Companies Code and similar) and none of the instruments in scope, so it has no row. Ghana's legislation is in English, so no second official language exists and no translation row was added.
@@ -3863,6 +3869,8 @@ Spanish is the only official language; every record has `language` es and no row
 - `https://www.bolsadequito.com/`: `406 226 text/html` to `curl -A 'Mozilla/5.0'`, `200 197323` to a full Chrome User-Agent; no terms page was found, so no row.
 - `https://www.registroficial.gob.ec/` answers `200 186643 text/html`, but it serves edition summaries (for example https://www.registroficial.gob.ec/registro-oficial-no-733/) and no gazette PDF; its only linked file is a user manual and the filing application at `https://esacc.corteconstitucional.gob.ec/app/` needs a login. `wp-json` answers `401 MISSING_AUTHORIZATION_HEADER`. No request that returns a gazette PDF was found, so no `EC-REGISTROFICIAL` row was added.
 - `https://www.supercias.gob.ec/portalscvs/index.htm`: `200 248924 text/html`, no terms or copyright page linked; no SCVS resolution text was fetched, so no row. `https://www.lexis.com.ec` answers 200 and is private: never a row.
+
+2026-11-15 (GEL-28-09): `ec-coa-libro4`: held, nothing stored (Varun, 2026-11-15; OCR not allowed). Per the 2026-11-15 research, R.O. 360 of 2026-09-02 reforms provisions inside arts. 247 to 261 and its only official copy has no text layer; R.O. 602 (2021) and R.O. 375 (2026) do not touch them. The COESCCI art. 107 reading matches `sources/licence-table.csv`; no change to the table. No open queue row.
 
 ## Ukraine
 
@@ -4340,6 +4348,8 @@ Albanian is the only official language. English: `kkk.gov.al` has no English sec
 - `https://akm.gov.al/` answered `200` (194772 bytes) at first and `curl: (52) Empty reply from server` on later requests.
 - Not examined for ESG rules: `bankofalbania.org` and `alse.al` answered `200` on the home page; no page about ESG or sustainability was searched beyond the home page text.
 - Dropped: Law No. 9902/2008 on Consumer Protection (no official page reached names it); a carbon pricing instrument (none found; Law 155/2020 is the climate act).
+
+2026-11-15 (GEL-28-10): `al-accounting-law-25-2018`: outcome C, held, nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, the KKK page offers Law 87/2026 and a KKK consolidated PDF; the missing fact is the Fletorja Zyrtare publication date of Law 87/2026, which sets its in-force date. The Copyright Law 35/2016 art. 12 reading matches `sources/licence-table.csv` (read on a private mirror, as the table says); no change to the table. The 6 open `al-accounting-law-25-2018-kkk-law-page` `new_version` rows are `needs_evidence` (reviewer varun).
 
 ## Bosnia and Herzegovina
 
@@ -5324,6 +5334,8 @@ None of the ten scope instruments is link only. Not stored and not in scope: the
 - `https://parliament.ge/en/media/news/garemos-datsvisa-da-bunebrivi-resursebis-komitetma-sakartvelos-klimatis-tsvlilebis-kanonis-tetri-tsigni-sajaro-konsultatsiebistvis-tsaradgina`: HTTP 403, Cloudflare "Attention Required" page.
 - `https://mepa.gov.ge/` answered `307` to `/ka` and then `200` with a browser user agent; curl without `--http1.1` failed with `curl: (92) Invalid HTTP header field was received`. Nothing was needed from it.
 - `https://matsne.gov.ge/` answers curl's default user agent with the Access Denied page (above); the watchers in `upkeep/watchers.json` use the watcher's own user agent, which answered 200 on 2026-11-03.
+
+2026-11-15 (GEL-28-12): `ge-climate-change-council-decree-54-2020` and `ge-nbg-corporate-governance-code-2018`: left as they are, nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, matsne shows only the initial version free; consolidated editions are paid or login only. The Copyright Law Art. 8(1)(a) reading matches `sources/licence-table.csv`; no change to the table. No open queue row.
 
 ## Sri Lanka
 
@@ -7320,6 +7332,8 @@ Link-only instruments:
 | Ley 7572/2025 (F7) | https://www.bacn.gov.py/leyes-paraguayas/12910/ley-n-7572-2025-mercado-de-valores-y-productos | F7: register row only, no scope entry. |
 
 Stored by GEL-14-09 (adopted, `es`, source `PY-BACN-ADOPTED`): `py-ley-7190-2023` (2023-10-13), `py-ley-5875-2017` (2017-09-28), `py-ley-294-1993` (1994-01-01), `py-ley-1561-2000` (2000-07-25), `py-ley-1334-1998` (1999-04-25). Dates are the day after publication (Código Civil art. 1) except Ley 1334, whose art. 53 sets 180 days after promulgation.
+
+2026-11-15 (GEL-28-09): `py-ley-1334-1998`: nothing added for now (Varun, 2026-11-15). Per the 2026-11-15 research, BACN serves no merged text and the amending laws are 2340 (2003/2004), 5427/2015, 6366/2019 and 6624/2020. The Ley 1328 art. 8 reading matches `sources/licence-table.csv`; no change to the table. No open queue row.
 
 ## Grenada
 
