@@ -24,6 +24,8 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 - **Open:** `watch.py --reseed` can silently swallow a real law change (`F4-3`, S2).
 - **Open:** no concurrency control across `watch.py`, `queue.py`, and `update.py` (`F4-5`, S2).
 
+- **Changed:** the published `history` branch was rebuilt and replaced (commit `82181f25`, 3,247 commits; the build before it was `745289cd`). It now holds the seven records added on 2026-11-15. Commit ids on `history` changed, so anyone who fetched the old branch needs to fetch it again. The Cite line, `CITATION.cff` and `MAINTAINING.md` name the new build.
+
 ## 2026-11-13
 - **Changed:** the README says how to start the assistant server and names its four tools.
 - **Added:** the MCP tool `instrument_history`: every stored version of one instrument in in-force order, with kind, languages, source, licence and any repeal; a link-only instrument answers that it is not stored and gives its official URL.
