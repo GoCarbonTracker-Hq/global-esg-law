@@ -42,3 +42,11 @@ def test_refusals(tmp_path, over):
     with pytest.raises(SystemExit) as e:
         run(tmp_path, **over)
     assert REAL["id"] in str(e.value)
+
+
+def test_every_licence_row_has_the_header_field_count():
+    with open(ROOT / "sources" / "licence-table.csv", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        width = len(next(reader))
+        bad = [(reader.line_num, row[0], len(row)) for row in reader if row and len(row) != width]
+    assert bad == [], f"rows not {width} fields wide (line, id, fields): {bad}"
