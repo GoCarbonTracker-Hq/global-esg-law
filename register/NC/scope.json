@@ -84,16 +84,16 @@
     "title": "Loi du pays n° 2018-25 du 26 décembre 2018 relative à l'efficacité énergétique des équipements, à l'interdiction d'importation d'équipements contenant des substances appauvrissant la couche d'ozone et à l'interdiction d'importation des ampoules à incandescence ou à halogènes",
     "official_url": "https://leginova.gouv.nc/jonc/sommaire-analytique/9670/acte/1244413",
     "citation": "Loi du pays n° 2018-25 du 26 décembre 2018, JONC n° 9670 du 1er janvier 2019, p. 19",
-    "in_force": null,
-    "evidence": "Art. 18 (JONC n° 9670, 1 January 2019, p. 21): \"La présente loi du pays entre en vigueur le premier jour du troisième mois suivant sa publication au Journal officiel de la Nouvelle-Calédonie.\" The act was published on 1 January 2019. The clause can be read as 1 March 2019 (a Chamber of Commerce page says so) or 1 April 2019, and Leginova prints neither: its metadata https://leginova.gouv.nc/api/texte-consolide/lois-du-pays-cnc-2018-25-du-26-12-2018 (opened 2026-11-10) has \"dateVigueur\":\"2019-01-01\" and \"dateConsolidation\":\"2019-01-14\". So no official page prints a date that fits the clause.",
+    "in_force": "2019-04-01",
+    "evidence": "Art. 18 (JONC n° 9670, 1 January 2019, p. 21): \"La présente loi du pays entre en vigueur le premier jour du troisième mois suivant sa publication au Journal officiel de la Nouvelle-Calédonie.\" The act was published on 1 January 2019. The clause could be read as 1 March 2019 (a Chamber of Commerce page says so) or 1 April 2019; Varun, 2026-11-10: Art. 18 read as 1 April 2019. Leginova prints neither date: its metadata https://leginova.gouv.nc/api/texte-consolide/lois-du-pays-cnc-2018-25-du-26-12-2018 (opened 2026-11-10) has \"dateVigueur\":\"2019-01-01\" and \"dateConsolidation\":\"2019-01-14\". No official page prints a date that fits the clause, so in_force rests on the ruling.",
     "law_family": "F3",
     "duty_on": "private_sector",
     "source_row": [
-      "NC-LEGINOVA-CONSOLIDATED"
+      "NC-LEGINOVA-JONC-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "notes": "Energy efficiency of equipment, import ban of equipment containing ozone-depleting substances and of incandescent and halogen bulbs (Art. 18 and 19 read; the Act has 6 chapters, Art. 1 to 19). Link only because the commencement date is unresolved (see evidence): a record needs a dated in_force, and storing it under Leginova's 2019-01-01 would put a date the clause contradicts into the history. The JONC text is complete and clean in https://leginova.gouv.nc/api/acte/1244413/pdf (3 pages, pp. 19 to 21, text layer, HTTP 200, 52471 bytes, sha256 bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56) and can be stored as soon as Varun rules on the date. Amendments not checked. No English version found.",
-    "status": "link only"
+    "notes": "Energy efficiency of equipment, import ban of equipment containing ozone-depleting substances and of incandescent and halogen bulbs (Art. 18 and 19 read; the Act has 6 chapters, Art. 1 to 19). Link only until 2026-11-15 because the commencement date was unresolved (see evidence). Stored on 2026-11-15 (GEL-28-06) after Varun's ruling of 2026-11-10 that Art. 18 means 1 April 2019: the record is the JONC text from https://leginova.gouv.nc/api/acte/1244413/pdf (3 pages, pp. 19 to 21, text layer, 52471 bytes, sha256 8b9920c3c699add140b3b56f9a0757d0f9671198985bf83cd51f7b3aa17bf753 on 2026-11-15; the 2026-11-10 read of the same size hashed bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56), under NC-LEGINOVA-JONC-ADOPTED. Amendments not checked. No English version found.",
+    "status": "stored"
   },
   {
     "id": "nc-code-consommation",
