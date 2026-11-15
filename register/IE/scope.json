@@ -10,7 +10,7 @@
     "duty_on": "private_sector",
     "source_row": "IE-EISB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "The non-financial reporting regime that preceded S.I. No. 336/2024. Only the text as made is served: the eISB Legislation Directory (https://www.irishstatutebook.ie/eli/isbc/si2017_351-400.html) lists amendments by S.I. No. 410 of 2018 (ie-si-410-2018) and application provisions in S.I. No. 597 of 2019, and eISB serves no consolidated S.I. text. The Law Reform Commission revises Acts only. Whether S.I. No. 336/2024 revoked it was not found on the pages opened. English only: the S.I. has no Irish text on eISB.",
+    "notes": "The non-financial reporting regime that preceded S.I. No. 336/2024. Only the text as made is served: the eISB Legislation Directory (https://www.irishstatutebook.ie/eli/isbc/si2017_351-400.html) lists amendments by S.I. No. 410 of 2018 (ie-si-410-2018) and application provisions in S.I. No. 597 of 2019, and eISB serves no consolidated S.I. text. The Law Reform Commission revises Acts only. Whether S.I. No. 336/2024 revoked it was not found on the pages opened. English only: the S.I. has no Irish text on eISB. 2026-11-15 (GEL-28-11): nothing newer found, nothing stored. Per the 2026-11-15 research, no official merged text exists; S.I. 597/2019 (qualifying partnerships) is not added (Varun, 2026-11-15). The open isbc-directory row is needs_evidence.",
     "status": "stored"
   },
   {
@@ -160,7 +160,7 @@
     "duty_on": "private_sector",
     "source_row": "IE-EISB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Reg. 28 revokes the Aviation Regulations 2010 (S.I. No. 261 of 2010) and the later aviation amendments. Amended by S.I. No. 740/2024 (ie-si-740-2024; reg. 9(6) inserted). Text as made only. English only. No commencement clause, so the making date is in_force.",
+    "notes": "Reg. 28 revokes the Aviation Regulations 2010 (S.I. No. 261 of 2010) and the later aviation amendments. Amended by S.I. No. 740/2024 (ie-si-740-2024; reg. 9(6) inserted). Text as made only. English only. No commencement clause, so the making date is in_force. 2026-11-15 (GEL-28-11): nothing newer found, nothing stored. Per the 2026-11-15 research, the only effect is reg. 9(6) by S.I. 740/2024, stored as ie-si-740-2024. The open isbc-directory row is needs_evidence.",
     "status": "stored"
   },
   {
@@ -207,7 +207,7 @@
       "IE-OIREACHTAS-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "notes": "Records are Part 3 only (PART 3 heading to the line before PART 4), cut by position from each source. Ss. 48 and 49 (surcharges) are \"Not yet commenced. Commencement order required under s.1(2)\" in the eISB table, so Part 3 is in force except those two sections. Records: English as enacted (2007-05-01, eISB), English Revised Act updated to 24 November 2025 (Law Reform Commission; one current version), Irish official translation of the Act as enacted (achtanna.ie, kind translation, under IE-OIREACHTAS-TRANSLATION). The Revised Act is not up to date with S.I. No. 124/2026 (ie-si-124-2026, in force 2026-09-27), which its own banner says has changes not yet implemented. The Revised Act text includes the Commission's annotations. Consumer-claims umbrella for environmental claims; the Act does not mention greenwashing by name.",
+    "notes": "Records are Part 3 only (PART 3 heading to the line before PART 4), cut by position from each source. Ss. 48 and 49 (surcharges) are \"Not yet commenced. Commencement order required under s.1(2)\" in the eISB table, so Part 3 is in force except those two sections. Records: English as enacted (2007-05-01, eISB), English Revised Act updated to 24 November 2025 (Law Reform Commission; one current version), Irish official translation of the Act as enacted (achtanna.ie, kind translation, under IE-OIREACHTAS-TRANSLATION). The Revised Act is not up to date with S.I. No. 124/2026 (ie-si-124-2026, in force 2026-09-27), which its own banner says has changes not yet implemented. The Revised Act text includes the Commission's annotations. Consumer-claims umbrella for environmental claims; the Act does not mention greenwashing by name. 2026-11-15 (GEL-28-11): nothing newer found, nothing stored. Per the 2026-11-15 research, the LRC Revised Act is still updated to 24 November 2025 and S.I. 124/2026 is stored as ie-si-124-2026. The open isbc-directory row is needs_evidence.",
     "status": "stored"
   },
   {

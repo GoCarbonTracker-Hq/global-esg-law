@@ -24,7 +24,7 @@
     "duty_on": "private_sector",
     "source_row": "ZA-GOVZA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Stored text is the Act as published; later amendments (the Act has been amended by Taxation Laws Amendment Acts and Rates Acts) are not applied. The gov.za documents page was not opened (timeouts); the URL is from a search result.",
+    "notes": "Stored text is the Act as published; later amendments (the Act has been amended by Taxation Laws Amendment Acts and Rates Acts) are not applied. The gov.za documents page was not opened (timeouts); the URL is from a search result. 2026-11-15 (GEL-28-13): nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, gov.za publishes each amending Act as its own PDF and no merged text. No open queue row.",
     "status": "stored"
   },
   {
@@ -67,7 +67,7 @@
     "duty_on": "private_sector",
     "source_row": "ZA-GOVZA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Stored text is the Act as assented (GG 32121). Later amendments (Companies Amendment Act 3 of 2011, 2024 amendment acts and others listed on the gov.za page) are not applied. The social and ethics committee duty is s.72(4) with regulation 43 (see za-companies-regs-2011).",
+    "notes": "Stored text is the Act as assented (GG 32121). Later amendments (Companies Amendment Act 3 of 2011, 2024 amendment acts and others listed on the gov.za page) are not applied. The social and ethics committee duty is s.72(4) with regulation 43 (see za-companies-regs-2011). 2026-11-15 (GEL-28-13): nothing stored (Varun, 2026-11-15). Per the 2026-11-15 research, gov.za publishes each amending Act as its own PDF and no merged text. No open queue row.",
     "status": "stored"
   },
   {
