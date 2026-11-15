@@ -53,7 +53,22 @@
     "duty_on": "private_sector",
     "source_row": "NI-LAGACETA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Record text is the whole Ley 842 (Arts. 1 to 138, preamble to the signature line) as published, columns read left then right; the issue also holds other acts. The brief names it as the umbrella for environmental claims: it bans misleading or abusive advertising (consumer right 15, chapter on 'Publicidad engañosa o abusiva') and gives consumers the right to a healthy environment (right 16); it has no article on environmental or green claims as such. Amended since: Ley No. 1061 (La Gaceta No. 27 of 2021-02-09, listed at https://www.siboif.gob.ni/sites/default/files/documentos/leyes/ley_1061.pdf); the reform is not stored (not looked for on lagaceta.gob.ni) and the consolidated text is in the Digesto Ley 1097 (Empresa, Industria y Comercio, listed on /descargables behind a login), so only the 2013 text is stored. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "notes": "Record text is the whole Ley 842 (Arts. 1 to 138, preamble to the signature line) as published, columns read left then right; the issue also holds other acts. The brief names it as the umbrella for environmental claims: it bans misleading or abusive advertising (consumer right 15, chapter on 'Publicidad engañosa o abusiva') and gives consumers the right to a healthy environment (right 16); it has no article on environmental or green claims as such. Amended since by Ley No. 1061 (La Gaceta No. 27 of 2021-02-09), stored as its own instrument ni-ley-1061 (GEL-28-09, 2026-11-15); the consolidated text is in the Digesto Ley 1097 (Empresa, Industria y Comercio, listed on /descargables behind a login), so only the 2013 text is stored. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
+    "status": "stored"
+  },
+  {
+    "id": "ni-ley-1061",
+    "title": "Ley No. 1061, Ley de Reformas y Adición a la Ley No. 842, Ley de Protección de los Derechos de las Personas Consumidoras y Usuarias",
+    "official_url": "https://www.lagaceta.gob.ni/la-gaceta-n-27-martes-09-de-febrero-de-2021/",
+    "citation": "Ley No. 1061 of 2021-02-04, La Gaceta, Diario Oficial No. 27 of 2021-02-09, pp. 1088-1090",
+    "in_force": "2021-02-09",
+    "evidence": "Artículo quinto: \"La presente Ley entrará en vigencia a partir de la fecha de su publicación en La Gaceta, Diario Oficial.\" The issue is dated 09-02-2021 in its running head. Opened https://www.lagaceta.gob.ni/la-gaceta-n-27-martes-09-de-febrero-de-2021/ on 2026-11-15.",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "NI-LAGACETA-ADOPTED",
+    "verification": "official_text_seen",
+    "amends": "ni-ley-842",
+    "notes": "Record text is Ley 1061 only (from EL PRESIDENTE DE LA REPÚBLICA to the signature line), cut from the La Gaceta No. 27 issue text layer with the two-column crop, no OCR. It reforms Arts. 5 (definitions of persona consumidora o usuaria, servicios básicos, servicios financieros), 9 (numerals 10 and 25), 53, 54 (numerals 2 and 3) and 120 of Ley 842 and adds numeral 22 to Art. 6. It concerns financial-services users, non-discrimination in supply, notice of refusals and sanctions; it has no provision on environmental claims. Stored as the act as published, not as a consolidated Ley 842: the Ley 1097 Digesto consolidation is behind a login on lagaceta.gob.ni and was not used. Language stored on 2026-11-15: es (the official language of legislation; the gazette has no edition in a Caribbean coast language).",
     "status": "stored"
   }
 ]

@@ -11899,6 +11899,18 @@
   }
  },
  {
+  "id": "ni-ley-1061-lagaceta-ediciones",
+  "source_id": "NI-LAGACETA-ADOPTED",
+  "iso2": "NI",
+  "instrument": "ni-ley-1061",
+  "kind": "text_hash",
+  "tier": "consolidation_site",
+  "url": "https://www.lagaceta.gob.ni/ediciones?page=1&search=",
+  "params": {
+   "note": "latest gazette issues list, as for ni-ley-647; body carries a per-request antiforgery token, so page_hash changes on every run; the listing is the only signal La Gaceta serves for new Digesto consolidations"
+  }
+ },
+ {
   "id": "bo-asfi-rse-reglamento-asfi-page",
   "source_id": "BO-ASFI-ADOPTED",
   "iso2": "BO",
