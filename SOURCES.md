@@ -1253,6 +1253,8 @@ Italian only. Looked for an English text on Normattiva (the XML language is `ita
 
 Rows `NO-LOVDATA-CONSOLIDATED`, `NO-LOVDATA-ADOPTED` and `NO-LOVDATA-TRANSLATION` (all three `permission requested`, basis terms). Run on 2026-11-02 (GEL-05-08). No proven fetch exists for any row, so no text is stored and all seven scope instruments are link only.
 
+2026-11-15, GEL-28-03: Varun rejected the one open review row of `no-klimakvoteforskriften-lovdata-page`. The instrument is link only (no folder under records/, `NO-LOVDATA-CONSOLIDATED` is `permission requested`), so no text can be stored; the amendment FOR-2026-11-05-2304 is recorded in register/NO/scope.json.
+
 Lovdata is blocked from the cloud address for every client tried:
 
 ```
@@ -2079,6 +2081,8 @@ All five scope instruments, because the rows are `permission requested` and no r
 ## Romania
 
 Attempted 2026-11-02 (GEL-06-02). No row is `pass`, so there is no proven fetch request and no record. The four rows added (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`, `RO-MONITORUL-OFICIAL-ADOPTED`, `RO-ASF-ADOPTED`) are all `permission requested`. The portal that carries the law text, `legislatie.just.ro`, gave no response to any request from the cloud address.
+
+2026-11-15, GEL-28-03: Varun rejected the nine open review rows of `ro-omf-85-2024-legislatie-page`. The instrument is link only (no folder under records/, `RO-LEGISLATIE-CONSOLIDATED` is `permission requested`), so no text can be stored; the amendments (Ordinul 1.421 of 2025 and Ordinul 1.281 of 2026) are recorded in register/RO/scope.json.
 
 ### Portalul Legislativ (`RO-LEGISLATIE-CONSOLIDATED`, `RO-LEGISLATIE-ADOPTED`)
 
