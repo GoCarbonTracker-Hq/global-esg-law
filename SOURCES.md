@@ -208,6 +208,8 @@ Stored by GEL-03-09 (fetched 2026-11-02 with the two requests above, scripted ov
 | `kr-sapa` (`lsId` 013993) | 1 | 2022-01-27 |
 | `kr-sapa-decree` (`lsId` 014159) | 5 | 2022-01-27 |
 
+2026-11-15 (GEL-28-07): `kr-ets-act-decree` effective 2026-11-10 stored from `https://www.law.go.kr/LSW/lsInfoR.do?lsiSeq=291779&efYd=20261110&efYn=Y&chrClsCd=010202&netPrivateYn=N` (Presidential Decree No. 36804 of 2026-11-10, 타법개정; sha256 `96c44058b05941898c4098a8a308b620288981b3fbdb9035582e673548d64cbe`, same on a second fetch). The new version has its own `lsiSeq` 291779; `lsiSeq` 289967 with `efYd` 20261110 answers "기본정보 조회 실패". The change against the 2026-10-08 text is Art. 37-11 para. 2 and the new addendum. The version list held 24 entries, none newer. Terms re-read on 2026-11-15: Copyright Act art. 7 (items 1 to 5 as stored) and the site notice at `https://www.law.go.kr/LSW/legalCopyright.do?menuId=803&subMenuId=79` are intact; the `terms_url` in `licence-table.csv` points at the petition form and is corrected in a separate PR.
+
 Link only:
 
 | Instrument | Why |
@@ -945,6 +947,8 @@ English: row `ES-BOE-EN-TRANSLATION`. The BOE Biblioteca Jurídica Digital is ex
 | `es-rdl-1-2007` | 2007-12-01 | 25, 2007-12-01 to 2026-02-28 | 0 | 0 | 0 | 0 |
 
 `fetched_sha256` of a consolidated record is the hash of the whole API file for the instrument, so every version of one instrument carries the same hash, and it changes whenever the BOE adds a version.
+
+2026-11-15 (GEL-28-07): `es-rdl-1-2007` consolidated 2026-11-04 stored from `https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2007-20555/texto` (`Accept: application/xml`; sha256 `6e76d4518ceab074612b64dbeef9ef48258c95b034c1a52b65254c6b46969efd`, reproduced on a second fetch; the file's last `fecha_vigencia` is 2026-11-04, id_norma BOE-A-2026-23104). Real Decreto-ley 32/2026, de 3 de noviembre: art. 9.1 changes art. 20 apdo. 1.c), art. 9.2 adds art. 20 ter (block `a2-3`). The version tags of this file carry an extra attribute (`fpub`), so attributes are read by name, not by position. The 25 older records keep their hash. Terms re-read by hand on 2026-11-15 at https://www.boe.es/informacion/aviso_legal/: the stored reuse quote and the consolidated-text condition are still there; the page's text fingerprint no longer equals the one in `sources/licence-table.csv` (`c18e0d8a...`, now `3daf213f...`), Varun accepted the difference on 2026-11-15 (`licence-table.csv` not changed).
 
 ### Link only
 
@@ -1856,6 +1860,8 @@ English looked for and not found in `Erv`: Unternehmensgesetzbuch, Klimaschutzge
 | `at-uwg-s1-2a` (§§ 1 to 2a) | consolidated, translation | de: 1984-11-23, 1988-07-30, 2000-04-01, 2007-12-12, 2015-04-23, 2016-12-31, 2022-07-20, 2026-07-29, 2026-09-27; en: 2022-07-20 |
 
 No record was fetched with a browser. The NaDiVeG (BGBl. I Nr. 20/2017) is an addition to the candidate list: it is the Act that inserted UGB §§ 243b and 267a. No NaBeG adopted record other than the whole BGBl. text exists, because the Act is a bundle of 21 articles.
+
+2026-11-15 (GEL-28-07): `at-nehg-2022` consolidated 2026-11-06 stored from the Step 1 call for `Fassung.FassungVom=2026-11-06` (38 files; sha256 of the files in listing order `1adac02bd44ac89ec01011a40d3c7713090c6a0fe6098400bc715c0fc569ab9f`). Fetched on a Sunday from 18:03 CET, one connection, one request every 2.5 s, no notice sent to ris.it@bka.gv.at (Varun's decision). The new version differs from 2026-07-30 in § 24 and § 25 (NOR40279929, NOR40279930). BGBl. I Nr. 102/2026 (5 November 2026) is a Kundmachung of the Bundesminister für Finanzen under § 34 Abs. 7, not an amending act: it states that the state-aid conditions for § 24 Abs. 2 and § 25 Abs. 3 are met and that they enter into force at the end of the day of the announcement, so 2026-11-06 is a real in-force date (the files carry `Inkrafttretensdatum` 06.11.2026, not 9000-01-01). The § 0 and § 34 files were updated in place by RIS on 2026-11-06 (the Änderung list and Anm. 1), so they differ from the stored 2026-07-30 record in those lines too. § 22 (NOR40242299, `Inkrafttretensdatum` 9000-01-01) is not stored. Terms re-read by hand on 2026-11-15 at https://data.bka.gv.at/ris/api/v2.6/: the CC BY 4.0 sentence and the rate rules are intact, and the page is byte-identical to the watcher baseline of 2026-11-03 (sha256 `7694655b...`, 19355 bytes), so the terms did not change.
 
 ### Link only
 
