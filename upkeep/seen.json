@@ -4427,7 +4427,14 @@
   "failure": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1147)>",
   "seconds": 1.67,
   "signals": [
-   "edb26b32ac22263e9cef2457328fb4de4acb02420b69003a110966107ae348ee"
+   "62af28bda2e95d55a0e3e50309a7d6bfc465585266f177694c7e1c8663c16a30",
+   "763f87afbb396341494fd17097d3fddbc876c9ba13d3d14af707f60bbc40d270",
+   "bda80442ab4b26a4b91a12435cf150cb7399dfbae5291b42a0990ecf928e4a8c",
+   "cd9cd8cec1cf30e63ae1ecd2a1194f2633213dab2b9222b21224b7356d25db1f",
+   "dfb671d1d284013114e8d2091eb0b5bcfcd8a1efd1b496ee3a09bda0f5bd32ac",
+   "e6c3bd70307225b22af30f74c5669f043cc9f18a3120c5198510a803f5c89a06",
+   "edb26b32ac22263e9cef2457328fb4de4acb02420b69003a110966107ae348ee",
+   "ff1a0c017edb610e27a33eba41ba9ac9166f6d35b4313926b862f8bf1862a875"
   ]
  },
  "eg-pm-decree-4664-2022-fra-legislation-page": {
