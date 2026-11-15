@@ -92,7 +92,7 @@
       "NC-LEGINOVA-JONC-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "notes": "Energy efficiency of equipment, import ban of equipment containing ozone-depleting substances and of incandescent and halogen bulbs (Art. 18 and 19 read; the Act has 6 chapters, Art. 1 to 19). Link only because the commencement date is unresolved (see evidence): a record needs a dated in_force, and storing it under Leginova's 2019-01-01 would put a date the clause contradicts into the history. The JONC text is complete and clean in https://leginova.gouv.nc/api/acte/1244413/pdf (3 pages, pp. 19 to 21, text layer, HTTP 200, 52471 bytes, sha256 bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56) and can be stored as soon as Varun rules on the date. Amendments not checked. No English version found.",
+    "notes": "Energy efficiency of equipment, import ban of equipment containing ozone-depleting substances and of incandescent and halogen bulbs (Art. 18 and 19 read; the Act has 6 chapters, Art. 1 to 19). Link only until 2026-11-15 because the commencement date was unresolved (see evidence). Stored on 2026-11-15 (GEL-28-06) after Varun's ruling of 2026-11-10 that Art. 18 means 1 April 2019: the record is the JONC text from https://leginova.gouv.nc/api/acte/1244413/pdf (3 pages, pp. 19 to 21, text layer, 52471 bytes, sha256 8b9920c3c699add140b3b56f9a0757d0f9671198985bf83cd51f7b3aa17bf753 on 2026-11-15; the 2026-11-10 read of the same size hashed bb04e267ee6c0931b8f76aba758daaed23d25a4db2b8e28eafa6005b2c26ae56), under NC-LEGINOVA-JONC-ADOPTED. Amendments not checked. No English version found.",
     "status": "stored"
   },
   {
