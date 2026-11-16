@@ -4597,6 +4597,16 @@
    "2027-01-30"
   ]
  },
+ "eu-conflict-minerals-cellar-consolidations": {
+  "bytes": 52,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 3.92,
+  "signals": [
+   "2017-05-19",
+   "2020-11-19"
+  ]
+ },
  "eu-csddd-cellar-consolidations": {
   "bytes": 74,
   "checked_on": "2026-11-11",
