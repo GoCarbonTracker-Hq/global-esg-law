@@ -66,6 +66,7 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 | Green Bond Regulation (EU) 2023/2631 | 32023R2631 | 200 / 666615 | 2023-12-20 | 2024-01-09 (200 / 433057) | none |
 | ESG Ratings Regulation (EU) 2024/3005 | 32024R3005 | 200 / 476111 | 2025-01-01 | none found | `02024R3005-20241212` |
 | Climate Benchmarks Regulation (EU) 2019/2089 | 32019R2089 | 200 / 107189 | 2019-12-10 | none | none |
+| Benchmarks Regulation (EU) 2016/1011 | 32016R1011 | 200 / 647512 | 2016-06-30 | 2019-12-10 (293342), 2021-02-13 (407704), 2022-01-01 (584893), 2024-01-09 (600796), 2025-01-17 (603527), 2026-01-01 (670417) | `02016R1011-20160629` |
 
 ## India
 
