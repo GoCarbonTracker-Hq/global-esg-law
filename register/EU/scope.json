@@ -236,5 +236,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Sets Union climate-neutrality 2050 and 2030/2040 targets on Union institutions and Member States. Amended by Regulation (EU) 2026/667 (consolidated 02021R1119-20260407)."
+  },
+  {
+    "id": "eu-green-bond-2023-2631",
+    "title": "Regulation (EU) 2023/2631 on European Green Bonds and optional disclosures for bonds marketed as environmentally sustainable and for sustainability-linked bonds",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2023/2631/oj",
+    "citation": "32023R2631",
+    "in_force": "2023-12-20",
+    "evidence": "Art 72(1): \"This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L, 2023/2631, 30.11.2023, so 2023-12-20; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2023-12-20. Opened https://publications.europa.eu/resource/celex/32023R2631",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Applies generally from 2024-12-21 (Art 72(2)); certain provisions from 2023-12-20 or 2026-06-21. Amended by Regulation (EU) 2023/2869 (consolidated 02023R2631-20240109)."
   }
 ]

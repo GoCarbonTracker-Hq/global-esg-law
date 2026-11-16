@@ -63,6 +63,7 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 | Instrument | CELEX | Adopted HTTP / size | Adopted (in force) | Consolidated (date in id) | 404s |
 |---|---|---|---|---|---|
 | European Climate Law (EU) 2021/1119 | 32021R1119 | 200 / 151943 | 2021-07-29 | 2026-04-07 (200 / 84595) | `02021R1119-20210709` |
+| Green Bond Regulation (EU) 2023/2631 | 32023R2631 | 200 / 666615 | 2023-12-20 | 2024-01-09 (200 / 433057) | none |
 
 ## India
 
