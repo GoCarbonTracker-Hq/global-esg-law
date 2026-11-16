@@ -12453,3 +12453,13 @@ The Treaty System texts are published in English, French, Russian and Spanish (f
 - `aq-madrid-protocol`: row `AQ-ATS-ADOPTED` is `unknown` (Varun's ruling above).
 - Register rows with no scope entry: Annexes I to V (in force, year only on the official pages; no scope entry because no page read gives each annex's day), Annex VI (adopted, not in force), the Antarctic Treaty, the CAMLR Convention, the CCAMLR Schedule 2025/26 and its measures (row `AQ-CCAMLR-ADOPTED`, `permission requested`), CCAMLR Resolution 36/41 (a resolution, no binding wording), and the national acts listed above.
 - Blocked from the laptop address: legislation.govt.nz answered HTTP 202 with an empty body (WAF challenge); legifrance.gouv.fr answered HTTP 403 (Cloudflare challenge). Neither was bypassed.
+## EU — GEL-29 Part A, emissions trading and carbon pricing
+
+The following texts were fetched from Publications Office Cellar with `Accept: application/xhtml+xml` and `Accept-Language: eng`. Each returned `application/xhtml+xml`.
+
+### ETS Directive 2003/87/EC (`32003L0087`)
+
+Adopted text: HTTP 200, 123534 bytes. In force 2003-10-25. The Cellar list and all 16 consolidated texts were fetched with HTTP 200. No listed version returned 404.
+
+Consolidated id and response size in bytes: `2004-11-13` 110117; `2009-02-02` 190366; `2009-04-20` 194264; `2009-06-25` 259729; `2013-07-01` 261960; `2013-12-19` 263831; `2014-04-30` 294232; `2015-10-29` 265713; `2017-12-29` 274861; `2018-04-08` 386380; `2020-01-01` 340136; `2021-01-01` 389958; `2023-01-21` 396636; `2023-03-01` 403652; `2023-06-05` 725284; `2024-03-01` 730937.
+
