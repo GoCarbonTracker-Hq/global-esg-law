@@ -259,4 +259,22 @@
     "verification": "official_text_seen",
     "notes": "Applies from 2021-01-01 (Art 78), except Art 76 from 2019-01-01; Cellar field RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE shows 2021-01-01. Amended by Implementing Regulations (EU) 2020/2085, 2022/388, 2022/1371, 2023/2122, 2024/2493 and 2025/842."
   }
+,
+  {
+    "id": "eu-avr-2018-2067",
+    "title": "Commission Implementing Regulation (EU) 2018/2067 on the verification of data and on the accreditation of verifiers pursuant to Directive 2003/87/EC",
+    "official_url": "https://eur-lex.europa.eu/eli/reg_impl/2018/2067/oj",
+    "citation": "32018R2067",
+    "in_force": "2019-01-01",
+    "evidence": "Art 43: \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 334, 31.12.2018, p. 94; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2019-01-01.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amended by Implementing Regulations (EU) 2020/2084, 2024/1321 and 2025/1192."
+  }
 ]

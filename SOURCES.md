@@ -12468,3 +12468,8 @@ Consolidated id and response size in bytes: `2004-11-13` 110117; `2009-02-02` 19
 
 Adopted text: HTTP 200, 1077428 bytes. In force 2019-01-01. Article 78 sets application from 2021-01-01, except Article 76 from 2019-01-01. The Cellar notice field `RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE` shows 2021-01-01. The entry uses the legal commencement date. Seven consolidated texts returned HTTP 200: `2021-01-01` 811679 bytes; `2022-01-01` 831809; `2022-08-28` 988070; `2024-01-01` 1039641; `2024-07-01` 1278007; `2025-01-01` 1426273; `2025-05-27` 1427299. `02018R2066-20181231` returned HTTP 404, 214 bytes.
 
+
+### Accreditation and Verification Regulation (EU) 2018/2067 (`32018R2067`)
+
+Adopted text: HTTP 200, 444130 bytes. In force 2019-01-01. Four consolidated texts returned HTTP 200: `2021-01-01` 387291 bytes; `2024-05-14` 438631; `2025-01-01` 574251; `2025-06-22` 677163. `02018R2067-20181231` returned HTTP 404, 214 bytes.
+
