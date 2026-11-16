@@ -13,7 +13,7 @@
       "NL-OFFBEK-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "notes": "Records: the Staatsblad text (adopted, in_force 2019-09-01) and the consolidations of 2022-03-02, 2023-07-22 and 2026-01-01. The consolidations of 2019-09-01 and 2020-01-01 are not stored because their body equals the adopted text (similarity 0.998 after removing case, numbering and punctuation; the 2020-01-01 text is identical to 2019-09-01). The 2022-03-02 text adds the European Climate Law references. Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (4 records on disk.)",
+    "notes": "Records: the Staatsblad text (adopted, in_force 2019-09-01) and the consolidations of 2022-03-02, 2023-07-22 and 2026-01-01. The consolidations of 2019-09-01 and 2020-01-01 are not stored because their body equals the adopted text (similarity 0.998 after removing case, numbering and punctuation; the 2020-01-01 text is identical to 2019-09-01). The 2022-03-02 text adds the European Climate Law references (EU instrument id: eu-climate-law-2021-1119). Languages stored on 2026-11-02: nl (the only official language the publisher serves). No government English translation was found on 2026-11-02: wetten.overheid.nl serves Dutch only, https://www.overheid.nl/english and rijksoverheid.nl / government.nl searches for the title returned no translation of this instrument, so no English record is stored. (4 records on disk.)",
     "status": "stored"
   },
   {

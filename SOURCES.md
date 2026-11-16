@@ -71,6 +71,17 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 - `eu-conflict-minerals-2017-821` (`32017R0821`, in force `2017-06-08`): adopted `200 152695` bytes. Consolidated version stored (1): `02017R0821-20201119` (`200 105563` B). Not found (404): `02017R0821-20170519`.
 - `eu-forced-labour-2024-3015` (`32024R3015`, in force `2024-12-13`): adopted `200 291328` bytes. Consolidated versions: none published.
 - `eu-batteries-2023-1542` (`32023R1542`, in force `2023-08-17`): adopted `200 1133198` bytes. Consolidated versions stored (4): `02023R1542-20230728` (`200 741656` B, OJ publication day with corrigendum C1, stored at `in_force` `2023-08-17`), `-20240718` (`200 717589` B), `-20250731` (`200 721873` B), `-20260813` (`200 730153` B).
+### GEL-EU-gap (part D, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`) and metadata notice (`Accept: application/xml;notice=object`), and consolidated dates listed via SPARQL against `https://publications.europa.eu/webapi/rdf/sparql`.
+
+| Instrument | CELEX | Adopted HTTP / size | Adopted (in force) | Consolidated (date in id) | 404s |
+|---|---|---|---|---|---|
+| European Climate Law (EU) 2021/1119 | 32021R1119 | 200 / 151943 | 2021-07-29 | 2026-04-07 (200 / 84595) | `02021R1119-20210709` |
+| Green Bond Regulation (EU) 2023/2631 | 32023R2631 | 200 / 666615 | 2023-12-20 | 2024-01-09 (200 / 433057) | none |
+| ESG Ratings Regulation (EU) 2024/3005 | 32024R3005 | 200 / 476111 | 2025-01-01 | none found | `02024R3005-20241212` |
+| Climate Benchmarks Regulation (EU) 2019/2089 | 32019R2089 | 200 / 107189 | 2019-12-10 | none | none |
+| Benchmarks Regulation (EU) 2016/1011 | 32016R1011 | 200 / 647512 | 2016-06-30 | 2019-12-10 (293342), 2021-02-13 (407704), 2022-01-01 (584893), 2024-01-09 (600796), 2025-01-17 (603527), 2026-01-01 (670417) | `02016R1011-20160629` |
 
 ## India
 

@@ -17330,6 +17330,7 @@
    "c7395ac8699e341caab7f0cde28f24a4caa6b81900cf8398c4cbe63e494b13c7"
   ]
  },
+<<<<<<< HEAD
  "eu-empowering-consumers-cellar-consolidations": {
   "bytes": 8,
   "checked_on": "2026-11-16",
@@ -17358,6 +17359,56 @@
    "2024-12-26",
    "2025-12-26",
    "2026-09-18"
+=======
+ "eu-climate-law-cellar-consolidations": {
+  "bytes": 52,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": [
+   "2021-07-09",
+   "2026-04-07"
+  ]
+ },
+ "eu-green-bond-cellar-consolidations": {
+  "bytes": 30,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": [
+   "2024-01-09"
+  ]
+ },
+ "eu-esg-ratings-cellar-consolidations": {
+  "bytes": 30,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": [
+   "2024-12-12"
+  ]
+ },
+ "eu-climate-benchmarks-cellar-consolidations": {
+  "bytes": 8,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": []
+ },
+ "eu-benchmarks-cellar-consolidations": {
+  "bytes": 162,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": [
+   "2016-06-29",
+   "2019-12-10",
+   "2021-02-13",
+   "2022-01-01",
+   "2024-01-09",
+   "2025-01-17",
+   "2026-01-01"
+>>>>>>> gel-eu-gap-d
   ]
  }
 }
