@@ -63,6 +63,14 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 - `eu-empowering-consumers-2024-825` (`32024L0825`): adopted text 200 (161,248 bytes), in force 2024-03-26. SPARQL `02024L0825-` returned 200 (8 bytes, empty list; no consolidated versions).
 - `eu-ucpd-2005-29` (`32005L0029`): adopted text 200 (180,625 bytes), in force 2005-06-12. SPARQL `02005L0029-` listed `2005-06-12` (404, 214 bytes, skipped), `2022-05-28` (200, 125,390 bytes, stored) and `2026-09-27` (200, 146,637 bytes, stored).
 - `eu-eudr-2023-1115` (`32023R1115`): adopted text 200 (387,997 bytes), in force 2023-06-29. SPARQL `02023R1115-` listed `2023-06-09` (404, 214 bytes, skipped), `2024-12-26` (200, 219,441 bytes, stored), `2025-12-26` (200, 267,071 bytes, stored) and `2026-09-18` (200, 315,135 bytes, stored).
+### GEL-29 Part C (EU reporting and due diligence, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; Cellar notice `Accept: application/xml;notice=object` for entry-into-force; SPARQL `0<celex>-` list for consolidated dates).
+
+- `eu-accounting-directive-2013-34` (`32013L0034`, in force `2013-07-19`): adopted `200 755170` bytes. Consolidated versions stored (8): `02013L0034-20141205` (`200 426413` B), `-20141211` (`200 428769` B), `-20211221` (`200 485759` B), `-20230105` (`200 692064` B), `-20240109` (`200 709918` B), `-20240528` (`200 712597` B), `-20260318` (`200 758297` B), `-20270130` (`200 759380` B). Not found (404): `02013L0034-20130719`.
+- `eu-conflict-minerals-2017-821` (`32017R0821`, in force `2017-06-08`): adopted `200 152695` bytes. Consolidated version stored (1): `02017R0821-20201119` (`200 105563` B). Not found (404): `02017R0821-20170519`.
+- `eu-forced-labour-2024-3015` (`32024R3015`, in force `2024-12-13`): adopted `200 291328` bytes. Consolidated versions: none published.
+- `eu-batteries-2023-1542` (`32023R1542`, in force `2023-08-17`): adopted `200 1133198` bytes. Consolidated versions stored (4): `02023R1542-20230728` (`200 741656` B, OJ publication day with corrigendum C1, stored at `in_force` `2023-08-17`), `-20240718` (`200 717589` B), `-20250731` (`200 721873` B), `-20260813` (`200 730153` B).
 
 ## India
 

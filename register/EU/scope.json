@@ -264,5 +264,61 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Amended by Regulation (EU) 2024/3234 (consolidated 2024-12-26), Regulation (EU) 2025/2650 (consolidated 2025-12-26) and Commission Delegated Regulation (EU) 2026/2102 (consolidated 2026-09-18)."
+  },
+  {
+    "id": "eu-accounting-directive-2013-34",
+    "title": "Directive 2013/34/EU on the annual financial statements, consolidated financial statements and related reports of certain types of undertakings (Accounting Directive)",
+    "official_url": "https://eur-lex.europa.eu/eli/dir/2013/34/oj",
+    "citation": "32013L0034",
+    "in_force": "2013-07-19",
+    "evidence": "Art 54: \"This Directive shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 182, 29.6.2013, p. 19, so 2013-07-19; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2013-07-19. Opened https://publications.europa.eu/resource/celex/32013L0034",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Base act amended by CSRD (eu-csrd-2022-2464). Amended by Directives 2014/95/EU, 2014/102/EU, (EU) 2021/2101, (EU) 2022/2464, (EU) 2023/2864, (EU) 2023/2775, (EU) 2024/1306, (EU) 2025/2 and (EU) 2026/470."
+  },
+  {
+    "id": "eu-conflict-minerals-2017-821",
+    "title": "Regulation (EU) 2017/821 laying down supply chain due diligence obligations for Union importers of tin, tantalum and tungsten, their ores, and gold originating from conflict-affected and high-risk areas (Conflict Minerals Regulation)",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2017/821/oj",
+    "citation": "32017R0821",
+    "in_force": "2017-06-08",
+    "evidence": "Art 20(1): \"This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 130, 19.5.2017, p. 1, so 2017-06-08; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE lists 2017-06-08 (plus application dates 2017-07-09 and 2021-01-01). Opened https://publications.europa.eu/resource/celex/32017R0821",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amended by Commission Delegated Regulation (EU) 2020/1588. Main due diligence obligations apply from 2021-01-01 (Art 20(3))."
+  },
+  {
+    "id": "eu-forced-labour-2024-3015",
+    "title": "Regulation (EU) 2024/3015 on prohibiting products made with forced labour on the Union market and amending Directive (EU) 2019/1937 (Forced Labour Regulation)",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2024/3015/oj",
+    "citation": "32024R3015",
+    "in_force": "2024-12-13",
+    "evidence": "Art 39: \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union. It shall apply from 14 December 2027. However, Articles 5(3), 7, 8, 9(2), 11, 33, 35 and 37(3) shall apply from 13 December 2024.\" OJ L, 2024/3015, 12.12.2024, so 2024-12-13; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE lists 2024-12-13 and 2027-12-14. Opened https://publications.europa.eu/resource/celex/32024R3015",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": "EU-EURLEX-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "No consolidated versions published. Main prohibition applies from 2027-12-14; certain provisions apply from 2024-12-13 (Art 39)."
+  },
+  {
+    "id": "eu-batteries-2023-1542",
+    "title": "Regulation (EU) 2023/1542 concerning batteries and waste batteries, amending Directive 2008/98/EC and Regulation (EU) 2019/1020 and repealing Directive 2006/66/EC (Batteries Regulation)",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj",
+    "citation": "32023R1542",
+    "in_force": "2023-08-17",
+    "evidence": "Art 96(1): \"This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 191, 28.7.2023, p. 1, so 2023-08-17; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE lists 2023-08-17 (plus application dates). Opened https://publications.europa.eu/resource/celex/32023R1542",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Chapter VII (Arts 47-53) sets supply chain due diligence obligations (F5). Amended by Regulations (EU) 2024/1781, (EU) 2025/1561 and (EU) 2026/1738."
   }
 ]
