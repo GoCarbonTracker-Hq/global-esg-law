@@ -4580,6 +4580,23 @@
    "Last-Modified: Wed, 12 Jan 2022 14:32:53 GMT"
   ]
  },
+ "eu-accounting-cellar-consolidations": {
+  "bytes": 206,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 4.22,
+  "signals": [
+   "2013-07-19",
+   "2014-12-05",
+   "2014-12-11",
+   "2021-12-21",
+   "2023-01-05",
+   "2024-01-09",
+   "2024-05-28",
+   "2026-03-18",
+   "2027-01-30"
+  ]
+ },
  "eu-csddd-cellar-consolidations": {
   "bytes": 74,
   "checked_on": "2026-11-11",

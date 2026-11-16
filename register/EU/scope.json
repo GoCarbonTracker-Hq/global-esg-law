@@ -222,5 +222,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies from 2023-01-01. Amended by Delegated Regulation (EU) 2023/363 (in force 2023-02-20)."
+  },
+  {
+    "id": "eu-accounting-directive-2013-34",
+    "title": "Directive 2013/34/EU on the annual financial statements, consolidated financial statements and related reports of certain types of undertakings (Accounting Directive)",
+    "official_url": "https://eur-lex.europa.eu/eli/dir/2013/34/oj",
+    "citation": "32013L0034",
+    "in_force": "2013-07-19",
+    "evidence": "Art 54: \"This Directive shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 182, 29.6.2013, p. 19, so 2013-07-19; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2013-07-19. Opened https://publications.europa.eu/resource/celex/32013L0034",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Base act amended by CSRD (eu-csrd-2022-2464). Amended by Directives 2014/95/EU, 2014/102/EU, (EU) 2021/2101, (EU) 2022/2464, (EU) 2023/2864, (EU) 2023/2775, (EU) 2024/1306, (EU) 2025/2 and (EU) 2026/470."
   }
 ]

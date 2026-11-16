@@ -56,6 +56,12 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 
 Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id): `02020R0852-20200622`, `02021R2178-20211210`, `02023R2486-20231121`. `02020R0852-20200712`, `-20220101`, `-20230101`, `02021R2178-20211230`, `-20220101` and `02023R2486-20231211` also returned 404. The consolidated `02022R1288-20220725` (header `25.07.2022 — 000.002`) was fetched and then not stored: it is dated the OJ publication day, before the act entered into force on 2022-08-14, so it is not a version that took effect, and it duplicates the adopted text. Delegated Regulation (EU) 2024/3215 (corrects certain language versions of 2021/2139) and 2023/363 (amends 2022/1288) have no records of their own; 2023/363 shows in the consolidated 2022/1288 of 2023-02-20.
 
+### GEL-29 Part C (EU reporting and due diligence, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; Cellar notice `Accept: application/xml;notice=object` for entry-into-force; SPARQL `0<celex>-` list for consolidated dates).
+
+- `eu-accounting-directive-2013-34` (`32013L0034`, in force `2013-07-19`): adopted `200 755170` bytes. Consolidated versions stored (8): `02013L0034-20141205` (`200 426413` B), `-20141211` (`200 428769` B), `-20211221` (`200 485759` B), `-20230105` (`200 692064` B), `-20240109` (`200 709918` B), `-20240528` (`200 712597` B), `-20260318` (`200 758297` B), `-20270130` (`200 759380` B). Not found (404): `02013L0034-20130719`.
+
 ## India
 
 All five instruments are link only, no records. Rows `IN-INDIACODE-ADOPTED` and `IN-SEBI-ADOPTED` are `permission requested` (no licence grant), so no recipe is proven. Permission requests were drafted on 2026-11-01 and not sent. Official pages were opened on 2026-11-01 only to verify dates.
