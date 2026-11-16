@@ -164,7 +164,7 @@
       "SI-UL-ADOPTED",
       "SI-PISRS-NPB"
     ],
-    "notes": "Implements Regulation (EU) 2023/2631 on European green bonds (disclosure and supervision). Two records: the act as published and NPB 1 (2026-02-25, with ZdZEETD, Uradni list RS, št. 10/26), whole text including the NPB header. Not a brief candidate; found by a PISRS title search for 'trajnostn'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
+    "notes": "Implements Regulation (EU) 2023/2631 on European green bonds (disclosure and supervision; EU instrument id: eu-green-bond-2023-2631). Two records: the act as published and NPB 1 (2026-02-25, with ZdZEETD, Uradni list RS, št. 10/26), whole text including the NPB header. Not a brief candidate; found by a PISRS title search for 'trajnostn'. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
     "verification": "official_text_seen",
     "status": "stored"
   },

@@ -18057,5 +18057,213 @@
    "second_route": "https://www.ccamlr.org/node/74333 (redirects to the fmc.ccamlr.org page above)"
   },
   "change": "terms_changed"
- }
+ },
+ {
+  "id": "eu-empowering-consumers-cellar-consolidations",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-empowering-consumers-2024-825",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202024L0825-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02024L0825-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024L0825 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-ucpd-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-ucpd-2005-29",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202005L0029-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02005L0029-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32005L0029 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-eudr-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-eudr-2023-1115",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R1115-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02023R1115-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R1115 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-accounting-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-accounting-directive-2013-34",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202013L0034-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02013L0034-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32013L0034 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-conflict-minerals-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-conflict-minerals-2017-821",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202017R0821-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02017R0821-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32017R0821 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-forced-labour-cellar-amendments",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-forced-labour-2024-3015",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+%3Fdate+WHERE+%7B+%3Ft+cdm%3Aresource_legal_id_celex+%3Ftc+.+FILTER%28STR%28%3Ftc%29+IN+%28%2232024R3015%22%29%29+%3Fa+cdm%3Aresource_legal_amends_resource_legal%7Ccdm%3Aresource_legal_corrects_resource_legal+%3Ft+.+%3Fa+cdm%3Aresource_legal_id_celex+%3Fcelex+.+%3Fa+cdm%3Awork_date_document+%3Fdate+.+%7D+ORDER+BY+%3Fdate&format=text%2Fcsv",
+  "params": {
+   "regex": "\",(\\d{4}-\\d{2}-\\d{2})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R3015 (browser; eur-lex.europa.eu answers scripts with a bot challenge), 'Amended by' and 'Corrected by' lists"
+  }
+ },
+ {
+  "id": "eu-batteries-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-batteries-2023-1542",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R1542-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02023R1542-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R1542 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-climate-law-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-climate-law-2021-1119",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202021R1119-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02021R1119-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32021R1119 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-green-bond-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-green-bond-2023-2631",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R2631-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02023R2631-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2631 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-esg-ratings-cellar-consolidations",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-esg-ratings-2024-3005",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202024R3005-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02024R3005-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R3005 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-climate-benchmarks-cellar-consolidations",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-climate-benchmarks-2019-2089",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202019R2089-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02019R2089-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32019R2089 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+  "id": "eu-benchmarks-cellar-consolidations",
+  "source_id": "EU-EURLEX-CONSOLIDATED",
+  "iso2": "EU",
+  "instrument": "eu-benchmarks-2016-1011",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202016R1011-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02016R1011-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32016R1011 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
+ },
+ {
+    "id": "eu-ets-cellar-consolidations",
+    "source_id": "EU-EURLEX-CONSOLIDATED",
+    "iso2": "EU",
+    "instrument": "eu-ets-2003-87",
+    "kind": "date_list",
+    "tier": "gazette_feed",
+    "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202003L0087-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+    "params": {
+      "regex": "02003L0087-(\\d{8})",
+      "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32003L0087 (consolidated versions list; scripts may receive a bot challenge)"
+    }
+  },
+ {
+    "id": "eu-mrr-cellar-consolidations",
+    "source_id": "EU-EURLEX-CONSOLIDATED",
+    "iso2": "EU",
+    "instrument": "eu-mrr-2018-2066",
+    "kind": "date_list",
+    "tier": "gazette_feed",
+    "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202018R2066-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+    "params": {
+      "regex": "02018R2066-(\\d{8})",
+      "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32018R2066 (consolidated versions list; scripts may receive a bot challenge)"
+    }
+  },
+ {
+    "id": "eu-avr-cellar-consolidations",
+    "source_id": "EU-EURLEX-CONSOLIDATED",
+    "iso2": "EU",
+    "instrument": "eu-avr-2018-2067",
+    "kind": "date_list",
+    "tier": "gazette_feed",
+    "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202018R2067-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+    "params": {
+      "regex": "02018R2067-(\\d{8})",
+      "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32018R2067 (consolidated versions list; scripts may receive a bot challenge)"
+    }
+  },
+ {
+    "id": "eu-cbam-cellar-consolidations",
+    "source_id": "EU-EURLEX-CONSOLIDATED",
+    "iso2": "EU",
+    "instrument": "eu-cbam-2023-956",
+    "kind": "date_list",
+    "tier": "gazette_feed",
+    "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202023R0956-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+    "params": {
+      "regex": "02023R0956-(\\d{8})",
+      "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R0956 (consolidated versions list; scripts may receive a bot challenge)"
+    }
+  }
 ]

@@ -56,6 +56,33 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 
 Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id): `02020R0852-20200622`, `02021R2178-20211210`, `02023R2486-20231121`. `02020R0852-20200712`, `-20220101`, `-20230101`, `02021R2178-20211230`, `-20220101` and `02023R2486-20231211` also returned 404. The consolidated `02022R1288-20220725` (header `25.07.2022 — 000.002`) was fetched and then not stored: it is dated the OJ publication day, before the act entered into force on 2022-08-14, so it is not a version that took effect, and it duplicates the adopted text. Delegated Regulation (EU) 2024/3215 (corrects certain language versions of 2021/2139) and 2023/363 (amends 2022/1288) have no records of their own; 2023/363 shows in the consolidated 2022/1288 of 2023-02-20.
 
+### GEL-EU-gap (Part B: green claims and deforestation, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; metadata with `Accept: application/xml;notice=object`; consolidated dates via Cellar SPARQL).
+
+- `eu-empowering-consumers-2024-825` (`32024L0825`): adopted text 200 (161,248 bytes), in force 2024-03-26. SPARQL `02024L0825-` returned 200 (8 bytes, empty list; no consolidated versions).
+- `eu-ucpd-2005-29` (`32005L0029`): adopted text 200 (180,625 bytes), in force 2005-06-12. SPARQL `02005L0029-` listed `2005-06-12` (404, 214 bytes, skipped), `2022-05-28` (200, 125,390 bytes, stored) and `2026-09-27` (200, 146,637 bytes, stored).
+- `eu-eudr-2023-1115` (`32023R1115`): adopted text 200 (387,997 bytes), in force 2023-06-29. SPARQL `02023R1115-` listed `2023-06-09` (404, 214 bytes, skipped), `2024-12-26` (200, 219,441 bytes, stored), `2025-12-26` (200, 267,071 bytes, stored) and `2026-09-18` (200, 315,135 bytes, stored).
+### GEL-29 Part C (EU reporting and due diligence, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; Cellar notice `Accept: application/xml;notice=object` for entry-into-force; SPARQL `0<celex>-` list for consolidated dates).
+
+- `eu-accounting-directive-2013-34` (`32013L0034`, in force `2013-07-19`): adopted `200 755170` bytes. Consolidated versions stored (8): `02013L0034-20141205` (`200 426413` B), `-20141211` (`200 428769` B), `-20211221` (`200 485759` B), `-20230105` (`200 692064` B), `-20240109` (`200 709918` B), `-20240528` (`200 712597` B), `-20260318` (`200 758297` B), `-20270130` (`200 759380` B). Not found (404): `02013L0034-20130719`.
+- `eu-conflict-minerals-2017-821` (`32017R0821`, in force `2017-06-08`): adopted `200 152695` bytes. Consolidated version stored (1): `02017R0821-20201119` (`200 105563` B). Not found (404): `02017R0821-20170519`.
+- `eu-forced-labour-2024-3015` (`32024R3015`, in force `2024-12-13`): adopted `200 291328` bytes. Consolidated versions: none published.
+- `eu-batteries-2023-1542` (`32023R1542`, in force `2023-08-17`): adopted `200 1133198` bytes. Consolidated versions stored (4): `02023R1542-20230728` (`200 741656` B, OJ publication day with corrigendum C1, stored at `in_force` `2023-08-17`), `-20240718` (`200 717589` B), `-20250731` (`200 721873` B), `-20260813` (`200 730153` B).
+### GEL-EU-gap (part D, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`) and metadata notice (`Accept: application/xml;notice=object`), and consolidated dates listed via SPARQL against `https://publications.europa.eu/webapi/rdf/sparql`.
+
+| Instrument | CELEX | Adopted HTTP / size | Adopted (in force) | Consolidated (date in id) | 404s |
+|---|---|---|---|---|---|
+| European Climate Law (EU) 2021/1119 | 32021R1119 | 200 / 151943 | 2021-07-29 | 2026-04-07 (200 / 84595) | `02021R1119-20210709` |
+| Green Bond Regulation (EU) 2023/2631 | 32023R2631 | 200 / 666615 | 2023-12-20 | 2024-01-09 (200 / 433057) | none |
+| ESG Ratings Regulation (EU) 2024/3005 | 32024R3005 | 200 / 476111 | 2025-01-01 | none found | `02024R3005-20241212` |
+| Climate Benchmarks Regulation (EU) 2019/2089 | 32019R2089 | 200 / 107189 | 2019-12-10 | none | none |
+| Benchmarks Regulation (EU) 2016/1011 | 32016R1011 | 200 / 647512 | 2016-06-30 | 2019-12-10 (293342), 2021-02-13 (407704), 2022-01-01 (584893), 2024-01-09 (600796), 2025-01-17 (603527), 2026-01-01 (670417) | `02016R1011-20160629` |
+
 ## India
 
 All five instruments are link only, no records. Rows `IN-INDIACODE-ADOPTED` and `IN-SEBI-ADOPTED` are `permission requested` (no licence grant), so no recipe is proven. Permission requests were drafted on 2026-11-01 and not sent. Official pages were opened on 2026-11-01 only to verify dates.
@@ -12453,3 +12480,27 @@ The Treaty System texts are published in English, French, Russian and Spanish (f
 - `aq-madrid-protocol`: row `AQ-ATS-ADOPTED` is `unknown` (Varun's ruling above).
 - Register rows with no scope entry: Annexes I to V (in force, year only on the official pages; no scope entry because no page read gives each annex's day), Annex VI (adopted, not in force), the Antarctic Treaty, the CAMLR Convention, the CCAMLR Schedule 2025/26 and its measures (row `AQ-CCAMLR-ADOPTED`, `permission requested`), CCAMLR Resolution 36/41 (a resolution, no binding wording), and the national acts listed above.
 - Blocked from the laptop address: legislation.govt.nz answered HTTP 202 with an empty body (WAF challenge); legifrance.gouv.fr answered HTTP 403 (Cloudflare challenge). Neither was bypassed.
+## EU — GEL-29 Part A, emissions trading and carbon pricing
+
+The following texts were fetched from Publications Office Cellar with `Accept: application/xhtml+xml` and `Accept-Language: eng`. Each returned `application/xhtml+xml`.
+
+### ETS Directive 2003/87/EC (`32003L0087`)
+
+Adopted text: HTTP 200, 123534 bytes. In force 2003-10-25. The Cellar list and all 16 consolidated texts were fetched with HTTP 200. No listed version returned 404.
+
+Consolidated id and response size in bytes: `2004-11-13` 110117; `2009-02-02` 190366; `2009-04-20` 194264; `2009-06-25` 259729; `2013-07-01` 261960; `2013-12-19` 263831; `2014-04-30` 294232; `2015-10-29` 265713; `2017-12-29` 274861; `2018-04-08` 386380; `2020-01-01` 340136; `2021-01-01` 389958; `2023-01-21` 396636; `2023-03-01` 403652; `2023-06-05` 725284; `2024-03-01` 730937.
+
+
+### Monitoring and Reporting Regulation (EU) 2018/2066 (`32018R2066`)
+
+Adopted text: HTTP 200, 1077428 bytes. In force 2019-01-01. Article 78 sets application from 2021-01-01, except Article 76 from 2019-01-01. The Cellar notice field `RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE` shows 2021-01-01. The entry uses the legal commencement date. Seven consolidated texts returned HTTP 200: `2021-01-01` 811679 bytes; `2022-01-01` 831809; `2022-08-28` 988070; `2024-01-01` 1039641; `2024-07-01` 1278007; `2025-01-01` 1426273; `2025-05-27` 1427299. `02018R2066-20181231` returned HTTP 404, 214 bytes.
+
+
+### Accreditation and Verification Regulation (EU) 2018/2067 (`32018R2067`)
+
+Adopted text: HTTP 200, 444130 bytes. In force 2019-01-01. Four consolidated texts returned HTTP 200: `2021-01-01` 387291 bytes; `2024-05-14` 438631; `2025-01-01` 574251; `2025-06-22` 677163. `02018R2067-20181231` returned HTTP 404, 214 bytes.
+
+
+### CBAM Regulation (EU) 2023/956 (`32023R0956`)
+
+Adopted text: HTTP 200, 468340 bytes. In force 2023-05-17. Article 29 sets application from 2023-10-01. One consolidated text, `2025-10-20`, returned HTTP 200, 506893 bytes. `02023R0956-20230516` returned HTTP 404, 214 bytes.

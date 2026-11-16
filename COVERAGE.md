@@ -1,6 +1,6 @@
 # Coverage and currency
 
-Generated on 2026-11-15 by `python3 tools/coverage.py` from `register/register.csv`, `register/<ISO2>/scope.json`, `records/`, `sources.json`, `upkeep/watchers.json`, `upkeep/seen.json` and `upkeep/cadence.json`. Nothing in this file is typed by hand; edit the inputs and rerun the command.
+Generated on 2026-11-16 by `python3 tools/coverage.py` from `register/register.csv`, `register/<ISO2>/scope.json`, `records/`, `sources.json`, `upkeep/watchers.json`, `upkeep/seen.json` and `upkeep/cadence.json`. Nothing in this file is typed by hand; edit the inputs and rerun the command.
 
 This is a map of what the repository holds and when it was last checked. It is not a claim that the law of any place is covered completely, and it says nothing about whether any company complies with any law. The law families are the `law_family` codes of the register: F1, F2, F3, F4, F5, F6, F7.
 
@@ -8,28 +8,28 @@ This is a map of what the repository holds and when it was last checked. It is n
 
 | Count | Value | As of | Command |
 |---|---|---|---|
-| Places in the register | 250 | 2026-11-15 | `python3 tools/coverage.py` |
-| Register rows | 2587 | 2026-11-15 | `python3 tools/coverage.py` |
-| Register rows with an instrument and a law family (shown in the grid) | 2529 | 2026-11-15 | `python3 tools/coverage.py` |
-| Register rows with an instrument but no law family (not in the grid) | 4 | 2026-11-15 | `python3 tools/coverage.py` |
-| Register rows with a law family outside F1 to F7 | 0 | 2026-11-15 | `python3 tools/coverage.py` |
-| Register rows with no instrument (place listed, nothing found) | 54 | 2026-11-15 | `python3 tools/coverage.py` |
-| Pilot places with a scope file | 250 | 2026-11-15 | `python3 tools/coverage.py` |
-| Instruments in scope files | 1379 | 2026-11-15 | `python3 tools/coverage.py` |
-| Instruments with stored text | 833 | 2026-11-15 | `python3 tools/coverage.py` |
-| Instruments link only | 546 | 2026-11-15 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3247 | 2026-11-15 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 1558 | 2026-11-15 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 1557 | 2026-11-15 | `python3 tools/coverage.py` |
-| Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-15 | `python3 tools/coverage.py` |
-| Grid cells marked stale | 0 | 2026-11-15 | `python3 tools/coverage.py` |
-| Places with no watcher | 11 | 2026-11-15 | `python3 tools/coverage.py` |
-| Places with instruments but no stored text (link only) | 110 | 2026-11-15 | `python3 tools/coverage.py` |
-| Places with stored text but no consolidated text (as published only) | 72 | 2026-11-15 | `python3 tools/coverage.py` |
+| Places in the register | 250 | 2026-11-16 | `python3 tools/coverage.py` |
+| Register rows | 2603 | 2026-11-16 | `python3 tools/coverage.py` |
+| Register rows with an instrument and a law family (shown in the grid) | 2545 | 2026-11-16 | `python3 tools/coverage.py` |
+| Register rows with an instrument but no law family (not in the grid) | 4 | 2026-11-16 | `python3 tools/coverage.py` |
+| Register rows with a law family outside F1 to F7 | 0 | 2026-11-16 | `python3 tools/coverage.py` |
+| Register rows with no instrument (place listed, nothing found) | 54 | 2026-11-16 | `python3 tools/coverage.py` |
+| Pilot places with a scope file | 250 | 2026-11-16 | `python3 tools/coverage.py` |
+| Instruments in scope files | 1395 | 2026-11-16 | `python3 tools/coverage.py` |
+| Instruments with stored text | 849 | 2026-11-16 | `python3 tools/coverage.py` |
+| Instruments link only | 546 | 2026-11-16 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3317 | 2026-11-16 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 1574 | 2026-11-16 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 1573 | 2026-11-16 | `python3 tools/coverage.py` |
+| Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-16 | `python3 tools/coverage.py` |
+| Grid cells marked stale | 0 | 2026-11-16 | `python3 tools/coverage.py` |
+| Places with no watcher | 11 | 2026-11-16 | `python3 tools/coverage.py` |
+| Places with instruments but no stored text (link only) | 110 | 2026-11-16 | `python3 tools/coverage.py` |
+| Places with stored text but no consolidated text (as published only) | 72 | 2026-11-16 | `python3 tools/coverage.py` |
 
 ## Not covered
 
-Counts as of 2026-11-15, from `python3 tools/coverage.py`.
+Counts as of 2026-11-16, from `python3 tools/coverage.py`.
 
 - Places with no watcher (11): BV, EH, GF, HM, MQ, NE, RE, SJ, TK, UM, YT.
 - Families with no instrument anywhere in the register (0): none.
@@ -103,7 +103,7 @@ Counts as of 2026-11-15, from `python3 tools/coverage.py`.
 - ER: families with no instrument (5): F1, F3, F4, F5, F6.
 - ES: families with no instrument (2): F4, F5.
 - ET: families with no instrument (4): F3, F4, F5, F6.
-- EU: families with no instrument (4): F2, F3, F4, F7.
+- EU: families with no instrument (2): F4, F7.
 - FI: families with no instrument (2): F4, F7.
 - FJ: families with no instrument (4): F1, F3, F4, F5.
 - FK: families with no instrument (2): F4, F5.
@@ -303,7 +303,7 @@ Each cell is `tier · verification · form · checked · changed · stale`, in t
 
 ## Grid
 
-One row per place in the register, one column per law family, as of 2026-11-15.
+One row per place in the register, one column per law family, as of 2026-11-16.
 
 | Place | Name | F1 | F2 | F3 | F4 | F5 | F6 | F7 |
 |---|---|---|---|---|---|---|---|---|
@@ -376,7 +376,7 @@ One row per place in the register, one column per law family, as of 2026-11-15.
 | ER | Eritrea |  | B · official_page_seen/official_text_seen · link only · unchecked |  |  |  |  | C · none · no link · unchecked |
 | ES | Spain | A/B · official_page_seen/official_text_seen · text 4, link only 1 · checked 2026-11-11 (1 unchecked) · changed 2018-12-30 | A · official_text_seen · text 7 · checked 2026-11-11 · changed 2026-07-01 | A · official_text_seen · text 14 · checked 2026-11-11 · changed 2025-06-14 |  |  | A · official_text_seen · text 41 · checked 2026-11-11 · changed 2026-11-04 | A · official_text_seen · link only · unchecked |
 | ET | Ethiopia | A · official_text_seen · link only · unchecked | A · official_text_seen · link only · checked 2026-11-11 |  |  |  |  | B · not_checked/official_page_seen · link only · unchecked |
-| EU | European Union | A · official_text_seen · text 10 · checked 2026-11-11 · changed 2026-11-10 |  |  |  | A · official_text_seen · text 3 · checked 2026-11-11 · changed 2026-03-18 | A · official_text_seen · text 22 · checked 2026-11-11 · changed 2026-07-02 |  |
+| EU | European Union | A · official_text_seen · text 19 · checked 2026-11-11 · changed 2027-01-30 | A · official_text_seen · text 2 · checked 2026-11-16 · changed 2026-04-07 | A · official_text_seen · text 32 · checked 2026-11-16 · changed 2025-10-20 |  | A · official_text_seen · text 15 · checked 2026-11-11 · changed 2026-09-18 | A · official_text_seen · text 37 · checked 2026-11-11 · changed 2026-09-27 |  |
 | FI | Finland | A · official_text_seen · text 19, link only 1 · checked 2026-11-11 (1 unchecked) · changed 2026-06-30 | A · official_text_seen · text 7 · checked 2026-11-11 · changed 2025-01-01 | A · official_text_seen · text 30 · checked 2026-11-11 · changed 2026-08-05 |  | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2021-01-01 | A · official_text_seen · text 24 · checked 2026-11-11 · changed 2026-10-01 |  |
 | FJ | Fiji |  | A · official_text_seen · text 5 · checked 2026-11-11 · changed 2025-12-12 |  |  |  | A · official_text_seen · link only · unchecked | B · official_page_seen · link only · unchecked |
 | FK | Falkland Islands | A · official_text_seen · text 4 · checked 2026-11-11 · changed 2026-07-01 | A · official_text_seen · text 2, link only 1 · checked 2026-11-11 · changed 2022-09-30 | A · official_text_seen · text 1 · checked 2026-11-11 · changed 2026-06-12 |  |  | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2024-10-18 | A · official_page_seen · link only · unchecked |
@@ -560,7 +560,7 @@ One row per place in the register, one column per law family, as of 2026-11-15.
 
 ## Pilot places by instrument
 
-As of 2026-11-15. `versions` is the number of record files; `checked from` says whether the date came from a watcher or from the licence row.
+As of 2026-11-16. `versions` is the number of record files; `checked from` says whether the date came from a watcher or from the licence row.
 
 ### AD (Andorra)
 
@@ -1316,6 +1316,22 @@ As of 2026-11-15. `versions` is the number of record files; `checked from` says 
 | eu-taxonomy-climate-amendment-da-2023-2485 | F6 | text 1 | 1 | 2026-11-11 | watcher | gazette_feed | 2023-12-11 | current |
 | eu-taxonomy-simplification-da-2026-73 | F6 | text 1 | 1 | 2026-11-11 | watcher | gazette_feed | 2026-01-28 | current |
 | eu-sfdr-rts-2022-1288 | F6 | text 2 | 2 | 2026-11-11 | watcher | gazette_feed | 2023-02-20 | current |
+| eu-empowering-consumers-2024-825 | F6 | text 1 | 1 | 2026-11-16 | watcher | gazette_feed | 2024-03-26 | current |
+| eu-ucpd-2005-29 | F6 | text 3 | 3 | 2026-11-16 | watcher | gazette_feed | 2026-09-27 | current |
+| eu-eudr-2023-1115 | F5 | text 4 | 4 | 2026-11-16 | watcher | gazette_feed | 2026-09-18 | current |
+| eu-accounting-directive-2013-34 | F1 | text 9 | 9 | 2026-11-16 | watcher | gazette_feed | 2027-01-30 | current |
+| eu-conflict-minerals-2017-821 | F5 | text 2 | 2 | 2026-11-16 | watcher | gazette_feed | 2020-11-19 | current |
+| eu-forced-labour-2024-3015 | F5 | text 1 | 1 | 2026-11-16 | watcher | gazette_feed | 2024-12-13 | current |
+| eu-batteries-2023-1542 | F5 | text 5 | 5 | 2026-11-16 | watcher | gazette_feed | 2026-08-13 | current |
+| eu-climate-law-2021-1119 | F2 | text 2 | 2 | 2026-11-16 | watcher | gazette_feed | 2026-04-07 | current |
+| eu-green-bond-2023-2631 | F6 | text 2 | 2 | 2026-11-16 | watcher | gazette_feed | 2024-01-09 | current |
+| eu-esg-ratings-2024-3005 | F6 | text 1 | 1 | 2026-11-16 | watcher | gazette_feed | 2025-01-01 | current |
+| eu-climate-benchmarks-2019-2089 | F6 | text 1 | 1 | 2026-11-16 | watcher | gazette_feed | 2019-12-10 | current |
+| eu-benchmarks-2016-1011 | F6 | text 7 | 7 | 2026-11-16 | watcher | gazette_feed | 2026-01-01 | current |
+| eu-ets-2003-87 | F3 | text 17 | 17 | 2026-11-16 | watcher | gazette_feed | 2024-03-01 | current |
+| eu-mrr-2018-2066 | F3 | text 8 | 8 | 2026-11-16 | watcher | gazette_feed | 2025-05-27 | current |
+| eu-avr-2018-2067 | F3 | text 5 | 5 | 2026-11-16 | watcher | gazette_feed | 2025-06-22 | current |
+| eu-cbam-2023-956 | F3 | text 2 | 2 | 2026-11-16 | watcher | gazette_feed | 2025-10-20 | current |
 
 ### FI (Finland)
 

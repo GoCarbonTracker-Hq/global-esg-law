@@ -9,6 +9,10 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
+## 2026-11-16
+- **Added:** 16 EU-level instruments on EUR-Lex, with adopted and consolidated English texts (70 new record files), scope entries, register rows and Cellar watchers: emissions trading and carbon pricing (ETS Directive 2003/87/EC, Regulations (EU) 2018/2066 and 2018/2067, CBAM 2023/956), green claims and deforestation (Directives 2024/825 and 2005/29/EC, Regulation 2023/1115), reporting and due diligence (Directive 2013/34/EU, Regulations 2017/821, 2024/3015 and 2023/1542), climate framework and sustainable finance (Regulations 2021/1119, 2023/2631, 2024/3005, 2019/2089 and 2016/1011). In `in_force`, the date of entry into force is used; where an act applies later the application date is in the scope entry's notes.
+- **Open:** the `history` branch has not been rebuilt for these records.
+
 ## 2026-11-15
 - **Added:** deep review report in `tickets/GEL-33-deep-review.md`.
 - **Open:** `check_corpus.py`, `publish_gate.py`, `update.py`, and `build.py` use last-row-wins dict lookup for duplicate `source_id`s in `sources.json` (`F2-2`, S1).
