@@ -62,6 +62,7 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 
 - `eu-accounting-directive-2013-34` (`32013L0034`, in force `2013-07-19`): adopted `200 755170` bytes. Consolidated versions stored (8): `02013L0034-20141205` (`200 426413` B), `-20141211` (`200 428769` B), `-20211221` (`200 485759` B), `-20230105` (`200 692064` B), `-20240109` (`200 709918` B), `-20240528` (`200 712597` B), `-20260318` (`200 758297` B), `-20270130` (`200 759380` B). Not found (404): `02013L0034-20130719`.
 - `eu-conflict-minerals-2017-821` (`32017R0821`, in force `2017-06-08`): adopted `200 152695` bytes. Consolidated version stored (1): `02017R0821-20201119` (`200 105563` B). Not found (404): `02017R0821-20170519`.
+- `eu-forced-labour-2024-3015` (`32024R3015`, in force `2024-12-13`): adopted `200 291328` bytes. Consolidated versions: none published.
 
 ## India
 

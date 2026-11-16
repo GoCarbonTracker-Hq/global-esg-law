@@ -4669,6 +4669,13 @@
    "2025-01-01"
   ]
  },
+ "eu-forced-labour-cellar-consolidations": {
+  "bytes": 8,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 5.2,
+  "signals": []
+ },
  "eu-omnibus-content-cellar-amendments": {
   "bytes": 680,
   "checked_on": "2026-11-11",
