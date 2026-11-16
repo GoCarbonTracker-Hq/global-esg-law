@@ -222,5 +222,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies from 2023-01-01. Amended by Delegated Regulation (EU) 2023/363 (in force 2023-02-20)."
+  },
+  {
+    "id": "eu-empowering-consumers-2024-825",
+    "title": "Directive (EU) 2024/825 amending Directives 2005/29/EC and 2011/83/EU as regards empowering consumers for the green transition through better protection against unfair practices and through better information",
+    "official_url": "https://eur-lex.europa.eu/eli/dir/2024/825/oj",
+    "citation": "32024L0825",
+    "in_force": "2024-03-26",
+    "evidence": "Art 5: \"This Directive shall enter into force on the twentieth day following its publication in the Official Journal of the European Union.\" OJ L, 2024/825, 6.3.2024, so 2024-03-26; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2024-03-26. Opened https://publications.europa.eu/resource/celex/32024L0825",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "EU-EURLEX-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Transposition deadline 2026-03-27; measures apply from 2026-09-27 (Art 4). Amends Directives 2005/29/EC and 2011/83/EU. No consolidated versions published on Cellar as of 2026-11-16."
   }
 ]

@@ -17283,5 +17283,12 @@
   "signals": [
    "c7395ac8699e341caab7f0cde28f24a4caa6b81900cf8398c4cbe63e494b13c7"
   ]
+ },
+ "eu-empowering-consumers-cellar-consolidations": {
+  "bytes": 8,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 0.5,
+  "signals": []
  }
 }
