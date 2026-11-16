@@ -12463,3 +12463,8 @@ Adopted text: HTTP 200, 123534 bytes. In force 2003-10-25. The Cellar list and a
 
 Consolidated id and response size in bytes: `2004-11-13` 110117; `2009-02-02` 190366; `2009-04-20` 194264; `2009-06-25` 259729; `2013-07-01` 261960; `2013-12-19` 263831; `2014-04-30` 294232; `2015-10-29` 265713; `2017-12-29` 274861; `2018-04-08` 386380; `2020-01-01` 340136; `2021-01-01` 389958; `2023-01-21` 396636; `2023-03-01` 403652; `2023-06-05` 725284; `2024-03-01` 730937.
 
+
+### Monitoring and Reporting Regulation (EU) 2018/2066 (`32018R2066`)
+
+Adopted text: HTTP 200, 1077428 bytes. In force 2019-01-01. Article 78 sets application from 2021-01-01, except Article 76 from 2019-01-01. The Cellar notice field `RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE` shows 2021-01-01. The entry uses the legal commencement date. Seven consolidated texts returned HTTP 200: `2021-01-01` 811679 bytes; `2022-01-01` 831809; `2022-08-28` 988070; `2024-01-01` 1039641; `2024-07-01` 1278007; `2025-01-01` 1426273; `2025-05-27` 1427299. `02018R2066-20181231` returned HTTP 404, 214 bytes.
+
