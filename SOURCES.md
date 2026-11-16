@@ -56,6 +56,14 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 
 Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id): `02020R0852-20200622`, `02021R2178-20211210`, `02023R2486-20231121`. `02020R0852-20200712`, `-20220101`, `-20230101`, `02021R2178-20211230`, `-20220101` and `02023R2486-20231211` also returned 404. The consolidated `02022R1288-20220725` (header `25.07.2022 — 000.002`) was fetched and then not stored: it is dated the OJ publication day, before the act entered into force on 2022-08-14, so it is not a version that took effect, and it duplicates the adopted text. Delegated Regulation (EU) 2024/3215 (corrects certain language versions of 2021/2139) and 2023/363 (amends 2022/1288) have no records of their own; 2023/363 shows in the consolidated 2022/1288 of 2023-02-20.
 
+### GEL-EU-gap (part D, fetched 2026-11-16)
+
+Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`) and metadata notice (`Accept: application/xml;notice=object`), and consolidated dates listed via SPARQL against `https://publications.europa.eu/webapi/rdf/sparql`.
+
+| Instrument | CELEX | Adopted HTTP / size | Adopted (in force) | Consolidated (date in id) | 404s |
+|---|---|---|---|---|---|
+| European Climate Law (EU) 2021/1119 | 32021R1119 | 200 / 151943 | 2021-07-29 | 2026-04-07 (200 / 84595) | `02021R1119-20210709` |
+
 ## India
 
 All five instruments are link only, no records. Rows `IN-INDIACODE-ADOPTED` and `IN-SEBI-ADOPTED` are `permission requested` (no licence grant), so no recipe is proven. Permission requests were drafted on 2026-11-01 and not sent. Official pages were opened on 2026-11-01 only to verify dates.

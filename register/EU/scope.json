@@ -222,5 +222,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies from 2023-01-01. Amended by Delegated Regulation (EU) 2023/363 (in force 2023-02-20)."
+  },
+  {
+    "id": "eu-climate-law-2021-1119",
+    "title": "Regulation (EU) 2021/1119 establishing the framework for achieving climate neutrality and amending Regulations (EC) No 401/2009 and (EU) 2018/1999 (European Climate Law)",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2021/1119/oj",
+    "citation": "32021R1119",
+    "in_force": "2021-07-29",
+    "evidence": "Art 14: \"This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L 243, 9.7.2021, so 2021-07-29; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2021-07-29. Opened https://publications.europa.eu/resource/celex/32021R1119",
+    "law_family": "F2",
+    "duty_on": "state_only",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Sets Union climate-neutrality 2050 and 2030/2040 targets on Union institutions and Member States. Amended by Regulation (EU) 2026/667 (consolidated 02021R1119-20260407)."
   }
 ]
