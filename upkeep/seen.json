@@ -4681,11 +4681,11 @@
    "2025-01-01"
   ]
  },
- "eu-forced-labour-cellar-consolidations": {
-  "bytes": 8,
+ "eu-forced-labour-cellar-amendments": {
+  "bytes": 15,
   "checked_on": "2026-11-16",
   "failure": null,
-  "seconds": 5.2,
+  "seconds": 4.63,
   "signals": []
  },
  "eu-omnibus-content-cellar-amendments": {
