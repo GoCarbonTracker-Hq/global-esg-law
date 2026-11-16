@@ -4597,6 +4597,18 @@
    "2027-01-30"
   ]
  },
+ "eu-batteries-cellar-consolidations": {
+  "bytes": 96,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 6.8,
+  "signals": [
+   "2023-07-28",
+   "2024-07-18",
+   "2025-07-31",
+   "2026-08-13"
+  ]
+ },
  "eu-conflict-minerals-cellar-consolidations": {
   "bytes": 52,
   "checked_on": "2026-11-16",
