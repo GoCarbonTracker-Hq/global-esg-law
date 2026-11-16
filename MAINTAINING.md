@@ -24,7 +24,7 @@ For a local test rebuild, choose a separate branch name, such as `history-gel-32
 
 The branch must carry the `Language` trailer on each commit, or every lookup shows language `-`.
 
-As of 2026-11-15 the published `history` build (`82181f25`, 3,247 commits) holds every record on `main`. A record added to `main` after a build does not show in a lookup on `origin/history` until the branch is rebuilt and published. Publishing replaces the branch, and the maintainer does that step by hand. The head commit of that build is dated 2034-01-01 because commits are dated by in-force date and the newest-dated record is an Estonian provision not yet in force.
+As of 2026-11-17 the published `history` build (`c76381e2`, 3,317 commits) holds every record on `main`. A record added to `main` after a build does not show in a lookup on `origin/history` until the branch is rebuilt and published. Publishing replaces the branch, and the maintainer does that step by hand. The head commit of that build is dated 2034-01-01 because commits are dated by in-force date and the newest-dated record is an Estonian provision not yet in force.
 
 ## Tests
 
