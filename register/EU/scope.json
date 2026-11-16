@@ -277,4 +277,22 @@
     "verification": "official_text_seen",
     "notes": "Amended by Implementing Regulations (EU) 2020/2084, 2024/1321 and 2025/1192."
   }
+,
+  {
+    "id": "eu-cbam-2023-956",
+    "title": "Regulation (EU) 2023/956 establishing a carbon border adjustment mechanism",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2023/956/oj",
+    "citation": "32023R0956",
+    "in_force": "2023-05-17",
+    "evidence": "Art 29(1): \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 130, 16.5.2023; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2023-05-17.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Applies from 2023-10-01 (Art 29(2)); amended by Regulation (EU) 2025/2083."
+  }
 ]

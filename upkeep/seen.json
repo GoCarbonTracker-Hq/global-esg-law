@@ -17336,5 +17336,15 @@
    "2025-01-01",
    "2025-06-22"
   ]
+ },
+ "eu-cbam-cellar-consolidations": {
+  "bytes": 52,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 5.54,
+  "signals": [
+   "2023-05-16",
+   "2025-10-20"
+  ]
  }
 }

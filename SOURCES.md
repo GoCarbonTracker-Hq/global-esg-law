@@ -12473,3 +12473,7 @@ Adopted text: HTTP 200, 1077428 bytes. In force 2019-01-01. Article 78 sets appl
 
 Adopted text: HTTP 200, 444130 bytes. In force 2019-01-01. Four consolidated texts returned HTTP 200: `2021-01-01` 387291 bytes; `2024-05-14` 438631; `2025-01-01` 574251; `2025-06-22` 677163. `02018R2067-20181231` returned HTTP 404, 214 bytes.
 
+
+### CBAM Regulation (EU) 2023/956 (`32023R0956`)
+
+Adopted text: HTTP 200, 468340 bytes. In force 2023-05-17. Article 29 sets application from 2023-10-01. One consolidated text, `2025-10-20`, returned HTTP 200, 506893 bytes. `02023R0956-20230516` returned HTTP 404, 214 bytes.
