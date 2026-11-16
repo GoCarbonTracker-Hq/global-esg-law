@@ -264,5 +264,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies from 2026-07-02 (Art 53). No consolidated version stored (02024R3005-20241212 returned 404)."
+  },
+  {
+    "id": "eu-climate-benchmarks-2019-2089",
+    "title": "Regulation (EU) 2019/2089 amending Regulation (EU) 2016/1011 as regards EU Climate Transition Benchmarks, EU Paris-aligned Benchmarks and sustainability-related disclosures for benchmarks",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2019/2089/oj",
+    "citation": "32019R2089",
+    "in_force": "2019-12-10",
+    "evidence": "Art 2: \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 317, 9.12.2019, so 2019-12-10; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2019-12-10. Opened https://publications.europa.eu/resource/celex/32019R2089",
+    "law_family": "F6",
+    "duty_on": "financial_institutions",
+    "source_row": "EU-EURLEX-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amends Regulation (EU) 2016/1011 (eu-benchmarks-2016-1011), which is stored separately with its consolidated versions."
   }
 ]

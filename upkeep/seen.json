@@ -17311,5 +17311,12 @@
   "signals": [
    "2024-12-12"
   ]
+ },
+ "eu-climate-benchmarks-cellar-consolidations": {
+  "bytes": 8,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": []
  }
 }
