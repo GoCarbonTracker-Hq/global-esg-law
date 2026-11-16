@@ -111,3 +111,15 @@ def test_new_file_name_must_end_in_the_record_language(tmp_path):
     assert check_corpus.check(tmp_path) == 1
     (folder / "2020-01-01-adopted-en.json").rename(folder / "2020-01-01-adopted-fr.json")
     refused(tmp_path, "file name ends -fr but language is 'en'")
+
+
+def test_applies_from_must_be_a_real_date(tmp_path):
+    make(tmp_path)
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[0]["applies_from"] = "2027-13-40"
+    scope.write_text(json.dumps(entries))
+    refused(tmp_path, "applies_from")
+    entries[0]["applies_from"] = "2027-12-14"
+    scope.write_text(json.dumps(entries))
+    assert check_corpus.check(tmp_path) == 1

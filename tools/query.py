@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 FIELDS = {"Instrument": "title", "Source-url": "source_url", "In-force": "in_force", "Kind": "kind",
           "Licence": "licence", "Jurisdiction": "jurisdiction", "Instrument-id": "id", "Language": "language",
           "Date-basis": "date_basis", "Re-enactment": "re_enactment"}
+APPLICATION_NOTE = ("In force is the date a text entered into force. The date its duties start to apply can be later: "
+                    "see applies_from and applies_note where they are given. When they are absent, the application date is not recorded.")
 NOTICE = "This is not legal advice. The official source is the authority. Nothing here says whether any company complies with any law."
 
 
@@ -121,10 +123,12 @@ def lookup(iso2, on, repo=ROOT, ref=None, lang=None, detail=False):
             item.update(language=c.get("language"), languages=languages)
             if lang:
                 item["fallback"] = fallback
-        for key in ("status_note", "amends"):
+        for key in ("status_note", "amends", "applies_from", "applies_note"):
             value = scope.get(c["id"], {}).get(key)
             if value:
                 item[key] = value
+        if item.get("applies_from", "") > on:
+            item["not_yet_applying"] = True
         found.append(item)
     not_yet = [{k: c[k] for k in ("id", "title", "in_force")} for _, c in sorted(pending.items())]
     return found, not_yet, versions[0]["in_force"] if versions else None
@@ -304,6 +308,7 @@ def law_in_force(repo=ROOT, place=None, date=None, lang=None, ref=None):
         if lang:
             item["language_note"] = (f"no {lang} record for this version, showing the official record ({item['language']})"
                                      if item["fallback"] else f"showing the {item['language']} record")
+    answer["application_note"] = APPLICATION_NOTE
     answer.update(in_force=found, not_yet_in_force=not_yet, first_record_date=first, link_only=[
         {"id": e["id"], "title": e.get("title", ""), "stored": False, "status": "link only, text not stored",
          **_labels(place, e, tiers)} for e in scope.values() if e.get("status") == "link only"])

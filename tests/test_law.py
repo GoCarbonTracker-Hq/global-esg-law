@@ -279,3 +279,19 @@ def test_future_version_or_repeal_is_listed_for_active_instrument(tmp_path, futu
     build.build(tmp_path, branch="history")
     _, pending, _ = law.lookup("EU", "2025-01-01", tmp_path)
     assert [item["id"] for item in pending] == ["law2"]
+
+
+def test_applies_from_passthrough_and_flag(tmp_path):
+    repo = make(tmp_path)
+    scope = repo / "register" / "EU" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["applies_from"] = "2030-01-01"
+    entries[1]["applies_note"] = "main duties"
+    scope.write_text(json.dumps(entries))
+    by_id = {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}
+    assert by_id["law2"]["applies_from"] == "2030-01-01" and by_id["law2"]["applies_note"] == "main duties"
+    assert by_id["law2"]["not_yet_applying"] is True
+    assert "applies_from" not in by_id["law"] and "not_yet_applying" not in by_id["law"]
+    entries[1]["applies_from"] = "2020-06-01"
+    scope.write_text(json.dumps(entries))
+    assert "not_yet_applying" not in {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}["law2"]
