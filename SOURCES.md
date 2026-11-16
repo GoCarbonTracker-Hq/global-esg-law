@@ -12480,3 +12480,27 @@ The Treaty System texts are published in English, French, Russian and Spanish (f
 - `aq-madrid-protocol`: row `AQ-ATS-ADOPTED` is `unknown` (Varun's ruling above).
 - Register rows with no scope entry: Annexes I to V (in force, year only on the official pages; no scope entry because no page read gives each annex's day), Annex VI (adopted, not in force), the Antarctic Treaty, the CAMLR Convention, the CCAMLR Schedule 2025/26 and its measures (row `AQ-CCAMLR-ADOPTED`, `permission requested`), CCAMLR Resolution 36/41 (a resolution, no binding wording), and the national acts listed above.
 - Blocked from the laptop address: legislation.govt.nz answered HTTP 202 with an empty body (WAF challenge); legifrance.gouv.fr answered HTTP 403 (Cloudflare challenge). Neither was bypassed.
+## EU — GEL-29 Part A, emissions trading and carbon pricing
+
+The following texts were fetched from Publications Office Cellar with `Accept: application/xhtml+xml` and `Accept-Language: eng`. Each returned `application/xhtml+xml`.
+
+### ETS Directive 2003/87/EC (`32003L0087`)
+
+Adopted text: HTTP 200, 123534 bytes. In force 2003-10-25. The Cellar list and all 16 consolidated texts were fetched with HTTP 200. No listed version returned 404.
+
+Consolidated id and response size in bytes: `2004-11-13` 110117; `2009-02-02` 190366; `2009-04-20` 194264; `2009-06-25` 259729; `2013-07-01` 261960; `2013-12-19` 263831; `2014-04-30` 294232; `2015-10-29` 265713; `2017-12-29` 274861; `2018-04-08` 386380; `2020-01-01` 340136; `2021-01-01` 389958; `2023-01-21` 396636; `2023-03-01` 403652; `2023-06-05` 725284; `2024-03-01` 730937.
+
+
+### Monitoring and Reporting Regulation (EU) 2018/2066 (`32018R2066`)
+
+Adopted text: HTTP 200, 1077428 bytes. In force 2019-01-01. Article 78 sets application from 2021-01-01, except Article 76 from 2019-01-01. The Cellar notice field `RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE` shows 2021-01-01. The entry uses the legal commencement date. Seven consolidated texts returned HTTP 200: `2021-01-01` 811679 bytes; `2022-01-01` 831809; `2022-08-28` 988070; `2024-01-01` 1039641; `2024-07-01` 1278007; `2025-01-01` 1426273; `2025-05-27` 1427299. `02018R2066-20181231` returned HTTP 404, 214 bytes.
+
+
+### Accreditation and Verification Regulation (EU) 2018/2067 (`32018R2067`)
+
+Adopted text: HTTP 200, 444130 bytes. In force 2019-01-01. Four consolidated texts returned HTTP 200: `2021-01-01` 387291 bytes; `2024-05-14` 438631; `2025-01-01` 574251; `2025-06-22` 677163. `02018R2067-20181231` returned HTTP 404, 214 bytes.
+
+
+### CBAM Regulation (EU) 2023/956 (`32023R0956`)
+
+Adopted text: HTTP 200, 468340 bytes. In force 2023-05-17. Article 29 sets application from 2023-10-01. One consolidated text, `2025-10-20`, returned HTTP 200, 506893 bytes. `02023R0956-20230516` returned HTTP 404, 214 bytes.

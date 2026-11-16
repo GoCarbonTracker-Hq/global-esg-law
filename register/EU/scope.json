@@ -390,5 +390,73 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies generally from 2018-01-01 (Art 59). The climate transition and Paris-aligned benchmark provisions arrived through Regulation (EU) 2019/2089 (eu-climate-benchmarks-2019-2089). Consolidated versions stored: 2019-12-10, 2021-02-13, 2022-01-01, 2024-01-09, 2025-01-17, 2026-01-01."
+  },
+  {
+    "id": "eu-ets-2003-87",
+    "title": "Directive 2003/87/EC establishing a scheme for greenhouse gas emission allowance trading within the Community",
+    "official_url": "https://eur-lex.europa.eu/eli/dir/2003/87/oj",
+    "citation": "32003L0087",
+    "in_force": "2003-10-25",
+    "evidence": "Art 32: \"This Directive shall enter into force on the day of its publication in the Official Journal of the European Union.\" OJ L 275, 25.10.2003, p. 32; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2003-10-25.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amended by Directive 2004/101/EC, Directive 2008/101/EC, Directive 2009/29/EC, Decision (EU) 2015/1814, Regulation (EU) 2017/2392, Directive (EU) 2018/410, Delegated Decision (EU) 2020/1071, Delegated Regulation (EU) 2021/1416, Decision (EU) 2023/136, Regulation (EU) 2023/435, Directives (EU) 2023/958 and (EU) 2023/959, and Regulation (EU) 2024/795."
+  },
+  {
+    "id": "eu-mrr-2018-2066",
+    "title": "Commission Implementing Regulation (EU) 2018/2066 on the monitoring and reporting of greenhouse gas emissions pursuant to Directive 2003/87/EC",
+    "official_url": "https://eur-lex.europa.eu/eli/reg_impl/2018/2066/oj",
+    "citation": "32018R2066",
+    "in_force": "2019-01-01",
+    "evidence": "Art 78: \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 334, 31.12.2018, p. 1; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2021-01-01.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Applies from 2021-01-01 (Art 78), except Art 76 from 2019-01-01; Cellar field RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE shows 2021-01-01. Amended by Implementing Regulations (EU) 2020/2085, 2022/388, 2022/1371, 2023/2122, 2024/2493 and 2025/842."
+  },
+  {
+    "id": "eu-avr-2018-2067",
+    "title": "Commission Implementing Regulation (EU) 2018/2067 on the verification of data and on the accreditation of verifiers pursuant to Directive 2003/87/EC",
+    "official_url": "https://eur-lex.europa.eu/eli/reg_impl/2018/2067/oj",
+    "citation": "32018R2067",
+    "in_force": "2019-01-01",
+    "evidence": "Art 43: \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 334, 31.12.2018, p. 94; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2019-01-01.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amended by Implementing Regulations (EU) 2020/2084, 2024/1321 and 2025/1192."
+  },
+  {
+    "id": "eu-cbam-2023-956",
+    "title": "Regulation (EU) 2023/956 establishing a carbon border adjustment mechanism",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2023/956/oj",
+    "citation": "32023R0956",
+    "in_force": "2023-05-17",
+    "evidence": "Art 29(1): \"This Regulation shall enter into force on the day following that of its publication in the Official Journal of the European Union.\" OJ L 130, 16.5.2023; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2023-05-17.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "EU-EURLEX-ADOPTED",
+      "EU-EURLEX-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Applies from 2023-10-01 (Art 29(2)); amended by Regulation (EU) 2025/2083."
   }
 ]
