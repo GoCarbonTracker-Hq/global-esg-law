@@ -4,6 +4,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 from make_sources import BANNED, FORMS
@@ -49,6 +50,14 @@ def check(repo=ROOT, iso2=None):
         entry = next((e for e in scope if e.get("id") == instrument), None)
         if entry is None:
             refuse(f"no instrument {instrument!r} in register/{iso2}/scope.json")
+        applies = entry.get("applies_from")
+        if applies is not None:
+            try:
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", applies):
+                    raise ValueError
+                date.fromisoformat(applies)
+            except (TypeError, ValueError):
+                refuse(f"applies_from {applies!r} in register/{iso2}/scope.json is not a real date as YYYY-MM-DD")
         allowed = entry.get("source_row")
         if source_id not in (allowed if isinstance(allowed, list) else [allowed]):
             refuse(f"source_id {source_id!r} differs from scope.json source_row {allowed!r}")

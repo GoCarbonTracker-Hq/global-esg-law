@@ -56,6 +56,10 @@ def main(argv=None):
     for item in found:
         if "status_note" in item:
             print(f"note {item['id']}: {item['status_note']}")
+        if "applies_from" in item:
+            print(f"note {item['id']}: in force on this date; "
+                  + ("duties not yet applying, they apply from " if item.get("not_yet_applying") else "duties apply from ")
+                  + item["applies_from"] + (f" ({item['applies_note']})" if "applies_note" in item else ""))
         if item.get("date_basis") == "publication":
             print(f"note {item['id']}: date is a publication date because commencement is unknown")
     if not found:
