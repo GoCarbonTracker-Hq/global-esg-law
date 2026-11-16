@@ -236,5 +236,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Transposition deadline 2026-03-27; measures apply from 2026-09-27 (Art 4). Amends Directives 2005/29/EC and 2011/83/EU. No consolidated versions published on Cellar as of 2026-11-16."
+  },
+  {
+    "id": "eu-ucpd-2005-29",
+    "title": "Directive 2005/29/EC concerning unfair business-to-consumer commercial practices in the internal market (Unfair Commercial Practices Directive)",
+    "official_url": "https://eur-lex.europa.eu/eli/dir/2005/29/oj",
+    "citation": "32005L0029",
+    "in_force": "2005-06-12",
+    "evidence": "Art 20: \"This Directive shall enter into force on the day following its publication in the Official Journal of the European Union.\" OJ L 149, 11.6.2005, p. 22, so 2005-06-12; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2005-06-12 (also lists 2007-12-12, Art 19 application date). Opened https://publications.europa.eu/resource/celex/32005L0029",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amended by Directives (EU) 2019/2161 (consolidated 2022-05-28) and (EU) 2024/825 (consolidated 2026-09-27)."
   }
 ]

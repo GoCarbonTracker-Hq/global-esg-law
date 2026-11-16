@@ -17290,5 +17290,16 @@
   "failure": null,
   "seconds": 0.5,
   "signals": []
+ },
+ "eu-ucpd-cellar-consolidations": {
+  "bytes": 74,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 0.5,
+  "signals": [
+   "2005-06-12",
+   "2022-05-28",
+   "2026-09-27"
+  ]
  }
 }

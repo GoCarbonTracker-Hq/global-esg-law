@@ -61,6 +61,7 @@ Not found (HTTP 404 with the recipe headers, though the SPARQL list shows the id
 Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-Language: eng`; metadata with `Accept: application/xml;notice=object`; consolidated dates via Cellar SPARQL).
 
 - `eu-empowering-consumers-2024-825` (`32024L0825`): adopted text 200 (161,248 bytes), in force 2024-03-26. SPARQL `02024L0825-` returned 200 (8 bytes, empty list; no consolidated versions).
+- `eu-ucpd-2005-29` (`32005L0029`): adopted text 200 (180,625 bytes), in force 2005-06-12. SPARQL `02005L0029-` listed `2005-06-12` (404, 214 bytes, skipped), `2022-05-28` (200, 125,390 bytes, stored) and `2026-09-27` (200, 146,637 bytes, stored).
 
 ## India
 
