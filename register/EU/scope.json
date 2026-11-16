@@ -250,5 +250,19 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Applies generally from 2024-12-21 (Art 72(2)); certain provisions from 2023-12-20 or 2026-06-21. Amended by Regulation (EU) 2023/2869 (consolidated 02023R2631-20240109)."
+  },
+  {
+    "id": "eu-esg-ratings-2024-3005",
+    "title": "Regulation (EU) 2024/3005 on the transparency and integrity of Environmental, Social and Governance (ESG) rating activities, and amending Regulations (EU) 2019/2088 and (EU) 2023/2859",
+    "official_url": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
+    "citation": "32024R3005",
+    "in_force": "2025-01-01",
+    "evidence": "Art 53: \"This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.\" OJ L, 2024/3005, 12.12.2024, so 2025-01-01; Cellar notice RESOURCE_LEGAL_DATE_ENTRY-INTO-FORCE = 2025-01-01. Opened https://publications.europa.eu/resource/celex/32024R3005",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": "EU-EURLEX-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Applies from 2026-07-02 (Art 53). No consolidated version stored (02024R3005-20241212 returned 404)."
   }
 ]

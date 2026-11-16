@@ -18083,5 +18083,18 @@
    "regex": "02023R2631-(\\d{8})",
    "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R2631 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
   }
+ },
+ {
+  "id": "eu-esg-ratings-cellar-consolidations",
+  "source_id": "EU-EURLEX-ADOPTED",
+  "iso2": "EU",
+  "instrument": "eu-esg-ratings-2024-3005",
+  "kind": "date_list",
+  "tier": "gazette_feed",
+  "url": "https://publications.europa.eu/webapi/rdf/sparql?query=PREFIX+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E+SELECT+DISTINCT+%3Fcelex+WHERE+%7B+%3Fw+cdm%3Aresource_legal_id_celex+%3Fcelex+.+FILTER%28STRSTARTS%28STR%28%3Fcelex%29%2C+%2202024R3005-%22%29%29+%7D+ORDER+BY+%3Fcelex&format=text%2Fcsv",
+  "params": {
+   "regex": "02024R3005-(\\d{8})",
+   "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R3005 (consolidated versions list; answers scripts with a bot challenge, open in a browser)"
+  }
  }
 ]

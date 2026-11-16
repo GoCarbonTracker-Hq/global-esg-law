@@ -64,6 +64,7 @@ Fetched with the two EU recipes above (`Accept: application/xhtml+xml`, `Accept-
 |---|---|---|---|---|---|
 | European Climate Law (EU) 2021/1119 | 32021R1119 | 200 / 151943 | 2021-07-29 | 2026-04-07 (200 / 84595) | `02021R1119-20210709` |
 | Green Bond Regulation (EU) 2023/2631 | 32023R2631 | 200 / 666615 | 2023-12-20 | 2024-01-09 (200 / 433057) | none |
+| ESG Ratings Regulation (EU) 2024/3005 | 32024R3005 | 200 / 476111 | 2025-01-01 | none found | `02024R3005-20241212` |
 
 ## India
 

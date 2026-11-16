@@ -17302,5 +17302,14 @@
   "signals": [
    "2024-01-09"
   ]
+ },
+ "eu-esg-ratings-cellar-consolidations": {
+  "bytes": 30,
+  "checked_on": "2026-11-16",
+  "failure": null,
+  "seconds": 1.0,
+  "signals": [
+   "2024-12-12"
+  ]
  }
 }
