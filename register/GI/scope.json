@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Climate Change Act 2019 (adds, among other things, effort sharing provisions (sections 24A, 25A and an effort sharing target)). Link only: the licence row is not pass (Crown copyright, no reuse licence found). English is the only official language; no translation row is needed.",
     "status": "link only",
-    "amends": "gi-climate-change-act-2019"
+    "amends_ids": ["gi-climate-change-act-2019"]
   },
   {
     "id": "gi-environmental-governance-act-2023",
@@ -55,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Made under the Environmental Governance Act 2023. Link only: the licence row is not pass (Crown copyright, no reuse licence found). English is the only official language; no translation row is needed.",
     "status": "link only",
-    "amends": "gi-environmental-governance-act-2023"
+    "amends_ids": ["gi-environmental-governance-act-2023"]
   },
   {
     "id": "gi-climate-change-methane-regs-2026",
@@ -140,7 +140,7 @@
     "verification": "official_text_seen",
     "notes": "Gazette supplement No. 5326 of 14th July 2026. The amendment regulations name no date themselves (\"Implementation Date\" is defined in s.3 of the Treaty on Gibraltar and the European Union Act 2026, whose page was not opened); 15.7.2026 is read from the Act's amending table. Link only: the licence row is not pass (Crown copyright, no reuse licence found). English is the only official language; no translation row is needed.",
     "status": "link only",
-    "amends": "gi-cpuf-act-2008"
+    "amends_ids": ["gi-cpuf-act-2008"]
   },
   {
     "id": "gi-misleading-advertising-act-2001",

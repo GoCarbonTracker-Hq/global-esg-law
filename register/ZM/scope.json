@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Replaces s. 8(1) (Technical Committee) of the principal Act. The commencement depends on an event no official page dates, so in_force is null. Row permission requested, so no text is stored. English is the only language of legislation in Zambia and no government translation exists; none was looked for beyond the National Assembly, Ministry and ZambiaLII-independent official pages.",
     "status": "link only",
-    "amends": "zm-gecc-act-2024"
+    "amends_ids": ["zm-gecc-act-2024"]
   },
   {
     "id": "zm-ema-2011",
@@ -69,7 +69,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the 2011 Act (definitions of waste and controlled substance, registration certificates ss. 29B and 65A). No stated commencement date, so in_force is null. Row permission requested, so no text is stored. English is the only language of legislation in Zambia and no government translation exists; none was looked for beyond the National Assembly, Ministry and ZambiaLII-independent official pages.",
     "status": "link only",
-    "amends": "zm-ema-2011"
+    "amends_ids": ["zm-ema-2011"]
   },
   {
     "id": "zm-ema-amendment-act-2026",
@@ -84,7 +84,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Environmental Management Act (agency board and definitions). Commencement depends on an undated event, so in_force is null. Row permission requested, so no text is stored. English is the only language of legislation in Zambia and no government translation exists; none was looked for beyond the National Assembly, Ministry and ZambiaLII-independent official pages.",
     "status": "link only",
-    "amends": "zm-ema-2011"
+    "amends_ids": ["zm-ema-2011"]
   },
   {
     "id": "zm-ccpa-2010",
@@ -113,6 +113,6 @@
     "verification": "official_text_seen",
     "notes": "Section 19 repeals and replaces s. 47 (false or misleading representations, now with a penalty of up to 10 percent of annual turnover for an enterprise); s. 21 amends s. 49. No stated commencement date, so in_force is null. Row permission requested, so no text is stored. English is the only language of legislation in Zambia and no government translation exists; none was looked for beyond the National Assembly, Ministry and ZambiaLII-independent official pages.",
     "status": "link only",
-    "amends": "zm-ccpa-2010"
+    "amends_ids": ["zm-ccpa-2010"]
   }
 ]

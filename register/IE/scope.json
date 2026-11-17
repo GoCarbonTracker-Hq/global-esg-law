@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Amends S.I. No. 360/2017 (the Directory shows reg. 4(1) substituted, reg. 4(5) and regs. 5(11A), 5(14) inserted, reg. 5(13) substituted). Text as made only. English only.",
     "status": "stored",
-    "amends": "ie-si-360-2017"
+    "amends_ids": ["ie-si-360-2017"]
   },
   {
     "id": "ie-si-336-2024",
@@ -55,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Amends Companies Act 2014 ss. 1587, 1594 and 1598 (provisions inserted by S.I. No. 336/2024). No commencement clause, so the date of making is used as in_force; no official page opened states a commencement date. English only.",
     "status": "stored",
-    "amends": "ie-si-336-2024"
+    "amends_ids": ["ie-si-336-2024"]
   },
   {
     "id": "ie-si-309-2025",
@@ -70,7 +70,7 @@
     "verification": "official_text_seen",
     "notes": "Amends sections of the Companies Act 2014 inserted by S.I. No. 336/2024 (ss. 1585 and 1586 among them, including the net turnover definition in s. 1585), to apply the stop-the-clock Directive (EU) 2025/794. The Department of Enterprise press release (https://enterprise.gov.ie/en/news-and-events/department-news/2025/july/20250718.html) dates the signing 18 July 2025 as reported by a web search; the S.I. page says 7 July 2025 and the page is used. No commencement clause, so the making date is in_force. English only.",
     "status": "stored",
-    "amends": "ie-si-336-2024"
+    "amends_ids": ["ie-si-336-2024"]
   },
   {
     "id": "ie-climate-act-2015",
@@ -102,7 +102,7 @@
     "verification": "official_text_seen",
     "notes": "Text as enacted. The Law Reform Commission has no separate Revised Act for it; its amendments are in the Revised Act of the 2015 Act (ie-climate-act-2015). No Irish text: https://www.achtanna.ie/en/act/ga322021 answers \"The official translation of this Act is not available.\" (opened 2026-11-02).",
     "status": "stored",
-    "amends": "ie-climate-act-2015"
+    "amends_ids": ["ie-climate-act-2015"]
   },
   {
     "id": "ie-si-470-2024",
@@ -147,7 +147,7 @@
     "notes": "Revoked on 2024-09-19 by S.I. No. 470/2024 reg. 51(1)(b); the repeal record carries that date. English only.",
     "status": "stored",
     "status_note": "Revoked 2024-09-19 by S.I. No. 470/2024.",
-    "amends": "ie-si-490-2012"
+    "amends_ids": ["ie-si-490-2012"]
   },
   {
     "id": "ie-si-471-2024",
@@ -176,7 +176,7 @@
     "verification": "official_text_seen",
     "notes": "Inserts reg. 9(6) in S.I. No. 471/2024. No commencement clause, so the making date is in_force. English only. 2026-11-15 (GEL-28-11 lead): re-opened https://www.irishstatutebook.ie/eli/2024/si/740/made/en/print and read no commencement or \"come into operation\" sentence; the only date in the text is the signing line \"GIVEN under my Official Seal, 19 December, 2024\", which is the stored in_force 2024-12-19. The text also says notice of the making was published in Iris Oifigiúil of 3 January 2025. in_force has not been changed; whether the date should stay is Varun's decision.",
     "status": "stored",
-    "amends": "ie-si-471-2024"
+    "amends_ids": ["ie-si-471-2024"]
   },
   {
     "id": "ie-si-472-2024",
@@ -223,7 +223,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Consumer Protection Act 2007 (including s. 2(1)) and the Consumer Rights Act 2022 for environmental claims. The Consumer Rights Act 2022 is not in scope. Text as made only; the Revised Act of the 2007 Act does not yet include it. English only.",
     "status": "stored",
-    "amends": "ie-cpa-2007-part-3"
+    "amends_ids": ["ie-cpa-2007-part-3"]
   },
   {
     "id": "ie-si-16-2021",

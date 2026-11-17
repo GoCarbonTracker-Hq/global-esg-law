@@ -29,7 +29,7 @@
     "verification": "official_text_seen",
     "notes": "Adopted text in fi and sv, whole Act. It inserted Chapter 3 a into the Accounting Act (see fi-kirjanpitolaki-sustainability-reporting, which this entry amends) and amended Chapter 3. The Act names Directive 2014/95/EU. No English: Finlex has no separate translation of this amending act (the English Accounting Act is a whole-Act translation and is stored as the Chapter 3 a cut of the consolidated entry).",
     "status": "stored",
-    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+    "amends_ids": ["fi-kirjanpitolaki-sustainability-reporting"]
   },
   {
     "id": "fi-laki-1249-2023",
@@ -44,7 +44,7 @@
     "verification": "official_text_seen",
     "notes": "In force 2023-12-31 (the brief expected 2024-01-01); the first reporting year is the financial year starting on or after 2024-01-01 for large public-interest entities with more than 500 employees, 2025-01-01 for other large undertakings, 2026-01-01 for listed small and medium-sized undertakings. The Act repealed Chapter 3 a and added a new Chapter 7, the sustainability report, in place of the Chapter 7 repealed in 2015. Adopted text in fi and sv, whole Act. No English: not listed among Finlex translations (looked for in the alphabetical index under K and at https://www.finlex.fi/en/legislation/translations/2023). Companion Acts 1250/2023 (fi-laki-1250-2023), 1251 to 1255/2023 (not in scope).",
     "status": "stored",
-    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+    "amends_ids": ["fi-kirjanpitolaki-sustainability-reporting"]
   },
   {
     "id": "fi-laki-605-2024",
@@ -59,7 +59,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the size thresholds in Chapter 1 (sections 4 a to 4 c, 6 a) and the scope and exemptions of Chapter 7 (sections 1, 17, 20) after Act 1249/2023. Adopted text in fi and sv, whole Act. No English: not listed among Finlex translations (index search under K and the 2024 list).",
     "status": "stored",
-    "amends": "fi-kirjanpitolaki-sustainability-reporting"
+    "amends_ids": ["fi-kirjanpitolaki-sustainability-reporting"]
   },
   {
     "id": "fi-laki-1250-2023",

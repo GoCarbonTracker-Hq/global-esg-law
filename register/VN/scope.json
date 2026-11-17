@@ -60,7 +60,7 @@
     "verification": "official_text_seen",
     "notes": "Amends Decree 08/2022/NĐ-CP. No government English translation reachable: looked for at vietnamlaw.gov.vn and phapluat.gov.vn (403 to curl and to headless Chromium from the cloud address), vbpl.vn (the 'Xem văn bản tiếng Anh' view needs its data gateway, which resets the connection), and congbao.chinhphu.vn (Vietnamese only; no English edition or link on its pages).",
     "status": "stored",
-    "amends": "vn-nd-08-2022"
+    "amends_ids": ["vn-nd-08-2022"]
   },
   {
     "id": "vn-nd-06-2022",
@@ -89,7 +89,7 @@
     "verification": "official_text_seen",
     "notes": "Amends Decree 06/2022/NĐ-CP (carbon market and exchange provisions). The extracted text contains a few glyphs the PDF encodes outside Unicode letters: two Symbol-font bullets (U+F0A7) and one summation sign in a formula that pdftotext emits as U+FFFD; they are kept as extracted. No government English translation reachable: looked for at vietnamlaw.gov.vn and phapluat.gov.vn (403 to curl and to headless Chromium from the cloud address), vbpl.vn (the 'Xem văn bản tiếng Anh' view needs its data gateway, which resets the connection), and congbao.chinhphu.vn (Vietnamese only; no English edition or link on its pages).",
     "status": "stored",
-    "amends": "vn-nd-06-2022"
+    "amends_ids": ["vn-nd-06-2022"]
   },
   {
     "id": "vn-nd-83-2026",
@@ -104,7 +104,7 @@
     "verification": "official_text_seen",
     "notes": "Amends Decree 06/2022/NĐ-CP. No government English translation reachable: looked for at vietnamlaw.gov.vn and phapluat.gov.vn (403 to curl and to headless Chromium from the cloud address), vbpl.vn (the 'Xem văn bản tiếng Anh' view needs its data gateway, which resets the connection), and congbao.chinhphu.vn (Vietnamese only; no English edition or link on its pages).",
     "status": "stored",
-    "amends": "vn-nd-06-2022"
+    "amends_ids": ["vn-nd-06-2022"]
   },
   {
     "id": "vn-nd-112-2026",
@@ -119,7 +119,7 @@
     "verification": "official_text_seen",
     "notes": "Repeals parts of Điều 20a of Decree 06/2022/NĐ-CP as amended by Decree 119/2025/NĐ-CP. No government English translation reachable: looked for at vietnamlaw.gov.vn and phapluat.gov.vn (403 to curl and to headless Chromium from the cloud address), vbpl.vn (the 'Xem văn bản tiếng Anh' view needs its data gateway, which resets the connection), and congbao.chinhphu.vn (Vietnamese only; no English edition or link on its pages).",
     "status": "stored",
-    "amends": "vn-nd-06-2022"
+    "amends_ids": ["vn-nd-06-2022"]
   },
   {
     "id": "vn-nd-29-2026",
@@ -213,6 +213,6 @@
     "verification": "official_text_seen",
     "notes": "Amends the Law on Advertising 2012; merged into consolidated text 88/VBHN-VPQH (see vn-luat-quang-cao-2012). No government English translation reachable: looked for at vietnamlaw.gov.vn and phapluat.gov.vn (403 to curl and to headless Chromium from the cloud address), vbpl.vn (the 'Xem văn bản tiếng Anh' view needs its data gateway, which resets the connection), and congbao.chinhphu.vn (Vietnamese only; no English edition or link on its pages).",
     "status": "stored",
-    "amends": "vn-luat-quang-cao-2012"
+    "amends_ids": ["vn-luat-quang-cao-2012"]
   }
 ]

@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act; the stored text is the act as published (kind adopted). It is the main sustainability-reporting novela that the brief described as the 2024 bill passed by the Senate in July 2025: e-Sbírka lists it as the novela behind the 563/1991 versions of 2025-09-03 and 2026-01-01, whose Part Eight differs from the earlier text. The amended Act's Part Eight is stored under cz-accounting-act-sustainability-reporting. Only the adopted record exists: e-Sbírka lists time versions of the act dated 2025-09-03 and 2026-01-01, and their text is identical to the adopted text (compared on 2026-11-02). Not assessed here: which articles of the Act implement which provisions of Directive (EU) 2022/2464. No government English translation was found on 2026-11-02: a web search for an English text returned only third-party machine translations, the e-Sbírka FAQ (https://e-sbirka.gov.cz/casto-kladene-dotazy) lists foreign-language texts for international treaties only, and https://www.mzp.gov.cz refused curl with 403. Czech is the only official language, so cs is the only language stored.",
     "status": "stored",
-    "amends": "cz-accounting-act-sustainability-reporting"
+    "amends_ids": ["cz-accounting-act-sustainability-reporting"]
   },
   {
     "id": "cz-ets-act-383-2012",

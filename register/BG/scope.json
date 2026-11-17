@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Record text is the amending act as passed. It adds the sustainability reporting rules and the transitional phase-in in § 30; the additional provisions it creates list Directive (EU) 2022/2464 as transposed. In force 2024-07-06 with § 35 from the day of promulgation. The brief gave the gazette day as 2024-08-27 from secondary sources; parliament.bg states only the issue 72 of 2024, so that day is not used. Companion act: bg-znfo-zid-2024 (assurance), link only. The publisher serves the act as passed only; parliament.bg has no point-in-time consolidation, and the consolidated text on lex.bg, ciela.net and apis.bg is a private service and is not used. No government English translation was found: looked for on https://www.parliament.bg/en/laws/ID/165592 (the English interface shows the same Bulgarian text; the act API serves language id 1 only) and by web search for an official English text of the act on 2026-11-02. Language stored: bg.",
     "status": "stored",
-    "amends": "bg-zschet"
+    "amends_ids": ["bg-zschet"]
   },
   {
     "id": "bg-zschet-zid-2025",
@@ -42,7 +42,7 @@
     "notes": "Changes the years in § 30(1) of the 2024 amending act (2024 to 2025, 2025 to 2026, 2026 to 2027). The gazette day is not stated on parliament.bg (the page gives the issue number and year); dv.parliament.bg did not answer from the cloud address. The in-force day is therefore not read from an official page and the instrument is link only; the text would be stored once the gazette day is read from the gazette. Constitution art. 88(2) (three days after promulgation, unless the law says otherwise) would give a day only after the gazette day is known. No government English translation was found: looked for on https://www.parliament.bg/en/laws/ID/165958 (the English interface shows the same Bulgarian text; the act API serves language id 1 only) and by web search for an official English text of the act on 2026-11-02. Language stored: bg.",
     "status": "link only",
     "status_note": "Row passes and the text was fetched, but no official page opened states the gazette day, so no dated record is stored.",
-    "amends": "bg-zschet-zid-2024"
+    "amends_ids": ["bg-zschet-zid-2024"]
   },
   {
     "id": "bg-znfo-zid-2024",
@@ -87,7 +87,7 @@
     "notes": "Omnibus act; the climate act is changed by its early paragraphs and the text also amends other acts (energy, administration). Specific provisions start 2026-01-01 and six months after promulgation; the general in-force day is not stated on any page opened (Constitution art. 88(2) would apply). The gazette day is not stated on parliament.bg (the page gives the issue number and year); dv.parliament.bg did not answer from the cloud address. Link only until the day is read from the gazette. Amends bg-zoik. No government English translation was found: looked for on https://www.parliament.bg/en/laws/ID/166596 (the English interface shows the same Bulgarian text; the act API serves language id 1 only) and by web search for an official English text of the act on 2026-11-02. Language stored: bg.",
     "status": "link only",
     "status_note": "Row passes and the text was fetched, but the act has no general commencement clause and no official page opened states the gazette day, so no dated record is stored.",
-    "amends": "bg-zoik"
+    "amends_ids": ["bg-zoik"]
   },
   {
     "id": "bg-zzp-zid-2026",

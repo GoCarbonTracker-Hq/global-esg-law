@@ -29,7 +29,7 @@
       "GL-NALUNAARUTIT-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "amends": "gl-marketing-act",
+    "amends_ids": ["gl-marketing-act"],
     "notes": "Narrower than its family: the amendment concerns identification of advertising, marketing to children and young people, marketing of consumer credit, anonymous complaints and the consumer complaints chapter; it has no environmental-claims wording and does not change § 3. It is kept so that the stored consolidation of 2021 is not read as the current text. The site serves no consolidation that includes it. The text is the amending Act only, not a consolidated Act. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
     "status": "stored"
   },
@@ -95,7 +95,7 @@
       "GL-NALUNAARUTIT-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "amends": "gl-energy-levy",
+    "amends_ids": ["gl-energy-levy"],
     "notes": "Narrower than its family: it exempts motor fuel for ships and aircraft in international traffic and adds bonded-store rules to the energy levy; it is kept so that the stored text of gl-energy-levy is not read as the current text. The text is the amending Act only. No government English version found: Nalunaarutit.gl offers only Danish and Greenlandic (?sc_lang=en returns the page frame with no law text, checked 2026-11-10), and no English text of this instrument was found on naalakkersuisut.gl.",
     "status": "stored"
   }

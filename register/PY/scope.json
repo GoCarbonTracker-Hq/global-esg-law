@@ -110,6 +110,6 @@
     "verification": "official_page_seen",
     "notes": "Link only: the PDF (200, 271207 bytes, application/pdf) is a scan with an OCR text layer too noisy to store (the number reads \"951¡\"), so it is a scan and no OCR step is allowed yet.",
     "status": "link only",
-    "amends": "py-decreto-453-2013"
+    "amends_ids": ["py-decreto-453-2013"]
   }
 ]

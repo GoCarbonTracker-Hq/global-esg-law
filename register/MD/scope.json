@@ -31,7 +31,7 @@
     "verification": "official_text_seen",
     "notes": "The register row for Law 74/2024 named this act as the amending law. Its F3 content: Art. V adds the greenhouse gas monitoring plan to the content of the environmental permit under Law 227/2022 on industrial emissions, and Art. VI amends Law 74/2024 (annual list of operators of stationary installations that hold an integrated environmental permit or an environmental permit). Arts. I to IV amend the Water Law, Law 303/2013, Law 86/2014 on environmental impact assessment and Law 209/2016 on waste; they are stored with it as one act. Record stored on 2026-11-03: Romanian only. The Russian text of the same law (Russian issue, pages 23 to 30) was not stored: it holds garbled lines (legacy font encoding) on pages 28 to 30. legis.md, the Register's consolidated text, was not reachable (Cloudflare challenge), so no consolidation is stored; the records are the text as the gazette printed it. English: no government English translation was found. Looked for on monitorul.gov.md (the issue pages link the Romanian and Russian editions only), legis.md (blocked from the cloud address, Cloudflare challenge) and mediu.gov.md and moldse.md (connection reset from the cloud address).",
     "status": "stored",
-    "amends": "md-law-74-2024"
+    "amends_ids": ["md-law-74-2024"]
   },
   {
     "id": "md-hg-575-2024",

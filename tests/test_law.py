@@ -17,6 +17,7 @@ def make(tmp_path, extra=()):
     scope = tmp_path / "register" / "EU" / "scope.json"
     entries = json.loads(scope.read_text())
     entries[1]["status_note"] = "stayed by a court"
+    entries[1]["amends_ids"] = ["law"]
     scope.write_text(json.dumps(entries))
     for name, effective in extra:  # a second version of law2
         (tmp_path / "records" / "EU" / "law2" / f"{name}.json").write_text(json.dumps(
@@ -75,6 +76,15 @@ def test_status_note_passthrough(tmp_path):
     by_id = {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}
     assert by_id["law2"]["status_note"] == "stayed by a court"
     assert "status_note" not in by_id["law"]
+
+
+def test_amends_ids_passthrough(tmp_path, capsys):
+    repo = make(tmp_path)
+    by_id = {i["id"]: i for i in law.in_force("EU", "2021-01-01", repo)}
+    assert by_id["law2"]["amends_ids"] == ["law"] and "amends" not in by_id["law2"]
+    assert "amends_ids" not in by_id["law"]
+    assert law.main(["EU", "2021-01-01", "--repo", str(repo)]) == 0
+    assert any(line.startswith("law2\t") and line.endswith("\tamends law") for line in capsys.readouterr().out.splitlines())
 
 
 def commit_on_history(repo, message, *extra_parents):

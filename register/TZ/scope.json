@@ -52,7 +52,7 @@
     "duty_on": "mixed",
     "source_row": "TZ-OAG-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "tz-ema-cap191",
+    "amends_ids": ["tz-ema-cap191"],
     "notes": "Adds s. 75A (the National Environmental Advisory Committee is designated the National Climate Change Steering Committee, with five functions on greenhouse gases and climate programmes) and, by s. 7, sub-part (e) with s. 29A establishing the National Carbon Monitoring Centre (coordination of carbon and greenhouse gases, registration of carbon projects, verification and certification). English only: the OAG catalogue and the Parliament list (https://polis.bunge.go.tz/api/acts/async, id 1940, text identical) serve one English PDF; no Kiswahili text found. The in-force date rests on the OAG page field, not on the Act text.",
     "status": "stored"
   },
@@ -87,7 +87,7 @@
       "TZ-OAG-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "amends": "tz-carbon-trading-regs-2022",
+    "amends_ids": ["tz-carbon-trading-regs-2022"],
     "notes": "The text of the amending notice only, not a consolidation. Records: Kiswahili GN 716 (adopted, sw) and English GN 721 (translation, en; it states it amends GN 636 of 2022). Same translation question as tz-carbon-trading-regs-2022.",
     "status": "stored"
   },

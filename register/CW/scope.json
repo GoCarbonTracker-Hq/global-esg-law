@@ -40,6 +40,6 @@
     "verification": "official_text_seen",
     "notes": "narrower: commencement decree of cw-luchtkwaliteitseisen-2024 (air quality only). Record in_force is the issue date, 2024-12-31, because the decree has no commencement clause of its own.",
     "status": "stored",
-    "amends": "cw-luchtkwaliteitseisen-2024"
+    "amends_ids": ["cw-luchtkwaliteitseisen-2024"]
   }
 ]

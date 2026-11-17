@@ -57,7 +57,7 @@
     "verification": "official_text_seen",
     "notes": "Moves the first application of the sustainability reporting rules in Ziff. IV Abs. 3 to financial years beginning on or after 1 January 2027 and Abs. 4 to 1 January 2028 (text of the act). The act changes transitional wording in LGBl 2024 Nr. 170, so the chapter text in the PGR (li-pgr-art-1096b-k) is unchanged by it. This is the Omnibus I follow-up of Bericht und Antrag Nr. 51/2025 named in the brief: it was enacted. No government English translation found on 2026-11-02: gesetze.li serves German only (no language switch; https://www.gesetze.li/en answers 404), https://www.regierung.li/en (200) links no law translations, and https://www.llv.li/en answered 403 to the cloud address.",
     "status": "stored",
-    "amends": "li-pgr-art-1096b-k"
+    "amends_ids": ["li-pgr-art-1096b-k"]
   },
   {
     "id": "li-ehg",

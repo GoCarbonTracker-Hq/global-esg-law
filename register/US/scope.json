@@ -71,6 +71,7 @@
     "verification": "official_text_seen",
     "notes": "The story names Stats. 2024, ch. 1038; the bulk file and CARB both give chapter 766. The record is the chaptered act text, not a codified section; kind is consolidated because the source row has only that form.",
     "status": "stored",
-    "status_note": "Amends both laws and is not itself enjoined. The 9th Cir. injunction concerns SB 261 (H&S 38533) enforcement; see us-ca-sb261. CARB SB 253 Enforcement Notice (2024-12-05), opened 2026-11-01, describes the amendment."
+    "status_note": "Amends both laws and is not itself enjoined. The 9th Cir. injunction concerns SB 261 (H&S 38533) enforcement; see us-ca-sb261. CARB SB 253 Enforcement Notice (2024-12-05), opened 2026-11-01, describes the amendment.",
+    "amends_ids": ["us-ca-sb253"]
   }
 ]

@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act only (no consolidated text is published by NN). Adds article 6.a (which classification indicators apply when they change during a business year, including for the obligation to report on sustainability) and replaces the words \"dužne pažnje\" with \"dubinske analize\" in articles 29 and 32. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
-    "amends": "hr-zor-2024"
+    "amends_ids": ["hr-zor-2024"]
   },
   {
     "id": "hr-zor-2024-izm-151-25",
@@ -41,7 +41,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act only (no consolidated text is published by NN). Its article 1 adds Directive (EU) 2025/794 (the dates from which sustainability reporting and due diligence requirements apply) to the list of transposed acts; it also changes record retention in article 10 and the filing duties in article 47. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
-    "amends": "hr-zor-2024"
+    "amends_ids": ["hr-zor-2024"]
   },
   {
     "id": "hr-zor-2024-izm-59-26",
@@ -56,7 +56,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act only (no consolidated text is published by NN). Its article 1 adds Directive (EU) 2026/470 to the list of transposed acts. The record is dated 2026-06-10, the first day after publication; article 48 para. 2 as amended by its article 14 enters into force only when the Commission rules on the single electronic reporting format apply (no date stated). Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
-    "amends": "hr-zor-2024"
+    "amends_ids": ["hr-zor-2024"]
   },
   {
     "id": "hr-zor-2015",
@@ -87,7 +87,7 @@
     "notes": "Amending act only. Historical: the amended act was repealed on 2024-07-27. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
     "status_note": "Repealed from 2024-07-27; see the repeal record.",
-    "amends": "hr-zor-2015"
+    "amends_ids": ["hr-zor-2015"]
   },
   {
     "id": "hr-zor-2015-izm-116-18",
@@ -103,7 +103,7 @@
     "notes": "Amending act only. Article 4 enters into force on 2019-01-01. Historical: the amended act was repealed on 2024-07-27. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
     "status_note": "Repealed from 2024-07-27; see the repeal record.",
-    "amends": "hr-zor-2015"
+    "amends_ids": ["hr-zor-2015"]
   },
   {
     "id": "hr-zor-2015-izm-42-20",
@@ -119,7 +119,7 @@
     "notes": "Amending act only. Historical: the amended act was repealed on 2024-07-27. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
     "status_note": "Repealed from 2024-07-27; see the repeal record.",
-    "amends": "hr-zor-2015"
+    "amends_ids": ["hr-zor-2015"]
   },
   {
     "id": "hr-zor-2015-izm-82-23",
@@ -135,7 +135,7 @@
     "notes": "Amending act only. Articles 4(2)(4), 7, 9 to 12, 14 to 16 and 18 enter into force on 2024-01-01. Historical: the amended act was repealed on 2024-07-27. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
     "status_note": "Repealed from 2024-07-27; see the repeal record.",
-    "amends": "hr-zor-2015"
+    "amends_ids": ["hr-zor-2015"]
   },
   {
     "id": "hr-reviziji-izm-85-24",
@@ -277,7 +277,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act only. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
-    "amends": "hr-uredba-mehanizmi-ets-2023"
+    "amends_ids": ["hr-uredba-mehanizmi-ets-2023"]
   },
   {
     "id": "hr-eudr-provedba-2025",
@@ -320,6 +320,6 @@
     "verification": "official_text_seen",
     "notes": "Transposes Directive (EU) 2024/825 (it lists the Directive and adds definitions of opća tvrdnja o prihvatljivosti za okoliš, tvrdnja o prihvatljivosti za okoliš and oznaka održivosti). Staggered commencement: 2026-06-17 for the general provisions; arts 19, 20 and 28 to 44 on 2026-06-19; arts 45 to 48 on 2026-07-31; arts 16 to 18, 26, 27 and others on 2026-09-27; art. 7 as amended by art. 4 on 2026-11-17. The record is dated 2026-06-17, the general commencement. Croatian (hr) is the only language stored. No government English translation found on 2026-11-02: looked for an English text of this instrument by web search and on narodne-novine.nn.hr (which serves the Croatian texts), none located.",
     "status": "stored",
-    "amends": "hr-zzp-2022"
+    "amends_ids": ["hr-zzp-2022"]
   }
 ]

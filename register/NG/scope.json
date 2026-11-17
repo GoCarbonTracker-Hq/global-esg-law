@@ -54,7 +54,7 @@
     "verification": "official_page_seen",
     "notes": "Link only: the row NG-NESREA-ADOPTED passes, but the file has no text layer, and OCR is not part of the recipe. No government English translation is needed: English is the language of federal legislation.",
     "status": "link only",
-    "amends": "ng-nesrea-act-2007"
+    "amends_ids": ["ng-nesrea-act-2007"]
   },
   {
     "id": "ng-eia-act",

@@ -146,7 +146,7 @@
     "verification": "official_text_seen",
     "notes": "Record is Título IV 'Impuestos ambientales', Capítulo I only (arts. 47, 48, 49: modification of arts. 221, 222 and 223 of Ley 1819 de 2016, including the tariff table and the destination of the revenue to FONSUREC); Capítulo II (single-use plastics tax) is not in scope. The tariff phase-in runs to 2028. No government English translation known on 2026-11-02 (SUIN index and Diario Oficial are Spanish only). Text layer: pdftotext (default reading-order mode) of the Diario Oficial PDF, cut by the heading and the closing signature; the same cut in raw mode agrees word for word apart from page numbers and the column order of one tariff table.",
     "status": "stored",
-    "amends": "co-ley-1819-2016-art221-223"
+    "amends_ids": ["co-ley-1819-2016-art221-223"]
   },
   {
     "id": "co-decreto-926-2017",

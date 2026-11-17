@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Omnibus resolution amending more than twenty Council of Ministers resolutions; the whole text is stored. Item 20 of Annex 1 renames Resolution No. 137 \"О регулировании выбросов парниковых газов\", restates its Regulation on state and production accounting of GHG emissions (production accounting by legal entities and individual entrepreneurs whose total GHG emissions from the listed activities exceed 15 thousand tonnes CO2e in a calendar year, para. 7) and adds the Regulation on the procedure and conditions of limiting GHG emissions. It implements Law No. 294-Z of 2023 (by-law-294-z-2023). Its preamble cites Law No. 294-Z of 2023 (Art. 2 part 1). This is the act that the FAOLEX URL of the old register row pointed at. English: no government translation found (law.by, the English face of the portal, lists no translation of this act; minpriroda.gov.by did not answer from the cloud address). Belarusian: pravo.by serves Russian only; the Belarusian text of laws is in the newspaper Звязда and is not stored.",
     "status": "stored",
-    "amends": "by-res-137-2021"
+    "amends_ids": ["by-res-137-2021"]
   },
   {
     "id": "by-law-294-z-2023",
@@ -41,7 +41,7 @@
     "verification": "official_text_seen",
     "notes": "Art. 1 of this Law sets out the Law of 26 November 1992 No. 1982-XII on Environmental Protection in a new edition (\"изложить в новой редакции\"), so the stored record is the whole restated Law as enacted in 2023, not a list of changes; it is the nearest free official text of the environmental framework act. Staged entry into force: Art. 1 (including Art. 76 \"Обязанности юридических лиц и индивидуальных предпринимателей, осуществляющих хозяйственную и иную деятельность, связанную с выбросами парниковых газов в атмосферный воздух\" and Art. 77 \"Регулирование воздействия на климат\") from 2024-04-26 per the card; the other provisions from publication (2023-07-25 per the portal), which is earlier and was not given its own record. The Law is the statutory basis for Resolution No. 137 as amended (para. 5 of Art. 77 leaves the limitation procedure to the Council of Ministers). The pravo.by card of the Law on Environmental Protection (by-law-env-protection-1992) lists this Law as an amending act. The brief called the statutory basis the Law on Atmospheric Air as amended by 295-Z; the GHG duties sit in this Law instead, and 295-Z moves GHG relations out of the Air Law (see by-law-295-z-2023). English: no government translation found (law.by, the English face of the portal, lists no translation of this act; minpriroda.gov.by did not answer from the cloud address). Belarusian: pravo.by serves Russian only; the Belarusian text of laws is in the newspaper Звязда and is not stored.",
     "status": "stored",
-    "amends": "by-law-env-protection-1992"
+    "amends_ids": ["by-law-env-protection-1992"]
   },
   {
     "id": "by-law-295-z-2023",
@@ -56,7 +56,7 @@
     "verification": "official_text_seen",
     "notes": "The brief cited this amending law as \"No. 295-Z\" with the Minprirody note citing 293-Z: confirmed 295-Z on pravo.by (293-Z of 2011-07-14 is an earlier amending law of the Air Law, listed on the card of 2-Z). The Law restates the scope clause so that \"Отношения, связанные с выбросами парниковых газов в атмосферный воздух, регулируются законодательством об охране окружающей среды\" and removes \"и парниковых газов\" from several provisions: it takes GHG out of the Air Law and leaves them to the Environmental Protection Law (by-law-294-z-2023). Other provisions from publication (2023-07-22). English: no government translation found (law.by, the English face of the portal, lists no translation of this act; minpriroda.gov.by did not answer from the cloud address). Belarusian: pravo.by serves Russian only; the Belarusian text of laws is in the newspaper Звязда and is not stored.",
     "status": "stored",
-    "amends": "by-law-air-protection-2008"
+    "amends_ids": ["by-law-air-protection-2008"]
   },
   {
     "id": "by-law-air-protection-2008",

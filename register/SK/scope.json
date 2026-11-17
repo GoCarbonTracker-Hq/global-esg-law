@@ -32,7 +32,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act. The text adds Directive (EU) 2022/2464 to the lists of transposed directives in the annex of Act 431/2002 (Čl. I bod 62) and of the other acts it amends (Čl. II to V). The Slov-Lex časová verzia of 2024-06-01 has the same text as the vyhlásené znenie, so it is stored as a second record of the same date. The consolidated effect on the Accounting Act is in sk-accounting-act. Records stored on 2026-11-02: 2 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 1 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
     "status": "stored",
-    "amends": "sk-accounting-act"
+    "amends_ids": ["sk-accounting-act"]
   },
   {
     "id": "sk-ets-act",
@@ -67,7 +67,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act with staged commencement; each časová verzia shows only the provisions in force on its date, so the 2023-06-01 and 2024-01-01 records are shorter than the vyhlásené znenie and the 2025-01-01 record equals it. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
     "status": "stored",
-    "amends": "sk-ets-act"
+    "amends_ids": ["sk-ets-act"]
   },
   {
     "id": "sk-act-236-2024",
@@ -85,7 +85,7 @@
     "verification": "official_text_seen",
     "notes": "Amending act with staged commencement; each časová verzia shows only the provisions in force on its date, and the 2026-01-01 record equals the vyhlásené znenie. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
     "status": "stored",
-    "amends": "sk-ets-act"
+    "amends_ids": ["sk-ets-act"]
   },
   {
     "id": "sk-act-125-2026",
@@ -103,7 +103,7 @@
     "verification": "official_text_seen",
     "notes": "The Slov-Lex časová verzia of 2026-07-15 has the same text as the vyhlásené znenie, so it is stored as a second record of the same date. Records stored on 2026-11-02: 2 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 1 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
     "status": "stored",
-    "amends": "sk-ets-act"
+    "amends_ids": ["sk-ets-act"]
   },
   {
     "id": "sk-consumer-protection-act",
@@ -138,6 +138,6 @@
     "verification": "official_text_seen",
     "notes": "Transposition of Directive (EU) 2024/825 into Act 108/2024. in_force is the first commencement date; the Directive-related provisions named in the evidence apply from 2026-09-27. Staged commencement: the 2026-01-01 časová verzia shows only the provisions in force then and is shorter than the vyhlásené znenie; the 2026-09-27 record equals it. Records stored on 2026-11-02: 4 Slovak (sk) records, the vyhlásené znenie (adopted, SK-SLOVLEX-ADOPTED) and 3 časové verzie (consolidated, SK-SLOVLEX-CONSOLIDATED), each tag-stripped from the print HTML. Slov-Lex marks the HTML as informative and the PDF as the binding text. English: no government English translation is known; looked for on 2026-11-02 on static.slov-lex.sk (Slovak only, no language switch on the history or version pages) and by web search for an English text of the act on Slovak government sites, nothing found; no translation row, no English record. Slovak (sk) is the only language Slov-Lex serves.",
     "status": "stored",
-    "amends": "sk-consumer-protection-act"
+    "amends_ids": ["sk-consumer-protection-act"]
   }
 ]

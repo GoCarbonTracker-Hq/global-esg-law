@@ -28,7 +28,7 @@
     "notes": "Link only, same reason as cl-ncg-461. Confirmed on 2026-11-02 that NCG 519 amends NCG 461 (section I.2 replaces numeral 3 of section III. Vigencia of NCG 461) and NCG 30 (section II and III add item 9 Sostenibilidad: SASB metrics and independent verification, in force 31 December 2026). The register page for NCG 519 on the CMF site was not located; the PDF URL is used as the official URL. English looked for on 2026-11-02 on the CMF site (Spanish only): none found.",
     "status": "link only",
     "status_note": "Row CL-CMF-ADOPTED is permission requested; no text stored.",
-    "amends": "cl-ncg-461"
+    "amends_ids": ["cl-ncg-461"]
   },
   {
     "id": "cl-ley-21455",

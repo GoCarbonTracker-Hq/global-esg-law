@@ -43,7 +43,7 @@
     "notes": "Implements Art. 2 of the decree: priority sectors are those of Togo's NDC (Art. 2); the ministry publishes a yearly indicative list of eligible activities on its website (Art. 3), which was not found on environnement.gouv.tg on 2026-11-03. Link only: row TG-JO-ADOPTED is permission requested (site terms reserve all rights and forbid commercial copying or modification without written permission), so no text is stored. English looked for on new.jo.gouv.tg on 2026-11-03: the portal serves French only (no English version of any instrument found); the Ministry site environnement.gouv.tg was not searched for an English text. French is the only official language of legislation served.",
     "status": "link only",
     "status_note": "Row TG-JO-ADOPTED is permission requested; no text stored.",
-    "amends": "tg-carbon-mechanisms-decree-2023"
+    "amends_ids": ["tg-carbon-mechanisms-decree-2023"]
   },
   {
     "id": "tg-carbon-homologation-order-2024",
@@ -59,7 +59,7 @@
     "notes": "Implements Art. 6, 14 and 16 of the decree: participation in carbon mechanisms (Chapter II) and the homologation procedure for projects and programmes, including those under Article 6 of the Paris Agreement. Link only: row TG-JO-ADOPTED is permission requested (site terms reserve all rights and forbid commercial copying or modification without written permission), so no text is stored. English looked for on new.jo.gouv.tg on 2026-11-03: the portal serves French only (no English version of any instrument found); the Ministry site environnement.gouv.tg was not searched for an English text. French is the only official language of legislation served.",
     "status": "link only",
     "status_note": "Row TG-JO-ADOPTED is permission requested; no text stored.",
-    "amends": "tg-carbon-mechanisms-decree-2023"
+    "amends_ids": ["tg-carbon-mechanisms-decree-2023"]
   },
   {
     "id": "tg-environment-framework-act-2008",
@@ -90,7 +90,7 @@
     "notes": "Amends 71 articles, deletes 45 and adds 14 (counted from the lists in Art. 1) (Art. 1); the restated text in the same gazette issue runs to Art. 174 ('Entrée en vigueur: La présente loi sera exécutée comme loi de l'Etat'). The JO record's own title says 'modifiant et complétant'. Link only: row TG-JO-ADOPTED is permission requested (site terms reserve all rights and forbid commercial copying or modification without written permission), so no text is stored. English looked for on new.jo.gouv.tg on 2026-11-03: the portal serves French only (no English version of any instrument found); the Ministry site environnement.gouv.tg was not searched for an English text. French is the only official language of legislation served.",
     "status": "link only",
     "status_note": "Row TG-JO-ADOPTED is permission requested; no text stored.",
-    "amends": "tg-environment-framework-act-2008"
+    "amends_ids": ["tg-environment-framework-act-2008"]
   },
   {
     "id": "tg-competition-act-1999",

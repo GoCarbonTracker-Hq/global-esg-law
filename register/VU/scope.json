@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Implements Part 3 of vu-environmental-protection-conservation-act: activities needing a preliminary assessment or EIA (Schedule 1), EIA report contents, approval, penalty notices. The PDF is headed UNOFFICIAL CONSOLIDATED VERSION 2012. Not stored: row VU-DEPC-CONSOLIDATED is permission requested. Government English only; no French or Bislama text found.",
     "status": "link only",
-    "amends": "vu-environmental-protection-conservation-act"
+    "amends_ids": ["vu-environmental-protection-conservation-act"]
   },
   {
     "id": "vu-price-monitoring-consumer-affairs-act",

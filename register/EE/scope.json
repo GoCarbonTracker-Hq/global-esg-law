@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "The existing register row for this act (found through the EU Publications Office measures list) is updated in place. The act is stored as published (one record, Estonian). It amends the Accounting Act (ee-rps), the Audiitortegevuse seadus (assurance of the sustainability report, § 13 lg 1 p 1 public-interest entities), the Väärtpaberituru seadus and the Töötajate usaldusisiku seadus; the consolidated Audiitortegevuse seadus is not in scope. The Riigi Teataja consolidated texts that carry the amendments are 107012025011 (Accounting Act, in force 2025-01-17) and 107012025013 (Audiitortegevuse seadus). No later Estonian act changing the sustainability-report scope for the EU Omnibus (Directive (EU) 2026/470) was found in Riigi Teataja on 2026-11-02 (title search 'Raamatupidamise seaduse' among published acts). No English translation: an as-published act has none.",
     "status": "stored",
-    "amends": "ee-rps"
+    "amends_ids": ["ee-rps"]
   },
   {
     "id": "ee-aoks-ets",
@@ -97,6 +97,6 @@
     "verification": "official_text_seen",
     "notes": "Stored as published (one record, Estonian), dated 2026-07-13, the first in-force date of the act; its § 1 points 1–8, 15 and 16 apply from 2026-09-27. The act's own text names the Directive only through the consolidated Tarbijakaitseseadus (reference list), which cites Directive (EU) 2024/825. The Võlaõigusseaduse ja tarbijakaitseseaduse muutmise seadus RT I, 27.05.2026, 2 (in force 2026-09-01) amends the TKS for another Directive and is not in scope. No English translation: an as-published act has none.",
     "status": "stored",
-    "amends": "ee-tks"
+    "amends_ids": ["ee-tks"]
   }
 ]

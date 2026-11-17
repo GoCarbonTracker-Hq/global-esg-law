@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Art. 2 ratifies the ordinance; Art. 3 replaces its provisions with the restated text (Art. 1 to 51 nouveau), so this page is the ordinance as ratified. GHG reporting and carbon-market content (F3): Art. 19 nouveau and 20 nouveau (monitoring plan, validated by the Organisme de Gestion des Enjeux Climatiques), Art. 21 nouveau to 24 nouveau (annual emissions diagnostic of type 1, 2 and 3 emissions above 50,000 tCO2e, Art. 22 nouveau; report to the Ministry in charge of Climate, Art. 24 nouveau), Art. 25 nouveau and 26 nouveau (national allowance system), Art. 27 nouveau (offsetting and carbon credits), Art. 39 nouveau to 41 nouveau (fines, 20,000 FCFA per tCO2e in Art. 41 nouveau). The register row for the ordinance described these as F3; the instrument is mapped to F2 as the framework act. Languages: French only, the only language journal-officiel.ga serves; no English government translation was found (journal-officiel.ga is French only, gouvernement.ga did not answer, and a web search for an official English text of the Gabonese instrument returned machine translations only), so there is no English record.",
     "status": "stored",
-    "amends": "ga-ordonnance-019-2021"
+    "amends_ids": ["ga-ordonnance-019-2021"]
   },
   {
     "id": "ga-decret-00291-2022",
@@ -83,7 +83,7 @@
     "verification": "official_text_seen",
     "notes": "Art. 6 replaces the Contribution Carbone provisions of the 2026 finance law (it cites « articles 23 à 33 de la loi n°041/2025 du 29 décembre 2025 »; in the JO text of that law the levy is Art. 23 to 32 and Art. 33 starts the forest permit renewal tax) with Art. 23 nouveau to 35 nouveau: exemptions (Art. 25 nouveau), 21,400 FCFA per tCO2 (Art. 28 nouveau, doubled from 10,700), no re-invoicing (Art. 29 nouveau), invoicing and settlement by AGADEV (Art. 30 nouveau to 32 nouveau), penalties by reference to the Code Général des Impôts (Art. 33 nouveau), proceeds to AGADEV (Art. 35 nouveau). The record is the whole law (about 334,000 characters). Languages: French only, the only language journal-officiel.ga serves; no English government translation was found (journal-officiel.ga is French only, gouvernement.ga did not answer, and a web search for an official English text of the Gabonese instrument returned machine translations only), so there is no English record.",
     "status": "stored",
-    "amends": "ga-loi-041-2025"
+    "amends_ids": ["ga-loi-041-2025"]
   },
   {
     "id": "ga-loi-007-2014",
