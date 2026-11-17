@@ -285,6 +285,21 @@ def _count(sizes, response):
     return response
 
 
+def queue_row(w, today, change, signal, evidence_url, notes=""):
+    return {"detected_on": today, "watcher_id": w["id"], "iso2": w["iso2"], "source_id": w["source_id"],
+            "instrument": w["instrument"], "change": change, "signal": signal,
+            "evidence_url": evidence_url, "reviewer": "", "outcome": "", "outcome_on": "", "notes": notes}
+
+
+def append_queue(queue_path, rows):
+    new_file = not queue_path.exists() or queue_path.stat().st_size == 0
+    with queue_path.open("a", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=COLUMNS, lineterminator="\r\n")
+        if new_file:
+            writer.writeheader()
+        writer.writerows(rows)
+
+
 def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     """Run every watcher (or those of one source).
 
@@ -301,14 +316,14 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     rows, failures, seconds, nbytes = [], 0, 0.0, 0
 
     def row(w, change, signal, evidence_url, notes=""):
-        rows.append({"detected_on": today, "watcher_id": w["id"], "iso2": w["iso2"], "source_id": w["source_id"],
-                     "instrument": w["instrument"], "change": change, "signal": signal,
-                     "evidence_url": evidence_url, "reviewer": "", "outcome": "", "outcome_on": "", "notes": notes})
+        rows.append(queue_row(w, today, change, signal, evidence_url, notes))
 
     for w in watchers:
         entry = seen.get(w["id"], {"signals": None, "failure": None})
         sizes, started = [], time.monotonic()
         signals, error = run_watcher(w, lambda url, method: _count(sizes, fetch(url, method)))
+        if error is None and w["kind"] in ACCUMULATE and not signals and entry.get("signals"):
+            error = f"empty list; {len(entry['signals'])} signal(s) seen before"  # the pattern stopped matching
         cost = {"seconds": round(time.monotonic() - started, 2), "bytes": sum(sizes)}
         seconds, nbytes = seconds + cost["seconds"], nbytes + cost["bytes"]
         if error is not None:
@@ -316,7 +331,7 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
             if entry.get("failure") != error:
                 second = w.get("params", {}).get("second_route") or "none listed"
                 row(w, "watch_failed", error, w["url"], f"second_route: {second}")
-            entry = {**entry, "failure": error, "checked_on": today, **cost}
+            entry = {**entry, "failure": error, **cost}  # checked_on stays the last successful read
         else:
             current = [s for s, _ in signals]
             known = entry.get("signals")
@@ -334,20 +349,17 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     candidates = sum(1 for r in rows if r["change"] != "watch_failed")
     if not dry_run and watchers:
         upkeep.mkdir(exist_ok=True)
-        new_file = not queue_path.exists() or queue_path.stat().st_size == 0
-        with queue_path.open("a", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=COLUMNS, lineterminator="\r\n")
-            if new_file:
-                writer.writeheader()
-            writer.writerows(rows)
+        append_queue(queue_path, rows)
         seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return {"run": len(watchers), "candidates": candidates, "failures": failures, "rows": rows,
             "seconds": round(seconds, 2), "bytes": nbytes}
 
 
 def reseed(repo, watcher_id, fetch=None, today=None):
-    """Fetch one watcher once and write its current signals to seen.json. No queue row. Return the signal count.
+    """Fetch one watcher once and write its current signals to seen.json. Return the signal count.
 
+    No queue row, except for a list watcher (ACCUMULATE) that already had signals: each signal it shows that seen.json
+    lacked gets the watcher's change row, so a real law change is not swallowed by the reset.
     Raises ValueError when the watcher is unknown or its fetch fails; seen.json is then left as it was.
     """
     repo = Path(repo).resolve()
@@ -363,6 +375,12 @@ def reseed(repo, watcher_id, fetch=None, today=None):
     seen_path = repo / "upkeep" / "seen.json"
     seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
     current = [s for s, _ in signals]
+    known = seen.get(watcher_id, {}).get("signals")
+    if watcher["kind"] in ACCUMULATE and known is not None:
+        unseen = [queue_row(watcher, today, watcher.get("change", "new_version"), signal, evidence_url)
+                  for signal, evidence_url in signals if signal not in known]
+        if unseen:
+            append_queue(repo / "upkeep" / "queue.csv", unseen)
     seen[watcher_id] = {"signals": sorted(set(current)) if watcher["kind"] in ACCUMULATE else current,
                         "failure": None, "checked_on": today,
                         "seconds": round(time.monotonic() - started, 2), "bytes": sum(sizes)}
@@ -374,7 +392,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--source", help="run only the watchers of this sources.json id")
     parser.add_argument("--reseed", metavar="WATCHER_ID",
-                        help="fetch this one watcher, store its current signal in seen.json, add no queue row")
+                        help="fetch this one watcher and store its current signal in seen.json; no queue row, except "
+                             "new_version rows for dates a list watcher shows that seen.json lacked")
     parser.add_argument("--dry-run", action="store_true", help="fetch and compare, write nothing")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)

@@ -10902,6 +10902,15 @@
    "0d8c070ee45e9e91ca1b62f37816b0b53f4a17de68909088f4fbd5a7e0a9ed8b"
   ]
  },
+ "ni-ley-1061-lagaceta-ediciones": {
+  "bytes": 81513,
+  "checked_on": "2026-11-17",
+  "failure": null,
+  "seconds": 2.52,
+  "signals": [
+   "bb529580e601fa153a8c5c743c8546071501c0ab85d71f2f9187694eb3481455"
+  ]
+ },
  "ni-ley-217-lagaceta-descargables": {
   "bytes": 68175,
   "checked_on": "2026-11-11",
