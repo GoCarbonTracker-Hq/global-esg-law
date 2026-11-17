@@ -177,3 +177,33 @@ def test_missing_cadence_file_is_an_error(tmp_path):
     (repo / "upkeep" / "cadence.json").unlink()
     with pytest.raises(ValueError):
         coverage.build(repo, today=TODAY)
+
+
+def test_scope_entry_with_a_different_title_is_matched_by_its_unique_url(tmp_path):
+    repo = make(tmp_path)
+    scope_path = repo / "register" / "XX" / "scope.json"
+    entries = json.loads(scope_path.read_text())
+    entries[0].update(title="Placeholder Act, as amended", official_url="https://example.invalid/act")
+    scope_path.write_text(json.dumps(entries))
+    text = coverage.build(repo, today=TODAY)
+    assert grid_row(text, "XX")["F1"].startswith("A · official_text_seen · text 2")
+
+
+def test_match_scope_takes_scope_id_then_title_then_unique_url():
+    scopes = {"XX": [
+        {"id": "a", "title": "A", "official_url": "https://u/a"},
+        {"id": "b", "title": "B, as amended", "official_url": "https://u/b"},
+        {"id": "c", "title": "C, as amended", "official_url": "https://u/shared"},
+        {"id": "d", "title": "D, as amended", "official_url": "https://u/shared"},
+        {"id": "e", "title": "E, as amended", "official_url": "https://u/e"}]}
+    register = [
+        {"iso2": "XX", "instrument_title": "A", "official_source_url": ""},  # exact title
+        {"iso2": "XX", "instrument_title": "B", "official_source_url": "https://u/b"},  # unique URL
+        {"iso2": "XX", "instrument_title": "C", "official_source_url": "https://u/shared"},  # URL shared by two entries
+        {"iso2": "XX", "instrument_title": "D", "official_source_url": "https://u/shared"},
+        {"iso2": "XX", "instrument_title": "E", "official_source_url": "https://u/x", "scope_id": "e"},  # scope_id
+        {"iso2": "XX", "instrument_title": "A2", "official_source_url": "https://u/a"},  # entry already claimed
+        {"iso2": "XX", "instrument_title": "", "official_source_url": "https://u/b"},  # no instrument
+        {"iso2": "YY", "instrument_title": "B2", "official_source_url": "https://u/b"}]  # another place
+    matched = coverage.match_scope(register, scopes)
+    assert {i: e["id"] for i, e in matched.items()} == {0: "a", 1: "b", 4: "e"}

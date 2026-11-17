@@ -143,6 +143,36 @@ def cell(entries):
     return _cell_text(" · ".join(parts))
 
 
+def match_scope(register, scopes):
+    """Scope entry of each register row, as {row index: entry}. A row with a title is matched by its optional
+    scope_id column, else by exact title, else by an official URL that exactly one unclaimed row and one unclaimed
+    entry of the place share. A URL shared by several rows or entries is left unmatched."""
+    by_id = {(iso2, entry["id"]): entry for iso2, entries in scopes.items() for entry in entries}
+    by_title = {(iso2, entry.get("title", "")): entry for (iso2, _), entry in by_id.items()}
+    titled = [i for i, row in enumerate(register) if (row.get("instrument_title") or "").strip()]
+    matched = {}
+    for i in titled:
+        iso2 = register[i]["iso2"]
+        entry = (by_id.get((iso2, (register[i].get("scope_id") or "").strip()))
+                 or by_title.get((iso2, register[i]["instrument_title"])))
+        if entry:
+            matched[i] = entry
+    claimed = {(register[i]["iso2"], entry["id"]) for i, entry in matched.items()}
+    rows_by_url, entries_by_url = defaultdict(list), defaultdict(list)
+    for i in titled:
+        url = (register[i].get("official_source_url") or "").strip()
+        if url and i not in matched:
+            rows_by_url[(register[i]["iso2"], url)].append(i)
+    for key, entry in by_id.items():
+        url = (entry.get("official_url") or "").strip()
+        if url and key not in claimed:
+            entries_by_url[(key[0], url)].append(entry)
+    for key, indexes in rows_by_url.items():
+        if len(indexes) == 1 and len(entries_by_url[key]) == 1:
+            matched[indexes[0]] = entries_by_url[key][0]
+    return matched
+
+
 def build(repo=ROOT, today=None):
     """Return the Markdown text of the report. today is a datetime.date; default is the run date."""
     today = today or date.today()
@@ -150,12 +180,7 @@ def build(repo=ROOT, today=None):
     data = load(repo)
     cadence = data["cadence"]
     register = data["register"]
-
-    # Index scope entries by (iso2, title) so a register row can find its instrument.
-    scope_by_title = {}
-    for iso2, entries in data["scopes"].items():
-        for entry in entries:
-            scope_by_title[(iso2, entry.get("title", ""))] = entry
+    matched = match_scope(register, data["scopes"])
     facts_cache = {}
 
     def facts_for(iso2, entry):
@@ -167,13 +192,13 @@ def build(repo=ROOT, today=None):
     places = {}  # iso2 -> country name
     grid = defaultdict(lambda: defaultdict(list))  # iso2 -> family -> entries
     no_instrument_rows, no_family_rows, odd_family_rows = [], [], []
-    for row in register:
+    for i, row in enumerate(register):
         iso2 = row["iso2"]
         places.setdefault(iso2, row.get("country") or iso2)
         if not (row.get("instrument_title") or "").strip():
             no_instrument_rows.append(row)
             continue
-        entry = scope_by_title.get((iso2, row["instrument_title"]))
+        entry = matched.get(i)
         facts = facts_for(iso2, entry) if entry else None
         family = (row.get("law_family") or "").strip()
         if not family:
