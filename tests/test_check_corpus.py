@@ -1,4 +1,5 @@
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -6,6 +7,7 @@ from pathlib import Path
 import pytest
 
 TOOLS = Path(__file__).resolve().parents[1] / "tools"
+ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import check_corpus
 
@@ -240,3 +242,33 @@ def test_cli_exits_1_on_a_bad_iso2(tmp_path):
     for bad in ("xx", "ZZ"):
         done = run(bad)
         assert done.returncode == 1 and "--iso2" in done.stderr
+
+
+def _stored_entries():
+    for path in sorted(ROOT.glob("register/*/scope.json")):
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            if entry.get("status") == "stored":
+                yield path.parent.name, entry
+
+
+def test_every_stored_scope_entry_has_evidence():
+    empty = [(iso2, e["id"]) for iso2, e in _stored_entries() if not (e.get("evidence") or "").strip()]
+    assert empty == []
+
+
+# Entries whose record states the commencement date outright (#58), plus three that state none and are explained.
+BACKFILLED = {("DK", "dk-transport-ghg"): "2009-07-01", ("TW", "tw-annual-report-regs"): "1989-01-01",
+              ("AR", "ar-ley-27520"): None, ("AR", "ar-ley-25675"): None, ("AR", "ar-dnu-274-2019"): None}
+
+
+def test_backfilled_scope_entries_quote_their_records_verbatim():
+    entries = {(iso2, e["id"]): e for iso2, e in _stored_entries()}
+    for (iso2, instrument), in_force in BACKFILLED.items():
+        entry = entries[(iso2, instrument)]
+        assert entry["in_force"] == in_force, (iso2, instrument)
+        texts = [json.loads(p.read_text(encoding="utf-8")).get("text") or ""
+                 for p in (ROOT / "records" / iso2 / instrument).glob("*.json")]
+        quotes = re.findall(r'"([^"]+)"', entry["evidence"])
+        assert quotes, (iso2, instrument)
+        for quote in quotes:
+            assert any(quote in text for text in texts), (iso2, instrument, quote)
