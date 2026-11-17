@@ -9,18 +9,18 @@ This is a map of what the repository holds and when it was last checked. It is n
 | Count | Value | As of | Command |
 |---|---|---|---|
 | Places in the register | 250 | 2026-11-17 | `python3 tools/coverage.py` |
-| Register rows | 2598 | 2026-11-17 | `python3 tools/coverage.py` |
-| Register rows with an instrument and a law family (shown in the grid) | 2540 | 2026-11-17 | `python3 tools/coverage.py` |
+| Register rows | 2603 | 2026-11-17 | `python3 tools/coverage.py` |
+| Register rows with an instrument and a law family (shown in the grid) | 2545 | 2026-11-17 | `python3 tools/coverage.py` |
 | Register rows with an instrument but no law family (not in the grid) | 4 | 2026-11-17 | `python3 tools/coverage.py` |
 | Register rows with a law family outside F1 to F7 | 0 | 2026-11-17 | `python3 tools/coverage.py` |
 | Register rows with no instrument (place listed, nothing found) | 54 | 2026-11-17 | `python3 tools/coverage.py` |
 | Pilot places with a scope file | 250 | 2026-11-17 | `python3 tools/coverage.py` |
-| Instruments in scope files | 1399 | 2026-11-17 | `python3 tools/coverage.py` |
-| Instruments with stored text | 846 | 2026-11-17 | `python3 tools/coverage.py` |
+| Instruments in scope files | 1404 | 2026-11-17 | `python3 tools/coverage.py` |
+| Instruments with stored text | 851 | 2026-11-17 | `python3 tools/coverage.py` |
 | Instruments link only | 553 | 2026-11-17 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3338 | 2026-11-17 | `python3 tools/coverage.py` |
-| Watchers in upkeep/watchers.json | 1578 | 2026-11-17 | `python3 tools/coverage.py` |
-| Watchers with a checked_on in upkeep/seen.json | 1578 | 2026-11-17 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3360 | 2026-11-17 | `python3 tools/coverage.py` |
+| Watchers in upkeep/watchers.json | 1583 | 2026-11-17 | `python3 tools/coverage.py` |
+| Watchers with a checked_on in upkeep/seen.json | 1583 | 2026-11-17 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-17 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-17 | `python3 tools/coverage.py` |
 | Places with no watcher | 11 | 2026-11-17 | `python3 tools/coverage.py` |
@@ -111,7 +111,7 @@ Counts as of 2026-11-17, from `python3 tools/coverage.py`.
 - FO: families with no instrument (2): F4, F5.
 - FR: families with no instrument (2): F4, F7.
 - GA: families with no instrument (3): F1, F4, F5.
-- GB: families with no instrument (3): F4, F5, F7.
+- GB: families with no instrument (2): F4, F7.
 - GD: families with no instrument (3): F3, F4, F5.
 - GE: families with no instrument (2): F4, F5.
 - GF: families with no instrument (6): F1, F2, F3, F4, F5, F6.
@@ -384,7 +384,7 @@ One row per place in the register, one column per law family, as of 2026-11-17.
 | FO | Faroe Islands | A · official_text_seen · text 1 · checked 2026-11-11 · changed 2026-01-01 | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2024-01-01 | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2023-12-08 |  |  | A · official_text_seen · text 1 · checked 2026-11-11 · changed 2022-05-02 | A · official_page_seen/official_text_seen · link only · unchecked |
 | FR | France | A · official_text_seen · text 11 · checked 2026-11-11 · changed 2025-05-03 | A · official_text_seen · text 6 · checked 2026-11-11 · changed 2023-06-24 | A · official_text_seen · text 8 · checked 2026-11-11 · changed 2025-05-03 |  | A · official_text_seen · text 4 · checked 2026-11-11 · changed 2025-01-01 | A · official_page_seen/official_text_seen · text 9, link only 1 · checked 2026-11-11 · changed 2025-01-01 |  |
 | GA | Gabon |  | A/B · official_text_seen/tracker_only · text 5, link only 1 · checked 2026-11-11 (1 unchecked) · changed 2022-12-23 | A · official_text_seen · text 3 · checked 2026-11-11 · changed 2026-07-17 |  |  | A · official_text_seen · text 1 · checked 2026-11-11 · changed 1998-07-31 | B · not_checked · link only · unchecked |
-| GB | UK | A · official_page_seen/official_text_seen · text 13, link only 1 · checked 2026-11-11 · changed 2022-04-06 | A · official_text_seen · text 7 · checked 2026-11-17 · changed 2023-12-26 | A · official_text_seen · text 18 · checked 2026-11-17 · changed 2026-07-01 |  |  | A · official_text_seen · link only · checked 2026-11-14 |  |
+| GB | UK | A · official_page_seen/official_text_seen · text 30, link only 1 · checked 2026-11-11 · changed 2026-07-22 | A · official_text_seen · text 7 · checked 2026-11-17 · changed 2023-12-26 | A · official_text_seen · text 18 · checked 2026-11-17 · changed 2026-07-01 |  | A · official_text_seen · text 3 · checked 2026-11-17 · changed 2016-12-17 | A · official_text_seen · text 2, link only 1 · checked 2026-11-14 · changed 2025-04-06 |  |
 | GD | Grenada | A · official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · text 6 · checked 2026-11-11 · changed 2019-11-08 |  |  |  | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2020-09-04 | A · official_page_seen · link only · unchecked |
 | GE | Georgia | A · official_text_seen · text 21 · checked 2026-11-11 · changed 2026-04-01 | A · official_text_seen · text 56 · checked 2026-11-11 · changed 2026-06-24 | A · official_text_seen · text 2 · checked 2026-11-11 · changed 2027-01-01 |  |  | A · official_text_seen · text 55 · checked 2026-11-11 · changed 2026-06-25 | B · not_checked · link only · unchecked |
 | GF | French Guiana |  |  |  |  |  |  | A · not_checked/official_page_seen/official_page_title_only/official_text_seen · link only · unchecked |
@@ -1435,6 +1435,11 @@ As of 2026-11-17. `versions` is the number of record files; `checked from` says 
 | gb-uksi-2008-410-sch7-part7 | F1 | text 2 | 2 | 2026-11-17 | watcher | consolidation_site | 2019-04-01 | current |
 | gb-uksi-2020-1265 | F3 | text 18 | 18 | 2026-11-17 | watcher | consolidation_site | 2026-07-01 | current |
 | gb-cca2008-s1-31 | F2 | text 7 | 7 | 2026-11-17 | watcher | consolidation_site | 2023-12-26 | current |
+| gb-uksi-2022-46 | F1 | text 1 | 1 | 2026-11-17 | watcher | consolidation_site | 2022-04-06 | current |
+| gb-msa2015-s54 | F5 | text 3 | 3 | 2026-11-17 | watcher | consolidation_site | 2016-12-17 | current |
+| gb-dmcca2024-s224-252 | F6 | text 2 | 2 | 2026-11-17 | watcher | consolidation_site | 2025-04-06 | current |
+| gb-uksi-2014-1643 | F1 | text 12 | 12 | 2026-11-17 | watcher | consolidation_site | 2026-07-22 | current |
+| gb-uksi-2021-839 | F1 | text 4 | 4 | 2026-11-17 | watcher | consolidation_site | 2023-02-03 | current |
 
 ### GD (Grenada)
 
