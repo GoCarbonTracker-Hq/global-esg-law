@@ -130,5 +130,87 @@
     "status": "stored",
     "verification": "official_text_seen",
     "notes": "Scoped to Part 1: the 2050 target, carbon budgets, and the Government duties to report on them (ss.14, 16, 18 to 20). Not stored: s.85 (regulations about reporting by companies), Part 4 (adaptation reporting) and the rest of the Act. The 80% target in s.1(1) became 100% on 2019-06-27 (SI 2019/1056)."
+  },
+  {
+    "id": "gb-uksi-2022-46",
+    "title": "The Limited Liability Partnerships (Climate-related Financial Disclosure) Regulations 2022",
+    "official_url": "https://www.legislation.gov.uk/uksi/2022/46/made",
+    "citation": "SI 2022/46",
+    "in_force": "2022-04-06",
+    "evidence": "Reg 1(2): \"These Regulations come into force on 6th April 2022 and apply in respect of any financial year of a limited liability partnership which commences on or after that date.\" Made 17th January 2022. Opened https://www.legislation.gov.uk/uksi/2022/46/made/data.xml on 2026-11-17.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Amends the Limited Liability Partnerships (Accounts and Audit) (Application of Companies Act 2006) Regulations 2008: Part 2 adds climate-related financial disclosures to the modified section 414C strategic report of traded and banking LLPs with more than 500 employees; Part 3 inserts section 416A into the energy and carbon report of large LLPs (more than 500 employees and annual turnover of more than £500 million). Companion to gb-uksi-2022-31 (companies). legislation.gov.uk held the text as made only on 2026-11-17: /uksi/2022/46/data.xml redirects to /made/data.xml and lists no revised version."
+  },
+  {
+    "id": "gb-msa2015-s54",
+    "title": "Modern Slavery Act 2015, section 54 (transparency in supply chains)",
+    "official_url": "https://www.legislation.gov.uk/ukpga/2015/30/section/54",
+    "citation": "Modern Slavery Act 2015 (c. 30) s.54",
+    "in_force": "2015-10-29",
+    "evidence": "SI 2015/1816 reg 2 says 'Section 54 of the 2015 Act (transparency in supply chains etc) comes into force on 29th October 2015', and reg 3 says that commencement 'does not have effect in respect of a financial year ending before 31st March 2016' (https://www.legislation.gov.uk/uksi/2015/1816/made/data.xml, opened 2026-11-17). The section's own commentary in the stored text says: \"in force at 29.10.2015 by S.I. 2015/1816,\" Section 54(1): \"A commercial organisation within subsection (2) must prepare a slavery and human trafficking statement for each financial year of the organisation.\"",
+    "law_family": "F5",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Scoped to section 54 only, not the rest of the Act. The turnover amount in s.54(2)(b) is set outside the Act, by SI 2015/1833 reg 2 (£36 million, read on 2026-11-17); that instrument is not stored. s.54(12) was changed on 2016-12-17 by SI 2016/1031 (the Human Trafficking and Exploitation (Scotland) Act 2015 consequential order). The enacted text carries the same operative words as the 2015-10-29 version; the adopted record is dated to commencement, not to Royal Assent (26 March 2015)."
+  },
+  {
+    "id": "gb-dmcca2024-s224-252",
+    "title": "Digital Markets, Competition and Consumers Act 2024, Part 4 Chapter 1 protection from unfair trading (sections 224 to 252)",
+    "official_url": "https://www.legislation.gov.uk/ukpga/2024/13/part/4/chapter/1",
+    "citation": "Digital Markets, Competition and Consumers Act 2024 (c. 13) ss.224-252",
+    "in_force": "2025-04-06",
+    "evidence": "SI 2025/272 reg 2(1) and (3) brings into force on 6th April 2025 'Chapter 1 (protection from unfair trading) of Part 4 (consumer rights and disputes), except sections 232, 234 and 235' (https://www.legislation.gov.uk/uksi/2025/272/made/data.xml, opened 2026-11-17). The Chapter's commentary in the stored 2025-04-06 text says: \"in force at 6.4.2025 by S.I. 2025/272,\" Section 225(1): \"Unfair commercial practices are prohibited.\"",
+    "law_family": "F6",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Scoped to Part 4 Chapter 1 (ss.224 to 252), one contiguous provision. Not stored: Schedule 20 (commercial practices which are in all circumstances considered unfair), Schedule 21 (consequential amendments) and Part 3 (enforcement of consumer protection law), which sit outside the Chapter. Sections 232, 234 and 235 (rights of redress) are in the stored text but legislation.gov.uk marks them prospective and shows no commencement for them on 2026-11-17; the other sections are in force from 2025-04-06 (ss.233 and 242 for specified purposes from Royal Assent). The wording of the Chapter is the same in the enacted text, the 2024-05-24 version and the 2025-04-06 version; only the commencement annotations differ. The 2024-05-24 version is not stored: in that version the sections carry a start date of 2025-04-06, so it shows the Chapter as not yet in force."
+  },
+  {
+    "id": "gb-uksi-2014-1643",
+    "title": "The Energy Savings Opportunity Scheme Regulations 2014",
+    "official_url": "https://www.legislation.gov.uk/uksi/2014/1643",
+    "citation": "SI 2014/1643",
+    "in_force": "2014-07-17",
+    "evidence": "Reg 1: \"These Regulations may be cited as the Energy Savings Opportunity Scheme Regulations 2014 and come into force on 17th July 2014.\" Made 24th June 2014. Opened https://www.legislation.gov.uk/uksi/2014/1643/made/data.xml on 2026-11-17.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "ESOS: a responsible undertaking must carry out an ESOS assessment that includes an energy audit (reg 20), in compliance periods of four years ending on 5 December (reg 4). Large undertakings are defined in Schedule 1. The family is a judgement call: the README puts energy efficiency in F7, which is candidate only and holds no text, so the Regulations sit in F1 next to SI 2008/410 Sch 7 Pt 7 (energy efficiency action disclosure). Whole instrument stored."
+  },
+  {
+    "id": "gb-uksi-2021-839",
+    "title": "The Occupational Pension Schemes (Climate Change Governance and Reporting) Regulations 2021",
+    "official_url": "https://www.legislation.gov.uk/uksi/2021/839",
+    "citation": "SI 2021/839",
+    "in_force": "2021-10-01",
+    "evidence": "Reg 1(1): \"These Regulations may be cited as the Occupational Pension Schemes (Climate Change Governance and Reporting) Regulations 2021 and come into force on 1st October 2021.\" Made 13th July 2021. Opened https://www.legislation.gov.uk/uksi/2021/839/made/data.xml on 2026-11-17.",
+    "law_family": "F1",
+    "duty_on": "financial_institutions",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Reg 3(1) and (2): trustees of trust schemes with relevant assets of £5 billion or more on the first scheme year end date on or after 1st March 2020 must comply from 1st October 2021; those with £1 billion or more on the first scheme year end date on or after 1st March 2021 from 1st October 2022. Regs 4 and 5 cover authorised master trust schemes and authorised collective money purchase schemes. The Regulations extend to England and Wales and Scotland (reg 1(2)). Whole instrument stored; legislation.gov.uk dates the amended text 2022-10-01 and 2023-02-03."
   }
 ]
