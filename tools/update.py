@@ -404,7 +404,7 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
         line = f"- {today}: `{rel}`, row `{source_id}`, {provenance}, queue row `{key}`."
         add_sources_line(sources_md, line)
         try:
-            check(repo)
+            check(repo, strict=True)
         except ValueError as exc:
             restore_files(path, before)
             refuse(f"gate: {exc}")

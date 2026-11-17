@@ -50,13 +50,14 @@ def make(repo, rows=None, watchers=(WATCHER,), seeded=True):
     make_sources.build(repo / "sources" / "licence-table.csv", repo / "sources.json")
     (repo / "register" / "XX").mkdir(parents=True)
     (repo / "register" / "XX" / "scope.json").write_text(json.dumps([
-        {"id": "act", "title": "Placeholder Act", "source_row": "PASS"},
+        {"id": "act", "title": "Placeholder Act", "source_row": "PASS", "status": "stored"},
         {"id": "shared", "title": "Shared Act", "source_row": ["ASKED", "PASS"]},
         {"id": "other", "title": "Other Act", "source_row": "ASKED"}]))
     folder = repo / "records" / "XX" / "act"
     folder.mkdir(parents=True)
     (folder / "2020-01-01-adopted.json").write_text(json.dumps({
-        "source_id": "PASS", "in_force": "2020-01-01", "kind": "adopted", "language": "en", "text": "placeholder text"}))
+        "source_id": "PASS", "in_force": "2020-01-01", "kind": "adopted", "language": "en", "text": "placeholder text",
+        "fetched_url": "https://example.org/act", "fetched_sha256": "a" * 64}))
     (repo / "upkeep").mkdir()
     (repo / "upkeep" / "watchers.json").write_text(json.dumps(list(watchers)))
     if seeded:

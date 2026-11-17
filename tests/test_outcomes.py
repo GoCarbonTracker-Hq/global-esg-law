@@ -48,9 +48,11 @@ SCOPE = [entry("old-act", "EU-EURLEX-CONSOLIDATED", "32099L0001", "stored"),
          entry("blocked-act", "XX-BLOCKED", "", "link only")]
 
 RECORDS = {"old-act/2020-01-01-consolidated.json": {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2020-01-01",
-                                                    "kind": "consolidated", "language": "en", "text": "placeholder text"},
+                                                    "kind": "consolidated", "language": "en", "text": "placeholder text",
+                                                    "fetched_url": "https://example.org/act", "fetched_sha256": "a" * 64},
            "amend-act/2024-06-01-adopted.json": {"source_id": "EU-EURLEX-ADOPTED", "in_force": "2024-06-01",
-                                                 "kind": "adopted", "language": "en", "text": "placeholder amending text"}}
+                                                 "kind": "adopted", "language": "en", "text": "placeholder amending text",
+                                                 "fetched_url": "https://example.org/act", "fetched_sha256": "a" * 64}}
 
 
 def queue_row(watcher_id, signal, instrument, source_id, change="new_version"):

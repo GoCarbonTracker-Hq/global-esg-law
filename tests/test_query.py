@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import build
 import query
 import coverage
+from test_build import PROVENANCE
 from test_coverage import make as coverage_fixture
 
 
@@ -27,6 +28,8 @@ def make_repo(tmp_path):
     for entry in entries:
         entry["official_url"] = f"https://example.invalid/{entry['id']}"
     scope.write_text(json.dumps(entries))
+    for path in (repo / "records").rglob("*.json"):
+        path.write_text(json.dumps({**json.loads(path.read_text()), **PROVENANCE}))
     scope_dir = repo / "register" / "EE"
     scope_dir.mkdir()
     (scope_dir / "scope.json").write_text("[]")
@@ -97,7 +100,7 @@ def test_snapshot_marks_history_that_trails_working_tree(tmp_path):
     repo = make_repo(tmp_path)
     folder = repo / "records" / "XX" / "act"
     (folder / "2025-01-01-extra.json").write_text(json.dumps(
-        {"source_id": "PASS", "in_force": "2025-01-01", "kind": "consolidated", "language": "en", "text": "extra"}))
+        {"source_id": "PASS", "in_force": "2025-01-01", "kind": "consolidated", "language": "en", "text": "extra", **PROVENANCE}))
     answer = query.list_places(repo)
 
     assert answer["coverage"]["status"] == "history trails working tree"

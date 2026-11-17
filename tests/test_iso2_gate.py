@@ -24,7 +24,8 @@ def two_places(repo):
         folder = repo / "records" / iso2 / "act"
         folder.mkdir(parents=True)
         (folder / "r.json").write_text(json.dumps({
-            "source_id": row, "kind": "adopted", "language": "en", "text": "placeholder text"}))
+            "source_id": row, "in_force": "2020-01-01", "kind": "adopted", "language": "en", "text": "placeholder text",
+            "fetched_url": "https://example.org/act", "fetched_sha256": "a" * 64}))
 
 
 def test_check_corpus_iso2_ignores_other_place(tmp_path):

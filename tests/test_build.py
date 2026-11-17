@@ -4,10 +4,14 @@ from datetime import date
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import build
 from conftest import real_scope_paths
+
+PROVENANCE = {"fetched_url": "https://example.org/act", "fetched_sha256": "a" * 64}  # what the strict corpus check wants on a stored record
 
 
 def fixture(repo):
@@ -20,10 +24,10 @@ def fixture(repo):
     (repo / "sources.json").write_text(json.dumps(rows))
     (repo / "register" / "EU").mkdir(parents=True)
     (repo / "register" / "EU" / "scope.json").write_text(json.dumps([
-        {"id": "law", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "old"},
-        {"id": "law2", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "new"}]))
+        {"id": "law", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "old", "status": "stored"},
+        {"id": "law2", "title": "Scope Title", "official_url": "https://example.org/scope", "source_row": "new", "status": "stored"}]))
     for name, source, effective in [("old", "old", "1965-01-02"), ("new", "new", "2020-03-04")]:
-        (repo / "records" / "EU" / ("law" if name == "old" else "law2") / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "language": "en", "text": name}))
+        (repo / "records" / "EU" / ("law" if name == "old" else "law2") / f"{name}.json").write_text(json.dumps({"source_id": source, "in_force": effective, "kind": "adopted", "language": "en", "text": name, **PROVENANCE}))
     subprocess.run(["git", "init", "-q", str(repo)], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.name", "Test"], check=True)
     subprocess.run(["git", "-C", str(repo), "config", "user.email", "test@example.org"], check=True)
@@ -57,7 +61,7 @@ def test_language_trailer_and_official_record_first(tmp_path):
     folder = tmp_path / "records" / "EU" / "law2"
     for name, source, kind, lang in [("a-en", "tr", "translation", "en"), ("b-fr", "new", "adopted", "fr"), ("c-de", "new", "adopted", "de")]:
         (folder / f"2024-01-01-{name}.json").write_text(json.dumps(
-            {"source_id": source, "in_force": "2024-01-01", "kind": kind, "language": lang, "text": name}))
+            {"source_id": source, "in_force": "2024-01-01", "kind": kind, "language": lang, "text": name, **PROVENANCE}))
     scope = tmp_path / "register" / "EU" / "scope.json"
     entries = json.loads(scope.read_text())
     entries[1]["source_row"] = ["new", "tr"]
@@ -71,7 +75,7 @@ def test_null_in_force_orders_by_file_name_date(tmp_path):
     fixture(tmp_path)
     folder = tmp_path / "records" / "EU" / "law2"
     (folder / "1990-06-07-null.json").write_text(json.dumps(
-        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "null"}))
+        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "null", **PROVENANCE}))
     assert build.build(tmp_path, branch="history") == [("1965-01-02", "Scope Title"), ("1990-06-07", "Scope Title"), ("2020-03-04", "Scope Title")]
 
 
@@ -132,6 +136,25 @@ def test_build_refuses_instrument_missing_from_scope(tmp_path):
         assert "scope.json" in str(exc)
     else:
         raise AssertionError("record without scope entry was accepted")
+
+
+def drop_sha256(repo):
+    record = repo / "records" / "EU" / "law" / "old.json"
+    record.write_text(json.dumps({k: v for k, v in json.loads(record.read_text()).items() if k != "fetched_sha256"}))
+
+
+def unstore_scope(repo):
+    scope = repo / "register" / "EU" / "scope.json"
+    scope.write_text(json.dumps([{**e, "status": "link only"} if e["id"] == "law" else e for e in json.loads(scope.read_text())]))
+
+
+@pytest.mark.parametrize("break_corpus, reason", [(drop_sha256, "fetched_sha256"), (unstore_scope, "not 'stored'")])
+def test_build_runs_the_strict_corpus_check(tmp_path, break_corpus, reason):  # #53
+    fixture(tmp_path)
+    break_corpus(tmp_path)
+    with pytest.raises(ValueError, match=f"records/EU/law/old.json: .*{reason}"):
+        build.build(tmp_path, branch="history")
+    assert subprocess.run(["git", "-C", str(tmp_path), "rev-parse", "--verify", "-q", "history"]).returncode != 0
 
 
 def test_build_refuses_nonpass_row(tmp_path):
