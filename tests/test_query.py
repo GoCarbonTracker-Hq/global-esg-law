@@ -2,6 +2,7 @@ import csv
 import json
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -142,3 +143,47 @@ def test_list_places_reply_stays_under_30000_characters_on_the_real_corpus():
     answer = query.list_places(ROOT)
     reply = {"content": [{"type": "text", "text": json.dumps(answer, ensure_ascii=False, separators=(",", ":"))}], "structuredContent": answer}
     assert len(json.dumps(reply, ensure_ascii=False, separators=(",", ":"))) < 30000
+
+
+@pytest.mark.parametrize("bad", ["2023-02-29", "2026-1-1", "", None, datetime(2026, 1, 1)])
+def test_lookup_rejects_an_invalid_on_date(tmp_path, bad):
+    repo = make_repo(tmp_path)
+    with pytest.raises(ValueError, match="calendar date"):
+        query.lookup("XX", bad, repo)
+    with pytest.raises(ValueError, match="calendar date"):
+        query.in_force("XX", bad, repo)
+    assert query.lookup("XX", "2024-01-01", repo)[0]
+
+
+def _commit(kind, language):
+    return {"id": "x", "title": "X", "in_force": "2024-01-01", "kind": kind, "language": language,
+            "jurisdiction": "XX", "commit": f"{kind}-{language}"}
+
+
+@pytest.mark.parametrize("reverse", [False, True])
+@pytest.mark.parametrize(("same_day", "lang", "shown"), [
+    ([("adopted", "de"), ("consolidated", "fr")], None, ("consolidated", "fr")),
+    ([("consolidated", "en"), ("translation", "en")], None, ("consolidated", "en")),
+    ([("consolidated", "en"), ("translation", "en")], "en", ("consolidated", "en")),
+    ([("adopted", "en"), ("translation", "en")], None, ("adopted", "en")),
+    ([("adopted", "en"), ("consolidated", "en")], "en", ("consolidated", "en")),
+    ([("adopted", "de"), ("consolidated", "fr"), ("translation", "en")], "en", ("translation", "en")),
+])
+def test_same_day_precedence_is_consolidated_then_adopted_then_translation(tmp_path, monkeypatch, same_day, lang, shown, reverse):
+    commits = [_commit(*pair) for pair in (reversed(same_day) if reverse else same_day)]
+    monkeypatch.setattr(query, "_commits", lambda repo, ref=None: tuple(commits))
+    (item,) = query.in_force("XX", "2024-01-01", tmp_path, lang=lang, detail=True)
+    assert (item["kind"], item["language"]) == shown
+    assert {entry["language"] for entry in item["languages"]} == {language for _, language in same_day}
+
+
+def test_read_text_withholds_when_duplicate_source_rows_differ_in_any_field(tmp_path):
+    repo = make_repo(tmp_path)
+    rows = json.loads((repo / "sources.json").read_text())
+    pass_row = next(r for r in rows if r["id"] == "PASS")
+    (repo / "sources.json").write_text(json.dumps(rows + [dict(pass_row)]))
+    assert query.read_text(repo, "act", "2024-01-01")["text"]  # an identical copy is not ambiguous
+    for field in ("jurisdiction", "terms_url", "terms_quote", "trailer_licence", "trailer_source_url"):
+        (repo / "sources.json").write_text(json.dumps(rows + [{**pass_row, field: "changed"}]))
+        answer = query.read_text(repo, "act", "2024-01-01")
+        assert answer["text"] is None and "missing or ambiguous" in answer["reason"], field
