@@ -16,16 +16,16 @@ This is a map of what the repository holds and when it was last checked. It is n
 | Register rows with no instrument (place listed, nothing found) | 54 | 2026-11-17 | `python3 tools/coverage.py` |
 | Pilot places with a scope file | 250 | 2026-11-17 | `python3 tools/coverage.py` |
 | Instruments in scope files | 1395 | 2026-11-17 | `python3 tools/coverage.py` |
-| Instruments with stored text | 849 | 2026-11-17 | `python3 tools/coverage.py` |
-| Instruments link only | 546 | 2026-11-17 | `python3 tools/coverage.py` |
-| Record files (text versions) | 3317 | 2026-11-17 | `python3 tools/coverage.py` |
+| Instruments with stored text | 850 | 2026-11-17 | `python3 tools/coverage.py` |
+| Instruments link only | 545 | 2026-11-17 | `python3 tools/coverage.py` |
+| Record files (text versions) | 3318 | 2026-11-17 | `python3 tools/coverage.py` |
 | Watchers in upkeep/watchers.json | 1574 | 2026-11-17 | `python3 tools/coverage.py` |
 | Watchers with a checked_on in upkeep/seen.json | 1574 | 2026-11-17 | `python3 tools/coverage.py` |
 | Instruments whose last check is older than its cadence (stale) | 0 | 2026-11-17 | `python3 tools/coverage.py` |
 | Grid cells marked stale | 0 | 2026-11-17 | `python3 tools/coverage.py` |
 | Places with no watcher | 11 | 2026-11-17 | `python3 tools/coverage.py` |
-| Places with instruments but no stored text (link only) | 110 | 2026-11-17 | `python3 tools/coverage.py` |
-| Places with stored text but no consolidated text (as published only) | 72 | 2026-11-17 | `python3 tools/coverage.py` |
+| Places with instruments but no stored text (link only) | 109 | 2026-11-17 | `python3 tools/coverage.py` |
+| Places with stored text but no consolidated text (as published only) | 73 | 2026-11-17 | `python3 tools/coverage.py` |
 
 ## Not covered
 
@@ -284,8 +284,8 @@ Counts as of 2026-11-17, from `python3 tools/coverage.py`.
 - ZA: families with no instrument (2): F5, F7.
 - ZM: families with no instrument (4): F1, F4, F5, F7.
 - ZW: families with no instrument (4): F3, F4, F5, F6.
-- Places with instruments but no stored text, link only (110): AE, AF, AI, AQ, AS, BB, BD, BF, BI, BL, BM, BN, BO, BQ, BS, BV, BZ, CC, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GF, GG, GI, GP, GQ, GS, GU, GW, GY, HK, HM, ID, IM, IN, IO, IQ, IR, IS, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MF, MG, MH, MM, MP, MQ, MS, MW, MY, NE, NO, NP, NU, PF, PK, PM, PN, PR, PS, RE, RO, RU, SA, SB, SC, SG, SH, SJ, SM, SN, SO, SS, ST, SX, TC, TD, TF, TG, TH, TK, TV, UA, UM, VA, VC, VG, VI, VU, WF, YT, ZM.
-- Places whose stored texts are the acts as published, no consolidated text (72): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, CW, CX, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NC, NG, NI, OM, PA, PE, PG, PH, PW, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
+- Places with instruments but no stored text, link only (109): AE, AF, AI, AQ, AS, BB, BD, BF, BI, BL, BM, BN, BO, BQ, BS, BV, BZ, CC, CF, CU, CY, DJ, EG, EH, ER, ET, FM, GF, GG, GI, GP, GQ, GS, GU, GW, GY, HK, HM, ID, IM, IN, IO, IQ, IR, JM, KE, KI, KM, KN, KP, KY, LB, LC, LS, LT, LY, MA, ME, MF, MG, MH, MM, MP, MQ, MS, MW, MY, NE, NO, NP, NU, PF, PK, PM, PN, PR, PS, RE, RO, RU, SA, SB, SC, SG, SH, SJ, SM, SN, SO, SS, ST, SX, TC, TD, TF, TG, TH, TK, TV, UA, UM, VA, VC, VG, VI, VU, WF, YT, ZM.
+- Places whose stored texts are the acts as published, no consolidated text (73): AD, AG, AL, AO, AR, BA, BG, BH, BJ, BW, BY, CD, CG, CI, CM, CO, CV, CW, CX, DM, DO, DZ, GA, GD, GH, GM, GN, GR, GT, HN, HR, HT, HU, IL, IS, JO, KH, KW, LA, LK, LR, MK, ML, MR, MZ, NA, NC, NG, NI, OM, PA, PE, PG, PH, PW, PY, RS, RW, SL, SR, SV, SY, SZ, TJ, TL, TN, TT, UG, UY, VE, WS, YE, ZA. A date lookup for these places returns the act as first printed and the amending acts stored as their own instruments; the amendments are not folded in.
 - Places listed with no instrument found (0): none.
 - Register rows with an instrument but no law family (4), not shown in the grid: JP, KR, MP, ZW.
 - Register rows with no scope entry have no check date in the files; their cells read `unchecked` and are not counted as stale, although their cadence tier is `tracker_pointer`.
@@ -416,7 +416,7 @@ One row per place in the register, one column per law family, as of 2026-11-17.
 | IO | British Indian Ocean Territory |  |  |  |  |  |  | A · official_page_title_only/official_text_seen · link only · unchecked |
 | IQ | Iraq | A · official_text_seen · link only · checked 2026-11-11 | A · official_page_seen/official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · link only · checked 2026-11-11 |  |  |  |  |
 | IR | Iran |  |  |  |  |  |  | B/C · tracker_only · link only, no link 2 · unchecked |
-| IS | Iceland | A · official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · link only · checked 2026-11-11 |  |  | A · official_text_seen · link only · checked 2026-11-11 |  |
+| IS | Iceland | A · official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · link only · checked 2026-11-11 | A · official_text_seen · text 1, link only 1 · checked 2026-11-11 · changed 2021-05-28 |  |  | A · official_text_seen · link only · checked 2026-11-11 |  |
 | IT | Italy | A · official_text_seen · text 8 · checked 2026-11-11 · changed 2025-08-10 | A · official_text_seen · text 15 · checked 2026-11-11 · changed 2025-05-14 | A · official_text_seen · text 29 · checked 2026-11-11 · changed 2026-05-23 |  |  | A · official_text_seen · text 28 · checked 2026-11-11 · changed 2026-10-22 | A · official_page_seen · link only · unchecked |
 | JE | Jersey | A · official_page_seen · link only · checked 2026-11-11 |  | A · official_text_seen · text 18 · checked 2026-11-11 · changed 2026-05-11 |  |  | A · official_text_seen · text 5 · checked 2026-11-11 · changed 2026-07-14 | A · official_text_seen · link only · unchecked |
 | JM | Jamaica |  | A · official_text_seen · link only · checked 2026-11-11 |  |  |  | A · official_text_seen · link only · checked 2026-11-11 | B · not_found/official_text_seen · link only · unchecked |
@@ -1779,7 +1779,7 @@ As of 2026-11-17. `versions` is the number of record files; `checked from` says 
 | is-arsreikningalog-66d | F1 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
 | is-loftslagslog | F2 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
 | is-ets-log | F3 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
-| is-ets-regulation-606-2021 | F3 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
+| is-ets-regulation-606-2021 | F3 | text 1 | 1 | 2026-11-11 | watcher | regulator_page | 2021-05-28 | current |
 | is-markadssetningarlog | F6 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
 | is-sjalfbaernilog-fjarmal | F6 | link only | 0 | 2026-11-11 | watcher | regulator_page |  | current |
 

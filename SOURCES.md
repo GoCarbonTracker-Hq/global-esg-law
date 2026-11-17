@@ -3373,9 +3373,9 @@ English is the language of legislation; the Kenya Law pages list only `eng` expr
 
 ## Iceland
 
-Date run: 2026-11-02, from the cloud address. No row is `pass`, so nothing is stored; the requests below are proven for the day the verdict flips. Rows: `IS-ALTHINGI-CONSOLIDATED`, `IS-STJORNARTIDINDI-ADOPTED`, `IS-GOVERNMENT-TRANSLATION`, all `permission requested`.
+Date run: 2026-11-02 for the fetch recipes, from the cloud address; 2026-11-17 for the verdict and the first record. `IS-STJORNARTIDINDI-ADOPTED` is `pass` on Höfundalög nr. 73/1972 9. gr. (basis `statute`) and one record is stored under it. `IS-ALTHINGI-CONSOLIDATED` and `IS-GOVERNMENT-TRANSLATION` stay `permission requested`.
 
-### IS-STJORNARTIDINDI-ADOPTED (proven fetch, not stored)
+### IS-STJORNARTIDINDI-ADOPTED (pass on the statute; one record stored)
 
 Stjórnartíðindi moved to island.is; `www.stjornartidindi.is` redirects to `https://island.is/stjornartidindi`. The gazette has a public JSON API (OpenAPI at `https://api.stjornartidindi.is/swagger-json`). The advert body is HTML in `advert.document.html`; the PDF (the legally binding form) is in `advert.document.pdfUrl`.
 
@@ -3386,7 +3386,11 @@ curl -sS -A 'Mozilla/5.0' -o a1.json -w '%{http_code} %{size_download} %{content
 200 114548 application/json; charset=utf-8
 ```
 
-A second fetch gave a byte-identical file (sha256 `69b78982b778bbb4c18995be85b7c0fe1ce198c781826d0afcf9690c502108be` both times), so `fetched_sha256` reproduces. Text recipe if the row flips: take `advert.document.html`, drop tags, headings and paragraphs as line breaks. The HTML puts every word on its own line, so collapse whitespace inside a paragraph before writing the record.
+A second fetch gave a byte-identical file (sha256 `69b78982b778bbb4c18995be85b7c0fe1ce198c781826d0afcf9690c502108be` both times), so `fetched_sha256` reproduces. Text recipe: take `advert.document.html`, drop tags, headings and paragraphs as line breaks. The HTML puts every word on its own line, so collapse whitespace inside a paragraph before writing the record.
+
+Stored 2026-11-17: `records/IS/is-ets-regulation-606-2021/2021-05-28-adopted-is.json`, Reglugerð nr. 606/2021 (B-deild 606/2021, advert id `fb53bec8-e856-479b-965a-9a3182c146f8`, published 2021-05-28, "Reglugerðin öðlast gildi við birtingu"). Two plain fetches of `https://api.stjornartidindi.is/api/v1/adverts/fb53bec8-e856-479b-965a-9a3182c146f8` gave 200, 63088 bytes, `application/json; charset=utf-8` and the same sha256 `98414017146ef3641a6c2f2d822ea0b3170ae1fe8c8d773fb9dc2040639f4124`, which is the record's `fetched_sha256`. The text is `advert.document.html` through the recipe above (the `extract_text` of `tools/update.py`); the HTML does not carry the title line, which the record's `message` gives. The record is the regulation as published: the later amending regulations (1337/2021 to 593/2026) are separate adverts and are not folded in. There is no Iceland recipe in `tools/update.py`, so the record was built by hand with these steps.
+
+The statute was read on 2026-11-17 in the Alþingi consolidated Höfundalög (Lagasafn, Íslensk lög 1. október 2026, útgáfa 158a) through an Internet Archive copy of 2026-10-17, `http://web.archive.org/web/20261017223119/https://www.althingi.is/lagas/nuna/1972073.html`, because live `www.althingi.is` answers scripts with a Cloudflare 403 challenge. The exact quote, the saved file's sha256 and the amendment state are in the row's `statute_exception`.
 
 Finding the id of an act or regulation (lean list, 94 kB for 82 hits):
 
@@ -3419,7 +3423,7 @@ The page (Ministry of Industries, "Act on annual accounts", list date 2022-12-01
 
 ### Link only
 
-All six scope instruments are link only: `is-arsreikningalog-66d`, `is-loftslagslog`, `is-ets-log` and `is-markadssetningarlog` and `is-sjalfbaernilog-fjarmal` (rows `IS-ALTHINGI-CONSOLIDATED` and `IS-STJORNARTIDINDI-ADOPTED`), `is-ets-regulation-606-2021` (row `IS-STJORNARTIDINDI-ADOPTED`). Reason: both rows are `permission requested`. The Alþingi site cannot be opened from the cloud address. The gazette page grants no reuse licence and Höfundalög nr. 73/1972 9. gr. could not be opened on an official page, so the statute basis is not met. Seðlabanki Íslands and Nasdaq Iceland got no row: no instrument in scope comes from them.
+Five of the six scope instruments are link only: `is-arsreikningalog-66d`, `is-loftslagslog`, `is-ets-log`, `is-markadssetningarlog` and `is-sjalfbaernilog-fjarmal` (rows `IS-ALTHINGI-CONSOLIDATED` and `IS-STJORNARTIDINDI-ADOPTED`). The 2026-11-17 change stores only `is-ets-regulation-606-2021` (row `IS-STJORNARTIDINDI-ADOPTED`) and leaves these five as they were; `IS-ALTHINGI-CONSOLIDATED` is still `permission requested` and the Alþingi site cannot be opened from the cloud address. Seðlabanki Íslands and Nasdaq Iceland got no row: no instrument in scope comes from them.
 
 ## Egypt
 
