@@ -9,6 +9,16 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
+## 2026-11-17
+- **Fixed:** the GEL-33 findings listed under 2026-11-15, in PRs #72 to #81, each with a regression test that fails on the old code. Gate on `main` `15cfff633`, as of 2026-11-17: `3317 records checked`, `publish_gate` exit 0, `373 passed` (Python 3.13), acceptance from a fresh clone `53 passed, 0 failed` (was 46). No record file changed, so the published `history` stays at `c76381e2f`.
+- **Fixed:** `check_corpus.py` requires scope status `stored`, a real `in_force` date, and a `fetched_url` and 64-hex `fetched_sha256` on every record that is not a `repealed: true` stub. It is strict by default, and `update.py` and `build.py` use it. `check_corpus.py` and `publish_gate.py` reject an `--iso2` that is not two capital letters with a `register/XX/scope.json` (PR #77, issue #53).
+- **Fixed:** `watch.py` no longer updates `checked_on` after a failed check, and `ni-ley-1061-lagaceta-ediciones` is seeded in `upkeep/seen.json` (PR #73, issue #57). `queue.py` writes `queue.csv` through a temp file (PR #74).
+- **Changed:** `MAINTAINING.md` and `MCP.md` match the code; the hardcoded test and record counts are gone (PR #79, issue #52).
+- **Changed:** `dk-transport-ghg` has `in_force` 2009-07-01 and `tw-annual-report-regs` 1989-01-01 in `scope.json`, and three Argentine entries now say in their evidence why `in_force` stays null (PR #81, issue #58).
+- **Open:** 72 stored scope entries still have `in_force: null`, and the 259 link-only entries are untouched (issue #58).
+- **Open:** owner decisions: scope expansion (issue #16), licence table verdicts (issue #18), the update path for most sources (issue #21), and the items of issue #17 not listed above.
+- **Open:** found while fixing, not fixed: 22 watchers have no `queue.csv` row; 156 `seen.json` entries carry a `checked_on` written by a failed run; 24 list watchers hold empty signals; `tools/triage.py` still builds a last-row-wins dict; `update.py` `save_queue()` overwrites in place; `default_fetch` can raise on a corrupt gzip body; `reseed()` skips the empty-list check; `records/CM/test-dir/test.txt` is a tracked non-JSON file no gate refuses.
+
 ## 2026-11-16
 - **Added:** optional `applies_from` and `applies_note` fields on scope entries, shown by `tools/law.py` and the MCP server with a `not_yet_applying` flag, because an instrument can enter into force years before its duties apply (Forced Labour Regulation: in force 2024-12-13, main prohibition from 2027-12-14). Set for 17 EU entries from dates read in the acts or their scope notes. Entries without the field have no recorded application date; CSRD is one of them. `check_corpus.py` refuses a malformed `applies_from`.
 - **Added:** 16 EU-level instruments on EUR-Lex, with adopted and consolidated English texts (70 new record files), scope entries, register rows and Cellar watchers: emissions trading and carbon pricing (ETS Directive 2003/87/EC, Regulations (EU) 2018/2066 and 2018/2067, CBAM 2023/956), green claims and deforestation (Directives 2024/825 and 2005/29/EC, Regulation 2023/1115), reporting and due diligence (Directive 2013/34/EU, Regulations 2017/821, 2024/3015 and 2023/1542), climate framework and sustainable finance (Regulations 2021/1119, 2023/2631, 2024/3005, 2019/2089 and 2016/1011). In `in_force`, the date of entry into force is used; where an act applies later the application date is in the scope entry's notes.
@@ -16,18 +26,18 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 
 ## 2026-11-15
 - **Added:** deep review report in `tickets/GEL-33-deep-review.md`.
-- **Open:** `check_corpus.py`, `publish_gate.py`, `update.py`, and `build.py` use last-row-wins dict lookup for duplicate `source_id`s in `sources.json` (`F2-2`, S1).
-- **Open:** `acceptance_mcp.py` lacks a negative check for a licence-denied stored record and passes if `link only` `read_text` leaks `text` (`F2-3`, S1).
-- **Open:** `update.py` leaves `queue.csv` marked `stored` and 4 staged files on `main` when `git commit` fails (`F4-1`, S1).
-- **Open:** `query.py` `_version()` only prefers `consolidated` over `adopted` when both share the same language, and same-language `translation` overwrites `consolidated` (`F1-1`, S2).
-- **Open:** `query.py` `lookup()` compares `on` as an unvalidated string (`F1-2`, S2).
-- **Open:** `query.py` `read_text()` compares only `verdict` across duplicate `source_id` rows, suppressing ambiguity in licence URL, terms, or place (`F2-4`, S2).
-- **Open:** `publish_gate.py` checks `scope.json` `source_row` instead of each record's `source_id`, and ignores orphan records (`F2-5`, S2).
-- **Open:** `coverage.py` drops 152 `stored` scope entries from the `COVERAGE.md` grid due to `(iso2, title)` join mismatch (`F3-1`, S2).
-- **Open:** `register/register.csv` has 7 duplicate `(iso2, instrument_title)` groups across 19 rows (`F3-3`, S2).
-- **Open:** `update.py` aborts the entire batch on any mid-batch transport exception (`F4-2`, S2).
-- **Open:** `watch.py --reseed` can silently swallow a real law change (`F4-3`, S2).
-- **Open:** no concurrency control across `watch.py`, `queue.py`, and `update.py` (`F4-5`, S2).
+- **Fixed:** `check_corpus.py`, `publish_gate.py`, `update.py`, and `build.py` use last-row-wins dict lookup for duplicate `source_id`s in `sources.json` (`F2-2`, S1). Now one `load_sources()` in `tools/make_sources.py` groups rows by id and raises on conflicting duplicates; the four tools and `queue.py` use it (PR #72, PR #74).
+- **Fixed:** `acceptance_mcp.py` lacks a negative check for a licence-denied stored record and passes if `link only` `read_text` leaks `text` (`F2-3`, S1). Now it asserts `text` is null on the link-only answer and refuses a stored record whose source fails the licence check (PR #78).
+- **Fixed:** `update.py` leaves `queue.csv` marked `stored` and 4 staged files on `main` when `git commit` fails (`F4-1`, S1). Now a failed `git add` or `git commit` resets the index, deletes the branch, restores the files and writes `queue.csv` back as it was (PR #74).
+- **Fixed:** `query.py` `_version()` only prefers `consolidated` over `adopted` when both share the same language, and same-language `translation` overwrites `consolidated` (`F1-1`, S2). Now consolidated ranks above adopted and adopted above translation, across languages (PR #76).
+- **Fixed:** `query.py` `lookup()` compares `on` as an unvalidated string (`F1-2`, S2). Now it raises `ValueError` for a date that is not a real `YYYY-MM-DD` (PR #76).
+- **Fixed:** `query.py` `read_text()` compares only `verdict` across duplicate `source_id` rows, suppressing ambiguity in licence URL, terms, or place (`F2-4`, S2). Now it compares whole rows, so duplicates that differ in any field withhold the text (PR #76).
+- **Fixed:** `publish_gate.py` checks `scope.json` `source_row` instead of each record's `source_id`, and ignores orphan records (`F2-5`, S2). Now it checks each record's `source_id` against the scope entry and refuses record folders no scope entry references (PR #77).
+- **Fixed:** `coverage.py` drops 152 `stored` scope entries from the `COVERAGE.md` grid due to `(iso2, title)` join mismatch (`F3-1`, S2). Now scope entries match register rows by `scope_id`, exact title, or a URL that only one row and one entry share (PR #80): stored entries missing from the grid fell from 152 to 6, and 23 entries of any status still have no grid row.
+- **Fixed:** `register/register.csv` has 7 duplicate `(iso2, instrument_title)` groups across 19 rows (`F3-3`, S2). Now nine rows are removed (PR #80); the two LU bill 8370 rows stay, because their law family differs and the choice is a policy call.
+- **Fixed:** `update.py` aborts the entire batch on any mid-batch transport exception (`F4-2`, S2). Now a transport error refuses that row, with the reason in its notes, and the batch continues (PR #74).
+- **Fixed:** `watch.py --reseed` can silently swallow a real law change (`F4-3`, S2). Now `--reseed` writes a `new_version` row for each unseen signal of a list watcher (PR #73).
+- **Fixed:** no concurrency control across `watch.py`, `queue.py`, and `update.py` (`F4-5`, S2). Now `flock` on `upkeep/.lock` guards the read-modify-write of `seen.json` and `queue.csv` (PR #75).
 
 - **Changed:** the published `history` branch was rebuilt and replaced (commit `82181f25`, 3,247 commits; the build before it was `745289cd`). It now holds the seven records added on 2026-11-15. Commit ids on `history` changed, so anyone who fetched the old branch needs to fetch it again. The Cite line, `CITATION.cff` and `MAINTAINING.md` name the new build.
 
