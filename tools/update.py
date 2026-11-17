@@ -2,6 +2,7 @@
 """Turn a confirmed queue row into one record file and one commit on an upkeep branch.
 
 python3 tools/update.py [--row <watcher_id>:<signal>] [--dry-run] [--no-commit]
+python3 tools/update.py --row <key> --file <path> --url <url> [--plain] [--language <code>] [--in-force DATE]
 
 Every row of upkeep/queue.csv with outcome `confirm` and change `new_version` (or the one named by
 --row) is processed: the text is fetched with the recipe of its sources.json row, one record is
@@ -15,6 +16,12 @@ A confirmed row with change `repealed` goes the same way without a fetch: the re
 repeal (`text` empty, `repealed: true`, `in_force` the row's signal), so the dated history gains one
 commit with trailer `Kind: repeal` and nothing earlier is edited. A `repealed` row whose signal is
 not a date is refused.
+
+With --file the text is a file the reviewer fetched by hand from --url, not a recipe fetch: the same verdict
+check, record, scope mark, SOURCES.md line, gate and branch commit, with `supplied_by_hand: true` in the record
+and a `Supplied-by: hand` trailer. --in-force gives the in-force date instead of the row's signal (needed when the
+signal is not a date), --language the record language (a source with no recipe has none), --plain keeps the file's own line breaks instead of
+running the extractor. A `repealed` row is refused: a repeal stores no text.
 """
 import argparse
 import contextlib
@@ -32,7 +39,7 @@ from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
-from check_corpus import check
+from check_corpus import check, real_date
 from make_sources import load_sources
 from watch import COLUMNS, upkeep_lock
 
@@ -45,6 +52,7 @@ UPKEEP_INTRO = ("Records stored by `tools/update.py` from confirmed `upkeep/queu
                 "date stored, record path, source row, request URL, sha256 of the file as returned, queue row.")
 CELLAR = "https://publications.europa.eu/resource/celex/"
 EU_HEADERS = {"Accept": "application/xhtml+xml", "Accept-Language": "eng"}
+HAND_DROP = ("head", "script", "style")  # extractor subtrees left out of a hand-fetched HTML file
 
 
 # ---------------------------------------------------------------- fetch recipes (SOURCES.md)
@@ -262,20 +270,37 @@ def add_sources_line(path, line):
 
 # ---------------------------------------------------------------- the flow
 
-def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=True, out=None):
+def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=True, out=None, hand=None):
     """Process the confirmed rows. Return a list of {key, status, detail[, path, branch]} where status is
     `stored`, `refused` (reason written to notes), `open` (left as is) or `planned` (dry run).
 
     A real run holds the upkeep lock from the first queue read to the last git command, so queue.py and watch.py
     wait their turn and nobody edits queue.csv while this run switches branches. A dry run writes nothing and takes none.
+
+    hand = {file, url, plain, language, in_force} stores one row (`row` is required) from a file fetched by hand.
     """
     repo = Path(repo).resolve()
     with contextlib.nullcontext() if dry_run else upkeep_lock(repo):
-        return _update(repo, fetch, today, row, dry_run, commit, out)
+        return _update(repo, fetch, today, row, dry_run, commit, out, hand)
 
 
-def _update(repo, fetch, today, row, dry_run, commit, out):
+def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
     fetch = fetch or default_fetch
+    if hand:
+        if row is None or not re.fullmatch(r"https?://[^\s`]+", hand["url"] or ""):
+            raise ValueError("--file needs --row and --url, an http(s) address with no spaces or backticks")
+        if hand["in_force"] and not real_date(hand["in_force"]):
+            raise ValueError(f"--in-force {hand['in_force']!r} is not a real date as YYYY-MM-DD")
+        if hand["language"] and not re.fullmatch(r"[a-z]{2}", hand["language"]):
+            raise ValueError(f"--language {hand['language']!r} is not an ISO 639-1 code (two lowercase letters)")
+        hand_body = Path(hand["file"]).read_bytes()
+        if not hand_body.strip():
+            raise ValueError(f"{hand['file']} is empty")
+        try:
+            hand_body.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise ValueError(f"{hand['file']} is not UTF-8: {exc}") from exc
+        fetch = lambda url, headers: (200, hand_body)  # the file takes the place of the fetch; no network call is made
     today = (today or date.today()).isoformat() if not isinstance(today, str) else today
     out = out or sys.stdout
     sources = load_sources(repo / "sources.json")
@@ -299,7 +324,8 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
         results.append({"key": key, "status": status, "detail": detail, **extra})
 
     for r in selected:
-        key, iso2, instrument, source_id, in_force = row_key(r), r["iso2"], r["instrument"], r["source_id"], r["signal"]
+        key, iso2, instrument, source_id = row_key(r), r["iso2"], r["instrument"], r["source_id"]
+        in_force = (hand or {}).get("in_force") or r["signal"]  # --in-force is the reviewer's date for a row with none
         repeal = r.get("change") == "repealed"
 
         def refuse(reason):
@@ -316,7 +342,8 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
             if repeal:
                 refuse(f"signal {in_force!r} is not a repeal date (YYYY-MM-DD)")
             else:
-                say(key, "open", f"signal {in_force!r} is not an in-force date, left open")
+                say(key, "open", f"signal {in_force!r} is not an in-force date, left open"
+                                 + (" (pass --in-force DATE)" if hand else ""))
             continue
         source = sources.get(source_id)
         if source is None:
@@ -325,8 +352,11 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
         if source.get("verdict") != "pass":
             refuse(f"source {source_id} verdict is {source.get('verdict')!r}, not 'pass'")
             continue
+        if hand and repeal:
+            refuse("row is a repeal, which stores no text: run it without --file")
+            continue
         recipe = RECIPES.get(source_id)
-        if recipe is None and not repeal:  # a repeal fetches nothing, so it needs no recipe
+        if recipe is None and not repeal and not hand:  # a repeal fetches nothing, a hand file needs no recipe
             say(key, "open", f"no recipe for {source_id}")
             continue
         scope_path = repo / "register" / iso2 / "scope.json"
@@ -345,7 +375,9 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
                 continue
             language = languages[0]
         else:
-            language = LANGUAGES[source_id]
+            language = (hand or {}).get("language") or LANGUAGES.get(source_id)
+            if language is None:  # an input to fix and rerun, not a verdict on the row: nothing is written
+                raise ValueError(f"{source_id} has no recipe language: pass --language")
         path = folder / f"{in_force}-{label}-{language}.json"  # new form; the old form {in_force}-{label}.json is still read
         rel = path.relative_to(repo).as_posix()
         branch = f"upkeep/{iso2}-{instrument}-{in_force}"
@@ -357,6 +389,8 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
             continue
         if repeal:
             plan = {"url": None}
+        elif hand:
+            plan = {"url": hand["url"], "headers": {}, "drop": HAND_DROP}
         else:
             try:
                 plan = recipe(entry, in_force)
@@ -364,8 +398,9 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
                 refuse(str(exc))
                 continue
         if dry_run:
-            say(key, "planned", ("would write a repeal record " if repeal else f"would fetch {plan['url']}, write ")
-                                + f"{rel}, mark {instrument} stored in register/{iso2}/scope.json, add a SOURCES.md line"
+            act = ("would write a repeal record " if repeal else
+                   f"would read {hand['file']} as {plan['url']}, write " if hand else f"would fetch {plan['url']}, write ")
+            say(key, "planned", act + f"{rel}, mark {instrument} stored in register/{iso2}/scope.json, add a SOURCES.md line"
                                 + (f", commit to {branch}" if commit else ", leave the files uncommitted"))
             continue
         if repeal:
@@ -385,7 +420,7 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
             if not body:
                 refuse(f"fetch of {plan['url']} returned an empty body")
                 continue
-            text = extract_text(body, plan["drop"])
+            text = body.decode("utf-8-sig").replace("\r\n", "\n") if hand and hand["plain"] else extract_text(body, plan["drop"])
             if not text.strip():
                 refuse(f"no text extracted from {plan['url']}")
                 continue
@@ -394,8 +429,11 @@ def _update(repo, fetch, today, row, dry_run, commit, out):
                       "fetched_url": plan["url"], "fetched_sha256": sha256}
             if plan.get("message"):
                 record["message"] = plan["message"]
-            provenance = f"fetched `{plan['url']}`, sha256 `{sha256}`"
+            provenance = f"{'supplied by hand from' if hand else 'fetched'} `{plan['url']}`, sha256 `{sha256}`"
             trailers = f"Fetched-url: {plan['url']}\nFetched-sha256: {sha256}"
+            if hand:
+                record["supplied_by_hand"] = True
+                trailers += "\nSupplied-by: hand"
         sources_md = repo / "SOURCES.md"
         before = {p: (p.read_bytes() if p.exists() else None) for p in (scope_path, sources_md)}
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -447,10 +485,21 @@ def main(argv=None):
     parser.add_argument("--row", help="process only this row, as <watcher_id>:<signal>")
     parser.add_argument("--dry-run", action="store_true", help="fetch nothing, write nothing, print what would be done")
     parser.add_argument("--no-commit", action="store_true", help="leave the files in the working tree, create no branch")
+    parser.add_argument("--file", help="a text file fetched by hand, stored instead of running a recipe (needs --row and --url)")
+    parser.add_argument("--url", help="the URL --file was fetched from, recorded as fetched_url")
+    parser.add_argument("--plain", action="store_true", help="with --file: keep the file's line breaks, skip the extractor")
+    parser.add_argument("--language", help="with --file: ISO 639-1 language of the text (default: the recipe's)")
+    parser.add_argument("--in-force", help="with --file: in-force date YYYY-MM-DD, used instead of the row's signal")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
+    if args.file is None and (args.url or args.plain or args.language or args.in_force):
+        parser.error("--url, --plain, --language and --in-force go with --file")
+    if args.file is not None and not (args.row and args.url):
+        parser.error("--file needs --row and --url")
+    hand = None if args.file is None else {"file": args.file, "url": args.url, "plain": args.plain,
+                                           "language": args.language, "in_force": args.in_force}
     try:
-        results = update(args.repo, row=args.row, dry_run=args.dry_run, commit=not args.no_commit)
+        results = update(args.repo, row=args.row, dry_run=args.dry_run, commit=not args.no_commit, hand=hand)
     except (ValueError, OSError, json.JSONDecodeError, KeyError, subprocess.CalledProcessError) as exc:
         print(getattr(exc, "stderr", None) or exc, file=sys.stderr)
         return 1

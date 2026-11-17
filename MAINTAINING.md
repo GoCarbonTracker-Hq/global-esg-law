@@ -10,6 +10,8 @@ On the `history` branch each record is one commit. The commit carries trailers t
 
 A record with `"re_enactment": true` marks an instrument re-enacted on or after its repeal. The builder writes `Re-enactment: true` on that commit. The publish gate refuses any other record dated on or after the instrument's repeal. A record with `in_force: null` uses its file-name date as a publication date and carries `Date-basis: publication` in its commit.
 
+A record with `"supplied_by_hand": true` was stored by `update.py --file` from a text file a person fetched by hand (see "Bring your own file" in `upkeep/README.md`), not by a recipe. Its `fetched_url` is the page the person says it came from and `fetched_sha256` is the hash of the file as given, so nothing proves the file matches that page. The builder writes `Supplied-by: hand` on its history commit. Before a hand record is published, open the URL and compare the text and the in-force date with the file; a recipe-fetched record can be re-fetched and compared by anyone, a hand one needs a second person.
+
 Records marked `"extraction": "ocr"` come from scanned PDFs. The text is stored uncorrected, with the URL and sha256 of the original PDF in `fetched_url` and `fetched_sha256`. Arabic OCR in particular misreads digits, so check dates and article numbers against the PDF.
 
 ## Rebuild the history

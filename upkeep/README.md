@@ -138,13 +138,32 @@ python3 tools/build.py --branch history
 
 `--branch history` is the only build command: on a repository with tracked records a run without `--branch` exits 2 and writes nothing.
 
-For each row, `update.py` reads the `sources.json` row named by `source_id` and refuses the row at once, before any fetch, when that row's verdict is not `pass` at that moment. It then fetches the text with the recipe in `SOURCES.md` for that source (EUR-Lex Cellar by CELEX number, adopted or consolidated; legislation.gov.uk `data.xml`, enacted, made or revised; eCFR versioner by date), writes `records/<iso2>/<instrument>/<signal>-<kind>.json` with the six record keys, marks the scope.json entry `stored` and adds the source row to its `source_row` where a second form arrives (what the pilot stories did), appends one line under `### upkeep` in `SOURCES.md`, and runs `tools/check_corpus.py`. The `signal` of the row is the `in_force` date. A source without a recipe (Federal Register, California bulk files, non-pass rows) prints `no recipe for <source_id>` and the row stays open.
+For each row, `update.py` reads the `sources.json` row named by `source_id` and refuses the row at once, before any fetch, when that row's verdict is not `pass` at that moment. It then fetches the text with the recipe in `SOURCES.md` for that source (EUR-Lex Cellar by CELEX number, adopted or consolidated; legislation.gov.uk `data.xml`, enacted, made or revised; eCFR versioner by date), writes `records/<iso2>/<instrument>/<signal>-<kind>.json` with the six record keys, marks the scope.json entry `stored` and adds the source row to its `source_row` where a second form arrives (what the pilot stories did), appends one line under `### upkeep` in `SOURCES.md`, and runs `tools/check_corpus.py`. The `signal` of the row is the `in_force` date. A source without a recipe (Federal Register, California bulk files, non-pass rows) prints `no recipe for <source_id>` and the row stays open; to store it anyway, supply the text by hand (next section).
 
 A refused row (verdict not `pass`, fetch failed, record already present, gate failed) keeps its `outcome`; the reason is written into `notes` as `refused <date>: <reason>`, and the files written for it are taken back. A stored row gets `outcome` `stored` and `notes` `stored <record path>`.
 
 A `confirm` row with change `repealed` (a watcher may set `change: repealed`) goes through the same steps without a fetch: `update.py` writes `records/<iso2>/<instrument>/<signal>-repeal.json` with `text` empty and `repealed: true`, `in_force` the row's `signal`, and its `SOURCES.md` line names the row's evidence URL instead of a fetch. The next `build.py --branch history` adds one commit with trailer `Kind: repeal` at that date and `law.py` stops listing the instrument from it; every earlier commit keeps its hash. A `repealed` row whose `signal` is not a `YYYY-MM-DD` date is refused with the reason in `notes`. An amendment needs no special row: the consolidated text at the amendment's date is a `new_version` row like any other.
 
 By default the four changed paths (the record, `register/<iso2>/scope.json`, `SOURCES.md`, `upkeep/queue.csv`) are committed to a branch `upkeep/<iso2>-<instrument>-<in_force>` created from the current branch, one branch per row, and the tool prints the `git push -u origin` and `gh pr create --head` commands. It never pushes and never commits on the current branch; refusal notes stay in the working tree of the current branch for the reviewer. The commit step refuses to run while `SOURCES.md`, `upkeep/queue.csv`, `records/` or `register/` have uncommitted changes. `--no-commit` leaves the files in the working tree instead. `--dry-run` fetches nothing, writes nothing and prints what each row would do. The exit code is 1 when any selected row was refused or left open.
+
+### Bring your own file
+
+Most sources have no recipe, and a hash or header watcher gives no date. For both, fetch the text by hand and give the file to `update.py`. The row must already be `confirm`, and the confirm committed.
+
+```
+python3 tools/update.py --row <watcher_id>:<signal> --file <path> --url <url> [--plain] [--language <code>] [--in-force YYYY-MM-DD]
+```
+
+The file goes through the same steps as a fetched text: verdict check, record, scope mark, `SOURCES.md` line, gate, one commit on an `upkeep/` branch. Nothing is fetched. `--dry-run` and `--no-commit` work as before.
+
+- `--url` is the page you fetched the file from. It is stored as `fetched_url`, and the sha256 of the file you give as `fetched_sha256`. The tool cannot check that the file came from that URL.
+- `--in-force` is the in-force date, read by you from the commencement clause or the gazette line. It replaces the row's `signal`, so a `page_hash` or `http_head` row can be stored. Without it, a row whose signal is not a date stays open.
+- `--language` is the ISO 639-1 code of the text. A source without a recipe has no default, so the tool refuses without it. A source with a recipe defaults to `en`.
+- `--plain` stores the file as it is, with its own line breaks. Without it the file goes through the HTML/XML extractor, which flattens line breaks inside text. The file must be UTF-8 either way.
+
+The record gets `supplied_by_hand: true`, and the upkeep commit and the history commit carry the trailer `Supplied-by: hand`.
+
+The tool stops with a message, exit 1 and nothing written when the file is empty or not UTF-8, when `--url`, `--in-force` or `--language` is malformed, or when `--language` is missing for a source with no recipe: fix the input and run again. The row is refused, with the reason in `notes`, when its source verdict is not `pass` or the row is a `repealed` row (a repeal stores no text; run it without `--file`). Like any refusal, it writes only that note.
 
 ## Pilot watchers (GEL-02-07)
 
