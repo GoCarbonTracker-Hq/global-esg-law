@@ -32,7 +32,7 @@ As of 2026-11-17 the published `history` build (`c76381e2`, 3,317 commits) holds
 python3 -m pytest tests -q
 ```
 
-Python 3.11 or later, standard library plus git. pytest is the only extra. The `tests` workflow runs this, the corpus check and the publish gate on every pull request and on `main`. On 2026-11-13 the run ended with `259 passed`. The workflow fetches the `history` branch first, and fails if a test that reads the real history is skipped; a local run without that branch skips those tests instead.
+Python 3.11 or later, standard library plus git. pytest is the only extra. The `tests` workflow runs this, the corpus check and the publish gate on every pull request and on `main`. The workflow fetches the `history` branch first, and fails if a test that reads the real history is skipped; a local run without that branch skips those tests instead.
 
 `tools/acceptance_mcp.py` compares the server against named records (the CSRD character count and version dates, the AE link-only list, the YE OCR record, the EE dates); update it when those records are re-extracted.
 
@@ -40,14 +40,18 @@ Python 3.11 or later, standard library plus git. pytest is the only extra. The `
 
 Run these in order and compare each last line with the expected one:
 
-1. `python3 tools/check_corpus.py` ends with `3240 records checked` (as of 2026-11-10).
+1. `python3 tools/check_corpus.py` exits 0 and ends with `N records checked`.
 2. `python3 tools/publish_gate.py` exits 0.
 3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
 4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
 5. `python3 tools/watch.py --dry-run` exits 0 or 1, never 2.
 6. `python3 tools/coverage_grid.py`, then `git diff --quiet assets/coverage-grid.svg` exits 0 (no change).
 
-`publish_gate.py` prints every source row and scope entry. It exits non-zero if an entry is `pending`, a stored entry has no record or a source row that is not `pass`, or a link-only entry has records.
+`check_corpus.py` prints `N records checked`, or the path and reason of the first record it refuses, and exits 1. It is strict by default: a record needs a source row with verdict `pass`, a `source_id` listed in its scope entry's `source_row`, a scope entry with status `stored`, a real `in_force` date, and, unless it is a `repealed: true` stub, a `fetched_url` and a `fetched_sha256` of 64 lowercase hex digits.
+
+`publish_gate.py` prints every source row and scope entry. It exits non-zero if an entry is `pending` or has a status other than `stored`, `link only` or `pending`; a stored entry has no record, a source row that is not `pass`, or a record whose `source_id` is not in its `source_row` or whose source is not `pass`; a link-only entry has records; a record is dated on or after its instrument's repeal without `re_enactment`; a record file is not at `records/<ISO2>/<instrument>/<file>.json`; or a record folder has no entry in `register/<ISO2>/scope.json`.
+
+Both tools take `--iso2 XX` to cover one place. `XX` must be two capital letters with a `register/XX/scope.json`; anything else exits 1.
 
 ## Watcher runs
 
