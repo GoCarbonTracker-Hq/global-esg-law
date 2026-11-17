@@ -77,3 +77,13 @@ def test_real_table_has_unique_ids_and_no_blank_lines():
     assert all(line.strip() for line in lines)
     ids = [line.split(",", 1)[0] for line in lines[1:]]
     assert len(ids) == len(set(ids))
+
+
+def test_terms_conflict_token_is_only_on_statute_rows_and_starts_notes():
+    with open(ROOT / "sources" / "licence-table.csv", newline="", encoding="utf-8") as f:
+        marked = [r for r in csv.DictReader(f) if "TERMS-CONFLICT:" in r["notes"]]
+    assert marked, "no row carries TERMS-CONFLICT:"
+    bad = [r["id"] for r in marked
+           if r["verdict_basis"] != "statute" or not r["notes"].startswith("TERMS-CONFLICT: ")
+           or "TERMS-CONFLICT:" in r["notes"][len("TERMS-CONFLICT:"):]]
+    assert bad == [], f"TERMS-CONFLICT: must start notes and sit only on statute rows: {bad}"
