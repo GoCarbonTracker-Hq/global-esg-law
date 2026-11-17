@@ -2,6 +2,7 @@
   {
     "id": "li-pgr-art-1096b-k",
     "title": "Persons and Companies Act (PGR), sustainability reporting amendments implementing CSRD",
+    "aliases": ["PGR"],
     "official_url": "https://www.gesetze.li/konso/1926004000",
     "citation": "Personen- und Gesellschaftsrecht (PGR, LGBl 1926 Nr. 4, LR 216.0), III. Nachhaltigkeitsberichterstattung, Art. 1096b to 1096k, inserted by the Gesetz vom 7. März 2024 über die Abänderung des Personen- und Gesellschaftsrechts (LGBl 2024 Nr. 170)",
     "in_force": "2024-07-01",
@@ -62,6 +63,7 @@
   {
     "id": "li-ehg",
     "title": "Emissionshandelsgesetz (EHG) vom 19. September 2012",
+    "aliases": ["EHG"],
     "official_url": "https://www.gesetze.li/konso/2012346000",
     "citation": "Emissionshandelsgesetz (EHG) vom 19. September 2012, LGBl 2012 Nr. 346, LR 814.05",
     "in_force": "2012-12-01",
@@ -79,6 +81,7 @@
   {
     "id": "li-ehv",
     "title": "Emissionshandelsverordnung (EHV) vom 20. November 2012",
+    "aliases": ["EHV"],
     "official_url": "https://www.gesetze.li/konso/2012379000",
     "citation": "Emissionshandelsverordnung (EHV) vom 20. November 2012, LGBl 2012 Nr. 379, LR 814.051",
     "in_force": "2012-12-01",
@@ -96,6 +99,7 @@
   {
     "id": "li-co2-gesetz",
     "title": "Gesetz vom 6. September 2013 über die Reduktion der CO2-Emissionen (CO2-Gesetz)",
+    "aliases": ["CO2-Gesetz"],
     "official_url": "https://www.gesetze.li/konso/2013358000",
     "citation": "Gesetz vom 6. September 2013 über die Reduktion der CO2-Emissionen (CO2-Gesetz), LGBl 2013 Nr. 358, LR 814.065",
     "in_force": "2013-12-01",
@@ -113,6 +117,7 @@
   {
     "id": "li-co2-verordnung",
     "title": "Verordnung vom 29. Oktober 2013 über die Reduktion der CO2-Emissionen (CO2-Verordnung)",
+    "aliases": ["CO2-Verordnung"],
     "official_url": "https://www.gesetze.li/konso/2013359000",
     "citation": "Verordnung vom 29. Oktober 2013 über die Reduktion der CO2-Emissionen (CO2-Verordnung), LGBl 2013 Nr. 359, LR 814.065.1",
     "in_force": "2013-12-01",
@@ -130,6 +135,7 @@
   {
     "id": "li-usg",
     "title": "Umweltschutzgesetz (USG) vom 29. Mai 2008",
+    "aliases": ["USG"],
     "official_url": "https://www.gesetze.li/konso/2008199000",
     "citation": "Umweltschutzgesetz (USG) vom 29. Mai 2008, LGBl 2008 Nr. 199, LR 814.01",
     "in_force": "2008-09-01",
@@ -164,6 +170,7 @@
   {
     "id": "li-uwg",
     "title": "Gesetz vom 22. Oktober 1992 gegen den unlauteren Wettbewerb (UWG)",
+    "aliases": ["UWG"],
     "official_url": "https://www.gesetze.li/konso/1992121000",
     "citation": "Gesetz vom 22. Oktober 1992 gegen den unlauteren Wettbewerb (UWG), LGBl 1992 Nr. 121, LR 240; Art. 2 (Grundsatz), Art. 3 (Unlautere Werbe- und Verkaufsmethoden) and Art. 8b (Irreführung gegenüber Konsumenten)",
     "in_force": "1994-11-01",

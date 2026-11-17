@@ -2,6 +2,7 @@
   {
     "id": "eu-csrd-2022-2464",
     "title": "Directive (EU) 2022/2464 as regards corporate sustainability reporting (CSRD)",
+    "aliases": ["CSRD"],
     "official_url": "https://eur-lex.europa.eu/eli/dir/2022/2464/oj",
     "citation": "32022L2464",
     "in_force": "2023-01-05",
@@ -17,6 +18,7 @@
   {
     "id": "eu-esrs-2023-2772",
     "title": "Commission Delegated Regulation (EU) 2023/2772 supplementing Directive 2013/34/EU as regards sustainability reporting standards (ESRS)",
+    "aliases": ["ESRS"],
     "official_url": "https://eur-lex.europa.eu/eli/reg_del/2023/2772/oj",
     "citation": "32023R2772",
     "in_force": "2023-12-25",
@@ -49,6 +51,7 @@
   {
     "id": "eu-sfdr-2019-2088",
     "title": "Regulation (EU) 2019/2088 on sustainability-related disclosures in the financial services sector (SFDR)",
+    "aliases": ["SFDR"],
     "official_url": "https://eur-lex.europa.eu/eli/reg/2019/2088/oj",
     "citation": "32019R2088",
     "in_force": "2019-12-29",
@@ -63,6 +66,7 @@
   {
     "id": "eu-csddd-2024-1760",
     "title": "Directive (EU) 2024/1760 on corporate sustainability due diligence (CSDDD)",
+    "aliases": ["CSDDD"],
     "official_url": "https://eur-lex.europa.eu/eli/dir/2024/1760/oj",
     "citation": "32024L1760",
     "in_force": "2024-07-25",
@@ -242,6 +246,7 @@
   {
     "id": "eu-empowering-consumers-2024-825",
     "title": "Directive (EU) 2024/825 amending Directives 2005/29/EC and 2011/83/EU as regards empowering consumers for the green transition through better protection against unfair practices and through better information",
+    "aliases": ["ECGT"],
     "official_url": "https://eur-lex.europa.eu/eli/dir/2024/825/oj",
     "citation": "32024L0825",
     "in_force": "2024-03-26",
@@ -273,6 +278,7 @@
   {
     "id": "eu-eudr-2023-1115",
     "title": "Regulation (EU) 2023/1115 on the making available on the Union market and the export from the Union of certain commodities and products associated with deforestation and forest degradation (EUDR)",
+    "aliases": ["EUDR"],
     "official_url": "https://eur-lex.europa.eu/eli/reg/2023/1115/oj",
     "citation": "32023R1115",
     "in_force": "2023-06-29",
@@ -427,6 +433,7 @@
   {
     "id": "eu-ets-2003-87",
     "title": "Directive 2003/87/EC establishing a scheme for greenhouse gas emission allowance trading within the Community",
+    "aliases": ["EU ETS"],
     "official_url": "https://eur-lex.europa.eu/eli/dir/2003/87/oj",
     "citation": "32003L0087",
     "in_force": "2003-10-25",
@@ -481,6 +488,7 @@
   {
     "id": "eu-cbam-2023-956",
     "title": "Regulation (EU) 2023/956 establishing a carbon border adjustment mechanism",
+    "aliases": ["CBAM"],
     "official_url": "https://eur-lex.europa.eu/eli/reg/2023/956/oj",
     "citation": "32023R0956",
     "in_force": "2023-05-17",

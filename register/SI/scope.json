@@ -18,6 +18,7 @@
   {
     "id": "si-zgd-1m",
     "title": "Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1M)",
+    "aliases": ["ZGD-1M"],
     "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2024-01-3204/zakon-o-spremembah-in-dopolnitvah-zakona-o-gospodarskih-druzbah-zgd-1m",
     "citation": "Uradni list RS, št. 102/2024 z dne 3. 12. 2024",
     "in_force": "2024-12-18",
@@ -35,6 +36,7 @@
   {
     "id": "si-zgd-1n",
     "title": "Zakon o spremembi Zakona o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1N)",
+    "aliases": ["ZGD-1N"],
     "official_url": "https://www.uradni-list.si/glasilo-uradni-list-rs/vsebina/2025-01-2733",
     "citation": "Uradni list RS, št. 77/2025 z dne 7. 10. 2025",
     "in_force": "2025-10-08",
@@ -52,6 +54,7 @@
   {
     "id": "si-zgd-1o",
     "title": "Zakon o spremembah in dopolnitvah Zakona o gospodarskih družbah (ZGD-1O)",
+    "aliases": ["ZGD-1O"],
     "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9437",
     "citation": "Uradni list RS, št. 1270/2026 z dne 23. 7. 2026 (SOP 2026-01-1930)",
     "in_force": "2026-07-24",
@@ -119,6 +122,7 @@
   {
     "id": "si-zvpot-1a",
     "title": "Zakon o spremembah in dopolnitvah Zakona o varstvu potrošnikov (ZVPot-1A), transposing Directive (EU) 2024/825",
+    "aliases": ["ZVPot-1A"],
     "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9627",
     "citation": "Uradni list RS, št. 1799/2026 z dne 29. 10. 2026 (SOP 2026-01-2459)",
     "in_force": "2026-11-13",
@@ -154,6 +158,7 @@
   {
     "id": "si-ziuezo",
     "title": "Zakon o izvajanju Uredbe (EU) o evropskih zelenih obveznicah in neobveznih razkritjih za obveznice, ki se tržijo kot okoljsko trajnostne obveznice, in za obveznice, povezane s trajnostnostjo (ZIUEZO)",
+    "aliases": ["ZIUEZO"],
     "official_url": "https://pisrs.si/pregledPredpisa?id=ZAKO9102",
     "citation": "Uradni list RS, št. 24/2025 z dne 8. 4. 2025",
     "in_force": "2025-04-23",

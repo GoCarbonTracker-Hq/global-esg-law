@@ -238,3 +238,19 @@ def test_real_five_entries_match_law_py(real):
             assert item[key] == e[key], (label, key)
         for key in ("status_note", "applies_from", "applies_note"):
             assert item.get(key) == e.get(key), (label, key)
+
+
+def test_real_written_file_carries_aliases_on_exactly_the_scope_entries(real, tmp_path):
+    """Built from origin/history, written to --out, read back: `aliases` is a list of strings on the scope entries
+    that have it, and no entry elsewhere has the key (no [] or null)."""
+    out = tmp_path / "data.json"
+    assert web_data.main(["--ref", REF, "--read-on", READ_ON, "--out", str(out)]) == 0
+    written = json.loads(out.read_text(encoding="utf-8"))
+    scope = {e["id"]: e.get("aliases") for p in ROOT.glob("register/*/scope.json")
+             for e in json.loads(p.read_text(encoding="utf-8"))}
+    expected = {i: a for i, a in scope.items() if a}
+    got = {e["id"]: e["aliases"] for e in written["entries"] if "aliases" in e}
+    assert got == expected and len(got) >= 48
+    assert all(isinstance(a, list) and a and all(isinstance(x, str) for x in a) for a in got.values())
+    assert all(not scope[i] for i in scope if i not in got)
+    assert got["eu-cbam-2023-956"] == ["CBAM"] and got["eu-csrd-2022-2464"] == ["CSRD"]

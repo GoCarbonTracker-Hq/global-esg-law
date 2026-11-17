@@ -149,6 +149,7 @@
   {
     "id": "dk-co2-kvoteloven",
     "title": "Lov om CO2-kvoter (CO2-kvoteloven)",
+    "aliases": ["CO2-kvoteloven"],
     "official_url": "https://www.retsinformation.dk/eli/lta/2023/1767",
     "citation": "Lov nr. 1095 af 28. november 2012; LBK 1605/2016, 62/2021, 536/2022; replaced by Lov nr. 1767 af 28. december 2023 om CO2-kvoter",
     "in_force": "2013-01-01",
@@ -166,6 +167,7 @@
   {
     "id": "dk-co2-afgiftsloven",
     "title": "Lov om kuldioxidafgift af visse energiprodukter (CO2-afgiftsloven)",
+    "aliases": ["CO2-afgiftsloven"],
     "official_url": "https://www.retsinformation.dk/eli/lta/2020/1353",
     "citation": "LBK nr 1353 af 02/09/2020, Bekendtgørelse af lov om kuldioxidafgift af visse energiprodukter",
     "in_force": null,
