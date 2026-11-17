@@ -33,6 +33,45 @@ def _version(repo, row):
     return item
 
 
+def _intervals(repo, ref, iso2, entries):
+    """Set `intervals` on each entry of one place that has version rows.
+
+    The state at each change date comes from query.lookup, so the date rules stay in query.py."""
+    stored = [e for e in entries if e["versions"]]
+    if not stored:
+        return
+    dates = {v["in_force"] for e in stored for v in e["versions"]} | {e["applies_from"] for e in stored if e.get("applies_from")}
+    bad = sorted(d for d in dates if not query._valid_date(d))
+    if bad:
+        raise ValueError(f"place {iso2}: change dates that are not calendar dates: {bad[:5]}")
+    for e in stored:
+        e["intervals"] = []
+    for on in sorted(dates):
+        found, not_yet, _first = query.lookup(iso2, on, repo, ref)
+        found = {i["id"]: i for i in found}
+        waiting = {i["id"] for i in not_yet}
+        for e in stored:
+            if e["id"] in found:
+                item = found[e["id"]]
+                interval = {"from": on, "state": "in_force", "commit": item["commit"]}
+                if item.get("not_yet_applying"):
+                    interval["not_yet_applying"] = True
+            else:
+                # lookup gives no commit for a repeal; take the latest repeal row on or before the date,
+                # first in the entry's sorted rows when two share the day (the fi and sv case)
+                repeals = [v for v in e["versions"] if v["kind"] == "repeal" and v["in_force"] <= on]
+                if not repeals:
+                    if e["id"] not in waiting:
+                        raise ValueError(f"{e['id']} on {on}: not in force, not waiting and not repealed")
+                    continue  # leading "not yet in force": the page reads it as no interval
+                last = max(v["in_force"] for v in repeals)
+                interval = {"from": on, "state": "repealed",
+                            "commit": next(v["commit"] for v in repeals if v["in_force"] == last)}
+            if not e["intervals"] or {k: v for k, v in e["intervals"][-1].items() if k != "from"} != \
+                    {k: v for k, v in interval.items() if k != "from"}:
+                e["intervals"].append(interval)
+
+
 def build(repo, ref, read_on=None):
     repo = Path(repo).resolve()
     read_on = read_on or date.today().isoformat()
@@ -66,6 +105,8 @@ def build(repo, ref, read_on=None):
     if stray:
         raise ValueError(f"history rows with ids absent from every scope file: {stray[:5]}")
     entries.sort(key=lambda e: (e["place"], e["id"]))
+    for iso2 in sorted({e["place"] for e in entries}):
+        _intervals(repo, ref, iso2, [e for e in entries if e["place"] == iso2])
     return {"snapshot": {**shared["snapshot"], "read_on": read_on},
             "coverage": shared["coverage"], "notice": shared["notice"],
             "places": places, "entries": entries}
