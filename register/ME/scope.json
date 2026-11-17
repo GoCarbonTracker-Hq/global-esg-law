@@ -30,7 +30,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Law on Climate Change 149/2025 (two-page act, text read in full). Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/394393/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
     "status": "link only",
-    "amends": "me-climate-change-law"
+    "amends_ids": ["me-climate-change-law"]
   },
   {
     "id": "me-ets-permit-activities-decree",
@@ -111,7 +111,7 @@
     "verification": "official_text_seen",
     "notes": "Amends me-ghg-reporting-rulebook. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396417/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
     "status": "link only",
-    "amends": "me-ghg-reporting-rulebook"
+    "amends_ids": ["me-ghg-reporting-rulebook"]
   },
   {
     "id": "me-ghg-verification-rulebook",
@@ -176,7 +176,7 @@
     "verification": "official_text_seen",
     "notes": "Two-page act; amends me-ghg-data-management-rulebook. Text read: the Gazette PDF https://www.sluzbenilist.me/propisi/396416/download (text layer, pdftotext) on 2026-11-03. Not stored: the record language for Montenegrin would be cnr, which has no ISO 639-1 code and tools/check_corpus.py accepts only two-letter codes; held for decision, text fetchable under ME-SLUZBENILIST-ADOPTED. The Gazette serves only the act as published, no later consolidation under a pass row. English: no official translation found; the Gazette translation register (https://www.sluzbenilist.me/prevodi, 161 titles) lists none of this act and its detail pages answer 404, and gov.me is blocked from the cloud address.",
     "status": "link only",
-    "amends": "me-ghg-data-management-rulebook"
+    "amends_ids": ["me-ghg-data-management-rulebook"]
   },
   {
     "id": "me-ghg-ships-monitoring-rulebook",

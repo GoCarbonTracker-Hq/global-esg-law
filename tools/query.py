@@ -138,7 +138,7 @@ def lookup(iso2, on, repo=ROOT, ref=None, lang=None, detail=False):
             item.update(language=c.get("language"), languages=languages)
             if lang:
                 item["fallback"] = fallback
-        for key in ("status_note", "amends", "applies_from", "applies_note"):
+        for key in ("status_note", "amends_ids", "applies_from", "applies_note"):
             value = scope.get(c["id"], {}).get(key)
             if value:
                 item[key] = value

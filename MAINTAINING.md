@@ -51,6 +51,8 @@ Run these in order and compare each last line with the expected one:
 
 `check_corpus.py` prints `N records checked`, or the path and reason of the first record it refuses, and exits 1. It is strict by default: a record needs a source row with verdict `pass`, a `source_id` listed in its scope entry's `source_row`, a scope entry with status `stored`, a real `in_force` date, and, unless it is a `repealed: true` stub, a `fetched_url` and a `fetched_sha256` of 64 lowercase hex digits.
 
+`check_corpus.py` also reads every scope entry, with or without records, for `amends_ids`: a non-empty list of non-empty strings, each the id of an entry in some `register/*/scope.json`, no duplicate and not the entry's own id. It sits on the amending entry (X lists Y when X amends Y). The old key `amends` is refused. With `--iso2 XX` only that place's entries are checked, and ids resolve across all places. A target that is not an entry cannot be recorded.
+
 `publish_gate.py` prints every source row and scope entry. It exits non-zero if an entry is `pending` or has a status other than `stored`, `link only` or `pending`; a stored entry has no record, a source row that is not `pass`, or a record whose `source_id` is not in its `source_row` or whose source is not `pass`; a link-only entry has records; a record is dated on or after its instrument's repeal without `re_enactment`; a record file is not at `records/<ISO2>/<instrument>/<file>.json`; or a record folder has no entry in `register/<ISO2>/scope.json`.
 
 Both tools take `--iso2 XX` to cover one place. `XX` must be two capital letters with a `register/XX/scope.json`; anything else exits 1.

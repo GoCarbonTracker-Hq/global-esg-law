@@ -47,7 +47,7 @@ def main(argv=None):
         return 0
     for item in found:
         print(f"{item['id']}\t{item['in_force']}\t{item['kind']}\t{item['title']}"
-              + (f"\tamends {item['amends']}" if "amends" in item else ""))
+              + (f"\tamends {', '.join(item['amends_ids'])}" if "amends_ids" in item else ""))
         for other in item["languages"][1:]:
             print(f"  {other['language'] or '-'}\t{other['kind']}")
         if args.lang:

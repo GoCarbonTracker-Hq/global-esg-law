@@ -30,7 +30,8 @@
     ],
     "verification": "official_text_seen",
     "notes": "Climate framework: section 802 requires named departments and agencies to prepare climate change plans and policies by 1 October 2014 and the Office of Environment and Emergency Management to make them public; section 803 requires an annual report by the President to Congress from fiscal year 2015. It puts no duty on companies. Amends fm-epa-title25 (adds Chapter 8). in_force left null because the printed approval date is doubtful (see evidence). Row FM-CFSM-ADOPTED is permission requested, so link only. English is the language of legislation.",
-    "status": "link only"
+    "status": "link only",
+    "amends_ids": ["fm-epa-title25"]
   },
   {
     "id": "fm-consumer-protection-act",

@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Despite its title ('modifiant') the order is a complete restatement of the procedure (72 articles, strategic environmental assessment, impact assessment categories A to D, environmental authorisation, compliance control, sanctions). Record text is the order's own pages of JO 2023-05 (heading to signature), read column by column; the source numbers two consecutive articles 51 and has no article 52, stored as printed. No English translation: looked for at https://www.sgg.gov.gn, https://journal-officiel.sgg.gov.gn, https://medd.gov.gn and https://www.bcrg-guinee.org on 2026-11-03; French is the only language any of them serves.",
     "status": "stored",
-    "amends": "gn-arrete-2022-1646-evaluations-environnementales"
+    "amends_ids": ["gn-arrete-2022-1646-evaluations-environnementales"]
   },
   {
     "id": "gn-arrete-2023-3256-comite-national-changements-climatiques",

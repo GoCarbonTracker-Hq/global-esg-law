@@ -27,7 +27,7 @@
     "notes": "Implements Law 2023-15 (sn-loi-2023-15-code-environnement; the decree's entry carries amends). Row SN-JO-ADOPTED is permission requested (site not opened), so it is not stored; official_url is the gazette site root because no issue URL could be read. primature.sn has no copy (search for 2025-227: no hit; its list stops in 2024). The Article 6 carbon-market decree is not published. No government English found.",
     "status": "link only",
     "status_note": "Date and text taken from secondary copies only; confirm on jo.gouv.sn from the laptop.",
-    "amends": "sn-loi-2023-15-code-environnement"
+    "amends_ids": ["sn-loi-2023-15-code-environnement"]
   },
   {
     "id": "sn-loi-2021-25-consommateur",

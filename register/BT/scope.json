@@ -69,7 +69,7 @@
     "verification": "official_text_seen",
     "notes": "Depository of Laws is a hash-routed app with no stable page per instrument, so official_url is the file or API response the text was read from. Amends the 2012 Regulation (rules 3.2 and 3.4 and following). Languages stored: en and dz from the sections JSON.",
     "status": "stored",
-    "amends": "bt-waste-regulation-2012"
+    "amends_ids": ["bt-waste-regulation-2012"]
   },
   {
     "id": "bt-carbon-markets-rules-2023",
@@ -154,6 +154,6 @@
     "verification": "official_text_seen",
     "notes": "Depository of Laws is a hash-routed app with no stable page per instrument, so official_url is the file or API response the text was read from. Revises Rule 53(b) of the 2015 Rules (penalties). Languages stored: en and dz from the sections JSON.",
     "status": "stored",
-    "amends": "bt-consumer-protection-rules-2015"
+    "amends_ids": ["bt-consumer-protection-rules-2015"]
   }
 ]

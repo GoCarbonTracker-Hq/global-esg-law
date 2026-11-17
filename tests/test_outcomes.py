@@ -44,7 +44,7 @@ def entry(iid, source_row, citation, status, **extra):
 
 SCOPE = [entry("old-act", "EU-EURLEX-CONSOLIDATED", "32099L0001", "stored"),
          entry("new-act", "EU-EURLEX-CONSOLIDATED", "32099L0002", "pending"),
-         entry("amend-act", "EU-EURLEX-ADOPTED", "32099L0003", "stored", amends="old-act"),
+         entry("amend-act", "EU-EURLEX-ADOPTED", "32099L0003", "stored", amends_ids=["old-act", "new-act"]),
          entry("blocked-act", "XX-BLOCKED", "", "link only")]
 
 RECORDS = {"old-act/2020-01-01-consolidated.json": {"source_id": "EU-EURLEX-CONSOLIDATED", "in_force": "2020-01-01",
@@ -164,14 +164,15 @@ def test_amended_second_version_at_a_later_date(tmp_path, capsys):
     after = {i["id"]: i for i in law.in_force("EU", "2027-01-01", repo)}
     assert before["old-act"]["in_force"] == "2020-01-01" and after["old-act"]["in_force"] == "2027-01-01"
     assert len(after) == 2  # one line per instrument, the latest version
-    # the amending act is itself an instrument in scope; its entry carries `amends`
-    assert after["amend-act"]["amends"] == "old-act" and "amends" not in after["old-act"]
+    # the amending act is itself an instrument in scope; its entry carries `amends_ids`, a list
+    assert after["amend-act"]["amends_ids"] == ["old-act", "new-act"] and "amends_ids" not in after["old-act"]
+    assert not any("amends" in i for i in after.values())
     assert law.main(["EU", "2027-01-01", "--repo", str(repo)]) == 0
     lines = capsys.readouterr().out.splitlines()
-    assert "amend-act\t2024-06-01\tadopted\tPlaceholder amend-act\tamends old-act" in lines
+    assert "amend-act\t2024-06-01\tadopted\tPlaceholder amend-act\tamends old-act, new-act" in lines
     assert not any(line.startswith("old-act") and "amends" in line for line in lines)
     assert law.main(["EU", "2027-01-01", "--repo", str(repo), "--json"]) == 0
-    assert {i["id"]: i.get("amends") for i in json.loads(capsys.readouterr().out)["in_force"]} == {"old-act": None, "amend-act": "old-act"}
+    assert {i["id"]: i.get("amends_ids") for i in json.loads(capsys.readouterr().out)["in_force"]} == {"old-act": None, "amend-act": ["old-act", "new-act"]}
 
 
 def test_repealed_empty_text_and_law_drops_it_from_that_date(tmp_path):

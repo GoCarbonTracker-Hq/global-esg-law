@@ -26,6 +26,41 @@ def require_place(repo, iso2):
         raise ValueError(f"--iso2 {iso2!r} is not an upper-case place code with a register/<ISO2>/scope.json")
 
 
+def check_amends(repo=ROOT, iso2=None):
+    """Raise ValueError naming the scope file and entry id for the first bad `amends_ids`.
+
+    `amends_ids` sits on the amending entry: a non-empty list of non-empty strings, each the id of an entry in some
+    register/*/scope.json, no duplicate and not the entry's own id. The old key `amends` is refused. Every scope entry
+    is read, with or without records. With iso2 only that place's entries are validated; targets resolve across all places."""
+    scopes = {}
+    for path in sorted((Path(repo) / "register").glob("*/scope.json")):
+        scopes[path.parent.name] = json.loads(path.read_text(encoding="utf-8"))
+    known = {e.get("id") for entries in scopes.values() for e in entries}
+    for place, entries in scopes.items():
+        if iso2 is not None and place != iso2:
+            continue
+        for entry in entries:
+            where = f"register/{place}/scope.json: entry {entry.get('id')!r}"
+            if "amends" in entry:
+                raise ValueError(f"{where} has the key 'amends'; use 'amends_ids', a list of entry ids")
+            if "amends_ids" not in entry:
+                continue
+            ids = entry["amends_ids"]
+            if not isinstance(ids, list) or not ids:
+                raise ValueError(f"{where} amends_ids {ids!r} is not a non-empty list of entry ids")
+            seen = set()
+            for target in ids:
+                if not isinstance(target, str) or not target.strip():
+                    raise ValueError(f"{where} amends_ids item {target!r} is not a non-empty string")
+                if target not in known:
+                    raise ValueError(f"{where} amends_ids {target!r} is not the id of any scope entry")
+                if target == entry.get("id"):
+                    raise ValueError(f"{where} amends_ids names the entry's own id")
+                if target in seen:
+                    raise ValueError(f"{where} amends_ids lists {target!r} twice")
+                seen.add(target)
+
+
 def check(repo=ROOT, iso2=None, strict=True):
     """Return the number of records checked; raise ValueError naming the first bad record path.
 
@@ -35,6 +70,7 @@ def check(repo=ROOT, iso2=None, strict=True):
     repo = Path(repo).resolve()
     if iso2 is not None:
         require_place(repo, iso2)
+    check_amends(repo, iso2)
     rows = load_sources(repo / "sources.json")
     count = 0
     for path in sorted((repo / "records" / (iso2 or "")).rglob("*.json")):

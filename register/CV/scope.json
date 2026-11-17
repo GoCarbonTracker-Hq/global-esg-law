@@ -66,7 +66,7 @@
     "duty_on": "mixed",
     "source_row": "CV-BOE-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "cv-lei-86-iv-93",
+    "amends_ids": ["cv-lei-86-iv-93"],
     "notes": "Link only. https://boe.incv.cv/Bulletins/DownloadAct?id=58853 returns the portal's 404 page; the text exists only in the two-column whole-bulletin PDF https://boe.incv.cv/Bulletins/Download/4750, which pdftotext reads out of order. Amends arts. 1, 2, 3, 4, 10, 23, 27, 30, 46 and 50 of Lei n.º 86/IV/93: adds the polluter-pays, user-pays and protector-receives principles, strategic environmental and social assessment, and greenhouse gas reduction and climate adaptation among the objectives. The 'Lei n.º 22/X/2023' of the brief is the plastic law, not this one.",
     "status": "link only"
   },
@@ -109,7 +109,7 @@
     "duty_on": "private_sector",
     "source_row": "CV-BOE-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "cv-portaria-conjunta-39-2025",
+    "amends_ids": ["cv-portaria-conjunta-39-2025"],
     "notes": "Moves the start of the carbon charges from 1 April 2026 to 1 July 2026. Its art. 2 says it amends art. 21 of 'Portaria n.º 30/2025, de 22 de agosto', while art. 1 and the title name Portaria n.º 39/2025, de 27 de novembro; the number in art. 2 is a misprint in the gazette and is left as published.",
     "status": "stored"
   }

@@ -48,7 +48,8 @@
     ],
     "verification": "official_text_seen",
     "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Iceland applies the EU ETS through the EEA Agreement (Directive 2003/87/EC); the directive itself has no record here. Amended by lög nr. 106/2025 (signed 2025-12-24, published 2025-12-29, in force 'þegar'); the amending act is not a separate entry.",
-    "status": "link only"
+    "status": "link only",
+    "amends_ids": ["is-loftslagslog"]
   },
   {
     "id": "is-ets-regulation-606-2021",

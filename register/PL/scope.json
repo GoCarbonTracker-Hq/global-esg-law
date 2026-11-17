@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Footnote 1 of the act says it implements Directive (EU) 2022/2464 (CSRD) and Delegated Directive (EU) 2023/2775. The existing register row gave 2025-01-02; the official dates give 2025-01-01 (publication 2024-12-17 plus 14 days, and art. 12 on 2025-01-01). Later provisions apply from 2025-04-01, 2025-06-22 and 2025-07-01 (art. 35); the reporting-year phasing is in art. 14 as amended by pl-csrd-act-2025. Amended by Dz. U. 2025 poz. 1020. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
     "status": "stored",
-    "amends": "pl-accounting-act"
+    "amends_ids": ["pl-accounting-act"]
   },
   {
     "id": "pl-csrd-act-2025",
@@ -41,7 +41,7 @@
     "verification": "official_text_seen",
     "notes": "Moves the dates in art. 14 ust. 5 pkt 2 and 3 of the 2024 act from 31 December 2024 and 31 December 2025 to 31 December 2026 and 31 December 2027, and repeals ust. 6. Footnote 1 says it implements Directive (EU) 2025/794. Only a PDF is served (API textHTML false); the record is the pdftotext of the gazette PDF. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
     "status": "stored",
-    "amends": "pl-csrd-act-2024"
+    "amends_ids": ["pl-csrd-act-2024"]
   },
   {
     "id": "pl-ets-act",
@@ -121,6 +121,6 @@
     "verification": "official_text_seen",
     "notes": "Published and not yet in force on 2026-11-02. Footnote 1 says it implements Directive (EU) 2024/825; art. 1 adds definitions of \"twierdzenie środowiskowe\" (environmental claim), \"ogólne twierdzenie środowiskowe\" and \"oznakowanie dotyczące zrównoważonego charakteru\" to art. 2 of the 2007 Act. Only a PDF is served. No government English translation found on 2026-11-02: looked at the ELI API and ISAP (Polish text only) and, by web search limited to gov.pl and sejm.gov.pl, for an English text of this act on the Ministry of Finance, Ministry of Climate and Environment and Sejm pages; none found, so no pl-to-en translation row or record.",
     "status": "stored",
-    "amends": "pl-unfair-practices-act"
+    "amends_ids": ["pl-unfair-practices-act"]
   }
 ]

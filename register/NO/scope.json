@@ -28,7 +28,7 @@
       "NO-LOVDATA-ADOPTED"
     ],
     "verification": "official_page_seen",
-    "amends": "no-regnskapsloven-ch2",
+    "amends_ids": ["no-regnskapsloven-ch2"],
     "notes": "Amending act: parts I to XII amend regnskapsloven, revisorloven, statsforetaksloven, aksjeloven, allmennaksjeloven, verdipapirhandelloven, finansforetaksloven, åpenhetsloven and others. Part VII was repealed by LOV-2025-04-10-11. Lovdata page: https://lovdata.no/dokument/NL/lov/2024-06-21-42, as adopted https://lovdata.no/LTI/lov/2024-06-21-42 (Kunngjort 21.06.2024). No English translation (NLE page 404). Not stored: rows NO-LOVDATA-* are permission requested because lovdata.no and api.lovdata.no answer the cloud address with HTTP 405 and the terms page was not opened by this session. All facts here were read through WebFetch (model-summarised page text, quotes requested verbatim), not by curl.",
     "status": "link only"
   },

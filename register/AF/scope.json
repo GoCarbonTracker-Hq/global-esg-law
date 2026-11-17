@@ -54,6 +54,6 @@
     "verification": "official_page_title_only",
     "notes": "Amending instrument listed separately by NEPA. The 2020-11-21 date seen in the earlier register row is a pointer from InforMEA, not an official page, so in_force is null. AF-NEPA-ADOPTED is permission requested (no terms found), so link only. Languages: the Official Gazette is published in Dari and Pashto; the NEPA list is Dari only; no government English text was found.",
     "status": "link only",
-    "amends": "af-air-pollution-regulation"
+    "amends_ids": ["af-air-pollution-regulation"]
   }
 ]

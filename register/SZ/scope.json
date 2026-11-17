@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Implements Section 33 of the Environment Management Act, 2002 (sz-environment-management-act-2002). The official PDF is a 34-page scanned copy of the Gazette supplement; the record text is uncorrected OCR output of the scanned official PDF. English only; enacted and gazetted in English.",
     "status": "stored",
-    "amends": "sz-environment-management-act-2002"
+    "amends_ids": ["sz-environment-management-act-2002"]
   },
   {
     "id": "sz-control-of-plastic-bags-regulations-2021",
@@ -41,7 +41,7 @@
     "verification": "official_text_seen",
     "notes": "Implements Section 89 of the Environment Management Act, 2002 (sz-environment-management-act-2002) regulating manufacture, commercial distribution and importation of plastic bags. The official PDF is an 8-page scanned copy of the Gazette supplement; the record text is uncorrected OCR output of the scanned official PDF. English only.",
     "status": "stored",
-    "amends": "sz-environment-management-act-2002"
+    "amends_ids": ["sz-environment-management-act-2002"]
   },
   {
     "id": "sz-ozone-depleting-substances-regulations-2003",

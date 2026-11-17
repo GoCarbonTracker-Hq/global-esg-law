@@ -27,7 +27,7 @@
     "source_row": [
       "SI-UL-ADOPTED"
     ],
-    "amends": "si-zgd-1-art70c",
+    "amends_ids": ["si-zgd-1-art70c"],
     "notes": "CSRD transposition (new 70.d to 70.l and rewritten 70.c, 55. člen, 58. člen and others). The one record is the whole act as published in the gazette, 85,000 characters. Application dates are staggered: spremenjeni 70.c to financial years from 2027 as later set by ZGD-1O, new 70.e to 70.l from the financial year starting on 22 June 2024, 70.d from the financial year starting in 2028; 35. člen sets the stages that ZGD-1N moved by two years. The brief gave 2024-12-18 'per secondary sources'; the gazette confirms it. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
     "verification": "official_text_seen",
     "status": "stored"
@@ -44,7 +44,7 @@
     "source_row": [
       "SI-UL-ADOPTED"
     ],
-    "amends": "si-zgd-1m",
+    "amends_ids": ["si-zgd-1m"],
     "notes": "Two-line act: in 35. člen of ZGD-1M (the transitional stages of the sustainability reporting duty) the year 2025 becomes 2027 and 2026 becomes 2028. Not a brief candidate; found on the PISRS ZGD-1 citation list and read in full. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
     "verification": "official_text_seen",
     "status": "stored"
@@ -61,7 +61,7 @@
     "source_row": [
       "SI-PISRS-GAZETTE"
     ],
-    "amends": "si-zgd-1-art70c",
+    "amends_ids": ["si-zgd-1-art70c"],
     "notes": "Amends 70.c (new thresholds: net sales over EUR 450,000,000 and more than 1,000 employees; 23. člen says the amended 70.c applies for financial years starting in 2027). Published after 1 March 2026, so the gazette item is a PDF on PISRS; text by pdftotext -layout with runs of spaces collapsed, no mojibake found (checked the diacritics č š ž and the guillemets). Not a brief candidate; found on the PISRS ZGD-1 citation list. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
     "verification": "official_text_seen",
     "status": "stored"
@@ -128,7 +128,7 @@
     "source_row": [
       "SI-PISRS-GAZETTE"
     ],
-    "amends": "si-zvpot-1",
+    "amends_ids": ["si-zvpot-1"],
     "notes": "Brief candidate confirmed: 14. point of the Directives list in 2. člen is Directive (EU) 2024/825. Published but not yet in force on 2026-11-02 (PISRS status 'Objavljen predpis, ki še ne velja'); stored as an ordinary record dated its in-force date. Applies 30 days after entry into force (PISRS: 2026-12-12). The one record is the PDF text of the whole act (51 articles, 68,000 characters), pdftotext -layout, no mojibake found. Languages: Slovenian is the only language stored. Italian and Hungarian (official in the ethnically mixed municipalities) were looked for on the gazette item page, uradni-list.si/glasilo-uradni-list-rs and the PISRS act page, which serve Slovenian only. English: the PISRS list https://pisrs.si/aktualno/zakonodaja-v-anglescini (391 rows on 2026-11-02) has no file for this act. Row SI-PISRS-TRANSLATION is permission requested in any case, so no translation is stored.",
     "status_note": "Published 2026-10-29, in force 2026-11-13, applies from 2026-12-12 per PISRS; not yet in force on 2026-11-02.",
     "verification": "official_text_seen",

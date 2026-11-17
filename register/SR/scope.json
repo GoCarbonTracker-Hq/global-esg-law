@@ -24,7 +24,7 @@
     "duty_on": "private_sector",
     "source_row": "SR-DNA-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "sr-milieu-raamwet",
+    "amends_ids": ["sr-milieu-raamwet"],
     "notes": "Replaces Art. 1 (definitions) and amends many articles of the Milieu Raamwet, among them the NMA council and the Milieufonds; also corrects the explanatory memorandum (Artikel II). The in-force date is read from the Uitgegeven date, as the act itself says 'afkondiging'; Artikel III para 2 gives no later date. The DNA site lists the act only as a PDF link found by search, not on its Wetten na 2005 list (the Milieu Raamwet page links only the 2020 PDF). Languages stored on 2026-11-03: nl. English looked for at dna.sr, gov.sr and nimos.org (unreachable, expired TLS certificate): none found.",
     "status": "stored"
   },

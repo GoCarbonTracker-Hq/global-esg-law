@@ -65,7 +65,7 @@
     "notes": "Partially transposes Directive (EU) 2023/2864 (European single access point) by adding reg. 5A to the principal regulations (submission to the Registrar for ESAP from 10 January 2028). No in-force date, so no record. The title says \"English Version only\": the Maltese page serves the same English PDF (sha256 identical).",
     "status": "link only",
     "status_note": "Not yet in force: commencement by notice in the Gazette, none published.",
-    "amends": "mt-csr-regulations-2026"
+    "amends_ids": ["mt-csr-regulations-2026"]
   },
   {
     "id": "mt-climate-action-act-2024",

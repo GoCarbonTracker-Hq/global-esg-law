@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Companion of the Climate Law, adopted the same day. It inserts the GHG emission permit provisions into the Law on Atmospheric Air Protection (46 mentions of greenhouse gases). Stored as enacted so the change of 2026-02-23 is dated even though arlis.am serves no earlier incorporation of the base law. Language: Armenian (hy), one record. No government English text: the arlis.am page of this act lists no other-language version (checked 2026-11-03) and the /en interface search found no English text for the climate, consumer rights or advertising titles.",
     "status": "stored",
-    "amends": "am-air-protection-law"
+    "amends_ids": ["am-air-protection-law"]
   },
   {
     "id": "am-ghg-inventory-order",
@@ -83,7 +83,7 @@
     "verification": "official_text_seen",
     "notes": "Inserts the environmental-claim definition (Art. 1 point 27 of the base law) among its changes. Stored as enacted so the date of the change is on record. Language: Armenian (hy), one record. No government English text: the arlis.am page of this act lists no other-language version (checked 2026-11-03) and the /en interface search found no English text for the climate, consumer rights or advertising titles.",
     "status": "stored",
-    "amends": "am-consumer-rights-law"
+    "amends_ids": ["am-consumer-rights-law"]
   },
   {
     "id": "am-advertising-law",

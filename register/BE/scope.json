@@ -16,7 +16,7 @@
     "verification": "official_text_seen",
     "notes": "Stored 2026-11-02: adopted text as published in the Moniteur belge of 2024-12-20 (fr, nl), and the three Justel versions, each in fr and nl: 2024-12-30 (archive 001), 2025-12-23 (archive 002, after the amending law of 12 December 2025, art. 116 stop-the-clock) and 2026-07-31 (current, after the law of 15 July 2026, art. 116). German: Justel lists no official translation; it lists the unofficial German coordination (Inoffizielle Koordinierung, numac 2026002484, Moniteur belge 2026-04-15) which states it reflects the act as amended by the law of 12 December 2025, so it is stored as a translation dated 2025-12-23. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02. The act amends the Code des sociétés et des associations (be-csa-art-3-6-3-32), the law of 20 September 1948 and others; only the CSA articles are in scope.",
     "status": "stored",
-    "amends": "be-csa-art-3-6-3-32"
+    "amends_ids": ["be-csa-art-3-6-3-32"]
   },
   {
     "id": "be-csa-art-3-6-3-32",
@@ -103,7 +103,7 @@
     "verification": "official_text_seen",
     "notes": "The page gives two in-force dates (2023-12-31 and 2024-06-30, retroactive to the decree's publication); the first is used. Stored 2026-11-02: adopted text (Moniteur belge 2025-05-02, fr, nl) and the Justel text (fr, nl; one version). The Dutch pages carry no translation label; the decree is Walloon, so French is presumably the enacted language, which the pages do not state. No government English translation: looked for on the Justel language bar (nl, fr, de only) and in the Moniteur belge page of the act (nl, fr, de only), 2026-11-02.",
     "status": "stored",
-    "amends": "be-wallonia-ets-decree-2004"
+    "amends_ids": ["be-wallonia-ets-decree-2004"]
   },
   {
     "id": "be-flanders-ets2-decree-2026",

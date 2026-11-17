@@ -41,7 +41,7 @@
     "duty_on": "private_sector",
     "source_row": "NP-LAWCOMMISSION-CONSOLIDATED",
     "verification": "official_text_seen",
-    "amends": "np-environment-protection-rules",
+    "amends_ids": ["np-environment-protection-rules"],
     "notes": "The Law Commission copy of the Environment Protection Rules lists these Rules as an amendment, hence amends. The Ministry of Forests and Environment has the same Rules at https://mofe.gov.np/content/358/carbon-trading-rules--2082/ (a Nepali PDF); the climate portal page the earlier register row pointed to (www.climatenepal.org.np) refused the cloud address, so official_source_url is now the Law Commission page. Duties of carbon project proponents were not summarised from the text. Not stored: row NP-LAWCOMMISSION-CONSOLIDATED is permission requested (the Law Commission publishes no terms and Copyright Act 2059 s. 4 does not name Acts or rules). No government English text was found: the Law Commission instrument page https://lawcommission.gov.np/content/13554/carbon-trading-rules--2082/ links one Nepali PDF only and the Ministry page https://mofe.gov.np/content/358/carbon-trading-rules--2082/ links one Nepali PDF. The Nepali PDF's text layer is partly garbled (legacy font), so storing it would need OCR; tesseract with the nep pack installs in the session (apt) and read the Copyright Act page used for the licence row, but nothing is stored because the rows are not pass.",
     "status": "link only"
   },

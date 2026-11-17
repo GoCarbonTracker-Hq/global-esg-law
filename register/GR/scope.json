@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Number, gazette and date confirmed from the gazette itself. Record text is the whole gazette issue (all Parts A to H). Article 77 starts on 2025-01-01 (Article 84 para 2). Article 14 sets which financial years the sustainability reporting duties of Chapter A apply to (from 2024-01-01 for large public-interest entities above 500 employees); Article 50 sets 2024-01-01 for Part C. Article 7 replaces Article 151 and Article 9 replaces Article 154 of Ν. 4548/2018. Article 92 of Ν. 5172/2025 (ΦΕΚ Α΄ 2025, a violence-against-women act, not in scope) adds a transitional rule on who may assure the sustainability reports for financial year 2024; it was found in the text of that act and is not stored. No Greek act transposing the stop-the-clock Directive (EU) 2025/794 was found on official pages. Greek only; no government English text found on api.et.gr, search.et.gr or www.et.gr.",
     "status": "stored",
-    "amends": "gr-law-4548-2018-art151-154"
+    "amends_ids": ["gr-law-4548-2018-art151-154"]
   },
   {
     "id": "gr-law-4936-2022",
@@ -69,7 +69,7 @@
     "verification": "official_text_seen",
     "notes": "Amending decision, stored as published. The amended text of the 2024 decision is not stored because no official consolidated text was found. Greek only; no government English text found on api.et.gr, search.et.gr or www.et.gr.",
     "status": "stored",
-    "amends": "gr-kya-ets-2024-86227"
+    "amends_ids": ["gr-kya-ets-2024-86227"]
   },
   {
     "id": "gr-kya-ets-2025-28010",
@@ -84,7 +84,7 @@
     "verification": "official_text_seen",
     "notes": "Amending decision, stored as published. Later amendments of the 2024 decision, if any, were not searched for beyond the two found. Greek only; no government English text found on api.et.gr, search.et.gr or www.et.gr.",
     "status": "stored",
-    "amends": "gr-kya-ets-2024-86227"
+    "amends_ids": ["gr-kya-ets-2024-86227"]
   },
   {
     "id": "gr-law-5317-2026",
@@ -99,7 +99,7 @@
     "verification": "official_text_seen",
     "notes": "Transposes Directive (EU) 2024/825. Part Γ΄ (Articles 79 to 90) amends Ν. 2251/1994 Articles 1α, 3β, 3δ, 4, adds 4στα, amends the unfair-practice Articles 9α, 9δ, 9ε and 9στ (Articles 86 to 89) and amends 13α (Article 90). In force date: the brief expected the Directive's application date 2026-09-27; the Greek text names no such date. Article 143 para 1 gives publication, 2026-07-10, and the text of Part Γ΄ was searched for 27 September 2026 and has no match, so 2026-07-10 is used and the gap is reported. Parts A (credit agreements) apply from 2026-11-20 and Part Δ΄ from 2026-07-31 (Article 143 paras 2 and 3). Record text is the whole gazette issue (all Parts, 438,000 characters), because the gazette is the unit the publisher serves. Greek only; no government English text found on api.et.gr, search.et.gr or www.et.gr.",
     "status": "stored",
-    "amends": "gr-law-2251-1994-unfair-practices"
+    "amends_ids": ["gr-law-2251-1994-unfair-practices"]
   },
   {
     "id": "gr-law-2251-1994-unfair-practices",

@@ -272,3 +272,60 @@ def test_backfilled_scope_entries_quote_their_records_verbatim():
         assert quotes, (iso2, instrument)
         for quote in quotes:
             assert any(quote in text for text in texts), (iso2, instrument, quote)
+
+
+def set_amends(repo, **entry_keys):
+    """Add keys to the one scope entry written by make(), and a second entry `other` to point at."""
+    scope = repo / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[0].update(entry_keys)
+    entries.append({"id": "other", "title": "Other Act", "status": "link only", "source_row": "R1"})
+    scope.write_text(json.dumps(entries))
+
+
+def refused_scope(repo, reason, **kwargs):
+    with pytest.raises(ValueError) as exc:
+        check_corpus.check(repo, **kwargs)
+    message = str(exc.value)
+    assert "register/XX/scope.json" in message and "'act'" in message and reason in message
+
+
+@pytest.mark.parametrize(("value", "reason"), [
+    ("other", "not a non-empty list"), ([], "not a non-empty list"), ([7], "not a non-empty string"),
+    ([""], "not a non-empty string"), (["CELEX 32013L0034"], "not the id of any scope entry"),
+    (["other", "other"], "twice"), (["act"], "own id")])
+def test_amends_ids_refused(tmp_path, value, reason):
+    make(tmp_path)
+    set_amends(tmp_path, amends_ids=value)
+    refused_scope(tmp_path, reason)
+
+
+def test_old_amends_key_refused(tmp_path):
+    make(tmp_path)
+    set_amends(tmp_path, amends="other")
+    refused_scope(tmp_path, "amends_ids")
+
+
+def test_amends_ids_two_ids_pass(tmp_path):
+    make(tmp_path)
+    set_amends(tmp_path, amends_ids=["other", "third"])
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries.append({"id": "third", "title": "Third Act", "status": "link only", "source_row": "R1"})
+    scope.write_text(json.dumps(entries))
+    assert check_corpus.check(tmp_path) == 1
+
+
+def test_amends_ids_on_link_only_entry_is_checked(tmp_path):
+    """A link-only entry has no records, so the record loop never reaches it."""
+    make(tmp_path)
+    set_amends(tmp_path)
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[1]["amends_ids"] = ["nowhere"]
+    scope.write_text(json.dumps(entries))
+    with pytest.raises(ValueError, match=r"register/XX/scope.json: entry 'other'.*'nowhere'"):
+        check_corpus.check(tmp_path)
+    entries[1]["amends_ids"] = ["act"]
+    scope.write_text(json.dumps(entries))
+    assert check_corpus.check(tmp_path) == 1
