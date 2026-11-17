@@ -72,6 +72,8 @@ def build(repo=ROOT, branch=None):
                     f"Jurisdiction: {row['iso2']}\nInstrument-id: {row['instrument_id']}\nLanguage: {record['language']}")
         if record.get("re_enactment") is True:
             message += "\nRe-enactment: true"
+        if record.get("supplied_by_hand") is True:
+            message += "\nSupplied-by: hand"
         if record.get("in_force") is None:
             message += "\nDate-basis: publication"
         ident = ["-c", "user.name=Global ESG Law Builder", "-c", "user.email=builder@global-esg-law.invalid"]

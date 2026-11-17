@@ -471,3 +471,155 @@ def test_update_inside_the_lock_does_not_deadlock(tmp_path):  # #51
 
     assert completes(nested)[0]["status"] == "stored"
     assert git(repo, "branch", "--list", EU_BRANCH) and not (repo / "upkeep" / ".lock").exists()
+
+
+# ---------------------------------------------------------------- bring your own file (#21 R1, R3)
+
+HAND_URL = "https://example.invalid/fr/2027-04-04"
+HASH_ROW = queue_row("us-fr-hash", "sha256:abc123", "US", "us-fr", "US-FEDREG-ADOPTED")  # a signal that is not a date
+HASH_KEY = "us-fr-hash:sha256:abc123"
+REPEAL_ROW = queue_row("eu-rep", "2027-08-08", "EU", "eu-act", "EU-EURLEX-ADOPTED", change="repealed")
+REPEAL_KEY = "eu-rep:2027-08-08"
+HAND_BRANCH = "upkeep/US-us-fr-2027-04-04"
+HAND_REL = "records/US/us-fr/2027-04-04-adopted-en.json"
+
+
+def hand_repo(tmp_path, content=b"<p>first</p><p>second</p>"):
+    """A fixture repo plus a hand-fetched file outside it (so tree() comparisons stay clean)."""
+    (tmp_path / "repo").mkdir()
+    file = tmp_path / "hand.txt"
+    file.write_bytes(content)
+    return make(tmp_path / "repo", QUEUE + [HASH_ROW, REPEAL_ROW]), file
+
+
+def hand(file, **kw):
+    return {"file": file, "url": HAND_URL, "plain": False, "language": None, "in_force": None, **kw}
+
+
+def test_hand_file_is_stored_under_the_reviewer_date_and_marked_supplied_by_hand(tmp_path):
+    repo, file = hand_repo(tmp_path)
+    fetch = FakeFetch()
+    out = io.StringIO()
+    results = update.update(repo, fetch, TODAY, row=HASH_KEY, commit=False, out=out,
+                            hand=hand(file, language="en", in_force="2027-04-04"))
+    assert [(r["key"], r["status"], r["path"]) for r in results] == [(HASH_KEY, "stored", HAND_REL)]
+    assert fetch.calls == []  # nothing was fetched
+    record = json.loads((repo / HAND_REL).read_text())
+    assert record == {"source_id": "US-FEDREG-ADOPTED", "in_force": "2027-04-04", "kind": "adopted", "language": "en",
+                      "text": "first\n\nsecond\n", "fetched_url": HAND_URL,
+                      "fetched_sha256": hashlib.sha256(file.read_bytes()).hexdigest(), "supplied_by_hand": True}
+    assert check_corpus.check(repo) == 4
+    assert scope(repo, "US", "us-fr")["status"] == "stored"
+    assert (f"`{HAND_REL}`, row `US-FEDREG-ADOPTED`, supplied by hand from `{HAND_URL}`, "
+            f"sha256 `{record['fetched_sha256']}`, queue row `{HASH_KEY}`.") in (repo / "SOURCES.md").read_text()
+    assert rows(repo)[HASH_KEY]["outcome"] == "stored" and rows(repo)[HASH_KEY]["signal"] == "sha256:abc123"
+
+
+def test_hand_file_commit_carries_the_supplied_by_trailer_on_the_branch_and_in_history(tmp_path):
+    repo, file = hand_repo(tmp_path)
+    results = update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, out=io.StringIO(),
+                            hand=hand(file, language="en", in_force="2027-04-04"))
+    assert results[0]["status"] == "stored" and results[0]["branch"] == HAND_BRANCH
+    assert git(repo, "rev-list", "--count", f"main..{HAND_BRANCH}") == "1"
+    body = git(repo, "log", "-1", "--format=%B", HAND_BRANCH)
+    assert body.startswith("upkeep: us-fr 2027-04-04 (adopted)")
+    assert f"Queue-row: {HASH_KEY}" in body and f"Fetched-url: {HAND_URL}" in body and body.rstrip().endswith("Supplied-by: hand")
+    git(repo, "checkout", "-q", HAND_BRANCH)
+    build.build(repo, branch="history")
+    log = git(repo, "log", "--format=%B", "history")
+    assert log.count("Supplied-by: hand") == 1  # the one hand record; the three fixture records carry none
+    assert "Instrument-id: us-fr" in git(repo, "log", "-1", "--format=%B", "history")
+
+
+@pytest.mark.parametrize("plain, expected", [(False, "line one line two indented\n"),
+                                              (True, "line one\nline two\n\n  indented\n")])
+def test_plain_keeps_the_files_own_line_breaks_and_the_extractor_does_not(tmp_path, plain, expected):
+    repo, file = hand_repo(tmp_path, b"line one\nline two\n\n  indented\n")
+    update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
+                  hand=hand(file, plain=plain, language="en", in_force="2027-04-04"))
+    assert json.loads((repo / HAND_REL).read_text())["text"] == expected
+
+
+def test_plain_drops_a_byte_order_mark_and_uses_unix_line_breaks(tmp_path):
+    repo, file = hand_repo(tmp_path, b"\xef\xbb\xbfone\r\ntwo\r\n")
+    update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
+                  hand=hand(file, plain=True, language="en", in_force="2027-04-04"))
+    assert json.loads((repo / HAND_REL).read_text())["text"] == "one\ntwo\n"
+
+
+@pytest.mark.parametrize("key, content, reason", [
+    ("in-sebi:2027-05-05", b"some text", "source IN-SEBI-ADOPTED verdict is 'permission requested', not 'pass'"),
+    (REPEAL_KEY, b"some text", "row is a repeal, which stores no text: run it without --file"),
+])
+def test_hand_file_refusals_write_only_the_note(tmp_path, key, content, reason):
+    repo, file = hand_repo(tmp_path, content)
+    before = tree(repo)
+    results = update.update(repo, FakeFetch(), TODAY, row=key, commit=False, out=io.StringIO(),
+                            hand=hand(file, language="en", in_force="2027-04-04" if key == HASH_KEY else None))
+    assert results[0]["status"] == "refused" and reason.format(file=file) in results[0]["detail"]
+    assert rows(repo)[key]["outcome"] == "confirm"
+    assert rows(repo)[key]["notes"] == f"refused 2026-11-02: {reason.format(file=file)}"
+    after = tree(repo)
+    assert set(after) == set(before) and {k for k in after if after[k] != before[k]} == {"upkeep/queue.csv"}
+    assert git(repo, "branch", "--list", "upkeep/*") == ""
+
+
+@pytest.mark.parametrize("content", [b"", b" \n\t\n", b"\xe9 not utf-8"])
+def test_an_empty_or_undecodable_file_is_an_error_and_nothing_is_written(tmp_path, content, capsys):
+    repo, file = hand_repo(tmp_path, content)
+    before = tree(repo)
+    with pytest.raises(ValueError, match="is empty|is not UTF-8"):
+        update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, out=io.StringIO(), hand=hand(file, language="en", in_force="2027-04-04"))
+    assert tree(repo) == before and git(repo, "status", "--porcelain") == ""
+    assert update.main(["--repo", str(repo), "--row", HASH_KEY, "--file", str(file), "--url", HAND_URL, "--language", "en",
+                        "--in-force", "2027-04-04"]) == 1
+    err = capsys.readouterr().err
+    assert str(file) in err and ("is empty" in err or "is not UTF-8" in err)
+    assert tree(repo) == before
+
+
+def test_hand_file_needs_a_language_unless_the_source_has_one_and_a_real_date(tmp_path):
+    repo, file = hand_repo(tmp_path)
+    before = tree(repo)
+    with pytest.raises(ValueError, match="pass --language"):
+        update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
+                      hand=hand(file, in_force="2027-04-04"))
+    assert tree(repo) == before  # an input to fix, not a verdict on the row: not even a note
+    # a source that has a recipe keeps its recipe language for a hand file
+    update.update(repo, FakeFetch(), TODAY, row=EU_KEY, commit=False, out=io.StringIO(), hand=hand(file))
+    assert (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").is_file()
+    for bad in ({"in_force": "2027-02-30"}, {"language": "English"}, {"url": ""}, {"url": "foo"},
+                {"url": HAND_URL + "\nSupplied-by: nobody"}, {"url": HAND_URL + "`x"}):
+        with pytest.raises(ValueError):
+            update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(), hand=hand(file, **bad))
+    with pytest.raises(ValueError, match="needs --row"):
+        update.update(repo, FakeFetch(), TODAY, commit=False, out=io.StringIO(), hand=hand(file))
+
+
+def test_hash_row_without_the_reviewer_date_stays_open_and_a_dry_run_reads_the_file(tmp_path):
+    repo, file = hand_repo(tmp_path)
+    results = update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
+                            hand=hand(file, language="en"))
+    assert results[0]["status"] == "open" and "--in-force" in results[0]["detail"]
+    before = tree(repo)
+    results = update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, dry_run=True, out=io.StringIO(),
+                            hand=hand(file, language="en", in_force="2027-04-04"))
+    assert results[0]["detail"] == (f"would read {file} as {HAND_URL}, write {HAND_REL}, mark us-fr stored in "
+                                    f"register/US/scope.json, add a SOURCES.md line, commit to {HAND_BRANCH}")
+    assert tree(repo) == before
+
+
+def test_cli_file_mode_exit_codes_and_usage_errors(tmp_path, capsys, monkeypatch):
+    repo, file = hand_repo(tmp_path)
+    monkeypatch.setattr(update, "default_fetch", FakeFetch({}))  # any fetch would raise KeyError
+    args = ["--repo", str(repo), "--row", HASH_KEY, "--file", str(file), "--url", HAND_URL, "--language", "en", "--no-commit"]
+    assert update.main(args + ["--plain"]) == 1  # a hash row with no --in-force stays open
+    assert "--in-force" in capsys.readouterr().out
+    assert update.main(args + ["--in-force", "2027-04-04", "--plain"]) == 0
+    assert capsys.readouterr().out.splitlines()[-1] == "1 rows: 1 stored, 0 refused, 0 left open"
+    assert json.loads((repo / HAND_REL).read_text())["text"] == "<p>first</p><p>second</p>"
+    assert update.main(["--repo", str(repo), "--row", HASH_KEY, "--file", str(tmp_path / "missing.txt"), "--url", HAND_URL]) == 1
+    for bad in (["--file", str(file)], ["--row", HASH_KEY, "--file", str(file)], ["--row", HASH_KEY, "--plain"]):
+        with pytest.raises(SystemExit) as exc:
+            update.main(["--repo", str(repo)] + bad)
+        assert exc.value.code == 2
