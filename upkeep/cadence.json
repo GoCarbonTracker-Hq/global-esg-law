@@ -18,7 +18,7 @@
   },
   "consolidation_site": {
    "interval_days": 14,
-   "watchers": 1060,
+   "watchers": 1064,
    "seconds_per_run": 1579.54,
    "bytes_per_run": 157140264,
    "failures_per_run": 117

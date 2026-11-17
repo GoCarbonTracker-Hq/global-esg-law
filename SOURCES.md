@@ -127,6 +127,21 @@ Version dates are the `dct:hasVersion` links in the file's own metadata (section
 
 Chapter 4A `in_force` 2013-10-01 comes from SI 2013/1970 reg 1(2), opened on the day.
 
+### GEL-16 Part B, priority 1 (fetched 2026-11-17)
+
+Four instruments from legislation.gov.uk, all HTTP 200 `application/xml`. `text` is made as above with `tools/update.py` `extract_text` (metadata and explanatory notes left out), after renaming the CLRML `<Title>` element to `<TitleText>`: `html.parser` in Python 3.13.12 and 3.15.2 reads a `<title>` element as raw text, so inline markup inside a heading (`<Addition ChangeId=...>`) would otherwise leak into the stored text. Each consolidated version is fetched at its own version date, `.../<date>/data.xml`, which returned that version for these four (the 414CB note above found otherwise for that section). A version was accepted only when the file said so itself: for a whole instrument the root `RestrictStartDate` is the version date and `RestrictEndDate` is the next version date (none for the last); for a provision no `RestrictStartDate` in the body is later than the version date. Version dates are the `hasVersion` links of the current `data.xml`.
+
+| Instrument | Row | Versions stored (`in_force`) | Request and size in bytes |
+|---|---|---|---|
+| `gb-uksi-2018-1155` (SECR) | `UK-LEGISLATION-ADOPTED` | 2019-04-01 (as made) | `/uksi/2018/1155/made/data.xml` 131326 |
+| `gb-uksi-2008-410-sch7-part7` (SI 2008/410 Sch 7 Pt 7) | `UK-LEGISLATION-CONSOLIDATED` | 2013-10-01, 2019-04-01 | `/uksi/2008/410/schedule/7/part/7/<date>/data.xml` 19471, 66854 |
+| `gb-uksi-2020-1265` (UK ETS Order) | `UK-LEGISLATION-ADOPTED`, `UK-LEGISLATION-CONSOLIDATED` | 2020-11-12 (as made, and consolidated); consolidated 2020-12-31, 2022-02-07, 2022-04-14, 2022-12-15, 2023-01-01, 2023-12-20, 2024-01-01, 2024-03-31, 2024-12-19, 2025-01-01, 2025-02-02, 2025-02-06, 2025-03-31, 2026-01-01, 2026-03-11, 2026-07-01 | `/uksi/2020/1265/made/data.xml` 781851; `/uksi/2020/1265/<date>/data.xml` 860880 (2020-11-12) rising to 3735316 (2026-07-01) |
+| `gb-cca2008-s1-31` (Climate Change Act 2008 Part 1) | `UK-LEGISLATION-ADOPTED`, `UK-LEGISLATION-CONSOLIDATED` | 2008-11-26 (as enacted, and consolidated); consolidated 2009-05-31, 2013-12-18, 2019-06-27, 2023-02-03, 2023-12-26 | `/ukpga/2008/27/part/1/enacted/data.xml` 136201; `/ukpga/2008/27/part/1/<date>/data.xml` 139448 to 144642 |
+
+`/uksi/2018/1155/data.xml` returned 307 to `/made/data.xml` and the file lists no `hasVersion`, so SECR has the text as made only. Part 7 of Schedule 7 did not exist when SI 2008/410 was made; its first version is 2013-10-01, so it has no adopted record. Part 7A (unquoted companies) is outside the scope and is not stored. The Climate Change Act Part 1 is stored without the rest of the Act: `in_force` 2008-11-26 rests on s.100(1) and the Act's `EnactmentDate`, both read in `/ukpga/2008/27/section/100/data.xml` (200, 14181 bytes), and on SI 2013/1970 reg 1(2) for Part 7, read in `/uksi/2013/1970/made/data.xml` (200, 78448 bytes).
+
+Watchers: `gb-uksi-2018-1155-contents-page` (page hash, as for `gb-uksi-2022-31`; two reads 3 s apart gave the same hash), `gb-uksi-2008-410-sch7-part7-versions` and `gb-cca2008-s1-31-versions` (`hasVersion` dates of the provision's own `data.xml`), `gb-uksi-2020-1265-versions` (`hasVersion` dates of `/contents/data.xml`, the contents list and not the law text). Each has one `baseline` row in `upkeep/queue.csv`, rejected under N0.
+
 ### Link only
 
 `gb-fca-esg-sdr` (row `UK-FCA-HANDBOOK`, `permission requested`: Handbook terms unread) and `gb-uk-srs-s1-s2` (row `UK-SRS-ADOPTED`, `permission requested`: IFRS Foundation copyright). The gov.uk UK SRS page (opened 2026-11-01, last updated 25 February 2026) states no effective date, so its `in_force` stays null.
