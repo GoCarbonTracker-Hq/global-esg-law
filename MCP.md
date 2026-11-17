@@ -183,7 +183,7 @@ Real example, `{"instrument": "eu-csrd-2022-2464"}`, 2026-11-13, with the labels
 Claude Code and the MCP Inspector handle this for you. A hand-written client needs the rules of the two protocol revisions. Send one JSON message per line.
 
 - 2026-07-28: no `initialize`. Every request, not only the first, carries `params._meta` with `io.modelcontextprotocol/protocolVersion` (the string `2026-07-28`), `io.modelcontextprotocol/clientInfo` (name and version) and `io.modelcontextprotocol/clientCapabilities` (an object, `{}` is fine). The server checks the version and the capabilities. Without them it answers -32602 "Missing required request metadata". Another version gives -32022 with the supported ones, and `2025-11-25` in `_meta` gives -32602 "Legacy requests must use initialize". `server/discover` is also understood. Replies carry `resultType: "complete"` and server info in `_meta`; `tools/list` and `server/discover` also carry `ttlMs` and `cacheScope`.
-- 2025-11-25: send `initialize` with `protocolVersion: "2025-11-25"`, `capabilities` and `clientInfo` objects, then the notification `notifications/initialized`. Any other request before that gets -32600 "Server is not initialized".
+- 2025-11-25: send `initialize` with `protocolVersion: "2025-11-25"`, `capabilities` and `clientInfo` objects, then the notification `notifications/initialized`. Any other request sent after `initialize` and before that notification gets -32600 "Server is not initialized". A request sent first, with no `initialize`, is read as a 2026-07-28 request and gets the -32602 "Missing required request metadata" answer above.
 
 ## Limits
 
