@@ -12,7 +12,7 @@
 
 Sustainability law changes often, and a consolidated text on a government site usually shows only today's wording. This repository keeps each version of a legal text as one git commit, dated to the day it came into force, so a lookup tool can return the law in force in a place on a given date. It is for people who need to check a reporting or climate duty against the wording that applied at the time: analysts, auditors, researchers and developers of compliance tools.
 
-Text is stored for 140 places and for 833 of the 1379 instruments looked for (as of 2026-11-15). An instrument is one act, regulation, rule or guidance document. For the other 546 instruments the repository holds a link to the official page and no text.
+Text is stored for 140 places and for 849 of the 1395 instruments looked for (as of 2026-11-17). An instrument is one act, regulation, rule or guidance document. For the other 546 instruments the repository holds a link to the official page and no text.
 
 This is not legal advice. The repository is a copy, the official source named in each commit is the authority, and nothing here says whether any company complies with any law.
 
@@ -86,7 +86,7 @@ Each question is answered by one command from the repository root.
 
 The register (`register/register.csv`) is the list of every place and every instrument found for it, 250 places in all. Each place also has a scope file (`register/<ISO2>/scope.json`), which lists the instruments we looked for there with the official URL of each. A record is one file under `records/` holding one version of one text.
 
-All figures are as of 2026-11-15. Each row names the command that produces it, run from the repository root.
+All figures are as of 2026-11-17. Each row names the command that produces it, run from the repository root.
 
 | Measure | Value | Command |
 |---|---|---|
@@ -94,8 +94,8 @@ All figures are as of 2026-11-15. Each row names the command that produces it, r
 | Instruments with stored text, out of instruments in scope files | 849 of 1395 | `python3 tools/coverage.py`, then the Counts table in `COVERAGE.md` |
 | Places with links only | 110 | same Counts table |
 | Records stored (one file per text version) | 3317 | `find records -name '*.json' \| wc -l` |
-| Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-13) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Tests | 263 passed (run on 2026-11-16) | `python3.13 -m pytest tests -q` |
+| Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-17) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
+| Tests | 373 passed (run on 2026-11-17) | `python3.13 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
@@ -136,7 +136,7 @@ The text was collected with AI assistance. AI agents (Anthropic's Claude models)
 
 The licence verdicts were drafted the same way. Before any text is stored, the source gets a row in `sources/licence-table.csv` with a verdict: `pass`, `permission requested`, `unknown` or `fail`. An AI model read the source's terms page or the country's copyright statute and wrote the verdict with the quoted wording it rests on. The `checked_by` column names the model on every row. The maintainer set the rule that text is stored only under a `pass` row and ruled on the cases the agents raised as unclear. No lawyer has reviewed the table.
 
-Three automated checks ran on every addition before it was merged: `tools/check_corpus.py`, `tools/publish_gate.py` and the tests. Since 2026-11-13 the tests on GitHub also read the published `history` branch, and a second job starts the assistant server from a fresh clone and checks its answers against named records. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records.
+Three automated checks ran on every addition before it was merged: `tools/check_corpus.py`, `tools/publish_gate.py` and the tests. Since 2026-11-13 the tests on GitHub also read the published `history` branch, and a second job starts the assistant server from a fresh clone and checks its answers against named records. The gate refuses a record whose source row is not `pass`, and it refuses a link-only entry that has records. Since 2026-11-17 `check_corpus.py` also refuses a record whose scope entry is not `stored`, whose in-force date (or, when that is empty, the date in its file name) is not a real date, or that has no fetch URL or no 64-character SHA-256 (repeal stubs are exempt), and both tools reject an `--iso2` that is not two capital letters.
 
 Watchers are small checks that notice when an official source changes, so a person can decide whether a new version belongs in the records. They are described in [`upkeep/README.md`](upkeep/README.md). The record format, rebuilding the history, the tests and the release checks are in [`MAINTAINING.md`](MAINTAINING.md).
 
@@ -144,12 +144,13 @@ Watchers are small checks that notice when an official source changes, so a pers
 
 - Two `pass` licence verdicts are in doubt. An audit of a sample of the licence table on 2026-11-12 is in [issue #18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18). Until it is closed, read the `Licence` trailer and the source's own terms before reusing a text.
 - Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
-- Link-only instruments have no stored text: 546 of 1379 as of 2026-11-15.
-- OCR text is uncorrected. 106 records are OCR (counted 2026-11-13), in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
+- A second review on 2026-11-15 (GEL-33) found tool, gate and register defects. Most were fixed on 2026-11-17 and are listed in [`CHANGELOG.md`](CHANGELOG.md). Still open: [issue #58](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/58), stored scope entries whose in-force date is empty.
+- Link-only instruments have no stored text: 546 of 1395 as of 2026-11-17.
+- OCR text is uncorrected. 106 records are OCR (counted 2026-11-17), in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
 - Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 - The last 20 places added (territories, uninhabited places, Antarctica and Western Sahara) are pointers. Their laws are mostly those of a parent state, and 17 of the 20 have an empty scope file.
-- The published `history` branch can trail `main` between rebuilds: a record added to `main` shows in lookups only after the next rebuild. It was last rebuilt on 2026-11-15 and held every record on `main` that day.
+- The published `history` branch can trail `main` between rebuilds: a record added to `main` shows in lookups only after the next rebuild. It was last rebuilt on 2026-11-17 (commit `c76381e2`) and held every record on `main` that day.
 - Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on record, on 2026-11-11, ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`).
 
 ## Reporting a problem
