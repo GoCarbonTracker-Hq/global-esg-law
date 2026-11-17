@@ -294,6 +294,11 @@ def queue_row(w, today, change, signal, evidence_url, notes=""):
             "evidence_url": evidence_url, "reviewer": "", "outcome": "", "outcome_on": "", "notes": notes}
 
 
+def baseline_row(w, today, signals):
+    """The first-run record of a watcher: signal is the number of signals recorded, evidence is its url."""
+    return queue_row(w, today, "baseline", str(len(set(signals))), w["url"])
+
+
 _HELD = {}  # lock file -> [open handle, depth]; a second descriptor of the same file would block this process on itself
 
 
@@ -343,6 +348,14 @@ def append_queue(queue_path, rows):
         writer.writerows(rows)
 
 
+def has_queue_row(queue_path, watcher_id):
+    """True when queue.csv holds a row of any change for this watcher."""
+    if not queue_path.exists():
+        return False
+    with queue_path.open(newline="", encoding="utf-8") as handle:
+        return any(r["watcher_id"] == watcher_id for r in csv.DictReader(handle))
+
+
 def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     """Run every watcher (or those of one source).
 
@@ -379,7 +392,7 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
             current = [s for s, _ in signals]
             known = entry.get("signals")
             if known is None:
-                row(w, "baseline", str(len(set(current))), w["url"])
+                rows.append(baseline_row(w, today, current))
                 known = []
             else:
                 for signal, evidence_url in signals:
@@ -408,8 +421,9 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
 def reseed(repo, watcher_id, fetch=None, today=None):
     """Fetch one watcher once and write its current signals to seen.json. Return the signal count.
 
-    No queue row, except for a list watcher (ACCUMULATE) that already had signals: each signal it shows that seen.json
-    lacked gets the watcher's change row, so a real law change is not swallowed by the reset.
+    No queue row, except: one baseline row when queue.csv holds no row at all for the watcher (a first seed, so every
+    watcher has a first-run record), and for a list watcher (ACCUMULATE) that already had signals, each signal it
+    shows that seen.json lacked gets the watcher's change row, so a real law change is not swallowed by the reset.
     Raises ValueError when the watcher is unknown or its fetch fails; seen.json is then left as it was.
     """
     repo = Path(repo).resolve()
@@ -428,11 +442,13 @@ def reseed(repo, watcher_id, fetch=None, today=None):
     with upkeep_lock(repo):
         seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
         known = seen.get(watcher_id, {}).get("signals")
+        queue_path = repo / "upkeep" / "queue.csv"
+        new_rows = [] if has_queue_row(queue_path, watcher_id) else [baseline_row(watcher, today, current)]
         if watcher["kind"] in ACCUMULATE and known is not None:
-            unseen = [queue_row(watcher, today, watcher.get("change", "new_version"), signal, evidence_url)
-                      for signal, evidence_url in signals if signal not in known]
-            if unseen:
-                append_queue(repo / "upkeep" / "queue.csv", unseen)
+            new_rows += [queue_row(watcher, today, watcher.get("change", "new_version"), signal, evidence_url)
+                         for signal, evidence_url in signals if signal not in known]
+        if new_rows:
+            append_queue(queue_path, new_rows)
         seen[watcher_id] = {"signals": sorted(set(current)) if watcher["kind"] in ACCUMULATE else current,
                             "failure": None, "checked_on": today,
                             "seconds": seconds, "bytes": sum(sizes)}
@@ -445,7 +461,8 @@ def main(argv=None):
     parser.add_argument("--source", help="run only the watchers of this sources.json id")
     parser.add_argument("--reseed", metavar="WATCHER_ID",
                         help="fetch this one watcher and store its current signal in seen.json; no queue row, except "
-                             "new_version rows for dates a list watcher shows that seen.json lacked")
+                             "one baseline row if the queue has none for it, and new_version rows for dates a "
+                             "list watcher shows that seen.json lacked")
     parser.add_argument("--dry-run", action="store_true", help="fetch and compare, write nothing")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
