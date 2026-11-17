@@ -10,8 +10,9 @@
     "duty_on": "financial_institutions",
     "source_row": "NA-BON-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Comply-or-explain, domestically systemically important banks only. Section 13 sets the disclosure requirements. Looked for an official English translation: not applicable, English is the sole official language. Fetched with curl as application/pdf, 14 pages; pdftotext -layout, no mojibake.",
-    "status": "stored"
+    "notes": "Comply-or-explain, domestically systemically important banks only. Section 13 sets the disclosure requirements. Looked for an official English translation: not applicable, English is the sole official language. Read on 2026-11-05 (curl, application/pdf, 14 pages) for the effective date. Link only: row NA-BON-ADOPTED is permission requested (publisher terms not cleared), so no text is stored; the record stored until 2026-11-17 was removed on the owner's ruling on issue #18 (R1).",
+    "status": "link only",
+    "status_note": "Row NA-BON-ADOPTED is permission requested; no text stored."
   },
   {
     "id": "na-ema-2007",
