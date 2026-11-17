@@ -34,6 +34,14 @@ def has(*needles):
     return lambda answer: [f"missing {n!r}" for n in needles if n.lower() not in blob(answer)]
 
 
+def withheld(*needles):
+    """Pass when the answer has `text: null` and every needle."""
+    def check(answer):
+        leaked = [] if "text" in answer and answer["text"] is None else [f"text is {answer.get('text', 'missing')!r}, expected null"]
+        return leaked + has(*needles)(answer)
+    return check
+
+
 def in_order(*needles):
     def check(answer):
         text = blob(answer)
@@ -118,7 +126,7 @@ CHECKS = {
         ("OCR record is flagged as uncorrected OCR",
          {"instrument": OCR_ID, "date": "2026-01-01"}, False, has('"ocr": true', "uncorrected ocr")),
         ("link-only instrument: no text, official URL",
-         {"instrument": AE_ID, "date": "2026-01-01"}, False, has(AE_URL, "not stored")),
+         {"instrument": AE_ID, "date": "2026-01-01"}, False, withheld(AE_URL, "not stored")),
         ("input error: path-like instrument id", {"instrument": "../../etc/passwd", "date": "2026-01-01"}, True, has("instrument")),
     ],
     "instrument_history": [
@@ -129,6 +137,21 @@ CHECKS = {
         ("input error: unknown id", {"instrument": "no-such-instrument"}, True, has("instrument")),
     ],
 }
+
+# Run on a clone whose sources.json rows all say verdict "fail" (see fail_every_licence).
+WITHHELD = {
+    "read_text": [
+        ("stored record with a failing licence verdict: no text, official URL, reason",
+         {"instrument": CSRD, "date": "2023-06-01"}, False, withheld(CSRD_URL, "not pass")),
+    ],
+}
+
+
+def fail_every_licence(root):
+    """Mark every source in the clone's sources.json as failing the licence check (the clone is throwaway)."""
+    path = Path(root) / "sources.json"
+    rows = json.loads(path.read_text(encoding="utf-8"))
+    path.write_text(json.dumps([{**row, "verdict": "fail"} for row in rows]), encoding="utf-8")
 
 
 class Client:
@@ -189,9 +212,9 @@ def judge(reply, expect_error, test):
         return [f"malformed reply: {error!r}"]
 
 
-def run_checks(root, era, checks=CHECKS, only=None):
-    """Return a list of (ok, line) for one era."""
-    out, tag = [], f"[{era}]"
+def run_checks(root, era, checks=CHECKS, only=None, label=""):
+    """Return a list of (ok, line) for one era; `label` is added to the line tag."""
+    out, tag = [], f"[{era}{label}]"
     try:
         client = Client(root, era)
     except Exception as error:
@@ -238,6 +261,10 @@ def main(argv=None):
         lines = clone(args.source, root)
         for era in (MODERN, LEGACY):
             lines += run_checks(root, era, only=args.only)
+        if args.only in (None, "read_text"):
+            fail_every_licence(root)  # after the normal checks: they need the real verdicts
+            for era in (MODERN, LEGACY):
+                lines += run_checks(root, era, WITHHELD, only="read_text", label=" verdict fail")
     for ok, line in lines:
         print(("PASS " if ok else "FAIL ") + line)
     failed = sum(not ok for ok, _ in lines)
