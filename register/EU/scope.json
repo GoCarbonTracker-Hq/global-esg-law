@@ -11,7 +11,8 @@
     "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Amended by Directives (EU) 2025/794 and 2026/470."
+    "notes": "Amended by Directives (EU) 2025/794 and 2026/470.",
+    "amends_ids": ["eu-accounting-directive-2013-34"]
   },
   {
     "id": "eu-esrs-2023-2772",
@@ -172,7 +173,8 @@
     "source_row": "EU-EURLEX-ADOPTED",
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Adds nuclear and gas energy activities. Applies from 2023-01-01."
+    "notes": "Adds nuclear and gas energy activities. Applies from 2023-01-01.",
+    "amends_ids": ["eu-taxonomy-climate-da-2021-2139", "eu-taxonomy-disclosures-da-2021-2178"]
   },
   {
     "id": "eu-taxonomy-environmental-da-2023-2486",
@@ -186,7 +188,8 @@
     "source_row": ["EU-EURLEX-ADOPTED", "EU-EURLEX-CONSOLIDATED"],
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Also amends Delegated Regulation (EU) 2021/2178. Amended by Delegated Regulation (EU) 2026/73."
+    "notes": "Also amends Delegated Regulation (EU) 2021/2178. Amended by Delegated Regulation (EU) 2026/73.",
+    "amends_ids": ["eu-taxonomy-disclosures-da-2021-2178"]
   },
   {
     "id": "eu-taxonomy-climate-amendment-da-2023-2485",
@@ -202,7 +205,8 @@
     "source_row": "EU-EURLEX-ADOPTED",
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Amending act, stored as adopted only. Applies from 2024-01-01; two points from 2025-01-01."
+    "notes": "Amending act, stored as adopted only. Applies from 2024-01-01; two points from 2025-01-01.",
+    "amends_ids": ["eu-taxonomy-climate-da-2021-2139"]
   },
   {
     "id": "eu-taxonomy-simplification-da-2026-73",
@@ -217,7 +221,8 @@
     "source_row": "EU-EURLEX-ADOPTED",
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Applies from 2026-01-01 (Art 4). Cellar also lists 2025-01-01 among its dates."
+    "notes": "Applies from 2026-01-01 (Art 4). Cellar also lists 2025-01-01 among its dates.",
+    "amends_ids": ["eu-taxonomy-disclosures-da-2021-2178", "eu-taxonomy-climate-da-2021-2139", "eu-taxonomy-environmental-da-2023-2486"]
   },
   {
     "id": "eu-sfdr-rts-2022-1288",
@@ -248,7 +253,8 @@
     "source_row": "EU-EURLEX-ADOPTED",
     "status": "stored",
     "verification": "official_text_seen",
-    "notes": "Transposition deadline 2026-03-27; measures apply from 2026-09-27 (Art 4). Amends Directives 2005/29/EC and 2011/83/EU. No consolidated versions published on Cellar as of 2026-11-16."
+    "notes": "Transposition deadline 2026-03-27; measures apply from 2026-09-27 (Art 4). Amends Directives 2005/29/EC and 2011/83/EU. No consolidated versions published on Cellar as of 2026-11-16.",
+    "amends_ids": ["eu-ucpd-2005-29"]
   },
   {
     "id": "eu-ucpd-2005-29",
