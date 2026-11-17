@@ -198,3 +198,16 @@ def test_whole_loop_from_watch_to_refusal(tmp_path):
         check_corpus.check(repo)
     # the watcher already stored the new hash, so the next run is quiet until the page moves again
     assert watch.watch(repo, fetch_returning(CHANGED_BODY), date(2026, 11, 4))["rows"] == []
+
+
+def test_failed_write_leaves_licence_table_untouched(tmp_path, monkeypatch):
+    repo = make(tmp_path)
+    csv_path = repo / "sources" / "licence-table.csv"
+    before = csv_path.read_bytes()
+
+    def boom(self, rows):
+        raise OSError("disk full")
+    monkeypatch.setattr(csv.DictWriter, "writerows", boom)
+    with pytest.raises(OSError):
+        licence_recheck.recheck(repo, "terms-pass", CHANGED_HASH, date(2026, 11, 3))
+    assert csv_path.read_bytes() == before

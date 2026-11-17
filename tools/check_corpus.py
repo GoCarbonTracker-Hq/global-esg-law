@@ -7,7 +7,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from make_sources import BANNED, FORMS
+from make_sources import BANNED, FORMS, load_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,7 +17,7 @@ def check(repo=ROOT, iso2=None):
 
     With iso2, check only records/<iso2>/**."""
     repo = Path(repo).resolve()
-    rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
+    rows = load_sources(repo / "sources.json")
     count = 0
     for path in sorted((repo / "records" / (iso2 or "")).rglob("*.json")):
         rel = path.relative_to(repo).as_posix()

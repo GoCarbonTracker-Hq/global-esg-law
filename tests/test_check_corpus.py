@@ -123,3 +123,11 @@ def test_applies_from_must_be_a_real_date(tmp_path):
     entries[0]["applies_from"] = "2027-12-14"
     scope.write_text(json.dumps(entries))
     assert check_corpus.check(tmp_path) == 1
+
+
+def test_conflicting_duplicate_source_rows_refused(tmp_path):
+    make(tmp_path)
+    rows = json.loads((tmp_path / "sources.json").read_text())
+    (tmp_path / "sources.json").write_text(json.dumps([{**rows[0], "verdict": "fail"}, rows[0]]))
+    with pytest.raises(ValueError, match="conflicting duplicate rows"):
+        check_corpus.check(tmp_path)

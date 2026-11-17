@@ -21,14 +21,27 @@ BANNED = re.compile(
 )
 
 
+def load_sources(path):
+    """Return {id: row} from sources.json. Identical duplicate rows collapse; conflicting ones raise ValueError."""
+    rows = {}
+    for r in json.loads(Path(path).read_text(encoding="utf-8")):
+        if rows.setdefault(r["id"], r) != r:
+            raise ValueError(f"{path}: conflicting duplicate rows for id {r['id']!r}")
+    return rows
+
+
 def build(csv_path, out_path):
     with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         if reader.fieldnames != COLUMNS:
             sys.exit(f"columns must be exactly: {','.join(COLUMNS)}")
         rows = list(reader)
+    seen = set()
     for r in rows:
         rid = r["id"]
+        if rid in seen:
+            sys.exit(f"{rid}: duplicate id")
+        seen.add(rid)
         if BANNED.search(r["publisher"]) or BANNED.search(r["source_name"]):
             sys.exit(f"{rid}: standards bodies get no row")
         if not r["terms_url"].strip():
