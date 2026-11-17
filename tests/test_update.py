@@ -227,6 +227,28 @@ def test_gate_failure_reverts_record_scope_and_sources(tmp_path):
     assert {k for k in set(after) | set(before) if after.get(k) != before.get(k)} == {"upkeep/queue.csv"}
 
 
+def drop_sha256(repo):
+    path = repo / "records" / "GB" / "gb-sec" / "2016-12-26-consolidated.json"
+    path.write_text(json.dumps({k: v for k, v in json.loads(path.read_text()).items() if k != "fetched_sha256"}))
+
+
+def unstore_scope(repo):
+    path = repo / "register" / "GB" / "scope.json"
+    path.write_text(json.dumps([{**e, "status": "link only"} if e["id"] == "gb-sec" else e for e in json.loads(path.read_text())]))
+
+
+@pytest.mark.parametrize("break_corpus, reason", [(drop_sha256, "fetched_sha256"), (unstore_scope, "not 'stored'")])
+def test_gate_is_strict_so_a_bad_stored_record_refuses_the_row(tmp_path, break_corpus, reason):  # #53
+    repo = make(tmp_path)
+    break_corpus(repo)  # a committed record that the old lax gate let through
+    before = tree(repo)
+    results = update.update(repo, FakeFetch(), TODAY, row=EU_KEY, commit=False, out=io.StringIO())
+    assert results[0]["status"] == "refused" and "gate: records/GB/gb-sec/2016-12-26-consolidated.json" in results[0]["detail"]
+    assert reason in results[0]["detail"]
+    after = tree(repo)
+    assert {k for k in set(after) | set(before) if after.get(k) != before.get(k)} == {"upkeep/queue.csv"}
+
+
 @pytest.mark.parametrize("bodies, reason", [
     ({EU_URL: (404, b"")}, "returned HTTP 404"),
     ({EU_URL: (200, b"")}, "returned an empty body"),

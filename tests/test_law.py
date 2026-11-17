@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import build
 import law
-from test_build import fixture
+from test_build import PROVENANCE, fixture
 
 
 def make(tmp_path, extra=()):
@@ -20,7 +20,7 @@ def make(tmp_path, extra=()):
     scope.write_text(json.dumps(entries))
     for name, effective in extra:  # a second version of law2
         (tmp_path / "records" / "EU" / "law2" / f"{name}.json").write_text(json.dumps(
-            {"source_id": "new", "in_force": effective, "kind": "adopted", "language": "en", "text": name}))
+            {"source_id": "new", "in_force": effective, "kind": "adopted", "language": "en", "text": name, **PROVENANCE}))
     build.build(tmp_path, branch="history")
     return tmp_path
 
@@ -134,7 +134,7 @@ def test_unknown_commencement_marks_publication_date_in_text_and_json(tmp_path, 
     fixture(tmp_path)
     folder = tmp_path / "records" / "EU" / "law2"
     (folder / "1990-06-07-null.json").write_text(json.dumps(
-        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "unknown start"}))
+        {"source_id": "new", "in_force": None, "kind": "adopted", "language": "en", "text": "unknown start", **PROVENANCE}))
     build.build(tmp_path, branch="history")
     assert law.main(["EU", "1990-06-07", "--repo", str(tmp_path)]) == 0
     assert "note law2: date is a publication date" in capsys.readouterr().out
@@ -166,7 +166,7 @@ def test_repeal_blocks_same_day_and_later_unflagged_records(tmp_path, later_date
     (folder / "2024-06-01-repeal.json").write_text(json.dumps(
         {"source_id": "new", "in_force": "2024-06-01", "kind": "adopted", "language": "en", "text": "", "repealed": True}))
     (folder / f"{later_date}-snapshot.json").write_text(json.dumps(
-        {"source_id": "new", "in_force": later_date, "kind": "adopted", "language": "en", "text": "snapshot"}))
+        {"source_id": "new", "in_force": later_date, "kind": "adopted", "language": "en", "text": "snapshot", **PROVENANCE}))
     build.build(tmp_path, branch="history")
     assert "law2" not in ids(law.in_force("EU", "2030-01-01", tmp_path))
     if later_date == "2024-06-01":
@@ -181,7 +181,7 @@ def test_flagged_reenactment_restores_instrument_from_its_date(tmp_path):
     (folder / "2024-06-01-repeal.json").write_text(json.dumps(
         {"source_id": "new", "in_force": "2024-06-01", "kind": "adopted", "language": "en", "text": "", "repealed": True}))
     (folder / "2024-06-02-reenactment.json").write_text(json.dumps(
-        {"source_id": "new", "in_force": "2024-06-02", "kind": "adopted", "language": "en", "text": "re-enacted", "re_enactment": True}))
+        {"source_id": "new", "in_force": "2024-06-02", "kind": "adopted", "language": "en", "text": "re-enacted", "re_enactment": True, **PROVENANCE}))
     build.build(tmp_path, branch="history")
     assert "law2" in ids(law.in_force("EU", "2024-06-02", tmp_path))
 
@@ -201,7 +201,7 @@ def multilingual(tmp_path):
                                      ("2024-01-01-adopted-de", "new", "adopted", "de"),
                                      ("2024-01-01-translation-en", "tr", "translation", "en")]:
         (folder / f"{name}.json").write_text(json.dumps(
-            {"source_id": source, "in_force": "2024-01-01", "kind": kind, "language": lang, "text": name}))
+            {"source_id": source, "in_force": "2024-01-01", "kind": kind, "language": lang, "text": name, **PROVENANCE}))
     build.build(tmp_path, branch="history")
     return tmp_path
 
@@ -250,7 +250,7 @@ def test_translation_only_later_date_keeps_earlier_official_record(tmp_path):
     (folder / "2020-03-04-adopted-de.json").write_text(json.dumps(earlier))
     (folder / "new.json").unlink()
     (folder / "2022-01-01-translation-en.json").write_text(json.dumps(
-        {"source_id": "tr", "in_force": "2022-01-01", "kind": "translation", "language": "en", "text": "translation"}))
+        {"source_id": "tr", "in_force": "2022-01-01", "kind": "translation", "language": "en", "text": "translation", **PROVENANCE}))
     build.build(tmp_path, branch="history")
     for lang in (None, "de"):
         found = {i["id"]: i for i in law.in_force("EU", "2023-01-01", tmp_path, lang=lang, detail=True)}["law2"]
@@ -272,7 +272,7 @@ def test_all_repealed_message_names_query_date(tmp_path, capsys):
 def test_future_version_or_repeal_is_listed_for_active_instrument(tmp_path, future):
     fixture(tmp_path)
     folder = tmp_path / "records" / "EU" / "law2"
-    record = {"source_id": "new", "in_force": "2030-01-01", "kind": "adopted", "language": "en", "text": "future"}
+    record = {"source_id": "new", "in_force": "2030-01-01", "kind": "adopted", "language": "en", "text": "future", **PROVENANCE}
     if future == "repeal":
         record.update(text="", repealed=True)
     (folder / f"2030-01-01-{future}.json").write_text(json.dumps(record))

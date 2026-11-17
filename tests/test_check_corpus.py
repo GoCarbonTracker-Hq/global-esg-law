@@ -213,11 +213,13 @@ def test_iso2_valid_place_is_checked(tmp_path):
     assert check_corpus.check(tmp_path, iso2="XX") == 1
 
 
-def test_strict_record_rules_are_off_by_default(tmp_path):
+def test_strict_false_skips_the_strict_record_rules_and_the_default_is_strict(tmp_path):
     make(tmp_path, status="link only")
     edit_record(tmp_path, in_force="2025-02-30", fetched_url=None, fetched_sha256=None)
-    assert check_corpus.check(tmp_path) == 1
+    assert check_corpus.check(tmp_path, strict=False) == 1
     refused(tmp_path, "in_force")
+    with pytest.raises(ValueError, match="in_force"):
+        check_corpus.check(tmp_path)
 
 
 def test_cli_is_strict(tmp_path):

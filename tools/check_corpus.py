@@ -26,12 +26,12 @@ def require_place(repo, iso2):
         raise ValueError(f"--iso2 {iso2!r} is not an upper-case place code with a register/<ISO2>/scope.json")
 
 
-def check(repo=ROOT, iso2=None, strict=False):
+def check(repo=ROOT, iso2=None, strict=True):
     """Return the number of records checked; raise ValueError naming the first bad record path.
 
-    With iso2, check only records/<iso2>/**. With strict, also require scope status "stored", a real in_force date,
-    and fetched_url plus fetched_sha256 on every record that is not repealed: true. The command line is always strict.
-    ponytail: off by default because the record fixtures of other test files lack those fields; flip once they carry them."""
+    With iso2, check only records/<iso2>/**. Strict (the default) also requires scope status "stored", a real in_force
+    date, and fetched_url plus fetched_sha256 on every record that is not repealed: true. Pass strict=False only to
+    test the looser rules on their own."""
     repo = Path(repo).resolve()
     if iso2 is not None:
         require_place(repo, iso2)
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     parser.add_argument("--iso2", help="check only records/<ISO2>/**")
     args = parser.parse_args()
     try:
-        print(f"{check(args.repo, iso2=args.iso2, strict=True)} records checked")
+        print(f"{check(args.repo, iso2=args.iso2)} records checked")
     except (ValueError, OSError, json.JSONDecodeError) as exc:
         print(exc, file=sys.stderr)
         raise SystemExit(1)

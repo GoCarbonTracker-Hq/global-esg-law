@@ -36,7 +36,7 @@ def build(repo=ROOT, branch=None):
     repo = Path(repo).resolve()
     if not branch and records_tracked(repo):
         raise BranchRequired("records/ is tracked by git: --branch is required (python3 tools/build.py --branch history)")
-    check(repo)
+    check(repo, strict=True)
     if branch and git(repo, "symbolic-ref", "-q", "HEAD") == f"refs/heads/{branch}":
         raise ValueError(f"{branch} is the checked-out branch; refusing to replace it")
     rows = load_sources(repo / "sources.json")
