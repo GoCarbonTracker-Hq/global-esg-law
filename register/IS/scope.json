@@ -63,8 +63,8 @@
       "IS-STJORNARTIDINDI-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "notes": "Stored text: none. Alþingi Lagasafn (the consolidated text) is blocked from the cloud address (Cloudflare challenge on curl and headless Chromium) and IS-ALTHINGI-CONSOLIDATED is permission requested; the gazette row IS-STJORNARTIDINDI-ADOPTED is permission requested because Höfundalög 9. gr. was not opened on an official page. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Implements Directive 2003/87/EC and the related EEA acts for operators and aviation operators (listed in the regulation). Twelve amending regulations are listed in B-deild, the latest 593/2026 (2026-05-28). Alþingi's Lagasafn does not carry regulations, so only the gazette row applies. Its legal basis is lög nr. 70/2012 and, from 2023-12-22, lög nr. 96/2023.",
-    "status": "link only"
+    "notes": "Record, Icelandic only: the adopted text as published in Stjórnartíðindi B-deild on 2021-05-28 (HTML body of the gazette advert, read through the API); it is in force from publication. The twelve amending regulations (1337/2021 to 593/2026) are separate adverts and are not folded in, so the record is not the text in force today. English: government.is serves unofficial translations (IS-GOVERNMENT-TRANSLATION, permission requested). Implements Directive 2003/87/EC and the related EEA acts for operators and aviation operators (listed in the regulation). Alþingi's Lagasafn does not carry regulations, so only the gazette row applies. Its legal basis is lög nr. 70/2012 and, from 2023-12-22, lög nr. 96/2023.",
+    "status": "stored"
   },
   {
     "id": "is-markadssetningarlog",
