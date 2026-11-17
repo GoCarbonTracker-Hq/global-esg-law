@@ -329,3 +329,89 @@ def test_amends_ids_on_link_only_entry_is_checked(tmp_path):
     entries[1]["amends_ids"] = ["act"]
     scope.write_text(json.dumps(entries))
     assert check_corpus.check(tmp_path) == 1
+
+
+def set_alias(repo, value=None, on="other"):
+    """Write `aliases` on a scope entry (default: the link-only `other`, which has no record)."""
+    set_amends(repo)
+    scope = repo / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    next(e for e in entries if e["id"] == on)["aliases"] = value
+    scope.write_text(json.dumps(entries))
+
+
+@pytest.mark.parametrize(("value", "reason"), [
+    ("CBAM", "not a non-empty list"), ([], "not a non-empty list"), (None, "not a non-empty list"),
+    ([""], "not a non-blank string"), (["   "], "not a non-blank string"), ([7], "not a non-blank string"),
+    ([None], "not a non-blank string"), ([" CBAM"], "leading or trailing space"),
+    (["CBAM "], "leading or trailing space"), (["EU"], "under 3 characters"), (["CBAM", "EU"], "under 3 characters"),
+    (["CBAM", "cbam"], "ignoring case"), (["Straße", "STRASSE", "straße"], "ignoring case")])
+def test_aliases_refused_on_a_link_only_entry(tmp_path, value, reason):
+    make(tmp_path)
+    set_alias(tmp_path, value)
+    with pytest.raises(ValueError) as exc:
+        check_corpus.check(tmp_path)
+    message = str(exc.value)
+    assert message.startswith("register/XX/scope.json: other: aliases") and reason in message
+
+
+def test_aliases_pass_with_two_items_or_no_key(tmp_path):
+    make(tmp_path)
+    set_alias(tmp_path, ["CBAM", "EU ETS"])
+    assert check_corpus.check(tmp_path) == 1
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    del entries[1]["aliases"]
+    scope.write_text(json.dumps(entries))
+    assert check_corpus.check(tmp_path) == 1
+
+
+def test_aliases_shared_by_two_entries_pass(tmp_path):
+    make(tmp_path)
+    set_alias(tmp_path, ["KSG"])
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries[0]["aliases"] = ["KSG"]
+    scope.write_text(json.dumps(entries))
+    assert check_corpus.check(tmp_path) == 1
+
+
+def test_aliases_iso2_validates_only_that_place(tmp_path):
+    make(tmp_path)
+    set_alias(tmp_path, ["EU"])
+    (tmp_path / "register" / "YY").mkdir()
+    (tmp_path / "register" / "YY" / "scope.json").write_text("[]")
+    assert check_corpus.check(tmp_path, iso2="YY") == 0
+    with pytest.raises(ValueError, match="register/XX/scope.json: other: aliases"):
+        check_corpus.check(tmp_path, iso2="XX")
+
+
+def test_every_real_alias_is_valid_and_lists_are_never_empty():
+    """The real corpus passes the rule, and no entry has `aliases: []` or null."""
+    check_corpus.check_aliases(ROOT)
+    for iso2, entry in (( p.parent.name, e) for p in ROOT.glob("register/*/scope.json")
+                        for e in json.loads(p.read_text(encoding="utf-8"))):
+        assert entry.get("aliases", ["x" * 3]), (iso2, entry["id"])
+
+
+def test_hand_aliases_on_the_three_eu_entries():
+    """Written from the official texts (see the report table); only the EU regulation holds CBAM."""
+    eu = {e["id"]: e for e in json.loads((ROOT / "register" / "EU" / "scope.json").read_text(encoding="utf-8"))}
+    assert eu["eu-cbam-2023-956"]["aliases"] == ["CBAM"]
+    assert eu["eu-ets-2003-87"]["aliases"] == ["EU ETS"]
+    assert eu["eu-empowering-consumers-2024-825"]["aliases"] == ["ECGT"]
+    carriers = {e["id"] for p in ROOT.glob("register/*/scope.json") for e in json.loads(p.read_text(encoding="utf-8"))
+                if "CBAM" in (e.get("aliases") or [])}
+    assert carriers == {"eu-cbam-2023-956"}
+
+
+def test_split_short_forms_sit_only_on_the_agreed_entries():
+    """KSG, UWG, CSRD, EUDR on the agreed entries; ESG, JFSC, CMF, GHGs on none."""
+    found = {}
+    for p in ROOT.glob("register/*/scope.json"):
+        for e in json.loads(p.read_text(encoding="utf-8")):
+            for a in e.get("aliases") or []:
+                found.setdefault(a, set()).add(e["id"])
+    assert found["KSG"] == {"at-ksg", "de-ksg"} and found["UWG"] == {"at-uwg-s1-2a", "li-uwg"}
+    assert found["CSRD"] == {"eu-csrd-2022-2464"} and found["EUDR"] == {"eu-eudr-2023-1115"}
+    assert not {"ESG", "JFSC", "CMF", "GHGs"} & set(found)

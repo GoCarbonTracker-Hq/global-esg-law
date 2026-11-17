@@ -59,6 +59,7 @@
   {
     "id": "cm-bvmac-reglement-general",
     "title": "Règlement général de la Bourse des Valeurs Mobilières de l'Afrique Centrale (BVMAC)",
+    "aliases": ["BVMAC"],
     "official_url": "https://www.bvm-ac.org/textes-reglementaires/",
     "citation": "Règlement général BVMAC",
     "in_force": null,

@@ -61,6 +61,36 @@ def check_amends(repo=ROOT, iso2=None):
                 seen.add(target)
 
 
+def check_aliases(repo=ROOT, iso2=None):
+    """Raise ValueError naming the scope file, entry id and `aliases` for the first bad `aliases`.
+
+    `aliases` is optional on a scope entry: a non-empty list of strings, each at least 3 characters with no leading or
+    trailing space, no two equal ignoring case. The floor of 3 keeps out the 2-letter markers (EU, UE, EC, NI) that
+    title brackets carry. A short form shared by two entries is accepted. Every scope entry is read, with or without
+    records. With iso2 only that place's entries are validated."""
+    for path in sorted((Path(repo) / "register").glob("*/scope.json")):
+        place = path.parent.name
+        if iso2 is not None and place != iso2:
+            continue
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            if "aliases" not in entry:
+                continue
+            aliases, where = entry["aliases"], f"register/{place}/scope.json: {entry.get('id')}: aliases"
+            if not isinstance(aliases, list) or not aliases:
+                raise ValueError(f"{where} {aliases!r} is not a non-empty list of strings")
+            seen = set()
+            for item in aliases:
+                if not isinstance(item, str) or not item.strip():
+                    raise ValueError(f"{where} item {item!r} is not a non-blank string")
+                if item != item.strip():
+                    raise ValueError(f"{where} item {item!r} has a leading or trailing space")
+                if len(item) < 3:
+                    raise ValueError(f"{where} item {item!r} is under 3 characters")
+                if item.casefold() in seen:
+                    raise ValueError(f"{where} item {item!r} repeats another item ignoring case")
+                seen.add(item.casefold())
+
+
 def check(repo=ROOT, iso2=None, strict=True):
     """Return the number of records checked; raise ValueError naming the first bad record path.
 
@@ -71,6 +101,7 @@ def check(repo=ROOT, iso2=None, strict=True):
     if iso2 is not None:
         require_place(repo, iso2)
     check_amends(repo, iso2)
+    check_aliases(repo, iso2)
     rows = load_sources(repo / "sources.json")
     count = 0
     for path in sorted((repo / "records" / (iso2 or "")).rglob("*.json")):

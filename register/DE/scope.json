@@ -2,6 +2,7 @@
   {
     "id": "de-hgb-nfe",
     "title": "Handelsgesetzbuch (HGB) §§ 289b to 289e and §§ 315b to 315c: non-financial statement (nichtfinanzielle Erklärung)",
+    "aliases": ["HGB"],
     "official_url": "https://www.gesetze-im-internet.de/hgb/__289b.html",
     "citation": "HGB §§ 289b-289e and 315b-315c, inserted by the CSR-Richtlinie-Umsetzungsgesetz of 11 April 2017 (BGBl. I S. 802)",
     "in_force": "2017-04-19",
@@ -16,6 +17,7 @@
   {
     "id": "de-lksg",
     "title": "Lieferkettensorgfaltspflichtengesetz (LkSG), Gesetz über die unternehmerischen Sorgfaltspflichten zur Vermeidung von Menschenrechtsverletzungen in Lieferketten",
+    "aliases": ["LkSG"],
     "official_url": "https://www.gesetze-im-internet.de/lksg/BJNR295910021.html",
     "citation": "LkSG of 16 July 2021 (BGBl. I S. 2959)",
     "in_force": "2023-01-01",
@@ -33,6 +35,7 @@
   {
     "id": "de-ksg",
     "title": "Bundes-Klimaschutzgesetz (KSG)",
+    "aliases": ["KSG"],
     "official_url": "https://www.gesetze-im-internet.de/ksg/BJNR251310019.html",
     "citation": "KSG of 12 December 2019 (BGBl. I S. 2513), as amended by the Acts of 18 August 2021 (BGBl. I S. 3905) and 15 July 2024 (BGBl. 2024 I Nr. 235)",
     "in_force": "2019-12-18",
@@ -50,6 +53,7 @@
   {
     "id": "de-tehg",
     "title": "Treibhausgas-Emissionshandelsgesetz (TEHG), Gesetz über den Handel mit Berechtigungen zur Emission von Treibhausgasen",
+    "aliases": ["TEHG"],
     "official_url": "https://www.gesetze-im-internet.de/tehg_2025/BJNR0460B0025.html",
     "citation": "TEHG of 27 February 2025 (BGBl. 2025 I Nr. 70), Article 1; replaces the TEHG of 21 July 2011 (BGBl. I S. 1475)",
     "in_force": "2025-03-06",
@@ -67,6 +71,7 @@
   {
     "id": "de-behg",
     "title": "Brennstoffemissionshandelsgesetz (BEHG), Gesetz über einen nationalen Zertifikatehandel für Brennstoffemissionen",
+    "aliases": ["BEHG"],
     "official_url": "https://www.gesetze-im-internet.de/behg/BJNR272800019.html",
     "citation": "BEHG of 12 December 2019 (BGBl. I S. 2728), as last amended by Article 2 of the Act of 27 February 2025 (BGBl. 2025 I Nr. 70)",
     "in_force": "2019-12-20",
@@ -84,6 +89,7 @@
   {
     "id": "de-behv",
     "title": "Brennstoffemissionshandelsverordnung (BEHV), Verordnung zur Durchführung des Brennstoffemissionshandelsgesetzes",
+    "aliases": ["BEHV"],
     "official_url": "https://www.gesetze-im-internet.de/behv/BJNR302600020.html",
     "citation": "BEHV of 17 December 2020 (BGBl. I S. 3026), as last amended by Article 1 of the Ordinance of 11 September 2025 (BGBl. 2025 I Nr. 209)",
     "in_force": "2020-12-24",
@@ -135,6 +141,7 @@
   {
     "id": "de-becv",
     "title": "BEHG-Carbon-Leakage-Verordnung (BECV), Verordnung über Maßnahmen zur Vermeidung von Carbon-Leakage durch den nationalen Brennstoffemissionshandel",
+    "aliases": ["BECV"],
     "official_url": "https://www.gesetze-im-internet.de/becv/BJNR312900021.html",
     "citation": "BECV of 21 July 2021 (BGBl. I S. 3129)",
     "in_force": "2021-07-28",

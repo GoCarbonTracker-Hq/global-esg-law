@@ -2,6 +2,7 @@
   {
     "id": "at-nabeg",
     "title": "Nachhaltigkeitsberichtsgesetz (NaBeG), BGBl. I Nr. 6/2026 (full title begins: Bundesgesetz, mit dem ein Drittlandunternehmen-Berichterstattungsgesetz erlassen wird)",
+    "aliases": ["NaBeG"],
     "official_url": "https://www.ris.bka.gv.at/eli/bgbl/I/2026/6",
     "citation": "BGBl. I Nr. 6/2026, ausgegeben am 18. Februar 2026 (NR: GP XXVIII RV 300 AB 386; CELEX 32022L2464)",
     "in_force": "2026-02-19",
@@ -17,6 +18,7 @@
   {
     "id": "at-dribeg",
     "title": "Drittlandunternehmen-Berichterstattungsgesetz (DriBeG), Article 1 of BGBl. I Nr. 6/2026: sustainability reporting of third-country undertakings",
+    "aliases": ["DriBeG"],
     "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20013107",
     "citation": "DriBeG, BGBl. I Nr. 6/2026 Art. 1 (RIS Gesetzesnummer 20013107; CELEX 32022L2464, Art. 40a, 40c and 40d of Directive 2013/34/EU)",
     "in_force": "2026-02-19",
@@ -31,6 +33,7 @@
   {
     "id": "at-ugb-243b-267a",
     "title": "Unternehmensgesetzbuch (UGB), §§ 243b and 267a: non-financial statement (replaced on 2026-02-19 by the sustainability statement)",
+    "aliases": ["UGB"],
     "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001702",
     "citation": "UGB (dRGBl. S 219/1897), § 243b and § 267a as inserted by BGBl. I Nr. 20/2017 (NaDiVeG) and replaced by BGBl. I Nr. 6/2026 (NaBeG); RIS Gesetzesnummer 10001702",
     "in_force": "2016-12-06",
@@ -45,6 +48,7 @@
   {
     "id": "at-nadiveg-2017",
     "title": "Nachhaltigkeits- und Diversitätsverbesserungsgesetz (NaDiVeG), BGBl. I Nr. 20/2017",
+    "aliases": ["NaDiVeG"],
     "official_url": "https://www.ris.bka.gv.at/eli/bgbl/I/2017/20",
     "citation": "BGBl. I Nr. 20/2017, ausgegeben am 17. Jänner 2017 (NR: GP XXV RV 1355 AB 1406; CELEX 32014L0095)",
     "in_force": "2016-12-06",
@@ -60,6 +64,7 @@
   {
     "id": "at-ksg",
     "title": "Klimaschutzgesetz (KSG), BGBl. I Nr. 106/2011",
+    "aliases": ["KSG"],
     "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20007500",
     "citation": "KSG, BGBl. I Nr. 106/2011, as amended by BGBl. I Nr. 94/2013, 128/2015 and 58/2017; RIS Gesetzesnummer 20007500",
     "in_force": "2011-11-22",
@@ -125,6 +130,7 @@
   {
     "id": "at-uwg-s1-2a",
     "title": "Bundesgesetz gegen den unlauteren Wettbewerb 1984 (UWG), §§ 1 to 2a: unfair, aggressive and misleading commercial practices, comparative advertising",
+    "aliases": ["UWG"],
     "official_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10002665",
     "citation": "UWG, BGBl. Nr. 448/1984, §§ 1, 1a, 2 and 2a as amended (most recently BGBl. I Nr. 58/2026, CELEX 32024L0825); RIS Gesetzesnummer 10002665",
     "in_force": "1984-11-23",
