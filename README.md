@@ -12,7 +12,7 @@
 
 Sustainability law changes often, and a consolidated text on a government site usually shows only today's wording. This repository keeps each version of a legal text as one git commit, dated to the day it came into force, so a lookup tool can return the law in force in a place on a given date. It is for people who need to check a reporting or climate duty against the wording that applied at the time: analysts, auditors, researchers and developers of compliance tools.
 
-Text is stored for 140 places and for 849 of the 1395 instruments looked for (as of 2026-11-17). An instrument is one act, regulation, rule or guidance document. For the other 546 instruments the repository holds a link to the official page and no text.
+Text is stored for 140 places and for 851 of the 1404 instruments looked for (as of 2026-11-17). An instrument is one act, regulation, rule or guidance document. For the other 553 instruments the repository holds a link to the official page and no text.
 
 This is not legal advice. The repository is a copy, the official source named in each commit is the authority, and nothing here says whether any company complies with any law.
 
@@ -91,11 +91,11 @@ All figures are as of 2026-11-17. Each row names the command that produces it, r
 | Measure | Value | Command |
 |---|---|---|
 | Places with stored text | 140 | `ls -d records/*/ \| wc -l` |
-| Instruments with stored text, out of instruments in scope files | 849 of 1395 | `python3 tools/coverage.py`, then the Counts table in `COVERAGE.md` |
+| Instruments with stored text, out of instruments in scope files | 851 of 1404 | `python3 tools/coverage.py`, then the Counts table in `COVERAGE.md` |
 | Places with links only | 110 | same Counts table |
-| Records stored (one file per text version) | 3317 | `find records -name '*.json' \| wc -l` |
+| Records stored (one file per text version) | 3360 | `find records -name '*.json' \| wc -l` |
 | Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-17) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Tests | 373 passed (run on 2026-11-17) | `python3.13 -m pytest tests -q` |
+| Tests | 393 passed (run on 2026-11-17) | `python3.13 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
@@ -124,9 +124,9 @@ F7 is the largest family in the register and no F7 text is stored. F4 and F5 are
 The 110 places with links only are listed by code in [`COVERAGE.md`](COVERAGE.md) under Not covered.
 
 <details>
-<summary>Records stored per place (3317 in all, <code>find records/&lt;ISO2&gt; -name '*.json' | wc -l</code>)</summary>
+<summary>Records stored per place (3360 in all, <code>find records/&lt;ISO2&gt; -name '*.json' | wc -l</code>)</summary>
 
-AD 4, AG 2, AL 1, AM 7, AO 4, AR 7, AT 43, AU 85, AW 4, AX 6, AZ 19, BA 4, BE 57, BG 4, BH 7, BJ 6, BR 20, BT 17, BW 2, BY 6, CA 56, CD 1, CG 4, CH 109, CI 5, CK 3, CL 9, CM 4, CN 15, CO 8, CR 136, CV 5, CW 3, CX 1, CZ 24, DE 19, DK 32, DM 4, DO 10, DZ 12, EC 3, EE 65, ES 66, EU 105, FI 84, FJ 6, FK 9, FO 6, FR 38, GA 9, GB 10, GD 8, GE 134, GH 1, GL 16, GM 1, GN 7, GR 7, GT 3, HN 6, HR 28, HT 2, HU 13, IE 21, IL 2, IT 80, JE 23, JO 3, JP 130, KG 160, KH 3, KR 89, KW 1, KZ 379, LA 8, LI 73, LK 20, LR 2, LU 22, LV 69, MC 25, MD 11, MK 6, ML 6, MN 4, MO 4, MR 13, MT 62, MU 3, MV 7, MX 7, MZ 1, NA 3, NC 5, NF 5, NG 1, NI 5, NL 41, NR 8, NZ 64, OM 2, PA 6, PE 5, PG 5, PH 3, PL 33, PT 14, PW 3, PY 5, QA 8, RS 8, RW 35, SD 7, SE 11, SI 21, SK 88, SL 1, SR 3, SV 3, SY 1, SZ 4, TJ 2, TL 2, TM 16, TN 6, TO 24, TR 11, TT 1, TW 18, TZ 8, UG 3, US 34, UY 7, UZ 121, VE 2, VN 24, WS 3, YE 4, ZA 6, ZW 1
+AD 4, AG 2, AL 1, AM 7, AO 4, AR 7, AT 43, AU 85, AW 4, AX 6, AZ 19, BA 4, BE 57, BG 4, BH 7, BJ 6, BR 20, BT 17, BW 2, BY 6, CA 56, CD 1, CG 4, CH 109, CI 5, CK 3, CL 9, CM 4, CN 15, CO 8, CR 136, CV 5, CW 3, CX 1, CZ 24, DE 19, DK 32, DM 4, DO 10, DZ 12, EC 3, EE 65, ES 66, EU 105, FI 84, FJ 6, FK 9, FO 6, FR 38, GA 9, GB 60, GD 8, GE 134, GH 1, GL 16, GM 1, GN 7, GR 7, GT 3, HN 6, HR 28, HT 2, HU 13, IE 21, IL 2, IS 1, IT 80, JE 23, JO 3, JP 130, KG 160, KH 3, KR 89, KW 1, KZ 379, LA 8, LI 73, LK 20, LR 2, LU 22, LV 69, MC 25, MD 11, MK 6, ML 6, MN 4, MO 4, MR 13, MT 62, MU 3, MV 7, MX 7, MZ 1, NA 2, NC 5, NF 5, NG 1, NI 5, NL 41, NR 8, NZ 64, OM 2, PA 6, PE 5, PG 5, PH 3, PL 33, PT 14, PW 3, PY 5, QA 8, RS 8, RW 35, SE 11, SI 21, SK 88, SL 1, SR 3, SV 3, SY 1, SZ 4, TJ 2, TL 2, TM 16, TN 6, TO 24, TR 11, TT 1, TW 18, TZ 8, UG 3, US 34, UY 7, UZ 121, VE 2, VN 24, WS 3, YE 4, ZA 6, ZW 1
 
 </details>
 
@@ -145,7 +145,7 @@ Watchers are small checks that notice when an official source changes, so a pers
 - Two `pass` licence verdicts are in doubt. An audit of a sample of the licence table on 2026-11-12 is in [issue #18](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/18). Until it is closed, read the `Licence` trailer and the source's own terms before reusing a text.
 - Tool defects found by a code review on 2026-11-12 are listed in [issue #17](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/17).
 - A second review on 2026-11-15 (GEL-33) found tool, gate and register defects. Most were fixed on 2026-11-17 and are listed in [`CHANGELOG.md`](CHANGELOG.md). Still open: [issue #58](https://github.com/GoCarbonTracker-Hq/global-esg-law/issues/58), stored scope entries whose in-force date is empty.
-- Link-only instruments have no stored text: 546 of 1395 as of 2026-11-17.
+- Link-only instruments have no stored text: 553 of 1404 as of 2026-11-17.
 - OCR text is uncorrected. 106 records are OCR (counted 2026-11-17), in 13 languages including Arabic, Spanish and French. Arabic OCR in particular misreads digits, so check dates and article numbers against the original PDF named in the record.
 - 11 records have an unknown commencement date (`in_force` is null). They sit in the history at the date in their file name, which is a publication date.
 - Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
