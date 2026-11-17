@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Adds arts. 93 bis to 93 bis 3 to the Executive Regulation (continuous monitoring stations for marine water quality: approval, installation duty for projects with a potential marine impact, standards, quarterly reports). Its changes are also inside the current Al Meezan text of qa-environment-exec-regulation-4-2005. Stored in Arabic only (ar), from QA-ALMEEZAN-CONSOLIDATED. No government English: Al Meezan's English view of this instrument serves the Arabic text under an English interface (no English article text), and its translation row QA-ALMEEZAN-TRANSLATION is permission requested; also looked for English in the file list of the Al Meezan page (no English-language file; Official Gazette issue PDFs) and on the MECC laws page (Arabic links). Text is stored as Al Meezan serves it, including its editorial markers.",
     "status": "stored",
-    "amends": "qa-environment-exec-regulation-4-2005"
+    "amends_ids": ["qa-environment-exec-regulation-4-2005"]
   },
   {
     "id": "qa-environment-exec-regulation-amendment-31-2023",
@@ -55,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Two articles: replaces Annex 1/5 of the Executive Regulation (competent licensing body for waste and hazardous materials); the annex is a separate appendix HTML file on the page and is not in the Akoma Ntoso text, so it is not stored. Stored in Arabic only (ar), from QA-ALMEEZAN-CONSOLIDATED. No government English: Al Meezan's English view of this instrument serves the Arabic text under an English interface (no English article text), and its translation row QA-ALMEEZAN-TRANSLATION is permission requested; also looked for English in the file list of the Al Meezan page (no English-language file; Official Gazette issue PDFs) and on the MECC laws page (Arabic links). Text is stored as Al Meezan serves it, including its editorial markers.",
     "status": "stored",
-    "amends": "qa-environment-exec-regulation-4-2005"
+    "amends_ids": ["qa-environment-exec-regulation-4-2005"]
   },
   {
     "id": "qa-air-quality-decision-310-2020",

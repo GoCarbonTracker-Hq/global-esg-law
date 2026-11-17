@@ -28,7 +28,7 @@
       "CD-MEDD-ADOPTED"
     ],
     "verification": "official_text_seen",
-    "amends": "cd-loi-11-009",
+    "amends_ids": ["cd-loi-11-009"],
     "notes": "Amending act with carbon content: it adds the definition of the carbon tax (a tax on any person whose activities emit greenhouse gases above a threshold to be set by interministerial order; the order of the Ministers of Environment and Finance fixes the rate and collection, per the final operative article), art. 17 bis (creates the Autorité de Régulation du Marché de Carbone, ARMCA, organisation by decree of the Prime Minister) and art. 17 ter (ARMCA resources, including a share of the carbon tax). No interministerial order setting the threshold or rate was found on medd.gouv.cd or the Journal officiel site. UNDP names a different text for ARMCA (Ordonnance-loi 23/22 of 14 June 2023); not found in any official page. Link only: the only free official copy is a phone scan (PDF titled CamScanner, 13 pages, images only) of the Cabinet copy, whose text is cut at the page edge in the image itself (for example the carbon-tax definition reads \"au-delà d'\" and stops), so OCR would store an incomplete law, and the Journal officiel copy is paywalled. Uncorrected OCR was read for the evidence only and not stored. fetched sha256 of the scan: f0f2d2cb8983f34a3c5beb88221b35da10947096c6f5952356538c4572300e67 (11624923 bytes).",
     "status": "link only"
   },

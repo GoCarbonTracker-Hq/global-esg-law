@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Implementing regulation under Articles 104 and 105 of Loi n° 33-2023, establishing the 124-category nomenclature of classified installations for environmental protection (ICPE) subject to authorization, declaration, environmental taxation and five-year audits. Published in French only in Journal officiel n° 28-2024 on 2024-07-11. No official English translation was published by the government; looked for on sgg.cg.",
     "status": "stored",
-    "amends": "cg-loi-2023-33"
+    "amends_ids": ["cg-loi-2023-33"]
   },
   {
     "id": "cg-decret-2022-1923",

@@ -27,7 +27,7 @@
     "verification": "official_text_seen",
     "notes": "Language: English, the only official language of Dominican legislation; no second official language and no government translation exists, so there is no other-language or translation record. One record, the whole Order (three sections). It extends the Climate Resilience Act 2018 to 2023-12-31; section 25 of the Act allows one extension only, so no further extension order can be valid without an amending Act.",
     "status": "stored",
-    "amends": "dm-climate-resilience-act-2018"
+    "amends_ids": ["dm-climate-resilience-act-2018"]
   },
   {
     "id": "dm-physical-planning-act-2002",

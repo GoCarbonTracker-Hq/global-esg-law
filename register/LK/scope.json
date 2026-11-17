@@ -41,7 +41,7 @@
       "LK-GOVPRINT-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "amends": "lk-national-environmental-act",
+    "amends_ids": ["lk-national-environmental-act"],
     "notes": "Stored in the OCR pass 2026-11-03 (the sentences below describe the state before it). Sinhala and English PDFs are listed (no Tamil file); both are 5-page scans with no text layer, and no OCR is installed in the cloud session. The Act replaces section 23A (licences for prescribed activities) and amends sections 23AA and 23BB of the 1980 Act as amended by Act No. 56 of 1988. OCR pass 2026-11-03: a Sinhala record (adopted, pages 1 to 5 of the PDF) and an English record (translation, pages 1 to 5) are uncorrected OCR output of the scanned official PDFs (extraction ocr; 200 dpi, tesseract 5.3.4 from the Ubuntu package tesseract-ocr 5.3.4-1build5, language pack tesseract-ocr-sin 4.1.0-2 and eng, one run per page, pages joined in order, no text corrected), so misread characters (for example the year 2000 read as 9000 on the Sinhala title line) are in the stored text. Section 5 of the Act says the Sinhala text prevails over the Tamil text and names no prevailing English text, so the English record is a translation and LK-GOVPRINT-TRANSLATION was added to source_row, as on the other Acts; the verdicts are untouched.",
     "status": "stored"
   },
@@ -59,7 +59,7 @@
       "LK-GOVPRINT-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "amends": "lk-national-environmental-act",
+    "amends_ids": ["lk-national-environmental-act"],
     "notes": "Stored: one English translation record (60-page PDF, clean text). Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Sinhala and Tamil are stored too (OCR pass 2026-11-03, see the last sentence); the English text is a translation under row LK-GOVPRINT-TRANSLATION. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text. The Act amends section 2 (the Central Environmental Authority) and other sections of the 1980 Act; the words climate, carbon and greenhouse do not occur in the English text, so it is an F2 fallback rather than a climate law. The Bills page of the same site also lists a 'National Environmental (Bill)' dated 2026-05-06; a bill is not law and is not in scope. No Climate Change Act or Climate Change Bill was found: the Acts, Bills and Gazette Extraordinary lists of documents.gov.lk were searched for 'Climate' on 2026-11-03 (the only hits are two 2021 Presidential Secretariat task-force Gazettes). OCR pass 2026-11-03: the Sinhala record (pages 1 to 70 of the PDF; pages 2 and 69 are blank) and the Tamil record (pages 1 to 84; pages 2 and 83 are blank) are uncorrected OCR output of the PDFs (extraction ocr; page images at 200 dpi, tesseract 5.3.4 from the Ubuntu package tesseract-ocr 5.3.4-1build5, language packs tesseract-ocr-sin and tesseract-ocr-tam 4.1.0-2, one run per page, pages joined in order, no text corrected), so misread characters are in the stored text; the PDFs have a text layer that is corrupt, so the layer was ignored. The records are whole Acts, not cut.",
     "status": "stored"
   },
@@ -94,7 +94,7 @@
       "LK-GOVPRINT-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "amends": "lk-finance-act-2018",
+    "amends_ids": ["lk-finance-act-2018"],
     "notes": "Stored: one English translation record, whole Act (clean text). Its Part II ends the Carbon Tax levy period on 2019-11-30; the other Parts amend Parts VII and XII of Act No. 35 of 2018 and add a levy on foreign commercial transactions. No Act restoring the tax was found: the 238 English Acts dated 2019 to 2026 that the site lists were fetched on 2026-11-03 and 178 of them have a text layer; searched for 'carbon', 'climate change' and 'greenhouse', the only Acts that use these words for anything but chemistry or hydrocarbons are this Act, the Sri Lanka Electricity Act No. 36 of 2024 (decarbonisation goals) and the Tea Research Board (Amendment) Act No. 8 of 2019; the other 60 Acts are scans and were not searched. A formal repeal of Part XI (the brief mentions 2020) was not found: the Finance (Amendment) Act No. 2 of 2020 amends section 36 only. The tax therefore lapsed by its own limited period (1 January to 30 November 2019) on the official pages read. Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Sinhala and Tamil are stored too (OCR pass 2026-11-03, see the last sentence); the English text is a translation under row LK-GOVPRINT-TRANSLATION. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text. OCR pass 2026-11-03: the Sinhala record (pages 1 to 11 of the PDF) and the Tamil record (pages 1 to 14) are uncorrected OCR output of the scanned official PDFs (extraction ocr; page images at 200 dpi, tesseract 5.3.4 from the Ubuntu package tesseract-ocr 5.3.4-1build5, language packs tesseract-ocr-sin and tesseract-ocr-tam 4.1.0-2, one run per page, pages joined in order, no text corrected), so misread characters are in the stored text. The PDFs are whole Acts and the records are not cut.",
     "status": "stored"
   },
@@ -109,7 +109,7 @@
     "duty_on": "private_sector",
     "source_row": "LK-GOVPRINT-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "lk-finance-act-2018",
+    "amends_ids": ["lk-finance-act-2018"],
     "notes": "Stored in the OCR pass 2026-11-03 (the sentences below describe the state before it). One-page Gazette; the body extracts cleanly with pdftotext but its first line is the running header in a legacy Sinhala font ('I fldgi ( ^I& fPoh - YS% ,xld ...'), which is corrupt, and a record with a corrupt line or a hand-removed line is not stored. Sinhala, Tamil and English Gazettes are listed. The regulations say the tax is paid by the registered owner and collected by the Divisional Secretary or the Provincial Commissioner of Motor Traffic and remitted to the Consolidated Fund; they set no rate. The levy period was later limited to 2019-01-01 to 2019-11-30 by Finance Act No. 21 of 2019 (lk-finance-act-2019); whether the regulations were revoked was not found. OCR pass 2026-11-03: Sinhala (1 page), Tamil (2 pages) and English (1 page) records, each the whole Gazette Extraordinary No. 2105/47 in that language, are uncorrected OCR output of the page images (extraction ocr; 200 dpi, tesseract 5.3.4 from the Ubuntu package tesseract-ocr 5.3.4-1build5, language packs tesseract-ocr-sin and tesseract-ocr-tam 4.1.0-2 and eng, one run per page, pages joined in order, no text corrected), so the legacy-font running header and misread characters are in the stored text.",
     "status": "stored"
   },
@@ -144,7 +144,7 @@
       "LK-GOVPRINT-TRANSLATION"
     ],
     "verification": "official_text_seen",
-    "amends": "lk-caa-act-2003",
+    "amends_ids": ["lk-caa-act-2003"],
     "notes": "Stored: one English translation record (4 pages, clean text). It amends section 60 of the 2003 Act (non-compliance with an order). Languages: the site serves Sinhala, Tamil and English PDFs of this Act. Only the English text (a translation, row LK-GOVPRINT-TRANSLATION) is stored. Sinhala and Tamil are stored too (OCR pass 2026-11-03, see the last sentence); their PDFs have a text layer in a legacy font, which was ignored. The Act's own clause says the Sinhala text prevails over the Tamil text, so the stored English record is not the prevailing text. OCR pass 2026-11-03: the Sinhala record (pages 1 to 4 of the PDF) and the Tamil record (pages 1 to 5) are uncorrected OCR output of the page images (extraction ocr; 200 dpi, tesseract 5.3.4 from the Ubuntu package tesseract-ocr 5.3.4-1build5, language packs tesseract-ocr-sin and tesseract-ocr-tam 4.1.0-2, one run per page, pages joined in order, no text corrected), so misread characters are in the stored text.",
     "status": "stored"
   }

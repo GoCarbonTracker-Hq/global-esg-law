@@ -28,7 +28,7 @@
     "notes": "Preamble: harmonisation with Article 3 of Directive (EU) 2022/2464 (assurance of sustainability reporting). Amends the Auditors Laws of 2017 to 2022. Same gazette issue as cy-companies-amendment-3-2025. No government English text found: looked for on mof.gov.cy/gpo (the English pages of the gazette site carry no law text) and on cylaw.org (bar association, English only for some judgments).",
     "status": "link only",
     "status_note": "link only: row CY-GPO-ADOPTED is permission requested, so no text is stored",
-    "amends": "cy-companies-amendment-3-2025"
+    "amends_ids": ["cy-companies-amendment-3-2025"]
   },
   {
     "id": "cy-transparency-amendment-2-2025",
@@ -74,7 +74,7 @@
     "notes": "Preamble: harmonisation with Directives (EU) 2023/958 (aviation) and (EU) 2023/959 (ETS revision). Amends the ETS Laws of 2011 to 2020. No government English text found: looked for on mof.gov.cy/gpo (the English pages of the gazette site carry no law text) and on cylaw.org (bar association, English only for some judgments).",
     "status": "link only",
     "status_note": "link only: row CY-GPO-ADOPTED is permission requested, so no text is stored",
-    "amends": "cy-ets-law-2011"
+    "amends_ids": ["cy-ets-law-2011"]
   },
   {
     "id": "cy-ets-amendment-2025",
@@ -90,7 +90,7 @@
     "notes": "Preamble: harmonisation with Directive (EU) 2023/959 and better harmonisation with a second EU act named in the preamble. Amends the ETS Laws of 2011 to 2024. No government English text found: looked for on mof.gov.cy/gpo (the English pages of the gazette site carry no law text) and on cylaw.org (bar association, English only for some judgments).",
     "status": "link only",
     "status_note": "link only: row CY-GPO-ADOPTED is permission requested, so no text is stored",
-    "amends": "cy-ets-law-2011"
+    "amends_ids": ["cy-ets-law-2011"]
   },
   {
     "id": "cy-ets-amendment-2-2025",
@@ -106,7 +106,7 @@
     "notes": "Preamble: better harmonisation with Directive (EU) 2023/959. Amends the ETS Laws of 2011 to 2025. No government English text found: looked for on mof.gov.cy/gpo (the English pages of the gazette site carry no law text) and on cylaw.org (bar association, English only for some judgments).",
     "status": "link only",
     "status_note": "link only: row CY-GPO-ADOPTED is permission requested, so no text is stored",
-    "amends": "cy-ets-law-2011"
+    "amends_ids": ["cy-ets-law-2011"]
   },
   {
     "id": "cy-consumer-protection-law-2021",
@@ -137,6 +137,6 @@
     "notes": "Preamble: harmonisation with Directive (EU) 2024/825 (empowering consumers for the green transition: environmental claims) and effective application of Implementing Regulation (EU) 2025/1960. Published 2026-07-17, in force 2026-09-27, so in force on 2026-11-02. No government English text found: looked for on mof.gov.cy/gpo (the English pages of the gazette site carry no law text) and on cylaw.org (bar association, English only for some judgments).",
     "status": "link only",
     "status_note": "link only: row CY-GPO-ADOPTED is permission requested, so no text is stored",
-    "amends": "cy-consumer-protection-law-2021"
+    "amends_ids": ["cy-consumer-protection-law-2021"]
   }
 ]

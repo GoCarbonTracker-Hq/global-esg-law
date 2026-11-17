@@ -30,7 +30,7 @@
     "verification": "official_text_seen",
     "notes": "Whole act as published (the amendments to årsregnskabsloven in § 1, revisorloven in § 2 and other laws). Later reporting dates were postponed by Lov 1636/2025 (dk-lov-1636-2025). Language: Danish only. English: the Ministry of Business has no translation of this act that was found; looked for in the web search for Erhvervsstyrelsen translations on 2026-11-02 and via Retsinformation, which holds none.",
     "status": "stored",
-    "amends": "dk-arl-99a"
+    "amends_ids": ["dk-arl-99a"]
   },
   {
     "id": "dk-lov-1636-2025",
@@ -47,7 +47,7 @@
     "verification": "official_text_seen",
     "notes": "Whole act as published. Retsinformation marks it Historic (amending act). No ministerial order fixing the date for § 1, nr. 3 was found, so that provision may not yet have commenced; the record is dated 2025-12-31 for the rest. BEK 328/2026 (dk-bek-328-2026) and BEK 1700/2025 (dk-bek-1700-2025) refer to the postponement. Language: Danish only. English: none found (web search and Retsinformation, 2026-11-02).",
     "status": "stored",
-    "amends": "dk-arl-99a"
+    "amends_ids": ["dk-arl-99a"]
   },
   {
     "id": "dk-lov-52-2025",

@@ -26,7 +26,7 @@
     "verification": "official_text_seen",
     "notes": "Replaces the membership list of the council in art. 1 of Decreto 601-08 (President of the Republic presides, Ministerio de Medio Ambiente is secretary, plus ministries, the Central Bank governor, the Comisión Nacional de Energía and the Superintendencia de Energía). Decretos 301-25 and 358-25 (2025) rename the council and are not in scope; see register notes. The PDF is a gazette excerpt: it starts with the closing lines of the previous decree and ends with the considerandos of Decreto 349-21 (curfew); both are cut off here. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
     "status": "stored",
-    "amends": "do-decreto-601-08"
+    "amends_ids": ["do-decreto-601-08"]
   },
   {
     "id": "do-ley-225-20",
@@ -55,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Amends Ley 225-20, including the contribution payable by private legal persons. Staged start dates are in the text and are not separate records. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
     "status": "stored",
-    "amends": "do-ley-225-20"
+    "amends_ids": ["do-ley-225-20"]
   },
   {
     "id": "do-ley-36-26",
@@ -70,7 +70,7 @@
     "verification": "official_text_seen",
     "notes": "Adjusts the special contribution under Ley 225-20 as amended by Ley 98-25, with payment months July and December 2026 for entities that had not paid. The PDF ends with the heading and considerandos of Ley 37-26, cut off here. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
     "status": "stored",
-    "amends": "do-ley-225-20"
+    "amends_ids": ["do-ley-225-20"]
   },
   {
     "id": "do-ley-57-07",
@@ -99,7 +99,7 @@
     "verification": "official_text_seen",
     "notes": "Changes art. 5 of Ley 57-07 on the scope of eligible plants. The heading says \"G. O. No. 10802 del 19 de junio de 2014\", a year the CJPE index and the promulgation date contradict (2015). The PDF starts with the closing lines of the previous act, cut off here. The amended Ley 57-07 itself is link only. English: no government translation found; consultoria.gov.do/en returned 404, presidencia.gob.do/en and ambiente.gob.do/en returned the Spanish site, cambioclimatico.gob.do/en and sb.gob.do/en returned 404, and the CJPE search lists Spanish documents only.",
     "status": "stored",
-    "amends": "do-ley-57-07"
+    "amends_ids": ["do-ley-57-07"]
   },
   {
     "id": "do-ley-64-00",

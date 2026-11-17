@@ -66,7 +66,7 @@
     "duty_on": "private_sector",
     "source_row": "HN-TSC-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "hn-lga-reglamento",
+    "amends_ids": ["hn-lga-reglamento"],
     "notes": "Prohibits open burning of wood-industry residues, oils, cardboard, plastic, tyres, batteries, electronics and domestic and hazardous waste (art. 112 q). Linked as 'Descargar reforma al Reglamento (Acuerdo Ejecutivo No. 016-2017)' on the TSC page of hn-lga-reglamento. The record is the two-page Gaceta file read column by column (left column, then right); the Gaceta masthead, summary box and the Empresa Nacional de Artes Gráficas signature block are left out. Languages stored on 2026-11-03: es. No government English translation was found: looked for at https://www.tsc.gob.hn/en/ (404, 138625 bytes, Spanish page), https://www.cnbs.gob.hn/en/ (200, redirects to a Spanish survey page), https://juntec.org.hn/en/ (406), https://circulares.cnbs.gob.hn/en (405), https://congresonacional.hn/en/ (404) and https://serna.gob.hn/en/ (406). No translation row exists.",
     "status": "stored"
   },
@@ -123,7 +123,7 @@
     "duty_on": "financial_institutions",
     "source_row": "HN-CNBS-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "hn-cnbs-norma-ras",
+    "amends_ids": ["hn-cnbs-norma-ras"],
     "notes": "Link only: row HN-CNBS-ADOPTED is permission requested. Replaces art. 15 (categorisation of environmental and social risk, categories A, B and C) and ratifies the rest of Resolución GES 333/31-07-2020. No government English translation was found: looked for at https://www.tsc.gob.hn/en/ (404, 138625 bytes, Spanish page), https://www.cnbs.gob.hn/en/ (200, redirects to a Spanish survey page), https://juntec.org.hn/en/ (406), https://circulares.cnbs.gob.hn/en (405), https://congresonacional.hn/en/ (404) and https://serna.gob.hn/en/ (406). No translation row exists.",
     "status": "link only"
   },

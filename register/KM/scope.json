@@ -26,7 +26,7 @@
     "verification": "official_page_seen",
     "status": "link only",
     "notes": "Amending act, served as a PDF link (the text is not on the page). Its changes are already worked into the amended text of km-loi-94-018. Link only: KM-JUSTICE-ADOPTED is permission requested. The PDF was not opened. No Arabic or English text found.",
-    "amends": "km-loi-94-018"
+    "amends_ids": ["km-loi-94-018"]
   },
   {
     "id": "km-decret-01-052",

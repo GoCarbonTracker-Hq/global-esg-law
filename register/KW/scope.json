@@ -52,7 +52,7 @@
     "duty_on": "private_sector",
     "source_row": "KW-EPA-CONSOLIDATED",
     "verification": "official_text_seen",
-    "amends": "kw-epa-outdoor-air-8-2017",
+    "amends_ids": ["kw-epa-outdoor-air-8-2017"],
     "notes": "Gas flaring regulation under Art. 52 of Law 42 of 2014, part of the outdoor air regulation (Art. 2 of the decision). Art. 3 of the regulation caps flared gas at 5% of daily production from 1 January 2022 (as read on the page image; stated for orientation only). Link only: the PDF (HTTP 200, 3723073 bytes, 6 pages) is a gazette scan with a garbage text layer; OCR was not stored. No English found on epa.gov.kw.",
     "status": "link only"
   }

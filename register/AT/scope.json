@@ -12,7 +12,7 @@
     "verification": "official_text_seen",
     "notes": "The brief and the earlier register row asked whether the CSRD transposition is in the Bundesgesetzblatt: it is, BGBl. I Nr. 6/2026, so it is stored, not an F7 row. It is an amending act: Artikel 1 is the new Drittlandunternehmen-Berichterstattungsgesetz (at-dribeg), Artikel 2 to 21 amend the UGB (see at-ugb-243b-267a), AktG, GmbHG, GenG, GenRevG 1997, SE-Gesetz, SCE-Gesetz, ArbVG, WTBG 2017, RPflG, GGG, CBCR-VeröffG, APAG, AIFMG, BWG, BörseG 2018, InvFG 2011, NBG 1984, SpG and VAG 2016. The one record is the whole authentic BGBl. text (about 310,000 characters) in German, the only official language. Application dates of the UGB changes are in UGB § 908 (financial years from 2024-01-01 with exceptions). No English translation of the BGBl. exists: the RIS Englische-Rv list (OGD application Erv, 136 documents on 2026-11-02) has none. Any EU omnibus changes after the Act are not part of it.",
     "status": "stored",
-    "amends": "at-ugb-243b-267a"
+    "amends_ids": ["at-ugb-243b-267a"]
   },
   {
     "id": "at-dribeg",
@@ -55,7 +55,7 @@
     "verification": "official_text_seen",
     "notes": "Added to the brief candidates: the UGB sections (at-ugb-243b-267a) are the text, this is the Act that inserted them. The act amends the UGB, the AktG and the GmbHG; the whole BGBl. text is the one record. German only (the BGBl. has one language, and the RIS Erv list has no entry). The Act is dated 2017 but takes effect on 2016-12-06, before its own promulgation, as its text says.",
     "status": "stored",
-    "amends": "at-ugb-243b-267a"
+    "amends_ids": ["at-ugb-243b-267a"]
   },
   {
     "id": "at-ksg",

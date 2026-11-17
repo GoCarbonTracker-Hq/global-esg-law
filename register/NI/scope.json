@@ -38,7 +38,7 @@
     "duty_on": "private_sector",
     "source_row": "NI-LAGACETA-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "ni-ley-217",
+    "amends_ids": ["ni-ley-217"],
     "notes": "Record text is Ley 647 only (header to the signature line), cut from the gazette issue; the two-column pages are read left column then right column (pdftotext -x/-W crop per page). It reforms and adds to Ley 217: new definitions (including a climate change impact study, vulnerability, adaptation) and articles on protected areas; Art. 26 orders the reforms to be merged into Ley 217 and published in full, which the site serves only as the Digesto consolidation behind a login (see ni-ley-217). Stored as the act as published, not as a consolidated Ley 217. Languages stored on 2026-11-03: es (the official language of legislation; the gazette has no edition in a Caribbean coast language). No government English translation is known: looked for at https://www.lagaceta.gob.ni (200, Spanish only, no English pages), https://www.siboif.gob.ni (200, Spanish only) and https://www.bolsanic.com (200, Spanish only); https://legislacion.asamblea.gob.ni and https://www.marena.gob.ni could not be reached from the cloud address.",
     "status": "stored"
   },
@@ -67,7 +67,7 @@
     "duty_on": "private_sector",
     "source_row": "NI-LAGACETA-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "ni-ley-842",
+    "amends_ids": ["ni-ley-842"],
     "notes": "Record text is Ley 1061 only (from EL PRESIDENTE DE LA REPÚBLICA to the signature line), cut from the La Gaceta No. 27 issue text layer with the two-column crop, no OCR. It reforms Arts. 5 (definitions of persona consumidora o usuaria, servicios básicos, servicios financieros), 9 (numerals 10 and 25), 53, 54 (numerals 2 and 3) and 120 of Ley 842 and adds numeral 22 to Art. 6. It concerns financial-services users, non-discrimination in supply, notice of refusals and sanctions; it has no provision on environmental claims. Stored as the act as published, not as a consolidated Ley 842: the Ley 1097 Digesto consolidation is behind a login on lagaceta.gob.ni and was not used. Language stored on 2026-11-15: es (the official language of legislation; the gazette has no edition in a Caribbean coast language).",
     "status": "stored"
   }

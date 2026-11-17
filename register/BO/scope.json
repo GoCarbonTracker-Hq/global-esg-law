@@ -133,7 +133,7 @@
     "notes": "Link only, same reason as bo-ley-300. Adjusts the environmental licensing instruments (IRAPs) and procedures of the RPCA. The date used is the publication date.  English looked for on 2026-11-03: on the Gaceta Oficial site, which serves Spanish only; none found, no translation row.",
     "status": "link only",
     "status_note": "Row BO-GACETA-ADOPTED is permission requested; no text stored.",
-    "amends": "bo-ds-24176"
+    "amends_ids": ["bo-ds-24176"]
   },
   {
     "id": "bo-ds-5264",

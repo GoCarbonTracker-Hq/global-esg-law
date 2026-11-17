@@ -52,7 +52,7 @@
     "duty_on": "private_sector",
     "source_row": "ZA-GOVZA-ADOPTED",
     "verification": "official_text_seen",
-    "amends": "za-nger-regs-2017",
+    "amends_ids": ["za-nger-regs-2017"],
     "notes": "Amending notice only (amends regulations including 15, transitional arrangements); stored text is the notice, not a consolidation.",
     "status": "stored"
   },

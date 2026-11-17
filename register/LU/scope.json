@@ -31,7 +31,7 @@
     "verification": "official_text_seen",
     "notes": "Climate pact between the State and the municipalities. The act takes effect retroactively on 2021-01-01 although it was published on 2021-06-30, so its record carries 2021-01-01. Legilux serves no consolidation of it; its amendment of the climate law is in the consolidations of lu-climate-law-2020. Text is the Akoma Ntoso XML file as returned: preface and body as line breaks, article and paragraph numbers on the line of their text, list markers rebuilt from the list type, Legilux modification notes as '[Note] ...' lines after the block that cites them (the marker is added by the extraction), passages Legilux marks as deleted (<del>) left out. Language: French only. Legilux serves one expression (FRA) for the act: a SPARQL query of jo:language over the act  on 2026-11-02 returned FRA alone, so there is no German text as enacted. No government English translation: looked for in the Legilux expressions of the act (FRA only) on 2026-11-02.",
     "status": "stored",
-    "amends": "lu-climate-law-2020"
+    "amends_ids": ["lu-climate-law-2020"]
   },
   {
     "id": "lu-ghg-allocations-rgd-2022",
@@ -113,7 +113,7 @@
     "verification": "official_text_seen",
     "notes": "Link only: every manifestation of this act in the Legilux data (html, pdf, xml, docx) carries the licence label licenceSCL (\"Licence de réutilisation SCL\"), not CC BY 4.0, and no text of that licence was found, so the file is not stored (unknown is not pass). Row LU-LEGILUX-ADOPTED passes for files that carry CC BY 4.0. The provisions this act inserted into the law of 19 December 2002 (Art. 68bis) are stored in lu-rcs-act-2002 from the consolidated text. Language: French only. Legilux serves one expression (FRA) for the act: a SPARQL query of jo:language over the act  on 2026-11-02 returned FRA alone, so there is no German text as enacted. No government English translation: looked for in the Legilux expressions of the act (FRA only) on 2026-11-02.",
     "status": "link only",
-    "amends": "lu-rcs-act-2002"
+    "amends_ids": ["lu-rcs-act-2002"]
   },
   {
     "id": "lu-sfdr-law-2022",
@@ -162,6 +162,6 @@
     "verification": "official_text_seen",
     "notes": "Transposes Directive (EU) 2024/825 (empowering consumers for the green transition): bans generic environmental claims, claims based on offsetting, and unverified sustainability labels. Its changes are already in the Code consolidation of 2026-09-27 (lu-consumer-code-unfair-practices). Legilux serves no consolidation of the act itself. Text is the Akoma Ntoso XML file as returned: preface and body as line breaks, article and paragraph numbers on the line of their text, list markers rebuilt from the list type, Legilux modification notes as '[Note] ...' lines after the block that cites them (the marker is added by the extraction), passages Legilux marks as deleted (<del>) left out. Language: French only. Legilux serves one expression (FRA) for the act: a SPARQL query of jo:language over the act  on 2026-11-02 returned FRA alone, so there is no German text as enacted. No government English translation: looked for in the Legilux expressions of the act (FRA only) on 2026-11-02.",
     "status": "stored",
-    "amends": "lu-consumer-code-unfair-practices"
+    "amends_ids": ["lu-consumer-code-unfair-practices"]
   }
 ]

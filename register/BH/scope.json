@@ -96,7 +96,7 @@
     "verification": "official_text_seen",
     "notes": "Amending law: replaces the definition of the competent administrative authority in Art. (1) and the texts of Art. (22) para. 1 (confiscation or destruction of goods, publication of the judgment) and Art. (23) of Law No. (35) of 2012. It is stored as its own record; no consolidated text of Law No. (35) of 2012 at 2026-06-19 is served with a stated date. English: LLOC lists no English version (the 2026-11-03 search result offers Arabic only).",
     "status": "stored",
-    "amends": "bh-consumer-protection-law-35-2012"
+    "amends_ids": ["bh-consumer-protection-law-35-2012"]
   },
   {
     "id": "bh-bhb-listing-rules",

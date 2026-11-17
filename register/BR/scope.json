@@ -97,7 +97,7 @@
     "verification": "official_text_seen",
     "notes": "Amending resolution; text is the amendment only. Languages stored: pt (Portuguese, the only official language). English looked for on 2026-11-02 at gov.br/cvm/en/foreign-investors/regulation-of-interest: no translation of this resolution is listed.",
     "status": "stored",
-    "amends": "br-cvm-res-193-2023"
+    "amends_ids": ["br-cvm-res-193-2023"]
   },
   {
     "id": "br-cvm-res-227-2025",
@@ -114,7 +114,7 @@
     "verification": "official_text_seen",
     "notes": "Amending resolution; text is the amendment only. Languages stored: pt (Portuguese, the only official language). English looked for on 2026-11-02 at gov.br/cvm/en/foreign-investors/regulation-of-interest: no translation of this resolution is listed.",
     "status": "stored",
-    "amends": "br-cvm-res-193-2023"
+    "amends_ids": ["br-cvm-res-193-2023"]
   },
   {
     "id": "br-cvm-res-244-2026",
@@ -131,7 +131,7 @@
     "verification": "official_text_seen",
     "notes": "Amending resolution. The earlier register row gave 2026-05-29 (the resolution date); the CVM page gives DOU publication 2026-06-01, used here. Languages stored: pt (Portuguese, the only official language). English looked for on 2026-11-02 at gov.br/cvm/en/foreign-investors/regulation-of-interest: no translation of this resolution is listed.",
     "status": "stored",
-    "amends": "br-cvm-res-193-2023"
+    "amends_ids": ["br-cvm-res-193-2023"]
   },
   {
     "id": "br-cvm-res-59-2021",
@@ -245,7 +245,7 @@
     "verification": "official_text_seen",
     "notes": "Only art. 13 I is in force on 2026-09-04; the text record is dated 2027-01-01 (the date the duties start). Published, not yet in force on 2026-11-02. Languages stored: pt (Portuguese, the only official language). English looked for on 2026-11-02 at www.bcb.gov.br/en (script-rendered shell, no regulation list served to curl) and the BCB normativos API: no English version found.",
     "status": "stored",
-    "amends": "br-bcb-res-139-2021"
+    "amends_ids": ["br-bcb-res-139-2021"]
   },
   {
     "id": "br-mte-portaria-18-2024",

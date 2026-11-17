@@ -71,7 +71,7 @@
     "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2588-26.pdf",
     "citation": "Zakon o izmeni i dopuni Zakona o porezu na emisije gasova sa efektom staklene bašte (Sl. glasnik RS 80/2026)",
     "in_force": "2026-09-08",
-    "amends": "rs-ghg-tax-act",
+    "amends_ids": ["rs-ghg-tax-act"],
     "evidence": "Article 3 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (National Assembly PDF .../zakoni/14_saziv/2588-26.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. ... 80 од 31. августа 2026 (header line of the Pravno-informacioni sistem entry of the amended Law, opened 2026-11-02), so the eighth day is 2026-09-08.",
     "law_family": "F3",
     "source_row": [
@@ -104,7 +104,7 @@
     "official_url": "https://www.parlament.gov.rs/upload/archive/files/cir/pdf/zakoni/14_saziv/2587-26.pdf",
     "citation": "Zakon o dopuni Zakona o porezu na uvoz ugljenično intenzivnih proizvoda (Sl. glasnik RS 80/2026)",
     "in_force": "2026-09-08",
-    "amends": "rs-cbam-tax-act",
+    "amends_ids": ["rs-cbam-tax-act"],
     "evidence": "Article 2 of the Law as adopted: \"Овај закон ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.\" (National Assembly PDF .../zakoni/14_saziv/2587-26.pdf, opened 2026-11-02); published in \"Службени гласник РС\", бр. ... 80 од 31. августа 2026 (header line of the Pravno-informacioni sistem entry of the amended Law, opened 2026-11-02), so the eighth day is 2026-09-08.",
     "law_family": "F3",
     "source_row": [

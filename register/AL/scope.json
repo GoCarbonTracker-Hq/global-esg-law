@@ -26,7 +26,7 @@
     "verification": "official_page_seen",
     "notes": "Link only: a record needs a dated in-force date and none is stated. The existing register row kept the KKK URL; the QBZ page was not replaced in because qbz.gov.al could not be opened. Text is available at the KKK URL (PDF, 409788 bytes, Albanian). Store it once the Fletorja Zyrtare date is read from QBZ from the laptop (15 days after publication). English: none found on kkk.gov.al.",
     "status": "link only",
-    "amends": "al-accounting-law-25-2018"
+    "amends_ids": ["al-accounting-law-25-2018"]
   },
   {
     "id": "al-climate-law-155-2020",

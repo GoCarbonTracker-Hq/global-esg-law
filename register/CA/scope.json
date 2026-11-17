@@ -154,7 +154,7 @@
     "verification": "official_text_seen",
     "notes": "Amends ca-cepa-s46-ghg-notice-2023. The Gazette row is permission requested, so no text is stored.",
     "status": "link only",
-    "amends": "ca-cepa-s46-ghg-notice-2023",
+    "amends_ids": ["ca-cepa-s46-ghg-notice-2023"],
     "status_note": "Link only because the Canada Gazette terms were not found; see CA-GAZETTE-ADOPTED in sources/licence-table.csv."
   },
   {

@@ -42,7 +42,7 @@
     "source_row": "FJ-LAWS-ADOPTED",
     "verification": "official_text_seen",
     "notes": "Amends the Environment Management Act 2005 (definitions, EIA screening and approval provisions). Stored as the Act as published because the laws.gov.fj consolidation of the Environment Management Act 2005 does not yet include it. Not in the brief's candidate list; added because it changes the text in force. Languages: English only. Acts are enacted in English; the Laws as Published list (toc_lawsaspublished, 449 Acts and 1510 Legal Notices, all with Language 'English') and the consolidation serve no iTaukei or Hindi text of this instrument, and no government English translation is needed. Looked for: laws.gov.fj API (toc_lawsaspublished, get_act_by_id).",
-    "amends": "fj-environment-management-act-2005",
+    "amends_ids": ["fj-environment-management-act-2005"],
     "status": "stored"
   },
   {

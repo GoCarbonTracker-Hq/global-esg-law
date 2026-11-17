@@ -102,7 +102,7 @@
     "verification": "official_text_seen",
     "notes": "Binding amending order: banks 'are obliged' (ვალდებულია) to take ESG matters into account in their strategy (Code Art. 3(7)), the supervisory board must oversee ESG and climate-change risk (Art. 4(1)(r), 17(13)), and Art. 20 requires the bank to disclose corporate governance compliance, including ESG information, in the annual Pillar 3 report under NBG Order 92/04 of 2017-06-22. The NBG ESG reporting templates are not part of this Order. This replaces the register row's earlier reading that binding status rested on the NBG ESG page. Stored on 2026-11-03: 1 Georgian (ka) records and no English record. The record is the amending order as published, not the amended Code. No English text.",
     "status": "stored",
-    "amends": "ge-nbg-corporate-governance-code-2018"
+    "amends_ids": ["ge-nbg-corporate-governance-code-2018"]
   },
   {
     "id": "ge-fgas-technical-regulation-2023",
@@ -152,7 +152,7 @@
     "notes": "Amending order as published, not the consolidated rule. Stored on 2026-11-03: 1 Georgian (ka) records and no English record. No English text.",
     "status": "stored",
     "status_note": "Published amendment not yet in force on 2026-11-03; stored as an ordinary record dated its in-force date, 2027-01-01.",
-    "amends": "ge-corsia-order-235-2023"
+    "amends_ids": ["ge-corsia-order-235-2023"]
   },
   {
     "id": "ge-climate-change-council-decree-54-2020",

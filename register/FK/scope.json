@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Planning (Environmental Impact Assessment) Regulations 2015. The portal lists the in-force consolidation from 2022-09-30 (first.valid.date); that is the consolidation date, not the first in-force date. The PDF link carries the version id and changes with each consolidation (the watcher catches it).",
     "status": "stored",
-    "amends": "fk-planning-eia-regs-2015"
+    "amends_ids": ["fk-planning-eia-regs-2015"]
   },
   {
     "id": "fk-environment-trust-ord-2021",

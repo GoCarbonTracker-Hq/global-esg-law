@@ -54,7 +54,7 @@
     "verification": "official_text_seen",
     "notes": "Replaces Art. 48 to 57 (enforcement officers, seizure) and Art. 59, 62 and 68 of Loi n°2021-032. Art. 62 (nouveau) fines 5 000 000 francs anyone who carries out a project likely to harm the environment without an approved environmental and social impact study, and the administration stops the works. Ratified by Loi n°2025-028 du 3 juillet 2025 (JO n°2025-20 du 04/07/2025, https://sgg-mali.ml/JO/2025/mali-jo-2025-20.pdf, Article unique); that law is not stored as its own record. The record is dated 2025-04-04, the Journal Officiel date, as the date of the published text; this is not a stated entry into force. French only. No government English text found on sgg-mali.ml. in_force null: no commencement clause or date in the stored text.",
     "status": "stored",
-    "amends": "ml-loi-2021-032"
+    "amends_ids": ["ml-loi-2021-032"]
   },
   {
     "id": "ml-decret-2018-0991",

@@ -32,7 +32,7 @@
     "verification": "official_text_seen",
     "notes": "State target of a 55 % cut in direct greenhouse gas emissions by 2030 against 1990 and carbon neutrality in 2050, inserted as article O. 210-1 of the Code. Article O. 210-1 was replaced by Ordonnance Souveraine n° 11.515 of 13 October 2025 (mc-os-11515-ghg-2035); this Ordonnance has one version on Legimonaco and is not marked repealed. Records: adopted (Journal de Monaco n° 8.519) and the single Legimonaco version (kind consolidated), both 2021-01-02. Legimonaco shows the inserted article only as a link to the Code ('Voir l'article O. 210-1'); the operative sentence is in the adopted record. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
     "status": "stored",
-    "amends": "mc-loi-1456-code-environnement"
+    "amends_ids": ["mc-loi-1456-code-environnement"]
   },
   {
     "id": "mc-os-11515-ghg-2035",
@@ -50,7 +50,7 @@
     "verification": "official_text_seen",
     "notes": "Replaces article O. 210-1: the State commits to cut direct greenhouse gas emissions on its territory by 55 % in 2030 and 67.6 % in 2035 against 1990 and to reach carbon neutrality in 2050. Records: adopted (Journal de Monaco n° 8.769) and the single Legimonaco version (kind consolidated), both 2025-10-18. The Legimonaco rendering has a link in place of the new article text; the adopted record has the operative sentence. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
     "status": "stored",
-    "amends": "mc-os-8449-ghg-2030"
+    "amends_ids": ["mc-os-8449-ghg-2030"]
   },
   {
     "id": "mc-am-2020-916-ghg-inventories",
@@ -99,7 +99,7 @@
     "verification": "official_text_seen",
     "notes": "Rewrites articles 7, 9-1 to 9-6 of Ordonnance n° 1.284 (certification « bancaire, financière et ESG » and « contrôle interne des activités financières ») and sets transitional rules; article 4 IV gives persons already in post six months to register for the « bancaire, financière et ESG » session run by the AMAF. Records: adopted (Journal de Monaco n° 8.629, full amending text) and the Legimonaco version (kind consolidated, where the amended articles appear only as links to Ordonnance n° 1.284), both 2023-02-11. No government English text exists for this instrument: looked on Legimonaco (https://legimonaco.mc/en/ answers 404 and no English expression is offered on any text page), on the Journal de Monaco (its English switch changes the interface only; article pages stay French) and on the Mission pour la Transition Énergétique site (English interface, no translation of the text). French is the only official language.",
     "status": "stored",
-    "amends": "mc-os-1284-2007-financial-activities"
+    "amends_ids": ["mc-os-1284-2007-financial-activities"]
   },
   {
     "id": "mc-code-penal-art-362",

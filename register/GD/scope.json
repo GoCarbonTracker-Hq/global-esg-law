@@ -40,7 +40,7 @@
     "verification": "official_text_seen",
     "notes": "Amends gd-ppdca-2016: ss. 2, 6, 22(4)(g) (inserts \"Impact\" so the paragraph reads Environmental Impact), 39(3)(d) (a Ministry of the Environment representative) and Schedule I. No consolidated text is served by the Parliament site, so the amendment is stored as its own record. The date is the one the official text prints; no gazette commencement notice was found. Language stored on 2026-11-03: en (English is the official language of legislation; the Parliament site serves no other language and no translation).",
     "status": "stored",
-    "amends": "gd-ppdca-2016"
+    "amends_ids": ["gd-ppdca-2016"]
   },
   {
     "id": "gd-consumer-protection-act-2018",
@@ -69,7 +69,7 @@
     "verification": "official_text_seen",
     "notes": "Amends ss. 8, 10, 13, 31, 33, 34, 35, 54 and Schedules I and II of gd-consumer-protection-act-2018. Stored as its own record because the site serves no consolidation. The date is the one the official text prints. Language stored on 2026-11-03: en (English is the official language of legislation; the Parliament site serves no other language and no translation).",
     "status": "stored",
-    "amends": "gd-consumer-protection-act-2018"
+    "amends_ids": ["gd-consumer-protection-act-2018"]
   },
   {
     "id": "gd-nbwc-act-2018",

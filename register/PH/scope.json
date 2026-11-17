@@ -56,7 +56,7 @@
     "verification": "official_text_seen",
     "notes": "Same source and limits as ph-ra-9729. The E-Library text has transcription faults kept as served (a closing quotation mark served as '?', 'sixty (80) days'). English only; no Filipino text found on the E-Library.",
     "status": "stored",
-    "amends": "ph-ra-9729"
+    "amends_ids": ["ph-ra-9729"]
   },
   {
     "id": "ph-ra-7394-ch6-advertising",

@@ -28,7 +28,7 @@
     "notes": "Replaces section 5 of the principal Act (ministerial responsibility is split between the Prime Minister and the Minister of Finance) and corrects wording in sections 18, 26 and 28. Its title drops the final s of \"Initiatives\". Link only: row BS-LAWS-ADOPTED is permission requested (the site's copyright page allows informational non-commercial use only), so no text is stored. English is the only language of Bahamian legislation; no government translation exists or is needed.",
     "status": "link only",
     "status_note": "Row BS-LAWS-ADOPTED is permission requested; no text stored.",
-    "amends": "bs-climate-change-carbon-market-act"
+    "amends_ids": ["bs-climate-change-carbon-market-act"]
   },
   {
     "id": "bs-emissions-reduction-initiatives-regulations-2025",
@@ -89,7 +89,7 @@
     "notes": "Amends sections 2, 11, 12, 20, 22, 26, 30, 55, 56, 58 and 60 of the principal Act and inserts section 60A. The 2024 amendment named in the brief did pass. Link only: row BS-LAWS-ADOPTED is permission requested (the site's copyright page allows informational non-commercial use only), so no text is stored. English is the only language of Bahamian legislation; no government translation exists or is needed.",
     "status": "link only",
     "status_note": "Row BS-LAWS-ADOPTED is permission requested; no text stored.",
-    "amends": "bs-environmental-planning-protection-act"
+    "amends_ids": ["bs-environmental-planning-protection-act"]
   },
   {
     "id": "bs-environmental-planning-protection-spot-fines-regulations-2024",

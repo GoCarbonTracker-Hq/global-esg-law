@@ -30,7 +30,7 @@
     "verification": "official_text_seen",
     "notes": "The record is dated the first commencement. Section 2(2): \"The rest of this Act comes into force on a date or dates set by Order in Council\", with a long-stop of the first anniversary of assent for most parts (s 2(3)); Part 7A of the FMC Act was inserted on 2022-10-27.",
     "status": "stored",
-    "amends": "nz-fmc-act-2013-part-7a"
+    "amends_ids": ["nz-fmc-act-2013-part-7a"]
   },
   {
     "id": "nz-fmc-climate-regs-2023-222",
@@ -114,7 +114,7 @@
     "verification": "official_text_seen",
     "notes": "Amends the Climate Change Response Act 2002; inserts Parts 1A, 1B and 1C.",
     "status": "stored",
-    "amends": "nz-ccra-2002-part-1b"
+    "amends_ids": ["nz-ccra-2002-part-1b"]
   },
   {
     "id": "nz-ccra-2002-part-1b",

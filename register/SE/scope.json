@@ -41,7 +41,7 @@
     "notes": "Link only. The as-adopted Act is published at https://svenskforfattningssamling.se/doc/2024347.html (URL pattern not opened: the site answered 403 with a Cloudflare block page to curl and to headless Chromium). data.riksdagen.se has no document for it (https://data.riksdagen.se/dokument/sfs-2024-347.text and .json answer 404; the open data serves consolidated SFS only), and rkrattsbaser.gov.se has no register post of its own for 2024:347 (it appears as an amendment entry under 1995:1554). The changes it made are inside the consolidated texts stored as se-arl-ch6 and se-arl-ch7-s31. official_url is the amendment register page that was opened, not the gazette page. Its transitional points 4 and 5 were changed by Lag (2025:1297), in force 2025-12-31 (SFSR). Language: sv. English: looked for on https://www.government.se/ (home page and /legal-documents/); both answered 403 with a Cloudflare challenge to curl and to WebFetch on 2026-11-02, so the Government Offices' translations could not be checked and no English record is stored (row SE-GOVERNMENT-TRANSLATION is permission requested).",
     "status": "link only",
     "status_note": "Row SE-SFS-ADOPTED is permission requested: svenskforfattningssamling.se answered 403 from the cloud address, so no as-adopted text is stored.",
-    "amends": "se-arl-ch6"
+    "amends_ids": ["se-arl-ch6"]
   },
   {
     "id": "se-klimatlag",
