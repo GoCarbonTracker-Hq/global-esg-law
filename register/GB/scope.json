@@ -68,5 +68,67 @@
     "status": "link only",
     "verification": "official_page_seen",
     "notes": "Published, voluntary, no mandatory requirement yet. Page may have changed after its last-updated date."
+  },
+  {
+    "id": "gb-uksi-2018-1155",
+    "title": "The Companies (Directors’ Report) and Limited Liability Partnerships (Energy and Carbon Report) Regulations 2018",
+    "official_url": "https://www.legislation.gov.uk/uksi/2018/1155/made",
+    "citation": "SI 2018/1155",
+    "in_force": "2019-04-01",
+    "evidence": "Reg 2(1): \"These Regulations come into force on 1st April 2019.\" Reg 2(2): \"These Regulations have effect in respect of financial years beginning on or after 1st April 2019.\" Made 6th November 2018. Opened https://www.legislation.gov.uk/uksi/2018/1155/made/data.xml on 2026-11-17.",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-ADOPTED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Part 2 amends SI 2008/410: it amends Part 7 of Schedule 7 (quoted companies) and inserts Part 7A (unquoted companies, with exemptions in paragraphs 20B and 20C); see gb-uksi-2008-410-sch7-part7. Part 3 makes the matching changes to the Limited Liability Partnerships (Accounts and Audit) (Application of Companies Act 2006) Regulations 2008. legislation.gov.uk held the text as made only on 2026-11-17: /uksi/2018/1155/data.xml redirects to /made/data.xml and lists no revised version."
+  },
+  {
+    "id": "gb-uksi-2008-410-sch7-part7",
+    "title": "The Large and Medium-sized Companies and Groups (Accounts and Reports) Regulations 2008, Schedule 7 Part 7 (disclosures concerning greenhouse gas emissions, energy consumption and energy efficiency action by quoted companies)",
+    "official_url": "https://www.legislation.gov.uk/uksi/2008/410/schedule/7/part/7",
+    "citation": "SI 2008/410 Sch 7 Pt 7, inserted by SI 2013/1970 regs 1(2), (3), 7(3)(e); amended by SI 2018/1155 regs 2, 6",
+    "in_force": "2013-10-01",
+    "evidence": "SI 2013/1970 reg 1(2) provides that, subject to paragraph (3), those Regulations come into force on 1st October 2013, and reg 1(4) that they have effect for financial years ending on or after 30th September 2013 (https://www.legislation.gov.uk/uksi/2013/1970/made/data.xml, opened 2026-11-17). legislation.gov.uk dates the first version of Part 7 to 2013-10-01 (hasVersion in https://www.legislation.gov.uk/uksi/2008/410/schedule/7/part/7/data.xml). Part commentary: \"Sch. 7 Pt. 7 inserted (with effect in accordance with reg. 1(4) of the amending S.I.) by The Companies Act 2006 (Strategic Report and Directors' Report) Regulations 2013 (S.I. 2013/1970)\"",
+    "law_family": "F1",
+    "duty_on": "private_sector",
+    "source_row": "UK-LEGISLATION-CONSOLIDATED",
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Date is when Part 7 first existed (quoted companies, greenhouse gas emissions). The 2019-04-01 version is the text amended by SI 2018/1155 (see gb-uksi-2018-1155). Part 7A (unquoted companies) is not stored: only Part 7 is in scope."
+  },
+  {
+    "id": "gb-uksi-2020-1265",
+    "title": "The Greenhouse Gas Emissions Trading Scheme Order 2020",
+    "official_url": "https://www.legislation.gov.uk/uksi/2020/1265",
+    "citation": "SI 2020/1265",
+    "in_force": "2020-11-12",
+    "evidence": "Art 2(1): \"Except as provided by paragraph (2), this Order comes into force on the day after the day on which it is made.\" Made \"11th November 2020\". Opened https://www.legislation.gov.uk/uksi/2020/1265/made/data.xml on 2026-11-17.",
+    "law_family": "F3",
+    "duty_on": "private_sector",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "UK ETS. Art 2(2): Article 25, Schedule 5 and paragraph 4 of Schedule 8 come into force on the later of the day after the Order is made and immediately after IP completion day. The 2020-11-12 version is the Order in force from the day after it was made; later versions are the amended text as legislation.gov.uk dates them."
+  },
+  {
+    "id": "gb-cca2008-s1-31",
+    "title": "Climate Change Act 2008, Part 1 carbon target and budgeting (sections 1 to 31)",
+    "official_url": "https://www.legislation.gov.uk/ukpga/2008/27/part/1",
+    "citation": "Climate Change Act 2008 (c. 27) ss.1-31",
+    "in_force": "2008-11-26",
+    "evidence": "s.100(1) says Part 1 (carbon target and budgeting) comes into force 'on the day this Act is passed'; the Act received Royal Assent on 26 November 2008 (EnactmentDate in https://www.legislation.gov.uk/ukpga/2008/27/section/100/data.xml, opened 2026-11-17). Section 100 is outside Part 1, so the commencement words are not in the stored text. Part 1 as enacted, s.1(1): \"It is the duty of the Secretary of State to ensure that the net UK carbon account for the year 2050 is at least 80% lower than the 1990 baseline.\"",
+    "law_family": "F2",
+    "duty_on": "government",
+    "source_row": [
+      "UK-LEGISLATION-ADOPTED",
+      "UK-LEGISLATION-CONSOLIDATED"
+    ],
+    "status": "stored",
+    "verification": "official_text_seen",
+    "notes": "Scoped to Part 1: the 2050 target, carbon budgets, and the Government duties to report on them (ss.14, 16, 18 to 20). Not stored: s.85 (regulations about reporting by companies), Part 4 (adaptation reporting) and the rest of the Act. The 80% target in s.1(1) became 100% on 2019-06-27 (SI 2019/1056)."
   }
 ]

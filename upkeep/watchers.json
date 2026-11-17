@@ -18265,5 +18265,56 @@
       "regex": "02023R0956-(\\d{8})",
       "second_route": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32023R0956 (consolidated versions list; scripts may receive a bot challenge)"
     }
+  },
+  {
+    "id": "gb-uksi-2018-1155-contents-page",
+    "source_id": "UK-LEGISLATION-ADOPTED",
+    "iso2": "GB",
+    "instrument": "gb-uksi-2018-1155",
+    "kind": "page_hash",
+    "tier": "consolidation_site",
+    "url": "https://www.legislation.gov.uk/uksi/2018/1155/contents",
+    "params": {
+      "second_route": "https://www.legislation.gov.uk/uksi/2018/1155 (HTML page; redirects to /contents/made until a revised version exists)"
+    }
+  },
+  {
+    "id": "gb-uksi-2008-410-sch7-part7-versions",
+    "source_id": "UK-LEGISLATION-CONSOLIDATED",
+    "iso2": "GB",
+    "instrument": "gb-uksi-2008-410-sch7-part7",
+    "kind": "date_list",
+    "tier": "consolidation_site",
+    "url": "https://www.legislation.gov.uk/uksi/2008/410/schedule/7/part/7/data.xml",
+    "params": {
+      "regex": "hasVersion\" href=\"[^\"]*/(\\d{4}-\\d{2}-\\d{2})\"",
+      "second_route": "https://www.legislation.gov.uk/uksi/2008/410/schedule/7/part/7 (HTML page, Timeline of Changes)"
+    }
+  },
+  {
+    "id": "gb-uksi-2020-1265-versions",
+    "source_id": "UK-LEGISLATION-CONSOLIDATED",
+    "iso2": "GB",
+    "instrument": "gb-uksi-2020-1265",
+    "kind": "date_list",
+    "tier": "consolidation_site",
+    "url": "https://www.legislation.gov.uk/uksi/2020/1265/contents/data.xml",
+    "params": {
+      "regex": "hasVersion\" href=\"[^\"]*/(\\d{4}-\\d{2}-\\d{2})\"",
+      "second_route": "https://www.legislation.gov.uk/uksi/2020/1265 (HTML page, Timeline of Changes)"
+    }
+  },
+  {
+    "id": "gb-cca2008-s1-31-versions",
+    "source_id": "UK-LEGISLATION-CONSOLIDATED",
+    "iso2": "GB",
+    "instrument": "gb-cca2008-s1-31",
+    "kind": "date_list",
+    "tier": "consolidation_site",
+    "url": "https://www.legislation.gov.uk/ukpga/2008/27/part/1/data.xml",
+    "params": {
+      "regex": "hasVersion\" href=\"[^\"]*/(\\d{4}-\\d{2}-\\d{2})\"",
+      "second_route": "https://www.legislation.gov.uk/ukpga/2008/27/part/1 (HTML page, Timeline of Changes)"
+    }
   }
 ]
