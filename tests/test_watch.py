@@ -771,6 +771,19 @@ def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):
     assert "not in sources.json" in capsys.readouterr().err
 
 
+def test_every_shipped_watcher_has_a_queue_row():
+    """upkeep/queue.csv holds at least one row, of any change, for each id in upkeep/watchers.json."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    if ISO2:
+        shipped = [w for w in shipped if w["iso2"] == ISO2 or w["instrument"] == "*"]
+    with (repo / "upkeep" / "queue.csv").open(newline="", encoding="utf-8") as handle:
+        have = {r["watcher_id"] for r in csv.DictReader(handle)}
+    missing = [w["id"] for w in shipped if w["id"] not in have]
+    assert not missing, (f"{len(missing)} watcher(s) have no row in upkeep/queue.csv: {', '.join(missing)}. "
+                         "For each, run `python3 tools/watch.py --reseed <id>`")
+
+
 def test_shipped_watchers_validate_against_real_repo():
     """upkeep/watchers.json: every entry validates, covers every scope id, names the instrument's own row."""
     repo = Path(__file__).resolve().parents[1]
