@@ -17,6 +17,7 @@ commit with trailer `Kind: repeal` and nothing earlier is edited. A `repealed` r
 not a date is refused.
 """
 import argparse
+import contextlib
 import csv
 import gzip
 import hashlib
@@ -33,7 +34,7 @@ from pathlib import Path
 
 from check_corpus import check
 from make_sources import load_sources
-from watch import COLUMNS
+from watch import COLUMNS, upkeep_lock
 
 ROOT = Path(__file__).resolve().parents[1]
 TIMEOUT = 60
@@ -263,8 +264,17 @@ def add_sources_line(path, line):
 
 def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=True, out=None):
     """Process the confirmed rows. Return a list of {key, status, detail[, path, branch]} where status is
-    `stored`, `refused` (reason written to notes), `open` (left as is) or `planned` (dry run)."""
+    `stored`, `refused` (reason written to notes), `open` (left as is) or `planned` (dry run).
+
+    A real run holds the upkeep lock from the first queue read to the last git command, so queue.py and watch.py
+    wait their turn and nobody edits queue.csv while this run switches branches. A dry run writes nothing and takes none.
+    """
     repo = Path(repo).resolve()
+    with contextlib.nullcontext() if dry_run else upkeep_lock(repo):
+        return _update(repo, fetch, today, row, dry_run, commit, out)
+
+
+def _update(repo, fetch, today, row, dry_run, commit, out):
     fetch = fetch or default_fetch
     today = (today or date.today()).isoformat() if not isinstance(today, str) else today
     out = out or sys.stdout
