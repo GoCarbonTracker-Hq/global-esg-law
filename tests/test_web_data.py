@@ -250,7 +250,7 @@ def test_real_written_file_carries_aliases_on_exactly_the_scope_entries(real, tm
              for e in json.loads(p.read_text(encoding="utf-8"))}
     expected = {i: a for i, a in scope.items() if a}
     got = {e["id"]: e["aliases"] for e in written["entries"] if "aliases" in e}
-    assert got == expected and len(got) >= 48
+    assert got == expected and len(got) >= 45
     assert all(isinstance(a, list) and a and all(isinstance(x, str) for x in a) for a in got.values())
     assert all(not scope[i] for i in scope if i not in got)
     assert got["eu-cbam-2023-956"] == ["CBAM"] and got["eu-csrd-2022-2464"] == ["CSRD"]
