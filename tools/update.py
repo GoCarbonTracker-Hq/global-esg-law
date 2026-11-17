@@ -20,6 +20,7 @@ import argparse
 import csv
 import gzip
 import hashlib
+import http.client
 import json
 import re
 import subprocess
@@ -216,6 +217,16 @@ def mark_row(repo, key, note, outcome=None):
     save_queue(repo, rows)
 
 
+def restore_files(record_path, before):
+    """Undo one row's file writes: remove the new record, put back the bytes the row's edits replaced."""
+    record_path.unlink(missing_ok=True)
+    for p, raw in before.items():
+        if raw is None:
+            p.unlink(missing_ok=True)
+        else:
+            p.write_bytes(raw)
+
+
 def mark_scope_stored(scope_path, instrument, source_id):
     """What the pilot stories did to a scope entry when its text was stored: status `stored`, and the
     source row added to `source_row` when a second form of the text arrives."""
@@ -353,7 +364,11 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
             provenance = f"repeal dated {in_force}, no fetch, evidence `{evidence}`"
             trailers = f"Evidence-url: {evidence}"
         else:
-            status, body = fetch(plan["url"], plan["headers"])
+            try:
+                status, body = fetch(plan["url"], plan["headers"])
+            except (OSError, http.client.HTTPException) as exc:  # OSError covers URLError and TimeoutError
+                refuse(f"fetch of {plan['url']} failed: {exc}")
+                continue
             if status != 200:
                 refuse(f"fetch of {plan['url']} returned HTTP {status}")
                 continue
@@ -381,12 +396,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
         try:
             check(repo)
         except ValueError as exc:
-            path.unlink()
-            for p, raw in before.items():
-                if raw is None:
-                    p.unlink(missing_ok=True)
-                else:
-                    p.write_bytes(raw)
+            restore_files(path, before)
             refuse(f"gate: {exc}")
             continue
         paths = [rel, scope_path.relative_to(repo).as_posix(), "SOURCES.md", "upkeep/queue.csv"]
@@ -405,8 +415,14 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
         try:
             git(repo, "add", "--", *paths)
             git(repo, "commit", "-q", "-m", message)
-        finally:
+        except BaseException:  # a failing hook, a lock, Ctrl-C: leave no branch, staged file or stored mark behind
+            git(repo, "reset", "-q", "--", *paths)
             git(repo, "checkout", "-q", original)
+            git(repo, "branch", "-D", branch)
+            restore_files(path, before)
+            queue_path.write_bytes(notes_in_tree)
+            raise
+        git(repo, "checkout", "-q", original)
         queue_path.write_bytes(notes_in_tree)
         say(key, "stored", f"wrote {rel}, committed to {branch} (not pushed). Next:\n"
                            f"  git push -u origin {branch}\n"
