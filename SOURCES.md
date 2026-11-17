@@ -9116,9 +9116,9 @@ English only: Acts and the Pula Code are published in English, the language of l
 
 ## Namibia
 
-Run on 2026-11-05 (GEL-18-01). Rows `NA-GAZETTE-ADOPTED` and `NA-BON-ADOPTED` are `pass` on the statute basis (Copyright and Neighbouring Rights Protection Act 6 of 1994 s. 15(8)(a): "No copyright shall subsist in - (a) the official text of any work of a legislative, administrative or legal nature, or an official translation thereof"). `NA-NAMIBLII-CONSOLIDATED` is `fail` (CC BY-NC 4.0; bulk downloading prohibited), so nothing is read from it into a record. Language: English only, the sole official language. Varun to confirm the Bank of Namibia pass (the bank's footer claims all rights reserved) and the third-party hosting of the gazette PDFs.
+Run on 2026-11-05 (GEL-18-01). Row `NA-GAZETTE-ADOPTED` is `pass` on the statute basis (Copyright and Neighbouring Rights Protection Act 6 of 1994 s. 15(8)(a): "No copyright shall subsist in - (a) the official text of any work of a legislative, administrative or legal nature, or an official translation thereof"). `NA-BON-ADOPTED` was `pass` on the same statute and is `permission requested` since 2026-11-17 (owner's ruling on issue #18, R1): the Circulars page says circulars and guidelines are not published in the Government Gazette and the bank's footer claims all rights reserved, so it is not shown that s. 15(8)(a) reaches this guideline. `NA-NAMIBLII-CONSOLIDATED` is `fail` (CC BY-NC 4.0; bulk downloading prohibited), so nothing is read from it into a record. Language: English only, the sole official language. Varun to confirm the third-party hosting of the gazette PDFs.
 
-Text extraction for both rows: `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, each line stripped, blank lines dropped (as `## Brazil`); output checked, no non-printable characters. `fetched_sha256` is the hash of the PDF as returned; a second fetch reproduced it for all three files.
+Text extraction on 2026-11-05 for both rows (the `NA-BON-ADOPTED` text was removed on 2026-11-17): `pdftotext -layout file.pdf -`, runs of spaces collapsed to one, each line stripped, blank lines dropped (as `## Brazil`); output checked, no non-printable characters. `fetched_sha256` is the hash of the PDF as returned; a second fetch on 2026-11-05 reproduced it for all three files (the two gazette files and the `NA-BON-ADOPTED` file, which is no longer stored).
 
 Row `NA-GAZETTE-ADOPTED`, Environmental Management Act 7 of 2007 as gazetted (Government Gazette 3966, 27 December 2007):
 
@@ -9136,7 +9136,7 @@ curl -sS -L -A 'Mozilla/5.0' -o gazette_4878.pdf -w '%{http_code} %{size_downloa
 
 Returned `200 490075 application/pdf` (29 pages).
 
-Row `NA-BON-ADOPTED`, Bank of Namibia circular BIG-5/2025 (issued 31 March 2025):
+Row `NA-BON-ADOPTED`, Bank of Namibia circular BIG-5/2025 (issued 31 March 2025). The request below was proven on 2026-11-05 and is kept in case permission is granted; nothing is stored from it now:
 
 ```
 curl -sS -L -A 'Mozilla/5.0' -o big5_2025.pdf -w '%{http_code} %{size_download} %{content_type}\n' https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/9d/9d35678d-17c4-4348-8b11-6189f00864d6.pdf
@@ -9154,8 +9154,7 @@ English only. Acts are enacted and gazetted in English; Afrikaans, German and th
 
 ### Link only
 
-None of the three scope instruments is link only; all are stored.
-
+- `na-bon-big-5-2025`: row `NA-BON-ADOPTED` is `permission requested`, so no text is stored. The other two scope instruments are stored.
 - Not in scope, F7 register rows only: NSX sustainability reporting / NamCode (voluntary; no binding rule found), the national carbon market framework and policy (draft; nothing gazetted), the Consumer Protection Bill 2024 (a bill). No Namibian climate change act and no carbon tax were found on 2026-11-05.
 - Environmental Management Act PDF on the Ministry page (`/files/downloads/d87_Environmental%20Management%20Act%207%20of%202007.pdf`) answered `404 796 text/html`; the gazette PDF from Laws.Africa Commons is used instead.
 - Blocked from the laptop address: `https://nsx.com.na` answered `403 5326 text/html` (challenge page) to curl.
@@ -10642,25 +10641,28 @@ None in scope. Register rows only (F7): National Strategic Plan on Climate Chang
 
 ## Sudan
 
-Run 2026-11-09 from the laptop address. One `pass` row: SD-MOJ-CONSOLIDATED (Ministry of Justice, Laws of Sudan Ninth Revised Edition e-book), verdict `pass` on the statute (Copyright and Neighbouring Rights Protection and Literary and Artistic Works Act 2013, s. 3 and s. 6(b), official documents including laws are not protected), not on site terms: moj.gov.sd has no terms page and its footer says all rights reserved 2026. SD-CBOS-ADOPTED (Central Bank of Sudan) is `permission requested`: the bank claims the copyright and allows personal non-commercial printing only.
+Run 2026-11-09 from the laptop address. SD-MOJ-CONSOLIDATED (Ministry of Justice, Laws of Sudan Ninth Revised Edition e-book) was `pass` on the statute (Copyright and Neighbouring Rights Protection and Literary and Artistic Works Act 2013, s. 3 and s. 6(b), official documents including laws are not protected) and is `permission requested` since 2026-11-17 (owner's ruling on issue #18, R1): nothing read shows that the e-book's consolidated wording was issued by the State, moj.gov.sd has no terms page, and its footer says all rights reserved 2026. SD-CBOS-ADOPTED (Central Bank of Sudan) is `permission requested`: the bank claims the copyright and allows personal non-commercial printing only. No row for Sudan is `pass`, so no text is stored.
 
 ### SD-MOJ-CONSOLIDATED
+
+The recipe below was proven on 2026-11-09 and is kept in case permission is granted; the seven records it produced were removed on 2026-11-17.
 
 ```
 curl -sL -A "Mozilla/5.0" -o szoc49.html -w "%{http_code} %{size_download} %{content_type}\n" "https://www.moj.gov.sd/sudanlaws/epub/EPUB/xhtml/szoc49.html"
 200 39726 text/html
 ```
 
-Instrument `sd-environment-protection-act-2001`. The reader page https://www.moj.gov.sd/sudanlaws (HTTP 200, 4838 bytes) is a Kotobee e-book that needs JavaScript and shows no law text to curl, but the e-book is a set of static files under https://www.moj.gov.sd/sudanlaws/epub/: `curl -sL -A "Mozilla/5.0" https://www.moj.gov.sd/sudanlaws/epub/EPUB/package.opf` (HTTP 200, 55633 bytes) lists 434 files under `xhtml/` (365 XHTML pages, one per law or front-matter page, and 69 font, script and style files of a PDF viewer subfolder), with no titles; the title is the first line of each file, so the file for a law is found by downloading the files and reading the first line (`s9hoca.html` is the Copyright Act 2013, `szoc49.html` the Environment Protection Act 2001). A second fetch of each of the seven stored files gave identical bytes, so `fetched_sha256` (hash of the XHTML as received) reproduces; the server sends `Last-Modified: Tue, 01 Aug 2017 14:12:20 GMT`. No browser was used. Text extraction: strip `<script>`, `<style>` and the `<head>`, turn the closing tags of `p`, `div`, `h1` to `h6`, `li`, `tr` and `br` into line breaks, delete the other tags, unescape HTML entities, collapse runs of spaces and tabs, drop blank lines. Nothing is reworded; the footnote markers (`[1](1)`) and the footnote list at the foot of each page stay in the text.
+Instrument `sd-environment-protection-act-2001`. The reader page https://www.moj.gov.sd/sudanlaws (HTTP 200, 4838 bytes) is a Kotobee e-book that needs JavaScript and shows no law text to curl, but the e-book is a set of static files under https://www.moj.gov.sd/sudanlaws/epub/: `curl -sL -A "Mozilla/5.0" https://www.moj.gov.sd/sudanlaws/epub/EPUB/package.opf` (HTTP 200, 55633 bytes) lists 434 files under `xhtml/` (365 XHTML pages, one per law or front-matter page, and 69 font, script and style files of a PDF viewer subfolder), with no titles; the title is the first line of each file, so the file for a law is found by downloading the files and reading the first line (`s9hoca.html` is the Copyright Act 2013, `szoc49.html` the Environment Protection Act 2001). A second fetch of each of the seven files stored on 2026-11-09 gave identical bytes, so `fetched_sha256` (hash of the XHTML as received) reproduces; the server sends `Last-Modified: Tue, 01 Aug 2017 14:12:20 GMT`. No browser was used. Text extraction: strip `<script>`, `<style>` and the `<head>`, turn the closing tags of `p`, `div`, `h1` to `h6`, `li`, `tr` and `br` into line breaks, delete the other tags, unescape HTML entities, collapse runs of spaces and tabs, drop blank lines. Nothing is reworded; the footnote markers (`[1](1)`) and the footnote list at the foot of each page stay in the text.
 
-The e-book is the Ninth Revised Edition of the Laws of Sudan; its introduction (`xhtml/sibyrw.html`) says it lists all Sudanese laws in force from 1903 to 30 March 2015. Each stored record is therefore `consolidated`, dated 2015-03-30, not the date of the law. It is a committee compilation, not the Sudan Gazette; no online Gazette was found.
+The e-book is the Ninth Revised Edition of the Laws of Sudan; its introduction (`xhtml/sibyrw.html`) says it lists all Sudanese laws in force from 1903 to 30 March 2015. Each record stored then was therefore `consolidated`, dated 2015-03-30, not the date of the law. It is a committee compilation, not the Sudan Gazette; no online Gazette was found.
 
 ### Languages
 
-Arabic only (`ar`). The Ministry's e-book is Arabic (`dc:language ar` in `package.opf`); https://www.moj.gov.sd/en (HTTP 200, 613 bytes) carries no law texts. The WIPO Lex Sudan profile (https://www.wipo.int/wipolex/en/members/profile/SD) lists intellectual property and culture laws only, none of the subjects stored here. No row for English: no Sudanese government translation was found.
+Arabic only (`ar`). The Ministry's e-book is Arabic (`dc:language ar` in `package.opf`); https://www.moj.gov.sd/en (HTTP 200, 613 bytes) carries no law texts. The WIPO Lex Sudan profile (https://www.wipo.int/wipolex/en/members/profile/SD) lists intellectual property and culture laws only, none of the subjects of the instruments here. No row for English: no Sudanese government translation was found.
 
 ### Link only
 
+- The seven e-book instruments (`sd-environment-protection-act-2001`, `sd-forests-renewable-natural-resources-act-2002`, `sd-wildlife-protection-national-parks-act-1986`, `sd-desertification-control-act-2009`, `sd-biosafety-act-2010`, `sd-environmental-health-act-2009`, `sd-competition-anti-monopoly-act-2009`): row SD-MOJ-CONSOLIDATED is `permission requested`, so no text is stored.
 - `sd-cbos-policies-2024`: row SD-CBOS-ADOPTED is `permission requested` (https://cbos.gov.sd/ar/content/... "حقوق النشر وحدود المسؤولية": copyright owned by the bank, personal non-commercial printing only). The PDF downloads (`curl -sL -A "Mozilla/5.0" -o p.pdf https://cbos.gov.sd/sites/default/files/CentralBankSudanPolicies2024.pdf` gives `200 6972571 application/pdf`) but is image-only: `pdftotext` returns nothing; OCR (`pdftoppm -r 300`, `tesseract -l ara`) was run for reading only.
 - Company sustainability or climate disclosure rule, emissions trading or GHG reporting rule, consumer protection act (a 2019 act reported by a secondary summary): none found, register rows with law family F7. Searched: the full text of all 365 XHTML pages of the e-book for carbon, emission, climate change, social responsibility, disclosure and consumer (hits were only hydrocarbon and chemistry definitions, aircraft-engine emissions in the Civil Aviation Safety Act 2010, and the competition, standards and anti-dumping laws for consumer), the FMA regulations pages (https://fma.gov.sd/regulatoins/, `/fma-law/`, `/implementing-regulations/`, `/category/board-decisions/`, `/financial-services/publications/`; list pages only, the linked PDFs were not read) and the WIPO Lex Sudan profile.
 - Not reachable from the laptop address: https://dse.sd and http://dse.sd (no answer, curl exit 6/000), https://www.hcenr.gov.sd, https://www.mefpd.gov.sd, https://www.mofep.gov.sd, https://mti.gov.sd (no answer, HTTP 000).
