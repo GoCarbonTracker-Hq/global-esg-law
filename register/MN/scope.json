@@ -55,7 +55,7 @@
     "duty_on": "mixed",
     "source_row": "MN-MECC-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "One record dated 2025-07-09, the latest amending law named in the footnotes of the MECC copy (the PDF states no consolidation date). The copy lags the law: https://old.parliament.mn/laws/17326/ lists an amending act (2025-ne-42) and search results list a further amendment published with the Climate Change Law in 2026; neither is in the stored text. Languages: mn only. English looked for on mecc.gov.mn and old.parliament.mn: none found.",
+    "notes": "One record dated 2025-07-09, the latest amending law named in the footnotes of the MECC copy (the PDF states no consolidation date). The copy lags the law: https://old.parliament.mn/laws/17326/ lists an amending act (2025-ne-42) and search results list a further amendment published with the Climate Change Law in 2026; neither is in the stored text. Languages: mn only. English looked for on mecc.gov.mn and old.parliament.mn: none found. in_force null: no commencement clause or date in the stored text.",
     "status": "stored"
   },
   {
