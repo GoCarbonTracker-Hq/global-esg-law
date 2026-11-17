@@ -76,12 +76,7 @@ def test_withheld_check_passes_a_correct_server_and_fails_one_that_serves_text(t
     table = {"read_text": [("stored record, verdict fail", STORED, False, acc.withheld("not pass"))]}
     good = fixture(tmp_path / "good")
     acc.fail_every_licence(good)
-    broken = fixture(tmp_path / "broken")
-    acc.fail_every_licence(broken)
-    query = broken / "tools" / "query.py"
-    gate = 'if not matches or verdicts != {"pass"}:'
-    assert gate in query.read_text()
-    query.write_text(query.read_text().replace(gate, "if False:"))
+    broken = fixture(tmp_path / "broken")  # licences left at pass, so this server serves the text the check says must be withheld
     for era in (acc.MODERN, acc.LEGACY):
         lines = acc.run_checks(good, era, table, only="read_text", label=" verdict fail")
         assert all(ok for ok, _ in lines) and all(line.startswith(f"[{era} verdict fail] ") for _, line in lines)
