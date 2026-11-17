@@ -70,12 +70,17 @@ def known(repo=ROOT, ref=None):
 
 
 def _version(records, lang):
-    """Pick the preferred same-day record and list the available languages."""
+    """Pick the preferred same-day record and list the available languages.
+
+    Consolidated beats adopted, which beats translation, whatever the language; the later record wins a tie."""
+    def rank(c):
+        return {"consolidated": 0, "adopted": 1, "translation": 2}.get(c["kind"], 1)
     by_lang = {}
     for c in records:
-        by_lang[c.get("language")] = c
+        if c.get("language") not in by_lang or rank(c) <= rank(by_lang[c.get("language")]):
+            by_lang[c.get("language")] = c
     ordered = sorted(by_lang.values(), key=lambda c: records.index(c))
-    official = next((c for c in ordered if c["kind"] != "translation"), ordered[0])
+    official = min(ordered, key=rank)
     shown, fallback = official, False
     if lang:
         if lang in by_lang:
@@ -87,8 +92,18 @@ def _version(records, lang):
     return shown, fallback, languages
 
 
+def _valid_date(value):
+    from datetime import date as calendar_date
+    try:
+        return calendar_date.fromisoformat(value).isoformat() == value
+    except (TypeError, ValueError):
+        return False
+
+
 def lookup(iso2, on, repo=ROOT, ref=None, lang=None, detail=False):
     """Return (in_force list, not_yet list, first date) for one place and date."""
+    if not _valid_date(on):
+        raise ValueError(f"malformed date {on!r}: use a real calendar date as YYYY-MM-DD, such as 2024-12-31")
     versions = sorted((c for c in _commits(repo, ref) if c.get("jurisdiction") == iso2),
                       key=lambda c: c["in_force"])
     latest, pending, repealed = {}, {}, {}
@@ -342,14 +357,6 @@ def _load_record(repo, commit):
         return None
 
 
-def _valid_date(value):
-    from datetime import date as calendar_date
-    try:
-        return calendar_date.fromisoformat(value).isoformat() == value
-    except (TypeError, ValueError):
-        return False
-
-
 def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=None):
     """Return the text of one instrument as in force on a date, in parts, only when its source licence passes."""
     repo = Path(repo).resolve()
@@ -388,14 +395,13 @@ def read_text(repo=ROOT, instrument=None, date=None, lang=None, offset=0, ref=No
         return {**facts, "text": None, "official_url": item.get("source_url"), "ocr": "unknown",
                 "ocr_warning": "The record file could not be read, so its OCR status is unknown.",
                 "reason": "The stored record file could not be read."}
-    matches = [r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))
-               if r.get("id") == record.get("source_id")]
-    verdicts = {r.get("verdict") for r in matches}
-    if not matches or verdicts != {"pass"}:
-        # sources.json repeats 21 ids with identical pass rows; duplicates that disagree, like a missing row, withhold.
-        why = (f"source row {record.get('source_id')} is missing or ambiguous in sources.json"
-               if not matches or len(verdicts) > 1 else
-               f"the licence verdict of source {record.get('source_id')} is {verdicts.pop()}, not pass")
+    rows = list({json.dumps(r, sort_keys=True): r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))
+                 if r.get("id") == record.get("source_id")}.values())
+    verdict = rows[0].get("verdict") if len(rows) == 1 else None
+    if verdict != "pass":
+        # Identical duplicate rows count once; rows that differ in any field, like a missing row, withhold.
+        why = (f"source row {record.get('source_id')} is missing or ambiguous in sources.json" if len(rows) != 1 else
+               f"the licence verdict of source {record.get('source_id')} is {verdict}, not pass")
         return {**facts, "text": None, "official_url": item.get("source_url"),
                 "reason": f"The text is withheld: {why}. Read it at the official URL."}
     text = record.get("text") or ""
