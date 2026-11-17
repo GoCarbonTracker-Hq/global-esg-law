@@ -67,9 +67,13 @@ Three rules decide what counts as in force:
 
 ## Use it from an AI assistant
 
-A small local server lets an AI assistant that speaks MCP (Model Context Protocol) look up places, laws in force on a date, stored texts and the version history of an instrument. It runs on your machine and changes nothing.
+A small local server lets an AI assistant that speaks MCP (Model Context Protocol) look up places, laws in force on a date, stored texts and the version history of an instrument. It runs on your machine and changes nothing. There is no one-line install: it runs from a clone of this repository, so clone it first.
 
-To start, open the cloned folder in Claude Code and approve the server named `global-esg-law` when it asks. Any other MCP client can run `python3 tools/mcp_server.py` from the folder. There are four tools: `list_places`, `law_in_force`, `read_text` and `instrument_history`. Every answer names its snapshot and its source, and text is returned only where the source's licence verdict is `pass`. [MCP.md](MCP.md) has the setup, the tools with example answers, and the limits.
+```
+git clone https://github.com/GoCarbonTracker-Hq/global-esg-law
+```
+
+To start, open the cloned folder in Claude Code and approve the server named `global-esg-law` when it asks. Any other MCP client can run `python3 tools/mcp_server.py` from the folder. There are four tools: `list_places`, `law_in_force`, `read_text` and `instrument_history`. Every answer names its snapshot and its source, and text is returned only where the source's licence verdict is `pass`. For example, ask the assistant "Which ESG laws were in force in Estonia on 1 January 2026?" and it calls `law_in_force` with `{"place": "EE", "date": "2026-01-01"}`. [MCP.md](MCP.md) has the setup, the tools with example answers, and the limits.
 
 ## Questions it answers
 
