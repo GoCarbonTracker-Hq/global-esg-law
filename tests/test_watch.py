@@ -511,12 +511,49 @@ def test_reseed_of_a_list_watcher_emits_new_version_for_unseen_dates(tmp_path): 
     assert watch.watch(repo, FakeFetch(newer), date(2026, 11, 16))["rows"] == []  # not flagged twice
 
 
-def test_reseed_emits_no_row_without_prior_signals_or_new_dates(tmp_path):
+def test_reseed_emits_no_new_version_row_without_prior_signals_or_new_dates(tmp_path):
     repo = make(tmp_path, [WATCHERS[0]])
     assert watch.reseed(repo, "w-cellar", FakeFetch(), TODAY) == 3  # never seen: a first seed, nothing to compare
-    assert not (repo / "upkeep" / "queue.csv").exists()
+    assert [r["change"] for r in rows(repo)] == ["baseline"]
     assert watch.reseed(repo, "w-cellar", FakeFetch(), TODAY) == 3  # nothing new since
-    assert not (repo / "upkeep" / "queue.csv").exists()
+    assert [r["change"] for r in rows(repo)] == ["baseline"]
+
+
+@pytest.mark.parametrize("watcher, bodies, signal, url", [
+    (WATCHERS[0], BODIES, "3", CELLAR),
+    (WATCHERS[3], BODIES, "1", ZIP)])
+def test_reseed_of_a_watcher_with_no_queue_row_writes_one_baseline_row(tmp_path, watcher, bodies, signal, url):
+    repo = make(tmp_path, [watcher])
+    assert watch.reseed(repo, watcher["id"], FakeFetch(bodies), date(2026, 11, 17)) == int(signal)
+    assert rows(repo) == [watch.queue_row(watcher, "2026-11-17", "baseline", signal, url)]
+    raw = (repo / "upkeep" / "queue.csv").read_bytes()
+    assert raw.split(b"\r\n")[0].decode() == ",".join(watch.COLUMNS) and raw.count(b"\r\n") == 2
+    watch.reseed(repo, watcher["id"], FakeFetch(bodies), date(2026, 11, 18))  # the second reseed adds none
+    assert len(rows(repo)) == 1 and seen(repo)[watcher["id"]]["checked_on"] == "2026-11-18"
+
+
+def test_reseed_of_a_watcher_that_has_a_queue_row_writes_no_baseline_row(tmp_path):
+    repo = make(tmp_path, [WATCHERS[0], WATCHERS[3]])
+    watch.watch(repo, FakeFetch(), TODAY, source="PASS")
+    before = (repo / "upkeep" / "queue.csv").read_bytes()
+    watch.reseed(repo, "w-cellar", FakeFetch(), date(2026, 11, 17))
+    assert (repo / "upkeep" / "queue.csv").read_bytes() == before
+
+
+def test_reseed_baseline_is_decided_by_the_watchers_own_rows_not_the_files(tmp_path):
+    repo = make(tmp_path, [WATCHERS[0], WATCHERS[3]])
+    watch.reseed(repo, "w-zip", FakeFetch(), TODAY)
+    watch.reseed(repo, "w-cellar", FakeFetch(), TODAY)  # the queue exists, but holds no row for w-cellar
+    assert [(r["watcher_id"], r["change"]) for r in rows(repo)] == [("w-zip", "baseline"), ("w-cellar", "baseline")]
+
+
+def test_reseed_of_a_seeded_list_watcher_without_a_row_writes_baseline_then_new_version(tmp_path):
+    repo = make(tmp_path, [WATCHERS[0]])  # the 22 real cases: seeded by an older --reseed that wrote no row
+    (repo / "upkeep" / "seen.json").write_text(json.dumps({"w-cellar": {
+        "signals": ["2022-12-16", "2025-04-17", "2026-03-18"], "failure": None, "checked_on": "2026-11-02"}}))
+    newer = {CELLAR: (200, {}, cellar_body(["2022-12-16", "2025-04-17", "2026-03-18", "2026-11-15"]))}
+    watch.reseed(repo, "w-cellar", FakeFetch(newer), date(2026, 11, 15))
+    assert [(r["change"], r["signal"]) for r in rows(repo)] == [("baseline", "4"), ("new_version", "2026-11-15")]
 
 
 def test_version_list_follows_pages(tmp_path):
@@ -732,6 +769,19 @@ def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):
     monkeypatch.setattr(watch, "default_fetch", FakeFetch())
     assert watch.main(["--repo", str(repo)]) == 1
     assert "not in sources.json" in capsys.readouterr().err
+
+
+def test_every_shipped_watcher_has_a_queue_row():
+    """upkeep/queue.csv holds at least one row, of any change, for each id in upkeep/watchers.json."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    if ISO2:
+        shipped = [w for w in shipped if w["iso2"] == ISO2 or w["instrument"] == "*"]
+    with (repo / "upkeep" / "queue.csv").open(newline="", encoding="utf-8") as handle:
+        have = {r["watcher_id"] for r in csv.DictReader(handle)}
+    missing = [w["id"] for w in shipped if w["id"] not in have]
+    assert not missing, (f"{len(missing)} watcher(s) have no row in upkeep/queue.csv: {', '.join(missing)}. "
+                         "For each, run `python3 tools/watch.py --reseed <id>`")
 
 
 def test_shipped_watchers_validate_against_real_repo():
