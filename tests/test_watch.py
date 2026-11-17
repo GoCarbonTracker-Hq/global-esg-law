@@ -372,6 +372,26 @@ def test_truncated_first_read_is_retried_once(monkeypatch):
         watch.default_fetch("https://example.org/")
 
 
+def test_reseed_of_a_list_watcher_emits_new_version_for_unseen_dates(tmp_path):  # GEL-33 F4-3
+    repo = make(tmp_path, [WATCHERS[0]])
+    watch.watch(repo, FakeFetch(), TODAY)
+    queue_before = rows(repo)
+    newer = {CELLAR: (200, {}, cellar_body(["2022-12-16", "2025-04-17", "2026-03-18", "2026-11-15"]))}
+    assert watch.reseed(repo, "w-cellar", FakeFetch(newer), date(2026, 11, 15)) == 4
+    assert [(r["change"], r["signal"], r["evidence_url"], r["detected_on"]) for r in rows(repo)[len(queue_before):]] == [
+        ("new_version", "2026-11-15", CELLAR, "2026-11-15")]
+    assert seen(repo)["w-cellar"]["signals"] == ["2022-12-16", "2025-04-17", "2026-03-18", "2026-11-15"]
+    assert watch.watch(repo, FakeFetch(newer), date(2026, 11, 16))["rows"] == []  # not flagged twice
+
+
+def test_reseed_emits_no_row_without_prior_signals_or_new_dates(tmp_path):
+    repo = make(tmp_path, [WATCHERS[0]])
+    assert watch.reseed(repo, "w-cellar", FakeFetch(), TODAY) == 3  # never seen: a first seed, nothing to compare
+    assert not (repo / "upkeep" / "queue.csv").exists()
+    assert watch.reseed(repo, "w-cellar", FakeFetch(), TODAY) == 3  # nothing new since
+    assert not (repo / "upkeep" / "queue.csv").exists()
+
+
 def test_version_list_follows_pages(tmp_path):
     repo = make(tmp_path, [WATCHERS[2]])
     fetch = FakeFetch({ECFR: (200, {}, ecfr_body(["2017-01-01", "2026-10-14"], page=1, total_pages=2)),
@@ -427,6 +447,40 @@ def test_failure_on_first_run_then_baseline_later(tmp_path):
     assert seen(repo)["w-uk"]["signals"] is None
     result = watch.watch(repo, FakeFetch(), date(2026, 11, 3))
     assert [r["change"] for r in result["rows"]] == ["baseline"]
+
+
+def test_failed_check_keeps_the_last_successful_checked_on(tmp_path):  # #17 T1
+    repo = make(tmp_path, [WATCHERS[1], WATCHERS[0]])
+    watch.watch(repo, FakeFetch({UK: (503, {}, b""), CELLAR: BODIES[CELLAR]}), TODAY)
+    assert "checked_on" not in seen(repo)["w-uk"] and seen(repo)["w-cellar"]["checked_on"] == "2026-11-02"
+    watch.watch(repo, FakeFetch({UK: BODIES[UK], CELLAR: (403, {}, b"")}), date(2026, 11, 3))
+    assert seen(repo)["w-uk"]["checked_on"] == "2026-11-03"
+    watch.watch(repo, FakeFetch({UK: (503, {}, b""), CELLAR: (403, {}, b"")}), date(2026, 11, 4))
+    assert seen(repo)["w-uk"]["checked_on"] == "2026-11-03" and seen(repo)["w-uk"]["failure"]
+    assert seen(repo)["w-cellar"]["checked_on"] == "2026-11-02" and seen(repo)["w-cellar"]["failure"]
+
+
+@pytest.mark.parametrize("index, url, empty", [(0, CELLAR, cellar_body([])), (1, UK, uk_body([])),
+                                               (2, ECFR, ecfr_body([]))])
+def test_list_watcher_that_matches_nothing_after_signals_fails(tmp_path, index, url, empty):  # #17 T2
+    repo = make(tmp_path, [WATCHERS[index]])
+    watch.watch(repo, FakeFetch(), TODAY)
+    known = seen(repo)[WATCHERS[index]["id"]]["signals"]
+    result = watch.watch(repo, FakeFetch({url: (200, {}, empty)}), date(2026, 11, 3))
+    assert (result["candidates"], result["failures"]) == (0, 1)
+    assert [(r["change"], r["signal"]) for r in result["rows"]] == [
+        ("watch_failed", f"empty list; {len(known)} signal(s) seen before")]
+    entry = seen(repo)[WATCHERS[index]["id"]]
+    assert entry["signals"] == known and entry["failure"] and entry["checked_on"] == "2026-11-02"
+    assert watch.watch(repo, FakeFetch({url: (200, {}, empty)}), date(2026, 11, 4))["rows"] == []  # one row, not daily
+    assert watch.watch(repo, FakeFetch(), date(2026, 11, 5))["rows"] == []  # recovery is silent
+
+
+def test_list_watcher_with_no_signals_yet_is_not_a_failure(tmp_path):
+    repo = make(tmp_path, [WATCHERS[0]])
+    empty = FakeFetch({CELLAR: (200, {}, cellar_body([]))})
+    assert [r["change"] for r in watch.watch(repo, empty, TODAY)["rows"]] == ["baseline"]
+    assert watch.watch(repo, empty, date(2026, 11, 3))["failures"] == 0
 
 
 def test_dry_run_writes_nothing(tmp_path):
