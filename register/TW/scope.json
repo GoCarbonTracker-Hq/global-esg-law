@@ -184,8 +184,8 @@
     "title": "Regulations Governing Information to be Published in Annual Reports of Public Companies (公開發行公司年報應行記載事項準則)",
     "official_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400022",
     "citation": "公開發行公司年報應行記載事項準則 (MOJ database pcode G0400022); 中華民國七十七年六月七日財政部證券管理委員會（77）台財證（一） 字第 08446 號令",
-    "in_force": null,
-    "evidence": "沿革 entry 1 on the database page: \"中華民國七十七年六月七日財政部證券管理委員會（77）台財證（一） 字第 08446 號令訂定發布全文 15 條\" states no commencement date. Opened https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0400022 on 2026-11-02.",
+    "in_force": "1989-01-01",
+    "evidence": "Art. 24 of the stored text: \"本準則自中華民國七十八年一月一日起施行\" (中華民國七十八年 = 1989); the English translation reads \"These Regulations shall enter into force from January 1, 1989.\" The 沿革 page entry 1 (issued 中華民國七十七年六月七日) gives the issue date, not a commencement date.",
     "law_family": "F1",
     "duty_on": "private_sector",
     "source_row": [

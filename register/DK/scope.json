@@ -201,8 +201,8 @@
     "title": "Lov om reduktion af drivhusgasser fra transportsektoren m.v. (earlier title: Lov om bæredygtige biobrændstoffer og om reduktion af drivhusgasser)",
     "official_url": "https://www.retsinformation.dk/eli/lta/2026/438",
     "citation": "LBK nr 438 af 16/04/2026; earlier LBK 674/2011, 62/2019, 122/2020, 591/2021, 2167/2021",
-    "in_force": null,
-    "evidence": "No opened official page states a commencement date for the act as a whole; the stored texts are lovbekendtgørelser dated by signing. Opened https://www.retsinformation.dk/eli/lta/2026/438/xml on 2026-11-02.",
+    "in_force": "2009-07-01",
+    "evidence": "§ 10 of the act, printed in each of the six stored lovbekendtgørelser (2011-06-21 to 2026-04-16): \"§ 10. Loven træder i kraft den 1. juli 2009, jf. dog stk. 2.\" Stk. 2: \"Lovens §§ 3 og 5 træder i kraft den 1. januar 2010.\" in_force is the stk. 1 date; the stk. 2 date applies to the two sections named there.",
     "law_family": "F3",
     "duty_on": "private_sector",
     "source_row": [
