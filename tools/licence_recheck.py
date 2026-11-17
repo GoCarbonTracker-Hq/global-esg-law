@@ -13,6 +13,7 @@ person rereads the terms, sets the verdict by hand, and decides about the record
 import argparse
 import csv
 import json
+import os
 import sys
 from datetime import date
 from pathlib import Path
@@ -80,10 +81,12 @@ def recheck(repo=ROOT, watcher_id=None, signal=None, today=None):
     previous = row["verdict"]
     row["verdict"] = "unknown"
     row["checked_on"] = today
-    with csv_path.open("w", newline="", encoding="utf-8") as handle:
+    tmp_path = csv_path.with_name(csv_path.name + ".tmp")
+    with tmp_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=COLUMNS, lineterminator="\r\n")
         writer.writeheader()
         writer.writerows(rows)
+    os.replace(tmp_path, csv_path)
     build(csv_path, repo / "sources.json")
     return {"source_id": source_id, "watcher_id": watcher_id, "signal": signal, "previous_verdict": previous,
             "terms_url": row["terms_url"], "checked_on": today,

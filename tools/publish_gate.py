@@ -5,13 +5,15 @@ import json
 import sys
 from pathlib import Path
 
+from make_sources import load_sources
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def gate(repo=ROOT, iso2=None):
     """Return (report lines, refusal lines). With iso2, cover only that place's scope entries and their source rows."""
     repo = Path(repo).resolve()
-    rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
+    rows = load_sources(repo / "sources.json")
     out, bad = [], []
     scopes = sorted((repo / "register").glob(f"{iso2 or '*'}/scope.json"))
     used = None

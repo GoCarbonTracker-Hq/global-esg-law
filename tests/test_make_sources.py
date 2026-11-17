@@ -50,3 +50,30 @@ def test_every_licence_row_has_the_header_field_count():
         width = len(next(reader))
         bad = [(reader.line_num, row[0], len(row)) for row in reader if row and len(row) != width]
     assert bad == [], f"rows not {width} fields wide (line, id, fields): {bad}"
+
+
+def test_build_refuses_duplicate_id(tmp_path):
+    src = tmp_path / "t.csv"
+    with open(src, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, COLUMNS)
+        w.writeheader()
+        w.writerows([REAL, REAL])
+    with pytest.raises(SystemExit, match="duplicate id"):
+        build(src, tmp_path / "sources.json")
+
+
+def test_load_sources_collapses_identical_and_rejects_conflicts(tmp_path):
+    from make_sources import load_sources
+    path = tmp_path / "sources.json"
+    path.write_text(json.dumps([{"id": "A", "verdict": "pass"}, {"id": "A", "verdict": "pass"}]))
+    assert load_sources(path) == {"A": {"id": "A", "verdict": "pass"}}
+    path.write_text(json.dumps([{"id": "A", "verdict": "fail"}, {"id": "A", "verdict": "pass"}]))
+    with pytest.raises(ValueError, match="conflicting duplicate rows for id 'A'"):
+        load_sources(path)
+
+
+def test_real_table_has_unique_ids_and_no_blank_lines():
+    lines = (ROOT / "sources" / "licence-table.csv").read_text(encoding="utf-8").splitlines()
+    assert all(line.strip() for line in lines)
+    ids = [line.split(",", 1)[0] for line in lines[1:]]
+    assert len(ids) == len(set(ids))

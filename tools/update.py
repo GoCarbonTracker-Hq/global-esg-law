@@ -31,6 +31,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from check_corpus import check
+from make_sources import load_sources
 from watch import COLUMNS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -256,7 +257,7 @@ def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=Tr
     fetch = fetch or default_fetch
     today = (today or date.today()).isoformat() if not isinstance(today, str) else today
     out = out or sys.stdout
-    sources = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
+    sources = load_sources(repo / "sources.json")
     queue = load_queue(repo)
     selected = [r for r in queue if r.get("outcome") == "confirm" and r.get("change") in ("new_version", "repealed")
                 and (row is None or row_key(r) == row)]

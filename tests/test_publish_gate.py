@@ -67,3 +67,18 @@ def test_flagged_reenactment_after_repeal_passes(tmp_path):
     (folder / "0.json").write_text(json.dumps({"in_force": "2024-06-01", "repealed": True}))
     (folder / "1.json").write_text(json.dumps({"in_force": "2024-06-02", "re_enactment": True}))
     assert refusals(tmp_path) == []
+
+
+def test_conflicting_duplicate_source_rows_refused(tmp_path):
+    import pytest
+    make(tmp_path)
+    (tmp_path / "sources.json").write_text(json.dumps([{"id": "R1", "verdict": "fail"}, {"id": "R1", "verdict": "pass"}]))
+    with pytest.raises(ValueError, match="conflicting duplicate rows"):
+        publish_gate.gate(tmp_path)
+
+
+def test_identical_duplicate_source_rows_print_once(tmp_path):
+    make(tmp_path)
+    (tmp_path / "sources.json").write_text(json.dumps([{"id": "R1", "verdict": "pass"}] * 2))
+    report, bad = publish_gate.gate(tmp_path)
+    assert sum("source R1" in line for line in report) == 1 and not bad

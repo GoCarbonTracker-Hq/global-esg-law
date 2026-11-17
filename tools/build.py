@@ -9,6 +9,7 @@ from datetime import date, datetime, time, timezone
 from pathlib import Path
 
 from check_corpus import check
+from make_sources import load_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -38,7 +39,7 @@ def build(repo=ROOT, branch=None):
     check(repo)
     if branch and git(repo, "symbolic-ref", "-q", "HEAD") == f"refs/heads/{branch}":
         raise ValueError(f"{branch} is the checked-out branch; refusing to replace it")
-    rows = {r["id"]: r for r in json.loads((repo / "sources.json").read_text())}
+    rows = load_sources(repo / "sources.json")
     records = []
     for path in sorted((repo / "records").rglob("*.json")):
         record = json.loads(path.read_text())
