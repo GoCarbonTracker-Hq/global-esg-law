@@ -228,3 +228,27 @@ def test_watcher_does_not_flag_a_rejected_signal_again(tmp_path):
     review.decide(repo, "reject", "w-uk:2027-01-01", "varun", date(2026, 11, 3))
     assert watch.watch(repo, fetch, date(2026, 11, 4))["rows"] == []
     assert [r["outcome"] for r in rows(repo)] == ["", "reject"]
+
+
+def test_write_queue_failure_leaves_the_old_file_and_no_temp_file(tmp_path):
+    """#17 T15: a write that dies half way must not truncate queue.csv or leave a temp file beside it."""
+    class Boom:
+        def __str__(self):
+            raise OSError("disk full")
+
+    repo = make(tmp_path)
+    before = (repo / "upkeep" / "queue.csv").read_bytes(), tree(repo)
+    with pytest.raises(OSError):
+        review.write_queue(repo, [ROWS[0], {**ROWS[1], "notes": Boom()}])
+    assert ((repo / "upkeep" / "queue.csv").read_bytes(), tree(repo)) == before
+    review.write_queue(repo, ROWS[:2])
+    assert rows(repo) == ROWS[:2] and tree(repo) == before[1]
+
+
+def test_conflicting_duplicate_source_rows_stop_the_listing(tmp_path, capsys):
+    """#40: sources.json read through the shared loader, not a last-row-wins dict."""
+    repo = make(tmp_path)
+    (repo / "sources.json").write_text(json.dumps([
+        {"id": "PASS", "verdict": "pass"}, {"id": "PASS", "verdict": "fail"}, {"id": "ASKED", "verdict": "permission requested"}]))
+    assert review.main(["--repo", str(repo)]) == 1
+    assert "conflicting duplicate rows for id 'PASS'" in capsys.readouterr().err

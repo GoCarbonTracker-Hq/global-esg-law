@@ -9,11 +9,13 @@ upkeep/seen.json so the watcher does not flag it again. Writes only under upkeep
 import argparse
 import csv
 import json
+import os
 import sys
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from make_sources import load_sources  # noqa: E402
 from watch import CHANGES, COLUMNS  # noqa: E402 - same column list as the watcher
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,12 +41,19 @@ def read_queue(repo):
 
 
 def write_queue(repo, rows):
-    """Rewrite upkeep/queue.csv in place with the same columns and CRLF line ends."""
+    """Rewrite upkeep/queue.csv with the same columns and CRLF line ends. The rows go to a temp file in the
+    same folder that replaces the queue in one step, so a failed write leaves the old file whole."""
     path = Path(repo) / "upkeep" / "queue.csv"
-    with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=COLUMNS, lineterminator="\r\n")
-        writer.writeheader()
-        writer.writerows(rows)
+    tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+    try:
+        with tmp.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=COLUMNS, lineterminator="\r\n")
+            writer.writeheader()
+            writer.writerows(rows)
+        os.replace(tmp, path)
+    except BaseException:
+        tmp.unlink(missing_ok=True)
+        raise
 
 
 def is_open(row):
@@ -54,7 +63,7 @@ def is_open(row):
 def context(repo, row):
     """Return (licence verdict, register text) for one row, reading sources.json and scope.json."""
     repo = Path(repo)
-    sources = {r["id"]: r for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
+    sources = load_sources(repo / "sources.json")
     verdict = sources.get(row["source_id"], {}).get("verdict", "not in sources.json")
     if row["instrument"] == "*":
         return verdict, f"{row['iso2']} source-level"
@@ -141,7 +150,7 @@ def main(argv=None):
             print(f"{row['watcher_id']}:{row['signal']} {row['outcome']} by {row['reviewer']} on {row['outcome_on']}")
         else:
             print("\n".join(list_open(args.repo)))
-    except (QueueError, OSError, json.JSONDecodeError, KeyError) as exc:
+    except (QueueError, OSError, ValueError, KeyError) as exc:  # ValueError covers JSONDecodeError and a conflicting sources.json
         print(exc, file=sys.stderr)
         return 1
     return 0

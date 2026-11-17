@@ -1,9 +1,11 @@
 import csv
 import hashlib
+import http.client
 import io
 import json
 import subprocess
 import sys
+import urllib.error
 from datetime import date
 from pathlib import Path
 
@@ -268,6 +270,50 @@ def test_commit_flow_makes_one_commit_on_an_upkeep_branch_and_never_touches_main
     again = update.update(repo, FakeFetch(), TODAY, row=EU_KEY, out=io.StringIO())
     assert again[0]["status"] == "open" and "already exists" in again[0]["detail"]
     assert git(repo, "rev-list", "--count", f"main..{EU_BRANCH}") == "1"
+
+
+def test_failed_commit_undoes_the_row_and_a_retry_succeeds(tmp_path):
+    """A failing pre-commit hook (#42): no branch, nothing staged, no record, no stored mark, and the
+    refusal notes written earlier in the run are still in the queue."""
+    asked = queue_row("in-sebi", "2027-05-05", "IN", "in-circ", "IN-SEBI-ADOPTED")  # refused, so its note is in the tree first
+    repo = make(tmp_path, [asked, QUEUE[0]])
+    hook = repo / ".git" / "hooks" / "pre-commit"
+    hook.write_text("#!/bin/sh\necho hook says no >&2\nexit 1\n")
+    hook.chmod(0o755)
+    with pytest.raises(subprocess.CalledProcessError):
+        update.update(repo, FakeFetch(), TODAY, out=io.StringIO())
+    assert git(repo, "symbolic-ref", "--short", "HEAD") == "main"
+    assert git(repo, "branch", "--list", "upkeep/*") == "" and git(repo, "diff", "--cached", "--name-only") == ""
+    assert git(repo, "status", "--porcelain") == "M upkeep/queue.csv"  # the in-sebi refusal note, as before the commit
+    assert not (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").exists()
+    assert git(repo, "diff", "--name-only", "HEAD", "--", "SOURCES.md", "register") == ""
+    got = rows(repo)
+    assert got["in-sebi:2027-05-05"]["notes"].startswith("refused 2026-11-02: source IN-SEBI-ADOPTED")
+    assert got[EU_KEY]["outcome"] == "confirm" and got[EU_KEY]["notes"] == ""
+    hook.unlink()
+    git(repo, "commit", "-qam", "refusal note")  # an uncommitted queue would stop the commit flow, as it should
+    again = update.update(repo, FakeFetch(), TODAY, row=EU_KEY, out=io.StringIO())
+    assert [(r["key"], r["status"]) for r in again] == [(EU_KEY, "stored")]
+    assert git(repo, "rev-list", "--count", f"main..{EU_BRANCH}") == "1"
+
+
+@pytest.mark.parametrize("exc", [urllib.error.URLError("timed out"), TimeoutError("timed out"),
+                                 ConnectionResetError("reset by peer"), http.client.IncompleteRead(b"ab", 5),
+                                 http.client.RemoteDisconnected("closed without response")])
+def test_transport_error_refuses_that_row_and_the_batch_goes_on(tmp_path, exc):
+    repo = make(tmp_path)
+    inner = FakeFetch()
+
+    def flaky(url, headers):
+        if url == EU_URL:
+            raise exc
+        return inner(url, headers)
+
+    results = {r["key"]: r["status"] for r in update.update(repo, flaky, TODAY, commit=False, out=io.StringIO())}
+    assert results[EU_KEY] == "refused" and [results[k] for k in (GB_KEY, SI_KEY, US_KEY)] == ["stored"] * 3
+    row = rows(repo)[EU_KEY]
+    assert row["outcome"] == "confirm" and f"refused 2026-11-02: fetch of {EU_URL} failed: " in row["notes"]
+    assert not (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").exists()
 
 
 def test_each_row_gets_its_own_branch_from_the_starting_branch(tmp_path):
