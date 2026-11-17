@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_sources import load_sources  # noqa: E402
-from watch import CHANGES, COLUMNS  # noqa: E402 - same column list as the watcher
+from watch import CHANGES, COLUMNS, upkeep_lock  # noqa: E402 - same column list as the watcher
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTCOMES = ("confirm", "reject", "needs_evidence")
@@ -107,28 +107,29 @@ def decide(repo, outcome, key, reviewer, today=None, notes=None):
     if not sep:
         raise QueueError(f"row {key!r} is not watcher_id:signal")
     today = (today or date.today()).isoformat() if not isinstance(today, str) else today
-    rows = read_queue(repo)
-    matches = [r for r in rows if r["watcher_id"] == watcher_id and r["signal"] == signal]
-    if not matches:
-        raise QueueError(f"row {key!r} is not in upkeep/queue.csv")
-    # An undecided row comes before a needs_evidence row, so a repeat row of the same key can be reached.
-    row = next((r for r in matches if not (r.get("outcome") or "").strip()), None) or next((r for r in matches if is_open(r)), None)
-    if row is None:
-        done = matches[0]
-        raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")
-    row["reviewer"], row["outcome"], row["outcome_on"] = reviewer.strip(), outcome, today
-    if notes:
-        row["notes"] = "; ".join(t for t in (row["notes"], notes) if t)
-    write_queue(repo, rows)
-    if outcome == "reject" and row["change"] in CHANGES:
-        seen_path = repo / "upkeep" / "seen.json"
-        seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
-        entry = seen.get(watcher_id, {"signals": None, "failure": None})
-        signals = list(entry.get("signals") or [])
-        if signal not in signals:
-            entry = {**entry, "signals": sorted(signals + [signal])}
-            seen[watcher_id] = entry
-            seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    with upkeep_lock(repo):
+        rows = read_queue(repo)
+        matches = [r for r in rows if r["watcher_id"] == watcher_id and r["signal"] == signal]
+        if not matches:
+            raise QueueError(f"row {key!r} is not in upkeep/queue.csv")
+        # An undecided row comes before a needs_evidence row, so a repeat row of the same key can be reached.
+        row = next((r for r in matches if not (r.get("outcome") or "").strip()), None) or next((r for r in matches if is_open(r)), None)
+        if row is None:
+            done = matches[0]
+            raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")
+        row["reviewer"], row["outcome"], row["outcome_on"] = reviewer.strip(), outcome, today
+        if notes:
+            row["notes"] = "; ".join(t for t in (row["notes"], notes) if t)
+        write_queue(repo, rows)
+        if outcome == "reject" and row["change"] in CHANGES:
+            seen_path = repo / "upkeep" / "seen.json"
+            seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
+            entry = seen.get(watcher_id, {"signals": None, "failure": None})
+            signals = list(entry.get("signals") or [])
+            if signal not in signals:
+                entry = {**entry, "signals": sorted(signals + [signal])}
+                seen[watcher_id] = entry
+                seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return row
 
 

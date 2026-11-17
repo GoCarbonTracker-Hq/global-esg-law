@@ -6,12 +6,15 @@ compares it with upkeep/seen.json, appends candidate rows to upkeep/queue.csv fo
 review, and updates seen.json. Writes only under upkeep/.
 """
 import argparse
+import contextlib
 import csv
+import fcntl
 import gzip
 import hashlib
 import html
 import http.client
 import json
+import os
 import re
 import ssl
 import subprocess
@@ -291,6 +294,46 @@ def queue_row(w, today, change, signal, evidence_url, notes=""):
             "evidence_url": evidence_url, "reviewer": "", "outcome": "", "outcome_on": "", "notes": notes}
 
 
+_HELD = {}  # lock file -> [open handle, depth]; a second descriptor of the same file would block this process on itself
+
+
+def _flock(path):
+    """Open path and take an exclusive flock on it, waiting as long as it takes. The holder deletes the file on
+    release (so a run leaves nothing untracked in the repo): a waiter that finds its file gone locks the new one."""
+    while True:
+        handle = path.open("a")  # Python opens it close-on-exec, so a git hook never inherits the lock
+        fcntl.flock(handle, fcntl.LOCK_EX)
+        try:
+            if os.fstat(handle.fileno()).st_ino == path.stat().st_ino:
+                return handle
+        except FileNotFoundError:
+            pass
+        handle.close()
+
+
+@contextlib.contextmanager
+def upkeep_lock(repo):
+    """Exclusive, blocking lock on <repo>/upkeep/.lock around a read-modify-write of seen.json or queue.csv.
+
+    Re-entrant within a process, so a locked caller may call another locked function.
+    ponytail: one lock for both files, and not thread-safe; the tools are single-threaded processes.
+    """
+    path = Path(repo).resolve() / "upkeep" / ".lock"
+    held = _HELD.get(path)
+    if held is None:
+        path.parent.mkdir(exist_ok=True)
+        held = _HELD[path] = [_flock(path), 0]
+    held[1] += 1
+    try:
+        yield
+    finally:
+        held[1] -= 1
+        if not held[1]:
+            del _HELD[path]
+            path.unlink(missing_ok=True)  # while still locked
+            held[0].close()  # closing the descriptor releases the lock
+
+
 def append_queue(queue_path, rows):
     new_file = not queue_path.exists() or queue_path.stat().st_size == 0
     with queue_path.open("a", newline="", encoding="utf-8") as handle:
@@ -348,9 +391,16 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
 
     candidates = sum(1 for r in rows if r["change"] != "watch_failed")
     if not dry_run and watchers:
-        upkeep.mkdir(exist_ok=True)
-        append_queue(queue_path, rows)
-        seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        with upkeep_lock(repo):
+            append_queue(queue_path, rows)
+            # seen.json may have changed during the run (queue.py reject, --reseed): lay this run's entries over it
+            latest = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
+            for w in watchers:
+                entry, on_disk = seen[w["id"]], latest.get(w["id"], {}).get("signals") or []
+                if w["kind"] in ACCUMULATE and on_disk:  # a list keeps every signal ever seen, a rejected one too
+                    entry = {**entry, "signals": sorted(set(entry["signals"] or []) | set(on_disk))}
+                latest[w["id"]] = entry
+            seen_path.write_text(json.dumps(latest, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return {"run": len(watchers), "candidates": candidates, "failures": failures, "rows": rows,
             "seconds": round(seconds, 2), "bytes": nbytes}
 
@@ -373,18 +423,20 @@ def reseed(repo, watcher_id, fetch=None, today=None):
     if error is not None:
         raise ValueError(f"{watcher_id}: {error}")
     seen_path = repo / "upkeep" / "seen.json"
-    seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
     current = [s for s, _ in signals]
-    known = seen.get(watcher_id, {}).get("signals")
-    if watcher["kind"] in ACCUMULATE and known is not None:
-        unseen = [queue_row(watcher, today, watcher.get("change", "new_version"), signal, evidence_url)
-                  for signal, evidence_url in signals if signal not in known]
-        if unseen:
-            append_queue(repo / "upkeep" / "queue.csv", unseen)
-    seen[watcher_id] = {"signals": sorted(set(current)) if watcher["kind"] in ACCUMULATE else current,
-                        "failure": None, "checked_on": today,
-                        "seconds": round(time.monotonic() - started, 2), "bytes": sum(sizes)}
-    seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    seconds = round(time.monotonic() - started, 2)  # the fetch, not any wait for the lock
+    with upkeep_lock(repo):
+        seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
+        known = seen.get(watcher_id, {}).get("signals")
+        if watcher["kind"] in ACCUMULATE and known is not None:
+            unseen = [queue_row(watcher, today, watcher.get("change", "new_version"), signal, evidence_url)
+                      for signal, evidence_url in signals if signal not in known]
+            if unseen:
+                append_queue(repo / "upkeep" / "queue.csv", unseen)
+        seen[watcher_id] = {"signals": sorted(set(current)) if watcher["kind"] in ACCUMULATE else current,
+                            "failure": None, "checked_on": today,
+                            "seconds": seconds, "bytes": sum(sizes)}
+        seen_path.write_text(json.dumps(seen, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return len(current)
 
 

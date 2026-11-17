@@ -1,6 +1,8 @@
 import csv
+import fcntl
 import importlib.util
 import json
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -10,6 +12,7 @@ import pytest
 TOOLS = Path(__file__).resolve().parents[1] / "tools"
 sys.path.insert(0, str(TOOLS))
 import watch  # noqa: E402
+from test_watch import completes, while_locked  # noqa: E402
 
 # tools/queue.py shares its name with the stdlib queue module that pytest has already imported,
 # so load it from its path under another name.
@@ -252,3 +255,40 @@ def test_conflicting_duplicate_source_rows_stop_the_listing(tmp_path, capsys):
         {"id": "PASS", "verdict": "pass"}, {"id": "PASS", "verdict": "fail"}, {"id": "ASKED", "verdict": "permission requested"}]))
     assert review.main(["--repo", str(repo)]) == 1
     assert "conflicting duplicate rows for id 'PASS'" in capsys.readouterr().err
+
+
+def test_decide_waits_for_the_upkeep_lock(tmp_path):  # #51
+    repo = make(tmp_path)
+    got = while_locked(repo, lambda: review.decide(repo, "reject", "w-uk:2027-01-01", "varun", TODAY))
+    assert got["outcome"] == "reject" and rows(repo)[1]["outcome"] == "reject"
+    assert "2027-01-01" in seen(repo)["w-uk"]["signals"]
+    assert not (repo / "upkeep" / ".lock").exists()
+
+
+def test_queue_command_in_another_process_waits_for_the_lock(tmp_path):  # #51
+    repo = make(tmp_path)
+    command = [sys.executable, str(TOOLS / "queue.py"), "--repo", str(repo), "--outcome", "confirm",
+               "--row", "w-uk:2027-01-01", "--reviewer", "varun"]
+    with (repo / "upkeep" / ".lock").open("a") as holder:
+        fcntl.flock(holder, fcntl.LOCK_EX)
+        proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        try:
+            with pytest.raises(subprocess.TimeoutExpired):
+                proc.wait(timeout=1)
+            assert rows(repo) == ROWS  # nothing written while the other holder has the lock
+        finally:
+            holder.close()
+            out, err = proc.communicate(timeout=30)
+    assert proc.returncode == 0, err
+    assert rows(repo)[1]["outcome"] == "confirm" and out.startswith("w-uk:2027-01-01 confirm by varun")
+
+
+def test_decide_inside_the_lock_does_not_deadlock(tmp_path):  # #51
+    repo = make(tmp_path)
+
+    def nested():
+        with review.upkeep_lock(repo):
+            return review.decide(repo, "confirm", "w-uk:2027-01-01", "varun", TODAY)
+
+    assert completes(nested)["outcome"] == "confirm"
+    assert not (repo / "upkeep" / ".lock").exists()

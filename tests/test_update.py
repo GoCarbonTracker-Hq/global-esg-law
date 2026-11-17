@@ -1,4 +1,5 @@
 import csv
+import fcntl
 import hashlib
 import http.client
 import io
@@ -16,6 +17,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import build
 import check_corpus
 import update
+from test_watch import completes, while_locked
 
 TODAY = date(2026, 11, 2)
 EU_URL = "https://publications.europa.eu/resource/celex/02022L2464-20270101"
@@ -413,3 +415,37 @@ def test_extract_text_strips_tags_drops_subtrees_and_tabs_cells():
     assert update.extract_text(GB_BODY, ("metadata",)) == "placeholder section text\n"
     assert update.extract_text(US_BODY) == "PART 98 placeholder\n\nplaceholder part text\n\ncell one\tcell two\n"
     assert update.extract_text(b"<p>a &amp; b\n   c</p>") == "a & b c\n"
+
+
+def test_update_waits_for_the_upkeep_lock_before_it_touches_anything(tmp_path):  # #51
+    repo = make(tmp_path)
+    fetch = FakeFetch()
+    results = while_locked(repo, lambda: update.update(repo, fetch, TODAY, row=EU_KEY, commit=False, out=io.StringIO()))
+    assert [r["status"] for r in results] == ["stored"] and len(fetch.calls) == 1
+    assert rows(repo)[EU_KEY]["outcome"] == "stored" and not (repo / "upkeep" / ".lock").exists()
+
+
+def test_commit_flow_waits_for_the_upkeep_lock_and_leaves_the_tree_clean(tmp_path):  # #51
+    repo = make(tmp_path)
+    results = while_locked(repo, lambda: update.update(repo, FakeFetch(), TODAY, row=EU_KEY, out=io.StringIO()))
+    assert results[0]["branch"] == EU_BRANCH and git(repo, "branch", "--show-current") == "main"
+    assert git(repo, "status", "--porcelain") == ""
+
+
+def test_dry_run_does_not_wait_for_the_upkeep_lock(tmp_path):  # a dry run writes nothing, so it takes no lock
+    repo = make(tmp_path)
+    with (repo / "upkeep" / ".lock").open("a") as holder:
+        fcntl.flock(holder, fcntl.LOCK_EX)
+        results = completes(lambda: update.update(repo, FakeFetch(), TODAY, dry_run=True, out=io.StringIO()))
+    assert {r["status"] for r in results} <= {"planned", "open"}
+
+
+def test_update_inside_the_lock_does_not_deadlock(tmp_path):  # #51
+    repo = make(tmp_path)
+
+    def nested():
+        with update.upkeep_lock(repo):
+            return update.update(repo, FakeFetch(), TODAY, row=EU_KEY, out=io.StringIO())
+
+    assert completes(nested)[0]["status"] == "stored"
+    assert git(repo, "branch", "--list", EU_BRANCH) and not (repo / "upkeep" / ".lock").exists()

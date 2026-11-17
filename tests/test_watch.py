@@ -1,6 +1,8 @@
 import csv
+import fcntl
 import json
 import sys
+import threading
 from datetime import date
 from pathlib import Path
 
@@ -96,6 +98,60 @@ def seen(repo):
 
 def tree(repo):
     return sorted(p.relative_to(repo).as_posix() for p in repo.rglob("*") if p.is_file())
+
+
+def start(call):
+    """Run call() on a daemon thread. Return (thread, box); box ends up holding the result or the exception."""
+    box = []
+
+    def work():
+        try:
+            box.append(call())
+        except BaseException as exc:
+            box.append(exc)
+
+    thread = threading.Thread(target=work, daemon=True)
+    thread.start()
+    return thread, box
+
+
+def finish(thread, box, timeout=10):
+    thread.join(timeout)
+    assert not thread.is_alive(), f"call still running after {timeout} s"
+    if isinstance(box[0], BaseException):
+        raise box[0]
+    return box[0]
+
+
+def completes(call):
+    """Return call()'s result; a call that never returns (a lock waiting on itself) fails the test instead of hanging it."""
+    return finish(*start(call))
+
+
+def while_locked(repo, call):
+    """Run call() while a second descriptor holds upkeep/.lock: it must still be waiting after 0.3 s, and finish once
+    the lock is released. flock locks belong to the open file, so a second descriptor excludes this process too."""
+    holder = (repo / "upkeep" / ".lock").open("a")
+    fcntl.flock(holder, fcntl.LOCK_EX)
+    thread, box = start(call)
+    thread.join(0.3)
+    waiting = thread.is_alive()
+    holder.close()
+    result = finish(thread, box)
+    assert waiting, "the call did not wait for the lock another descriptor held"
+    return result
+
+
+def lock_is_free(repo):
+    """True when nobody holds upkeep/.lock; takes it for an instant and leaves no file behind."""
+    path = repo / "upkeep" / ".lock"
+    with path.open("a") as handle:
+        try:
+            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return False
+        path.unlink()
+        return True
 
 
 def test_first_run_baseline(tmp_path):
@@ -331,6 +387,77 @@ def test_reseed_touches_only_its_watcher_and_refuses_failure(tmp_path):
     assert seen(repo) == after
     with pytest.raises(ValueError, match="no watcher"):
         watch.reseed(repo, "nope", FakeFetch(), TODAY)
+
+
+def test_watch_waits_for_the_upkeep_lock_before_it_writes(tmp_path):  # #51
+    repo = make(tmp_path)
+    result = while_locked(repo, lambda: watch.watch(repo, FakeFetch(), TODAY))
+    assert result["candidates"] == 5 and len(rows(repo)) == 5 and set(seen(repo)) == {w["id"] for w in WATCHERS}
+    assert not (repo / "upkeep" / ".lock").exists()
+
+
+def test_reseed_waits_for_the_upkeep_lock(tmp_path):  # #51
+    repo = make(tmp_path)
+    assert while_locked(repo, lambda: watch.reseed(repo, "w-cellar", FakeFetch(), TODAY)) == 3
+    assert seen(repo)["w-cellar"]["signals"] == ["2022-12-16", "2025-04-17", "2026-03-18"]
+
+
+def test_watch_does_not_hold_the_lock_while_it_fetches(tmp_path):  # #51: a run lasts about an hour, only its write is locked
+    repo = make(tmp_path)
+    free = []
+
+    class Probe(FakeFetch):
+        def __call__(self, url, method):
+            free.append(lock_is_free(repo))
+            return super().__call__(url, method)
+
+    watch.watch(repo, Probe(), TODAY)
+    assert len(free) == 5 and all(free) and lock_is_free(repo)
+
+
+def test_watch_keeps_seen_entries_written_during_the_run(tmp_path):  # #51
+    repo = make(tmp_path)
+    watch.watch(repo, FakeFetch(), TODAY)
+
+    class Concurrent(FakeFetch):  # queue.py rejects a row and a reseed lands while this run is fetching
+        def __call__(self, url, method):
+            if not self.calls:
+                data = seen(repo)
+                data["w-cellar"]["signals"].append("2099-01-01")
+                data["w-terms"]["signals"].append("stale")
+                data["w-other"] = {"signals": ["x"], "failure": None}
+                (repo / "upkeep" / "seen.json").write_text(json.dumps(data))
+            return super().__call__(url, method)
+
+    watch.watch(repo, Concurrent(), date(2026, 11, 3))
+    after = seen(repo)
+    assert "2099-01-01" in after["w-cellar"]["signals"]  # a list keeps every signal seen, a rejected one too
+    assert after["w-other"] == {"signals": ["x"], "failure": None}  # an entry this run did not touch is not dropped
+    assert len(after["w-terms"]["signals"]) == 1  # a single-value watcher still ends on what the page shows now
+    assert after["w-cellar"]["checked_on"] == "2026-11-03"
+
+
+def test_upkeep_lock_nests_in_one_process_without_deadlock(tmp_path):  # #51
+    repo = make(tmp_path)
+
+    def nested():
+        with watch.upkeep_lock(repo):
+            with watch.upkeep_lock(repo):
+                with watch.upkeep_lock(repo / "upkeep" / ".."):  # the same lock under another spelling
+                    assert not lock_is_free(repo)
+                assert not lock_is_free(repo)  # the inner exit did not release it
+            return watch.reseed(repo, "w-cellar", FakeFetch(), TODAY)  # a locked function called from inside the lock
+
+    assert completes(nested) == 3
+    assert not (repo / "upkeep" / ".lock").exists() and lock_is_free(repo)  # the outer exit released it
+
+
+def test_upkeep_lock_is_released_when_the_body_raises(tmp_path):  # #51
+    repo = make(tmp_path)
+    with pytest.raises(KeyError):
+        with watch.upkeep_lock(repo):
+            raise KeyError("boom")
+    assert lock_is_free(repo)
 
 
 def test_truncated_first_read_is_retried_once(monkeypatch):
