@@ -80,7 +80,13 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* Lookup bar */
 
-header, .lookup, .fields { display: grid; gap: calc(var(--unit) * 2); }
+/* minmax(0, 1fr): a plain auto track is as wide as its widest content (the date row, 493px at 200% text), which pushed
+   the page sideways in a 320px window. The row wraps instead (the date field first, its echo under it). */
+header, .lookup, .fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: calc(var(--unit) * 2);
+}
 
 label {
   display: block;
@@ -102,6 +108,7 @@ input, button {
 
 .date-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: calc(var(--unit) * 1.5);
 }
@@ -128,6 +135,7 @@ main { margin-top: calc(var(--unit) * 2); }
 #answer-panel {
   padding: 1.5rem;
   background: var(--panel);
+  overflow-wrap: anywhere; /* a long word in the title, codes or interim text must not push the page sideways at 320px and 200% text */
 }
 :where(#answer-panel, #answer-plain) > * + * { margin-top: var(--unit); }
 
@@ -193,6 +201,7 @@ footer a { display: inline-block; min-height: 1.5rem; }
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
   }
+  .date-row { flex-wrap: nowrap; }
 
   main { display: grid; grid-template-areas: "rail answer"; }
   #answer { grid-area: answer; }
