@@ -1,0 +1,33 @@
+/* Citation line and Copy citation button (GEL-34 story 08). Every colour comes from a token in style.css. */
+
+#citation-line {
+  min-width: 0;
+  margin: var(--unit) 0;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.cite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--unit) calc(var(--unit) * 2);
+}
+
+#citation-copy {
+  border-color: var(--link);
+  background: var(--link);
+  color: var(--page);
+  cursor: pointer;
+}
+
+#citation-status {
+  transition: opacity 0.2s;
+}
+#citation-status:empty { opacity: 0; }
+#citation-status:not(:empty) { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  #citation-status { transition: none; }
+}
