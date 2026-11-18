@@ -1,0 +1,16 @@
+pages:
+  image: python:3.13-slim
+  variables:
+    GIT_DEPTH: "0"
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*
+    - git fetch origin history:refs/remotes/origin/history
+  script:
+    - mkdir -p public
+    - cp -r web/* public/
+    - python3 tools/web_data.py --ref origin/history --out public/law-data.json
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
