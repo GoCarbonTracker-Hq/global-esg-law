@@ -2,6 +2,7 @@
   const GEL = (window.GEL = window.GEL || {});
   const hooks = [];
   const noMatchHooks = [];
+  const clearHooks = [];
 
   // What each kind means: README line 52 names the kinds, COVERAGE.md line 288 says an adopted text is the act as
   // first printed with amendments stored as their own instruments, MAINTAINING.md line 7 says a translation is
@@ -21,6 +22,11 @@
   // Called when a no-match answer (V5) is drawn: no law is chosen, so the hook gets no detail.
   GEL.onNoMatch = function (fn) {
     noMatchHooks.push(fn);
+  };
+
+  // Called by clearAnswer: whatever a listener holds of the last answer goes.
+  GEL.onClear = function (fn) {
+    clearHooks.push(fn);
   };
 
   function fire(list, detail) {
@@ -182,5 +188,15 @@
     common(panel, date, data);
     show(panel, false, GEL.interim.render({ reason: "no-match", text }));
     fire(noMatchHooks);
+  };
+
+  // No answer shows and none is left behind: the panel is hidden and loses the id, state, date and commit of the last
+  // answer, the hidden sentence is emptied, and the onClear hooks run.
+  GEL.clearAnswer = function () {
+    const panel = document.getElementById("answer-panel");
+    panel.hidden = true;
+    for (const name of ["data-id", "data-state", "data-date", "data-commit"]) panel.removeAttribute(name);
+    document.getElementById("answer-sentence").textContent = "";
+    fire(clearHooks);
   };
 })();
