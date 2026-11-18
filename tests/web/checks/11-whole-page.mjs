@@ -6,7 +6,8 @@
 //       scripts and the data file (the list read from index.html), and none follows a lookup (FR6).
 //   P3  Invoker Commands forced off (CommandEvent deleted at document start): Copy citation on the CSRD answer (2025-06-01) puts the
 //       displayed line on the clipboard, no newline, and the confirmation shows. Method as 08-cite.mjs.
-//   (P4 is added by the commit that follows: answers against tools/law.py and tools/query.py.)
+//   P4  Chrome only: what the page prints for the CSRD answer (2025-06-01), the link-only law ae-dl-11-2024-climate, the CSRD rail, every
+//       Browse by place row and the citation line equals what tools/law.py and tools/query.py give for the same place, id and date.
 //
 // The window width 320, the limit 320 and every state's id, date and wording are constants written here from the story (STORY-GEL-34-11, "Context"), never
 // read from the page's code. Each verdict also proves the window really is 320 px, the root font really is 16 or 32 px and the page
@@ -16,6 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const WEB = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../web");
 
@@ -382,10 +384,106 @@ async function p3(h) {
   }
 }
 
+// ---------- P4: the answers read the same as tools/law.py ----------
+// Chrome only: this check drives Chrome, and a browser other than Chrome is Not run (the report says so). The expected side is Python output:
+//   - python3.13 tools/law.py <ISO2> <date> --json --ref <ref>     the in-force item for a stored law (title, in_force, kind, language, source_url, commit)
+//   - tools/query.py, called as a module (python3.13 -I)           law_in_force (link_only list), instrument_history (versions), list_places (rows, scope)
+//   - cite-expected.json, which tests/web/cite_expected.py builds from tools/query.py   the citation line
+// How a law id maps to the place call: the id starts with the place's ISO2 code in lower case (eu-csrd-2022-2464 is EU, ae-dl-11-2024-climate is AE).
+// The Python side checks that map instead of assuming it: list_places(place) must list the id among that place's instruments.
+const REPO_PY = `
+import json, sys
+repo, ref = sys.argv[1], sys.argv[2]
+sys.path.insert(0, repo + "/tools")
+import query
+out = {"mapping": {}}
+for law_id in ("eu-csrd-2022-2464", "ae-dl-11-2024-climate"):
+    place = law_id.split("-")[0].upper()
+    listed = {i["id"]: i for i in query.list_places(repo, ref, place)["places"][0]["instruments"]}
+    out["mapping"][law_id] = {"place": place, "status": listed[law_id]["status"] if law_id in listed else None}
+out["history"] = query.instrument_history(repo, "eu-csrd-2022-2464", ref)["versions"]
+ae = query.law_in_force(repo, "AE", "2026-11-17", None, ref)
+out["ae_in_force_ids"] = [i["id"] for i in ae["in_force"]] + [i["id"] for i in ae["not_yet_in_force"]]
+out["link_only"] = next((x for x in ae["link_only"] if x["id"] == "ae-dl-11-2024-climate"), None)
+places = query.list_places(repo, ref)
+out["place_count"] = places["place_count"]
+out["places"] = [dict(zip(places["columns"], row)) for row in places["rows"]]
+print(json.dumps(out))
+`;
+
+async function p4(h, E) {
+  const repo = path.dirname(fs.realpathSync(WEB));
+  const ref = E.ref;
+  const lawCli = JSON.parse(spawnSync("python3.13", ["tools/law.py", "EU", CSRD.date, "--json", "--ref", ref, "--repo", repo], { cwd: repo, encoding: "utf8", maxBuffer: 1 << 28 }).stdout || "null");
+  const py = spawnSync("python3.13", ["-I", "-c", REPO_PY, repo, ref], { cwd: repo, encoding: "utf8", maxBuffer: 1 << 28 });
+  if (py.status !== 0 || !lawCli) return h.check("11-p4", "tools/law.py and tools/query.py ran", false, (py.stderr || "").trim().split("\n").pop() || "law.py printed no JSON");
+  const Q = JSON.parse(py.stdout);
+  const item = lawCli.in_force.find((i) => i.id === CSRD.id);
+  const citeFile = path.join(path.dirname(h.expected), "cite-expected.json");
+  const line = fs.existsSync(citeFile) ? JSON.parse(fs.readFileSync(citeFile, "utf8")).fixed.csrd : null;
+  if (!item) return h.check("11-p4", "law.py lists " + CSRD.id + " in force on " + CSRD.date, false, "not in its in_force list");
+
+  h.verdict("11-p4-mapping", "a law id maps to its place call by the ISO2 prefix of the id: list_places(place) lists " + Object.keys(Q.mapping).join(" and ") + " among that place's instruments", Object.entries(Q.mapping).flatMap(([id, m]) => (m.status ? [] : [id + " is not listed under " + m.place])));
+
+  await h.open("ok");
+  const P = await h.evaluate(`(() => {
+    GEL.choose(${JSON.stringify(CSRD.id)}); GEL.setDate(${JSON.stringify(CSRD.date)});
+    const p = __chk.panel();
+    return {
+      title: p.title, since: p.since, kind: p.kindAttr, lang: p.lang, href: p.link && p.link.href, commit: p.commit, id: p.id, date: p.date,
+      rail: [...document.querySelectorAll("#rail-window > li")].map((li) => ({ date: li.dataset.date, commit: li.dataset.commit, kind: li.querySelector(".rail-kind").textContent, current: li.classList.contains("rail-current") })),
+      line: document.getElementById("citation-line").textContent,
+    };
+  })()`);
+  console.log("  P4 law.py EU " + CSRD.date + ": " + item.id + ", in force " + item.in_force + ", " + item.kind + ", " + item.language + ", commit " + item.commit.slice(0, 9) + "; the page prints title " + h.fmt(P.title) + ", " + h.fmt(P.since) + ", kind " + P.kind + ", language " + P.lang + ", commit " + (P.commit || "").slice(0, 9));
+  h.verdict("11-p4-answer", "CSRD on " + CSRD.date + ": the page's title, in-force date, kind, language, link and commit are those law.py gives (" + item.kind + " " + item.in_force + ")", [
+    ...h.eqs([["title", P.title, item.title], ["id", P.id, item.id], ["date asked", P.date, CSRD.date], ["kind", P.kind, item.kind], ["language", P.lang, item.language], ["link", P.href, item.source_url], ["commit", P.commit, item.commit]]),
+    ...(P.since && P.since.includes(item.in_force) ? [] : ["the since line " + h.fmt(P.since) + " does not hold " + item.in_force]),
+  ]);
+
+  const versions = [...Q.history].reverse(); // instrument_history is oldest first, the rail is newest first
+  const current = P.rail.filter((r) => r.current);
+  console.log("  P4 query.instrument_history " + CSRD.id + ": " + Q.history.map((v) => v.in_force + " " + v.kind).join(", ") + "; the rail prints " + P.rail.map((r) => r.date + " " + r.kind).join(", ") + "; marked: " + current.map((r) => r.date).join(","));
+  h.verdict("11-p4-rail", "the CSRD rail lists the versions instrument_history gives (" + versions.length + ", newest first, with kind and commit) and marks the one law.py names in force", [
+    ...h.eqs([["rows", P.rail.length, versions.length]]),
+    ...versions.flatMap((v, i) => (P.rail[i] ? h.eqs([[`row ${i + 1} date`, P.rail[i].date, v.in_force], [`row ${i + 1} kind`, P.rail[i].kind, v.kind], [`row ${i + 1} commit`, P.rail[i].commit, v.commit]]) : [])),
+    ...(current.length === 1 && current[0].commit === item.commit && current[0].date === item.in_force ? [] : ["marked rows: " + h.fmt(current) + ", want one row, " + item.in_force + " " + item.commit]),
+  ]);
+
+  console.log("  P4 citation line (query.py, cite-expected.json): " + line);
+  h.verdict("11-p4-citation", "the citation line is the line tools/query.py gives (cite-expected.json), and holds law.py's title, in-force date and link", line === null ? ["cite-expected.json is missing"] : [
+    ...(P.line === line ? [] : ["the page's line differs from the Python line: page " + h.fmt(P.line) + ", python " + h.fmt(line)]),
+    ...[item.title, item.in_force, item.source_url, "in force on " + CSRD.date].filter((x) => !P.line.includes(x)).map((x) => "the line does not hold " + h.fmt(x)),
+  ]);
+
+  await h.evaluate(`GEL.choose("ae-dl-11-2024-climate"); GEL.setDate("2026-11-17")`);
+  const L = await h.evaluate(`(() => { const p = __chk.panel(), s = document.querySelector('#answer-interim [data-part="source"]'); return { state: p.state, title: p.title, href: s && s.getAttribute("href") }; })()`);
+  console.log("  P4 query.law_in_force AE 2026-11-17: ae-dl-11-2024-climate is " + (Q.link_only ? "in link_only with " + Q.link_only.official_url : "not in link_only") + " and " + (Q.ae_in_force_ids.includes("ae-dl-11-2024-climate") ? "in" : "not in") + " in_force or not_yet_in_force; the page shows state " + L.state + ", link " + L.href);
+  h.verdict("11-p4-linkonly", "ae-dl-11-2024-climate: law.py's AE answer does not list it in force, query.py lists it link only with its official URL, and the page shows the interim answer with that title and URL", [
+    ...(Q.link_only ? h.eqs([["page title", L.title, Q.link_only.title], ["page official link", L.href, Q.link_only.official_url]]) : ["law_in_force lists no link_only item for the id"]),
+    ...(Q.ae_in_force_ids.includes("ae-dl-11-2024-climate") ? ["the id is in law_in_force's in_force or not_yet_in_force"] : []),
+    ...(L.state === "interim" ? [] : ["the page's state is " + L.state + ", want interim"]),
+  ]);
+
+  const rows = await h.evaluate(`[...document.querySelectorAll("#browse-table tbody tr")].map((tr) => ({ code: tr.getAttribute("data-place"), head: tr.querySelector("th").textContent, nums: [...tr.querySelectorAll("td")].map((td) => td.textContent) }))`);
+  const byCode = new Map(rows.map((r) => [r.code, r]));
+  const eu = Q.places.find((x) => x.iso2 === "EU"), euRow = byCode.get("EU");
+  console.log("  P4 Browse by place, EU: query.list_places " + eu.name + " " + eu.instrument_count + " instruments, " + eu.stored_count + " text stored, " + eu.link_only_count + " link only; the page row prints " + h.fmt(euRow));
+  const rowProblems = Q.places.flatMap((x) => {
+    const r = byCode.get(x.iso2);
+    return r ? h.eqs([[x.iso2 + " place cell", r.head, `${x.name} (${x.iso2})`], [x.iso2 + " instruments, text stored, link only", r.nums.join(" "), [x.instrument_count, x.stored_count, x.link_only_count].join(" ")]]) : [x.iso2 + " has no row in the table"];
+  });
+  h.verdict("11-p4-browse", `Browse by place: all ${Q.place_count} rows (place, instruments, text stored, link only) are those query.list_places gives`, [
+    ...(rows.length === Q.place_count ? [] : [`the table has ${rows.length} rows, list_places has ${Q.place_count}`]),
+    ...rowProblems.slice(0, 12), ...(rowProblems.length > 12 ? [`and ${rowProblems.length - 12} more`] : []),
+  ]);
+}
+
 export async function run(h) {
   const E = JSON.parse(fs.readFileSync(h.expected, "utf8"));
   await section(h, "11-p1", () => p1(h, E));
   await section(h, "11-p2", () => p2(h));
   await section(h, "11-p3", () => p3(h));
+  await section(h, "11-p4", () => p4(h, E));
   await h.open("ok").catch(() => {});
 }
