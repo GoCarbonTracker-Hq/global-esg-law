@@ -4,7 +4,9 @@
 //       and at 200% text (root font 32 px); the place table's keyboard-reachable scroll container (if the table is wider than it).
 //   P2  after journey 1, one variant, one copy and one date change, the requests the page made are the page, its stylesheets, its
 //       scripts and the data file (the list read from index.html), and none follows a lookup (FR6).
-//   (P3 and P4 are added by the commits that follow: Invoker Commands off, answers against tools/law.py.)
+//   P3  Invoker Commands forced off (CommandEvent deleted at document start): Copy citation on the CSRD answer (2025-06-01) puts the
+//       displayed line on the clipboard, no newline, and the confirmation shows. Method as 08-cite.mjs.
+//   (P4 is added by the commit that follows: answers against tools/law.py and tools/query.py.)
 //
 // The window width 320, the limit 320 and every state's id, date and wording are constants written here from the story (STORY-GEL-34-11, "Context"), never
 // read from the page's code. Each verdict also proves the window really is 320 px, the root font really is 16 or 32 px and the page
@@ -333,9 +335,57 @@ async function p2(h) {
   await onBrowser(h, "Browser.resetPermissions", {}).catch(() => {});
 }
 
+// ---------- P3: Invoker Commands forced off ----------
+// Method (08-cite.mjs, ac5): Page.addScriptToEvaluateOnNewDocument runs "delete window.CommandEvent" before any page script, so the page
+// finds no Invoker Commands and registers its fallback click listener. A real mouse click (Input.dispatchMouseEvent) presses the
+// button; the clipboard is read back from Chrome's own clipboard with navigator.clipboard.readText() (headless Chrome keeps its own
+// clipboard and never writes the macOS pasteboard, found by 08-cite.mjs on Chrome 157). The expected line is the one tools/query.py gives,
+// read from cite-expected.json (tests/web/cite_expected.py), never from the page.
+const RECORDER = `(() => { window.__log = []; const info = console.info.bind(console); console.info = (...a) => { window.__log.push(a.join(" ")); info(...a); }; })();`;
+
+async function p3(h) {
+  const file = path.join(path.dirname(h.expected), "cite-expected.json");
+  if (!fs.existsSync(file)) return h.check("11-p3", "cite-expected.json is next to expected.json", false, "missing " + file + "; build it with tests/web/cite_expected.py");
+  const want = JSON.parse(fs.readFileSync(file, "utf8")).fixed.csrd;
+  const ids = [];
+  try {
+    for (const source of [RECORDER, "delete window.CommandEvent;"]) ids.push((await h.send("Page.addScriptToEvaluateOnNewDocument", { source })).identifier);
+    await h.open("ok");
+    await grantClipboard(h);
+    const env = await h.evaluate(`({ native: "CommandEvent" in window, log: window.__log.slice() })`);
+    h.verdict("11-p3-path", `with delete window.CommandEvent at document start, "CommandEvent" in window is ${env.native}, and the page logged "cite: fallback path" once and not the invoker path`, [
+      ...(env.native === false ? [] : ["CommandEvent is still in window"]),
+      ...(env.log.filter((l) => l === "cite: fallback path").length === 1 ? [] : ["page log " + h.fmt(env.log)]),
+      ...(env.log.includes("cite: invoker path") ? ["the page also logged the invoker path"] : []),
+    ]);
+    await h.evaluate(`GEL.choose(${JSON.stringify(CSRD.id)}); GEL.setDate(${JSON.stringify(CSRD.date)})`);
+    await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "plain" && !!document.getElementById("citation-copy")`, 5000);
+    const shown = await h.evaluate(`document.getElementById("citation-line").textContent`);
+    await h.evaluate(`Clipboard.prototype.writeText.call(navigator.clipboard, "sentinel-before-copy")`); // so an old clipboard cannot pass
+    await clickReal(h, "#citation-copy");
+    await h.until(async () => (await h.evaluate(`document.getElementById("citation-status").textContent`)) !== "", 5000, "the copy confirmation");
+    const status = await h.evaluate(`document.getElementById("citation-status").textContent`);
+    // read back
+    const clip = await h.evaluate(`navigator.clipboard.readText().catch((e) => "readText failed: " + e)`);
+    const first = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; };
+    h.verdict("11-p3-copy", "fallback click on Copy citation (CSRD, 2025-06-01): the clipboard holds the displayed line, which is the line tools/query.py gives, with no newline", [
+      ...(shown === want ? [] : ["the displayed line differs from the Python line at index " + first(shown, want) + ": page " + h.fmt(shown.slice(0, 120)) + ", python " + h.fmt(want.slice(0, 120))]),
+      ...(clip === shown ? [] : ["the clipboard differs from the displayed line at index " + first(String(clip), shown) + ": clipboard " + h.fmt(String(clip).slice(0, 120))]),
+      ...(/[\r\n]/.test(String(clip)) ? ["the clipboard text holds a line break"] : []),
+    ]);
+    h.verdict("11-p3-status", "the confirmation shows after the fallback copy", status.trim() === "Copied" ? [] : ["the confirmation reads " + h.fmt(status)]);
+    const v = await onBrowser(h, "Browser.getVersion", {});
+    console.log("  P3 method: " + v.product + (v.userAgent.includes("Headless") ? " headless" : " headed") + ", CommandEvent deleted at document start, real mouse click, clipboard read back with navigator.clipboard.readText(); the macOS pasteboard was not read");
+  } finally {
+    for (const identifier of ids) await h.send("Page.removeScriptToEvaluateOnNewDocument", { identifier }).catch(() => {});
+    await onBrowser(h, "Browser.resetPermissions", {}).catch(() => {});
+  }
+}
+
 export async function run(h) {
   const E = JSON.parse(fs.readFileSync(h.expected, "utf8"));
   await section(h, "11-p1", () => p1(h, E));
   await section(h, "11-p2", () => p2(h));
+  await section(h, "11-p3", () => p3(h));
   await h.open("ok").catch(() => {});
 }
