@@ -54,7 +54,7 @@ function snap(deep) {
     plain: vis(document.getElementById("answer-plain")), interim: vis(document.getElementById("answer-interim")),
     title: shown(f("title")), fields: {}, parts: {},
     sentence: document.getElementById("answer-sentence").textContent,
-    links: [...P.querySelectorAll("a[href]")].filter((a) => vis(a) && !a.getAttribute("href").startsWith("#")).map((a) => (
+    links: [...P.querySelectorAll("a[href]")].filter((a) => vis(a) && !a.getAttribute("href").startsWith("#") && !a.closest("#slot-after-link, #slot-after-interim")).map((a) => (
       { text: norm(a.textContent), href: a.getAttribute("href"), target: a.getAttribute("target"), rel: a.getAttribute("rel") })),
     all: P.textContent,
     active: document.activeElement.id || document.activeElement.tagName,
