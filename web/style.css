@@ -121,7 +121,7 @@ input, button {
 main { margin-top: calc(var(--unit) * 2); }
 
 #answer-panel {
-  padding: calc(var(--unit) * 3);
+  padding: 1.5rem;
   background: var(--panel);
 }
 :where(#answer-panel, #answer-plain) > * + * { margin-top: var(--unit); }
@@ -151,7 +151,7 @@ main { margin-top: calc(var(--unit) * 2); }
 
 #browse-by-place {
   margin-top: calc(var(--unit) * 6);
-  padding-top: calc(var(--unit) * 3);
+  padding-top: 1.5rem;
   border-top: 1px solid var(--divider);
 }
 
