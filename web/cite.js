@@ -65,7 +65,14 @@
     }
   }
 
+  // After a no-match answer, or when the page clears the answer, the slot is empty: no line and no button of the last answer.
+  function empty() {
+    document.getElementById("slot-citation").replaceChildren();
+  }
+
   GEL.cite = { build, draw };
   GEL.onAnswer(draw);
+  GEL.onNoMatch(empty);
+  GEL.onClear(empty);
   console.info(native ? "cite: invoker path" : "cite: fallback path");
 })();
