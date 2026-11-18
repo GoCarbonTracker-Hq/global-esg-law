@@ -2,7 +2,9 @@
 //
 //   P1  a 320 CSS px window: document.documentElement.scrollWidth is at most 320 in every one of the story's states, at 100% text
 //       and at 200% text (root font 32 px); the place table's keyboard-reachable scroll container (if the table is wider than it).
-//   (P2 to P4 are added by the commits that follow: network list, Invoker Commands off, answers against tools/law.py.)
+//   P2  after journey 1, one variant, one copy and one date change, the requests the page made are the page, its stylesheets, its
+//       scripts and the data file (the list read from index.html), and none follows a lookup (FR6).
+//   (P3 and P4 are added by the commits that follow: Invoker Commands off, answers against tools/law.py.)
 //
 // The window width 320, the limit 320 and every state's id, date and wording are constants written here from the story (STORY-GEL-34-11, "Context"), never
 // read from the page's code. Each verdict also proves the window really is 320 px, the root font really is 16 or 32 px and the page
@@ -10,6 +12,10 @@
 // What it does NOT prove: Lighthouse, Safari, Firefox, VoiceOver, forced colours, reduced motion, colour-vision emulation, 200% zoom
 // of a 1280 px window, WCAG 1.4.12 text spacing, or the keyboard journeys (only the Tab check on the place table below).
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const WEB = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../web");
 
 const WIDTH = 320; // CSS px: the window the story names
 const LIMIT = 320; // CSS px: the most scrollWidth may be there
@@ -265,8 +271,71 @@ async function container(h, text) {
   if (!wider) console.log("  finding: no scroll container exists (#browse-table-wrap overflow-x " + C.overflowX + ", tabindex " + C.tabindex + "); the table stacks into cards at 320px, so the story's keyboard-reachable container has nothing to reach");
 }
 
+// ---------- P2: the network list ----------
+// The expected list is read from web/index.html: the page, every <link rel="stylesheet">, every <script src>, and the data file.
+// <link rel="icon" href="data:,"> is not a request. Two independent readings of what was requested:
+//   - the page's own resource timing list (performance.getEntriesByType), which also lists any off-origin request, and
+//   - the harness server's request log (<workdir>/server.log, one JSON line per request that reached it, written before it answers),
+//     which also lists a request the page's timing list would not (Chrome's own, such as /favicon.ico).
+// The DevTools Network panel itself is not scripted; both readings are what it would list for this origin.
+function expectedRequests() {
+  const html = fs.readFileSync(path.join(WEB, "index.html"), "utf8").replace(/<!--[\s\S]*?-->/g, "");
+  const sheets = [...html.matchAll(/<link\b[^>]*\brel="stylesheet"[^>]*>/g)].map((x) => /href="([^"]+)"/.exec(x[0])[1]);
+  const scripts = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map((x) => x[1]);
+  return ["/", ...sheets.map((f) => "/" + f), ...scripts.map((f) => "/" + f), "/law-data.json"].sort();
+}
+const TIMING = `[...performance.getEntriesByType("navigation").map((e) => e.name), ...performance.getEntriesByType("resource").map((e) => e.name)].map((u) => u.replace(location.origin, "").split("#")[0]).sort()`;
+const serverLines = (h) => fs.readFileSync(path.join(h.workdir, "server.log"), "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+const diff = (got, want) => [
+  ...want.filter((x) => !got.includes(x)).map((x) => "missing " + x),
+  ...got.filter((x, i) => got.indexOf(x) !== i || !want.includes(x)).map((x) => "extra " + x),
+];
+
+async function p2(h) {
+  const want = expectedRequests();
+  const logFrom = serverLines(h).length;
+  await h.open("ok");
+  const atLoad = { timing: await h.evaluate(TIMING), server: serverLines(h).slice(logFrom) };
+  // journey 1: type a law name, pick the law, set a date
+  await typeLaw(h, "CSRD");
+  await h.waitFor(`document.querySelectorAll("#match-rows > li").length > 0`, 5000);
+  await clickReal(h, `.match-row[data-id="${CSRD.id}"]`);
+  await h.evaluate(`__chk.setField(${JSON.stringify(CSRD.date)})`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "plain" && document.getElementById("answer-panel").getAttribute("data-date") === ${JSON.stringify(CSRD.date)}`, 5000);
+  // one variant: a repealed law
+  await h.evaluate(`GEL.choose("gn-arrete-2022-1646-evaluations-environnementales"); GEL.setDate("2024-01-01")`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "interim"`, 5000);
+  // one copy: the CSRD answer again, Copy citation with the clipboard granted
+  await grantClipboard(h);
+  await h.evaluate(`GEL.choose(${JSON.stringify(CSRD.id)}); GEL.setDate(${JSON.stringify(CSRD.date)})`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "plain"`, 5000);
+  await clickReal(h, "#citation-copy");
+  await h.until(async () => (await h.evaluate(`document.getElementById("citation-status").textContent`)) === "Copied", 5000, "the copy confirmation");
+  // one date change, typed
+  await h.evaluate(`__chk.setField("2026-03-18")`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-date") === "2026-03-18"`, 5000);
+  // end of the journey
+  await h.sleep(500); // a request that follows a lookup would have been made by now
+  const end = { timing: await h.evaluate(TIMING), server: serverLines(h).slice(logFrom) };
+  const path_ = (x) => x.path;
+  console.log("  network list at the end of the journey (page resource timing): " + end.timing.join(" "));
+  console.log("  server request log since the page was opened: " + end.server.map((r) => r.method + " " + r.path).join(" "));
+  h.verdict("11-p2-load", `at load the page's own list is the ${want.length} requests index.html names: the page, ${want.length - 2} stylesheets and scripts, the data file`, diff(atLoad.timing, want));
+  h.verdict("11-p2-timing", "after journey 1, a variant, a copy and a date change the page's resource timing list is the one it had at load, and the one index.html names", [
+    ...diff(end.timing, atLoad.timing).map((x) => "against load: " + x),
+    ...diff(end.timing, want).map((x) => "against index.html: " + x),
+  ]);
+  h.verdict("11-p2-server", "the server saw the same requests (GET only) after the journey as at load: none follows a lookup, and nothing the timing list would not show (a favicon, say)", [
+    ...diff(end.server.map(path_).sort(), want).map((x) => "server log against index.html: " + x),
+    ...(end.server.length === atLoad.server.length ? [] : [`${end.server.length - atLoad.server.length} requests reached the server after load: ${end.server.slice(atLoad.server.length).map((r) => r.method + " " + r.path).join(" ")}`]),
+    ...end.server.filter((r) => r.method !== "GET").map((r) => "non-GET request: " + r.method + " " + r.path),
+  ]);
+  await onBrowser(h, "Browser.resetPermissions", {}).catch(() => {});
+}
+
 export async function run(h) {
   const E = JSON.parse(fs.readFileSync(h.expected, "utf8"));
   await section(h, "11-p1", () => p1(h, E));
+  await section(h, "11-p2", () => p2(h));
   await h.open("ok").catch(() => {});
 }
