@@ -1,0 +1,19 @@
+/* The answers where nothing is in force (story 06). Tokens come from style.css; no colour is written here. */
+
+#answer-interim > * {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+#answer-interim > * + * { margin-top: var(--unit); }
+
+#answer-interim a[data-part] {
+  min-height: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+#answer-interim button { cursor: pointer; }
+#answer-interim button:hover { background: var(--divider); }
+
+[data-field="applies-note"] { font-size: 0.875rem; color: var(--secondary); }
+[data-field="later"] { font-weight: 600; }

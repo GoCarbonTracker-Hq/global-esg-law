@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Global ESG Law: look up a law on a date</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="variants.css">
 <link rel="icon" href="data:,">
 </head>
 <body>
@@ -49,20 +50,25 @@
 
       <div id="answer-plain">
         <p data-field="since"></p>
+        <p data-field="applies" hidden></p>
+        <p data-field="applies-note" hidden></p>
         <p data-field="kind"></p>
         <p data-field="language"></p>
         <p data-field="codes"></p>
         <p><a data-field="link" target="_blank" rel="noopener">Official text (opens in a new tab)</a></p>
+        <p data-field="source-row" hidden><a data-field="source" target="_blank" rel="noopener">Official source (opens in a new tab)</a></p>
         <div id="slot-after-link"></div>
         <div id="slot-citation"></div>
-        <div class="dates">
-          <p data-field="asked"></p>
-          <p data-field="read"></p>
-        </div>
-        <p data-field="snapshot"></p>
       </div>
 
       <p id="answer-interim" hidden></p>
+
+      <p data-field="later" hidden></p>
+      <div class="dates">
+        <p data-field="asked"></p>
+        <p data-field="read"></p>
+      </div>
+      <p data-field="snapshot"></p>
 
       <p data-field="notice"></p>
     </div>
