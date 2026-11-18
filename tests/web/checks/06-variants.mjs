@@ -11,6 +11,7 @@ const webDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..
 const T = {
   v1: (d) => "The corpus stores no text of this law, only a link to it, so it cannot say which version applied on " + d + ".",
   v2: (f, d) => "The earliest stored version of this law starts on " + f + ", after " + d + "; the corpus has no record that early, and the law may still have been in force.",
+  v2p: (f, d) => "The earliest stored version of this law has a publication date of " + f + ", after " + d + "; the corpus does not record when it entered into force, and the law may still have been in force.",
   v4: (f, d) => "This law was not yet in force on " + d + "; its first stored version starts on " + f + ".",
   v5: (t) => 'No law in the corpus matches "' + t + '"; this does not mean no such law exists.',
   v6: (p) => "The corpus does not record when this version entered into force; " + p + " is the date it was published, so it may have started later.",
@@ -162,8 +163,9 @@ export async function run(h) {
     if (!cov) {
       const first = e.intervals[0].from;
       x.v = first > R ? "V4" : "V2";
-      x.parts.text = x.v === "V4" ? T.v4(first, d) : T.v2(first, d);
-      if (x.v === "V2") x.parts.offer = "Show " + first;
+      // V2 uses the publication-date sentence when the row of the first interval has date_basis (read from the data file).
+      x.parts.text = x.v === "V4" ? T.v4(first, d) : rowOf(e, e.intervals[0].commit)?.date_basis ? T.v2p(first, d) : T.v2(first, d);
+      x.parts.offer = "Show " + first;
       x.sentence = e.title + ": " + x.parts.text + tail;
       return x;
     }
@@ -266,7 +268,24 @@ export async function run(h) {
     ]);
   }
   await h.open("ok");
-  await answer("06-ac2", "before the record starts", BJ, "1999-02-11", "V2", (s) => h.eqs([["V2 naming 1999-02-12", s.parts.text, T.v2("1999-02-12", "1999-02-11")], ["offer", s.parts.offer, "Show 1999-02-12"]]));
+  await answer("06-ac2", "before the record starts, the first row has only a publication date", BJ, "1999-02-11", "V2", (s) => h.eqs([
+    ["V2 publication-date sentence, literal", s.parts.text, "The earliest stored version of this law has a publication date of 1999-02-12, after 1999-02-11; the corpus does not record when it entered into force, and the law may still have been in force."],
+    ["hidden sentence", s.sentence, byId[BJ].title + ": " + T.v2p("1999-02-12", "1999-02-11")], ["offer", s.parts.offer, "Show 1999-02-12"],
+  ]));
+  {
+    // Every real law whose first interval's row has date_basis: the day before its first interval reads the publication-date sentence.
+    // (CSRD above and the AC4 sweep pin the current V2 sentence for every other law.)
+    const dated = withIntervals.filter((e) => rowOf(e, e.intervals[0].commit)?.date_basis && e.intervals[0].from <= R);
+    const bad = [];
+    for (const e of dated) {
+      const first = e.intervals[0].from, d = dayBefore(first);
+      const s = await draw(h, e.id, d);
+      bad.push(...h.eqs([[e.id + " V2 sentence", s.parts.text, T.v2p(first, d)], [e.id + " hidden sentence", s.sentence, e.title + ": " + T.v2p(first, d)], [e.id + " offer", s.parts.offer, "Show " + first]]));
+    }
+    h.verdict("06-ac2", "the day before the first interval: the " + dated.length + " laws whose first row has date_basis read the publication-date sentence", [
+      ...(dated.some((e) => e.id === BJ) ? [] : ["data: " + BJ + " is not among the laws with a date_basis first row"]), ...bad.slice(0, 10),
+    ]);
+  }
 
   // ---------- AC3: repealed ----------
   await h.open("ok");
@@ -298,7 +317,30 @@ export async function run(h) {
 
   // ---------- AC4: not yet in force ----------
   await h.open("ok");
-  await answer("06-ac4", "announced law", KG104, "2026-06-01", "V4", (s) => h.eqs([["V4 naming 2027-01-01", s.parts.text, T.v4("2027-01-01", "2026-06-01")], ["offer button", s.parts.offer, null]]));
+  await answer("06-ac4", "announced law", KG104, "2026-06-01", "V4", (s) => h.eqs([["V4 naming 2027-01-01", s.parts.text, T.v4("2027-01-01", "2026-06-01")], ["offer button", s.parts.offer, "Show 2027-01-01"], ["offer tag", s.offerTag, "BUTTON"], ["offer type", s.offerType, "button"]]));
+  {
+    // The button sets the date to the first stored version's date, which is after the read date: a plain answer with the later line.
+    // As on the page, the law is chosen (GEL.chosen) before the date is set, so the date change redraws it.
+    await look(h, "GEL.choose(" + q(KG104) + "); GEL.setDate('2026-06-01');");
+    const focusedV4 = await h.evaluate("(() => { const b = document.querySelector('#answer-interim button[data-part=\"offer\"]'); if (!b) return false; b.focus(); return document.activeElement === b; })()");
+    await h.press("Enter");
+    await h.waitFor("document.getElementById('date').value === '2027-01-01'", 3000).catch(() => {});
+    const t = await look(h, "");
+    const x = expectFor(byId[KG104], "2027-01-01");
+    h.verdict("06-ac4", "pressing Enter on the focused Show 2027-01-01 button of the V4 answer lands on the in-force answer for 2027-01-01 (commit 17c2c0302) with the later line", [
+      ...(focusedV4 ? [] : ["the offer button could not be focused"]), ...compare(x, t),
+      ...h.eqs([["variant", x.v, "plain"], ["date field", t.dateValue, "2027-01-01"], ["state", t.state, "plain"], ["later line", t.fields.later, T.later(R)], ["GEL.chosen", await h.evaluate("GEL.chosen"), KG104]]),
+      ...(h.sameCommit(t.commit, "17c2c0302") ? [] : ["data-commit " + h.fmt(t.commit) + " does not start 17c2c0302"]),
+      ...(t.sentence.endsWith(" " + T.later(R)) ? [] : ["the hidden sentence does not end with the later line"]),
+    ]);
+    const bad = [];
+    for (const id of STORY_LATE) {
+      const first = byId[id].intervals[0].from, before = dayBefore(first);
+      const u = await look(h, "GEL.choose(" + q(id) + "); GEL.setDate(" + q(before) + "); document.querySelector('#answer-interim button[data-part=\"offer\"]').click();");
+      bad.push(...compare(expectFor(byId[id], first), u).map((p) => id + ": " + p), ...h.eqs([[id + " date field", u.dateValue, first], [id + " later line", u.fields.later, T.later(R)]]));
+    }
+    h.verdict("06-ac4", "every one of the " + STORY_LATE.length + " announced laws: the V4 button on the day before its first interval opens the answer for that first date, later line shown", bad.slice(0, 10));
+  }
   await answer("06-ac4", "on its first day", KG104, "2027-01-01", "plain", (s) => (h.sameCommit(s.commit, "17c2c0302") ? [] : ["data-commit " + h.fmt(s.commit) + " does not start 17c2c0302"]));
   await answer("06-ac4", "V4 and the later line together", KG104, "2026-12-31", "V4", (s) => h.eqs([["later line", s.fields.later, T.later("2026-11-17")], ["V4", s.parts.text, T.v4("2027-01-01", "2026-12-31")]]));
   {
@@ -458,6 +500,7 @@ export async function run(h) {
     const text = files.map((f) => fs.readFileSync(path.join(webDir, f), "utf8")).join("\n");
     const fragments = [
       "The corpus stores no text of this law, only a link to it, so it cannot say which version applied on ", "The earliest stored version of this law starts on ",
+      "The earliest stored version of this law has a publication date of ",
       "This law was not yet in force on ", "No law in the corpus matches", "The corpus does not record when this version entered into force; ", "Repealed on ", "The corpus was read on ",
     ];
     const bareClaims = text.split("\n").filter((l) => /does not exist|doesn't exist|no such law|no law exists|not found/i.test(l) && !l.includes("this does not mean no such law exists"));

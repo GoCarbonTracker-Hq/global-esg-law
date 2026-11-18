@@ -1,11 +1,12 @@
 (function () {
   const GEL = (window.GEL = window.GEL || {});
 
-  // The six sentences and the later line. Page text, not data: they are written from EMPTY_CASES in tools/query.py.
+  // The seven sentences and the later line. Page text, not data: they are written from EMPTY_CASES in tools/query.py.
   // The page applies no date rules: V2 and V4 are one state in the data, told apart by one text compare with read_on.
   const T = {
     v1: (d) => `The corpus stores no text of this law, only a link to it, so it cannot say which version applied on ${d}.`,
     v2: (f, d) => `The earliest stored version of this law starts on ${f}, after ${d}; the corpus has no record that early, and the law may still have been in force.`,
+    v2p: (f, d) => `The earliest stored version of this law has a publication date of ${f}, after ${d}; the corpus does not record when it entered into force, and the law may still have been in force.`,
     v4: (f, d) => `This law was not yet in force on ${d}; its first stored version starts on ${f}.`,
     v5: (text) => `No law in the corpus matches "${text}"; this does not mean no such law exists.`,
     v6: (published) => `The corpus does not record when this version entered into force; ${published} is the date it was published, so it may have started later.`,
@@ -69,10 +70,12 @@
         // link-only, and "other", which never occurs on real data and takes the link-only sentence
         const first = reason === "before-first" ? entry.intervals[0].from : null;
         const late = first !== null && first > data.snapshot.read_on;
-        const line = first === null ? T.v1(date) : late ? T.v4(first, date) : T.v2(first, date);
+        // V2 reads differently when the first stored row has only a publication date (date_basis).
+        const dated = first !== null && entry.versions.find((v) => v.commit === entry.intervals[0].commit)?.date_basis;
+        const line = first === null ? T.v1(date) : late ? T.v4(first, date) : (dated ? T.v2p : T.v2)(first, date);
         sentence = `${entry.title}: ${line}`;
         nodes.push(part("span", "text", line));
-        if (first !== null && !late) nodes.push(offer(first));
+        if (first !== null) nodes.push(offer(first));
         nodes.push(official(entry));
       }
       document.getElementById("answer-interim").replaceChildren(...nodes);

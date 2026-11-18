@@ -1,6 +1,7 @@
 (function () {
   const GEL = (window.GEL = window.GEL || {});
   const hooks = [];
+  const noMatchHooks = [];
 
   // What each kind means: README line 52 names the kinds, COVERAGE.md line 288 says an adopted text is the act as
   // first printed with amendments stored as their own instruments, MAINTAINING.md line 7 says a translation is
@@ -16,6 +17,21 @@
   GEL.onAnswer = function (fn) {
     hooks.push(fn);
   };
+
+  // Called when a no-match answer (V5) is drawn: no law is chosen, so the hook gets no detail.
+  GEL.onNoMatch = function (fn) {
+    noMatchHooks.push(fn);
+  };
+
+  function fire(list, detail) {
+    for (const fn of list) {
+      try {
+        fn(detail);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   // The only date comparison on the page: text compare `interval.from <= date`. Kinds are never ranked.
   // Null when no interval starts on or before the date, or when the entry has no intervals (link only).
@@ -149,16 +165,11 @@
       state: plain ? "plain" : "interim",
       reason: plain ? null : result.reason,
     };
-    for (const fn of hooks) {
-      try {
-        fn(detail);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+    fire(hooks, detail);
   };
 
-  // The no-match answer (V5). No law is chosen, so there is nothing for an onAnswer hook to read: none is called.
+  // The no-match answer (V5). No law is chosen, so there is nothing for an onAnswer hook to read: none is called,
+  // the onNoMatch hooks are. GEL.chosen is left alone: the next date change draws the chosen law again.
   GEL.showNoMatch = function (text, date) {
     const data = GEL.data;
     const panel = document.getElementById("answer-panel");
@@ -170,5 +181,6 @@
     panelField(panel, "title").hidden = true;
     common(panel, date, data);
     show(panel, false, GEL.interim.render({ reason: "no-match", text }));
+    fire(noMatchHooks);
   };
 })();
