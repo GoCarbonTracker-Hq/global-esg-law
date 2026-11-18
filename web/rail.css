@@ -1,0 +1,55 @@
+/* The versions rail (story 07). Tokens from style.css only. */
+
+#rail h2 {
+  margin-bottom: var(--unit);
+  font-size: 1rem;
+}
+
+.rail-only {
+  padding: var(--unit) calc(var(--unit) * 1.5);
+}
+
+.rail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail-list li {
+  min-height: 2.75rem;
+  border-left: 4px solid var(--page);
+  border-bottom: 1px solid var(--divider);
+}
+.rail-list li.rail-current {
+  border-left-color: var(--link);
+  background: var(--panel);
+}
+
+.rail-row {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--unit) calc(var(--unit) * 1.5);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+button.rail-row { cursor: pointer; }
+button.rail-row:hover { background: var(--panel); }
+
+.rail-date { font-family: var(--mono); }
+.rail-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.rail-all { margin-top: var(--unit); }
+.rail-all summary {
+  min-height: 2.75rem;
+  padding: calc(var(--unit) * 1.25) calc(var(--unit) * 1.5);
+  cursor: pointer;
+}
