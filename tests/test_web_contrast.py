@@ -154,7 +154,7 @@ def parse(files):
                 if c:
                     edges.append((EDGE.match(p).group(1) or "all", c, px(v)))
             elif p in ("outline", "outline-color"):
-                ring = (c, px(v) if p == "outline" and px(v) is not None else 2.0) if c else ring
+                ring = c or ring
             elif p == "outline-offset":
                 offset = px(v)
             elif p == "opacity":
@@ -256,7 +256,7 @@ def check(files, floor=FLOOR):
             for s in ([s for s in ambient if s[0] == c[0]] if cls == "spacer" else ambient):
                 add("edge", r.state, c, s, cls, src(r))
         if r.ring:
-            c, off = r.ring[0], r.offset or 0.0
+            c, off = r.ring, r.offset or 0.0
             for s in ambient:
                 add("ring", r.state, c, s, "ring", f"{src(r)} (offset {off:g}px: the gap and the outside show the surface)")
             for o in rules:
