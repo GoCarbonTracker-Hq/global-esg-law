@@ -135,6 +135,15 @@
 
   GEL.rail = { order, window: windowOf };
 
+  // After a no-match answer the rail is back to what it was before any law was chosen: empty, and drawn is forgotten
+  // so the next answer draws it afresh.
+  GEL.onNoMatch(() => {
+    drawn = null;
+    const box = document.getElementById("rail");
+    box.removeAttribute("aria-labelledby");
+    box.replaceChildren();
+  });
+
   GEL.onAnswer(({ entry, date, interval }) => {
     const n = entry.versions.length;
     const cls = n === 0 ? 0 : n === 1 ? 1 : 2;

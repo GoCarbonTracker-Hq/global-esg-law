@@ -459,6 +459,29 @@ async function ac7(h, X) {
   }
 }
 
+// ---------- AC10: after a no-match answer the rail is back to the state before any law was chosen ----------
+async function ac10(h, X) {
+  await h.open("ok");
+  const id = "mt-climate-action-act-2015", first = "2024-06-01", later = "2018-06-01";
+  const e = X.byId[id];
+  const start = await pg(h, "return info();");
+  const drawn = await pg(h, ask(id, first) + "return info();");
+  const gone = await pg(h, `GEL.showNoMatch("Sarbanes-Oxley", ${J(first)}); return { ...info(), chosen: GEL.chosen, panel: document.getElementById("answer-panel").getAttribute("data-state") };`);
+  h.verdict("07-AC10", "before any law is chosen #rail is empty (no children, no aria-labelledby); " + id + " draws a rail; after GEL.showNoMatch #rail is empty again, V5 is shown and GEL.chosen is still " + id, [
+    ...h.eqs([["start kids", start.kids, 0], ["start text", start.text, ""], ["start labelledby", start.labelledby, null], ["rail drawn li (7 in the window, all " + e.versions.length + " in the full list)", drawn.li, 7 + e.versions.length], ["rail drawn labelledby", drawn.labelledby, "rail-heading"]]),
+    ...h.eqs([["no-match kids", gone.kids, 0], ["no-match text", gone.text, ""], ["no-match labelledby", gone.labelledby, null], ["no-match ol", gone.ol, 0], ["no-match li", gone.li, 0], ["no-match details", gone.details, 0], ["no-match aria-current", gone.aria, 0], ["panel state", gone.panel, "no-match"], ["GEL.chosen", gone.chosen, id]]),
+    ...(same({ ...gone, chosen: 0, panel: 0 }, { ...start, chosen: 0, panel: 0 }) ? [] : ["the rail after no-match differs from the rail before any law was chosen: " + J(gone) + " vs " + J(start)]),
+  ]);
+  // Back with the chosen law on the next date change: the window the data gives for that date, drawn afresh.
+  const iv = covering(e, later);
+  const ord = orderRows(e.versions, iv ? iv.commit : null);
+  const [from, to] = windowOf(ord, iv ? iv.commit : null);
+  const back = await pg(h, `GEL.setDate(${J(later)}); return { ...info(), ...state() };`);
+  h.verdict("07-AC10", "with " + id + " still chosen, GEL.setDate(" + later + ") after the no-match answer draws its window again: 7 li in the data order, " + (iv ? "current row " + iv.commit.slice(0, 9) : "no current row") + ", the Show all " + e.versions.length + " versions control", [
+    ...h.eqs([["ol", back.ol, 2], ["li in #rail-window", back.order.split(",").length, 7], ["labelledby", back.labelledby, "rail-heading"], ["heading", back.heading, "rail-heading|Versions of this law"], ["details", back.details, 1], ["window order", back.order, ord.slice(from, to).map((v) => v.commit.slice(0, 9)).join(",")], ["current row", back.cur, iv ? iv.commit : null], ["aria-current count", back.aria, iv ? 1 : 0], ["panel date", back.panelDate, later]]),
+  ]);
+}
+
 // ---------- AC8: choosing a row by key or mouse keeps the focused node ----------
 async function click(h) {
   const [x, y] = await pg(h, "const b = window.__f; b.scrollIntoView({ block: \"center\" }); const r = b.getBoundingClientRect(); return [Math.round(r.x + r.width / 2), Math.round(r.y + r.height / 2)];");
@@ -635,7 +658,7 @@ export async function run(h) {
   h.addVariant("07-reversed", reversed);
   const X = { real, byId, E: JSON.parse(fs.readFileSync(h.expected, "utf8")), reversed, unnamed, mixed, move };
 
-  for (const [name, fn] of [["AC1", ac1], ["AC2", ac2], ["AC3", ac3], ["AC4", ac4], ["AC5", ac5], ["AC6", ac6], ["AC7", ac7], ["AC8", ac8], ["AC9", ac9]]) {
+  for (const [name, fn] of [["AC1", ac1], ["AC2", ac2], ["AC3", ac3], ["AC4", ac4], ["AC5", ac5], ["AC6", ac6], ["AC7", ac7], ["AC8", ac8], ["AC9", ac9], ["AC10", ac10]]) {
     try {
       await fn(h, X);
     } catch (e) {
