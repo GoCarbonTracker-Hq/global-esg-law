@@ -485,8 +485,20 @@ async function fullWalk(h, width, expand) {
   ]);
   h.verdict("11k-ring-" + tag, `${width}px: all ${stops.length} stops of the full walk show an outline and lie in the window (the calendar-picker stop is judged by eye)`, ringProblems(stops, pickerStop));
   const back = jumps(stops);
-  const allowed = (x) => width > 768 && x.to === "rail" && (x.from === "copy" || x.from === "answer-link");
-  h.verdict("11k-visual-" + tag, `${width}px: the Tab order moves forward and down the page, except the answer to rail move the spec accepts`, back.filter((x) => !allowed(x)).map((x) => "backward: " + jumpText(x)));
+  const wide = width > 768;
+  // Two moves are kept at wide widths. The answer to the rail on its left is the spec's own trade-off (UX spec, "Order trade-off"). The step
+  // from the last match row to the date field is accepted too (Varun, 2026-11-18): the page keeps the spec's order, law box, match rows,
+  // date field. Anything else that moves backward fails, and so does a date field that no longer follows the last match row.
+  const railMove = (x) => wide && x.to === "rail" && (x.from === "copy" || x.from === "answer-link");
+  const dateMove = (x) => wide && x.from === "match" && x.to === "date";
+  const afterMatches = stops.filter((s, i) => i && stops[i - 1].role === "match" && s.role !== "match").map((s) => s.role);
+  const accepted = back.filter((x) => railMove(x) || dateMove(x));
+  h.verdict("11k-visual-" + tag, wide
+    ? `${width}px: the Tab order moves forward and down the page except two moves the page keeps: the answer to the rail on its left (spec trade-off) and the last match row to the date field (accepted trade-off, Varun, 2026-11-18; spec order law box, match rows, date field); measured: ${accepted.map(jumpText).join("; ") || "neither move seen"}`
+    : `${width}px: the Tab order moves forward and down the page, with no backward move`, [
+    ...back.filter((x) => !railMove(x) && !dateMove(x)).map((x) => "backward: " + jumpText(x)),
+    ...(wide && !(afterMatches.length === 1 && afterMatches[0] === "date") ? [`the stop after the last match row is ${afterMatches.join(", ") || "none"}, want the date field (spec order)`] : []),
+  ]);
   console.log(`  note: ${width}px backward moves: ${back.length ? back.map(jumpText).join("; ") : "none"}`);
 }
 
