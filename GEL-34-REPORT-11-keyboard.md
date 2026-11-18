@@ -6,7 +6,7 @@ Branch `feat/gel-34-11-keyboard`, BASE `4a2da624bf8c2228e944a53a4a8d49371597582f
 
 ## Plan
 
-One new file, `tests/web/checks/11-keyboard.mjs` (tags start with `11k`). It drives UX journeys 1 and 2 with CDP key events only (Tab, Shift+Tab, Enter, Space, ArrowUp/Down, Backspace, typed characters): no click, no `focus()` call, no value set. The expected order is the UX spec's list, not the page's own tab order read back. Proof it can fail: 26 mutants of a scratch copy of `web/` (below).
+One new file, `tests/web/checks/11-keyboard.mjs` (tags start with `11k`). It drives UX journeys 1 and 2 with CDP key events only (Tab, Shift+Tab, Enter, Space, ArrowUp/Down, Backspace, typed characters): no click, no `focus()` call, no value set. The expected order is the UX spec's list, not the page's own tab order read back. Proof it can fail: 28 mutants of a scratch copy of `web/` and the unchanged page (below). Update of 2026-11-18: Varun accepted the last-match-row-to-date-field move as a recorded trade-off, so `11k-visual-wide` now allows exactly that move and the spec's answer-to-rail move, and still fails on any other backward move or when the date field stops following the last match row.
 
 ## What the check does
 
@@ -26,15 +26,11 @@ not plain: date-basis=1 not-yet-applying=2
 expected: pairs=625 plain=622 interim=3 instruments=216 places=47 csrd=8 date_table=103
 cite_expected: cases=14 link_only=553 snapshot=55c8c2a9c
 ```
-Step 3, `node tests/web/check.mjs ... --port 8520 --cdp 9520` (full output in `~/.cache/gel34-chrome/11-keyboard/check-full-1.txt`; story 04 AC5 "Loading the law list" passed first time, no rerun needed):
+Step 3, `node tests/web/check.mjs ... --port 8520 --cdp 9520`, run once after the change of 2026-11-18 (full output in `~/.cache/gel34-chrome/11-keyboard/check-full-2.txt`; the first run before the change, with the then-failing `11k-visual-wide`, is in `check-full-1.txt`: 424 passed, 1 failed):
 ```
-check.mjs: 424 passed, 1 failed
+check.mjs: 425 passed, 0 failed
 ```
-That is the BASE 393 plus my 32 checks: 31 pass, 1 fails (the finding below). The only failing line:
-```
-FAIL 11k-visual-wide: 1280px: the Tab order moves forward and down the page, except the answer to rail move the spec accepts | observed: backward: match -> date (input#date ""): up 81px, right 416.7px
-```
-The 32 check lines of my file and its notes, verbatim from a run of the file alone (the same on three runs once pixel numbers are masked; scratch copy in `/tmp`, so `check.mjs` ran only this file there; the full run above is the repo recipe):
+That is the BASE 393 plus my 32 checks, all passing. The 32 check lines of my file and its notes, verbatim from that run (lines of other files left out):
 ```
 PASS 11k-j1-load: a fresh page has nothing focused (no autofocus, UX spec) and the answer panel is hidden
 PASS 11k-j1-list: typing CSRD opens the list: 8 rows (at most 8), the first is eu-csrd-2022-2464, count line "12 laws match, showing 8"
@@ -68,26 +64,26 @@ PASS 11k-expand: Space on the summary closes the list and focus stays on it
 PASS 11k-expand: Shift+Tab from the law box goes back over the same 169 stops in reverse (reached the law box)
 PASS 11k-order-wide: 1280px: Tab order law > match > date > example > answer-link > copy > rail > show-all > rail > footer (spec: law > match > date > example > answer-link > copy > rail > show-all > rail > footer); 1 match rows, 4 date stops, 7 rail rows, 150 in the full list, 3 footer links, 0 Browse by place stops; ends: focus left the page
 PASS 11k-ring-wide: 1280px: all 170 stops of the full walk show an outline and lie in the window (the calendar-picker stop is judged by eye)
-FAIL 11k-visual-wide: 1280px: the Tab order moves forward and down the page, except the answer to rail move the spec accepts | observed: backward: match -> date (input#date ""): up 81px, right 416.7px
+PASS 11k-visual-wide: 1280px: the Tab order moves forward and down the page except two moves the page keeps: the answer to the rail on its left (spec trade-off) and the last match row to the date field (accepted trade-off, Varun, 2026-11-18; spec order law box, match rows, date field); measured: match -> date (input#date ""): up 81px, right 416.7px; copy -> rail (button "2026-05-17 consolidated kk i"): up 353px, left 292px
   note: 1280px backward moves: match -> date (input#date ""): up 81px, right 416.7px; copy -> rail (button "2026-05-17 consolidated kk i"): up 353px, left 292px
 PASS 11k-space-pick-narrow: 390px: Space on a match row closes the list and returns focus to the law box (input#law ""); the answer for kz-advertising-law shows
 PASS 11k-order-narrow: 390px: Tab order law > match > date > example > answer-link > copy > rail > show-all > footer (spec: law > match > date > example > answer-link > copy > rail > show-all > footer); 1 match rows, 4 date stops, 7 rail rows, 3 footer links, 0 Browse by place stops; ends: wrapped to the law box
 PASS 11k-ring-narrow: 390px: all 20 stops of the full walk show an outline and lie in the window (the calendar-picker stop is judged by eye)
-PASS 11k-visual-narrow: 390px: the Tab order moves forward and down the page, except the answer to rail move the spec accepts
+PASS 11k-visual-narrow: 390px: the Tab order moves forward and down the page, with no backward move
   note: 390px backward moves: none
   note: Safari, Firefox, VoiceOver: not run, by hand. Screenshots: /Users/varunmoka/.cache/gel34-chrome/11-keyboard/shots
 ```
 
 Step 4: `wcag.py: ok`; `3360 records checked`; `pairs=37 failing=0`.
 
-Step 5: `CI=1 python3.13 -m pytest -q -k "not all_pairs"`:
+Step 5: `CI=1 python3.13 -m pytest -q -k "not all_pairs"`, run on the first commit; not rerun after the change of 2026-11-18, because only `tests/web/checks/11-keyboard.mjs` changed and no Python file did:
 ```
 467 passed, 1 deselected in 727.62s (0:12:07)
 ```
 
 ## Findings (numbers, from the run)
 
-1. FAIL, 11k-visual-wide: with the match list open, Tab goes law box, match rows, then to the date field, which is to the right of the law box and above the rows. From the last match row to the date field the focus moves up 952 px and right 416.7 px with 8 rows (journey 1), up 81 px with one row (the full walk). The UX spec's own order is law box, match rows, date field, so the page follows the spec; the spec names only the answer-to-rail move as a visual trade-off. At 390 px the page is one column and there is no backward move. For Varun: accept it, or reorder (a layout decision).
+1. Accepted trade-off (Varun, 2026-11-18), measured by `11k-visual-wide`: with the match list open, Tab goes law box, match rows, then to the date field, which is to the right of the law box and above the rows. From the last match row to the date field the focus moves up 952 px and right 416.7 px with 8 rows (journey 1), up 81 px and right 416.7 px with one row (the full walk). The page keeps the spec's order (law box, match rows, date field); the spec names only the answer-to-rail move as a visual trade-off. At 390 px the page is one column and there is no backward move. The check passes when these two moves are the only backward ones in the walk, fails on any other backward move, and fails when the stop after the last match row is not the date field.
 2. Answer to rail (the story's "rail-to-answer disorientation" question, half left for Varun): from Copy citation (left 464, top 544) to the first rail row (left 172, top 242) is up 302 px and left 292 px at 1280 x 900. Choosing a rail row by Enter or Space: the focused button is the same node, scrollY 0 to 0, the row's top 305 to 305 (Space) and 368 to 368 (Enter), the answer panel's top 214 to 214; the answer text changes to the right of the focused row. Nothing scrolls. Whether the move left disorients is a person's call. The CSRD page fits in the 900 px window, so this does not show what happens on a page that scrolls.
 3. Browse by place holds no Tab stop (0 stops measured at 1280 and 390): the grid is `role="img"` and the table has no control. After the last rail row the next stop is the first footer link. The spec's order list names Browse by place; there is nothing in it to name.
 4. After Enter on the "Browse by place" link in the no-match answer: location hash `#browse-by-place`, same tab, the section's top is 0 px from the window top, `document.activeElement` is the body (the target is not focusable), and the next Tab goes to the first footer link, the first focusable thing after the section (so Chrome continues from the section; that reading is inferred from where the Tab lands). The ring is gone until the next Tab.
@@ -99,7 +95,7 @@ Step 5: `CI=1 python3.13 -m pytest -q -k "not all_pairs"`:
 
 | Row | Result | Method | Browser | Evidence |
 |---|---|---|---|---|
-| R22 (AC2, journeys 1 and 2, keyboard only, Chrome) | Fail | Script `tests/web/checks/11-keyboard.mjs`, key events only, headless, 1280 x 900 and 390 x 900 | Chrome 157.0.8103.79 | 31 of 32 checks pass. The one fail: `11k-visual-wide`, match list open, Tab from the last match row to the date field moves focus up 952 px (8 rows) and right 416.7 px. Passed: every step completes, every measured stop matches `:focus-visible`, draws an outline of non-zero width and lies in the window, spec order held (law > match > date > example > answer links > Copy citation > rail > Show all N > footer, Browse by place has 0 stops), chosen match row returns focus to the law box by Enter and by Space, Copy citation keeps focus and copies the displayed line, a chosen rail row keeps the same button, Show all 150 versions keeps focus on the summary, no trap, Shift+Tab mirrors Tab. |
+| R22 (AC2, journeys 1 and 2, keyboard only, Chrome) | Pass, with the accepted trade-off noted | Script `tests/web/checks/11-keyboard.mjs`, key events only, headless, 1280 x 900 and 390 x 900 | Chrome 157.0.8103.79 | 32 of 32 checks pass (`check.mjs: 425 passed, 0 failed`). Accepted trade-off (Varun, 2026-11-18): with the match list open at 1280 px, Tab from the last match row to the date field moves focus up 952 px and right 416.7 px (8 rows; up 81 px with one row), the spec's order; the check allows only that move and the answer-to-rail move. Also passed: every step completes, every measured stop matches `:focus-visible`, draws an outline of non-zero width and lies in the window, spec order held (law > match > date > example > answer links > Copy citation > rail > Show all N > footer, Browse by place has 0 stops), chosen match row returns focus to the law box by Enter and by Space, Copy citation keeps focus and copies the displayed line, a chosen rail row keeps the same button, Show all 150 versions keeps focus on the summary, no trap, Shift+Tab mirrors Tab. |
 | R22, rail-to-answer disorientation (half) | Not run (a person's judgement) | Numbers only | Chrome 157.0.8103.79 | Copy citation to first rail row: up 302 px, left 292 px; on choosing a rail row scrollY 0 to 0, row top and answer top unchanged. Left for Varun. |
 | R22, ring against its neighbours, date-field calendar icon | Not run (by eye) | Screenshot `j1-date-picker-focus.png` | Chrome 157.0.8103.79 | Icon shows Chrome's own blue ring in headless; `:focus-visible` does not match the input there. |
 | R49 (spec step 13 item 2, Chrome and Safari) | Chrome half: see R22; Safari Not run | The same script for Chrome | Chrome 157.0.8103.79; Safari 27.2 not run | Safari is Varun's, by hand, after he records the "Press Tab to highlight each item" setting. |
@@ -113,38 +109,42 @@ Step 5: `CI=1 python3.13 -m pytest -q -k "not all_pairs"`:
 
 ## Proof each verdict can fail
 
-The mutants edit a copy of `web/` in `/tmp/gel34-kb-mut/<name>/` (outside the repo); the runner is `/tmp/gel34-kb-mut/run.py`. Each mutant was run with my file against the copy, and the tags it turned red are listed. The 11k-visual-wide verdict fails on the real page; the narrow one fails on M08.
+The mutants edit a copy of `web/` in `/tmp/gel34-kb-mut/<name>/` (outside the repo); the runner is `/tmp/gel34-kb-mut/run.py`. Each mutant was run with my file against the copy, and the tags it turned red are listed (rerun in full after the change of 2026-11-18; `check.mjs` there runs only my file).
+
+Unchanged page (M00, the same copy with no edit): `check.mjs: 32 passed, 0 failed`, and `11k-visual-wide` passes with the measured numbers in its label (match -> date up 81 px, right 416.7 px; copy -> rail up 353 px, left 292 px).
+
+The two mutants the 2026-11-18 change needs: V01 adds a second backward move and `11k-visual-wide` fails with `backward: footer -> footer (a "Use it from an AI assistant"): level, left 220.9px; backward: footer -> footer (a "Set up the MCP server"): level, left 194.9px`. V02 takes the date field out of the Tab order and `11k-visual-wide` fails with `the stop after the last match row is example, want the date field (spec order)`. `11k-visual-narrow` still fails on M07 and M08 (no backward move is accepted at 390 px).
 
 | Mutant (one edit) | Tags that failed |
 |---|---|
-| M01 `:focus-visible { outline: none }` | j1-focus, j1-pick, j1-copy, j1-example, j1-rail-pick, j2-focus, expand, ring-wide, ring-narrow, space-pick-* |
-| M02 `law.focus()` removed after a match is chosen | j1-pick, j1-focus, space-pick-*, order-*, ring-*, expand |
-| M03 rail redrawn on every answer (focused row replaced) | j1-rail-pick, j1-steps, j1-footer, expand |
+| M01 `:focus-visible { outline: none }` | expand, j1-copy, j1-example, j1-focus, j1-pick, j1-rail-pick, j2-focus, ring-narrow, ring-wide, space-pick-narrow, space-pick-wide |
+| M02 `law.focus()` removed after a match is chosen | expand, j1-focus, j1-pick, order-narrow, order-wide, ring-narrow, ring-wide, space-pick-narrow, space-pick-wide, visual-wide |
+| M03 rail redrawn on every answer (focused row replaced) | expand, j1-footer, j1-rail-pick, j1-steps |
 | M04 Copy citation blurs after copying | j1-copy |
 | M04b copy writes "x" instead of the line | j1-copy |
-| M05 `toggle` moves focus to the law box | expand, order-wide |
-| M24 closing the details moves focus to the law box | expand (Space closes and focus stays, and the mirror walk) |
-| M06 Tab blocked on the example button | j1-copy, j1-example, j1-focus, j1-steps, j2-*, order-* |
-| M07 positive `tabindex` on the first footer link | j1 (threw), j1-example, j1-list, j2 (threw), order-*, visual-* |
-| M07b `tabindex=-1` on the example | j1-example, j1-copy, j1-rail-*, j2-*, order-* |
-| M08 date field above the law box (column-reverse) | visual-narrow, visual-wide |
-| M09 `autofocus` on the law box | j1-load, j1-list, j1-example, j2-link, order-* |
+| M05 `toggle` moves focus to the law box | expand, order-wide, visual-wide |
+| M06 Tab blocked on the example button | j1-copy, j1-example, j1-focus, j1-footer, j1-rail-order, j1-rail-pick, j1-steps, j2-before, j2-focus, j2-link, j2-none, j2-repealed, order-narrow, order-wide |
+| M07 positive `tabindex` on the first footer link | j1, j1-example, j1-list, j2, order-narrow, order-wide, space-pick-narrow, space-pick-wide, visual-narrow, visual-wide |
+| M07b `tabindex=-1` on the example | j1, j1-copy, j1-example, j1-rail-order, j1-rail-pick, j2, j2-before, j2-link, j2-repealed, order-narrow, order-wide |
+| M08 date field above the law box (column-reverse) | visual-narrow |
+| M09 `autofocus` on the law box | j1, j1-example, j1-list, j1-load, j2, j2-link, order-narrow, order-wide, space-pick-narrow, space-pick-wide, visual-wide |
 | M10 date input ignored | j1-date, j2-before, j2-focus |
 | M11 summary label changed | expand |
 | M12 offer button no longer focuses the date field | j2-before, j2-focus |
-| M13 Browse by place link points to `#nowhere` | j2-none, j2-focus |
-| M15 match rows in reverse order | j1-list, j1-pick, j1-date, j1-rail-* |
+| M13 Browse by place link points to `#nowhere` | j2-focus, j2-none |
+| M15 match rows in reverse order | expand, j1, j1-date, j1-list, j1-pick, j1-rail-order, j1-rail-pick |
 | M16 match rows reversed by CSS only | j1-list-order |
 | M17 rail rows oldest first | j1-rail-order, j1-rail-pick |
-| M18 Tab blocked on the last footer link | j1-footer, j1-focus, expand, order-* |
+| M18 Tab blocked on the last footer link | expand, j1-focus, j1-footer, order-narrow, order-wide |
 | M19 example no longer sets the date | j1-example |
 | M20 "Official source" label changed | j2-link |
 | M21 "Repealed on" changed | j2-repealed |
-| M22 rail rows from before 2022 skipped by Tab | expand (reach all rows) |
-| M23 Shift+Tab blocked on Copy citation | expand (mirror walk) |
+| M22 rail rows from before 2022 skipped by Tab | expand |
+| M23 Shift+Tab blocked on Copy citation | expand |
+| M24 closing the details moves focus to the law box | expand |
 | M25 count line text changed | j1-list |
-
-`11k-j1-load` fails on M09; `11k-j1-date` on M10; `11k-j1-footer` on M18; `11k-space-pick-*` on M01 and M02.
+| V01 footer links in a reversed row (`flex-direction: row-reverse`): a second backward move | visual-wide |
+| V02 `tabindex=-1` on the date field: the date field no longer follows the last match row | j1, j1-copy, j1-date, j1-example, j1-rail-order, j1-rail-pick, j2, j2-before, j2-link, j2-repealed, order-narrow, order-wide, visual-wide |
 
 ## Other
 
@@ -154,6 +154,7 @@ The mutants edit a copy of `web/` in `/tmp/gel34-kb-mut/<name>/` (outside the re
 
 ## What Varun must decide
 
-1. The 11k-visual-wide finding: match rows then the date field moves focus up and right at 1280 px with the list open. Keep the spec order, or change the layout or the order.
-2. Whether the answer-to-rail move to the left disorients (the story's half left for him; numbers above), in headed Chrome and in Safari.
-3. Whether "Browse by place" with no Tab stop satisfies AC2's "Browse by place" step in the order list.
+Decided 2026-11-18: the last match row to date field move is accepted (finding 1).
+
+1. Whether the answer-to-rail move to the left disorients (the story's half left for him; numbers above), in headed Chrome and in Safari.
+2. Whether "Browse by place" with no Tab stop satisfies AC2's "Browse by place" step in the order list.
