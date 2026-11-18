@@ -160,6 +160,21 @@ main { margin-top: calc(var(--unit) * 2); }
   border-top: 1px solid var(--divider);
 }
 
+footer {
+  margin-top: calc(var(--unit) * 6);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--divider);
+}
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit) calc(var(--unit) * 4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+footer a { display: inline-block; min-height: 1.5rem; }
+
 @media (min-width: 48rem) {
   header, main {
     grid-template-columns: var(--rail) minmax(0, 1fr);

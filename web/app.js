@@ -13,5 +13,7 @@
   GEL.load().then(() => {
     example.disabled = false;
     date.disabled = false;
+    GEL.openAddress();
   }, GEL.loadFailed);
+  window.addEventListener("hashchange", () => GEL.data && GEL.openAddress());
 })();

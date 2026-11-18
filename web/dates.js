@@ -49,6 +49,16 @@
     return true;
   };
 
+  // A date an address carried was refused (setDate returned false): the field is emptied and the message shows at once,
+  // not after the field is left. GEL.date is null until a date is accepted; callers that draw an answer check for it.
+  GEL.rejectDate = function () {
+    refused = true;
+    GEL.date = null;
+    $("date").value = "";
+    $("date-echo").textContent = "";
+    hint(true);
+  };
+
   GEL.dateLeft = function () {
     hint(refused);
   };
