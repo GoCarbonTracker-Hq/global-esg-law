@@ -1,0 +1,180 @@
+/* The only stylesheet, and the only place a colour is written.
+   Mobile first: one column by default, the rail beside the answer from 48rem
+   (the one breakpoint, 768px at the default text size).
+   Type and spacing in rem; px only for borders and the focus ring.
+   No animation here. A later story that adds one wraps it in
+   prefers-reduced-motion. No dark theme. */
+
+:root {
+  --text: #14161A;
+  --secondary: #5B616B;
+  --border: var(--secondary);
+  --link: #1F6F4A;
+  --page: #FFFFFF;
+  --panel: #F7F4EC;
+  --divider: #D9D4C5;
+
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --serif: Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --unit: 0.5rem;
+  --rail: 15rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: calc(var(--unit) * 3);
+  background: var(--page);
+  color: var(--text);
+  font: 1rem/1.5 var(--sans);
+}
+
+h1, h2, p { margin: 0; }
+p { max-width: 70ch; }
+
+h1 { font: 400 1.75rem/1.25 var(--serif); }
+h2 { font: 600 1.25rem/1.25 var(--sans); }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--link);
+  color: var(--page);
+}
+
+[hidden] { display: none !important; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Lookup bar */
+
+header, .lookup, .fields { display: grid; gap: calc(var(--unit) * 2); }
+
+label {
+  display: block;
+  margin-bottom: calc(var(--unit) / 2);
+  font-weight: 600;
+}
+
+input, button {
+  min-height: 2.75rem;
+  padding: var(--unit) calc(var(--unit) * 1.5);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--page);
+  color: var(--text);
+  font: inherit;
+}
+
+#law { width: 100%; }
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--unit) * 1.5);
+}
+#date { flex: 0 1 12rem; min-width: 0; }
+#date-echo { min-width: 10ch; font-family: var(--mono); }
+#date-hint { margin-top: var(--unit); color: var(--text); }
+#date[aria-invalid="true"] { border: 2px solid var(--text); }
+
+#example {
+  justify-self: start;
+  cursor: pointer;
+}
+#example:hover:not(:disabled) { background: var(--panel); }
+
+:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Answer */
+
+main { margin-top: calc(var(--unit) * 2); }
+
+#answer-panel {
+  padding: calc(var(--unit) * 3);
+  background: var(--panel);
+}
+:where(#answer-panel, #answer-plain) > * + * { margin-top: var(--unit); }
+
+[data-field="status"] { font-size: 0.875rem; font-weight: 600; }
+[data-field="title"] { font: 400 1.5rem/1.25 var(--serif); }
+[data-field="codes"] { font-size: 0.875rem; color: var(--secondary); }
+[data-field="link"] { display: inline-block; min-height: 1.5rem; }
+[data-field="snapshot"] {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+[data-field="notice"] {
+  margin-top: calc(var(--unit) * 3);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit) calc(var(--unit) * 4);
+}
+
+#rail { margin-top: calc(var(--unit) * 3); }
+
+#browse-by-place {
+  margin-top: calc(var(--unit) * 6);
+  padding-top: calc(var(--unit) * 3);
+  border-top: 1px solid var(--divider);
+}
+
+@media (min-width: 48rem) {
+  header, main {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    column-gap: calc(var(--unit) * 4);
+  }
+  header {
+    grid-template-areas: "title lookup" "lede lookup";
+    grid-template-rows: auto 1fr;
+    row-gap: var(--unit);
+    align-items: start;
+  }
+  #title { grid-area: title; }
+  .lede { grid-area: lede; }
+  .lookup { grid-area: lookup; }
+  .fields {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  main { display: grid; grid-template-areas: "rail answer"; }
+  #answer { grid-area: answer; }
+  #rail { grid-area: rail; min-height: 2rem; margin-top: 0; }
+}

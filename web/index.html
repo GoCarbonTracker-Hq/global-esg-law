@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global ESG Law: look up a law on a date</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header>
+  <h1 id="title">Look up a law on a date</h1>
+  <p class="lede">Pick a law and a date to see which stored version was in force that day, and where to read it.</p>
+
+  <div class="lookup">
+    <noscript><p>This page needs JavaScript to look up laws. The same lookup runs on the command line; see the README.</p></noscript>
+
+    <div class="fields">
+      <div class="field">
+        <label for="law">Law</label>
+        <input id="law" type="text" readonly autocomplete="off">
+        <div id="match-list"></div>
+      </div>
+
+      <div class="field">
+        <label for="date">Date</label>
+        <div class="date-row">
+          <input id="date" type="date" min="1000-01-01" max="9999-12-31" disabled aria-describedby="date-echo" aria-invalid="false">
+          <span id="date-echo"></span>
+        </div>
+        <p id="date-hint" hidden></p>
+      </div>
+    </div>
+
+    <button id="example" type="button" disabled>Try the example: CSRD on 2025-06-01</button>
+
+    <p id="load-status" role="status" aria-live="polite"></p>
+  </div>
+</header>
+
+<main>
+  <div id="answer">
+    <div id="answer-sentence" role="status" class="visually-hidden"></div>
+
+    <div id="answer-panel" hidden>
+      <p data-field="status"></p>
+      <h2 data-field="title"></h2>
+
+      <div id="answer-plain">
+        <p data-field="since"></p>
+        <p data-field="kind"></p>
+        <p data-field="language"></p>
+        <p data-field="codes"></p>
+        <p><a data-field="link" target="_blank" rel="noopener">Official text (opens in a new tab)</a></p>
+        <div id="slot-after-link"></div>
+        <div id="slot-citation"></div>
+        <div class="dates">
+          <p data-field="asked"></p>
+          <p data-field="read"></p>
+        </div>
+        <p data-field="snapshot"></p>
+      </div>
+
+      <p id="answer-interim" hidden></p>
+
+      <p data-field="notice"></p>
+    </div>
+  </div>
+
+  <aside id="rail"></aside>
+</main>
+
+<section id="browse-by-place" aria-labelledby="browse-heading">
+  <h2 id="browse-heading">Browse by place</h2>
+</section>
+
+<!-- scripts: one deferred tag per line, loaded in this order. A later story adds its own line above app.js. -->
+<script defer src="data.js"></script>
+<script defer src="dates.js"></script>
+<script defer src="interim.js"></script>
+<script defer src="answer.js"></script>
+<script defer src="find.js"></script>
+<script defer src="app.js"></script>
+<!-- /scripts -->
+
+</body>
+</html>
