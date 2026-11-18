@@ -1,0 +1,35 @@
+/* The lookup's match list. Tokens come from style.css; nothing here sets a colour. */
+
+#match-count {
+  min-height: 1.3125rem;
+  margin-top: var(--unit);
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+#match-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#match-rows:not(:empty) { margin-top: var(--unit); }
+
+.match-row {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+  border-radius: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.match-row:hover { background: var(--panel); }
+#match-rows li + li .match-row { border-top-width: 0; }
+
+.match-meta {
+  display: block;
+  margin-top: calc(var(--unit) / 2);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
