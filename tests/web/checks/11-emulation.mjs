@@ -408,11 +408,21 @@ async function controls(h, noData) {
 // WCAG 1.4.12 on the body: letter-spacing 0.12em, word-spacing 0.16em, line-height 1.5 of its own font size (the check that the injection took).
 const spacingProblems = (b) => [["letter-spacing", b.ls, 0.12 * b.fs], ["word-spacing", b.ws, 0.16 * b.fs], ["line-height", b.lh, 1.5 * b.fs]].filter(([, got, want]) => !(Math.abs(parseFloat(got) - want) < 0.05)).map(([n, got, want]) => "text spacing not in force on the body: " + n + " is " + got + ", want " + Math.round(want * 100) / 100 + "px (body font " + b.fs + "px)");
 
+// Accepted finding (Varun, 2026-11-18): the one-line law box cuts a long chosen title in these states (numbers of S01 to S21, as the run of
+// 2026-11-18 reports them). The page is not changed; the full title shows in the answer panel. A `-field` verdict fails when a state outside
+// its set is cut, or a state in its set is no longer cut, so the finding cannot move unseen.
+const FIELD_CUT = {
+  r32: [3, 4, 5, 6, 7, 9, 10, 12, 13, 14, 17, 18],
+  r33a: [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 17, 18],
+  r33b: [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 17, 18],
+  r36: [3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 17, 18],
+};
+
 // ---------- the sweep: the 21 states in one window, with or without text spacing ----------
 async function sweep(h, E, { row, w, spacing, note }) {
   await h.open("ok");
   const ctx = { h, origin: await h.evaluate("location.origin"), snap: E.snapshot9 };
-  const totals = { boxes: 0, controls: 0 }, cut = [];
+  const totals = { boxes: 0, controls: 0 }, cut = {};
   for (const s of STATES) {
     await metrics(h, w, Math.round(BASE_H * w / BASE_W));
     const reach = s.reach ?? byAddress(s.id, s.date, s.snap);
@@ -436,7 +446,7 @@ async function sweep(h, E, { row, w, spacing, note }) {
         ...A("clipped", "elements clip content"), ...A("spill", "text boxes leave their box"), ...A("overlap", "pairs of text boxes overlap"), ...A("lost", "text boxes are lost"),
       ];
       totals.boxes += m.nBoxes;
-      cut.push(...m.fieldCut.first.map((x) => "S" + String(s.n).padStart(2, "0") + " " + x));
+      if (m.fieldCut.n) cut[s.n] = m.fieldCut.first.join("; ");
       try {
         c = await controls(h, s.noData);
         problems.push(...c.problems);
@@ -450,7 +460,11 @@ async function sweep(h, E, { row, w, spacing, note }) {
       problems);
   }
   // the law box is a one-line field: a title wider than the box is cut by it, whatever else fits. Kept apart so the finding reads on its own.
-  h.verdict(`11e-${row}-field`, `window ${w} CSS px${spacing ? ", text spacing 1.4.12" : ""}: the text of the law box is shown whole in every state (a one-line field cuts a title that is wider than its box)`, cut);
+  const want = FIELD_CUT[row], S = (n) => "S" + String(n).padStart(2, "0");
+  h.verdict(`11e-${row}-field`, `window ${w} CSS px${spacing ? ", text spacing 1.4.12" : ""}: accepted finding (Varun 2026-11-18), the one-line law box cuts the chosen title in exactly the recorded states ${want.map(S).join(" ")} and in no other (the answer panel shows the full title)`, [
+    ...Object.keys(cut).map(Number).filter((n) => !want.includes(n)).map((n) => S(n) + " is cut but is not in the recorded set: " + cut[n]),
+    ...want.filter((n) => !cut[n]).map((n) => S(n) + " is in the recorded set but the law box does not cut its title now"),
+  ]);
   console.log(`  ${row}: ${note}; ${totals.boxes} text boxes and ${totals.controls} control checks over 21 states`);
 }
 
