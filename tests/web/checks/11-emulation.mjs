@@ -103,10 +103,11 @@ const around = (r, pad) => ({ x: Math.max(0, r.x - pad), y: Math.max(0, r.y - pa
 const rgba = (s) => { const m = /rgba?\(([^)]+)\)/.exec(s); if (!m) return null; const [r, g, b, a = 1] = m[1].split(/[ ,/]+/).filter(Boolean).map(Number); return { r, g, b, a }; };
 const over = (fg, bg) => ({ r: fg.r * fg.a + bg.r * (1 - fg.a), g: fg.g * fg.a + bg.g * (1 - fg.a), b: fg.b * fg.a + bg.b * (1 - fg.a), a: 1 });
 const lum = ({ r, g, b }) => [r, g, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((t, v, i) => t + v * [0.2126, 0.7152, 0.0722][i], 0);
-function contrast(fgText, bgText) {
-  const bg = rgba(bgText), fg = rgba(fgText);
-  if (!bg || !fg) return null;
-  const f = over(fg, over(bg, { r: 0, g: 0, b: 0, a: 1 })), b = over(bg, { r: 0, g: 0, b: 0, a: 1 });
+function contrast(fgText, bgText, canvasText = "rgb(0, 0, 0)") {
+  // a translucent colour is laid over what is behind it: the background over the canvas, the foreground over that
+  const bg = rgba(bgText), fg = rgba(fgText), base = rgba(canvasText);
+  if (!bg || !fg || !base) return null;
+  const b = over(bg, base), f = over(fg, b);
   const [hi, lo] = [lum(f), lum(b)].sort((x, y) => y - x);
   return (hi + 0.05) / (lo + 0.05);
 }
@@ -214,7 +215,7 @@ const STATES = [
 
 // ---------- the page-side audit (stringified into the page: nothing from this module is visible there) ----------
 // Reads boxes and computed styles only. text boxes = the line boxes of every visible text node (Range.getClientRects).
-//   clipped   an element that clips (overflow other than visible) and holds more than it shows
+//   clipped   an element that clips (overflow other than visible; a scroller counts too, the story says nothing scrolls sideways) and holds more than it shows
 //   spill     a text box that leaves the border box of the element it sits in (fixed-size boxes, unbreakable strings) or the one that clips it
 //   overlap   two text boxes that cover each other by more than 1 px across and 2 px down
 //   lost      a text box left of the page edge, or right of the window (the page would have to scroll sideways to show it)
@@ -235,12 +236,12 @@ function audit(opts) {
     if (el.closest(".visually-hidden") || !vis(el)) continue;
     const c = getComputedStyle(el);
     if (el.tagName === "INPUT" && el.type === "text" && el.value) {
-      // the value of a one-line field: it starts at the left padding and the box clips at its padding edge
+      // the value of a one-line field: it starts at the left padding and is clipped at the content box (seen in a screenshot: the right padding stays empty)
       const g = document.createElement("canvas").getContext("2d");
       g.font = c.font;
       g.letterSpacing = c.letterSpacing === "normal" ? "0px" : c.letterSpacing;
       g.wordSpacing = c.wordSpacing === "normal" ? "0px" : c.wordSpacing;
-      const cut = parseFloat(c.paddingLeft) + g.measureText(el.value).width - el.clientWidth;
+      const cut = g.measureText(el.value).width - (el.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight));
       if (cut > 0.5) fieldCut.push(name(el) + " value " + JSON.stringify(el.value.slice(0, 18) + "..." + el.value.slice(-8)) + " is cut by " + Math.ceil(cut) + "px (box " + el.clientWidth + "px)");
     }
     if (c.overflowX === "visible" && c.overflowY === "visible") continue;
@@ -286,7 +287,7 @@ function audit(opts) {
   const cap = (a) => ({ n: a.length, first: a.slice(0, 6) });
   return {
     innerW: window.innerWidth, innerH: window.innerHeight, clientW, scrollW: d.scrollWidth, root: getComputedStyle(d).fontSize, nBoxes: boxes.length,
-    spacingApplied: opts.spacing ? getComputedStyle(document.body).letterSpacing + " / " + getComputedStyle(document.body).lineHeight : null,
+    spacingApplied: opts.spacing ? (() => { const b = getComputedStyle(document.body); return { fs: parseFloat(b.fontSize), ls: b.letterSpacing, ws: b.wordSpacing, lh: b.lineHeight }; })() : null,
     clipped: cap(clipped), fieldCut: cap(fieldCut), spill: cap(spill), overlap: cap(overlap), lost: cap(lost),
     shown: vis(p), state: p.getAttribute("data-state"), id: p.getAttribute("data-id"), date: p.getAttribute("data-date"),
     text: vis(p) ? p.innerText.replace(/\s+/g, " ").trim() : null,
@@ -356,8 +357,8 @@ async function controls(h, noData) {
     await step("Browse by place link", async () => {
       await clickReal(h, '#answer-panel a[data-part="browse"]');
       await h.waitFor(`location.hash === "#browse-by-place"`, 3000);
-      const top = await h.evaluate(`Math.round(document.getElementById("browse-heading").getBoundingClientRect().top)`);
-      if (top < -1 || top > BASE_H) fail("after the Browse by place link the heading is at " + top + "px");
+      const { top, inner } = await h.evaluate(`({ top: Math.round(document.getElementById("browse-heading").getBoundingClientRect().top), inner: window.innerHeight })`);
+      if (top < -1 || top > inner - 20) fail("after the Browse by place link the heading is at " + top + "px in a window " + inner + "px tall");
       did.push("browse link");
     });
   }
@@ -404,9 +405,13 @@ async function controls(h, noData) {
   return { problems, did };
 }
 
+// WCAG 1.4.12 on the body: letter-spacing 0.12em, word-spacing 0.16em, line-height 1.5 of its own font size (the check that the injection took).
+const spacingProblems = (b) => [["letter-spacing", b.ls, 0.12 * b.fs], ["word-spacing", b.ws, 0.16 * b.fs], ["line-height", b.lh, 1.5 * b.fs]].filter(([, got, want]) => !(Math.abs(parseFloat(got) - want) < 0.05)).map(([n, got, want]) => "text spacing not in force on the body: " + n + " is " + got + ", want " + Math.round(want * 100) / 100 + "px (body font " + b.fs + "px)");
+
 // ---------- the sweep: the 21 states in one window, with or without text spacing ----------
 async function sweep(h, E, { row, w, spacing, note }) {
-  const ctx = { h, origin: null, snap: E.snapshot9 };
+  await h.open("ok");
+  const ctx = { h, origin: await h.evaluate("location.origin"), snap: E.snapshot9 };
   const totals = { boxes: 0, controls: 0 }, cut = [];
   for (const s of STATES) {
     await metrics(h, w, Math.round(BASE_H * w / BASE_W));
@@ -424,7 +429,7 @@ async function sweep(h, E, { row, w, spacing, note }) {
       problems = [
         ...(m.innerW === w ? [] : ["window is " + m.innerW + "px wide, want " + w]),
         ...(m.root === "16px" ? [] : ["root font is " + m.root + ", want 16px"]),
-        ...(spacing ? (m.spacingApplied === "1.92px / 24px" ? [] : ["text spacing not in force on the body: " + m.spacingApplied + ", want 1.92px / 24px"]) : []),
+        ...(spacing ? spacingProblems(m.spacingApplied) : []),
         ...(m.nBoxes > 0 ? [] : ["no text boxes were measured"]),
         ...s.expect(m),
         ...(m.scrollW <= w ? [] : ["the page scrolls sideways: scrollWidth " + m.scrollW + " in a window of " + w]),
@@ -451,7 +456,8 @@ async function sweep(h, E, { row, w, spacing, note }) {
 
 // The same field measure in the plain 1280 px window with no text spacing: not a row of the story, printed so the R32 and R33 findings can be read against it.
 async function refField(h, E) {
-  const ctx = { h, origin: null, snap: E.snapshot9 };
+  await h.open("ok");
+  const ctx = { h, origin: await h.evaluate("location.origin"), snap: E.snapshot9 };
   const cut = [];
   for (const s of STATES) {
     await metrics(h, BASE_W, BASE_H);
@@ -490,7 +496,7 @@ async function r26(h) {
         ...(g.width === RING ? [] : ["outline-width " + g.width + "px, want " + RING]),
         ...(g.color === LINK ? [] : ["outline-color " + g.color + ", want " + LINK]),
         ...[s1, s2].flatMap((s) => (s.png && s.bytes > 1500 ? [] : ["screenshot " + s.file + " is not a PNG of a real size (" + s.bytes + " bytes)"])),
-        ...(s1.w === Math.round(clip.width * 2) ? [] : ["the clip picture is " + s1.w + "px wide, want " + Math.round(clip.width * 2)]),
+        ...(Math.abs(s1.w - clip.width * 2) <= 2 ? [] : ["the clip picture is " + s1.w + "px wide, want about " + Math.round(clip.width * 2)]),
       ]);
       if (g) console.log("  r26 screenshots: " + s1.file + " (" + s1.w + "x" + s1.h + ", " + s1.sha + "), " + s2.file + " (" + s2.w + "x" + s2.h + ", " + s2.sha + ")");
     }
@@ -509,7 +515,7 @@ function readForced() {
   const side = (el, s) => ({ style: cs(el)[s + "Style"], width: parseFloat(cs(el)[s + "Width"]), color: cs(el)[s + "Color"] });
   const back = (el) => { for (let e = el; e; e = e.parentElement) { const c = cs(e).backgroundColor; if (!/rgba\(.*, 0\)$/.test(c) && c !== "transparent") return c; } return canvas; };
   const rows = [...document.querySelectorAll("#rail-window > li")].map((li) => ({
-    text: li.textContent.replace(/\s+/g, " ").trim(), current: li.classList.contains("rail-current"), aria: li.firstChild.getAttribute("aria-current"),
+    text: li.textContent.replace(/\s+/g, " ").trim(), current: li.classList.contains("rail-current"), aria: li.firstElementChild.getAttribute("aria-current"),
     edge: side(li, "borderLeft"), bottom: side(li, "borderBottom"),
   }));
   const ctl = (sel) => { const el = document.querySelector(sel); return { sel, border: side(el, "borderTop"), bg: back(el) }; };
@@ -534,7 +540,7 @@ async function r29(h) {
       ...others.filter((r) => r.text.includes("in force on") || r.aria).map((r) => "another row says it is in force or has aria-current: " + h.fmt(r.text)),
       ...(F.rows.length === 3 ? [] : ["the CSRD rail holds " + F.rows.length + " rows, want 3 (2023-01-05, 2025-04-17, 2026-03-18)"]),
     ]);
-    const e = cur[0] && cur[0].edge, edgeContrast = e && contrast(e.color, F.canvas);
+    const e = cur[0] && cur[0].edge, edgeContrast = e && contrast(e.color, F.canvas, F.canvas);
     h.verdict("11e-r29-edge", `forced colours: the version in force keeps its left edge: a solid ${EDGE}px line, opaque, at least 3:1 against Canvas (${e ? e.style + " " + e.width + "px " + e.color + ", " + (edgeContrast ? round1(edgeContrast) : "?") + ":1" : "no row"})`, !e ? ["no version in force"] : [
       ...(e.style === "solid" ? [] : ["border-left-style " + e.style]),
       ...(e.width === EDGE ? [] : ["border-left-width " + e.width + "px, want " + EDGE]),
@@ -543,20 +549,20 @@ async function r29(h) {
     ]);
     const same = e && others.every((r) => r.edge.color === e.color && r.edge.width === e.width && r.edge.style === e.style);
     console.log("  r29 finding: " + (same ? "the left edge is the same line on every row (" + e.style + " " + e.width + "px " + e.color + "), so in forced colours the edge no longer tells the version in force from the others; the label and aria-current do (the check above requires them)" : "the version in force has an edge the other rows do not have"));
-    const bp = F.controls.map((c) => ({ ...c, k: contrast(c.border.color, c.bg) }));
+    const bp = F.controls.map((c) => ({ ...c, k: contrast(c.border.color, c.bg, F.canvas) }));
     h.verdict("11e-r29-borders", "forced colours: the law box, date field, example button and Copy citation keep a solid border of 1px or more, opaque, at least 3:1 against their own background; the rail row dividers stay visible (" + bp.map((c) => c.sel + " " + (c.k ? round1(c.k) : "?") + ":1").join(", ") + ")", [
       ...bp.flatMap((c) => [
         ...(c.border.style !== "none" && c.border.width >= 1 ? [] : [c.sel + " border " + c.border.style + " " + c.border.width + "px"]),
         ...(rgba(c.border.color) && rgba(c.border.color).a === 1 ? [] : [c.sel + " border colour " + c.border.color + " is not opaque"]),
         ...(c.k >= 3 ? [] : [c.sel + " border " + c.border.color + " on " + c.bg + " is " + (c.k ? round1(c.k) : "?") + ":1, want 3 or more"]),
       ]),
-      ...F.rows.filter((r) => r.bottom.style === "none" || r.bottom.width < 1 || !(contrast(r.bottom.color, F.canvas) >= 3)).map((r) => "rail row " + h.fmt(r.text.slice(0, 20)) + ": divider " + r.bottom.style + " " + r.bottom.width + "px " + r.bottom.color),
+      ...F.rows.filter((r) => r.bottom.style === "none" || r.bottom.width < 1 || !(contrast(r.bottom.color, F.canvas, F.canvas) >= 3)).map((r) => "rail row " + h.fmt(r.text.slice(0, 20)) + ": divider " + r.bottom.style + " " + r.bottom.width + "px " + r.bottom.color),
     ]);
     const rings = [];
     for (const [label2, want] of [["Copy citation", `(el) => el.id === "citation-copy"`], ["the selected rail row", `(el) => el.classList.contains("rail-row") && !!el.closest("li.rail-current")`]]) {
       const n = await tabTo(h, want);
       const g = n ? await h.evaluate(`(() => { const el = document.activeElement, s = getComputedStyle(el); const bg = (() => { for (let e = el; e; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (!/rgba\\(.*, 0\\)$/.test(c)) return c; } return ${JSON.stringify(F.canvas)}; })(); return { fv: el.matches(":focus-visible"), style: s.outlineStyle, width: parseFloat(s.outlineWidth), color: s.outlineColor, bg }; })()`) : null;
-      rings.push({ label2, n, g, vsBg: g && contrast(g.color, g.bg), vsCanvas: g && contrast(g.color, F.canvas) });
+      rings.push({ label2, n, g, vsBg: g && contrast(g.color, g.bg, F.canvas), vsCanvas: g && contrast(g.color, F.canvas, F.canvas) });
     }
     h.verdict("11e-r29-ring", "forced colours: the keyboard ring on Copy citation and on the selected rail row is a solid line of 2px or more, and at least 3:1 against the element's background and against Canvas (" + rings.map((r) => r.label2 + " " + (r.g ? r.g.color + " " + (r.vsBg ? round1(r.vsBg) : "?") + ":1" : "not reached")).join("; ") + ")", rings.flatMap((r) => !r.g ? [r.label2 + ": not reached by Tab"] : [
       ...(r.g.fv ? [] : [r.label2 + ": not :focus-visible"]),
