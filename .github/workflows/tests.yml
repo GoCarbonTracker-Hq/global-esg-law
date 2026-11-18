@@ -30,6 +30,10 @@ jobs:
         run: python -m pip install pytest
       - name: Tests (a test skipped for a missing history ref fails the job)
         run: python -m pytest tests -q -rs
+      - name: Search module tests (node --test, the runner's own Node)
+        run: |
+          node --version
+          node --test tests/web/search.test.mjs
       - name: Corpus check
         run: python tools/check_corpus.py | tail -n 5
         shell: bash -eo pipefail {0}
