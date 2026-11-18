@@ -268,6 +268,7 @@ function installHelpers() {
         show: { status: vis(field("status")), since: vis(field("since")), link: vis(l), notice: vis(field("notice")), plain: vis($("#answer-plain")), interim: vis($("#answer-interim")) },
         interim: norm($("#answer-interim") && $("#answer-interim").textContent),
         text: vis(p) ? norm(p.innerText) : null,
+        coreText: vis(p) ? norm((() => { const c = p.cloneNode(true); c.querySelectorAll("#slot-after-link, #slot-after-interim").forEach((el) => el.remove()); return c.textContent; })()) : null,
         sentence: norm($("#answer-sentence").textContent),
         law: $("#law").value, dateValue: $("#date").value, echo: norm($("#date-echo").textContent),
       };
@@ -495,7 +496,7 @@ async function interimProblems(id, date, want) {
     ...(p.show.since ? ["In force since is visible"] : []),
     ...(p.show.link ? ["a link is visible"] : []),
     ...(p.hasCommit ? [`data-commit present: ${p.commit}`] : []),
-    ...(/in force since/i.test(p.text || "") ? ["panel text says in force since"] : []),
+    ...(/in force since/i.test(p.coreText || "") ? ["panel text says in force since"] : []),
     ...(/\bno law\b/i.test(p.text || "") || /\bno law\b/i.test(p.sentence || "") ? ['text says "no law"'] : []),
     ...((p.sentence || "").toLowerCase().includes(want.toLowerCase()) ? [] : [`hidden sentence lacks the interim sentence: ${fmt(p.sentence)}`]),
   ];

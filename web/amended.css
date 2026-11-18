@@ -1,0 +1,29 @@
+/* The "Amended by" line (story 13). Every colour comes from a token in style.css. */
+
+.amended > * + *, .amended-group > * + * { margin-top: var(--unit); }
+
+.amended h3 { font: 600 1rem/1.25 var(--sans); }
+.amended h4 { font: 600 0.875rem/1.25 var(--sans); }
+.amended p, .amended-none { font-size: 0.875rem; color: var(--secondary); }
+
+.amended ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.amended li { padding: calc(var(--unit) / 2) 0; }
+.amended a { display: inline-block; min-height: 1.5rem; }
+
+.amended-when {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+.amended-more summary {
+  min-height: 1.5rem;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
