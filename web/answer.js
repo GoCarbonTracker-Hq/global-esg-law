@@ -17,11 +17,17 @@
   };
 
   // The only date comparison on the page: text compare `interval.from <= date`. Kinds are never ranked.
+  // Null when no interval starts on or before the date, or when the entry has no intervals (link only).
+  GEL.coveringInterval = function (entry, date) {
+    let interval = null;
+    for (const candidate of entry.intervals || []) if (candidate.from <= date) interval = candidate;
+    return interval;
+  };
+
   GEL.classify = function (entry, date) {
     const interim = (reason) => ({ kind: "interim", reason });
     if (!entry.intervals || !entry.versions.length) return interim("link-only");
-    let interval = null;
-    for (const candidate of entry.intervals) if (candidate.from <= date) interval = candidate;
+    const interval = GEL.coveringInterval(entry, date);
     if (!interval) return interim("before-first");
     if (interval.state === "repealed") return interim("repealed");
     if (interval.not_yet_applying) return interim("not-yet-applying");
@@ -87,7 +93,15 @@
     document.getElementById("answer-sentence").textContent = sentence;
     panel.hidden = false;
 
-    const detail = { entry, date, interval: plain ? result.interval : null, row: plain ? result.row : null, panel };
+    const detail = {
+      entry,
+      date,
+      interval: GEL.coveringInterval(entry, date),
+      row: plain ? result.row : null,
+      panel,
+      state: plain ? "plain" : "interim",
+      reason: plain ? null : result.reason,
+    };
     for (const fn of hooks) {
       try {
         fn(detail);
