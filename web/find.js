@@ -46,7 +46,9 @@
   function pick(id) {
     GEL.choose(id);
     law.focus();
-    if (GEL.date !== null) GEL.showAnswer(id, GEL.date); // null: an address's date was refused, its message is showing
+    // null: an address's date was refused, its message is showing; the address still names the old law and date, so it goes
+    if (GEL.date !== null) GEL.showAnswer(id, GEL.date);
+    else history.replaceState(null, "", location.pathname + location.search);
   }
 
   GEL.EXAMPLE = { id: "eu-csrd-2022-2464", date: "2025-06-01" };
@@ -96,7 +98,6 @@
   // The address: #law=<entry id>&date=<YYYY-MM-DD>&snapshot=<9 hex>. Read on load and on hashchange, written with
   // replaceState (which fires neither) after the visitor changes the law or the date. Opening one rewrites nothing.
   const status = document.getElementById("load-status"); // the page's one polite status region
-  const panel = document.getElementById("answer-panel");
   let opening = false; // the answer an address draws must not rewrite it
 
   GEL.address = {
@@ -114,18 +115,17 @@
     const { history_commit, read_on } = GEL.data.snapshot;
     const current = history_commit.slice(0, 9);
     const known = Object.hasOwn(GEL.byId, address.law);
-    const notes = [];
+    let first = "";
 
     // Never "the same" or "different": the page holds one snapshot and cannot compare.
     if (address.snapshot !== null) {
       const given = address.snapshot.toLowerCase();
       const readable = /^[0-9a-f]{7,40}$/.test(given);
-      const first = !readable ? "The snapshot in this address could not be read." : history_commit.startsWith(given) ? "" : `Snapshot ${given} is not kept.`;
-      if (first) notes.push(`${first} The answer below is from snapshot ${current}, read on ${read_on}. The page cannot say whether it matches the citation this address came from.`);
+      first = !readable ? "The snapshot in this address could not be read." : history_commit.startsWith(given) ? "" : `Snapshot ${given} is not kept.`;
     }
-    if (!known) notes.push(`This address names a law that is not in snapshot ${current}. Type its name in the law box.`);
 
     opening = true;
+    let answered = false; // known by the end of the try block: the snapshot sentence says "below" only when an answer shows
     try {
       if (known) GEL.choose(address.law);
       else {
@@ -135,10 +135,14 @@
       }
       const dated = GEL.setDate(address.date); // the one date check, the same as a typed date
       if (!dated) GEL.rejectDate();
-      if (!(known && dated)) panel.hidden = true;
+      answered = known && dated;
+      if (!answered) GEL.clearAnswer();
     } finally {
       opening = false;
     }
+    const notes = [];
+    if (first) notes.push(`${first} ${answered ? "The answer below is from" : "This page holds"} snapshot ${current}, read on ${read_on}. The page cannot say whether it matches the citation this address came from.`);
+    if (!known) notes.push(`This address names a law that is not in snapshot ${current}. Type its name in the law box.`);
     status.textContent = notes.join(" ");
   };
 

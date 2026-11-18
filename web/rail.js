@@ -135,14 +135,16 @@
 
   GEL.rail = { order, window: windowOf };
 
-  // After a no-match answer the rail is back to what it was before any law was chosen: empty, and drawn is forgotten
-  // so the next answer draws it afresh.
-  GEL.onNoMatch(() => {
+  // After a no-match answer, or when the page clears the answer, the rail is back to what it was before any law was
+  // chosen: empty, and drawn is forgotten so the next answer draws it afresh.
+  function empty() {
     drawn = null;
     const box = document.getElementById("rail");
     box.removeAttribute("aria-labelledby");
     box.replaceChildren();
-  });
+  }
+  GEL.onNoMatch(empty);
+  GEL.onClear(empty);
 
   GEL.onAnswer(({ entry, date, interval }) => {
     const n = entry.versions.length;

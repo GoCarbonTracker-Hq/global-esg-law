@@ -59,6 +59,9 @@ export async function run(h) {
   const tail = `The answer below is from snapshot ${CUR}, read on ${E.read_on}. The page cannot say whether it matches the citation this address came from.`;
   const notKept = (id) => `Snapshot ${id} is not kept. ${tail}`;
   const unreadable = `The snapshot in this address could not be read. ${tail}`;
+  // With no answer showing (unknown law or refused date) the sentence cannot say "below": the page still names its own snapshot.
+  const held = (first) => `${first} This page holds snapshot ${CUR}, read on ${E.read_on}. The page cannot say whether it matches the citation this address came from.`;
+  const unreadableHeld = held("The snapshot in this address could not be read.");
   const unknownLaw = `This address names a law that is not in snapshot ${CUR}. Type its name in the law box.`;
   const addr = (law, date, snap) => `#law=${law}${date === null ? "" : "&date=" + date}${snap === null ? "" : "&snapshot=" + snap}`;
   const section = async (tag, fn) => {
@@ -173,7 +176,8 @@ export async function run(h) {
     const empty = await read();
     h.verdict("10-ac4c", "while the date is refused, choosing a law or pressing Enter on no match draws no answer and the message stays", [
       ...h.eqs([["after a chosen row: answer shown", picked.shown, false], ["after a chosen row: message", picked.hint.shown, true],
-        ["after Enter: answer shown", empty.shown, false], ["after Enter: message", empty.hint.shown, true]]),
+        ["after Enter: answer shown", empty.shown, false], ["after Enter: message", empty.hint.shown, true],
+        ["after a chosen row: location.hash", picked.hash, ""], ["after Enter: location.hash", empty.hash, ""]]),
     ]);
   });
 
@@ -191,7 +195,7 @@ export async function run(h) {
       html: document.body.innerHTML.includes("onerror") || document.body.innerHTML.includes("&lt;img"), text: document.body.innerText.includes("onerror") || document.body.innerText.includes("<b>") })`);
     await h.send("Page.removeScriptToEvaluateOnNewDocument", { identifier: stub.identifier });
     h.verdict("10-ac5", "law and snapshot written as markup: only the two sentences show, no element is created, no script runs, neither value is in the page", [
-      ...h.eqs([["note", X.note, `${unreadable} ${unknownLaw}`], ["elements, same page with no address", X.elements, plain.elements],
+      ...h.eqs([["note", X.note, `${unreadableHeld} ${unknownLaw}`], ["elements, same page with no address", X.elements, plain.elements],
         ["img elements", dirty.imgs, 0], ["b elements", dirty.bold, 0], ["alert called", dirty.alerted, false], ["markup in the page html", dirty.html, false], ["markup in the page text", dirty.text, false]]),
     ]);
     // the same address pasted into a page that is already open
@@ -199,12 +203,12 @@ export async function run(h) {
     await h.evaluate(`window.__alerted = false; window.alert = () => { window.__alerted = true; }; window.__n = document.getElementsByTagName("*").length; location.hash = ${JSON.stringify(xss)}; 0`);
     await h.waitFor(`document.getElementById("load-status").textContent !== ""`, 3000);
     const P = await h.evaluate(`({ note: document.getElementById("load-status").textContent, grew: document.getElementsByTagName("*").length - window.__n, alerted: window.__alerted })`);
-    h.verdict("10-ac5", "the markup address pasted into an open page: the same two sentences, the element count unchanged, no script", h.eqs([["note", P.note, `${unreadable} ${unknownLaw}`], ["elements added", P.grew, 0], ["alert called", P.alerted, false]]));
+    h.verdict("10-ac5", "the markup address pasted into an open page: the same two sentences, the element count unchanged, no script", h.eqs([["note", P.note, `${unreadableHeld} ${unknownLaw}`], ["elements added", P.grew, 0], ["alert called", P.alerted, false]]));
   });
 
   await section("10-ac5b", async () => {
     const S = await load(addr("xx-not-a-law", CSRD.date, "af3d6b47f"));
-    h.verdict("10-ac5b", "an unknown law and a snapshot that is not kept: both sentences in one status text, the snapshot sentence first", h.eqs([["note", S.note, `${notKept("af3d6b47f")} ${unknownLaw}`]]));
+    h.verdict("10-ac5b", "an unknown law and a snapshot that is not kept: both sentences in one status text, the snapshot sentence first", h.eqs([["note", S.note, `${held("Snapshot af3d6b47f is not kept.")} ${unknownLaw}`]]));
   });
 
   await section("10-ac6", async () => {
