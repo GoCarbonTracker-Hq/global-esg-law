@@ -39,6 +39,8 @@
 }
 button.rail-row { cursor: pointer; }
 button.rail-row:hover { background: var(--panel); }
+/* The row sits flush in an li whose 4px left border is the link colour on the selected row: an outside ring would lie on it. */
+.rail-row:focus-visible { outline-offset: -2px; }
 
 .rail-date { font-family: var(--mono); }
 .rail-label {

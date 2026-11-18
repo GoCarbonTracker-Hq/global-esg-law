@@ -25,7 +25,10 @@ How a pair is found
 - ring (>= 3): the outline colour against the page and the panel (the offset gap and the outside show
   the surface), against the selected tint, and against any border wider than outline-offset (the ring
   then lies on it) or any fill when the offset is 0. A fill that the offset keeps apart (the Copy citation
-  button, same colour as the ring) is listed as ring-gap, not counted.
+  button, same colour as the ring) is listed as ring-gap, not counted. CSS alone cannot say which control
+  sits flush inside which border, so a focus rule that sets only outline-offset (the rail row's inset ring)
+  speaks for the edges of its own stylesheet: the ring then lies on such an edge only when the ring's band,
+  from `offset` out to `offset + width`, reaches into the border's 0 to `width`.
 - disabled: a control's text pair blended with the :disabled opacity over each surface (>= 4.5).
 - A colour in any property not read above fails: the finder must not have blind spots.
 - Floor: fewer than FLOOR pairs fails. The UX spec lists 12 pairs; a finder that reads fewer has lost sight
@@ -54,7 +57,7 @@ STATES = [("selection", r"::selection"), ("focus", r":focus(?:-visible)?\b"), ("
           ("invalid", r"\[aria-invalid[^\]]*\]")]
 USE = re.compile(r"var\(\s*(--[\w-]+)\s*(?:,[^)]*)?\)|#[0-9a-fA-F]{3,8}\b")
 EDGE = re.compile(r"border(?:-(top|right|bottom|left))?(?:-color)?$")
-Rule = namedtuple("Rule", "file line sel parts anc state spec order ink bg edges ring offset opacity")
+Rule = namedtuple("Rule", "file line sel parts anc state spec order ink bg edges ring ringw offset opacity")
 
 
 def norm(h):
@@ -142,7 +145,7 @@ def parse(files):
         for p, v in decls:
             for h in wcag.HEX.findall(re.sub(r"(['\"]).*?\1", "", v)):
                 problems.append(f"{name}:{line} {sel}: hex colour {h} outside :root")
-        ink = bg = ring = offset = opacity = None
+        ink = bg = ring = ringw = offset = opacity = None
         edges = []
         for p, v in decls:
             c = colour(v, tokens)
@@ -155,17 +158,18 @@ def parse(files):
                     edges.append((EDGE.match(p).group(1) or "all", c, px(v)))
             elif p in ("outline", "outline-color"):
                 ring = c or ring
+                ringw = px(v) if p == "outline" else ringw
             elif p == "outline-offset":
                 offset = px(v)
             elif p == "opacity":
                 opacity = float(v) if re.fullmatch(r"[\d.]+", v) else None
             elif c:
                 problems.append(f"{name}:{line} {sel}: colour {c[1]} in `{p}`, a property this test does not pair")
-        if not (ink or bg or edges or ring or opacity is not None):
+        if not (ink or bg or edges or ring or offset is not None or opacity is not None):
             continue
         for one in re.split(r",(?![^()\[\]]*[)\]])", sel):
             parts, anc, state, spec = subject(one)
-            rules.append(Rule(name, line, one.strip(), parts, anc, state, spec, len(rules), ink, bg, edges, ring, offset, opacity))
+            rules.append(Rule(name, line, one.strip(), parts, anc, state, spec, len(rules), ink, bg, edges, ring, ringw, offset, opacity))
     return rules, tokens, problems, findings
 
 
@@ -256,14 +260,16 @@ def check(files, floor=FLOOR):
             for s in ([s for s in ambient if s[0] == c[0]] if cls == "spacer" else ambient):
                 add("edge", r.state, c, s, cls, src(r))
         if r.ring:
-            c, off = r.ring, r.offset or 0.0
+            c, off, rw = r.ring, r.offset or 0.0, r.ringw or 3.0  # no width given: outline-width "medium"
             for s in ambient:
                 add("ring", r.state, c, s, "ring", f"{src(r)} (offset {off:g}px: the gap and the outside show the surface)")
             for o in rules:
                 if o.state == "selected" and val(o, "bg"):
                     add("ring", "selected", c, o.bg, "ring", f"{src(r)} vs the tint {src(o)}")
+                own = [x.offset for x in rules if x.file == o.file and x.state == "focus" and x.ring is None and x.offset is not None]
+                here = max(own, default=off)  # the offset the edge's own stylesheet sets for its controls
                 for side, ec, w in o.edges:
-                    if off < width(o, side, w):
+                    if here < width(o, side, w) and here + rw > 0:
                         add("ring", o.state, c, ec, "ring", f"{src(r)} lies on the {width(o, side, w):g}px edge {src(o)}")
                 if val(o, "bg") and o.state in ("base", "selected"):
                     ratio = wcag.contrast(c[0], o.bg[0])
@@ -362,6 +368,15 @@ def test_a_hover_and_a_ring_are_paired_and_a_ring_on_its_own_edge_fails():
     pairs = {(r["cls"], r["state"], r["fg"][1], r["bg"][1]) for r in rows}
     assert ("text", "hover", "--text", "--divider") in pairs
     assert ("ring", "base", "--link", "--link") in pairs and [r["ratio"] for r in failing(rows)] == [1.0]
+
+
+def test_an_inset_offset_in_the_edges_own_stylesheet_clears_the_ring_only_when_it_is_deep_enough():
+    css = (TOKENS + BODY + ":focus-visible{outline:2px solid var(--link);outline-offset:2px}\n.cur{border-left:4px solid var(--link)}\n")
+    ring = lambda extra, other="f.css": [r["ratio"] for r in failing(check([("f.css", css), (other, extra)], floor=0)[0])]
+    assert ring("") == [1.0]
+    assert ring(".row:focus-visible{outline-offset:-2px}") == []
+    assert ring(".row:focus-visible{outline-offset:-1px}") == [1.0]
+    assert ring(".row:focus-visible{outline-offset:-2px}", other="g.css") == [1.0]
 
 
 def test_a_colour_in_an_unread_property_fails_and_rgb_is_only_a_finding():
