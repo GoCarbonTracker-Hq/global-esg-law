@@ -9,6 +9,12 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
+## 2026-11-18
+- **Added:** a lookup page in `web/`: find a law by name or short name, pick a date, and see the version in force, the official link, a citation line to copy, the other stored versions, the amending laws in the register, and coverage by place. It shows no law text. `tools/web_data.py` builds its data file from the `history` branch; the file is not committed.
+- **Added:** the page is published by GitLab Pages at https://global-esg-law-80f991.gitlab.io/ from `.gitlab-ci.yml`, rebuilt on every push to `main` with no check in front of it.
+- **Added:** `tools/amends_gap.py`, the pass over entries whose `notes` say "Amended by" and that no entry names in `amends_ids`, with a test. It prints `unresolved 0` on `main`.
+- **Open:** the page was checked by script in Chrome and Safari only. Firefox, a screen reader and Lighthouse were not run.
+
 ## 2026-11-17
 - **Changed:** the scope key `amends` (one entry id as a string) is now `amends_ids`, a list of entry ids on the amending entry. The 160 existing values moved as one-element lists in 75 `scope.json` files, with no other change to those files, and `amends` is refused by `check_corpus.py`, which now checks `amends_ids` on every scope entry, link-only ones included (`check_amends`). Breaking for readers of the old key: `law_in_force` and `law.py --json` give `in_force[].amends_ids` (a list) where they gave `in_force[].amends` (a string); there is no alias. `law.py` text prints `amends a, b`. `SERVER.version` is unchanged.
 - **Added:** `amends_ids` on the two omnibus directives (`eu-omnibus-stop-the-clock-2025-794`, `eu-omnibus-content-2026-470`; Directive 2006/43/EC is not an entry, so it is not listed), and on nine more amending entries (one more target added to `se-sfs-2024-347`), found from "Amended by" in `notes`; 18 other entries name amenders that are not in the register. `amends_ids` is on 171 entries.

@@ -26,6 +26,12 @@ Maintained by [GoCarbonTracker](https://gocarbontracker.net). Inspired by [lexif
 
 Each text comes from an official gazette or law portal. Its source is licence-checked first: the text is stored only on a `pass` verdict, and otherwise only a link is kept. Every stored version becomes one record file and then one commit dated to the day it came into force, and the lookup reads that history.
 
+## Use it in a browser
+
+The lookup page is at https://global-esg-law-80f991.gitlab.io/. Type a law's name or short name (CSRD, CBAM) and pick a date. The answer says which stored version was in force that day, gives the official link and a citation line you can copy, and lists the law's other versions and any amending laws in the register. "Browse by place" lists every place with what is stored for it. The page shows no law text; it links to the official source.
+
+The page reads a data file built from the `history` branch by `tools/web_data.py` each time `main` changes, so it gives the same answers as `tools/law.py` for the latest build only. The address bar holds the law and date, so a copied address reopens the same question.
+
 ## Quick start
 
 Needs Python 3.11 or later and git. The lookups read the `history` branch, the branch that holds one commit per text version. A fresh clone holds it as `origin/history`, so these commands pass `--ref origin/history`.
@@ -99,7 +105,7 @@ All figures are as of 2026-11-17. Each row names the command that produces it, r
 | Places with links only | 110 | same Counts table |
 | Records stored (one file per text version) | 3360 | `find records -name '*.json' \| wc -l` |
 | Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-17) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Tests | 393 passed (run on 2026-11-17) | `python3.13 -m pytest tests -q` |
+| Tests | 474 passed (run on 2026-11-19) | `python3.13 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
@@ -155,6 +161,7 @@ Watchers are small checks that notice when an official source changes, so a pers
 - Some places hold their laws only as originally published, so a lookup there does not include later amendments. `COVERAGE.md` lists them under Not covered.
 - The last 20 places added (territories, uninhabited places, Antarctica and Western Sahara) are pointers. Their laws are mostly those of a parent state, and 17 of the 20 have an empty scope file.
 - The published `history` branch can trail `main` between rebuilds: a record added to `main` shows in lookups only after the next rebuild. It was last rebuilt on 2026-11-17 (commit `55c8c2a9c`) and held every record on `main` that day.
+- The lookup page was checked by script in Chrome and Safari. Firefox, a screen reader and Lighthouse have not been run on it, and long law titles are cut short in the law box.
 - Watchers run by hand and on no schedule. Many state sites refuse requests from cloud addresses, and the last full run on record, on 2026-11-11, ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`).
 
 ## Reporting a problem
