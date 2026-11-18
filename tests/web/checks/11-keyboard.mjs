@@ -234,9 +234,10 @@ async function journey1(h) {
   await shot(h, "j1-date-picker-focus");
   const example = out.role === "date" ? await j.through("date", "leaving the date field") : out;
   if (example.role !== "example") j.note(`after the date field focus is on ${example.role} ${example.name}, want the example button`);
-  // The answer's link, then Copy citation by Space.
+  // The answer's links (official link, then any Story 13 amender links), then Copy citation by Space.
   await j.go("answer-link", "Tab from the example");
-  const copy = await j.go("copy", "Tab from the answer link");
+  const copy = await j.through("answer-link", "Tab through the answer links");
+  if (copy.role !== "copy") j.note(`after the answer links focus is on ${copy.role} ${copy.name}, want copy`);
   await shot(h, "j1-copy-focus");
   await key(h, "Space");
   await waitText(h, `document.getElementById("citation-status").textContent !== ""`);
@@ -452,7 +453,8 @@ async function fullWalk(h, width, expand) {
         ...(f2.stops.filter((s) => s.role === "footer").length === FOOTER ? [] : [`${f2.stops.filter((s) => s.role === "footer").length} footer stops`]),
       ]);
       // Back by Shift+Tab to the summary; Space closes the list; on to the law box.
-      const r1 = await walk(h, { shift: true, stopAt: (s) => s.role === "show-all" });
+      let r1 = await walk(h, { shift: true, stopAt: (s) => s.role === "show-all" });
+      if (r1.end === "focus left the page") r1 = await walk(h, { shift: true, stopAt: (s) => s.role === "show-all" });
       const sum2 = r1.stops[r1.stops.length - 1];
       await key(h, "Space");
       await h.sleep(80);
