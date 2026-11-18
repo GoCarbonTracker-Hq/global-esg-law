@@ -9,6 +9,9 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
+## 2026-11-19
+- **Changed:** `tickets/` is removed. The two working notes in it (GEL-29 scope gaps, GEL-33 deep review) are kept by the maintainer; their open findings are issues #16, #17, #18 and #58.
+
 ## 2026-11-18
 - **Added:** a lookup page in `web/`: find a law by name or short name, pick a date, and see the version in force, the official link, a citation line to copy, the other stored versions, the amending laws in the register, and coverage by place. It shows no law text. `tools/web_data.py` builds its data file from the `history` branch; the file is not committed.
 - **Added:** the page is published by GitLab Pages at https://global-esg-law-80f991.gitlab.io/ from `.gitlab-ci.yml`, rebuilt on every push to `main` with no check in front of it.
@@ -46,7 +49,7 @@ The log starts on 2026-11-10. Earlier work is in the git history and in the date
 - **Changed:** the published `history` branch was rebuilt and replaced (commit `c76381e2`, 3,317 commits; the build before it was `82181f25`). It holds the 70 records above. Two builds gave the same head. Commit ids on `history` changed for all but the first 131 commits, so anyone who fetched the old branch needs to fetch it again. The Cite line, `CITATION.cff` and `MAINTAINING.md` name the new build.
 
 ## 2026-11-15
-- **Added:** deep review report in `tickets/GEL-33-deep-review.md`.
+- **Added:** deep review report in `tickets/GEL-33-deep-review.md` (moved out of this repository on 2026-11-19; its findings are in the issues).
 - **Fixed:** `check_corpus.py`, `publish_gate.py`, `update.py`, and `build.py` use last-row-wins dict lookup for duplicate `source_id`s in `sources.json` (`F2-2`, S1). Now one `load_sources()` in `tools/make_sources.py` groups rows by id and raises on conflicting duplicates; the four tools and `queue.py` use it (PR #72, PR #74).
 - **Fixed:** `acceptance_mcp.py` lacks a negative check for a licence-denied stored record and passes if `link only` `read_text` leaks `text` (`F2-3`, S1). Now it asserts `text` is null on the link-only answer and refuses a stored record whose source fails the licence check (PR #78).
 - **Fixed:** `update.py` leaves `queue.csv` marked `stored` and 4 staged files on `main` when `git commit` fails (`F4-1`, S1). Now a failed `git add` or `git commit` resets the index, deletes the branch, restores the files and writes `queue.csv` back as it was (PR #74).
