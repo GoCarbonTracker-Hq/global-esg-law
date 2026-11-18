@@ -215,6 +215,14 @@ const STATES = [
 
 async function p1(h, E) {
   const ctx = { h, origin: null, snap: E.snapshot9 };
+  try {
+    await p1States(h, ctx);
+  } finally {
+    await h.send("Emulation.clearDeviceMetricsOverride").catch(() => {}); // so P2 to P4 run in the default window
+  }
+}
+
+async function p1States(h, ctx) {
   for (const [text, root] of [["100%", "16px"], ["200%", "32px"]]) {
     for (const s of STATES) {
       await h.send("Emulation.setDeviceMetricsOverride", { width: WIDTH, height: 900, deviceScaleFactor: 1, mobile: false });
@@ -245,21 +253,31 @@ async function p1(h, E) {
       }
       const name = "S" + String(s.n).padStart(2, "0") + " " + s.name;
       h.verdict("11-p1-" + String(s.n).padStart(2, "0") + "-" + text.replace("%", ""), `${name} (${s.how}), 320px window, text ${text}: scrollWidth ${m ? m.scrollW : "not measured"}, at most ${LIMIT}`, problems);
-      if (s.n === 21) await container(h, text);
+      if (s.n === 21) {
+        try {
+          if (!m) throw new Error("S21 was not reached");
+          await container(h, text, root);
+        } catch (e) {
+          h.check("11-p1-container-" + text.replace("%", ""), "place table container check ran to the end", false, "threw: " + e.message);
+        }
+      }
     }
   }
 }
 
 // The place table: if it is wider than its container, the container must scroll sideways and Tab must reach it. If it is not wider
 // (the table stacks into cards at this width), no scroll container is needed; the verdict says which, and the report names the finding.
-async function container(h, text) {
+async function container(h, text, root) {
   const C = await h.evaluate(`(() => {
     const w = document.getElementById("browse-table-wrap"), t = document.getElementById("browse-table"), cs = getComputedStyle(w);
-    return { overflowX: cs.overflowX, tabindex: w.getAttribute("tabindex"), wrapClient: w.clientWidth, wrapScroll: w.scrollWidth, tableW: Math.round(t.getBoundingClientRect().width), tableDisplay: getComputedStyle(t).display, doc: document.documentElement.scrollWidth };
+    return { overflowX: cs.overflowX, tabindex: w.getAttribute("tabindex"), wrapClient: w.clientWidth, wrapScroll: w.scrollWidth, tableW: Math.round(t.getBoundingClientRect().width), tableDisplay: getComputedStyle(t).display, doc: document.documentElement.scrollWidth, innerW: window.innerWidth, root: getComputedStyle(document.documentElement).fontSize };
   })()`);
   const wider = Math.max(C.wrapScroll, C.tableW) > C.wrapClient + 1;
-  const problems = [];
-  let said = "the table (display " + C.tableDisplay + ", " + C.tableW + "px) is not wider than its container (" + C.wrapClient + "px): nothing scrolls sideways, so no scroll container is needed";
+  const problems = [
+    ...(C.innerW === WIDTH ? [] : ["window is " + C.innerW + "px wide, want " + WIDTH]),
+    ...(C.root === root ? [] : ["root font is " + C.root + ", want " + root]),
+  ];
+  let said = "the table (display " + C.tableDisplay + ", " + C.tableW + "px) is not wider than its container (" + C.wrapClient + "px), so nothing needs to scroll sideways (this does not show a keyboard-reachable scroll container: none exists)";
   if (wider) {
     said = "the table is " + Math.max(C.wrapScroll, C.tableW) + "px in a container " + C.wrapClient + "px wide: the container must scroll and Tab must reach it";
     if (!/^(auto|scroll)$/.test(C.overflowX)) problems.push("container overflow-x is " + C.overflowX + ", want auto or scroll");
@@ -272,7 +290,7 @@ async function container(h, text) {
     if (!reached) problems.push("80 presses of Tab never landed on #browse-table-wrap");
   }
   h.verdict("11-p1-container-" + text.replace("%", ""), `place table, 320px window, text ${text}: ${said}`, [...problems, ...(C.doc <= LIMIT ? [] : ["the page itself scrolls " + C.doc + "px wide"])]);
-  if (!wider) console.log("  finding: no scroll container exists (#browse-table-wrap overflow-x " + C.overflowX + ", tabindex " + C.tabindex + "); the table stacks into cards at 320px, so the story's keyboard-reachable container has nothing to reach");
+  if (!wider) console.log("  finding: no scroll container exists (#browse-table-wrap overflow-x " + C.overflowX + ", tabindex " + C.tabindex + "); the table stacks into cards at 320px, so the story's keyboard-reachable container has nothing to reach. NOT RUN: Tab reaching a scroll container");
 }
 
 // ---------- P2: the network list ----------
@@ -321,7 +339,6 @@ async function p2(h) {
   // end of the journey
   await h.sleep(500); // a request that follows a lookup would have been made by now
   const end = { timing: await h.evaluate(TIMING), server: serverLines(h).slice(logFrom) };
-  const path_ = (x) => x.path;
   console.log("  network list at the end of the journey (page resource timing): " + end.timing.join(" "));
   console.log("  server request log since the page was opened: " + end.server.map((r) => r.method + " " + r.path).join(" "));
   h.verdict("11-p2-load", `at load the page's own list is the ${want.length} requests index.html names: the page, ${want.length - 2} stylesheets and scripts, the data file`, diff(atLoad.timing, want));
@@ -330,11 +347,10 @@ async function p2(h) {
     ...diff(end.timing, want).map((x) => "against index.html: " + x),
   ]);
   h.verdict("11-p2-server", "the server saw the same requests (GET only) after the journey as at load: none follows a lookup, and nothing the timing list would not show (a favicon, say)", [
-    ...diff(end.server.map(path_).sort(), want).map((x) => "server log against index.html: " + x),
+    ...diff(end.server.map((r) => r.path).sort(), want).map((x) => "server log against index.html: " + x),
     ...(end.server.length === atLoad.server.length ? [] : [`${end.server.length - atLoad.server.length} requests reached the server after load: ${end.server.slice(atLoad.server.length).map((r) => r.method + " " + r.path).join(" ")}`]),
     ...end.server.filter((r) => r.method !== "GET").map((r) => "non-GET request: " + r.method + " " + r.path),
   ]);
-  await onBrowser(h, "Browser.resetPermissions", {}).catch(() => {});
 }
 
 // ---------- P3: Invoker Commands forced off ----------
@@ -426,8 +442,9 @@ async function p4(h, E) {
   h.verdict("11-p4-mapping", "a law id maps to its place call by the ISO2 prefix of the id: list_places(place) lists " + Object.keys(Q.mapping).join(" and ") + " among that place's instruments", Object.entries(Q.mapping).flatMap(([id, m]) => (m.status ? [] : [id + " is not listed under " + m.place])));
 
   await h.open("ok");
+  await h.evaluate(`GEL.choose(${JSON.stringify(CSRD.id)}); GEL.setDate(${JSON.stringify(CSRD.date)})`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "plain" && document.getElementById("answer-panel").getAttribute("data-date") === ${JSON.stringify(CSRD.date)}`, 5000);
   const P = await h.evaluate(`(() => {
-    GEL.choose(${JSON.stringify(CSRD.id)}); GEL.setDate(${JSON.stringify(CSRD.date)});
     const p = __chk.panel();
     return {
       title: p.title, since: p.since, kind: p.kindAttr, lang: p.lang, href: p.link && p.link.href, commit: p.commit, id: p.id, date: p.date,
@@ -457,6 +474,7 @@ async function p4(h, E) {
   ]);
 
   await h.evaluate(`GEL.choose("ae-dl-11-2024-climate"); GEL.setDate("2026-11-17")`);
+  await h.waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "interim" && document.getElementById("answer-panel").getAttribute("data-id") === "ae-dl-11-2024-climate"`, 5000);
   const L = await h.evaluate(`(() => { const p = __chk.panel(), s = document.querySelector('#answer-interim [data-part="source"]'); return { state: p.state, title: p.title, href: s && s.getAttribute("href") }; })()`);
   console.log("  P4 query.law_in_force AE 2026-11-17: ae-dl-11-2024-climate is " + (Q.link_only ? "in link_only with " + Q.link_only.official_url : "not in link_only") + " and " + (Q.ae_in_force_ids.includes("ae-dl-11-2024-climate") ? "in" : "not in") + " in_force or not_yet_in_force; the page shows state " + L.state + ", link " + L.href);
   h.verdict("11-p4-linkonly", "ae-dl-11-2024-climate: law.py's AE answer does not list it in force, query.py lists it link only with its official URL, and the page shows the interim answer with that title and URL", [
@@ -481,9 +499,13 @@ async function p4(h, E) {
 
 export async function run(h) {
   const E = JSON.parse(fs.readFileSync(h.expected, "utf8"));
-  await section(h, "11-p1", () => p1(h, E));
-  await section(h, "11-p2", () => p2(h));
-  await section(h, "11-p3", () => p3(h));
-  await section(h, "11-p4", () => p4(h, E));
-  await h.open("ok").catch(() => {});
+  try {
+    await section(h, "11-p1", () => p1(h, E));
+    await section(h, "11-p2", () => p2(h));
+    await section(h, "11-p3", () => p3(h));
+    await section(h, "11-p4", () => p4(h, E));
+  } finally {
+    await onBrowser(h, "Browser.resetPermissions", {}).catch(() => {}); // the clipboard grant of P2 and P3
+    await h.open("ok").catch(() => {});
+  }
 }
