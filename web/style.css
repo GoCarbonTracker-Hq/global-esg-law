@@ -20,6 +20,11 @@
 
   --unit: 0.5rem;
   --rail: 15rem;
+
+  /* Coverage grid data colours (UX spec lines 275 and 408) */
+  --grid-stored: #1b5e20;
+  --grid-link-only: #ffb300;
+  --grid-none: #e0e0e0;
 }
 
 *, *::before, *::after { box-sizing: border-box; }

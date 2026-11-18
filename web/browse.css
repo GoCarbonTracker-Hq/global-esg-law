@@ -1,0 +1,139 @@
+/* Browse by place. Custom properties of style.css only, no colour written here.
+   The table stacks into cards by its own width (container query), not the viewport. */
+
+#browse-totals { margin-top: calc(var(--unit) * 2); }
+
+#browse-read {
+  margin-top: var(--unit);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+#browse-check {
+  margin-top: calc(var(--unit) * 2);
+  padding-left: calc(var(--unit) * 1.5);
+  border-left: 2px solid var(--text);
+  color: var(--text);
+}
+
+/* Coverage grid and legend */
+
+#browse-grid-block { margin-top: calc(var(--unit) * 3); }
+
+#browse-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--unit) / 2);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 1.75rem;
+  border: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.cell[data-state="stored"], .swatch[data-state="stored"] { background: var(--grid-stored); }
+.cell[data-state="link-only"], .swatch[data-state="link-only"] { background: var(--grid-link-only); }
+.cell[data-state="none"], .swatch[data-state="none"] { background: var(--grid-none); }
+
+.cell[data-state="stored"] { color: var(--page); }
+.cell[data-state="link-only"], .cell[data-state="none"] { color: var(--text); }
+
+#browse-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit) calc(var(--unit) * 3);
+  margin: calc(var(--unit) * 2) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+#browse-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--unit);
+}
+
+.swatch {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--border);
+}
+
+/* Table */
+
+#browse-table-wrap {
+  margin-top: calc(var(--unit) * 3);
+  container-type: inline-size;
+}
+
+#browse-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+#browse-table caption {
+  padding-bottom: var(--unit);
+  color: var(--secondary);
+  text-align: left;
+}
+
+#browse-table th,
+#browse-table td {
+  padding: var(--unit) calc(var(--unit) * 1.5);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#browse-table th:first-child { text-align: left; }
+
+#browse-table thead th { border-bottom: 1px solid var(--border); }
+
+#browse-table tbody th,
+#browse-table tbody td { border-bottom: 1px solid var(--divider); }
+
+#browse-table tbody th { font-weight: 600; }
+
+@media (min-width: 48rem) {
+  #browse-table { font-size: 1rem; }
+}
+
+@container (width < 36rem) {
+  #browse-table,
+  #browse-table caption,
+  #browse-table thead,
+  #browse-table tbody,
+  #browse-table tr,
+  #browse-table th,
+  #browse-table td { display: block; }
+
+  #browse-table thead { display: none; }
+
+  #browse-table tr {
+    margin-bottom: calc(var(--unit) * 2);
+    border: 1px solid var(--divider);
+  }
+
+  #browse-table th,
+  #browse-table td,
+  #browse-table tbody th,
+  #browse-table tbody td {
+    border-bottom: 0;
+    text-align: left;
+  }
+
+  #browse-table tbody th { background: var(--panel); }
+
+  #browse-table td::before { content: attr(data-label) ": "; }
+}
