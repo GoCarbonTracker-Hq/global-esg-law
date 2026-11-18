@@ -422,8 +422,8 @@ async function ac2() {
     if (p.date !== row.date) problems.push(`${row.date}: data-date ${fmt(p.date)}`);
     if (row.commit) {
       if (p.state !== "plain" || !sameCommit(p.commit, row.commit)) problems.push(`${row.date}: state ${p.state}, commit ${fmt(p.commit)}, want ${row.commit}`);
-    } else if (p.state !== "interim" || p.hasCommit || !p.shown || !p.show.interim || !(p.interim || "").includes(T.interim)) {
-      problems.push(`${row.date}: want interim panel with the interim sentence, got state ${p.state}, commit ${fmt(p.commit)}, text ${fmt(p.interim)}`);
+    } else if (p.state !== "interim" || p.hasCommit || !p.shown || !p.show.interim || !(p.interim || "").includes("The earliest stored version of this law starts on 2023-01-05")) {
+      problems.push(`${row.date}: want interim panel with the V2 sentence, got state ${p.state}, commit ${fmt(p.commit)}, text ${fmt(p.interim)}`);
     }
   }
   verdict(2, `${E.csrd.length} CSRD dates show the expected commit (2022-12-31 shows the interim panel)`, problems);
@@ -460,7 +460,7 @@ async function runPairs() {
       else if (!sameCommit(o.commit, r.commit)) bad = `commit ${o.commit}, want ${r.commit}`;
       else if (o.kind !== r.kind) bad = `kind ${o.kind}, want ${r.kind}`;
       else if (o.lang !== r.language) bad = `language ${o.lang}, want ${r.language}`;
-    } else if (o.state !== "interim" || o.commit !== null) bad = `want interim without data-commit, got ${o.state} ${o.commit}`;
+    } else if (o.state !== "plain" || !o.commit) bad = `story 06: every pair is an in-force panel with a commit, got ${o.state} ${o.commit}`;
     if (bad) diffs.push(`${r.id} ${r.date}: ${bad}`);
   });
   return { pairs: E.pairs.length, plain, interim, differ: diffs.length, diffs };
@@ -482,7 +482,7 @@ async function ac3() {
 }
 
 // ---------- AC4: interim cases ----------
-async function interimProblems(id, date) {
+async function interimProblems(id, date, want) {
   // a plain answer first, so anything an interim answer fails to clear (data-commit, link, since) shows
   await evaluate(`GEL.showAnswer(${JSON.stringify(E.example.id)}, ${JSON.stringify(E.example.date)})`);
   await evaluate(`GEL.showAnswer(${JSON.stringify(id)}, ${JSON.stringify(date)})`);
@@ -490,21 +490,31 @@ async function interimProblems(id, date) {
   return [
     ...eqs([["state", p.state, "interim"], ["notice", p.notice, E.notice]]),
     ...(p.shown ? [] : ["panel not shown"]),
-    ...((p.interim || "").includes(T.interim) && p.show.interim ? [] : [`interim sentence not shown: ${fmt(p.interim)}`]),
+    ...((p.interim || "").includes(want) && p.show.interim ? [] : [`interim sentence not shown: ${fmt(p.interim)}`]),
     ...(p.show.notice ? [] : ["notice not visible"]),
     ...(p.show.since ? ["In force since is visible"] : []),
     ...(p.show.link ? ["a link is visible"] : []),
     ...(p.hasCommit ? [`data-commit present: ${p.commit}`] : []),
     ...(/in force since/i.test(p.text || "") ? ["panel text says in force since"] : []),
     ...(/\bno law\b/i.test(p.text || "") || /\bno law\b/i.test(p.sentence || "") ? ['text says "no law"'] : []),
-    ...((p.sentence || "").toLowerCase().includes(T.interim.toLowerCase()) ? [] : [`hidden sentence lacks the interim sentence: ${fmt(p.sentence)}`]),
+    ...((p.sentence || "").toLowerCase().includes(want.toLowerCase()) ? [] : [`hidden sentence lacks the interim sentence: ${fmt(p.sentence)}`]),
   ];
 }
 async function ac4() {
   await open("ok");
-  for (const c of E.interim_cases) verdict(4, `${c.label} (${c.id} on ${c.date}) shows the interim panel`, await interimProblems(c.id, c.date));
+  const V = { "before first version": "The earliest stored version of this law starts on 2023-01-05", repealed: "replaced 2023-05-05 by", "link only": "The corpus stores no text of this law, only a link to it" };
+  for (const c of E.interim_cases) {
+    if (V[c.label]) verdict(4, `${c.label} (${c.id} on ${c.date}) shows the interim panel`, await interimProblems(c.id, c.date, V[c.label]));
+    else {
+      await evaluate(`GEL.showAnswer(${JSON.stringify(c.id)}, ${JSON.stringify(c.date)})`);
+      const q = await panel();
+      verdict(4, `${c.label} (${c.id} on ${c.date}) is an in-force panel with the application line (story 06)`, [...eqs([["state", q.state, "plain"]]), ...((q.text || "").includes("Duties start to apply on 2024-01-01.") ? [] : [`no application line: ${fmt(q.text)}`])]);
+    }
+  }
   await open("fixture");
-  verdict(4, 'fixture row with copy "archive" (fixture-archive-copy on 2026-01-01) shows the interim panel', await interimProblems("fixture-archive-copy", "2026-01-01"));
+  await evaluate(`GEL.showAnswer("fixture-archive-copy", "2026-01-01")`);
+  const fq = await panel();
+  verdict(4, 'fixture row with copy "archive" (fixture-archive-copy on 2026-01-01) is an in-force panel with the archive label (story 06)', [...eqs([["state", fq.state, "plain"], ["link", fq.link && fq.link.text, "Archive copy, not the official text (opens in a new tab)"]])]);
 }
 
 // ---------- AC5: load failure and slow load ----------
@@ -643,7 +653,8 @@ async function ac8() {
   await open("ok");
   const html = fs.readFileSync(path.join(webDir, "index.html"), "utf8");
   const scripts = [...html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["']/gi)].map((m) => new URL(m[1], base + "/").pathname);
-  const want = ["/", "/style.css", ...scripts, "/law-data.json"].sort();
+  const sheets = [...html.matchAll(/<link\b[^>]*\bhref=["']([^"']+\.css)["']/gi)].map((m) => new URL(m[1], base + "/").pathname);
+  const want = ["/", ...sheets, ...scripts, "/law-data.json"].sort();
   const got = requests.slice(navFrom).filter((r) => r.path !== "/favicon.ico").map((r) => (r.path === "/index.html" ? "/" : r.path)).sort();
   console.log(`  load requested: ${got.join(" ")}`);
   verdict(8, "the load requested only index.html, the stylesheet, one request per script and the data file", got.join(" ") === want.join(" ") ? [] : [`want ${want.join(" ")}`]);
