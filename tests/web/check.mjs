@@ -7,13 +7,16 @@
 // Data variants served at /law-data.json: ok, missing, cut, no-read-on, slow, fixture, changed.
 // The 12 criteria are numbered in the story's bullet order. Prints PASS/FAIL per check, then
 // "check.mjs: N passed, M failed"; exit 1 when M > 0. Lighthouse is printed as NOT RUN.
+// Every tests/web/checks/*.mjs (sorted by name) is imported after the 12 criteria and its exported
+// run(h) awaited. h is the harness: the flags (data, expected, port, cdp, profile, chrome, workdir),
+// the helpers below, and addVariant(name, object or bytes) to serve more data files. Its checks count.
 import http from "node:http";
 import net from "node:net";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { spawn, spawnSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "../..");
@@ -96,6 +99,10 @@ const VARIANTS = {
   changed: { body: JSON.stringify(changed) },
 };
 let variant = "ok";
+function addVariant(name, body) { // for the checks in tests/web/checks: never replaces a variant
+  if (Object.hasOwn(VARIANTS, name)) throw new Error(`data variant ${fmt(name)} already exists`);
+  VARIANTS[name] = { body: typeof body === "string" || ArrayBuffer.isView(body) ? body : JSON.stringify(body) };
+}
 
 // ---------- server ----------
 const TYPES = {
@@ -222,6 +229,7 @@ async function press(name) {
 const READY = `!!(window.GEL && GEL.data && !document.getElementById("example").disabled && !document.getElementById("date").disabled)`;
 let navFrom = 0; // index in `requests` of the first request of the latest navigation
 async function open(v, { ready = true } = {}) {
+  if (!Object.hasOwn(VARIANTS, v)) throw new Error(`unknown data variant ${fmt(v)}`);
   variant = v;
   navFrom = requests.length;
   await navigate(base + "/");
@@ -351,7 +359,7 @@ function installHelpers() {
 let passed = 0, failed = 0;
 const fmt = (v) => { const s = JSON.stringify(v) ?? String(v); return s.length > 260 ? s.slice(0, 260) + "..." : s; };
 function check(ac, label, ok, observed) {
-  const tag = ac ? `AC${ac}` : "setup";
+  const tag = typeof ac === "string" ? ac : ac ? `AC${ac}` : "setup";
   if (ok) { passed++; console.log(`PASS ${tag}: ${label}`); }
   else { failed++; console.log(`FAIL ${tag}: ${label}${observed === undefined ? "" : " | observed: " + (typeof observed === "string" ? observed : fmt(observed))}`); }
 }
@@ -838,6 +846,17 @@ try {
   await startChrome();
   for (const [i, fn] of ACS.entries()) {
     try { await fn(); } catch (e) { check(i + 1, "criterion ran to the end", false, `threw: ${e.message}`); }
+    await resetEmulation().catch(() => {});
+  }
+  const h = { ...args, evaluate, navigate, waitFor, until, sleep, press, open, panel, send, once, check, verdict, eqs, sameCommit, fmt, addVariant };
+  const extDir = path.join(here, "checks");
+  const extensions = fs.existsSync(extDir) ? fs.readdirSync(extDir).filter((f) => f.endsWith(".mjs")).sort() : [];
+  for (const file of extensions) {
+    try {
+      const { run } = await import(pathToFileURL(path.join(extDir, file)).href);
+      if (typeof run !== "function") throw new Error("no exported run(h)");
+      await run(h);
+    } catch (e) { check(`checks/${file}`, "extension ran to the end", false, `threw: ${e.message}`); }
     await resetEmulation().catch(() => {});
   }
   const fav = requests.filter((r) => r.path === "/favicon.ico").length;
