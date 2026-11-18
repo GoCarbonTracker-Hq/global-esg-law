@@ -184,10 +184,12 @@ export async function run(h) {
     ]));
     const xss = "#law=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E&date=2025-06-01&snapshot=%3Cb%3E";
     const plain = await load("");
-    await h.evaluate(`window.alert = () => { window.__alerted = true; }`);
+    // the stub goes in before the page's own scripts run, so an alert from the load itself is seen
+    const stub = await h.send("Page.addScriptToEvaluateOnNewDocument", { source: "window.alert = () => { window.__alerted = true; };" });
     const X = await load(xss);
     const dirty = await h.evaluate(`({ imgs: document.getElementsByTagName("img").length, bold: document.getElementsByTagName("b").length, alerted: !!window.__alerted,
       html: document.body.innerHTML.includes("onerror") || document.body.innerHTML.includes("&lt;img"), text: document.body.innerText.includes("onerror") || document.body.innerText.includes("<b>") })`);
+    await h.send("Page.removeScriptToEvaluateOnNewDocument", { identifier: stub.identifier });
     h.verdict("10-ac5", "law and snapshot written as markup: only the two sentences show, no element is created, no script runs, neither value is in the page", [
       ...h.eqs([["note", X.note, `${unreadable} ${unknownLaw}`], ["elements, same page with no address", X.elements, plain.elements],
         ["img elements", dirty.imgs, 0], ["b elements", dirty.bold, 0], ["alert called", dirty.alerted, false], ["markup in the page html", dirty.html, false], ["markup in the page text", dirty.text, false]]),
