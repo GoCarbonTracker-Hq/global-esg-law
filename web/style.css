@@ -133,7 +133,7 @@ input, button {
 main { margin-top: calc(var(--unit) * 2); }
 
 #answer-panel {
-  padding: 1.5rem;
+  padding: calc(var(--unit) * 2);
   background: var(--panel);
   overflow-wrap: anywhere; /* a long word in the title, codes or interim text must not push the page sideways at 320px and 200% text */
 }
@@ -206,4 +206,5 @@ footer a { display: inline-block; min-height: 1.5rem; }
   main { display: grid; grid-template-areas: "rail answer"; }
   #answer { grid-area: answer; }
   #rail { grid-area: rail; min-height: 2rem; margin-top: 0; }
+  #answer-panel { padding: 1.5rem; }
 }
