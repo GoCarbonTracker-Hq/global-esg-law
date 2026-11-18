@@ -135,6 +135,7 @@ main { margin-top: calc(var(--unit) * 2); }
 #answer-panel {
   padding: 1.5rem;
   background: var(--panel);
+  overflow-wrap: anywhere; /* a long word in the title, codes or interim text must not push the page sideways at 320px and 200% text */
 }
 :where(#answer-panel, #answer-plain) > * + * { margin-top: var(--unit); }
 
