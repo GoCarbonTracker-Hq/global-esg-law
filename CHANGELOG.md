@@ -10,6 +10,7 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
 ## 2026-11-19
+- **Changed:** the lookup page moves to https://law.gocarbontracker.net/ (GitLab Pages custom domain); the old GitLab address keeps working. `web/` gains a meta description, a canonical link, `robots.txt` and `sitemap.xml` so search engines can find the page.
 - **Added:** queue outcome `stored`, set on a `confirm` row once its record file exists; the four hand-stored rows (ES, KR, AT, CR) carry it. A confirmed row with no fetch recipe gets the reason in its notes, and `queue.py` lists confirmed rows not yet stored. `SOURCES.md` has a fixed `### upkeep` heading that `update.py` writes under. Issue #21 U4, U10.
 - **Changed:** `update.py --in-force DATE [--evidence TEXT]` works on any confirmed row, with or without `--file`, and replaces the signal as the date; the evidence must be found in the stored text. `upkeep/README.md` no longer says the signal is the in-force date. Issue #21 R3, U5.
 - **Fixed:** the UK recipe refuses an in-force date other than today unless `--file` is given (#17 T13); the gates refuse impossible record dates and check `status` and `applies_from` on every scope entry (#17 T16); `triage.py --stamp` defaults to the current month (#17 T18).

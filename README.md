@@ -28,7 +28,7 @@ Each text comes from an official gazette or law portal. Its source is licence-ch
 
 ## Use it in a browser
 
-The lookup page is at https://global-esg-law-80f991.gitlab.io/. Type a law's name or short name (CSRD, CBAM) and pick a date. The answer says which stored version was in force that day, gives the official link and a citation line you can copy, and lists the law's other versions and any amending laws in the register. "Browse by place" lists every place with what is stored for it. The page shows no law text; it links to the official source.
+The lookup page is at https://law.gocarbontracker.net/. Type a law's name or short name (CSRD, CBAM) and pick a date. The answer says which stored version was in force that day, gives the official link and a citation line you can copy, and lists the law's other versions and any amending laws in the register. "Browse by place" lists every place with what is stored for it. The page shows no law text; it links to the official source.
 
 The page reads a data file built from the `history` branch by `tools/web_data.py` each time `main` changes, so it gives the same answers as `tools/law.py` for the latest build only. The address bar holds the law and date, so a copied address reopens the same question.
 
