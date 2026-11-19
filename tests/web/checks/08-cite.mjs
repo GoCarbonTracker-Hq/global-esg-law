@@ -35,7 +35,7 @@ const BEFORE_FIRST = { id: CSRD.id, date: "2022-12-31" };
 const REPEALED = { id: "gn-arrete-2022-1646-evaluations-environnementales", date: "2023-05-05" };
 const SENTINEL = "sentinel-before-copy";
 const NBSP = String.fromCharCode(160);
-const RING = "rgb(31, 111, 74)";
+const RING = "rgb(27, 77, 62)";
 
 // ---------- helpers ----------
 // Runs a function body in the page; a throw comes back as {error} so one failure does not stop the run.

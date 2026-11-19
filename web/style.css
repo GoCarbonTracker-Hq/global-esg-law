@@ -9,7 +9,7 @@
   --text: #14161A;
   --secondary: #5B616B;
   --border: var(--secondary);
-  --link: #1F6F4A;
+  --link: #1B4D3E; /* GoCarbonTracker deep forest, also the masthead colour */
   --page: #FFFFFF;
   --panel: #F7F4EC;
   --divider: #D9D4C5;
@@ -45,10 +45,28 @@ p { max-width: 70ch; }
 
 h1 { font: 400 1.75rem/1.25 var(--serif); }
 
-.site-name {
+/* Masthead: the site name in GoCarbonTracker's deep forest with its logomark, the maintainer on the right.
+   The credit is plain text so the first Tab still lands in the law box. */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--unit) calc(var(--unit) * 2);
+  padding-bottom: calc(var(--unit) * 1.75);
   margin-bottom: calc(var(--unit) * 3);
-  font: 600 1.125rem/1.25 var(--sans);
+  border-bottom: 1px solid var(--divider);
 }
+.site-name {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--unit) * 1.25);
+  font: 700 1.3125rem/1 var(--sans);
+  letter-spacing: -0.01em;
+  color: var(--link);
+}
+.mark { flex: none; }
+.maintainer { font-size: 0.875rem; color: var(--secondary); }
 h2 { font: 600 1.25rem/1.25 var(--sans); }
 
 a {

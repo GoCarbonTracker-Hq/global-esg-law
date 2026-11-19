@@ -442,8 +442,8 @@ export async function run(h) {
     const items = table(ZOR, "2024-01-01")["in-force"];
     for (let n = 0; n < items.length + 1; n++) { await h.press("Tab"); seen.push(await h.evaluate(ring)); }
     const problems = [...h.eqs([["first stop", seen[0].field, "link"]])];
-    items.forEach((item, n) => problems.push(...h.eqs([[`stop ${n + 2} href`, seen[n + 1].href, item.url], [`stop ${n + 2} ring`, seen[n + 1].ring, "solid 2px rgb(31, 111, 74)"]])));
-    problems.push(...h.eqs([["last stop", seen[items.length + 1].id, "citation-copy"], ["last stop ring", seen[items.length + 1].ring, "solid 2px rgb(31, 111, 74)"]]));
+    items.forEach((item, n) => problems.push(...h.eqs([[`stop ${n + 2} href`, seen[n + 1].href, item.url], [`stop ${n + 2} ring`, seen[n + 1].ring, "solid 2px rgb(27, 77, 62)"]])));
+    problems.push(...h.eqs([["last stop", seen[items.length + 1].id, "citation-copy"], ["last stop ring", seen[items.length + 1].ring, "solid 2px rgb(27, 77, 62)"]]));
     h.verdict("13-a11y-keys", "hr-zor-2015 on 2024-01-01: Tab goes from the official link through the four amender links, in list order, to Copy citation, each stop with the 2px link-colour ring", problems);
   });
 

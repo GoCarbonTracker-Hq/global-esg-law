@@ -13,7 +13,7 @@
 const CSRD = { id: "eu-csrd-2022-2464", date: "2025-06-01" };
 const EDGE = 4; // px: .rail-list li { border-left: 4px solid ... } (story 07)
 const RING = 2; // px: :focus-visible { outline: 2px solid var(--link) } (UX spec)
-const LINK = "rgb(31, 111, 74)"; // --link #1F6F4A, the same constant 08-cite.mjs uses
+const LINK = "rgb(27, 77, 62)"; // --link #1B4D3E, the same constant 08-cite.mjs uses
 
 // Tab from the date field until `want(el)` is true for the focused element; the number of presses, or 0.
 async function tabTo(h, want) {

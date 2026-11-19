@@ -44,7 +44,7 @@ const LINK_ONLY = "ae-dl-11-2024-climate";
 const KZ = { id: "kz-advertising-law", date: "2026-11-17" };
 const RING = 2; // px, :focus-visible { outline: 2px solid var(--link) }
 const EDGE = 4; // px, .rail-list li { border-left: 4px solid ... }
-const LINK = "rgb(31, 111, 74)"; // --link #1F6F4A
+const LINK = "rgb(27, 77, 62)"; // --link #1B4D3E
 const WIDTH = 1280; // the story's AC6 window
 
 // ---------- results ----------

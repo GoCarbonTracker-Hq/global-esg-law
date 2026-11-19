@@ -693,7 +693,7 @@ async function ac9() {
   verdict(9, `python3 tests/web/wcag.py exits 0 (${out.pop() || "no output"})`, w.status === 0 ? [] : [`exit ${w.status ?? w.error?.message}: ${[...out, ""].slice(-4).join(" / ")}`]);
   const css = fs.readFileSync(path.join(webDir, "style.css"), "utf8");
   const { blocks, rest } = rootBlocks(css);
-  const tokens = ["#14161A", "#5B616B", "#1F6F4A", "#FFFFFF", "#F7F4EC", "#D9D4C5"];
+  const tokens = ["#14161A", "#5B616B", "#1B4D3E", "#FFFFFF", "#F7F4EC", "#D9D4C5"];
   verdict(9, "each of the six colour tokens exists once, inside the single :root rule", [
     ...(blocks.length === 1 ? [] : [`${blocks.length} :root rules`]),
     ...tokens.map((t) => [t, css.match(new RegExp(t, "gi"))?.length ?? 0, (blocks[0] || "").match(new RegExp(t, "gi"))?.length ?? 0])
@@ -733,8 +733,8 @@ async function ac10() {
   await waitFor(`document.getElementById("answer-panel").getAttribute("data-state") === "plain"`).catch(() => {});
   const p = await panel(), ring = await evaluate("__chk.ring()"), sb = await evaluate("__chk.sentenceBox()");
   verdict(10, "Enter on the focused example gives the CSRD answer", eqs([["state", p.state, "plain"], ["data-commit", p.commit, E.example.commit]]));
-  verdict(10, "focus ring on #example matched :focus-visible: outline 2px, offset 2px, rgb(31, 111, 74)", [
-    ...eqs([["focused", ring.focused, true], [":focus-visible", ring.focusVisible, true], ["width", ring.width, "2px"], ["offset", ring.offset, "2px"], ["colour", ring.color, "rgb(31, 111, 74)"]]),
+  verdict(10, "focus ring on #example matched :focus-visible: outline 2px, offset 2px, rgb(27, 77, 62)", [
+    ...eqs([["focused", ring.focused, true], [":focus-visible", ring.focusVisible, true], ["width", ring.width, "2px"], ["offset", ring.offset, "2px"], ["colour", ring.color, "rgb(27, 77, 62)"]]),
     ...(ring.style === "none" ? ["outline-style none"] : []),
   ]);
   verdict(10, "#answer-sentence is a polite status region with the hidden sentence, in the accessibility tree and out of sight", [

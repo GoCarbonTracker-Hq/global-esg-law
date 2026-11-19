@@ -26,7 +26,7 @@ const HINT = "Enter a date in the form 2025-06-01.";
 const LOAD_FAIL = "The law list did not load.";
 const EDGE = 4; // px: the rail's left edge (story 07)
 const RING = 2; // px: the focus ring (UX spec)
-const LINK = "rgb(31, 111, 74)"; // --link #1F6F4A
+const LINK = "rgb(27, 77, 62)"; // --link #1B4D3E
 const BASE_W = 1280, BASE_H = 720; // the window the story names; 200% zoom is half of it in CSS px, 400% is a quarter
 const READY = `!!(window.GEL && GEL.data && !document.getElementById("example").disabled && !document.getElementById("date").disabled)`;
 const SPACING = "*,*::before,*::after{line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important}p{margin-bottom:2em!important}";

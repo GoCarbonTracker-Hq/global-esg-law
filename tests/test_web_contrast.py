@@ -331,7 +331,7 @@ def main(argv=None):
 
 
 # --- fixtures: the same check() the real run uses ---
-TOKENS = ":root{--text:#14161A;--secondary:#5B616B;--link:#1F6F4A;--page:#FFFFFF;--panel:#F7F4EC;--divider:#D9D4C5}\n"
+TOKENS = ":root{--text:#14161A;--secondary:#5B616B;--link:#1B4D3E;--page:#FFFFFF;--panel:#F7F4EC;--divider:#D9D4C5}\n"
 BODY = "body{color:var(--text);background:var(--page)}\n"
 
 
