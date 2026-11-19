@@ -88,9 +88,14 @@
     const grid = el("div", "", {
       id: "browse-grid",
       role: "img",
-      "aria-label": `${inState("stored")} places have at least one law with stored text, ${inState("link-only")} places hold links only, ${inState("none")} places have no corpus. The table below lists every place with its figures.`,
+      "aria-label": `${inState("stored")} places have at least one law with stored text, ${inState("link-only")} places hold links only, ${inState("none")} places have no corpus. The table below lists every place with its figures. Choose a place in the table below to see its laws.`,
     });
     for (const r of rows) grid.append(el("span", r.code, { class: "cell", "data-place": r.code, "data-state": stateOf(r) }));
+    // A click on a cell opens its place; the keyboard reaches every place through the table links.
+    grid.addEventListener("click", (event) => {
+      const cell = event.target.closest(".cell");
+      if (cell) location.hash = `#place=${cell.getAttribute("data-place")}`;
+    });
     const legend = el("ul", "", { id: "browse-legend" });
     for (const [state, text] of LEGEND) {
       const item = el("li");
@@ -107,7 +112,9 @@
     const tbody = el("tbody");
     for (const r of rows) {
       const tr = el("tr", "", { "data-place": r.code });
-      tr.append(el("th", `${r.name} (${r.code})`, { scope: "row" }));
+      const th = el("th", "", { scope: "row" });
+      th.append(el("a", `${r.name} (${r.code})`, { href: `#place=${r.code}` }));
+      tr.append(th);
       [r.stored + r.link, r.stored, r.link].forEach((n, i) => tr.append(el("td", String(n), { "data-label": COLUMNS[i] })));
       tbody.append(tr);
     }

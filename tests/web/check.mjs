@@ -350,7 +350,7 @@ function installHelpers() {
       for (const sheet of document.styleSheets) { try { walk(sheet.cssRules); } catch (e) { dark.push("unreadable " + sheet.href); } }
       const meta = $('meta[name="color-scheme"]');
       if (meta && /dark/.test(meta.content)) dark.push("meta color-scheme " + meta.content);
-      const a = document.querySelector("a[href]"), ae = document.activeElement;
+      const a = document.querySelector("a[href]:not(#browse-by-place a)"), ae = document.activeElement; // Varun 2026-11-19, STORY-GEL-34-14: the place links of Browse by place are not a skip link
       return { rect, prose, fixed, dark, firstAnchor: a && a.getAttribute("href"), active: ae === document.body ? "body" : ae.id || ae.tagName, scrollW: document.documentElement.scrollWidth, innerW: innerWidth };
     },
   };

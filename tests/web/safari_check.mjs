@@ -254,7 +254,7 @@ async function walk(label, expect, { act: acts = false } = {}) {
   await ev(`document.getElementById("date").focus()`); // the start of the walk; everything after it is the keyboard
   let s = await stop();
   const stops = [s], did = {};
-  for (let i = 0; i < 80 && !s.last; i++) {
+  for (let i = 0; i < 400 && !s.last; i++) { // 400: 250 place links sit between the rail and the footer (Varun 2026-11-19, STORY-GEL-34-14)
     await tab();
     s = await stop();
     stops.push(s);
@@ -273,13 +273,13 @@ async function walk(label, expect, { act: acts = false } = {}) {
     }
   }
   const seq = stops.map((x) => x.cat).filter((c, i, all) => c !== all[i - 1]);
-  const order = seq.filter((c) => c !== "browse"); // Browse by place has no stop: its grid cells are spans and the table is not focusable
+  const order = seq.filter((c) => c !== "browse"); // Browse by place holds one link per place (Varun 2026-11-19, STORY-GEL-34-14); the order below leaves them out, 11-keyboard.mjs checks them
   info(`${label} focus order: ${seq.join(" > ")}; stops: ${stops.length}`);
   const seen = new Set();
   const keyed = stops.slice(1).filter((x) => x.cat !== "date"); // stop 0 is the script's own start point, not a key arrival; the native date field has its own check, R23-j1-date
   const noRing = keyed.filter((x) => !ok(x) && !seen.has(x.name) && seen.add(x.name)).map(bad);
   verdict(`R23-${label}-order`, `${label}: Tab from the date field goes ${expect.join(", ")}, ending on the last footer link`, [
-    ...(s.last ? [] : ["the last footer link was not reached in 80 presses"]),
+    ...(s.last ? [] : ["the last footer link was not reached in 400 presses"]),
     ...(JSON.stringify(order) === JSON.stringify(expect) ? [] : [`focus order was ${order.join(", ")}`]),
   ]);
   verdict(`R23-${label}-ring`, `${label}: each of the ${keyed.length} stops after the date field matches :focus-visible, has an outline and is on screen`, noRing);
