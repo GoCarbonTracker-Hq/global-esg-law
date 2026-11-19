@@ -29,8 +29,20 @@ const CASES = {
   repealed: { name: "gn-arrete-2022-1646", id: "gn-arrete-2022-1646-evaluations-environnementales", date: "2024-01-01", status: "Repealed on 2023-05-05" },
   none: { name: "Sarbanes-Oxley" },
 };
-// "Browse by place" holds nothing to operate, so it has no stop to name; the count of its stops is printed.
-const SPEC_ORDER = ["law", "match", "date", "example", "answer-link", "copy", "rail", "show-all", "footer"];
+// Varun 2026-11-19, STORY-GEL-34-14: "Browse by place" holds one stop per place, a link to #place=<code>, in code order, after the rail and before the footer.
+// (Story 11 held that it has no stop.) The codes come from the data file, never from web/*.js.
+const SPEC_ORDER = ["law", "match", "date", "example", "answer-link", "copy", "rail", "show-all", "browse", "footer"];
+const placeCodes = (h) => Object.keys(JSON.parse(fs.readFileSync(h.data, "utf8")).places).sort();
+// The stops that follow the rail: one place link each in code order. Quiet: a trace line for each of the 250 would bury the others.
+async function browseStops(h, j, codes) {
+  const got = [];
+  for (let i = 0; i < codes.length; i++) {
+    const s = await tab(h);
+    j.stops.push(s);
+    got.push(s);
+  }
+  return got.map((s, i) => (s.role === "browse" && s.href === "#place=" + codes[i] ? null : `stop ${i + 1} after the rail is ${s.role} ${s.name} ${s.href}, want browse #place=${codes[i]}`)).filter(Boolean);
+}
 
 // ---------- key events ----------
 const KEYS = {
@@ -69,7 +81,7 @@ const DESCRIBE = `(() => {
     : a.id === "citation-copy" ? "copy" : a.closest("#answer-panel") ? (a.matches("[data-part=offer]") ? "offer" : a.matches("[data-part=browse]") ? "answer-browse" : "answer-link")
     : a.closest("#rail") ? (a.tagName === "SUMMARY" ? "show-all" : "rail") : a.closest("#browse-by-place") ? "browse" : a.closest("footer") ? "footer" : "other";
   return {
-    role, name: a.tagName.toLowerCase() + (a.id ? "#" + a.id : "") + " " + JSON.stringify(a.textContent.trim().slice(0, 28)),
+    role, href: a.getAttribute("href"), name: a.tagName.toLowerCase() + (a.id ? "#" + a.id : "") + " " + JSON.stringify(a.textContent.trim().slice(0, 28)),
     fv: a.matches(":focus-visible"), style: s.outlineStyle, width: parseFloat(s.outlineWidth),
     l: r.left + scrollX, t: r.top + scrollY, vt: r.top, vb: r.bottom, vh: innerHeight, sy: scrollY, inAll: !!a.closest("#rail-all"),
   };
@@ -281,15 +293,18 @@ async function journey1(h) {
   await pick(r2, "Space", CSRD.versions[1]);
   const r3 = await j.go("rail", "Tab to the third rail row");
   await pick(r3, "Enter", CSRD.versions[2]);
-  // The footer, then the Tab after the last link.
+  // Browse by place: one link per place in code order, then the footer, then the Tab after the last link.
+  const codes = placeCodes(h);
+  const browseBad = await browseStops(h, j, codes);
+  h.verdict("11k-j1-browse", `after the rail come ${codes.length} Browse by place links, one per place in code order, each to #place=<code> (Varun 2026-11-19, STORY-GEL-34-14)`, [...browseBad.slice(0, 3), ...(browseBad.length > 3 ? [`and ${browseBad.length - 3} more`] : [])]);
   const foot = [];
   for (let i = 1; i <= FOOTER; i++) foot.push(await j.go("footer", `Tab to footer link ${i}`));
   const end = j.take(await tab(h), "the Tab after the last footer link");
-  h.verdict("11k-j1-footer", `after the rail come the ${FOOTER} footer links (Browse by place holds no stop) and the Tab after the last goes to ${end.role === "law" ? "the law box" : end.role}`, [
+  h.verdict("11k-j1-footer", `after the Browse by place links come the ${FOOTER} footer links and the Tab after the last goes to ${end.role === "law" ? "the law box" : end.role}`, [
     ...(foot.every((s) => s.role === "footer") ? [] : [`the ${FOOTER} stops after the rail are ${foot.map((s) => s.role).join(", ")}`]),
     ...(end.role === "law" || end.role === "none" ? [] : [`it went to ${end.role} ${end.name}`]),
   ]);
-  h.verdict("11k-j1-focus", `every stop of journey 1 (${j.stops.length}) shows an outline and lies in the window (the calendar-picker stop is judged by eye)`, [...ringProblems(j.stops, pickerStop), ...trapProblems(j.stops)]);
+  h.verdict("11k-j1-focus", `every stop of journey 1 (${j.stops.length}) shows an outline and lies in the window (the calendar-picker stop is judged by eye)`, [...ringProblems(j.stops, (s) => pickerStop(s) || (s === end && end.role === "none")), ...trapProblems(j.stops)]);
   h.verdict("11k-j1-steps", "journey 1 by keys lands on the role each step names (see the trace lines)", j.problems);
 }
 
@@ -344,7 +359,8 @@ async function journey2(h) {
   h.verdict("11k-j2-link", `link only (${CASES.link.id} on ${CASES.link.date}): the way on is one official link (${link.name}); after it Tab goes to ${next.role}`, [
     ...(sl.shown && sl.state !== "plain" ? [] : [`panel shown ${sl.shown}, state ${sl.state}`]),
     ...(sl.text.includes("Official source") ? [] : ["no Official source text in the panel"]),
-    ...(next.role === "footer" ? [] : [`next stop is ${next.role} ${next.name}, want the first footer link (no copy button, no rail)`]), ...j.problems,
+    // Varun 2026-11-19, STORY-GEL-34-14: the stop after the official link is the first Browse by place link (it was the first footer link).
+    ...(next.role === "browse" && next.href === "#place=" + placeCodes(h)[0] ? [] : [`next stop is ${next.role} ${next.name}, want the first Browse by place link (no copy button, no rail)`]), ...j.problems,
   ]);
   await shot(h, "j2-link-focus");
 
@@ -384,7 +400,8 @@ async function journey2(h) {
   h.verdict("11k-j2-none", `no match ("${CASES.none.name}"): the panel says so, the Browse by place link is reachable by keys, and Enter takes the same tab to #browse-by-place (section ${near(top)}px from the window top, focus on ${landed.role}, the next Tab goes to ${after.role})`, [
     ...(sn.shown && sn.state !== "plain" ? [] : [`panel shown ${sn.shown}, state ${sn.state}`]),
     ...(sn.text.includes("No law in the corpus matches") ? [] : ["the panel does not say that no law matches"]),
-    ...h.eqs([["location.hash", sa.hash, "#browse-by-place"], ["the stop after the link", after.role, "footer"]]),
+    // Varun 2026-11-19, STORY-GEL-34-14: the stop after the link is the first Browse by place link (it was the first footer link).
+    ...h.eqs([["location.hash", sa.hash, "#browse-by-place"], ["the stop after the link", after.role + " " + after.href, "browse #place=" + placeCodes(h)[0]]]),
     ...(top >= -1 && top < 900 ? [] : [`the section is ${near(top)}px from the top of a 900px window`]), ...j.problems,
   ]);
   h.verdict("11k-j2-focus", `every stop of the four journey 2 cases (${all.length}) shows an outline in the window, and no key press leaves focus where it was`, [
@@ -478,11 +495,13 @@ async function fullWalk(h, width, expand) {
   const stops = [law, ...forward];
   const count = (r) => stops.filter((s) => s.role === r).length;
   const rail = stops.filter((s) => s.role === "rail" && !s.inAll).length;
-  const wantRuns = expand ? [...SPEC_ORDER.slice(0, 8), "rail", "footer"] : SPEC_ORDER;
+  const wantRuns = expand ? [...SPEC_ORDER.slice(0, 8), "rail", "browse", "footer"] : SPEC_ORDER;
   h.verdict("11k-order-" + tag, `${width}px: Tab order ${runs(stops).join(" > ")} (spec: ${wantRuns.join(" > ")}); ${count("match")} match rows, ${count("date")} date stops, ${rail} rail rows${expand ? `, ${stops.filter((s) => s.inAll).length} in the full list` : ""}, ${count("footer")} footer links, ${count("browse")} Browse by place stops; ends: ${end}`, [
     ...(JSON.stringify(runs(stops)) === JSON.stringify(wantRuns) ? [] : [`order ${runs(stops).join(" > ")}`]),
     ...(rail === RAIL_WINDOW ? [] : [`${rail} rail rows in the window, want ${RAIL_WINDOW}`]),
     ...(count("footer") === FOOTER ? [] : [`${count("footer")} footer stops`]),
+    // Varun 2026-11-19, STORY-GEL-34-14: one Browse by place stop per place, in code order, each a link to #place=<code>.
+    ...(stops.filter((s) => s.role === "browse").map((s) => s.href).join(" ") === placeCodes(h).map((c) => "#place=" + c).join(" ") ? [] : [`${count("browse")} Browse by place stops, want one link per place in code order`]),
     ...(count("match") >= 1 && count("match") <= MATCH_MAX ? [] : [`${count("match")} match stops`]), ...j.problems, ...trapProblems(stops),
   ]);
   h.verdict("11k-ring-" + tag, `${width}px: all ${stops.length} stops of the full walk show an outline and lie in the window (the calendar-picker stop is judged by eye)`, ringProblems(stops, pickerStop));

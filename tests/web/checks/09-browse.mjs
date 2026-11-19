@@ -58,6 +58,7 @@ function pageRead() {
           place: tr.getAttribute("data-place"),
           head: text(th),
           scope: th && th.getAttribute("scope"),
+          links: th ? [...th.querySelectorAll("a")].map((a) => [a.getAttribute("href"), a.textContent]) : [],
           labels: [...tr.querySelectorAll("td")].map((td) => td.getAttribute("data-label")),
           nums: [...tr.querySelectorAll("td")].map((td) => td.textContent),
         };
@@ -80,12 +81,12 @@ function pageLayout() {
       const b = el.getBoundingClientRect(), cs = getComputedStyle(el);
       if (b.width && (b.right > vw + 0.5 || b.left < -0.5)) over.push(name(el));
       if (/(auto|scroll)/.test(cs.overflowX + " " + cs.overflowY) && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)) scrollers.push(name(el));
-      if (el.matches("a[href],button,input,select,textarea,summary,[tabindex],[contenteditable]")) tabStops.push(name(el));
+      if (el.matches("a[href],button,input,select,textarea,summary,[tabindex],[contenteditable]")) tabStops.push(el.tagName + " " + (el.getAttribute("href") || ""));
     }
     const cells = [...document.querySelectorAll("#browse-grid .cell")];
     const table = document.getElementById("browse-table"), td = table.querySelector("tbody td");
     return {
-      over: over.slice(0, 5), overN: over.length, scrollers: scrollers.slice(0, 5), tabStops: tabStops.slice(0, 5),
+      over: over.slice(0, 5), overN: over.length, scrollers: scrollers.slice(0, 5), tabStops,
       docScrollW: document.documentElement.scrollWidth, innerW: window.innerWidth,
       gridRows: new Set(cells.map((c) => Math.round(c.getBoundingClientRect().top))).size, cellN: cells.length,
       tableDisplay: getComputedStyle(table).display, theadDisplay: getComputedStyle(table.tHead).display,
@@ -121,7 +122,7 @@ function pageCenter(selector) {
 
 function pageTabStop() {
   const a = document.activeElement;
-  return { name: a.id || a.tagName, inside: !!a.closest("#browse-by-place") };
+  return { name: a.id || a.tagName, href: a.getAttribute("href"), inside: !!a.closest("#browse-by-place") };
 }
 
 function pageStubLink() {
@@ -182,6 +183,8 @@ export async function run(h) {
       problems.push(...h.eqs([
         [w.code + " cell code", c.code, w.code], [w.code + " cell place", c.place, w.code], [w.code + " cell state", c.state, w.state],
         [w.code + " row place", r.place, w.code], [w.code + " row header", r.head, w.name + " (" + w.code + ")"], [w.code + " row header scope", r.scope, "row"],
+        // Varun 2026-11-19, STORY-GEL-34-14: the row header holds one link to #place=<code> with the same text.
+        [w.code + " row header links", JSON.stringify(r.links), JSON.stringify([["#place=" + w.code, w.name + " (" + w.code + ")"]])],
         [w.code + " row labels", r.labels.join("|"), "Instruments|Text stored|Link only"],
         [w.code + " row figures", nums(r).join(","), [w.stored + w.link, w.stored, w.link].join(",")],
       ]));
@@ -285,6 +288,8 @@ export async function run(h) {
   ]));
   h.verdict("09-ac5", "the grid has role img and a text alternative that gives the three place counts and points to the table", [
     ...h.eqs([["role", a.gridRole, "img"]]),
+    // Varun 2026-11-19, STORY-GEL-34-14: the text alternative also tells the visitor to choose a place in the table.
+    ...(alt && alt[4].endsWith(" Choose a place in the table below to see its laws.") ? [] : ["text alternative does not end with the sentence that points to the table: " + h.fmt(a.alt)]),
     ...(alt ? h.eqs([["stored places", +alt[1], want.byState.stored], ["link only places", +alt[2], want.byState["link-only"]], ["no corpus places", +alt[3], want.byState.none]]) : ["text alternative is " + h.fmt(a.alt)]),
   ]);
   await h.open("changed");
@@ -292,16 +297,25 @@ export async function run(h) {
   h.verdict("09-ac5", 'with another read date and snapshot in the file ("changed" variant) the line follows the file', h.eqs([["read line", c.read, "Corpus read 2031-02-03 · Snapshot 123456789"]]));
 
   // ---- AC6: keyboard, 320 px, text at 200% ----
+  // Varun 2026-11-19, STORY-GEL-34-14: story 09 held that the section has no tab stop; it now holds one per place, in code order, each a link to #place=<code>.
   await h.open("ok");
+  const wide = await measure("wide");
+  const wantStops = want.rows.map((r) => "A #place=" + r.code);
+  const stopProblems = (got, label) => {
+    const i = wantStops.findIndex((w, k) => got[k] !== w);
+    return got.length === wantStops.length && i < 0 ? [] : [label + ": " + got.length + " tab stops, want " + wantStops.length + (i < 0 ? "" : "; stop " + i + " is " + h.fmt(got[i]) + ", want " + wantStops[i])];
+  };
+  await h.evaluate('location.hash = "#browse-by-place"'); // Tab goes on from the section the address names
   const stops = [];
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i <= want.places; i++) {
     await h.press("Tab");
     stops.push(await h.evaluate(call(pageTabStop)));
   }
-  const wide = await measure("wide");
-  h.verdict("09-ac6", "12 presses of Tab never land inside the section, and it holds no link, button, field or tabindex", [
-    ...stops.filter((s) => s.inside).map((s) => "Tab landed on " + s.name),
-    ...(wide.tabStops.length ? ["tab stops inside: " + wide.tabStops.join(" ")] : []),
+  const walkBad = stops.slice(0, want.places).map((s, i) => (s.inside && s.href === "#place=" + want.rows[i].code ? null : "Tab " + (i + 1) + " landed on " + h.fmt(s.href || s.name) + ", want #place=" + want.rows[i].code)).filter(Boolean);
+  h.verdict("09-ac6", "the section holds one tab stop per place, in code order, each a link to #place=<code>, and nothing else (no button, field or tabindex)", stopProblems(wide.tabStops, "section"));
+  h.verdict("09-ac6", "Tab from the section's heading passes through the place links in code order, and the Tab after the last place link leaves the section", [
+    ...walkBad.slice(0, 3), ...(walkBad.length > 3 ? ["and " + (walkBad.length - 3) + " more"] : []),
+    ...(stops[want.places].inside ? ["the Tab after the last place link stays inside the section"] : []),
   ]);
   const reflow = async (label, width, bigText) => {
     await h.send("Emulation.setDeviceMetricsOverride", { width, height: 900, deviceScaleFactor: 1, mobile: false });
@@ -317,7 +331,7 @@ export async function run(h) {
   const sideways = (L, label) => [
     ...(L.over.length ? [label + ": " + L.overN + " elements reach past the window: " + L.over.join(" ")] : []),
     ...(L.scrollers.length ? [label + ": scroll containers inside the section: " + L.scrollers.join(" ")] : []),
-    ...(L.tabStops.length ? [label + ": tab stops inside the section: " + L.tabStops.join(" ")] : []),
+    ...stopProblems(L.tabStops, label),
     ...(L.gridRows >= 3 ? [] : [label + ": the grid has " + L.gridRows + " rows of cells for " + L.cellN + " cells, so it does not wrap"]),
   ];
   const w1024 = await reflow("1024px", 1024, false);
@@ -327,7 +341,7 @@ export async function run(h) {
     ...sideways(w1024, "1024px"),
   ]);
   const w320 = await reflow("320px", 320, false);
-  h.verdict("09-ac6", "320px: the table stacks into one card per place with its labels, the grid cells wrap, nothing reaches past the window, no scroll container, no tab stop", [...stackProblems(w320, "320px"), ...sideways(w320, "320px")]);
+  h.verdict("09-ac6", "320px: the table stacks into one card per place with its labels, the grid cells wrap, nothing reaches past the window, no scroll container, one tab stop per place", [...stackProblems(w320, "320px"), ...sideways(w320, "320px")]);
   h.verdict("09-ac6", "320px: the page needs no sideways scroll", w320.docScrollW <= w320.innerW ? [] : ["scrollWidth " + w320.docScrollW + " > " + w320.innerW]);
   const big = await reflow("320px at 200% text", 320, true);
   h.verdict("09-ac6", "320px with text at 200% (root font 32px): same as above, nothing reaches past the window", [
@@ -336,7 +350,8 @@ export async function run(h) {
   // The lookup header of story 04 is 493px wide at 200% text in a 320px window; the section above is what this story owns.
   console.log("  note: 320px at 200% text, the whole page scrolls " + big.docScrollW + "px wide in a " + big.innerW + "px window; the section reaches past the window with " + big.overN + " elements");
 
-  // ---- AC7: clicks change nothing; a link to #browse-by-place lands on the heading ----
+  // ---- AC7: a click on a cell or a place link sets the place address and changes nothing else; a link to #browse-by-place lands on the heading ----
+  // Varun 2026-11-19, STORY-GEL-34-14: story 09 held that a click leaves the hash unchanged; a cell click now sets #place=<code>, and the link in the row header does too.
   await h.send("Emulation.clearDeviceMetricsOverride");
   await h.open("ok");
   await h.evaluate('document.getElementById("example").click()');
@@ -344,11 +359,11 @@ export async function run(h) {
   const before = await h.evaluate(call(pageSnap));
   await clickAt("#browse-grid .cell");
   const afterCell = await h.evaluate(call(pageSnap));
-  await clickAt("#browse-table tbody tr:nth-child(5) th");
+  await clickAt("#browse-table tbody tr:nth-child(5) th a");
   const afterRow = await h.evaluate(call(pageSnap));
-  const changed = (snap) => Object.keys(before).filter((k) => JSON.stringify(snap[k]) !== JSON.stringify(before[k])).map((k) => k + " changed: " + h.fmt(before[k]).slice(0, 80) + " -> " + h.fmt(snap[k]).slice(0, 80));
-  h.verdict("09-ac7", "a click on a grid cell leaves the match list, law box, date and answer as they were", changed(afterCell));
-  h.verdict("09-ac7", "a click on a table row leaves the match list, law box, date and answer as they were", changed(afterRow));
+  const changed = (snap) => Object.keys(before).filter((k) => k !== "hash" && JSON.stringify(snap[k]) !== JSON.stringify(before[k])).map((k) => k + " changed: " + h.fmt(before[k]).slice(0, 80) + " -> " + h.fmt(snap[k]).slice(0, 80));
+  h.verdict("09-ac7", "a click on a grid cell sets the hash to #place=<code> of that cell and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the cell click", afterCell.hash, "#place=" + want.rows[0].code]]), ...changed(afterCell)]);
+  h.verdict("09-ac7", "a click on the place link of a table row sets the hash to #place=<code> of that row and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the link click", afterRow.hash, "#place=" + want.rows[4].code]]), ...changed(afterRow)]);
   await h.evaluate(call(pageStubLink));
   const landed = await h.until(async () => {
     const r = await h.evaluate(call(pageLanded));
