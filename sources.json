@@ -433,11 +433,11 @@
     "statute_exception": "none found (URG Art. 5 para. 1 lists laws, ordinances and official enactments; a supervisory circular is not one of them, and no reading of Art. 5 para. 1 let. c was relied on)",
     "verdict_basis": "terms",
     "checked_by": "claude",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-19",
     "trailer_instrument": "FINMA circular (number set per instrument)",
     "trailer_source_url": "https://www.finma.ch/en/documentation/circulars/",
-    "trailer_licence": "Permission requested (FINMA terms)",
-    "notes": "fingerprint: sha256 of the whitespace-collapsed innerText of the <main> element of https://www.finma.ch/en/terms-and-conditions/, read with Playwright chromium after networkidle plus 2 s (the page is a JavaScript application, so curl returns an empty shell). Recomputed 2026-11-02. Permission request not sent. SIX Exchange Regulation (https://www.ser-ag.com/en/legal/disclaimer.html, item 10: reproduction \"without the prior written consent of SIX is prohibited\") would also be permission requested; no SIX instrument is in scope, so it has no row."
+    "trailer_licence": "FINMA written consent 2026-11-05 for Circular 2026/1 only (conditions in notes)",
+    "notes": "GRANT 2026-11-05, email from FINMA Communications (questions@finma.ch), reply to the request of 2026-11-03: FINMA \"consents to the reproduction of FINMA Circular 2026/1 \"Nature-related financial risks\" in the language versions published on its website, as well as subsequent versions, in the \"global-esg-law\" repository\". Conditions: texts unchanged apart from removing HTML tags; FINMA acknowledged as the source with a link to the official publication on finma.ch; the date or version of each text shown, with a clear statement that it is not the official version and that the version on the FINMA website is authoritative; the consent does not cover the FINMA logo or lettering; observe the FINMA website disclaimer; nothing may suggest the repository or its texts were reviewed or approved by FINMA. Verdict stays permission requested: the consent covers Circular 2026/1 alone and this row covers all FINMA circulars; a pass needs a row scoped to that circular. | fingerprint: sha256 of the whitespace-collapsed innerText of the <main> element of https://www.finma.ch/en/terms-and-conditions/, read with Playwright chromium after networkidle plus 2 s (the page is a JavaScript application, so curl returns an empty shell). Recomputed 2026-11-02. SIX Exchange Regulation (https://www.ser-ag.com/en/legal/disclaimer.html, item 10: reproduction \"without the prior written consent of SIX is prohibited\") would also be permission requested; no SIX instrument is in scope, so it has no row."
   },
   {
     "id": "CA-JUSTICE-CONSOLIDATED",
@@ -565,11 +565,11 @@
     "statute_exception": "none found",
     "verdict_basis": "terms",
     "checked_by": "claude",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-19",
     "trailer_instrument": "HKEX Listing Rules provision (set per instrument)",
     "trailer_source_url": "https://en-rules.hkex.com.hk/",
-    "trailer_licence": "none granted; HKEX copyright, written permission required",
-    "notes": "fingerprint: curl -sL --compressed -A 'Mozilla/5.0' 'https://www.hkex.com.hk/Global/Exchange/Terms-of-Use?sc_lang=en' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Recomputed twice 2026-11-02, identical. Clause 5 of the Terms of Use also bars scripted access. https://en-rules.hkex.com.hk/ fails TLS verification from the cloud address (curl 60, unable to get local issuer certificate; not bypassed), so the rulebook text was not opened; dates come from the HKEX ESG FAQ page on www.hkex.com.hk."
+    "trailer_licence": "HKEX no objection 2026-11-16 to use with the source disclosed; no automated download (conditions in notes)",
+    "notes": "GRANT 2026-11-16, email from HKEX Corporate Communications, General Enquiries (HKEXINFO@hkex.com.hk, ref GEC/ENQ/26/03759), reply to the request of 2026-11-03 to reproduce Appendix C2 Part D of the Main Board Listing Rules and its later versions. HKEX has no objection to use or reference of HKEX website information provided the source is clearly disclosed; abnormal downloading, such as by algorithms or automated software, is not allowed; it asks that the Terms of Use at www.hkex.com.hk be read. The reply does not name Appendix C2 or the rulebook host en-rules.hkex.com.hk. Verdict stays permission requested: the fetch tools download by script, which the reply forbids, so any HKEX text would have to be stored by hand. | fingerprint: curl -sL --compressed -A 'Mozilla/5.0' 'https://www.hkex.com.hk/Global/Exchange/Terms-of-Use?sc_lang=en' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Recomputed twice 2026-11-02, identical. Clause 5 of the Terms of Use also bars scripted access. https://en-rules.hkex.com.hk/ fails TLS verification from the cloud address (curl 60, unable to get local issuer certificate; not bypassed), so the rulebook text was not opened; dates come from the HKEX ESG FAQ page on www.hkex.com.hk."
   },
   {
     "id": "HK-HKMA-ADOPTED",
@@ -873,11 +873,11 @@
     "statute_exception": "none found: the Copyright Act 2021 text could not be opened (sso.agc.gov.sg refuses the cloud address), so no statute is relied on",
     "verdict_basis": "terms",
     "checked_by": "claude",
-    "checked_on": "2026-11-02",
+    "checked_on": "2026-11-19",
     "trailer_instrument": "SGX Mainboard Rules (rule or practice note set per instrument)",
     "trailer_source_url": "https://rulebook.sgx.com/rulebook/mainboard-rules",
-    "trailer_licence": "SGX copyright, all rights reserved; permission requested",
-    "notes": "fingerprint: curl -sL -A 'Mozilla/5.0' 'https://www.sgx.com/terms-use' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Fingerprint covers the 1007-byte JavaScript browser-check shell of the terms page, so the licence terms themselves were not read. Rulebook pages are plain HTML (200). SGX rules are exchange rules, not statute, so no statute exception applies. Not pass."
+    "trailer_licence": "SGX RegCo no objection 2026-11-06 for Mainboard Rules 711A, 711B and Practice Note 7.6 (conditions in notes)",
+    "notes": "GRANT 2026-11-06, email from SGX RegCo (RegCo@sgx.com, case CSREG07433), reply to the request of 2026-11-03 to reproduce Mainboard Rules 711A and 711B and Practice Note 7.6 and their later versions, HTML tags removed, nothing reworded, under the attribution SGX specifies, with a note that it is not the official version: \"Based on the information you provided, we have no objections to your request.\" The reply points to https://www.sgx.com/terms-use, still unread (JavaScript shell to curl). Conditions are those stated in the request; SGX named no attribution wording. Verdict stays permission requested: the reply covers those three provisions and this row covers the whole rulebook; a pass needs a row scoped to them and a reading of the terms page. | fingerprint: curl -sL -A 'Mozilla/5.0' 'https://www.sgx.com/terms-use' | python3 -c \"import sys,re,html;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<[^>]+>',' ',t);print(re.sub(r'\\s+',' ',html.unescape(t)).strip())\" | shasum -a 256 | Fingerprint covers the 1007-byte JavaScript browser-check shell of the terms page, so the licence terms themselves were not read. Rulebook pages are plain HTML (200). SGX rules are exchange rules, not statute, so no statute exception applies. Not pass."
   },
   {
     "id": "SG-ACRA-ADOPTED",

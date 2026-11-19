@@ -433,7 +433,7 @@ Not served as XML or HTML (so not stored, no recipe): the as-adopted VSoTr (DOCX
 
 ### Link only
 
-- `ch-finma-circ-2026-1`: row `CH-FINMA-ADOPTED`, `permission requested` (finma.ch terms: "Any reproduction requires the prior written consent of the copyright holder."). The PDF at `https://www.finma.ch/en/~/media/finma/dokumente/dokumentencenter/myfinma/rundschreiben/finma-rs-2026-01.pdf` was opened (200, 259729 bytes, `application/pdf`); no text is stored.
+- `ch-finma-circ-2026-1`: row `CH-FINMA-ADOPTED`, `permission requested` (finma.ch terms: "Any reproduction requires the prior written consent of the copyright holder."). The PDF at `https://www.finma.ch/en/~/media/finma/dokumente/dokumentencenter/myfinma/rundschreiben/finma-rs-2026-01.pdf` was opened (200, 259729 bytes, `application/pdf`); no text is stored. FINMA Communications gave written consent on 2026-11-05 to reproduce Circular 2026/1 "Nature-related financial risks", in the language versions on finma.ch and later versions, in this repository. The conditions: the text stays unchanged apart from removing HTML tags; FINMA is named as the source with a link to the official publication; each text shows its date or version and says it is not the official version and that the finma.ch version is authoritative; the FINMA logo and lettering are not covered; the finma.ch disclaimer applies; nothing may suggest FINMA reviewed or approved the repository or its texts. The row stays `permission requested` because it covers all FINMA circulars and the consent covers this one; storing the text needs a row scoped to Circular 2026/1.
 - Not in scope: Swiss Climate Scores (SIF, 2022, updated 2023, applicable from 2025-01-01). The SIF pages describe it as a voluntary standard, not an enacted instrument, so it has no scope entry and no register row. SIX Exchange Regulation (`ser-ag.com`, disclaimer item 10 requires prior written consent): no instrument in scope, so no row.
 - No site was blocked from the cloud address: fedlex.admin.ch, fedlex.data.admin.ch, finma.ch, sif.admin.ch, admin.ch and ser-ag.com all answered.
 
@@ -602,7 +602,7 @@ Returned `200 129334645 application/zip`. Caps. 301 to 600 (`hkel_c_leg_cap_301_
 | Instrument | Row | Reason |
 |---|---|---|
 | `hk-cap622-sch5` | `HK-ELEGISLATION-CONSOLIDATED`, permission requested | DATA.GOV.HK terms v1.2 allow commercial reproduction with attribution and an indemnity but say nothing on modification; site's own copyright notice unreadable from the cloud address |
-| `hk-hkex-esg-code-part-d` | `HK-HKEX-ADOPTED`, permission requested | HKEX Terms of Use bar copying, modifying and scripted access without written permission; rulebook host blocked from the cloud address |
+| `hk-hkex-esg-code-part-d` | `HK-HKEX-ADOPTED`, permission requested | HKEX Terms of Use bar copying, modifying and scripted access without written permission; rulebook host blocked from the cloud address. HKEX Corporate Communications replied on 2026-11-16 (ref GEC/ENQ/26/03759) with no objection to use of HKEX website information if the source is clearly disclosed, and no automated download allowed. The reply does not name Appendix C2, and the fetch tools download by script, so the text is not stored. |
 | `hk-hkfrs-s1-s2` | `HK-HKICPA-ADOPTED`, permission requested | HKICPA terms: non-commercial use, no modification |
 | `hk-hkma-spm-gs1` | `HK-HKMA-ADOPTED`, permission requested | HKMA terms: non-commercial, unmodified reproduction only |
 | `hk-taxonomy-sustainable-finance` | `HK-HKMA-ADOPTED`, permission requested | same HKMA terms |
@@ -610,7 +610,7 @@ Returned `200 129334645 application/zip`. Caps. 301 to 600 (`hkel_c_leg_cap_301_
 `HK-SFC-ADOPTED` is permission requested (prior written consent for third-party reproduction) and backs no scope entry. Air Pollution Control Ordinance (Cap. 311) and Product Eco-responsibility Ordinance (Cap. 603) are F7 and appear in `register/register.csv` only; their dates come from the commencement line in the bulk files above.
 ## Singapore
 
-GEL-03-04, run 2026-11-02. No Singapore row is `pass`, so no fetch recipe is proven and no record is stored. All six scope entries are link only. The five rows (`SG-SSO-ADOPTED`, `SG-SSO-CONSOLIDATED`, `SG-SGX-CONSOLIDATED`, `SG-ACRA-ADOPTED`, `SG-MAS-ADOPTED`) are `permission requested`. No permission request was sent.
+GEL-03-04, run 2026-11-02. No Singapore row is `pass`, so no fetch recipe is proven and no record is stored. All six scope entries are link only. The five rows (`SG-SSO-ADOPTED`, `SG-SSO-CONSOLIDATED`, `SG-SGX-CONSOLIDATED`, `SG-ACRA-ADOPTED`, `SG-MAS-ADOPTED`) are `permission requested`. A request for Rules 711A, 711B and Practice Note 7.6 went to SGX on 2026-11-03; SGX RegCo replied on 2026-11-06 (case CSREG07433): "Based on the information you provided, we have no objections to your request." No request was sent for the other four rows.
 
 Blocked from the cloud address (read from the laptop):
 
@@ -622,7 +622,7 @@ Opened and readable (plain `curl`, HTTP 200): `https://rulebook.sgx.com/rulebook
 
 | Instrument | Why link only |
 |---|---|
-| `sg-sgx-lr-711a-711b`, `sg-sgx-pn-7-6` | `SG-SGX-CONSOLIDATED`: footer "© Singapore Exchange Limited. All Rights Reserved."; terms page unreadable. |
+| `sg-sgx-lr-711a-711b`, `sg-sgx-pn-7-6` | `SG-SGX-CONSOLIDATED`: footer "© Singapore Exchange Limited. All Rights Reserved."; terms page unreadable. SGX RegCo has no objection (2026-11-06) to storing these three provisions unchanged with attribution and a not-official note; the row covers the whole rulebook, so a row scoped to them is needed before any text is stored. |
 | `sg-cpa-2018`, `sg-cpa-mrv-regs-2018` | `SG-SSO-CONSOLIDATED`: SSO terms and pages blocked from the cloud address. |
 | `sg-mas-erm-banks`, `-insurers`, `-asset-managers` | `SG-MAS-ADOPTED`: terms and pages show a maintenance page. |
 
