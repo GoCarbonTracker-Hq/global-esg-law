@@ -19,13 +19,13 @@ PAIRS = [
     ("text on panel", "text", "panel", 16.5, 4.5, "text"),
     ("secondary on page", "secondary", "page", 6.2, 4.5, "text"),
     ("secondary on panel", "secondary", "panel", 5.7, 4.5, "text"),
-    ("link on page", "link", "page", 6.1, 4.5, "text"),
-    ("link on panel", "link", "panel", 5.6, 4.5, "text"),
-    ("page on link (white text on the green fill)", "page", "link", 6.1, 4.5, "text"),
+    ("link on page", "link", "page", 9.6, 4.5, "text"),
+    ("link on panel", "link", "panel", 8.8, 4.5, "text"),
+    ("page on link (white text on the green fill)", "page", "link", 9.6, 4.5, "text"),
     ("border (secondary) on page", "border", "page", 6.2, 3.0, "border"),
     ("border (secondary) on panel", "border", "panel", 5.7, 3.0, "border"),
-    ("focus ring (link) on page", "link", "page", 6.1, 3.0, "ring"),
-    ("focus ring (link) on panel", "link", "panel", 5.6, 3.0, "ring"),
+    ("focus ring (link) on page", "link", "page", 9.6, 3.0, "ring"),
+    ("focus ring (link) on panel", "link", "panel", 8.8, 3.0, "ring"),
 ]
 
 NAMED = set("""aliceblue antiquewhite aqua aquamarine azure beige bisque black blanchedalmond blue

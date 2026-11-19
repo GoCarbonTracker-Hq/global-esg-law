@@ -65,7 +65,7 @@ h1 { font: 400 1.75rem/1.25 var(--serif); }
   letter-spacing: -0.01em;
   color: var(--link);
 }
-.mark { flex: none; }
+.mark { flex: none; width: 2.5rem; height: 1.5rem; }
 .maintainer { font-size: 0.875rem; color: var(--secondary); }
 h2 { font: 600 1.25rem/1.25 var(--sans); }
 
