@@ -85,12 +85,14 @@ def test_list_shows_licence_verdict_scope_date_and_evidence(tmp_path, capsys):
     before = tree(repo), (repo / "upkeep" / "queue.csv").read_bytes()
     assert review.main(["--repo", str(repo)]) == 0
     out = capsys.readouterr().out.splitlines()
-    assert out[-1] == "4 open rows"
-    assert [line.split()[1] for line in out[:-1]] == ["w-uk:2", "w-uk:2027-01-01", f"w-terms:{HASH}", "w-zip:HTTP"]
+    assert out[4] == "4 open rows"
+    assert [line.split()[1] for line in out[:4]] == ["w-uk:2", "w-uk:2027-01-01", f"w-terms:{HASH}", "w-zip:HTTP"]
     assert "licence PASS: pass" in out[1] and "XX act in_force 2022-04-06" in out[1] and out[1].endswith(UK)
     assert "licence ASKED: permission requested" in out[2] and "XX source-level" in out[2] and TERMS in out[2]
     assert out[3].endswith("second_route: none listed")
-    assert not any("2026-06-01" in line for line in out)  # the decided row is not listed
+    assert not any("2026-06-01" in line for line in out[:5])  # the confirmed row is not among the open rows
+    assert "w-uk:2026-06-01 new_version (confirm)" in out[5] and out[5].endswith("seen on the Timeline of Changes")
+    assert out[6:] == ["1 confirmed, not yet stored"]  # listed after the open rows, with its notes
     assert (tree(repo), (repo / "upkeep" / "queue.csv").read_bytes()) == before  # listing writes nothing
 
 
@@ -156,7 +158,7 @@ def test_needs_evidence_leaves_the_row_open(tmp_path, capsys):
     assert (got["reviewer"], got["outcome"], got["outcome_on"]) == ("varun", "needs_evidence", "2026-11-02")
     assert review.main(["--repo", str(repo)]) == 0
     out = capsys.readouterr().out.splitlines()
-    assert out[-1] == "4 open rows" and "w-uk:2027-01-01 new_version (needs_evidence)" in out[1]
+    assert out[4] == "4 open rows" and "w-uk:2027-01-01 new_version (needs_evidence)" in out[1]
     done = review.decide(repo, "confirm", "w-uk:2027-01-01", "grace", date(2026, 11, 5))
     assert (done["reviewer"], done["outcome"], done["outcome_on"]) == ("grace", "confirm", "2026-11-05")
     assert seen(repo) == SEEN
@@ -292,3 +294,38 @@ def test_decide_inside_the_lock_does_not_deadlock(tmp_path):  # #51
 
     assert completes(nested)["outcome"] == "confirm"
     assert not (repo / "upkeep" / ".lock").exists()
+
+
+NO_RECIPE = "no recipe for PASS: store the text by hand with --file"
+RECORD = "records/XX/act/2026-06-01-adopted-en.json"
+
+
+def test_a_confirmed_row_stays_listed_with_its_reason_until_it_is_stored(tmp_path, capsys):
+    repo = make(tmp_path, rows=[row(reviewer="varun", outcome="confirm", outcome_on="2026-11-01", notes=NO_RECIPE)])
+    assert review.main(["--repo", str(repo)]) == 0
+    out = capsys.readouterr().out.splitlines()
+    assert out[0] == "0 open rows" and out[1].endswith(NO_RECIPE) and out[-1] == "1 confirmed, not yet stored"
+    assert "w-uk:2027-01-01 new_version (confirm)" in out[1]
+    (repo / RECORD).parent.mkdir(parents=True)
+    (repo / RECORD).write_text("{}")
+    assert review.main(["--repo", str(repo), "--outcome", "stored", "--row", "w-uk:2027-01-01", "--reviewer", "varun",
+                        "--notes", f"stored {RECORD}"]) == 0
+    stored = rows(repo)[0]
+    assert (stored["outcome"], stored["reviewer"], stored["notes"]) == ("stored", "varun", f"{NO_RECIPE}; stored {RECORD}")
+    assert review.main(["--repo", str(repo)]) == 0
+    assert capsys.readouterr().out.splitlines()[-1] == "0 open rows"  # a stored row is no longer listed
+
+
+@pytest.mark.parametrize("outcome, notes, message", [
+    ("", "", "is not a confirm row"),             # an undecided row cannot be stored
+    ("reject", "", "is not a confirm row"),
+    ("confirm", "", "name no record file that exists"),
+    ("confirm", f"stored {RECORD}", "name no record file that exists"),  # the path is written but the file is not there
+])
+def test_stored_needs_a_confirm_row_and_an_existing_record(tmp_path, capsys, outcome, notes, message):
+    repo = make(tmp_path, rows=[row(reviewer="varun", outcome=outcome, outcome_on="2026-11-01" if outcome else "")])
+    before = (repo / "upkeep" / "queue.csv").read_bytes()
+    args = ["--repo", str(repo), "--outcome", "stored", "--row", "w-uk:2027-01-01", "--reviewer", "varun"]
+    assert review.main(args + (["--notes", notes] if notes else [])) == 1
+    assert message in capsys.readouterr().err
+    assert (repo / "upkeep" / "queue.csv").read_bytes() == before

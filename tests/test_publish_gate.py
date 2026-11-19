@@ -175,3 +175,18 @@ def test_cli_exits_1_on_a_bad_iso2(tmp_path):
     for bad in ("xx", "ZZ"):
         done = run(bad)
         assert done.returncode == 1 and "--iso2" in done.stderr
+
+
+@pytest.mark.parametrize("in_force", ["2020-02-30", "2020-13-01", "2020-1-5", 20200101])
+def test_an_impossible_record_date_is_refused(tmp_path, in_force):  # T16
+    make(tmp_path)
+    (tmp_path / "records" / "XX" / "act" / "0.json").write_text(json.dumps({"source_id": "R1", "in_force": in_force}))
+    assert any("0.json" in line and "not a real date" in line for line in refusals(tmp_path))
+
+
+def test_an_impossible_file_name_date_is_refused_when_in_force_is_null(tmp_path):  # T16
+    make(tmp_path)
+    folder = tmp_path / "records" / "XX" / "act"
+    (folder / "0.json").unlink()
+    (folder / "2020-02-30-adopted-en.json").write_text(json.dumps({"source_id": "R1", "in_force": None}))
+    assert any("2020-02-30" in line and "not a real date" in line for line in refusals(tmp_path))

@@ -2,14 +2,17 @@
 """Review queue: list the open rows of upkeep/queue.csv, or record one person's decision on one row.
 
 Listing puts beside each row the licence verdict of its source row, the register entry it touches
-(with that entry's current in_force date) and the evidence URL. A decision fills reviewer, outcome
-and outcome_on; a reject of a new_version or terms_changed row also records the signal in
-upkeep/seen.json so the watcher does not flag it again. Writes only under upkeep/.
+(with that entry's current in_force date) and the evidence URL, then the confirmed rows not yet
+stored with their notes. A decision fills reviewer, outcome and outcome_on; a reject of a
+new_version or terms_changed row also records the signal in upkeep/seen.json so the watcher does
+not flag it again. `--outcome stored` marks a confirm row whose record is already in place and
+named in its notes. Writes only under upkeep/.
 """
 import argparse
 import csv
 import json
 import os
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -19,8 +22,9 @@ from make_sources import load_sources  # noqa: E402
 from watch import CHANGES, COLUMNS, upkeep_lock  # noqa: E402 - same column list as the watcher
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTCOMES = ("confirm", "reject", "needs_evidence")
+OUTCOMES = ("confirm", "reject", "needs_evidence", "stored")  # update.py sets stored; a person sets it for a record put in place by hand
 OPEN = ("", "needs_evidence")  # a needs_evidence row stays in the list until confirmed or rejected
+RECORD_PATH = re.compile(r"records/\S+?\.json")
 
 
 class QueueError(Exception):
@@ -87,9 +91,15 @@ def describe(repo, row):
 
 
 def list_open(repo=ROOT):
-    """Return the lines to print: one per open row, then a count."""
-    rows = [r for r in read_queue(repo) if is_open(r)]
-    return [describe(repo, r) for r in rows] + [f"{len(rows)} open rows"]
+    """Return the lines to print: one per open row, then a count; then, when there are any, one per confirmed
+    row not yet stored (its notes say why update.py left it) and a count."""
+    rows = read_queue(repo)
+    open_rows = [r for r in rows if is_open(r)]
+    waiting = [r for r in rows if (r.get("outcome") or "").strip() == "confirm"]
+    lines = [describe(repo, r) for r in open_rows] + [f"{len(open_rows)} open rows"]
+    if waiting:
+        lines += [describe(repo, r) for r in waiting] + [f"{len(waiting)} confirmed, not yet stored"]
+    return lines
 
 
 def decide(repo, outcome, key, reviewer, today=None, notes=None):
@@ -97,6 +107,8 @@ def decide(repo, outcome, key, reviewer, today=None, notes=None):
     needs_evidence rows. Return that row.
 
     notes, when given, goes into the row's notes column after any text already there, joined with '; '.
+    outcome stored takes the first confirm row of that key instead, and only when its notes (with the new text)
+    name a record file that exists under the repo.
     """
     repo = Path(repo).resolve()
     if outcome not in OUTCOMES:
@@ -112,14 +124,20 @@ def decide(repo, outcome, key, reviewer, today=None, notes=None):
         matches = [r for r in rows if r["watcher_id"] == watcher_id and r["signal"] == signal]
         if not matches:
             raise QueueError(f"row {key!r} is not in upkeep/queue.csv")
-        # An undecided row comes before a needs_evidence row, so a repeat row of the same key can be reached.
-        row = next((r for r in matches if not (r.get("outcome") or "").strip()), None) or next((r for r in matches if is_open(r)), None)
-        if row is None:
-            done = matches[0]
-            raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")
-        row["reviewer"], row["outcome"], row["outcome_on"] = reviewer.strip(), outcome, today
-        if notes:
-            row["notes"] = "; ".join(t for t in (row["notes"], notes) if t)
+        if outcome == "stored":
+            row = next((r for r in matches if (r.get("outcome") or "").strip() == "confirm"), None)
+            if row is None:
+                raise QueueError(f"row {key!r} is not a confirm row: only a confirmed row can be marked stored")
+        else:
+            # An undecided row comes before a needs_evidence row, so a repeat row of the same key can be reached.
+            row = next((r for r in matches if not (r.get("outcome") or "").strip()), None) or next((r for r in matches if is_open(r)), None)
+            if row is None:
+                done = matches[0]
+                raise QueueError(f"row {key!r} already decided: {done['outcome']} by {done['reviewer']} on {done['outcome_on']}")
+        joined = "; ".join(t for t in (row["notes"], notes) if t)
+        if outcome == "stored" and not any((repo / path).is_file() for path in RECORD_PATH.findall(joined)):
+            raise QueueError(f"row {key!r}: its notes name no record file that exists (records/<ISO2>/<instrument>/<file>.json); add the path with --notes")
+        row["reviewer"], row["outcome"], row["outcome_on"], row["notes"] = reviewer.strip(), outcome, today, joined
         write_queue(repo, rows)
         if outcome == "reject" and row["change"] in CHANGES:
             seen_path = repo / "upkeep" / "seen.json"

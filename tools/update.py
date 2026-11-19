@@ -2,7 +2,8 @@
 """Turn a confirmed queue row into one record file and one commit on an upkeep branch.
 
 python3 tools/update.py [--row <watcher_id>:<signal>] [--dry-run] [--no-commit]
-python3 tools/update.py --row <key> --file <path> --url <url> [--plain] [--language <code>] [--in-force DATE]
+python3 tools/update.py --row <key> --file <path> --url <url> [--plain] [--language <code>] [--in-force DATE] [--evidence TEXT]
+python3 tools/update.py --row <key> --in-force DATE [--evidence TEXT]
 
 Every row of upkeep/queue.csv with outcome `confirm` and change `new_version` (or the one named by
 --row) is processed: the text is fetched with the recipe of its sources.json row, one record is
@@ -10,7 +11,14 @@ written under records/<iso2>/<instrument>/, the scope.json entry is marked store
 to SOURCES.md under `### upkeep`, the admission gate (tools/check_corpus.py) runs, and the four paths
 are committed to a branch upkeep/<iso2>-<instrument>-<in_force> created from the current branch.
 A row whose source verdict is not `pass` at that moment, or whose record fails the gate, is refused:
-the reason goes into its `notes`, `outcome` stays as the reviewer left it. Nothing is ever pushed.
+the reason goes into its `notes`, `outcome` stays as the reviewer left it. A row whose source has no recipe
+is left open with that reason in its `notes`. Nothing is ever pushed.
+
+--in-force DATE (with --row) is the reviewer's in-force date. It is used instead of the row's signal, with or
+without --file, so a page_hash, http_head or text_hash row (whose signal is no date) can be stored, and so can a
+date_list row whose date is a publication date. --evidence TEXT (with --in-force) is the passage of the stored text
+that gives the date, quoted as it stands; the row is refused when the text does not contain it. It goes into the
+SOURCES.md line and the commit as an `In-force-evidence` trailer.
 
 A confirmed row with change `repealed` goes the same way without a fetch: the record written is a
 repeal (`text` empty, `repealed: true`, `in_force` the row's signal), so the dated history gains one
@@ -19,9 +27,8 @@ not a date is refused.
 
 With --file the text is a file the reviewer fetched by hand from --url, not a recipe fetch: the same verdict
 check, record, scope mark, SOURCES.md line, gate and branch commit, with `supplied_by_hand: true` in the record
-and a `Supplied-by: hand` trailer. --in-force gives the in-force date instead of the row's signal (needed when the
-signal is not a date), --language the record language (a source with no recipe has none), --plain keeps the file's own line breaks instead of
-running the extractor. A `repealed` row is refused: a repeal stores no text.
+and a `Supplied-by: hand` trailer. --language is the record language (a source with no recipe has none), --plain
+keeps the file's own line breaks instead of running the extractor. A `repealed` row is refused: a repeal stores no text.
 """
 import argparse
 import contextlib
@@ -64,12 +71,12 @@ def _celex(entry):
     return match.group(0)
 
 
-def eu_adopted(entry, in_force):
+def eu_adopted(entry, in_force, today):
     """EUR-Lex Cellar, adopted act by CELEX number (SOURCES.md, EU)."""
     return {"url": CELLAR + _celex(entry), "headers": EU_HEADERS, "drop": ("head", "script", "style")}
 
 
-def eu_consolidated(entry, in_force):
+def eu_consolidated(entry, in_force, today):
     """EUR-Lex Cellar, consolidated text: CELEX with a leading 0 and the consolidation date as a suffix."""
     celex = _celex(entry)
     return {"url": f"{CELLAR}0{celex[1:]}-{in_force.replace('-', '')}", "headers": EU_HEADERS,
@@ -80,20 +87,24 @@ def _uk_base(entry):
     return re.sub(r"/(data\.xml|data\.html|made|enacted|contents)$", "", entry["official_url"].rstrip("/"))
 
 
-def uk_adopted(entry, in_force):
+def uk_adopted(entry, in_force, today):
     """legislation.gov.uk as enacted (primary) or as made (secondary) data.xml."""
     base = _uk_base(entry)
     form = "enacted" if re.search(r"legislation\.gov\.uk/(ukpga|asp|anaw|asc|nia|apni|ukla|ukcm|mwa|aep|aip|apgb|ukppa)/", base) else "made"
     return {"url": f"{base}/{form}/data.xml", "headers": {}, "drop": ("metadata", "explanatorynotes")}
 
 
-def uk_consolidated(entry, in_force):
+def uk_consolidated(entry, in_force, today):
     """legislation.gov.uk revised text: the current data.xml of the instrument. The pilot found that the
-    point-in-time URL for a version's own date does not return that version (SOURCES.md, UK)."""
+    point-in-time URL for a version's own date does not return that version (SOURCES.md, UK), so the current text
+    can be stored only under today's date; any other date is refused (fetch that version by hand and use --file)."""
+    if in_force != today:
+        raise ValueError(f"legislation.gov.uk serves only the current text, which cannot be stored under {in_force} "
+                         f"(today is {today}): fetch that version by hand and use --file")
     return {"url": f"{_uk_base(entry)}/data.xml", "headers": {}, "drop": ("metadata", "explanatorynotes")}
 
 
-def ecfr(entry, in_force):
+def ecfr(entry, in_force, today):
     """eCFR versioner, full title XML for one part at a date; the endpoint requires compression."""
     match = re.search(r"title-(\d+)/part-([\w.]+)", entry["official_url"])
     if not match:
@@ -220,7 +231,8 @@ def mark_row(repo, key, note, outcome=None):
     rows = load_queue(repo)
     for row in rows:
         if row_key(row) == key and row["outcome"] == "confirm":
-            row["notes"] = f"{row['notes']}; {note}" if row["notes"] else note
+            if note not in row["notes"]:  # a rerun that meets the same obstacle adds nothing
+                row["notes"] = f"{row['notes']}; {note}" if row["notes"] else note
             if outcome:
                 row["outcome"] = outcome
     save_queue(repo, rows)
@@ -270,27 +282,33 @@ def add_sources_line(path, line):
 
 # ---------------------------------------------------------------- the flow
 
-def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=True, out=None, hand=None):
+def update(repo=ROOT, fetch=None, today=None, row=None, dry_run=False, commit=True, out=None, hand=None,
+           reviewer_date=None, evidence=None):
     """Process the confirmed rows. Return a list of {key, status, detail[, path, branch]} where status is
     `stored`, `refused` (reason written to notes), `open` (left as is) or `planned` (dry run).
 
     A real run holds the upkeep lock from the first queue read to the last git command, so queue.py and watch.py
     wait their turn and nobody edits queue.csv while this run switches branches. A dry run writes nothing and takes none.
 
-    hand = {file, url, plain, language, in_force} stores one row (`row` is required) from a file fetched by hand.
+    hand = {file, url, plain, language} stores one row (`row` is required) from a file fetched by hand.
+    reviewer_date (`row` is required) is the reviewer's in-force date, used instead of the row's signal, with or without
+    a hand file. evidence (needs reviewer_date) is the passage of the stored text that gives that date.
     """
     repo = Path(repo).resolve()
     with contextlib.nullcontext() if dry_run else upkeep_lock(repo):
-        return _update(repo, fetch, today, row, dry_run, commit, out, hand)
+        return _update(repo, fetch, today, row, dry_run, commit, out, hand, reviewer_date, evidence)
 
 
-def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
+def _update(repo, fetch, today, row, dry_run, commit, out, hand=None, reviewer_date=None, evidence=None):
     fetch = fetch or default_fetch
+    if reviewer_date and (row is None or not real_date(reviewer_date)):
+        raise ValueError(f"--in-force {reviewer_date!r} needs --row and a real date as YYYY-MM-DD")
+    if evidence and not reviewer_date:
+        raise ValueError("--evidence goes with --in-force")
+    evidence = " ".join(evidence.split()) if evidence else None  # one line, so it fits a SOURCES.md line and a trailer
     if hand:
         if row is None or not re.fullmatch(r"https?://[^\s`]+", hand["url"] or ""):
             raise ValueError("--file needs --row and --url, an http(s) address with no spaces or backticks")
-        if hand["in_force"] and not real_date(hand["in_force"]):
-            raise ValueError(f"--in-force {hand['in_force']!r} is not a real date as YYYY-MM-DD")
         if hand["language"] and not re.fullmatch(r"[a-z]{2}", hand["language"]):
             raise ValueError(f"--language {hand['language']!r} is not an ISO 639-1 code (two lowercase letters)")
         hand_body = Path(hand["file"]).read_bytes()
@@ -325,7 +343,7 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
 
     for r in selected:
         key, iso2, instrument, source_id = row_key(r), r["iso2"], r["instrument"], r["source_id"]
-        in_force = (hand or {}).get("in_force") or r["signal"]  # --in-force is the reviewer's date for a row with none
+        in_force = reviewer_date or r["signal"]  # --in-force is the reviewer's date: the signal may be a hash, or a publication date
         repeal = r.get("change") == "repealed"
 
         def refuse(reason):
@@ -343,7 +361,7 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
                 refuse(f"signal {in_force!r} is not a repeal date (YYYY-MM-DD)")
             else:
                 say(key, "open", f"signal {in_force!r} is not an in-force date, left open"
-                                 + (" (pass --in-force DATE)" if hand else ""))
+                                 + (" (pass --in-force DATE)" if row is not None else ""))
             continue
         source = sources.get(source_id)
         if source is None:
@@ -358,6 +376,8 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
         recipe = RECIPES.get(source_id)
         if recipe is None and not repeal and not hand:  # a repeal fetches nothing, a hand file needs no recipe
             say(key, "open", f"no recipe for {source_id}")
+            if not dry_run:
+                mark_row(repo, key, f"no recipe for {source_id}: store the text by hand with --file")
             continue
         scope_path = repo / "register" / iso2 / "scope.json"
         scope = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else []
@@ -393,7 +413,7 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
             plan = {"url": hand["url"], "headers": {}, "drop": HAND_DROP}
         else:
             try:
-                plan = recipe(entry, in_force)
+                plan = recipe(entry, in_force, today)
             except ValueError as exc:
                 refuse(str(exc))
                 continue
@@ -404,10 +424,13 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
                                 + (f", commit to {branch}" if commit else ", leave the files uncommitted"))
             continue
         if repeal:
-            evidence = r.get("evidence_url") or "none"
+            if evidence:
+                refuse("a repeal stores no text for --evidence to quote")
+                continue
+            evidence_url = r.get("evidence_url") or "none"
             record = {"source_id": source_id, "in_force": in_force, "kind": kind, "language": language, "text": "", "repealed": True}
-            provenance = f"repeal dated {in_force}, no fetch, evidence `{evidence}`"
-            trailers = f"Evidence-url: {evidence}"
+            provenance = f"repeal dated {in_force}, no fetch, evidence `{evidence_url}`"
+            trailers = f"Evidence-url: {evidence_url}"
         else:
             try:
                 status, body = fetch(plan["url"], plan["headers"])
@@ -424,6 +447,9 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
             if not text.strip():
                 refuse(f"no text extracted from {plan['url']}")
                 continue
+            if evidence and evidence not in " ".join(text.split()):
+                refuse(f"--evidence {evidence!r} is not in the text of {plan['url']}")
+                continue
             sha256 = hashlib.sha256(body).hexdigest()
             record = {"source_id": source_id, "in_force": in_force, "kind": kind, "language": language, "text": text,
                       "fetched_url": plan["url"], "fetched_sha256": sha256}
@@ -434,6 +460,9 @@ def _update(repo, fetch, today, row, dry_run, commit, out, hand=None):
             if hand:
                 record["supplied_by_hand"] = True
                 trailers += "\nSupplied-by: hand"
+            if evidence:
+                provenance += f", in force {in_force} per \"{evidence}\""
+                trailers += f"\nIn-force-evidence: {evidence}"
         sources_md = repo / "SOURCES.md"
         before = {p: (p.read_bytes() if p.exists() else None) for p in (scope_path, sources_md)}
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -489,17 +518,22 @@ def main(argv=None):
     parser.add_argument("--url", help="the URL --file was fetched from, recorded as fetched_url")
     parser.add_argument("--plain", action="store_true", help="with --file: keep the file's line breaks, skip the extractor")
     parser.add_argument("--language", help="with --file: ISO 639-1 language of the text (default: the recipe's)")
-    parser.add_argument("--in-force", help="with --file: in-force date YYYY-MM-DD, used instead of the row's signal")
+    parser.add_argument("--in-force", help="in-force date YYYY-MM-DD, used instead of the row's signal (needs --row)")
+    parser.add_argument("--evidence", help="with --in-force: the passage of the stored text that gives the date, quoted as it stands")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
-    if args.file is None and (args.url or args.plain or args.language or args.in_force):
-        parser.error("--url, --plain, --language and --in-force go with --file")
+    if args.file is None and (args.url or args.plain or args.language):
+        parser.error("--url, --plain and --language go with --file")
     if args.file is not None and not (args.row and args.url):
         parser.error("--file needs --row and --url")
-    hand = None if args.file is None else {"file": args.file, "url": args.url, "plain": args.plain,
-                                           "language": args.language, "in_force": args.in_force}
+    if args.in_force and not args.row:
+        parser.error("--in-force needs --row")
+    if args.evidence and not args.in_force:
+        parser.error("--evidence goes with --in-force")
+    hand = None if args.file is None else {"file": args.file, "url": args.url, "plain": args.plain, "language": args.language}
     try:
-        results = update(args.repo, row=args.row, dry_run=args.dry_run, commit=not args.no_commit, hand=hand)
+        results = update(args.repo, row=args.row, dry_run=args.dry_run, commit=not args.no_commit, hand=hand,
+                         reviewer_date=args.in_force, evidence=args.evidence)
     except (ValueError, OSError, json.JSONDecodeError, KeyError, subprocess.CalledProcessError) as exc:
         print(getattr(exc, "stderr", None) or exc, file=sys.stderr)
         return 1
