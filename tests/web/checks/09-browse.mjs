@@ -45,16 +45,17 @@ function pageRead() {
       note: note ? { text: note.textContent, hidden: note.hidden, shown: note.checkVisibility() } : null,
       gridRole: grid ? grid.getAttribute("role") : null,
       alt: grid ? grid.getAttribute("aria-label") : null,
-      cells: grid ? [...grid.children].map((c) => ({ code: c.textContent, place: c.getAttribute("data-place"), state: c.getAttribute("data-state"), colour: bg(c) })) : [],
+      cells: grid ? [...grid.querySelectorAll(".cell")].map((c) => ({ region: c.closest(".region") && c.closest(".region").getAttribute("data-region"), code: c.textContent, place: c.getAttribute("data-place"), state: c.getAttribute("data-state"), colour: bg(c) })) : [],
       legend: [...s.querySelectorAll("#browse-legend li")].map((li) => {
         const sw = li.querySelector(".swatch");
         return { text: li.textContent, state: sw && sw.getAttribute("data-state"), colour: sw && bg(sw) };
       }),
       caption: text(q("#browse-table caption")),
       headers: [...s.querySelectorAll("#browse-table thead th")].map((th) => [th.textContent, th.getAttribute("scope")]),
-      rows: [...s.querySelectorAll("#browse-table tbody tr")].map((tr) => {
+      rows: [...s.querySelectorAll("#browse-table tbody tr[data-place]")].map((tr) => {
         const th = tr.querySelector("th");
         return {
+          region: tr.closest("tbody").getAttribute("data-region"),
           place: tr.getAttribute("data-place"),
           head: text(th),
           scope: th && th.getAttribute("scope"),
@@ -64,6 +65,7 @@ function pageRead() {
         };
       }),
       children: [...s.children].map((c) => c.id),
+      regionRows: [...s.querySelectorAll("#browse-table tbody tr.region-row th")].map((th) => [th.textContent, th.getAttribute("scope"), th.getAttribute("colspan")]),
     };
   } catch (e) {
     return { error: String(e) };
@@ -178,7 +180,7 @@ export async function run(h) {
       ["table link only sum", sum(d.rows.map((r) => nums(r)[2])), want.linkOnlyLaws],
     ]);
     for (let i = 0; i < want.rows.length && problems.length < 12; i++) {
-      const w = want.rows[i], r = d.rows[i], c = d.cells[i];
+      const w = want.rows[i], r = d.rows.find((x) => x.place === w.code), c = d.cells.find((x) => x.code === w.code);
       if (!r || !c) { problems.push("missing row or cell at position " + i + " (" + w.code + ")"); continue; }
       problems.push(...h.eqs([
         [w.code + " cell code", c.code, w.code], [w.code + " cell place", c.place, w.code], [w.code + " cell state", c.state, w.state],
@@ -189,8 +191,8 @@ export async function run(h) {
         [w.code + " row figures", nums(r).join(","), [w.stored + w.link, w.stored, w.link].join(",")],
       ]));
     }
-    for (let i = 1; i < d.cells.length; i++) if (!(d.cells[i - 1].code < d.cells[i].code)) { problems.push("cells not in ascending code order at " + d.cells[i - 1].code + ", " + d.cells[i].code); break; }
-    for (let i = 1; i < d.rows.length; i++) if (!(d.rows[i - 1].place < d.rows[i].place)) { problems.push("rows not in ascending code order at " + d.rows[i - 1].place + ", " + d.rows[i].place); break; }
+    for (let i = 1; i < d.cells.length; i++) if (d.cells[i - 1].region === d.cells[i].region && !(d.cells[i - 1].code < d.cells[i].code)) { problems.push("cells not in ascending code order within a region at " + d.cells[i - 1].code + ", " + d.cells[i].code); break; }
+    for (let i = 1; i < d.rows.length; i++) if (d.rows[i - 1].region === d.rows[i].region && !(d.rows[i - 1].place < d.rows[i].place)) { problems.push("rows not in ascending code order within a region at " + d.rows[i - 1].place + ", " + d.rows[i].place); break; }
     return problems;
   }
 
@@ -202,6 +204,16 @@ export async function run(h) {
     ["no corpus places", want.byState.none, STORY.none], ["laws", want.laws, STORY.laws], ["text stored laws", want.textStored, STORY.textStored], ["link only laws", want.linkOnlyLaws, STORY.linkOnlyLaws],
   ]));
   h.verdict("09-ac1", "the page shows 250 cells (140 text stored, 86 link only, 24 no corpus) and 250 rows summing to 1404, 851 and 553, each place with its own figures, in code order", figureProblems(d));
+  // Varun 2026-11-19: the grid is grouped by UN M49 region, in a fixed order; no real place falls to Other.
+  h.verdict("09-ac1", "every cell sits under its region heading, regions in order, none under Other", h.eqs([
+    ["region order", [...new Set(d.cells.map((c) => c.region))].join(" | "), "Africa | Americas | Asia | Europe | Oceania | Antarctica | Regional bodies"],
+    ["places under Other", d.cells.filter((c) => c.region === "Other").map((c) => c.code).join(" "), ""],
+    ["EU region", (d.cells.find((c) => c.code === "EU") || {}).region, "Regional bodies"],
+    ["table rows in grid order", d.rows.map((r) => r.region + ":" + r.place).join(" "), d.cells.map((c) => c.region + ":" + c.code).join(" ")],
+    ["table region rows", JSON.stringify(d.regionRows.map(([t, scope, span]) => [t.replace(/\d+ places?$/, ""), scope, span])), JSON.stringify([...new Set(d.cells.map((c) => c.region))].map((name) => [name, "rowgroup", "4"]))],
+    ["moved to Europe", ["CY", "TR", "GE", "AM", "AZ"].map((code) => (d.cells.find((c) => c.code === code) || {}).region).join(" "), "Europe Europe Europe Europe Europe"],
+    ["region note", await h.evaluate('(document.getElementById("browse-regions") || {}).textContent'), "Regions follow the UN M49 list, except Cyprus, Turkey, Georgia, Armenia and Azerbaijan, which are listed under Europe."],
+  ]));
   const inState = (s) => d.cells.filter((c) => c.state === s).length, column = (i) => sum(d.rows.map((r) => Number(r.nums[i])));
   console.log("  09-ac1 read from the DOM: " + d.cells.length + " cells (" + inState("stored") + " text stored, " + inState("link-only") + " link only, " + inState("none") + " no corpus), " + d.rows.length + " rows summing to " + column(0) + " instruments, " + column(1) + " text stored, " + column(2) + " link only; data-check " + d.check);
   h.verdict("09-ac1", "data-check reads ok and the failure line is hidden and empty", h.eqs([
@@ -300,7 +312,7 @@ export async function run(h) {
   // Varun 2026-11-19, STORY-GEL-34-14: story 09 held that the section has no tab stop; it now holds one per place, in code order, each a link to #place=<code>.
   await h.open("ok");
   const wide = await measure("wide");
-  const wantStops = want.rows.map((r) => "A #place=" + r.code);
+  const wantStops = d.rows.map((r) => "A #place=" + r.place); // table order: by region, then code (checked in 09-ac1)
   const stopProblems = (got, label) => {
     const i = wantStops.findIndex((w, k) => got[k] !== w);
     return got.length === wantStops.length && i < 0 ? [] : [label + ": " + got.length + " tab stops, want " + wantStops.length + (i < 0 ? "" : "; stop " + i + " is " + h.fmt(got[i]) + ", want " + wantStops[i])];
@@ -311,9 +323,9 @@ export async function run(h) {
     await h.press("Tab");
     stops.push(await h.evaluate(call(pageTabStop)));
   }
-  const walkBad = stops.slice(0, want.places).map((s, i) => (s.inside && s.href === "#place=" + want.rows[i].code ? null : "Tab " + (i + 1) + " landed on " + h.fmt(s.href || s.name) + ", want #place=" + want.rows[i].code)).filter(Boolean);
-  h.verdict("09-ac6", "the section holds one tab stop per place, in code order, each a link to #place=<code>, and nothing else (no button, field or tabindex)", stopProblems(wide.tabStops, "section"));
-  h.verdict("09-ac6", "Tab from the section's heading passes through the place links in code order, and the Tab after the last place link leaves the section", [
+  const walkBad = stops.slice(0, want.places).map((s, i) => (s.inside && s.href === "#place=" + d.rows[i].place ? null : "Tab " + (i + 1) + " landed on " + h.fmt(s.href || s.name) + ", want #place=" + d.rows[i].place)).filter(Boolean);
+  h.verdict("09-ac6", "the section holds one tab stop per place, in table order, each a link to #place=<code>, and nothing else (no button, field or tabindex)", stopProblems(wide.tabStops, "section"));
+  h.verdict("09-ac6", "Tab from the section's heading passes through the place links in table order, and the Tab after the last place link leaves the section", [
     ...walkBad.slice(0, 3), ...(walkBad.length > 3 ? ["and " + (walkBad.length - 3) + " more"] : []),
     ...(stops[want.places].inside ? ["the Tab after the last place link stays inside the section"] : []),
   ]);
@@ -362,11 +374,11 @@ export async function run(h) {
   // The cell click opens the place view (story 14), which hides the table; close it before clicking a row link.
   await h.evaluate('location.hash = "#browse-by-place"');
   await h.waitFor('document.body.getAttribute("data-view") !== "place"');
-  await clickAt("#browse-table tbody tr:nth-child(5) th a");
+  await clickAt("#browse-table tbody tr[data-place=" + d.rows[4].place + "] th a");
   const afterRow = await h.evaluate(call(pageSnap));
   const changed = (snap) => Object.keys(before).filter((k) => k !== "hash" && JSON.stringify(snap[k]) !== JSON.stringify(before[k])).map((k) => k + " changed: " + h.fmt(before[k]).slice(0, 80) + " -> " + h.fmt(snap[k]).slice(0, 80));
-  h.verdict("09-ac7", "a click on a grid cell sets the hash to #place=<code> of that cell and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the cell click", afterCell.hash, "#place=" + want.rows[0].code]]), ...changed(afterCell)]);
-  h.verdict("09-ac7", "a click on the place link of a table row sets the hash to #place=<code> of that row and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the link click", afterRow.hash, "#place=" + want.rows[4].code]]), ...changed(afterRow)]);
+  h.verdict("09-ac7", "a click on a grid cell sets the hash to #place=<code> of that cell and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the cell click", afterCell.hash, "#place=" + d.cells[0].code]]), ...changed(afterCell)]);
+  h.verdict("09-ac7", "a click on the place link of a table row sets the hash to #place=<code> of that row and leaves the match list, law box, date and answer as they were", [...h.eqs([["hash after the link click", afterRow.hash, "#place=" + d.rows[4].place]]), ...changed(afterRow)]);
   await h.evaluate(call(pageStubLink));
   const landed = await h.until(async () => {
     const r = await h.evaluate(call(pageLanded));

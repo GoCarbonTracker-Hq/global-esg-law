@@ -483,7 +483,7 @@ async function p4(h, E) {
     ...(L.state === "interim" ? [] : ["the page's state is " + L.state + ", want interim"]),
   ]);
 
-  const rows = await h.evaluate(`[...document.querySelectorAll("#browse-table tbody tr")].map((tr) => ({ code: tr.getAttribute("data-place"), head: tr.querySelector("th").textContent, nums: [...tr.querySelectorAll("td")].map((td) => td.textContent) }))`);
+  const rows = await h.evaluate(`[...document.querySelectorAll("#browse-table tbody tr[data-place]")].map((tr) => ({ code: tr.getAttribute("data-place"), head: tr.querySelector("th").textContent, nums: [...tr.querySelectorAll("td")].map((td) => td.textContent) }))`);
   const byCode = new Map(rows.map((r) => [r.code, r]));
   const eu = Q.places.find((x) => x.iso2 === "EU"), euRow = byCode.get("EU");
   console.log("  P4 Browse by place, EU: query.list_places " + eu.name + " " + eu.instrument_count + " instruments, " + eu.stored_count + " text stored, " + eu.link_only_count + " link only; the page row prints " + h.fmt(euRow));

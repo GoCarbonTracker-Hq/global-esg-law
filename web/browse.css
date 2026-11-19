@@ -23,6 +23,26 @@
 
 #browse-grid {
   display: flex;
+  flex-direction: column;
+  gap: calc(var(--unit) * 2);
+}
+
+.region-name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--unit);
+  margin: 0 0 var(--unit);
+  font-weight: 600;
+}
+
+.region-count {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.region-cells {
+  display: flex;
   flex-wrap: wrap;
   gap: calc(var(--unit) / 2);
 }
@@ -46,6 +66,12 @@
 
 .cell[data-state="stored"] { color: var(--page); }
 .cell[data-state="link-only"], .cell[data-state="none"] { color: var(--text); }
+
+#browse-regions {
+  margin-top: var(--unit);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
 
 #browse-legend {
   display: flex;
@@ -106,6 +132,14 @@
 
 #browse-table tbody th { font-weight: 600; }
 
+#browse-table tr.region-row th {
+  padding-top: calc(var(--unit) * 2);
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+#browse-table .region-count { margin-left: var(--unit); }
+
 @media (min-width: 48rem) {
   #browse-table { font-size: 1rem; }
 }
@@ -135,6 +169,17 @@
   }
 
   #browse-table tbody th { background: var(--panel); }
+
+  #browse-table tr.region-row {
+    margin: calc(var(--unit) * 3) 0 var(--unit);
+    border: 0;
+  }
+
+  #browse-table tr.region-row th {
+    padding-left: 0;
+    background: none;
+    border-bottom: 1px solid var(--border);
+  }
 
   #browse-table td::before { content: attr(data-label) ": "; }
 }

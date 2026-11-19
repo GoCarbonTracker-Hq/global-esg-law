@@ -9,12 +9,34 @@
   ];
   const COLUMNS = ["Instruments", "Text stored", "Link only"];
   const CAPTION = "Laws by place: how many are stored as text and how many are held as links only";
+  // Places grouped by UN M49 region, except that Cyprus (an EU member), Turkey, Georgia, Armenia and Azerbaijan
+  // (Council of Europe members) sit under Europe, as a reader of European law would look for them; NOTE says so on the page.
+  // Antarctica has no M49 region; the EU is a regional body, not a place on a map.
+  const REGIONS = [
+    ["Africa", "AO BF BI BJ BW CD CF CG CI CM CV DJ DZ EG EH ER ET GA GH GM GN GQ GW IO KE KM LR LS LY MA MG ML MR MU MW MZ NA NE NG RE RW SC SD SH SL SN SO SS ST SZ TD TF TG TN TZ UG YT ZA ZM ZW"],
+    ["Americas", "AG AI AR AW BB BL BM BO BQ BR BS BV BZ CA CL CO CR CU CW DM DO EC FK GD GF GL GP GS GT GY HN HT JM KN KY LC MF MQ MS MX NI PA PE PM PR PY SR SV SX TC TT US UY VC VE VG VI"],
+    ["Asia", "AE AF BD BH BN BT CN HK ID IL IN IQ IR JO JP KG KH KP KR KW KZ LA LB LK MM MN MO MV MY NP OM PH PK PS QA SA SG SY TH TJ TL TM TW UZ VN YE"],
+    ["Europe", "AD AL AM AT AX AZ BA BE BG BY CH CY CZ DE DK EE ES FI FO FR GB GE GG GI GR HR HU IE IM IS IT JE LI LT LU LV MC MD ME MK MT NL NO PL PT RO RS RU SE SI SJ SK SM TR UA VA"],
+    ["Oceania", "AS AU CC CK CX FJ FM GU HM KI MH MP NC NF NR NU NZ PF PG PN PW SB TK TO TV UM VU WF WS"],
+    ["Antarctica", "AQ"],
+    ["Regional bodies", "EU"],
+  ];
+  const NOTE = "Regions follow the UN M49 list, except Cyprus, Turkey, Georgia, Armenia and Azerbaijan, which are listed under Europe.";
+  const regionOf = {};
+  for (const [name, codes] of REGIONS) for (const code of codes.split(" ")) regionOf[code] = name;
 
   function el(tag, text, attrs) {
     const node = document.createElement(tag);
     if (text) node.textContent = text;
     for (const name of Object.keys(attrs || {})) node.setAttribute(name, attrs[name]);
     return node;
+  }
+
+  // A region's name with its place count after it, for the grid heading and the table's group row.
+  function regionLabel(tag, name, n, attrs) {
+    const label = el(tag, name, attrs);
+    label.append(el("span", `${n} ${n === 1 ? "place" : "places"}`, { class: "region-count" }));
+    return label;
   }
 
   const stateOf = (row) => (row.stored ? "stored" : row.link ? "link-only" : "none");
@@ -30,11 +52,11 @@
   }
 
   // Reads back the grid and the table that draw() made and compares them with the entries and the place list.
-  function problems(data, grid, tbody) {
+  function problems(data, grid, table) {
     const found = [];
     const entries = data.entries;
-    const cells = Array.from(grid.children);
-    const rows = Array.from(tbody.children).map((tr) => {
+    const cells = Array.from(grid.querySelectorAll(".cell"));
+    const rows = Array.from(table.querySelectorAll("tbody tr[data-place]")).map((tr) => {
       const num = (label) => parseInt(Array.from(tr.children).find((td) => td.getAttribute("data-label") === label).textContent, 10);
       return { code: tr.getAttribute("data-place"), v: COLUMNS.map(num) };
     });
@@ -88,9 +110,23 @@
     const grid = el("div", "", {
       id: "browse-grid",
       role: "img",
-      "aria-label": `${inState("stored")} places have at least one law with stored text, ${inState("link-only")} places hold links only, ${inState("none")} places have no corpus. The table below lists every place with its figures. Choose a place in the table below to see its laws.`,
+      "aria-label": `${inState("stored")} places have at least one law with stored text, ${inState("link-only")} places hold links only, ${inState("none")} places have no corpus. The places are grouped by region. The table below lists every place with its figures. Choose a place in the table below to see its laws.`,
     });
-    for (const r of rows) grid.append(el("span", r.code, { class: "cell", "data-place": r.code, "data-state": stateOf(r) }));
+    const groups = new Map(REGIONS.map(([name]) => [name, []]));
+    for (const r of rows) {
+      const name = regionOf[r.code] || "Other";
+      if (!groups.has(name)) groups.set(name, []);
+      groups.get(name).push(r);
+    }
+    for (const [name, list] of groups) {
+      if (!list.length) continue;
+      const label = regionLabel("p", name, list.length, { class: "region-name" });
+      const cells = el("div", "", { class: "region-cells" });
+      for (const r of list) cells.append(el("span", r.code, { class: "cell", "data-place": r.code, "data-state": stateOf(r) }));
+      const group = el("div", "", { class: "region", "data-region": name });
+      group.append(label, cells);
+      grid.append(group);
+    }
     // A click on a cell opens its place; the keyboard reaches every place through the table links.
     grid.addEventListener("click", (event) => {
       const cell = event.target.closest(".cell");
@@ -103,28 +139,36 @@
       legend.append(item);
     }
     const block = el("div", "", { id: "browse-grid-block" });
-    block.append(grid, legend);
+    block.append(grid, legend, el("p", NOTE, { id: "browse-regions" }));
 
     const head = el("tr");
     for (const name of ["Place", ...COLUMNS]) head.append(el("th", name, { scope: "col" }));
     const thead = el("thead");
     thead.append(head);
-    const tbody = el("tbody");
-    for (const r of rows) {
-      const tr = el("tr", "", { "data-place": r.code });
-      const th = el("th", "", { scope: "row" });
-      th.append(el("a", `${r.name} (${r.code})`, { href: `#place=${r.code}` }));
-      tr.append(th);
-      [r.stored + r.link, r.stored, r.link].forEach((n, i) => tr.append(el("td", String(n), { "data-label": COLUMNS[i] })));
-      tbody.append(tr);
-    }
     const table = el("table", "", { id: "browse-table" });
-    table.append(el("caption", CAPTION), thead, tbody);
+    table.append(el("caption", CAPTION), thead);
+    for (const [name, list] of groups) {
+      if (!list.length) continue;
+      const tbody = el("tbody", "", { "data-region": name });
+      const regionRow = el("tr", "", { class: "region-row" });
+      regionRow.append(regionLabel("th", name, list.length, { colspan: "4", scope: "rowgroup" }));
+      tbody.append(regionRow);
+      for (const r of list) {
+        const tr = el("tr", "", { "data-place": r.code });
+        const th = el("th", "", { scope: "row" });
+        th.append(el("a", `${r.name} (${r.code})`, { href: `#place=${r.code}` }));
+        tr.append(th);
+        [r.stored + r.link, r.stored, r.link].forEach((n, i) => tr.append(el("td", String(n), { "data-label": COLUMNS[i] })));
+        tbody.append(tr);
+      }
+      table.append(tbody);
+    }
+
     const wrap = el("div", "", { id: "browse-table-wrap" });
     wrap.append(table);
 
     section.replaceChildren(heading, totals, read, note, block, wrap);
-    return problems(data, grid, tbody);
+    return problems(data, grid, table);
   }
 
   GEL.load = async function () {
