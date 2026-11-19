@@ -12,6 +12,7 @@
     adopted: "Adopted version: the act as first published, with later amendments not merged in.",
     translation: "Translation: a translation of the official-language text.",
   };
+  GEL.KIND_TEXT = Object.freeze({ ...KIND_TEXT });
   // Text fields of an in-force answer; each is emptied before any answer is drawn.
   const PLAIN_FIELDS = ["since", "applies", "applies-note", "kind", "language", "codes", "link", "source"];
 

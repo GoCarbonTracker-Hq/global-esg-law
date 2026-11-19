@@ -1,0 +1,102 @@
+/* A place's own page: the Browse by place rows link here (#place=XX). Custom properties of style.css only, no colour written here.
+   The table stacks into cards by its own width (container query), as browse.css does. */
+
+body[data-view="place"] header,
+body[data-view="place"] main,
+body[data-view="place"] #browse-by-place { display: none; }
+
+#place-view > p:first-child { margin-top: calc(var(--unit) * 2); }
+
+#place-heading { margin-top: calc(var(--unit) * 2); overflow-wrap: anywhere; }
+
+#place-totals { margin-top: calc(var(--unit) * 2); }
+
+#place-read {
+  margin-top: var(--unit);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--secondary);
+}
+
+#place-view > p:last-child:not(#place-totals):not(#place-read) { margin-top: calc(var(--unit) * 2); }
+
+#place-view a,
+#place-view summary { display: inline-block; min-height: 1.5rem; }
+
+#place-view summary { cursor: pointer; }
+
+#place-table-wrap {
+  margin-top: calc(var(--unit) * 3);
+  container-type: inline-size;
+}
+
+#place-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+#place-table caption {
+  padding-bottom: var(--unit);
+  color: var(--secondary);
+  text-align: left;
+}
+
+#place-table th,
+#place-table td {
+  padding: var(--unit);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word; /* a code such as official_text_seen is not broken unless it cannot fit */
+}
+
+#place-table tbody th { overflow-wrap: anywhere; } /* a title can hold a long unbroken string; it wraps, the other columns keep their words */
+
+#place-table thead th { border-bottom: 1px solid var(--border); }
+
+#place-table tbody th,
+#place-table tbody td { border-bottom: 1px solid var(--divider); }
+
+#place-table tbody th { font-weight: 400; }
+
+.law-title { display: block; font-weight: 600; }
+
+.law-citation,
+.law-note {
+  display: block;
+  color: var(--secondary);
+}
+
+#place-table details { margin-top: var(--unit); }
+
+#place-table ul {
+  margin: var(--unit) 0 0;
+  padding-left: calc(var(--unit) * 2);
+}
+
+#place-table li + li { margin-top: var(--unit); }
+
+@container (width < 48rem) {
+  #place-table,
+  #place-table caption,
+  #place-table thead,
+  #place-table tbody,
+  #place-table tr,
+  #place-table th,
+  #place-table td { display: block; }
+
+  #place-table thead { display: none; }
+
+  #place-table tr {
+    margin-bottom: calc(var(--unit) * 2);
+    border: 1px solid var(--divider);
+  }
+
+  #place-table tbody th,
+  #place-table tbody td { border-bottom: 0; }
+
+  #place-table tbody th { background: var(--panel); }
+
+  #place-table td::before { content: attr(data-label) ": "; }
+}
