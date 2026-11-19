@@ -10,6 +10,13 @@ What changed in the corpus, the tools and the documentation, newest first. Each 
 The log starts on 2026-11-10. Earlier work is in the git history and in the dated notes under `upkeep/`.
 
 ## 2026-11-19
+- **Added:** queue outcome `stored`, set on a `confirm` row once its record file exists; the four hand-stored rows (ES, KR, AT, CR) carry it. A confirmed row with no fetch recipe gets the reason in its notes, and `queue.py` lists confirmed rows not yet stored. `SOURCES.md` has a fixed `### upkeep` heading that `update.py` writes under. Issue #21 U4, U10.
+- **Changed:** `update.py --in-force DATE [--evidence TEXT]` works on any confirmed row, with or without `--file`, and replaces the signal as the date; the evidence must be found in the stored text. `upkeep/README.md` no longer says the signal is the in-force date. Issue #21 R3, U5.
+- **Fixed:** the UK recipe refuses an in-force date other than today unless `--file` is given (#17 T13); the gates refuse impossible record dates and check `status` and `applies_from` on every scope entry (#17 T16); `triage.py --stamp` defaults to the current month (#17 T18).
+- **Changed:** `watch.py --tier`; a run writes `seen.json` and `queue.csv` as it goes and keeps what it read when cut off; exit 3 when some watchers read nothing, 130 when interrupted. `watch.yml` runs one job per tier; the schedule stays off. Issue #17 T7.
+- **Added:** `params.expect` on every `date_list` watcher with known signals (#17 T2), and a `terms_changed` watcher on the terms page of every `pass` source that lacked one, not yet run or seeded (#17 T8). The 2026-11-11 run is in `upkeep/cadence.json` (#17 D3).
+- **Fixed:** `COVERAGE.md` is stamped with the newest check date in the data, not the day it was generated, so release check 4 passes on later days (#17 D2).
+- **Changed:** each stored scope entry with `in_force: null` names its reason in `notes`; no date could be read from the stored texts (#58). `make_sources.py` refuses a `terms_quote` that reads as a fetch or block message; such cells now start "Terms unread:", and three of the six named in #18 step 9 hold a verbatim quote. No verdict changed.
 - **Changed:** `tickets/` is removed. The two working notes in it (GEL-29 scope gaps, GEL-33 deep review) are kept by the maintainer; their open findings are issues #16, #17, #18 and #58.
 
 ## 2026-11-18

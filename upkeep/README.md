@@ -9,7 +9,7 @@ python3 tools/watch.py [--source <sources.json id>] [--dry-run]
 python3 tools/watch.py --reseed <watcher id>
 ```
 
-Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 1 when K > 0. `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing. `--reseed <watcher id>` fetches that one watcher once, stores its current signal in `seen.json` and appends no queue row, except one `baseline` row when `queue.csv` holds no row at all for that watcher (so every watcher has a first-run record) and a `new_version` row for each date a list watcher shows that `seen.json` lacked; use it in the same commit as any change to a watcher's `kind` or `params`, whose old hash would otherwise raise a `new_version` row. A failed fetch leaves `seen.json` as it was and exits 1. A truncated read (`IncompleteRead`) is retried once.
+Each watcher in `watchers.json` is fetched once (a `HEAD` request for `http_head`, a `GET` otherwise, 30 s timeout), its signal is compared with `seen.json`, candidate rows are appended to `queue.csv`, and `seen.json` is updated. The run prints `N watchers run, M candidates, K failures, S s, B bytes` (S and B are the totals of the per-watcher `seconds` and `bytes` written to `seen.json`) and exits 3 when K > 0 (all exit codes are under "Cadence and ceiling"). `--source` runs only the watchers of one licence-table row. `--dry-run` fetches and compares, prints the rows it would append, and writes nothing. `--reseed <watcher id>` fetches that one watcher once, stores its current signal in `seen.json` and appends no queue row, except one `baseline` row when `queue.csv` holds no row at all for that watcher (so every watcher has a first-run record) and a `new_version` row for each date a list watcher shows that `seen.json` lacked; use it in the same commit as any change to a watcher's `kind` or `params`, whose old hash would otherwise raise a `new_version` row. A failed fetch leaves that watcher's entry in `seen.json` as it was, and the run exits 3. A truncated read (`IncompleteRead`) is retried once.
 
 The client is `default_fetch` in `tools/watch.py`, stdlib only. It sends the bare agent `global-esg-law-watch/1` (no URL in it: `lexpol.cloud.pf` drops the connection for an agent that carries one) and three more things happen only after a failure, so a watcher that reads today sends the same request as before:
 
@@ -70,7 +70,7 @@ Appended, never rewritten; rows end in CRLF. A signal already in `seen.json` pro
 | `signal` | The new date, the new header value or hash, the count for a baseline, or the status or exception text for a failure. |
 | `evidence_url` | The URL the signal was read from. |
 | `reviewer` | Filled by a person: who reviewed the row. |
-| `outcome` | Filled by a person: `confirm` (a new version exists and should be stored or listed), `reject` (not a change that matters) or `needs_evidence` (the source must be opened by hand before deciding). |
+| `outcome` | Filled by a person: `confirm` (a new version exists and should be stored or listed), `reject` (not a change that matters) or `needs_evidence` (the source must be opened by hand before deciding); `stored` is set on a `confirm` row once its record file exists (by `tools/update.py`, or `queue.py --outcome stored` when the notes name the record). |
 | `outcome_on` | Filled by a person: date of the decision. |
 | `notes` | For `watch_failed`, the watcher's `second_route` or `none listed`. Otherwise free text for the reviewer. |
 
@@ -82,7 +82,7 @@ The queue is reviewed by a person, one row at a time. `tools/queue.py` reads `qu
 
 ```
 python3 tools/queue.py
-python3 tools/queue.py --outcome confirm|reject|needs_evidence --row <watcher_id>:<signal> --reviewer <name> [--notes TEXT]
+python3 tools/queue.py --outcome confirm|reject|needs_evidence|stored --row <watcher_id>:<signal> --reviewer <name> [--notes TEXT]
 ```
 
 `--notes` writes TEXT into the row's `notes` column; when the row already has notes (a `watch_failed` row carries its `second_route`), TEXT is appended after `; ` and the old text stays.

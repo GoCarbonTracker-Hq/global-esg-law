@@ -46,7 +46,7 @@ Run these in order and compare each last line with the expected one:
 2. `python3 tools/publish_gate.py` exits 0.
 3. `python3 -m pytest tests -q` ends with `N passed` and no failures.
 4. `python3 tools/coverage.py`, then `git diff --quiet COVERAGE.md` exits 0 (no change).
-5. `python3 tools/watch.py --dry-run` exits 0 or 1, never 2.
+5. `python3 tools/watch.py --dry-run` exits 0 or 3, never 1 or 2.
 6. `python3 tools/coverage_grid.py`, then `git diff --quiet assets/coverage-grid.svg` exits 0 (no change).
 
 `check_corpus.py` prints `N records checked`, or the path and reason of the first record it refuses, and exits 1. It is strict by default: a record needs a source row with verdict `pass`, a `source_id` listed in its scope entry's `source_row`, a scope entry with status `stored`, a real `in_force` date, and, unless it is a `repealed: true` stub, a `fetched_url` and a `fetched_sha256` of 64 lowercase hex digits.
@@ -59,4 +59,4 @@ Both tools take `--iso2 XX` to cover one place. `XX` must be two capital letters
 
 ## Watcher runs
 
-One full watcher run takes close to an hour. The last full run on record, on 2026-11-11 from a laptop address, took 3481.9 s and ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`; that run is not yet in `upkeep/cadence.json`). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled. They need a decided compute budget before they run on a schedule. Some state sites also fail certificate checks under Python while curl accepts them.
+One full watcher run takes close to an hour. The last full run on record, on 2026-11-11 from a laptop address, took 3481.9 s and ended with 158 failures across 1557 watchers (`upkeep/watch-run-2026-11-11.md`; it is in the `runs` list of `upkeep/cadence.json`). That is over the 15-minute monthly ceiling in `upkeep/README.md`, so watchers are run by hand and no schedule is enabled. They need a decided compute budget before they run on a schedule. Some state sites also fail certificate checks under Python while curl accepts them.

@@ -105,7 +105,7 @@ All figures are as of 2026-11-17. Each row names the command that produces it, r
 | Places with links only | 110 | same Counts table |
 | Records stored (one file per text version) | 3360 | `find records -name '*.json' \| wc -l` |
 | Records read by OCR (`"extraction": "ocr"`) | 106 (counted 2026-11-17) | `grep -rl '"extraction": "ocr"' records \| wc -l` |
-| Tests | 474 passed (run on 2026-11-19) | `python3.13 -m pytest tests -q` |
+| Tests | 517 passed (run on 2026-11-19) | `python3.13 -m pytest tests -q` |
 
 ![Grid of 250 two-letter place codes, coloured by whether text is stored, only a link is held, or there is no corpus](assets/coverage-grid.svg)
 
