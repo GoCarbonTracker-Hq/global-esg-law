@@ -44,6 +44,34 @@ def test_refusals(tmp_path, over):
     assert REAL["id"] in str(e.value)
 
 
+@pytest.mark.parametrize("quote", [
+    "CONNECT tunnel failed, response 502",
+    "curl: (35) Recv failure: Connection reset by peer",
+    "Just a moment... Enable JavaScript and cookies to continue",
+    "403 Forbidden",
+    "Sorry, you have been blocked. You are unable to access example.org",
+])
+def test_fetch_error_quote_is_refused(tmp_path, quote):
+    with pytest.raises(SystemExit) as e:
+        run(tmp_path, terms_quote=quote)
+    assert REAL["id"] in str(e.value) and "fetch error" in str(e.value)
+
+
+@pytest.mark.parametrize("quote", [
+    "Terms unread: CONNECT tunnel failed, response 502",
+    "Terms page not opened: curl: (35) Recv failure: Connection reset by peer",
+    "Not read: 403 Forbidden",
+])
+def test_unread_marker_lets_fetch_error_text_through(tmp_path, quote):
+    assert json.loads(run(tmp_path, terms_quote=quote).read_text())[0]["terms_quote"] == quote
+
+
+def test_real_table_builds_and_sources_json_is_current(tmp_path):
+    out = tmp_path / "sources.json"
+    build(ROOT / "sources" / "licence-table.csv", out)
+    assert out.read_text(encoding="utf-8") == (ROOT / "sources.json").read_text(encoding="utf-8")
+
+
 def test_every_licence_row_has_the_header_field_count():
     with open(ROOT / "sources" / "licence-table.csv", newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
