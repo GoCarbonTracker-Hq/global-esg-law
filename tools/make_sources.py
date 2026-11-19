@@ -15,6 +15,15 @@ COLUMNS = [
 VERDICTS = {"pass", "fail", "unknown", "permission requested"}
 BASES = {"terms", "statute"}
 FORMS = {"adopted", "consolidated", "translation"}
+# A terms_quote that opens like a fetch or block message is not a quote; when the terms were not read it says so instead.
+FETCH_ERROR = re.compile(
+    r"^\W*(curl: \(\d+\)|CONNECT tunnel failed|SSL certificate problem|(?:HTTP )?[45]\d\d\b|Just a moment"
+    r"|(?:Sorry, )?you have been blocked|Request blocked|ERROR: The request could not be satisfied|Access Denied"
+    r"|Account Suspended|Connection (?:reset|refused|timed out)|Recv failure|Visitor anti-robot"
+    r"|Website Maintenance Notice|No HTTP response)",
+    re.I,
+)
+UNREAD = re.compile(r"^(Terms page |Page |Terms )?(not (read|opened)|could not be opened|unread)\b", re.I)
 BANNED = re.compile(
     r"\bISO\b|International Organi[sz]ation for Standardi[sz]ation|\bGRI\b|Global Reporting Initiative",
     re.I,
@@ -48,6 +57,9 @@ def build(csv_path, out_path):
             sys.exit(f"{rid}: empty terms_url")
         if not r["terms_quote"].strip():
             sys.exit(f"{rid}: empty terms_quote")
+        quote = r["terms_quote"].strip()
+        if FETCH_ERROR.search(quote) and not UNREAD.match(quote):
+            sys.exit(f'{rid}: terms_quote looks like a fetch error; if the terms were not read, start it with "Terms unread:"')
         if r["verdict"] not in VERDICTS:
             sys.exit(f"{rid}: verdict must be one of {sorted(VERDICTS)}")
         if r["verdict_basis"] not in BASES:

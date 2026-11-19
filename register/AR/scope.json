@@ -24,7 +24,7 @@
     "duty_on": "state_only",
     "source_row": "AR-ARGENTINAGOB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "No official page states a first in-force date: the text has no commencement clause (Art. 30 is Comuníquese), so scope in_force is null. The record is dated 2019-12-20, the Boletín Oficial publication date printed on the portal, as the date of the published text; this is not a stated entry into force. Texto original only. The portal also serves a 'texto actualizado' (.../actualizacion) with no consolidation date, so no consolidated record is stored. Regulated by ar-decreto-1030-2020. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02.",
+    "notes": "No official page states a first in-force date: the text has no commencement clause (Art. 30 is Comuníquese), so scope in_force is null. The record is dated 2019-12-20, the Boletín Oficial publication date printed on the portal, as the date of the published text; this is not a stated entry into force. Texto original only. The portal also serves a 'texto actualizado' (.../actualizacion) with no consolidation date, so no consolidated record is stored. Regulated by ar-decreto-1030-2020. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02. in_force is null: no commencement clause or date in the stored text.",
     "status": "stored"
   },
   {
@@ -52,7 +52,7 @@
     "duty_on": "private_sector",
     "source_row": "AR-ARGENTINAGOB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "No official page states a first in-force date: the text carries no commencement clause (Art. 3 says the law applies throughout the Nation and is of public order), so scope in_force is null. The record is dated 2002-11-28, the Boletín Oficial publication date on the portal, as the date of the published text. The portal shows no 'texto actualizado' tab for this law. Texto original includes the annexed Acuerdo Federal. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02.",
+    "notes": "No official page states a first in-force date: the text carries no commencement clause (Art. 3 says the law applies throughout the Nation and is of public order), so scope in_force is null. The record is dated 2002-11-28, the Boletín Oficial publication date on the portal, as the date of the published text. The portal shows no 'texto actualizado' tab for this law. Texto original includes the annexed Acuerdo Federal. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02. in_force is null: no commencement clause or date in the stored text.",
     "status": "stored"
   },
   {
@@ -122,7 +122,7 @@
     "duty_on": "private_sector",
     "source_row": "AR-ARGENTINAGOB-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "No official page states a first in-force date: Art. 77 is Comuníquese, publíquese and the text has no commencement clause, so scope in_force is null. The record is dated 2019-04-22, the Boletín Oficial publication date on the portal, as the date of the published text. Art. 11 (publicidad engañosa) prohibits advertising that by inaccuracies or omissions can mislead as to the nature, origin, characteristics or other attributes of a product; it is the umbrella for environmental claims, with no green-claims text. Later amendments exist (normas-modifican tab) and are not stored. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02.",
+    "notes": "No official page states a first in-force date: Art. 77 is Comuníquese, publíquese and the text has no commencement clause, so scope in_force is null. The record is dated 2019-04-22, the Boletín Oficial publication date on the portal, as the date of the published text. Art. 11 (publicidad engañosa) prohibits advertising that by inaccuracies or omissions can mislead as to the nature, origin, characteristics or other attributes of a product; it is the umbrella for environmental claims, with no green-claims text. Later amendments exist (normas-modifican tab) and are not stored. Languages stored: es. No government English translation found: looked for on the Leyes argentinas portal (no language switch on the norm pages), on https://www.argentina.gob.ar/normativa and on the InfoLEG site (Spanish only) on 2026-11-02. in_force is null: no commencement clause or date in the stored text.",
     "status": "stored"
   }
 ]

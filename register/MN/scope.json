@@ -55,7 +55,7 @@
     "duty_on": "mixed",
     "source_row": "MN-MECC-CONSOLIDATED",
     "verification": "official_text_seen",
-    "notes": "One record dated 2025-07-09, the latest amending law named in the footnotes of the MECC copy (the PDF states no consolidation date). The copy lags the law: https://old.parliament.mn/laws/17326/ lists an amending act (2025-ne-42) and search results list a further amendment published with the Climate Change Law in 2026; neither is in the stored text. Languages: mn only. English looked for on mecc.gov.mn and old.parliament.mn: none found. in_force null: no commencement clause or date in the stored text.",
+    "notes": "One record dated 2025-07-09, the latest amending law named in the footnotes of the MECC copy (the PDF states no consolidation date). The copy lags the law: https://old.parliament.mn/laws/17326/ lists an amending act (2025-ne-42) and search results list a further amendment published with the Climate Change Law in 2026; neither is in the stored text. Languages: mn only. English looked for on mecc.gov.mn and old.parliament.mn: none found. in_force null: no commencement clause or date in the stored text. in_force is null: no commencement clause or date in the stored text.",
     "status": "stored"
   },
   {
@@ -69,7 +69,7 @@
     "duty_on": "mixed",
     "source_row": "MN-PARLIAMENT-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Climate framework act; its carbon market provisions (art. 8 and following, art. 29.1 ban on selling carbon credits without the authorised body's statement) are F3 content. One record dated 2026-07-02, the adoption date printed on the text, because no official page gives a commencement date. The text sets no in-force date; the brief gives 2026-08-03, unconfirmed. Implementing regulations under art. 7.1.8 to 7.1.11 are due within six months and are not yet enacted, so none is in scope. Languages: mn only. English looked for on old.parliament.mn and mecc.gov.mn: none found.",
+    "notes": "Climate framework act; its carbon market provisions (art. 8 and following, art. 29.1 ban on selling carbon credits without the authorised body's statement) are F3 content. One record dated 2026-07-02, the adoption date printed on the text, because no official page gives a commencement date. The text sets no in-force date; the brief gives 2026-08-03, unconfirmed. Implementing regulations under art. 7.1.8 to 7.1.11 are due within six months and are not yet enacted, so none is in scope. Languages: mn only. English looked for on old.parliament.mn and mecc.gov.mn: none found. in_force is null: no commencement clause or date in the stored text.",
     "status": "stored"
   },
   {

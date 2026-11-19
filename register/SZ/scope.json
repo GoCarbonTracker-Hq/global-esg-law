@@ -10,7 +10,7 @@
     "duty_on": "mixed",
     "source_row": "SZ-EEA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Framework environmental enactment of Eswatini, establishing the Eswatini Environment Authority and Swaziland Environment Fund. Published by the Eswatini Environment Authority at https://eea.org.sz/wp-content/uploads/2021/06/EMA-2002.pdf. Legislation in Eswatini is enacted and published in English; no official siSwati translation is published or served. Stored as 2002-11-13-adopted-en.json dated by its assent date.",
+    "notes": "Framework environmental enactment of Eswatini, establishing the Eswatini Environment Authority and Swaziland Environment Fund. Published by the Eswatini Environment Authority at https://eea.org.sz/wp-content/uploads/2021/06/EMA-2002.pdf. Legislation in Eswatini is enacted and published in English; no official siSwati translation is published or served. Stored as 2002-11-13-adopted-en.json dated by its assent date. in_force is null: commencement set by ministerial order or notice; no order in the record.",
     "status": "stored"
   },
   {
@@ -54,7 +54,7 @@
     "duty_on": "private_sector",
     "source_row": "SZ-EEA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Regulates import, handling and phase-out of ozone-depleting substances and controlled products under the Montreal Protocol. Text is digital text extracted directly from the official PDF with pdftotext. Stored as 2003-01-01-adopted-en.json. English only.",
+    "notes": "Regulates import, handling and phase-out of ozone-depleting substances and controlled products under the Montreal Protocol. Text is digital text extracted directly from the official PDF with pdftotext. Stored as 2003-01-01-adopted-en.json. English only. in_force is null: relative clause (on publication in the Gazette); the record states no publication date.",
     "status": "stored"
   },
   {

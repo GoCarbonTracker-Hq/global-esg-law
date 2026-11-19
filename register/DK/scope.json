@@ -178,7 +178,7 @@
       "DK-RETSINFO-CONSOLIDATED"
     ],
     "verification": "official_text_seen",
-    "notes": "Two records: LBK 321/2011 (2011-04-04) and LBK 1353/2020 (2020-09-02). Retsinformation shows LBK 1353/2020 as the current text, but lists 11 later amending acts that it has not consolidated (Lov 2225/2020, 1240/2021, 832/2022, 329/2023, 1795/2023, 1797/2023, 683/2024, 1489/2024, 1776/2025, 1778/2025, 1782/2025 on CO2 tax suspension and phase-in), so the stored current text is out of date by those amendments. Those acts are not stored. Language: Danish only. English: none found.",
+    "notes": "Two records: LBK 321/2011 (2011-04-04) and LBK 1353/2020 (2020-09-02). Retsinformation shows LBK 1353/2020 as the current text, but lists 11 later amending acts that it has not consolidated (Lov 2225/2020, 1240/2021, 832/2022, 329/2023, 1795/2023, 1797/2023, 683/2024, 1489/2024, 1776/2025, 1778/2025, 1782/2025 on CO2 tax suspension and phase-in), so the stored current text is out of date by those amendments. Those acts are not stored. Language: Danish only. English: none found. in_force is null: relative clause (1 month after EU Commission approval, par. 23); no date in the record.",
     "status": "stored"
   },
   {

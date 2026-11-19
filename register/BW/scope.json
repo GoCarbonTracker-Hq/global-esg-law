@@ -10,7 +10,7 @@
     "duty_on": "private_sector",
     "source_row": "BW-BAOA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Articles 22.1 to 22.3 (Sustainability Reporting and Integrated Reporting) cover sustainability and disclosure. The brief expected a 2022 draft; the text found has no draft marking, so it is stored as the BAOA copy and no other final version was found on baoa.org.bw (the /standard-setting-codes/ page links no PDF to scripts). One record, English only; the record is dated 2022-12-07, the PDF creation date, because no official page states a commencement date. Binding effect is as the code states it (legal requirement for eligible PIEs); BAOA's Financial Reporting Act and Regulations texts were not opened.",
+    "notes": "Articles 22.1 to 22.3 (Sustainability Reporting and Integrated Reporting) cover sustainability and disclosure. The brief expected a 2022 draft; the text found has no draft marking, so it is stored as the BAOA copy and no other final version was found on baoa.org.bw (the /standard-setting-codes/ page links no PDF to scripts). One record, English only; the record is dated 2022-12-07, the PDF creation date, because no official page states a commencement date. Binding effect is as the code states it (legal requirement for eligible PIEs); BAOA's Financial Reporting Act and Regulations texts were not opened. in_force is null: the code states no date of its own; the 2022-04-01 date in the text belongs to an amending Act.",
     "status": "stored"
   },
   {
@@ -52,7 +52,7 @@
     "duty_on": "private_sector",
     "source_row": "BW-CCA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "Section 5 (Prohibition of false or misleading representations) is the umbrella for environmental claims; the Competition and Consumer Authority administers it. The record sits at the assent date 2018-03-27 because no official page states the commencement date. Enacted in English only (Setswana is the national language, not a language of legislation). One record; the CCA copy is the Act as first printed, with no consolidated version on the site.",
+    "notes": "Section 5 (Prohibition of false or misleading representations) is the umbrella for environmental claims; the Competition and Consumer Authority administers it. The record sits at the assent date 2018-03-27 because no official page states the commencement date. Enacted in English only (Setswana is the national language, not a language of legislation). One record; the CCA copy is the Act as first printed, with no consolidated version on the site. in_force is null: commencement set by ministerial order or notice; no order in the record.",
     "status": "stored"
   }
 ]

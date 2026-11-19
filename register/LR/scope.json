@@ -10,7 +10,7 @@
     "duty_on": "state_only",
     "source_row": "LR-EXECMANSION-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "official_url is the order's own signed PDF on the Executive Mansion (the earlier register row pointed at the news node https://emansion.gov.lr/node/8948). The PDF is a scanned image with no text layer, so the record text is uncorrected OCR output of a scanned official PDF (tesseract, English, page images; the record carries extraction ocr); it contains recognition errors, for example in the date line. The record is dated 2025-10-31, the date of the Executive Mansion page, because the signed day is not legible. Deviation from the brief: no one-year lapse applies on the text (Section 13), and the Executive Orders list (24 orders, newest No. 157 of 2026-01-23) shows no revocation or renewal of No. 155, so it is not recorded as lapsed. Section 1.2 tells the Authority to draft a Climate and Carbon Act within 12 months; no such act and no instrument for the Sovereign Carbon Initiative contribution on aviation and shipping was found on emansion.gov.lr, epa.gov.lr or mofa.gov.lr, so neither has an entry. English is the only language; no translation exists or is needed.",
+    "notes": "official_url is the order's own signed PDF on the Executive Mansion (the earlier register row pointed at the news node https://emansion.gov.lr/node/8948). The PDF is a scanned image with no text layer, so the record text is uncorrected OCR output of a scanned official PDF (tesseract, English, page images; the record carries extraction ocr); it contains recognition errors, for example in the date line. The record is dated 2025-10-31, the date of the Executive Mansion page, because the signed day is not legible. Deviation from the brief: no one-year lapse applies on the text (Section 13), and the Executive Orders list (24 orders, newest No. 157 of 2026-01-23) shows no revocation or renewal of No. 155, so it is not recorded as lapsed. Section 1.2 tells the Authority to draft a Climate and Carbon Act within 12 months; no such act and no instrument for the Sovereign Carbon Initiative contribution on aviation and shipping was found on emansion.gov.lr, epa.gov.lr or mofa.gov.lr, so neither has an entry. English is the only language; no translation exists or is needed. in_force is null: takes immediate effect on signing (Sec. 13); the signing day is garbled in the stored OCR (\"2G“ DAY OF OCTOBER A.D. 2025\"), so no date is read.",
     "status": "stored"
   },
   {
@@ -24,7 +24,7 @@
     "duty_on": "mixed",
     "source_row": "LR-EPA-ADOPTED",
     "verification": "official_text_seen",
-    "notes": "One record: the Act as published, 46 pages, dated by its approval date 2002-11-26 because no commencement date is stated. The EPA site serves no amended or consolidated version. English only; no translation exists or is needed. The EPA Laws & Regulations page also lists the Environmental Protection and Management Law (lr-epml-2002).",
+    "notes": "One record: the Act as published, 46 pages, dated by its approval date 2002-11-26 because no commencement date is stated. The EPA site serves no amended or consolidated version. English only; no translation exists or is needed. The EPA Laws & Regulations page also lists the Environmental Protection and Management Law (lr-epml-2002). in_force is null: refers to the \"effective date of this act\" without a date.",
     "status": "stored"
   },
   {
