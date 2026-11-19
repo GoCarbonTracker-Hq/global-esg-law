@@ -44,6 +44,11 @@ h1, h2, p { margin: 0; }
 p { max-width: 70ch; }
 
 h1 { font: 400 1.75rem/1.25 var(--serif); }
+
+.site-name {
+  margin-bottom: calc(var(--unit) * 3);
+  font: 600 1.125rem/1.25 var(--sans);
+}
 h2 { font: 600 1.25rem/1.25 var(--sans); }
 
 a {
