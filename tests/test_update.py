@@ -71,7 +71,7 @@ def queue_row(watcher_id, signal, iso2, instrument, source_id, outcome="confirm"
 
 QUEUE = [
     queue_row("eu-cellar", "2027-01-01", "EU", "eu-act", "EU-EURLEX-CONSOLIDATED"),
-    queue_row("gb-sec", "2027-02-02", "GB", "gb-sec", "UK-LEGISLATION-CONSOLIDATED"),
+    queue_row("gb-sec", "2026-11-02", "GB", "gb-sec", "UK-LEGISLATION-CONSOLIDATED"),
     queue_row("gb-si", "2027-02-03", "GB", "gb-si", "UK-LEGISLATION-ADOPTED"),
     queue_row("us-ecfr", "2027-03-03", "US", "us-part", "US-ECFR-ADOPTED"),
     queue_row("us-fr", "2027-04-04", "US", "us-fr", "US-FEDREG-ADOPTED", notes="reviewer note"),
@@ -81,7 +81,7 @@ QUEUE = [
     queue_row("eu-cellar", "3", "EU", "eu-act", "EU-EURLEX-CONSOLIDATED", outcome="", change="baseline"),
     queue_row("us-zip", "Last-Modified: Tue, 03 Nov 2026 01:00:00 GMT", "US", "*", "US-ECFR-ADOPTED"),
 ]
-EU_KEY, GB_KEY, SI_KEY, US_KEY = "eu-cellar:2027-01-01", "gb-sec:2027-02-02", "gb-si:2027-02-03", "us-ecfr:2027-03-03"
+EU_KEY, GB_KEY, SI_KEY, US_KEY = "eu-cellar:2027-01-01", "gb-sec:2026-11-02", "gb-si:2027-02-03", "us-ecfr:2027-03-03"
 EU_BRANCH = "upkeep/EU-eu-act-2027-01-01"
 
 
@@ -174,7 +174,7 @@ def test_all_three_recipes_fetch_the_documented_urls(tmp_path):
     results = update.update(repo, fetch, TODAY, commit=False, out=io.StringIO())
     stored = {r["key"]: r["path"] for r in results if r["status"] == "stored"}
     assert stored == {EU_KEY: "records/EU/eu-act/2027-01-01-consolidated-en.json",
-                      GB_KEY: "records/GB/gb-sec/2027-02-02-consolidated-en.json",
+                      GB_KEY: "records/GB/gb-sec/2026-11-02-consolidated-en.json",
                       SI_KEY: "records/GB/gb-si/2027-02-03-adopted-en.json",
                       US_KEY: "records/US/us-part/2027-03-03-consolidated-en.json"}
     assert [c[0] for c in fetch.calls] == [EU_URL, GB_URL, SI_URL, US_URL, BANNED_URL]
@@ -211,8 +211,14 @@ def test_source_with_no_recipe_leaves_row_open(tmp_path):
     results = update.update(repo, fetch, TODAY, row="us-fr:2027-04-04", commit=False, out=out)
     assert results == [{"key": "us-fr:2027-04-04", "status": "open", "detail": "no recipe for US-FEDREG-ADOPTED"}]
     assert "us-fr:2027-04-04: no recipe for US-FEDREG-ADOPTED" in out.getvalue()
-    assert fetch.calls == [] and tree(repo) == before
-    assert rows(repo)["us-fr:2027-04-04"]["notes"] == "reviewer note"
+    assert fetch.calls == []
+    reason = "no recipe for US-FEDREG-ADOPTED: store the text by hand with --file"  # U4: the reason is in the row, not only on screen
+    row = rows(repo)["us-fr:2027-04-04"]
+    assert row["outcome"] == "confirm" and row["notes"] == f"reviewer note; {reason}"
+    after = tree(repo)
+    assert set(after) == set(before) and {k for k in after if after[k] != before[k]} == {"upkeep/queue.csv"}
+    update.update(repo, fetch, TODAY, row="us-fr:2027-04-04", commit=False, out=io.StringIO())
+    assert rows(repo)["us-fr:2027-04-04"]["notes"] == f"reviewer note; {reason}"  # a rerun writes it once
 
 
 def test_gate_failure_reverts_record_scope_and_sources(tmp_path):
@@ -344,7 +350,7 @@ def test_each_row_gets_its_own_branch_from_the_starting_branch(tmp_path):
     repo = make(tmp_path)
     results = update.update(repo, FakeFetch(), TODAY, out=io.StringIO())
     branches = [r["branch"] for r in results if r["status"] == "stored"]
-    assert branches == [EU_BRANCH, "upkeep/GB-gb-sec-2027-02-02", "upkeep/GB-gb-si-2027-02-03", "upkeep/US-us-part-2027-03-03"]
+    assert branches == [EU_BRANCH, "upkeep/GB-gb-sec-2026-11-02", "upkeep/GB-gb-si-2027-02-03", "upkeep/US-us-part-2027-03-03"]
     for branch in branches:
         assert git(repo, "rev-list", "--count", f"main..{branch}") == "1"
         assert git(repo, "merge-base", "main", branch) == git(repo, "rev-parse", "main")
@@ -392,7 +398,7 @@ def test_rebuilt_history_hash_matches_across_two_runs_with_upkeep_record(tmp_pat
     assert build.build(repo, branch="history") == order
     assert git(repo, "rev-parse", "history") == first
     log = git(repo, "log", "--reverse", "--format=%(trailers:key=In-force,valueonly)", "history").split()
-    assert log == ["2016-12-26", "2017-01-01", "2023-01-05", "2027-01-01", "2027-02-02", "2027-02-03", "2027-03-03"]
+    assert log == ["2016-12-26", "2017-01-01", "2023-01-05", "2026-11-02", "2027-01-01", "2027-02-03", "2027-03-03"]
     assert log == sorted(log)
     assert git(repo, "show", "-s", "--format=%ad", "--date=short", "history") == "2027-03-03"
 
@@ -493,7 +499,7 @@ def hand_repo(tmp_path, content=b"<p>first</p><p>second</p>"):
 
 
 def hand(file, **kw):
-    return {"file": file, "url": HAND_URL, "plain": False, "language": None, "in_force": None, **kw}
+    return {"file": file, "url": HAND_URL, "plain": False, "language": None, **kw}
 
 
 def test_hand_file_is_stored_under_the_reviewer_date_and_marked_supplied_by_hand(tmp_path):
@@ -501,7 +507,7 @@ def test_hand_file_is_stored_under_the_reviewer_date_and_marked_supplied_by_hand
     fetch = FakeFetch()
     out = io.StringIO()
     results = update.update(repo, fetch, TODAY, row=HASH_KEY, commit=False, out=out,
-                            hand=hand(file, language="en", in_force="2027-04-04"))
+                            hand=hand(file, language="en"), reviewer_date="2027-04-04")
     assert [(r["key"], r["status"], r["path"]) for r in results] == [(HASH_KEY, "stored", HAND_REL)]
     assert fetch.calls == []  # nothing was fetched
     record = json.loads((repo / HAND_REL).read_text())
@@ -518,7 +524,7 @@ def test_hand_file_is_stored_under_the_reviewer_date_and_marked_supplied_by_hand
 def test_hand_file_commit_carries_the_supplied_by_trailer_on_the_branch_and_in_history(tmp_path):
     repo, file = hand_repo(tmp_path)
     results = update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, out=io.StringIO(),
-                            hand=hand(file, language="en", in_force="2027-04-04"))
+                            hand=hand(file, language="en"), reviewer_date="2027-04-04")
     assert results[0]["status"] == "stored" and results[0]["branch"] == HAND_BRANCH
     assert git(repo, "rev-list", "--count", f"main..{HAND_BRANCH}") == "1"
     body = git(repo, "log", "-1", "--format=%B", HAND_BRANCH)
@@ -536,14 +542,14 @@ def test_hand_file_commit_carries_the_supplied_by_trailer_on_the_branch_and_in_h
 def test_plain_keeps_the_files_own_line_breaks_and_the_extractor_does_not(tmp_path, plain, expected):
     repo, file = hand_repo(tmp_path, b"line one\nline two\n\n  indented\n")
     update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
-                  hand=hand(file, plain=plain, language="en", in_force="2027-04-04"))
+                  hand=hand(file, plain=plain, language="en"), reviewer_date="2027-04-04")
     assert json.loads((repo / HAND_REL).read_text())["text"] == expected
 
 
 def test_plain_drops_a_byte_order_mark_and_uses_unix_line_breaks(tmp_path):
     repo, file = hand_repo(tmp_path, b"\xef\xbb\xbfone\r\ntwo\r\n")
     update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
-                  hand=hand(file, plain=True, language="en", in_force="2027-04-04"))
+                  hand=hand(file, plain=True, language="en"), reviewer_date="2027-04-04")
     assert json.loads((repo / HAND_REL).read_text())["text"] == "one\ntwo\n"
 
 
@@ -555,7 +561,7 @@ def test_hand_file_refusals_write_only_the_note(tmp_path, key, content, reason):
     repo, file = hand_repo(tmp_path, content)
     before = tree(repo)
     results = update.update(repo, FakeFetch(), TODAY, row=key, commit=False, out=io.StringIO(),
-                            hand=hand(file, language="en", in_force="2027-04-04" if key == HASH_KEY else None))
+                            hand=hand(file, language="en"), reviewer_date="2027-04-04" if key == HASH_KEY else None)
     assert results[0]["status"] == "refused" and reason.format(file=file) in results[0]["detail"]
     assert rows(repo)[key]["outcome"] == "confirm"
     assert rows(repo)[key]["notes"] == f"refused 2026-11-02: {reason.format(file=file)}"
@@ -569,7 +575,7 @@ def test_an_empty_or_undecodable_file_is_an_error_and_nothing_is_written(tmp_pat
     repo, file = hand_repo(tmp_path, content)
     before = tree(repo)
     with pytest.raises(ValueError, match="is empty|is not UTF-8"):
-        update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, out=io.StringIO(), hand=hand(file, language="en", in_force="2027-04-04"))
+        update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, out=io.StringIO(), hand=hand(file, language="en"), reviewer_date="2027-04-04")
     assert tree(repo) == before and git(repo, "status", "--porcelain") == ""
     assert update.main(["--repo", str(repo), "--row", HASH_KEY, "--file", str(file), "--url", HAND_URL, "--language", "en",
                         "--in-force", "2027-04-04"]) == 1
@@ -583,17 +589,19 @@ def test_hand_file_needs_a_language_unless_the_source_has_one_and_a_real_date(tm
     before = tree(repo)
     with pytest.raises(ValueError, match="pass --language"):
         update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(),
-                      hand=hand(file, in_force="2027-04-04"))
+                      hand=hand(file), reviewer_date="2027-04-04")
     assert tree(repo) == before  # an input to fix, not a verdict on the row: not even a note
     # a source that has a recipe keeps its recipe language for a hand file
     update.update(repo, FakeFetch(), TODAY, row=EU_KEY, commit=False, out=io.StringIO(), hand=hand(file))
     assert (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").is_file()
-    for bad in ({"in_force": "2027-02-30"}, {"language": "English"}, {"url": ""}, {"url": "foo"},
+    for bad in ({"language": "English"}, {"url": ""}, {"url": "foo"},
                 {"url": HAND_URL + "\nSupplied-by: nobody"}, {"url": HAND_URL + "`x"}):
         with pytest.raises(ValueError):
             update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(), hand=hand(file, **bad))
     with pytest.raises(ValueError, match="needs --row"):
         update.update(repo, FakeFetch(), TODAY, commit=False, out=io.StringIO(), hand=hand(file))
+    with pytest.raises(ValueError, match="real date"):
+        update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, commit=False, out=io.StringIO(), hand=hand(file), reviewer_date="2027-02-30")
 
 
 def test_hash_row_without_the_reviewer_date_stays_open_and_a_dry_run_reads_the_file(tmp_path):
@@ -603,7 +611,7 @@ def test_hash_row_without_the_reviewer_date_stays_open_and_a_dry_run_reads_the_f
     assert results[0]["status"] == "open" and "--in-force" in results[0]["detail"]
     before = tree(repo)
     results = update.update(repo, FakeFetch(), TODAY, row=HASH_KEY, dry_run=True, out=io.StringIO(),
-                            hand=hand(file, language="en", in_force="2027-04-04"))
+                            hand=hand(file, language="en"), reviewer_date="2027-04-04")
     assert results[0]["detail"] == (f"would read {file} as {HAND_URL}, write {HAND_REL}, mark us-fr stored in "
                                     f"register/US/scope.json, add a SOURCES.md line, commit to {HAND_BRANCH}")
     assert tree(repo) == before
@@ -623,3 +631,111 @@ def test_cli_file_mode_exit_codes_and_usage_errors(tmp_path, capsys, monkeypatch
         with pytest.raises(SystemExit) as exc:
             update.main(["--repo", str(repo)] + bad)
         assert exc.value.code == 2
+
+
+# ---- R3: the reviewer's in-force date and evidence work on any confirmed row, with or without a hand file
+
+EU_HASH_KEY = "eu-page:sha256:feed"
+EU_HASH_ROW = queue_row("eu-page", "sha256:feed", "EU", "eu-act", "EU-EURLEX-CONSOLIDATED")
+
+
+def test_reviewer_date_replaces_a_hash_signal_and_the_recipe_fetches_that_date(tmp_path):
+    repo = make(tmp_path, QUEUE + [EU_HASH_ROW])
+    fetch = FakeFetch()
+    results = update.update(repo, fetch, TODAY, row=EU_HASH_KEY, commit=False, out=io.StringIO())
+    assert results[0]["status"] == "open" and "--in-force" in results[0]["detail"] and fetch.calls == []
+    results = update.update(repo, fetch, TODAY, row=EU_HASH_KEY, commit=False, out=io.StringIO(), reviewer_date="2027-01-01")
+    assert [(r["status"], r["path"]) for r in results] == [("stored", "records/EU/eu-act/2027-01-01-consolidated-en.json")]
+    assert [call[0] for call in fetch.calls] == [EU_URL]  # the recipe was given the reviewer's date, not the hash
+    record = json.loads((repo / results[0]["path"]).read_text())
+    assert record["in_force"] == "2027-01-01" and "supplied_by_hand" not in record
+    got = rows(repo)[EU_HASH_KEY]
+    assert got["outcome"] == "stored" and got["signal"] == "sha256:feed"
+
+
+def test_evidence_must_be_in_the_stored_text_and_goes_into_sources_md_and_the_commit(tmp_path):
+    repo = make(tmp_path, QUEUE + [EU_HASH_ROW])
+    quote = "second   placeholder\nparagraph"  # the words of the text; spacing and line breaks may differ
+    results = update.update(repo, FakeFetch(), TODAY, row=EU_HASH_KEY, out=io.StringIO(), reviewer_date="2027-01-01", evidence=quote)
+    assert results[0]["status"] == "stored" and results[0]["branch"] == EU_BRANCH
+    assert 'in force 2027-01-01 per "second placeholder paragraph", queue row ' in git(repo, "show", f"{EU_BRANCH}:SOURCES.md")
+    assert git(repo, "log", "-1", "--format=%(trailers:key=In-force-evidence,valueonly)", EU_BRANCH) == "second placeholder paragraph"
+
+
+def test_evidence_that_is_not_in_the_text_refuses_the_row(tmp_path):
+    repo = make(tmp_path, QUEUE + [EU_HASH_ROW])
+    before = tree(repo)
+    results = update.update(repo, FakeFetch(), TODAY, row=EU_HASH_KEY, commit=False, out=io.StringIO(),
+                            reviewer_date="2027-01-01", evidence="enters into force on 1 January 2027")
+    assert results[0]["status"] == "refused"
+    assert rows(repo)[EU_HASH_KEY]["notes"] == (f"refused 2026-11-02: --evidence 'enters into force on 1 January 2027' "
+                                                f"is not in the text of {EU_URL}")
+    after = tree(repo)
+    assert set(after) == set(before) and {k for k in after if after[k] != before[k]} == {"upkeep/queue.csv"}
+
+
+def test_evidence_on_a_repeal_row_is_refused(tmp_path):
+    repo = make(tmp_path, QUEUE + [REPEAL_ROW])
+    results = update.update(repo, FakeFetch(), TODAY, row=REPEAL_KEY, commit=False, out=io.StringIO(),
+                            reviewer_date="2027-08-08", evidence="repealed with effect from 8 August 2027")
+    assert results[0]["status"] == "refused" and "stores no text for --evidence to quote" in results[0]["detail"]
+
+
+def test_reviewer_date_and_evidence_usage_errors_and_cli(tmp_path, capsys, monkeypatch):
+    repo = make(tmp_path)
+    for kw in ({"reviewer_date": "2027-01-01"}, {"row": EU_KEY, "reviewer_date": "2027-02-30"}, {"row": EU_KEY, "evidence": "x"}):
+        with pytest.raises(ValueError):
+            update.update(repo, FakeFetch(), TODAY, commit=False, out=io.StringIO(), **kw)
+    for bad in (["--in-force", "2027-01-01"], ["--row", EU_KEY, "--evidence", "x"]):
+        with pytest.raises(SystemExit) as exc:
+            update.main(["--repo", str(repo)] + bad)
+        assert exc.value.code == 2
+    # a date_list row too: the reviewer's date replaces a publication date, with no hand file
+    later = EU_URL.replace("20270101", "20270105")
+    monkeypatch.setattr(update, "default_fetch", FakeFetch({**BODIES, later: (200, EU_BODY)}))
+    assert update.main(["--repo", str(repo), "--row", EU_KEY, "--in-force", "2027-01-05", "--no-commit"]) == 0
+    assert (repo / "records" / "EU" / "eu-act" / "2027-01-05-consolidated-en.json").is_file()
+    assert not (repo / "records" / "EU" / "eu-act" / "2027-01-01-consolidated-en.json").exists()
+
+
+# ---- T13: legislation.gov.uk serves the current text only
+
+UK_PAST = queue_row("gb-old", "2026-06-01", "GB", "gb-sec", "UK-LEGISLATION-CONSOLIDATED")
+UK_PAST_KEY = "gb-old:2026-06-01"
+
+
+def test_uk_consolidated_refuses_a_date_that_is_not_today_unless_a_file_is_given(tmp_path):
+    (tmp_path / "repo").mkdir()
+    file = tmp_path / "uk-version.xml"
+    file.write_bytes(b"<p>the version in force on that day</p>")
+    repo = make(tmp_path / "repo", QUEUE + [UK_PAST])
+    fetch = FakeFetch()
+    before = tree(repo)
+    (dry,) = update.update(repo, fetch, TODAY, row=UK_PAST_KEY, dry_run=True, out=io.StringIO())
+    assert dry["status"] == "planned" and dry["detail"].startswith("would refuse: legislation.gov.uk serves only the current text")
+    assert fetch.calls == [] and tree(repo) == before
+    (refused,) = update.update(repo, fetch, TODAY, row=UK_PAST_KEY, commit=False, out=io.StringIO())
+    assert refused["status"] == "refused" and fetch.calls == []
+    note = rows(repo)[UK_PAST_KEY]["notes"]
+    assert note.startswith("refused 2026-11-02: legislation.gov.uk serves only the current text") and "2026-06-01" in note and "--file" in note
+    assert not (repo / "records" / "GB" / "gb-sec" / "2026-06-01-consolidated-en.json").exists()
+    (stored,) = update.update(repo, fetch, TODAY, row=UK_PAST_KEY, commit=False, out=io.StringIO(),
+                              hand=hand(file), reviewer_date="2026-06-01")  # the reviewer fetched that version by hand
+    assert stored["status"] == "stored" and stored["path"] == "records/GB/gb-sec/2026-06-01-consolidated-en.json"
+    # today's own date is fetched: GB_KEY is dated TODAY and test_all_three_recipes_fetch_the_documented_urls stores it
+
+
+# ---- U10: SOURCES.md carries one fixed `### upkeep` heading under a section of its own
+
+def test_sources_md_has_one_fixed_upkeep_heading_that_the_tool_writes_under(tmp_path):
+    text = (ROOT / "SOURCES.md").read_text(encoding="utf-8")
+    lines = text.split("\n")
+    assert lines.count(update.UPKEEP_HEADING) == 1
+    copy = tmp_path / "SOURCES.md"
+    copy.write_text(text, encoding="utf-8")
+    update.add_sources_line(copy, "- added line.")
+    got = copy.read_text(encoding="utf-8").split("\n")
+    start = got.index(update.UPKEEP_HEADING)
+    assert got[:start] == lines[:start] and "- added line." in got[start:]  # nothing above the heading moved
+    assert not any(line.startswith("## ") for line in got[start:])
+    assert next(line for line in reversed(got[:start]) if line.startswith("## ")) == "## Upkeep records"  # not inside a place's section

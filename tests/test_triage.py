@@ -1,8 +1,10 @@
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import triage  # noqa: E402
+import watch  # noqa: E402
 
 W = {"id": "w1", "iso2": "XX", "source_id": "S", "instrument": "*", "kind": "page_hash", "url": "https://x.invalid/p"}
 
@@ -70,3 +72,18 @@ def test_repeated_failure_pair_gets_a_reason():
     rows = [row("w1", "watch_failed", "HTTP 403", "2026-11-02"), row("w1", "watch_failed", "HTTP 403", "2026-11-10")]
     (pair,) = triage.repeated_pairs(rows, {"w1": W})
     assert pair["rows"] == 2 and "came back" in pair["reason"]
+
+
+def test_stamp_defaults_to_this_month(tmp_path, monkeypatch):  # T18: it was the literal "2026-11"
+    class March(date):
+        @classmethod
+        def today(cls):
+            return cls(2027, 3, 9)
+
+    monkeypatch.setattr(triage, "date", March, raising=False)
+    (tmp_path / "upkeep").mkdir()
+    (tmp_path / "upkeep" / "queue.csv").write_text(",".join(watch.COLUMNS) + "\r\n")
+    (tmp_path / "upkeep" / "watchers.json").write_text("[]")
+    (tmp_path / "sources.json").write_text("[]")
+    assert triage.main(["--repo", str(tmp_path)]) == 0
+    assert sorted(p.name for p in (tmp_path / "upkeep").glob("triage-*")) == ["triage-2027-03.csv", "triage-2027-03.md"]

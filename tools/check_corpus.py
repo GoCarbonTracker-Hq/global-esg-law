@@ -10,6 +10,7 @@ from pathlib import Path
 from make_sources import BANNED, FORMS, load_sources
 
 ROOT = Path(__file__).resolve().parents[1]
+STATUSES = ("stored", "link only", "pending")
 
 
 def real_date(value):
@@ -91,15 +92,34 @@ def check_aliases(repo=ROOT, iso2=None):
                 seen.add(item.casefold())
 
 
+def check_scope(repo=ROOT, iso2=None):
+    """Raise ValueError naming the scope file and entry id for the first entry whose `status`, when it has one, is not one of STATUSES or
+    whose `applies_from` is not a real date. Every scope entry is read, with or without records, so an entry that
+    holds no record is checked too. With iso2 only that place's entries are validated."""
+    for path in sorted((Path(repo) / "register").glob("*/scope.json")):
+        place = path.parent.name
+        if iso2 is not None and place != iso2:
+            continue
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            where = f"register/{place}/scope.json: entry {entry.get('id')!r}"
+            if "status" in entry and entry["status"] not in STATUSES:  # an entry with no status key is left to publish_gate
+                raise ValueError(f"{where} status {entry.get('status')!r} is not one of {list(STATUSES)}")
+            applies = entry.get("applies_from")
+            if applies is not None and not real_date(applies):
+                raise ValueError(f"{where} applies_from {applies!r} is not a real date as YYYY-MM-DD")
+
+
 def check(repo=ROOT, iso2=None, strict=True):
     """Return the number of records checked; raise ValueError naming the first bad record path.
 
     With iso2, check only records/<iso2>/**. Strict (the default) also requires scope status "stored", a real in_force
     date, and fetched_url plus fetched_sha256 on every record that is not repealed: true. Pass strict=False only to
-    test the looser rules on their own."""
+    test the looser rules on their own. Every scope entry's status and applies_from are checked after the records,
+    whether or not the entry has any."""
     repo = Path(repo).resolve()
     if iso2 is not None:
         require_place(repo, iso2)
+    place_filter = iso2  # the loop below reuses the name iso2 for each record's place
     check_amends(repo, iso2)
     check_aliases(repo, iso2)
     rows = load_sources(repo / "sources.json")
@@ -161,6 +181,7 @@ def check(repo=ROOT, iso2=None, strict=True):
             if BANNED.search(value or ""):
                 refuse(f"standards text by name in {label}: {value!r}")
         count += 1
+    check_scope(repo, place_filter)
     return count
 
 

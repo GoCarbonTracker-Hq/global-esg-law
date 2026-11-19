@@ -415,3 +415,15 @@ def test_split_short_forms_sit_only_on_the_agreed_entries():
     assert found["KSG"] == {"at-ksg", "de-ksg"} and found["UWG"] == {"at-uwg-s1-2a", "li-uwg"}
     assert found["CSRD"] == {"eu-csrd-2022-2464"} and found["EUDR"] == {"eu-eudr-2023-1115"}
     assert not {"ESG", "JFSC", "CMF", "GHGs"} & set(found)
+
+
+@pytest.mark.parametrize("change", [{"status": "Stored"}, {"status": None}, {"applies_from": "2025-02-30"}])
+def test_a_scope_entry_without_records_is_checked_for_status_and_dates(tmp_path, change):  # T16
+    make(tmp_path)
+    scope = tmp_path / "register" / "XX" / "scope.json"
+    entries = json.loads(scope.read_text())
+    entries.append({"id": "bare", "title": "Bare Act", "source_row": "R1", "status": "link only", **change})
+    scope.write_text(json.dumps(entries))
+    for kwargs in ({}, {"iso2": "XX"}, {"strict": False}):
+        with pytest.raises(ValueError, match="register/XX/scope.json: entry 'bare'"):
+            check_corpus.check(tmp_path, **kwargs)

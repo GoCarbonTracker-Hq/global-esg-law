@@ -12543,3 +12543,9 @@ Adopted text: HTTP 200, 444130 bytes. In force 2019-01-01. Four consolidated tex
 ### CBAM Regulation (EU) 2023/956 (`32023R0956`)
 
 Adopted text: HTTP 200, 468340 bytes. In force 2023-05-17. Article 29 sets application from 2023-10-01. One consolidated text, `2025-10-20`, returned HTTP 200, 506893 bytes. `02023R0956-20230516` returned HTTP 404, 214 bytes.
+
+## Upkeep records
+
+### upkeep
+
+Records stored by `tools/update.py` from confirmed `upkeep/queue.csv` rows, one line each: date stored, record path, source row, request URL, sha256 of the file as returned, queue row.

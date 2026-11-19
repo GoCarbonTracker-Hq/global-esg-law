@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-from check_corpus import require_place
+from check_corpus import real_date, require_place
 from make_sources import load_sources
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +44,9 @@ def gate(repo=ROOT, iso2=None):
                             for path, record in records if record.get("repealed") is True]
             for path, record in records:
                 effective = record.get("in_force") or path.name[:10]
+                if not real_date(effective):
+                    bad.append(f"{name}: record {path.name} in_force {effective!r} is not a real date as YYYY-MM-DD")
+                    continue
                 if record.get("repealed") is not True and any(effective >= day for day in repeal_dates) \
                         and record.get("re_enactment") is not True:
                     bad.append(f"{name}: record {path.name} is dated on or after repeal; flag it re_enactment to allow it")

@@ -16,6 +16,7 @@ import pickle
 import re
 import sys
 import time
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -240,7 +241,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--gap", type=int, default=300, help="seconds between the two fetches of a watcher")
     parser.add_argument("--cache", help="pickle of the fetched bodies; reused when it exists, so a re-run does not fetch")
-    parser.add_argument("--stamp", default="2026-11")
+    parser.add_argument("--stamp", default=date.today().strftime("%Y-%m"), help="month in the output file names (default: this month)")
     parser.add_argument("--repo", default=ROOT, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     repo = Path(args.repo)
