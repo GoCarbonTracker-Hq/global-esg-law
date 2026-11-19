@@ -359,6 +359,9 @@ export async function run(h) {
   const before = await h.evaluate(call(pageSnap));
   await clickAt("#browse-grid .cell");
   const afterCell = await h.evaluate(call(pageSnap));
+  // The cell click opens the place view (story 14), which hides the table; close it before clicking a row link.
+  await h.evaluate('location.hash = "#browse-by-place"');
+  await h.waitFor('document.body.getAttribute("data-view") !== "place"');
   await clickAt("#browse-table tbody tr:nth-child(5) th a");
   const afterRow = await h.evaluate(call(pageSnap));
   const changed = (snap) => Object.keys(before).filter((k) => k !== "hash" && JSON.stringify(snap[k]) !== JSON.stringify(before[k])).map((k) => k + " changed: " + h.fmt(before[k]).slice(0, 80) + " -> " + h.fmt(snap[k]).slice(0, 80));
