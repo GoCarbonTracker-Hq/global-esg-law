@@ -4,6 +4,9 @@
 Reads upkeep/watchers.json, fetches each watcher's signal (a list of dates, a header or a hash),
 compares it with upkeep/seen.json, appends candidate rows to upkeep/queue.csv for a person to
 review, and updates seen.json. Writes only under upkeep/.
+
+Exit 0: every watcher read. Exit 3: the run finished and some watchers read nothing (watch_failed rows).
+Exit 1: it could not run (bad config, unreadable file). Exit 130: interrupted; what was read is already written.
 """
 import argparse
 import contextlib
@@ -16,6 +19,7 @@ import http.client
 import json
 import os
 import re
+import signal
 import ssl
 import subprocess
 import sys
@@ -29,6 +33,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TIMEOUT = 30
+FLUSH_SECONDS = 30  # a run lasts about an hour; what is finished is written to disk at least this often
+EXIT_UNREACHABLE = 3  # the run finished, but some watchers read nothing (watch_failed rows); 1 is a run that could not go on
 COLUMNS = ["detected_on", "watcher_id", "iso2", "source_id", "instrument", "change", "signal",
            "evidence_url", "reviewer", "outcome", "outcome_on", "notes"]
 CHANGES = ("new_version", "terms_changed", "repealed")
@@ -214,8 +220,10 @@ MORE_PAGES = {"version_list": ecfr_more_pages}
 ACCUMULATE = ("date_list", "version_list")  # signals are a growing set, not a single current value
 
 
-def load_watchers(repo, source=None):
-    """Read and validate upkeep/watchers.json against sources.json and register/<ISO2>/scope.json."""
+def load_watchers(repo, source=None, tier=None):
+    """Read and validate upkeep/watchers.json against sources.json and register/<ISO2>/scope.json.
+
+    source and tier, when given, keep only the watchers of that sources.json id and of that cadence tier."""
     watchers = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
     rows = {r["id"] for r in json.loads((repo / "sources.json").read_text(encoding="utf-8"))}
     ids = set()
@@ -253,7 +261,7 @@ def load_watchers(repo, source=None):
             scope = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else []
             if not any(e.get("id") == w["instrument"] for e in scope):
                 raise ValueError(f"watcher {w['id']}: instrument {w['instrument']!r} not in register/{w['iso2']}/scope.json")
-    return [w for w in watchers if source is None or w["source_id"] == source]
+    return [w for w in watchers if (source is None or w["source_id"] == source) and (tier is None or w["tier"] == tier)]
 
 
 def run_watcher(watcher, fetch):
@@ -356,11 +364,14 @@ def has_queue_row(queue_path, watcher_id):
         return any(r["watcher_id"] == watcher_id for r in csv.DictReader(handle))
 
 
-def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
-    """Run every watcher (or those of one source).
+def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False, tier=None):
+    """Run every watcher (or those of one source or one tier).
 
     Return {"run", "candidates", "failures", "rows", "seconds", "bytes"}; the last two are the run's totals of
     the per-watcher wall time and body bytes that are also written into seen.json.
+
+    The run writes as it goes: every FLUSH_SECONDS, and when it ends or is interrupted (Ctrl-C, SIGTERM from main),
+    the rows and seen.json entries of the watchers finished so far. A run cut off keeps what it had read.
     """
     repo = Path(repo).resolve()
     fetch = fetch or default_fetch
@@ -368,13 +379,18 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
     upkeep = repo / "upkeep"
     seen_path, queue_path = upkeep / "seen.json", upkeep / "queue.csv"
     seen = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
-    watchers = load_watchers(repo, source)
-    rows, failures, seconds, nbytes = [], 0, 0.0, 0
+    watchers = load_watchers(repo, source, tier)
+    rows, done, failures, seconds, nbytes = [], [], 0, 0.0, 0  # done: (watcher, entry, rows) not yet written
+    flushed = time.monotonic()
 
-    def row(w, change, signal, evidence_url, notes=""):
-        rows.append(queue_row(w, today, change, signal, evidence_url, notes))
+    def check(w):
+        """Run one watcher. Return its new seen.json entry and its queue rows."""
+        nonlocal failures, seconds, nbytes
+        wrows = []
 
-    for w in watchers:
+        def row(w, change, signal, evidence_url, notes=""):
+            wrows.append(queue_row(w, today, change, signal, evidence_url, notes))
+
         entry = seen.get(w["id"], {"signals": None, "failure": None})
         sizes, started = [], time.monotonic()
         signals, error = run_watcher(w, lambda url, method: _count(sizes, fetch(url, method)))
@@ -392,7 +408,7 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
             current = [s for s, _ in signals]
             known = entry.get("signals")
             if known is None:
-                rows.append(baseline_row(w, today, current))
+                wrows.append(baseline_row(w, today, current))
                 known = []
             else:
                 for signal, evidence_url in signals:
@@ -400,20 +416,38 @@ def watch(repo=ROOT, fetch=None, today=None, source=None, dry_run=False):
                         row(w, w.get("change", "new_version"), signal, evidence_url)
             kept = sorted(set(known) | set(current)) if w["kind"] in ACCUMULATE else current
             entry = {"signals": kept, "failure": None, "checked_on": today, **cost}
-        seen[w["id"]] = entry
+        return entry, wrows
 
+    def flush():
+        """Write the finished watchers' rows and entries. Their rows and their entry go in together, so a row is
+        never written without the entry that stops the next run from raising it again."""
+        nonlocal flushed
+        if done and not dry_run:
+            with upkeep_lock(repo):
+                append_queue(queue_path, [r for _, _, wrows in done for r in wrows])
+                # seen.json may have changed during the run (queue.py reject, --reseed): lay this run's entries over it
+                latest = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
+                for w, entry, _ in done:
+                    on_disk = latest.get(w["id"], {}).get("signals") or []
+                    if w["kind"] in ACCUMULATE and on_disk:  # a list keeps every signal ever seen, a rejected one too
+                        entry = {**entry, "signals": sorted(set(entry["signals"] or []) | set(on_disk))}
+                    latest[w["id"]] = entry
+                scratch = seen_path.with_name("seen.json.tmp")  # a run cut off mid-write must not leave half a file
+                scratch.write_text(json.dumps(latest, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+                os.replace(scratch, seen_path)
+            done.clear()
+        flushed = time.monotonic()
+
+    try:
+        for w in watchers:
+            entry, wrows = check(w)
+            done.append((w, entry, wrows))  # one statement: an interrupt cannot split a watcher's row from its entry
+            rows.extend(wrows)
+            if time.monotonic() - flushed >= FLUSH_SECONDS:
+                flush()
+    finally:
+        flush()
     candidates = sum(1 for r in rows if r["change"] != "watch_failed")
-    if not dry_run and watchers:
-        with upkeep_lock(repo):
-            append_queue(queue_path, rows)
-            # seen.json may have changed during the run (queue.py reject, --reseed): lay this run's entries over it
-            latest = json.loads(seen_path.read_text(encoding="utf-8")) if seen_path.exists() else {}
-            for w in watchers:
-                entry, on_disk = seen[w["id"]], latest.get(w["id"], {}).get("signals") or []
-                if w["kind"] in ACCUMULATE and on_disk:  # a list keeps every signal ever seen, a rejected one too
-                    entry = {**entry, "signals": sorted(set(entry["signals"] or []) | set(on_disk))}
-                latest[w["id"]] = entry
-            seen_path.write_text(json.dumps(latest, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     return {"run": len(watchers), "candidates": candidates, "failures": failures, "rows": rows,
             "seconds": round(seconds, 2), "bytes": nbytes}
 
@@ -456,9 +490,14 @@ def reseed(repo, watcher_id, fetch=None, today=None):
     return len(current)
 
 
+def _interrupt(signum, frame):
+    raise KeyboardInterrupt  # a SIGTERM (job timeout, cancel) ends the run like Ctrl-C: watch() writes what it has read
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--source", help="run only the watchers of this sources.json id")
+    parser.add_argument("--tier", choices=TIERS, help="run only the watchers of this cadence tier (upkeep/cadence.json)")
     parser.add_argument("--reseed", metavar="WATCHER_ID",
                         help="fetch this one watcher and store its current signal in seen.json; no queue row, except "
                              "one baseline row if the queue has none for it, and new_version rows for dates a "
@@ -470,17 +509,21 @@ def main(argv=None):
         if args.reseed:
             print(f"{args.reseed}: reseeded, {reseed(args.repo, args.reseed)} signal(s)")
             return 0
-        result = watch(args.repo, source=args.source, dry_run=args.dry_run)
+        result = watch(args.repo, source=args.source, dry_run=args.dry_run, tier=args.tier)
     except (ValueError, OSError, json.JSONDecodeError, KeyError) as exc:
         print(exc, file=sys.stderr)
         return 1
+    except KeyboardInterrupt:
+        print("interrupted: the watchers finished so far are written to upkeep/", file=sys.stderr)
+        return 130
     if args.dry_run:
         writer = csv.DictWriter(sys.stdout, fieldnames=COLUMNS, lineterminator="\n")
         writer.writerows(result["rows"])
     print(f"{result['run']} watchers run, {result['candidates']} candidates, {result['failures']} failures, "
           f"{result['seconds']:.1f} s, {result['bytes']} bytes")
-    return 1 if result["failures"] else 0
+    return EXIT_UNREACHABLE if result["failures"] else 0
 
 
 if __name__ == "__main__":
+    signal.signal(signal.SIGTERM, _interrupt)
     raise SystemExit(main())
