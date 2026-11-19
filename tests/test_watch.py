@@ -1,6 +1,10 @@
 import csv
 import fcntl
+import http.server
 import json
+import os
+import signal
+import subprocess
 import sys
 import threading
 from datetime import date
@@ -662,6 +666,117 @@ def test_source_filter(tmp_path):
     assert list(seen(repo)) == ["w-ecfr"]
 
 
+def test_tier_filter(tmp_path):
+    repo = make(tmp_path)
+    result = watch.watch(repo, FakeFetch(), TODAY, tier="consolidation_site")
+    assert result["run"] == 3 and [r["watcher_id"] for r in result["rows"]] == ["w-uk", "w-ecfr", "w-zip"]
+    assert set(seen(repo)) == {"w-uk", "w-ecfr", "w-zip"}
+    (tmp_path / "two").mkdir()
+    only = watch.watch(make(tmp_path / "two"), FakeFetch(), TODAY, source="PASS", tier="regulator_page")
+    assert [r["watcher_id"] for r in only["rows"]] == ["w-terms"]  # both filters apply
+    (tmp_path / "three").mkdir()
+    assert watch.watch(make(tmp_path / "three"), FakeFetch(), TODAY, tier="tracker_pointer")["run"] == 0
+
+
+def test_cli_tier(tmp_path, capsys, monkeypatch):
+    repo = make(tmp_path)
+    monkeypatch.setattr(watch, "default_fetch", FakeFetch())
+    assert watch.main(["--repo", str(repo), "--tier", "gazette_feed"]) == 0
+    assert capsys.readouterr().out.startswith("1 watchers run, 1 candidates, 0 failures")
+    with pytest.raises(SystemExit):  # an unknown tier is refused by the parser before anything runs
+        watch.main(["--repo", str(repo), "--tier", "daily"])
+
+
+class Interrupt(FakeFetch):
+    """Ctrl-C or SIGTERM arrives while the third watcher (w-ecfr) is being fetched."""
+
+    def __call__(self, url, method):
+        if url == ECFR:
+            raise KeyboardInterrupt
+        return super().__call__(url, method)
+
+
+def test_run_writes_seen_and_queue_as_it_goes(tmp_path, monkeypatch):  # #17 T7
+    monkeypatch.setattr(watch, "FLUSH_SECONDS", 0)
+    repo = make(tmp_path)
+    on_disk = []
+
+    class Probe(FakeFetch):
+        def __call__(self, url, method):  # what a run killed now would leave behind
+            have = (repo / "upkeep" / "seen.json").exists()
+            on_disk.append((sorted(seen(repo)) if have else [], len(rows(repo))))
+            return super().__call__(url, method)
+
+    watch.watch(repo, Probe(), TODAY)
+    assert on_disk == [([], 0), (["w-cellar"], 1), (["w-cellar", "w-uk"], 2),
+                       (["w-cellar", "w-ecfr", "w-uk"], 3), (["w-cellar", "w-ecfr", "w-uk", "w-zip"], 4)]
+    assert not (repo / "upkeep" / "seen.json.tmp").exists()  # the scratch file is renamed over seen.json
+
+
+@pytest.mark.parametrize("flush_seconds", [0, 3600])
+def test_interrupted_run_keeps_what_it_read_and_the_next_run_does_the_rest(tmp_path, monkeypatch, flush_seconds):  # #17 T7
+    monkeypatch.setattr(watch, "FLUSH_SECONDS", flush_seconds)
+    repo = make(tmp_path)
+    with pytest.raises(KeyboardInterrupt):
+        watch.watch(repo, Interrupt(), TODAY)
+    assert [r["watcher_id"] for r in rows(repo)] == ["w-cellar", "w-uk"] and set(seen(repo)) == {"w-cellar", "w-uk"}
+    again = watch.watch(repo, FakeFetch(), date(2026, 11, 3))
+    assert [r["watcher_id"] for r in again["rows"]] == ["w-ecfr", "w-zip", "w-terms"]  # no second baseline for the two done
+    assert len(rows(repo)) == 5 and len(seen(repo)) == 5
+
+
+def test_cli_interrupt_exits_130(tmp_path, capsys, monkeypatch):
+    repo = make(tmp_path)
+    monkeypatch.setattr(watch, "default_fetch", Interrupt())
+    assert watch.main(["--repo", str(repo)]) == 130
+    assert "interrupted" in capsys.readouterr().err and set(seen(repo)) == {"w-cellar", "w-uk"}
+
+
+def test_sigterm_during_a_fetch_keeps_the_finished_watchers(tmp_path):  # #17 T7: what a job timeout sends
+    reached, release = threading.Event(), threading.Event()
+
+    class Handler(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            if self.path == "/slow":
+                reached.set()
+                release.wait(20)
+            self.send_response(200)
+            self.send_header("Content-Length", "11")
+            self.end_headers()
+            self.wfile.write(b"placeholder")
+
+        def log_message(self, *args):
+            pass
+
+    server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    base = f"http://127.0.0.1:{server.server_port}"
+    watchers = [{"id": f"w-{name}", "source_id": "PASS", "iso2": "XX", "instrument": "*", "kind": "page_hash",
+                 "tier": "regulator_page", "url": f"{base}/{name}"} for name in ("fast", "slow")]
+    repo = make(tmp_path, watchers)
+    tool = Path(__file__).resolve().parents[1] / "tools" / "watch.py"
+    proc = subprocess.Popen([sys.executable, str(tool), "--repo", str(repo)], stderr=subprocess.PIPE, text=True,
+                            env={**os.environ, "no_proxy": "*", "NO_PROXY": "*"})
+    try:
+        assert reached.wait(15), "the run never reached the slow watcher"
+        proc.send_signal(signal.SIGTERM)
+        assert proc.wait(15) == 130
+    finally:
+        release.set()
+        server.shutdown()
+        proc.kill()
+    assert "interrupted" in proc.stderr.read()
+    assert [r["watcher_id"] for r in rows(repo)] == ["w-fast"] and set(seen(repo)) == {"w-fast"}
+
+
+def test_workflow_runs_one_job_per_tier_and_stays_unscheduled():  # #17 T7
+    text = (Path(__file__).resolve().parents[1] / ".github" / "workflows" / "watch.yml").read_text(encoding="utf-8")
+    assert watch.re.findall(r"^\s+- tier: (\w+)$", text, watch.re.M) == list(watch.TIERS)
+    assert "python3 tools/watch.py --tier ${{ matrix.tier }}" in text
+    assert "$? -eq 3" in text  # unreachable sources do not fail the job; any other exit code does
+    assert not any(line.lstrip().startswith("schedule:") for line in text.splitlines())  # the ceiling is not agreed
+
+
 def test_non_pass_row_gives_row_and_nothing_under_records(tmp_path):
     watcher = {"id": "w-asked", "source_id": "ASKED", "iso2": "XX", "instrument": "act", "kind": "page_hash",
                "tier": "regulator_page", "url": TERMS}
@@ -716,7 +831,7 @@ def test_cli_summary_and_exit_code(tmp_path, capsys, monkeypatch):
     assert watch.re.fullmatch(rf"5 watchers run, 5 candidates, 0 failures, \d+\.\d s, {total} bytes\n",
                               capsys.readouterr().out)
     fetch.bodies[ZIP] = (404, {}, b"")
-    assert watch.main(["--repo", str(repo), "--dry-run"]) == 1
+    assert watch.main(["--repo", str(repo), "--dry-run"]) == 3  # some sources unreachable; 1 is a run that could not go on
     out = capsys.readouterr().out.splitlines()
     assert out[-1].startswith("5 watchers run, 0 candidates, 1 failures, ") and "watch_failed" in out[0]
     assert len(rows(repo)) == 5 and seen(repo)["w-zip"]["failure"] is None
@@ -771,10 +886,13 @@ def test_cli_rejects_bad_config(tmp_path, capsys, monkeypatch):
     assert "not in sources.json" in capsys.readouterr().err
 
 
-def test_every_shipped_watcher_has_a_queue_row():
-    """upkeep/queue.csv holds at least one row, of any change, for each id in upkeep/watchers.json."""
+def test_every_shipped_watcher_that_has_run_has_a_queue_row():
+    """upkeep/queue.csv holds at least one row, of any change, for each id in upkeep/watchers.json that has an entry
+    in upkeep/seen.json. A watcher added and not yet run has neither; its first run writes both (#17 T8)."""
     repo = Path(__file__).resolve().parents[1]
     shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    ran = set(json.loads((repo / "upkeep" / "seen.json").read_text(encoding="utf-8")))
+    shipped = [w for w in shipped if w["id"] in ran]
     if ISO2:
         shipped = [w for w in shipped if w["iso2"] == ISO2 or w["instrument"] == "*"]
     with (repo / "upkeep" / "queue.csv").open(newline="", encoding="utf-8") as handle:
@@ -782,6 +900,28 @@ def test_every_shipped_watcher_has_a_queue_row():
     missing = [w["id"] for w in shipped if w["id"] not in have]
     assert not missing, (f"{len(missing)} watcher(s) have no row in upkeep/queue.csv: {', '.join(missing)}. "
                          "For each, run `python3 tools/watch.py --reseed <id>`")
+
+
+def test_shipped_list_watchers_with_signals_expect_their_page():  # #17 T2
+    """A date_list watcher that has signals in upkeep/seen.json carries params.expect, so a block page or an empty
+    shell fails as watch_failed on the first look. The ones without signals are for a person to review."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    known = json.loads((repo / "upkeep" / "seen.json").read_text(encoding="utf-8"))
+    missing = [w["id"] for w in shipped if w["kind"] == "date_list" and known.get(w["id"], {}).get("signals")
+               and not w.get("params", {}).get("expect")]
+    assert not missing, f"{len(missing)} date_list watcher(s) with signals and no params.expect: {', '.join(missing)}"
+
+
+def test_every_pass_source_has_a_terms_watcher():  # #17 T8
+    """Each licence row with verdict pass has a terms_changed watcher, so a change to its terms page is noticed.
+    A source that turns pass needs its watcher in the same commit: kind text_hash, change terms_changed, on terms_url."""
+    repo = Path(__file__).resolve().parents[1]
+    shipped = json.loads((repo / "upkeep" / "watchers.json").read_text(encoding="utf-8"))
+    sources = json.loads((repo / "sources.json").read_text(encoding="utf-8"))
+    watched = {w["source_id"] for w in shipped if w.get("change") == "terms_changed"}
+    missing = [s["id"] for s in sources if s["verdict"] == "pass" and s["id"] not in watched]
+    assert not missing, f"{len(missing)} pass source(s) with no terms_changed watcher: {', '.join(missing)}"
 
 
 def test_shipped_watchers_validate_against_real_repo():
